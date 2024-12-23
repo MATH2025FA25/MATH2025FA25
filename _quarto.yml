@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  page-navigation: true
+  title: "MAT212 - Winter 2025"
+  description: "Homepage for MAT 212 - Multiple Regression Analysis at the College of Idaho, Winter 2025"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
