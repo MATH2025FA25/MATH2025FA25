@@ -13,21 +13,40 @@ website:
   page-footer:
     background: "#412d5e"
     left: |
-      &copy; Copyright 2024, Eric Friedlander
+      &copy; Copyright 2025, Eric Friedlander
     right: |
       This site is built with [Quarto](https://quarto.org/)
-  
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
+      
+  sidebar:
+    background: "#bbbbbb"
+    logo: "images/logo.png"
+    align: center
+    tools: 
+      - icon: code-square
+        href: https://rstudio.collegeofidaho.edu/
+        text: "RStudio"
+      - icon: person
+        href: https://cofi.instructure.com/courses/17093
+        text: "Canvas"
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
       - about.qmd
-
+  
+ 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      - cosmo
+      - theme.scss
+    mainfont: "Open Sans"
+    code-copy: true
+    code-overflow: wrap
     toc: true
+    
+execute:
+  freeze: auto
 
 
 
