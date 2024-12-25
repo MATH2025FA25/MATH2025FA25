@@ -1,0 +1,21 @@
+---
+title: "Resources for learning R"
+---
+
+## Books (free online)
+
+-   [*R for Data Science*](https://r4ds.had.co.nz/) by Hadley Wickham & Garrett Grolemund
+
+-   [*Tidy Modeling with R*](https://tmwr.org) by Max Kuhn & Julia Silge
+
+## RStudio Primers
+
+- [Interactive LearnR Tutorial](https://learnr.numbat.space/)
+
+- [R Primers](https://r-primers.andrewheiss.com/) for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.
+
+## Additional resources
+
+-   [RStudio Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
+-   [R Fun](https://rfun.library.duke.edu/#portfolio) workshops and videos by Duke Center for Data and Visualization Sciences.

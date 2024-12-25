@@ -1,0 +1,32 @@
+---
+title: "R Cheatsheet"
+navbar: false
+---
+
+
+### Useful code for creating basic figures (requires ggformula)
+
+- Histogram: `gf_histogram( ~ variable, data = data_name)`
+- Boxplot: `gf_boxplot( ~ variable, data = data_name)`
+- Dotplot: `gf_dotplot( ~ variable, data = data_name)`
+- Barchart: `gf_bar( ~ variable, data = data_name)`
+- Side-by-side "dodged" barchart: `gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position="dodge")`
+- Stacked barchart: `gf_bar( ~ variable1, fill = ~ variable2, data = state_data)`
+- Standardized barchart: `gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position="fill")`
+- Side-by-side boxplot: `gf_boxplot( variable1 ~ variable2, data = data_name)`
+- Scatterplot: `gf_point(variable1 ~ variable2, data = data_name)`
+- Scatterplot with a third variable as color: `gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)`
+
+## Useful code for calculating summary statistics: (requires mosaic)
+
+- Means: `mean( ~ variable, data = data_name)` or `mean(variable1 ~ variable2, data = data_name)`
+- Counts/Tables: `tally( ~ variable, data = data_name)` or `tally(variable1 ~ variable2, data = data_name)`
+- 5-number-summary etc: `favstats( ~ variable, data = data_name)` or `favstats(variable1 ~ variable2, data = data_name)`
+
+### Useful functions fitting and analyzing models
+
+| Model type | Action | Function |
+| --- | -- | --- |
+| Simple Linear Regression | Fit Model | `lm(Y ~ X, data = data_name)` |
+
+

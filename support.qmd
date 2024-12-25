@@ -1,0 +1,37 @@
+---
+title: "Course support"
+---
+
+We expect everyone will have questions at some point in the semester, so we want to make sure you can identify when that is and feel comfortable seeking help.
+
+## Lectures
+
+If you have a question during lecture, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.
+
+## Office hours
+
+I am here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage you to take advantage of them!
+
+Make a pledge to stop by office hours at least once before Wednesday's (1/9) class. If you truly have no questions to ask, just stop by and say hi and introduce yourself.
+
+## Teams Discussion Forum
+
+Outside of class and office hours, any general questions about course content or assignments should be posted on the [Teams Discussion Forum](https://teams.microsoft.com/l/channel/19%3AvBRIeFRpxyUJfvl-0Ur9bQWxhR_Wzkpr6iM6V_OBVKA1%40thread.tacv2/?groupId=ffcfc61b-032c-4fe3-883b-fe9fd969ea51). If you know the answer to a question that is posted, I encourage you to respond!
+
+<!-- ## Tutoring -->
+
+<!-- All tutors are in Jewett 100 during their specified hours. Please see each of the course's tutors with their names and hours below: -->
+
+<!-- -	Brayden Banks -->
+<!--     +	Monday and Wednesday 7:00 PM - 8:00 PM -->
+<!-- -	Christian Benischek -->
+<!--     +	Wednesday 2:00 PM - 4:00 PM -->
+<!-- -	Logan Bright -->
+<!--     +	Tuesday and Thursday 6:30 PM - 7:30 PM -->
+<!-- -	Suthi de Silva -->
+<!--     +	Monday 12:00 PM - 2:00 PM -->
+
+
+## Email
+
+If you have questions about personal matters that are not appropriate for the class discussion forum (e.g. illness, accommodations, etc.), you may email Professor Friedlander at <efriedlander@collegeofidaho.edu>. **If you email me, please include "MAT 212" in the subject line.** Barring extenuating circumstances, I will respond to MAT 212 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.

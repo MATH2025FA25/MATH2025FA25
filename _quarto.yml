@@ -1,5 +1,8 @@
 project:
   type: website
+  
+execute:
+  freeze: auto
 
 website:
   page-navigation: true
@@ -33,6 +36,15 @@ website:
     collapse-level: 1
     contents:
       - schedule.qmd
+      - syllabus.qmd
+      - support.qmd
+      - links.qmd
+      - section: Computing
+        contents: 
+        - href: computing-access.qmd
+        - href: computing-inferencesummary.qmd
+        - href: computing-r-resources.qmd
+          text: R resources
   
  
 format:
@@ -45,8 +57,6 @@ format:
     code-overflow: wrap
     toc: true
     
-execute:
-  freeze: auto
 
 
 
