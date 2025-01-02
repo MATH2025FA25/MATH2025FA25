@@ -92,7 +92,7 @@ You are expected to bring a laptop, tablet, or Chromebook to each class so that 
 
 ## Activities & Assessment
 
-You will be assessed based on four components: application exercises, homework, projects, and oral exams.
+You will be assessed based on four components: application exercises, homework, project, and oral exams.
 
 ### Application Exercises
 
@@ -113,9 +113,9 @@ There will be two oral exams in this course. Each exam will include a closed-not
 5. The specific questions asked during the Oral Exams will be different for every student and for every attempt, although similar in style and difficulty.
 
 
-### Projects
+### Project
 
-There will be two projects this term. One for linear regression and one for logistic regression. The purpose of these projects is to apply what you've learned throughout the semester to analyze interesting data-driven research questions. The projects will be completed in pairs, and each team will present their work through a written report and poster presentation. More information about the projects will be provided during the semester.
+The purpose of the [final project](/project/project-instructions.qmd) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question. The project will be completed with your in pairs, and each team will present their work through a written report and poster presentation taking place during the last day of class. More information about the project will be provided during the semester.
 
 ## Grading
 
@@ -125,12 +125,13 @@ The final course grade will be calculated as follows:
 
 | Category              | Percentage |
 |-----------------------|------------|
-| Homework              | 15%        |
-| Project 1             | 20%        |
-| Project 2             | 20%        |
+| Homework              | 25%        |
+| Final Project         | 25%        |
 | Exam 01               | 20%        |
 | Exam 02               | 20%        |
-| Application Exercises | 5%         |
+| Application Exercises | 10%        |
+
+*Note: You must receive at least a 60% on your two exams to pass the course.*
 
 </center>
 
@@ -181,7 +182,7 @@ Your success in this course depends very much on you and the effort you put into
 
 -   For the projects, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components of the project across teams.
 
--   **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. Furthermore, **ANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAMS.**
+-   **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. Furthermore, **ANY UNCITED CODE OR CONTENT ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAMS.**
 
 -   **Use of artificial intelligence (AI)**: You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:[^1] (1) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning. (2) *Ethical dimension***:** Students using AI should be transparent about their use and make sure it aligns with academic integrity.
 
@@ -203,7 +204,7 @@ The due dates for assignments are there to help you keep up with the course mate
 
 -   **Late Application Exercises:** AEs are due the day after the class they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework. 
 
--   **School-Sponsored Events/Illness:** If an application exercise, exam, or final project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment.  
+-   **School-Sponsored Events/Illness:** If an application exercise, exam, or project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment.  
 
 ### Regrade Requests
 

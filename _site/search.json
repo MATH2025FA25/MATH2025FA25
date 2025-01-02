@@ -64,7 +64,7 @@
     "href": "syllabus.html#activities-assessment",
     "title": "Syllabus",
     "section": "Activities & Assessment",
-    "text": "Activities & Assessment\nYou will be assessed based on four components: application exercises, homework, projects, and oral exams.\n\nApplication Exercises\nMost lectures will have Application Exercises (AEs) that go along with them. These exercises will give you an opportunity to practice applying the statistical concepts and code introduced in the readings and lectures. Typically, students who are present will receive full credit on AEs and do not need to turn anything in. However, there will be times where you must complete an AE outside of class and submit it. Students who are late to class or miss class entirely must turn in a .qmd and .pdf file for their AE before the start of the next lecture. Specifically, AEs from Monday lectures are due Tuesday by 1:00pm MT. Students with an excused absence will be graded for completion, students without an excused absence will be graded for correctness.\n\n\nHomework\nIn homework, you will apply what you’ve learned during lecture to complete data analysis tasks. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. Similar to lab assignments, homework must be typed up using Quarto and submitted as .qmd and .pdf files in Canvas.\n\n\nOral Exams\nThere will be two oral exams in this course. Each exam will include a closed-notes component and an applied component which uses R. Through these exams you have the opportunity to demonstrate what you’ve learned in the course thus far. The exams will focus on both conceptual understanding of the content and application through analysis and computational tasks. The content of the exam will be related to the content in reading assignments, lectures, application exercises, and homework assignments. More detail about the exams will be given during the semester. Please note the following course policies:\n\nYou MUST receive at least an average of 60% on your exams to pass the class.\nStudents will an average lower than 70% may retake one of their oral exams but will be capped at 70% for their exam grade.\nANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAM.\nThe R used on the exams will be basic. The purpose of including R is to ensure you know the basic R functions we use regularly, R syntax, and your R “workflow”. Do you know the basic functions? If you run into a (common) error, can you debug it yourself? Can you interpret the R Help menu? Do you understand common terminology (e.g. “argument”, “function”, “output”)?\nThe specific questions asked during the Oral Exams will be different for every student and for every attempt, although similar in style and difficulty.\n\n\n\nProjects\nThere will be two projects this term. One for linear regression and one for logistic regression. The purpose of these projects is to apply what you’ve learned throughout the semester to analyze interesting data-driven research questions. The projects will be completed in pairs, and each team will present their work through a written report and poster presentation. More information about the projects will be provided during the semester.",
+    "text": "Activities & Assessment\nYou will be assessed based on four components: application exercises, homework, project, and oral exams.\n\nApplication Exercises\nMost lectures will have Application Exercises (AEs) that go along with them. These exercises will give you an opportunity to practice applying the statistical concepts and code introduced in the readings and lectures. Typically, students who are present will receive full credit on AEs and do not need to turn anything in. However, there will be times where you must complete an AE outside of class and submit it. Students who are late to class or miss class entirely must turn in a .qmd and .pdf file for their AE before the start of the next lecture. Specifically, AEs from Monday lectures are due Tuesday by 1:00pm MT. Students with an excused absence will be graded for completion, students without an excused absence will be graded for correctness.\n\n\nHomework\nIn homework, you will apply what you’ve learned during lecture to complete data analysis tasks. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. Similar to lab assignments, homework must be typed up using Quarto and submitted as .qmd and .pdf files in Canvas.\n\n\nOral Exams\nThere will be two oral exams in this course. Each exam will include a closed-notes component and an applied component which uses R. Through these exams you have the opportunity to demonstrate what you’ve learned in the course thus far. The exams will focus on both conceptual understanding of the content and application through analysis and computational tasks. The content of the exam will be related to the content in reading assignments, lectures, application exercises, and homework assignments. More detail about the exams will be given during the semester. Please note the following course policies:\n\nYou MUST receive at least an average of 60% on your exams to pass the class.\nStudents will an average lower than 70% may retake one of their oral exams but will be capped at 70% for their exam grade.\nANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAM.\nThe R used on the exams will be basic. The purpose of including R is to ensure you know the basic R functions we use regularly, R syntax, and your R “workflow”. Do you know the basic functions? If you run into a (common) error, can you debug it yourself? Can you interpret the R Help menu? Do you understand common terminology (e.g. “argument”, “function”, “output”)?\nThe specific questions asked during the Oral Exams will be different for every student and for every attempt, although similar in style and difficulty.\n\n\n\nProject\nThe purpose of the final project is to apply what you’ve learned throughout the semester to analyze an interesting data-driven research question. The project will be completed with your in pairs, and each team will present their work through a written report and poster presentation taking place during the last day of class. More information about the project will be provided during the semester.",
     "crumbs": [
       "Syllabus"
     ]
@@ -74,7 +74,7 @@
     "href": "syllabus.html#grading",
     "title": "Syllabus",
     "section": "Grading",
-    "text": "Grading\nThe final course grade will be calculated as follows:\n\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n15%\n\n\nProject 1\n20%\n\n\nProject 2\n20%\n\n\nExam 01\n20%\n\n\nExam 02\n20%\n\n\nApplication Exercises\n5%\n\n\n\n\n\nThe final letter grade will be determined based on the following thresholds:\n\n\n\n\nLetter Grade\nFinal Course Grade\n\n\n\n\nA\n&gt;= 93\n\n\nA-\n90 - 92.99\n\n\nB+\n87 - 89.99\n\n\nB\n83 - 86.99\n\n\nB-\n80 - 82.99\n\n\nC+\n77 - 79.99\n\n\nC\n73 - 76.99\n\n\nC-\n70 - 72.99\n\n\nD+\n67 - 69.99\n\n\nD\n63 - 66.99\n\n\nD-\n60 - 62.99\n\n\nF\n&lt; 60",
+    "text": "Grading\nThe final course grade will be calculated as follows:\n\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n25%\n\n\nFinal Project\n25%\n\n\nExam 01\n20%\n\n\nExam 02\n20%\n\n\nApplication Exercises\n10%\n\n\n\nNote: You must receive at least a 60% on your two exams to pass the course.\n\n\nThe final letter grade will be determined based on the following thresholds:\n\n\n\n\nLetter Grade\nFinal Course Grade\n\n\n\n\nA\n&gt;= 93\n\n\nA-\n90 - 92.99\n\n\nB+\n87 - 89.99\n\n\nB\n83 - 86.99\n\n\nB-\n80 - 82.99\n\n\nC+\n77 - 79.99\n\n\nC\n73 - 76.99\n\n\nC-\n70 - 72.99\n\n\nD+\n67 - 69.99\n\n\nD\n63 - 66.99\n\n\nD-\n60 - 62.99\n\n\nF\n&lt; 60",
     "crumbs": [
       "Syllabus"
     ]
@@ -94,7 +94,7 @@
     "href": "syllabus.html#course-policies",
     "title": "Syllabus",
     "section": "Course policies",
-    "text": "Course policies\n\nAcademic honesty\nTL;DR: Don’t cheat!\n\nThe homework assignments must be completed individually but you are welcome to discuss the assignment with classmates (e.g., discuss what’s the best way for approaching a problem, what functions are useful for accomplishing a particular task, etc.). However you may not directly share (i.e. via copy/paste or copying) answers to homework questions (including and especially any code) with anyone other than myself.\nFor the projects, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components of the project across teams.\nReusing code: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. Furthermore, ANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAMS.\nUse of artificial intelligence (AI): You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:1 (1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning. (2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity.\n\nAI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use these guidelines for citing AI-generated content.\nNo AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments. In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.\n\n\nIf you are unsure if the use of a particular resource complies with the academic honesty policy, please ask.\nRegardless of course delivery format, it is the responsibility of all students to understand and follow all College of Idaho policies, including academic integrity (e.g., completing one’s own work, following proper citation of sources, adhering to guidance around group work projects, and more). Ignoring these requirements is a violation of the Honor Code.\n\n\nLate work policy\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. I understand that things come up periodically that could make it difficult to submit an assignment by the deadline.\n\nLate Homework: There will be a 5% deduction for each 24-hour period the assignment is late for the first two days. After 2 days, students will receive a 30% reduction. No homework will be accepted after it is returned to the class\nLate Application Exercises: AEs are due the day after the class they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework.\nSchool-Sponsored Events/Illness: If an application exercise, exam, or final project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment.\n\n\n\nRegrade Requests\nRegrade requests must be submitted via email within a week of when an assignment is returned. Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.\nNo grades will be changed after the final project presentations.",
+    "text": "Course policies\n\nAcademic honesty\nTL;DR: Don’t cheat!\n\nThe homework assignments must be completed individually but you are welcome to discuss the assignment with classmates (e.g., discuss what’s the best way for approaching a problem, what functions are useful for accomplishing a particular task, etc.). However you may not directly share (i.e. via copy/paste or copying) answers to homework questions (including and especially any code) with anyone other than myself.\nFor the projects, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components of the project across teams.\nReusing code: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. Furthermore, ANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAMS.\nUse of artificial intelligence (AI): You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:1 (1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning. (2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity.\n\nAI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use these guidelines for citing AI-generated content.\nNo AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments. In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.\n\n\nIf you are unsure if the use of a particular resource complies with the academic honesty policy, please ask.\nRegardless of course delivery format, it is the responsibility of all students to understand and follow all College of Idaho policies, including academic integrity (e.g., completing one’s own work, following proper citation of sources, adhering to guidance around group work projects, and more). Ignoring these requirements is a violation of the Honor Code.\n\n\nLate work policy\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. I understand that things come up periodically that could make it difficult to submit an assignment by the deadline.\n\nLate Homework: There will be a 5% deduction for each 24-hour period the assignment is late for the first two days. After 2 days, students will receive a 30% reduction. No homework will be accepted after it is returned to the class\nLate Application Exercises: AEs are due the day after the class they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework.\nSchool-Sponsored Events/Illness: If an application exercise, exam, or project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment.\n\n\n\nRegrade Requests\nRegrade requests must be submitted via email within a week of when an assignment is returned. Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.\nNo grades will be changed after the final project presentations.",
     "crumbs": [
       "Syllabus"
     ]
@@ -120,74 +120,489 @@
     ]
   },
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
+    "objectID": "slides/01-welcome.html#meet-prof.-friedlander",
+    "href": "slides/01-welcome.html#meet-prof.-friedlander",
+    "title": "Welcome to MAT 212!",
+    "section": "Meet Prof. Friedlander!",
+    "text": "Meet Prof. Friedlander!\n\n\nEducation and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
+  },
+  {
+    "objectID": "slides/01-welcome.html#meet-prof.-friedlander-1",
+    "href": "slides/01-welcome.html#meet-prof.-friedlander-1",
+    "title": "Welcome to MAT 212!",
+    "section": "Meet Prof. Friedlander!",
+    "text": "Meet Prof. Friedlander!"
+  },
+  {
+    "objectID": "slides/01-welcome.html#tell-me-about-yourself",
+    "href": "slides/01-welcome.html#tell-me-about-yourself",
+    "title": "Welcome to MAT 212!",
+    "section": "Tell me about yourself",
+    "text": "Tell me about yourself\nNavigate to Teams.\nIn a private chat to me answer the following questions:\n\nWhat would you like me to call you?\nWhy are you taking this class?\nHow are you feeling about taking this class? Be honest… you won’t hurt my feelings.\nHow much experience with R, if any, do you have?\nIs there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc…\n\nIn the class discussion forum, please recommend at least one song for the class playlist… Feel free to suggest as many songs as you like.\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-a-model",
+    "href": "slides/01-welcome.html#what-is-a-model",
+    "title": "Welcome to MAT 212!",
+    "section": "What is a model?",
+    "text": "What is a model?\n\n\nDATA = MODEL + ERROR\nDATA = PATTERN + DEPARTURES FROM PATTERN\n\nHow do we identify the actual pattern?\n\nGOAL: Find a model for a relationship between a response/outcome/target variable \\(Y\\) and one (or more) explanatory/predictor variables (\\(X_1,\\ldots,X_k\\))\nModels are a simplified but tractable version of reality\n\n\n\nWhat are response and explanatory variables?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#geoge-e.-p.-box",
+    "href": "slides/01-welcome.html#geoge-e.-p.-box",
+    "title": "Welcome to MAT 212!",
+    "section": "Geoge E. P. Box",
+    "text": "Geoge E. P. Box\n\n\n\nFrom Wikipedia: British statistician, who worked in the areas of quality control, time-series analysis, design of experiments, and Bayesian inference. He has been called “one of the great statistical minds of the 20th century”.\n“all models are wrong, but some are useful”"
+  },
+  {
+    "objectID": "slides/01-welcome.html#why-build-a-model",
+    "href": "slides/01-welcome.html#why-build-a-model",
+    "title": "Welcome to MAT 212!",
+    "section": "Why build a model?",
+    "text": "Why build a model?\n\nMaking predictions\nUnderstanding relationships\nAssessing differences"
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-regression-analysis",
+    "href": "slides/01-welcome.html#what-is-regression-analysis",
+    "title": "Welcome to MAT 212!",
+    "section": "What is regression analysis?",
+    "text": "What is regression analysis?\n\n\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n\nSource: Wikipedia (previous definition)\n\nNote: I don’t really like the terms “independent” and “dependent” variables"
+  },
+  {
+    "objectID": "slides/01-welcome.html#examples-of-regression-in-practice",
+    "href": "slides/01-welcome.html#examples-of-regression-in-practice",
+    "title": "Welcome to MAT 212!",
+    "section": "Examples of regression in practice",
+    "text": "Examples of regression in practice\n\nNew Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute\nHow FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19\nEffect of Forensic Evidence on Criminal Justice Case Processing\nWhy it’s so freaking hard to make a good COVID-19 model (from March 2020)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-faq",
+    "href": "slides/01-welcome.html#course-faq",
+    "title": "Welcome to MAT 212!",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n\n\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n\n\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.\n\n\nQ - How much time should I be spending on this class?\nA - This is a 3-credit class taught over 15 days which meets for 2.5 hours per day. That means that you should be spending approximately 9 hours per day working on this course (i.e. 6.5 hours outside of class)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-learning-objectives",
+    "href": "slides/01-welcome.html#course-learning-objectives",
+    "title": "Welcome to MAT 212!",
+    "section": "Course learning objectives",
+    "text": "Course learning objectives\nBy the end of the semester, you will be able to…\n\nanalyze real-world data to answer questions about multivariable relationships.\nuse R to fit and evaluate linear and logistic regression models.\nassess whether a proposed model is appropriate and describe its limitations.\nuse Quarto to write reproducible reports.\neffectively communicate statistical results through writing and oral presentations."
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-topics",
+    "href": "slides/01-welcome.html#course-topics",
+    "title": "Welcome to MAT 212!",
+    "section": "Course Topics",
+    "text": "Course Topics\n\nWhat is a quantitative and what is a categorical variable?\n\n\n\n\n\nChapter\nResponse\nPredictor/Explanatory\n\n\n\n\n1-2\nQuantitative\nSingle Quantitative\n\n\n3-4\nQuantitative\nMultiple Quantitative\n\n\n5\nQuantitative\nSingle Categorical\n\n\n6-8\nQuantitative\nMultiple Categorical\n\n\n9\nCategorical\nSingle Quant/Cat\n\n\n10\nCategorical\nMultiple Quant/Cat\n\n\n11\nBoth\nBoth"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-toolkit",
+    "href": "slides/01-welcome.html#course-toolkit",
+    "title": "Welcome to MAT 212!",
+    "section": "Course toolkit",
+    "text": "Course toolkit\n\nCourse website: mat212wi25.netlify.app\n\nCentral hub for the course!\nTour of the website\n\nCanvas: cofi.instructure.com\n\nGradebook\nAssignment submissions\nAnnouncements\n\nTeams\n\nActivities\nDiscussions\nHomework Help"
+  },
+  {
+    "objectID": "slides/01-welcome.html#computing-toolkit",
+    "href": "slides/01-welcome.html#computing-toolkit",
+    "title": "Welcome to MAT 212!",
+    "section": "Computing toolkit",
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nWrite reproducible reports in Quarto\nAccess RStudio through College of Idaho posit Workbench\n\nUse your College of Idaho email and password\n\n\n\n\n\nSign into RStudio!\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/01-welcome.html#prepare-participate-practice-perform",
+    "href": "slides/01-welcome.html#prepare-participate-practice-perform",
+    "title": "Welcome to MAT 212!",
+    "section": "Prepare, Participate, Practice, Perform",
+    "text": "Prepare, Participate, Practice, Perform\n\n\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching videos)\nParticipate: Attend and actively participate in lectures, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\nHomework assignments (individual)\nTwo oral exams\nFinal group projects"
+  },
+  {
+    "objectID": "slides/01-welcome.html#grading",
+    "href": "slides/01-welcome.html#grading",
+    "title": "Welcome to MAT 212!",
+    "section": "Grading",
+    "text": "Grading\n\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n25%\n\n\nFinal Project\n25%\n\n\nExam 01\n20%\n\n\nExam 02\n20%\n\n\nApplication Exercises\n10%\n\n\n\nNote: You must receive at least a 60% on your two exams to pass the course.\nSee the syllabus for details on how the final letter grade will be calculated."
+  },
+  {
+    "objectID": "slides/01-welcome.html#support",
+    "href": "slides/01-welcome.html#support",
+    "title": "Welcome to MAT 212!",
+    "section": "Support",
+    "text": "Support\n\nAttend office hours to meet with Prof. Friedlander (Boone 126B)\n\nMTWRF : 10:30-11:30am\n\nAsk and answer questions on course discussion forum\nUse email for questions regarding personal matters and/or grades\nSee the Course Support page for more details"
+  },
+  {
+    "objectID": "slides/01-welcome.html#late-homework",
+    "href": "slides/01-welcome.html#late-homework",
+    "title": "Welcome to MAT 212!",
+    "section": "Late Homework",
+    "text": "Late Homework\n\nThere will be a 5% deduction for each 24-hour period the assignment is late for the first two days. After 2 days, students will receive a 30% reduction. No homework will be accepted after it is returned to the class."
+  },
+  {
+    "objectID": "slides/01-welcome.html#late-application-exercises",
+    "href": "slides/01-welcome.html#late-application-exercises",
+    "title": "Welcome to MAT 212!",
+    "section": "Late Application Exercises",
+    "text": "Late Application Exercises\nAEs are due the day after the class they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework."
+  },
+  {
+    "objectID": "slides/01-welcome.html#school-sponsored-events",
+    "href": "slides/01-welcome.html#school-sponsored-events",
+    "title": "Welcome to MAT 212!",
+    "section": "School-Sponsored Events",
+    "text": "School-Sponsored Events\nIf an application exercise or project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to make it up. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment."
+  },
+  {
+    "objectID": "slides/01-welcome.html#academic-integrity",
+    "href": "slides/01-welcome.html#academic-integrity",
+    "title": "Welcome to MAT 212!",
+    "section": "Academic integrity",
+    "text": "Academic integrity\n\nThe College of Idaho maintains that academic honesty and integrity are essential values in the educational process. Operating under an Honor Code philosophy, the College expects conduct rooted in honesty, integrity, and understanding, allowing members of a diverse student body to live together and interact and learn from one another in ways that protect both personal freedom and community standards. Violations of academic honesty are addressed primarily by the instructor and may be referred to the Student Judicial Board.\n\nBy participating in this course, you are agreeing that all your work and conduct will be in accordance with the College of Idaho Honor Code."
+  },
+  {
+    "objectID": "slides/01-welcome.html#collaboration-sharing-code",
+    "href": "slides/01-welcome.html#collaboration-sharing-code",
+    "title": "Welcome to MAT 212!",
+    "section": "Collaboration & sharing code",
+    "text": "Collaboration & sharing code\n\nI have policies!\nLet’s read about them in the Academic honesty section of the syllabus"
+  },
+  {
+    "objectID": "slides/01-welcome.html#use-of-artificial-intelligence-ai",
+    "href": "slides/01-welcome.html#use-of-artificial-intelligence-ai",
+    "title": "Welcome to MAT 212!",
+    "section": "Use of artificial intelligence (AI)",
+    "text": "Use of artificial intelligence (AI)\n\nYou should treat AI tools, such as ChatGPT, the same as other online resources.\nThere are two guiding principles that govern how you can use AI in this course:1\n\n(1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning.\n(2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity.\n\n\nThese guiding principles are based on Course Policies related to ChatGPT and other AI Tools developed by Joel Gladd, Ph.D.↩︎"
+  },
+  {
+    "objectID": "slides/01-welcome.html#use-of-artificial-intelligence-ai-1",
+    "href": "slides/01-welcome.html#use-of-artificial-intelligence-ai-1",
+    "title": "Welcome to MAT 212!",
+    "section": "Use of artificial intelligence (AI)",
+    "text": "Use of artificial intelligence (AI)\n✅ AI tools for code: You may make use of the technology for coding examples on assignments or to fix bugs in your code. However, if you do so, you must explicitly cite where you obtained the code and AI should serve as a learning aid, not a replacement for thinking.\n❌ No AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments.\n\n\n\n\n\n\nImportant\n\n\nIn general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content. Any code or content from your homework which was not covered in class or cited, is eligible to be on your exams."
+  },
+  {
+    "objectID": "slides/01-welcome.html#five-tips-for-success",
+    "href": "slides/01-welcome.html#five-tips-for-success",
+    "title": "Welcome to MAT 212!",
+    "section": "Five tips for success",
+    "text": "Five tips for success\n\nComplete all the preparation work (readings and videos) before class.\nAsk questions.\nStart your work (homework and projects) early!\nDon’t procrastinate and don’t let a day pass by with lingering questions.\nStay up-to-date on announcements on Canvas and sent via email."
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-should-i-know-about-this-class",
+    "href": "slides/01-welcome.html#what-should-i-know-about-this-class",
+    "title": "Welcome to MAT 212!",
+    "section": "What should I know about this class",
+    "text": "What should I know about this class\n\nThis class is a lot of work\nSteep learning curve in the beginning… stick with it! I promise you can do it!\nMore writing than you probably expected… it is not enough for Dr. F to know what you mean to say… you must say that! Dr F. always asks: “If this student said this in a job interview, would they get hired?”\nIn statistics, there is rarely one RIGHT answer… it’s all about extracting information from data to make arguments"
+  },
+  {
+    "objectID": "slides/01-welcome.html#dr.-fs-pet-peeves",
+    "href": "slides/01-welcome.html#dr.-fs-pet-peeves",
+    "title": "Welcome to MAT 212!",
+    "section": "Dr. F’s Pet Peeves",
+    "text": "Dr. F’s Pet Peeves\n\nShowing up late to class\nUsing Generative AI to do your thinking for you"
+  },
+  {
+    "objectID": "slides/01-welcome.html#bug-bounty",
+    "href": "slides/01-welcome.html#bug-bounty",
+    "title": "Welcome to MAT 212!",
+    "section": "Bug Bounty",
+    "text": "Bug Bounty\n\nIf you find a typo on the website, slides, homework, activities, etc (e.g. broken link, typo, etc…) and you are the first person to point it out, you will receive a bonus point toward your HW grade. However, you may not exceed 100%.\nIf you message me about this during class, you will not receive your extra credit."
+  },
+  {
+    "objectID": "slides/01-welcome.html#topics",
+    "href": "slides/01-welcome.html#topics",
+    "title": "Welcome to MAT 212!",
+    "section": "Topics",
+    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis"
+  },
+  {
+    "objectID": "slides/01-welcome.html#section",
+    "href": "slides/01-welcome.html#section",
+    "title": "Welcome to MAT 212!",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF\nJan 3\nWelcome to MAT 212, Big Picture, & Multivariable Relationships",
+    "text": "Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data."
+  },
+  {
+    "objectID": "slides/01-welcome.html#section-1",
+    "href": "slides/01-welcome.html#section-1",
+    "title": "Welcome to MAT 212!",
+    "section": "",
+    "text": "Source: R for Data Science"
+  },
+  {
+    "objectID": "slides/01-welcome.html#reproducibility-checklist",
+    "href": "slides/01-welcome.html#reproducibility-checklist",
+    "title": "Welcome to MAT 212!",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#why-is-reproducibility-important",
+    "href": "slides/01-welcome.html#why-is-reproducibility-important",
+    "title": "Welcome to MAT 212!",
+    "section": "Why is reproducibility important?",
+    "text": "Why is reproducibility important?\n\nResults produced are more reliable and trustworthy (Ostblom and Timbers 2022)\nFacilitates more effective collaboration (Ostblom and Timbers 2022)\nContributing to science, which builds and organizes knowledge in terms of testable hypotheses (Alexander 2023)\nPossible to identify and correct errors or biases in the analysis process (Alexander 2023)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#when-things-go-wrong",
+    "href": "slides/01-welcome.html#when-things-go-wrong",
+    "title": "Welcome to MAT 212!",
+    "section": "When things go wrong",
+    "text": "When things go wrong\n\n\n\nReproducibility error\nConsequence\nSource(s)\n\n\n\n\nLimitations in Excel data formats\nLoss of 16,000 COVID case records in the UK\n(Kelion 2020)\n\n\nAutomatic formatting in Excel\nImportant genes disregarded in scientific studies\n(Ziemann, Eren, and El-Osta 2016)\n\n\nDeletion of a cell caused rows to shift\nMix-up of which patient group received the treatment\n(Wallensteen et al. 2018)\n\n\nUsing binary instead of explanatory labels\nMix-up of the intervention with the control group\n(Aboumatar and Wise 2019)\n\n\nUsing the same notation for missing data and zero values\nPaper retraction\n(Whitehouse et al. 2021)\n\n\nIncorrectly copying data in a spreadsheet\nDelay in the opening of a hospital\n(Picken 2020)\n\n\n\nSource: Ostblom and Timbers (2022)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#toolkit",
+    "href": "slides/01-welcome.html#toolkit",
+    "title": "Welcome to MAT 212!",
+    "section": "Toolkit",
+    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub (Beyond the scope of this course)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#r-and-rstudio",
+    "href": "slides/01-welcome.html#r-and-rstudio",
+    "title": "Welcome to MAT 212!",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
+  },
+  {
+    "objectID": "slides/01-welcome.html#rstudio-ide",
+    "href": "slides/01-welcome.html#rstudio-ide",
+    "title": "Welcome to MAT 212!",
+    "section": "RStudio IDE",
+    "text": "RStudio IDE"
+  },
+  {
+    "objectID": "slides/01-welcome.html#quarto",
+    "href": "slides/01-welcome.html#quarto",
+    "title": "Welcome to MAT 212!",
+    "section": "Quarto",
+    "text": "Quarto\n\nFully reproducible reports – the analysis is run from the beginning each time you render\nCode goes in chunks and narrative goes outside of chunks\nVisual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#quarto-1",
+    "href": "slides/01-welcome.html#quarto-1",
+    "title": "Welcome to MAT 212!",
+    "section": "Quarto",
+    "text": "Quarto"
+  },
+  {
+    "objectID": "slides/01-welcome.html#how-will-we-use-quarto",
+    "href": "slides/01-welcome.html#how-will-we-use-quarto",
+    "title": "Welcome to MAT 212!",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery application exercise and assignment is written in a Quarto document\nYou’ll have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/01-welcome.html#group-work-roles",
+    "href": "slides/01-welcome.html#group-work-roles",
+    "title": "Welcome to MAT 212!",
+    "section": "Group Work Roles",
+    "text": "Group Work Roles\nAny time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:\n\nDriver:\n\nWrites code and fills out Quarto template\nConnects to TV\nResponsible for submitting final work\n\nReporter:\n\nShares thoughts from group during class discussions\nShould have computer closed\n\nFacilitator:\n\nResponsible for looking stuff up (e.g. code, cheatsheets, etc.)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#carbohydrates-in-starbucks-food",
+    "href": "slides/01-welcome.html#carbohydrates-in-starbucks-food",
+    "title": "Welcome to MAT 212!",
+    "section": "Carbohydrates in Starbucks food",
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nSource: Mayo Clinic"
+  },
+  {
+    "objectID": "slides/01-welcome.html#starbucks-data",
+    "href": "slides/01-welcome.html#starbucks-data",
+    "title": "Welcome to MAT 212!",
+    "section": "Starbucks data",
+    "text": "Starbucks data\n\nlibrary(openintro)\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nglimpse(starbucks)\n\nRows: 77\nColumns: 8\n$ item     &lt;chr&gt; \"8-Grain Roll\", \"Apple Bran Muffin\", \"Apple Fritter\", \"Banana…\n$ calories &lt;int&gt; 350, 350, 420, 490, 130, 370, 460, 370, 310, 420, 380, 320, 3…\n$ fat      &lt;dbl&gt; 8, 9, 20, 19, 6, 14, 22, 14, 18, 25, 17, 12, 17, 21, 5, 18, 1…\n$ carb     &lt;int&gt; 67, 64, 59, 75, 17, 47, 61, 55, 32, 39, 51, 53, 34, 57, 52, 7…\n$ fiber    &lt;int&gt; 5, 7, 0, 4, 0, 5, 2, 0, 0, 0, 2, 3, 2, 2, 3, 3, 2, 3, 0, 2, 0…\n$ protein  &lt;int&gt; 10, 6, 5, 7, 0, 6, 7, 6, 5, 7, 4, 6, 5, 5, 12, 7, 8, 6, 0, 10…\n$ type     &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n$ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n\n\n\nObservations: 77 Starbucks food items\nVariables:\n\ncarb: Total carbohydrates (in grams)\ncalories: Total calories\nbakery: bakery: bakery food item, non-bakery: other food type"
+  },
+  {
+    "objectID": "slides/01-welcome.html#terminology",
+    "href": "slides/01-welcome.html#terminology",
+    "title": "Welcome to MAT 212!",
+    "section": "Terminology",
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables"
+  },
+  {
+    "objectID": "slides/01-welcome.html#univariate-exploratory-data-analysis",
+    "href": "slides/01-welcome.html#univariate-exploratory-data-analysis",
+    "title": "Welcome to MAT 212!",
+    "section": "Univariate exploratory data analysis",
+    "text": "Univariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/01-welcome.html#bivariate-exploratory-data-analysis",
+    "href": "slides/01-welcome.html#bivariate-exploratory-data-analysis",
+    "title": "Welcome to MAT 212!",
+    "section": "Bivariate exploratory data analysis",
+    "text": "Bivariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/01-welcome.html#function-between-response-and-predictors",
+    "href": "slides/01-welcome.html#function-between-response-and-predictors",
+    "title": "Welcome to MAT 212!",
+    "section": "Function between response and predictors",
+    "text": "Function between response and predictors\n\n\\[\\text{carb} = f(\\text{calories}, \\text{bakery}) + \\epsilon\\]\n\n\nGoal: Determine \\(f\\)\nHow do we determine \\(f\\)?\n\nMake an assumption about the functional form \\(f\\) (parametric model)\nUse the data to fit a model based on that form"
+  },
+  {
+    "objectID": "slides/01-welcome.html#determine-f",
+    "href": "slides/01-welcome.html#determine-f",
+    "title": "Welcome to MAT 212!",
+    "section": "Determine \\(f\\)",
+    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#carb-vs.-calories",
+    "href": "slides/01-welcome.html#carb-vs.-calories",
+    "title": "Welcome to MAT 212!",
+    "section": "Carb vs. Calories",
+    "text": "Carb vs. Calories\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#carb-vs.-calories-bakery",
+    "href": "slides/01-welcome.html#carb-vs.-calories-bakery",
+    "title": "Welcome to MAT 212!",
+    "section": "Carb vs. Calories + Bakery",
+    "text": "Carb vs. Calories + Bakery\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#carb-vs.-calories-bakery-with-interaction",
+    "href": "slides/01-welcome.html#carb-vs.-calories-bakery-with-interaction",
+    "title": "Welcome to MAT 212!",
+    "section": "Carb vs. Calories + Bakery (with interaction)",
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-palmers-penguins",
+    "href": "slides/01-welcome.html#example-palmers-penguins",
+    "title": "Welcome to MAT 212!",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\nSize measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica."
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-palmers-penguins-1",
+    "href": "slides/01-welcome.html#example-palmers-penguins-1",
+    "title": "Welcome to MAT 212!",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-palmers-penguins-2",
+    "href": "slides/01-welcome.html#example-palmers-penguins-2",
+    "title": "Welcome to MAT 212!",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like now?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#simpsons-paradox-1",
+    "href": "slides/01-welcome.html#simpsons-paradox-1",
+    "title": "Welcome to MAT 212!",
+    "section": "Simpson’s Paradox",
+    "text": "Simpson’s Paradox\nSimpson’s Paradox is when there is a clear relationship between two variables but when you introduce a third variable that relationship disappears of reverses."
+  },
+  {
+    "objectID": "slides/01-welcome.html#statistical-model-vs.-regression-equation",
+    "href": "slides/01-welcome.html#statistical-model-vs.-regression-equation",
+    "title": "Welcome to MAT 212!",
+    "section": "Statistical model vs. regression equation",
+    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#why-fit-a-model",
+    "href": "slides/01-welcome.html#why-fit-a-model",
+    "title": "Welcome to MAT 212!",
+    "section": "Why fit a model?",
+    "text": "Why fit a model?\n\nPrediction: Expected value of the response variable for given values of the predictor variables\nInference: Conclusion about the relationship between the response and predictor variables\n\n\n\nWhat is an example of a prediction question that can be answered using the model of carb vs. calories and bakery?\nWhat is an example of an inference question that can be answered using the model of carb vs. calories and bakery?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#recap",
+    "href": "slides/01-welcome.html#recap",
+    "title": "Welcome to MAT 212!",
+    "section": "Recap",
+    "text": "Recap\n\nWe can use exploratory data analysis to describe the relationship between two variables\nWe make an assumption about the relationship between variables when doing linear regression\nThe two main objectives for fitting a linear regression model are (1) prediction and (2) inference"
+  },
+  {
+    "objectID": "slides/01-welcome.html#for-monday",
+    "href": "slides/01-welcome.html#for-monday",
+    "title": "Welcome to MAT 212!",
+    "section": "For Monday",
+    "text": "For Monday\n\nRead the syllabus\nComplete and submit today’s AE\nFind you partner for the project"
+  },
+  {
+    "objectID": "slides/01-welcome.html#references",
+    "href": "slides/01-welcome.html#references",
+    "title": "Welcome to MAT 212!",
+    "section": "References",
+    "text": "References\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+  },
+  {
+    "objectID": "project/project-tips.html",
+    "href": "project/project-tips.html",
+    "title": "Final project tips + resources",
+    "section": "",
+    "text": "Ask questions if any of the expectations are unclear.\nMake sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team members).\nAll team members are expected to contribute equally to the completion of this assignment and group assessments will be given at its completion - anyone judged to not have sufficient contributed to the final product will have their grade penalized. While different teams members may have different backgrounds and abilities, it is the responsibility of every team member to understand how and why all code and approaches in the assignment works.\n\n\n\n\nInformative title and axis labels\nFlipped coordinates to make names readable\nArranged bars based on count\nCapitalized manufacturer names\nOptional: Added color - Use a coordinated color scheme throughout paper / presentation\nOptional: Applied a theme - Use same theme throughout paper / presentation\n\n\nmpg |&gt;\n  count(manufacturer) |&gt;\n  mutate(manufacturer = str_to_title(manufacturer)) |&gt;\n  gf_col(n ~ fct_reorder(manufacturer, n) , stat = \"identity\", fill = \"steelblue\") |&gt; \n  gf_refine(coord_flip()) |&gt; \n  gf_labs(x = \"Manufacturer\", \n       y = \"Count\", \n       title = \"The most common manufacturer is Dodge\") |&gt; \n  gf_refine(theme_bw() )\n\n\n\n\n\n\n\n\n\n\n\n\nUse the kable function from the knitr package to neatly output all tables and model output. This will also ensure all model coefficients are displayed.\n\nUse the digits argument to display only 3 or 4 significant digits.\nUse the caption argument to add captions to your table.\n\n\n\nmodel &lt;- lm(mpg ~ hp, data = mtcars)\ntidy(model) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n30.099\n1.634\n18.421\n0\n\n\nhp\n-0.068\n0.010\n-6.742\n0\n\n\n\n\n\n\n\n\n\nDon’t use variable names in your narrative! Use descriptive terms, so the reader understands your narrative without relying on the data dictionary.\n\n❌ There is a negative linear relationship between mpg and hp.\n✅ There is a negative linear relationship between a car’s fuel economy (in miles per gallon) and its horsepower.\n\nKnow your audience: Your report should be written for a general audience who has an understanding of statistics at the level of MAT 212.\nAvoid subject matter jargon: Don’t assume the audience knows all of the specific terminology related to your subject area. If you must use jargon, include a brief definition the first time you introduce a term.\nTell the “so what”: Your report and presentation should be more than a list of interpretations and technical definitions. Focus on what the results mean, i.e. what you want the audience to know about your topic after reading your report or viewing your presentation.\n\n❌ For every one unit increase in horsepower, we expect the miles per gallon to decrease by 0.068 units, on average.\n✅ If the priority is to have good fuel economy, then one should choose a car with lower horsepower. Based on our model, the fuel economy is expected to decrease, on average, by 0.68 miles per gallon for every 10 additional horsepower.\n\nTell a story: All visualizations, tables, model output, and narrative should tell a cohesive story!\nUse one voice: Though multiple people are writing the report, it should read as if it’s from a single author. At least one team member should read through the report before submission to ensure it reads like a cohesive document.\n\n\n\n\n\nExploring RStudio’s Visual Markdown Editor\nR for Data Science\nData Visualization: A Practical Introduction"
+  },
+  {
+    "objectID": "project/project-tips.html#tips",
+    "href": "project/project-tips.html#tips",
+    "title": "Final project tips + resources",
+    "section": "",
+    "text": "Ask questions if any of the expectations are unclear.\nMake sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team members).\nAll team members are expected to contribute equally to the completion of this assignment and group assessments will be given at its completion - anyone judged to not have sufficient contributed to the final product will have their grade penalized. While different teams members may have different backgrounds and abilities, it is the responsibility of every team member to understand how and why all code and approaches in the assignment works.\n\n\n\n\nInformative title and axis labels\nFlipped coordinates to make names readable\nArranged bars based on count\nCapitalized manufacturer names\nOptional: Added color - Use a coordinated color scheme throughout paper / presentation\nOptional: Applied a theme - Use same theme throughout paper / presentation\n\n\nmpg |&gt;\n  count(manufacturer) |&gt;\n  mutate(manufacturer = str_to_title(manufacturer)) |&gt;\n  gf_col(n ~ fct_reorder(manufacturer, n) , stat = \"identity\", fill = \"steelblue\") |&gt; \n  gf_refine(coord_flip()) |&gt; \n  gf_labs(x = \"Manufacturer\", \n       y = \"Count\", \n       title = \"The most common manufacturer is Dodge\") |&gt; \n  gf_refine(theme_bw() )\n\n\n\n\n\n\n\n\n\n\n\n\nUse the kable function from the knitr package to neatly output all tables and model output. This will also ensure all model coefficients are displayed.\n\nUse the digits argument to display only 3 or 4 significant digits.\nUse the caption argument to add captions to your table.\n\n\n\nmodel &lt;- lm(mpg ~ hp, data = mtcars)\ntidy(model) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n30.099\n1.634\n18.421\n0\n\n\nhp\n-0.068\n0.010\n-6.742\n0\n\n\n\n\n\n\n\n\n\nDon’t use variable names in your narrative! Use descriptive terms, so the reader understands your narrative without relying on the data dictionary.\n\n❌ There is a negative linear relationship between mpg and hp.\n✅ There is a negative linear relationship between a car’s fuel economy (in miles per gallon) and its horsepower.\n\nKnow your audience: Your report should be written for a general audience who has an understanding of statistics at the level of MAT 212.\nAvoid subject matter jargon: Don’t assume the audience knows all of the specific terminology related to your subject area. If you must use jargon, include a brief definition the first time you introduce a term.\nTell the “so what”: Your report and presentation should be more than a list of interpretations and technical definitions. Focus on what the results mean, i.e. what you want the audience to know about your topic after reading your report or viewing your presentation.\n\n❌ For every one unit increase in horsepower, we expect the miles per gallon to decrease by 0.068 units, on average.\n✅ If the priority is to have good fuel economy, then one should choose a car with lower horsepower. Based on our model, the fuel economy is expected to decrease, on average, by 0.68 miles per gallon for every 10 additional horsepower.\n\nTell a story: All visualizations, tables, model output, and narrative should tell a cohesive story!\nUse one voice: Though multiple people are writing the report, it should read as if it’s from a single author. At least one team member should read through the report before submission to ensure it reads like a cohesive document.\n\n\n\n\n\nExploring RStudio’s Visual Markdown Editor\nR for Data Science\nData Visualization: A Practical Introduction"
+  },
+  {
+    "objectID": "project/project-review-guidelines.html",
+    "href": "project/project-review-guidelines.html",
+    "title": "Self and Peer Review",
+    "section": "",
+    "text": "Writing without revising is the literary equivalent of waltzing gaily out of the house in your underwear. ― Patricia Fuller"
+  },
+  {
+    "objectID": "project/project-review-guidelines.html#anecdote-you-can-skip-if-you-want",
+    "href": "project/project-review-guidelines.html#anecdote-you-can-skip-if-you-want",
+    "title": "Self and Peer Review",
+    "section": "Anecdote you can skip if you want",
+    "text": "Anecdote you can skip if you want\nI’d like to take a minute and explain why I place so much emphasis on writing and communication. When I was a graduate student and I turned in my first draft of my very first paper to my advisor, it was bad… Like WAAAAAY BAD. My advisor was a wonderful and kind gentleman and he didn’t want to be mean so instead of just putting a big red X through everything that I wrote, he crossed out all of the word individually except for words like “the”, “and”, “but”, etc. as if he was just making small changes to the wording of what I had wrote. However, I got the message and started putting a lot more effort into my writing. It was hard. My undergraduate was at an engineering school where all of my homeworks had “right” or “wrong” answers. I think I only wrote three essays during my entire college career and it showed. This is why I place so much emphasis on you being able to write and communicate your thoughts in a way that (a) makes it easy for other people to understand and (b) makes it clear that you know what you’re talking about."
+  },
+  {
+    "objectID": "project/project-review-guidelines.html#introduction",
+    "href": "project/project-review-guidelines.html#introduction",
+    "title": "Self and Peer Review",
+    "section": "Introduction",
+    "text": "Introduction\nThis document addresses Stages IV (Peer Review) and V (Project Revision) of your MAT-212 final project. The purpose of this exercise is to teach you how to improve your writing. The best way I have found to improve my writing is to just stop, reread, and mercilessly delete and rewrite. Entire paragraphs may move or disappear. The second purpose of this exercise is to show you (a little bit) how academic peer review works. In a professional publication, reviewers critique your writing/explanation and your method. Here, peer reviewers will focus just on critiquing of writing/explanation; your professor will comment on method. The process of writing and responding to comments in a separate document mimics how the review process works for professional publications."
+  },
+  {
+    "objectID": "project/project-review-guidelines.html#stage-iv-peer-review",
+    "href": "project/project-review-guidelines.html#stage-iv-peer-review",
+    "title": "Self and Peer Review",
+    "section": "Stage IV: Peer review",
+    "text": "Stage IV: Peer review\n\nThe first draft of anything is shit. ― Ernest Hemingway\n\nEach person will have one manuscript to read. The purpose of the peer-review is to identify areas of the paper in which communication of statistical ideas needs to be improved. You may also offer suggestions for additional statistical analysis or ideas for future research, but it is not your goal to critique or criticize the analyses that have already been completed (the professor will provide guidance in this aspect). As a reviewer, it is NOT your job to correct spelling or grammatical mistakes. It is also NOT your job to offer precise rewording of sentences or phrases, just to point out where such rephrasing could occur. Your feedback will be provided to the author in a separate typed document. For your assigned manuscript, follow this procedure:\n\nYou will be assigned a manuscript to peer review through the Stage III assignment on Canvas.\nRead the manuscript, noting confusing things (underline, circle, write notes in the margins, etc.). On the first read-through, focus on getting the MAIN IDEA of the paper.\n\nRe-read the manuscript. Now specifically focus on the confusing parts, and see if you can figure them out. Maybe the author needs to explain things in a better order? or use less jargon? Is the writing style professional, concise, precise, and understandable? Write down these comments.\nRe-read, focusing on each section of the paper (the “Revising Guide” will probably help here). Does it include the necessary items listed in the Project Report Section of the project instruction? Are all things in the correct sections? Is all relevant information provided?\nAre figures/graphs/tables well-labeled and understandable?\nSummarize your comments in a typed document using the “Revising Guide” as a… well… guide. The most helpful feedback will consider the paper from two perspectives:\n\nGeneral comments about structure and style.\nSpecific comments about confusing sentences, missing info, etc. For specific comments, please include page number and line or paragraph number. Your comments may be phrased as questions (“What is the implication of XXX being statistically significant?”). Alternatively, you may offer suggestions (“Page 3, paragraph 4: It might clarify what you mean if you explain XXX before this point, rather than waiting until page 5. I found I had to flip between pages to understand your point.”) or general comments (“I don’t understand the first sentence of paragraph 5 on page 6.”).\n\nTurn in the typed document (“Revising Guide” with comments) to the Stage IV Canvas assignment and email it to the author. If you’ve written comments on the physical draft, give that back to the author as well."
+  },
+  {
+    "objectID": "project/project-review-guidelines.html#stage-iv.v-self-review",
+    "href": "project/project-review-guidelines.html#stage-iv.v-self-review",
+    "title": "Self and Peer Review",
+    "section": "Stage IV.V: Self-review",
+    "text": "Stage IV.V: Self-review\n\nWhen your story is ready for rewrite, cut it to the bone. Get rid of every ounce of excess fat. This is going to hurt; revising a story down to the bare essentials is always a little like murdering children, but it must be done. —Stephen King\n\nIt will be helpful, after having a few days away from your paper, to review it using the “Revising Guide”. Try to look at it with fresh eyes. Read it aloud. Convince a friend/significant other/family member to listen to you read it. Encourage them to interrupt you when they don’t understand something or the writing is unclear. Interrupt yourself when you don’t understand something or the writing is unclear. Make notes to yourself about changes you should make: things you should add or delete from the paper, ways to make it more clear or more concise, etc. (You may not want to start making those changes until you read the professor and peer feedback.)"
+  },
+  {
+    "objectID": "project/project-review-guidelines.html#stage-v-revise",
+    "href": "project/project-review-guidelines.html#stage-v-revise",
+    "title": "Self and Peer Review",
+    "section": "Stage V: Revise",
+    "text": "Stage V: Revise\n\nThe time to begin writing an article is when you have finished it to your satisfaction. By that time you begin to clearly and logically perceive what it is you really want to say. —Mark Twain\n\n\nRead carefully through the comment documents you received from peers and professor review. Consider also your self-review.\nMake thoughtful, liberal (and possibly painful) changes to your paper.\nMarvel at how much better (and probably shorter) your paper is.\nProvide responses to each comment document. For this, I recommend just adding your response under each point-by-point comment in each document. Make sure your responses are in a different color font than the reviewer’s, so I can tell the different between the reviewer’s comments and your responses. In some cases, the response may be as simple as “change was made.” For others, (particularly comments you choose to ignore), you may provide context or reasoning. (e.g. “I chose not to include a graph of blah versus blah because of space issues. However, I now comment on the relationship between blah and blah in paragraph 2 of page 4.”)\nSubmit the following on Canvas by the due date:\n\nthe final paper\nthe Annotated Appendix, as described in the Project Guidelines. (Even if you have not made any changes to the Appendix, upload it along with the paper.)\nthe peer feedback you received, with your response to comments included\nthe professor feedback you received, with your response to comments included"
+  },
+  {
+    "objectID": "project/poster-rubric.html",
+    "href": "project/poster-rubric.html",
+    "title": "Final poster rubric",
+    "section": "",
+    "text": "Your poster will be evaluated as follows. Each student will be required to fill out the following rubric for every other poster. In addition, Dr. Friedlander will fill out the following rubric. 50% of your final poster grade will be based on Dr. Friedlander’s assessment and 50% will be based on your peer’s assessment. If your project was completed in pairs, Dr. Friedlander will assess each member separately.\nInstructions to reviewer: Use these criteria to rate the poster presentation on a scale of 1-5 (1=strongly disagree; 3=neutral; 5=strongly agree).\n\nPoster Organization\n\nPoster presentation is easy to follow. 1 2 3 4 5\nGraphics or other visuals on the poster enhance the oral description. 1 2 3 4 5\n\n\n\nPresentation Content\n\nQuestion or hypothesis being addressed is stated clearly, 1 2 3 4 5\nContent is easy to understand. 1 2 3 4 5\nThere is enough detail about methods for me to understand the results. 1 2 3 4 5\nResults are stated clearly. 1 2 3 4 5\nResults are interpreted based on previous literature and reasonable next steps/implications are proposed. 1 2 3 4 5\n\n\n\nQuestion and Answer\n\nPresenter’s response to questions demonstrated knowledge of subject matter. 1 2 3 4 5\nPresenter’s response to questions demonstrated knowledge of the statistical approach taken with the project. 1 2 3 4 5"
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Useful links",
+    "section": "",
+    "text": "RStudio\n🔗 on CofI Posit Workbench\n\n\nDiscussion forum\n🔗 on Teams\n\n\nCanvas Course\n🔗 on Canvas",
     "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MAT 212: Multiple Regression Analysis",
-    "section": "",
-    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125.\n\n\n\nWe will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
-  },
-  {
-    "objectID": "index.html#catalog-description",
-    "href": "index.html#catalog-description",
-    "title": "MAT 212: Multiple Regression Analysis",
-    "section": "",
-    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125."
-  },
-  {
-    "objectID": "index.html#erics-addition",
-    "href": "index.html#erics-addition",
-    "title": "MAT 212: Multiple Regression Analysis",
-    "section": "",
-    "text": "We will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
-  },
-  {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "MAT 212: Multiple Regression Analysis",
-    "section": "Instructor",
-    "text": "Instructor\nEric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics.\nOutside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.\n\n\n\nOffice hours (Boone 126B)\n\n\n\n\n\nMTWRF\n10:30-11:30am\n\n\nor by appointment."
-  },
-  {
-    "objectID": "computing-inferencesummary.html",
-    "href": "computing-inferencesummary.html",
-    "title": "R Cheatsheet",
-    "section": "",
-    "text": "Histogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side “dodged” barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"dodge\")\nStacked barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data)\nStandardized barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"fill\")\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
-    "crumbs": [
-      "Computing",
-      "R Cheatsheet"
-    ]
-  },
-  {
-    "objectID": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
-    "href": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
-    "title": "R Cheatsheet",
-    "section": "Useful code for calculating summary statistics: (requires mosaic)",
-    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)\n\n\nUseful functions fitting and analyzing models\n\n\n\nModel type\nAction\nFunction\n\n\n\n\nSimple Linear Regression\nFit Model\nlm(Y ~ X, data = data_name)",
-    "crumbs": [
-      "Computing",
-      "R Cheatsheet"
-    ]
-  },
-  {
-    "objectID": "computing-access.html",
-    "href": "computing-access.html",
-    "title": "Computing access",
-    "section": "",
-    "text": "To access RStudio at the College of Idaho, go to the CofI Posit Workbench website and sign-in using the CofI email and password.",
-    "crumbs": [
-      "Computing",
-      "Computing access"
+      "Useful links"
     ]
   },
   {
@@ -235,13 +650,232 @@
     ]
   },
   {
-    "objectID": "links.html",
-    "href": "links.html",
-    "title": "Useful links",
+    "objectID": "computing-access.html",
+    "href": "computing-access.html",
+    "title": "Computing access",
     "section": "",
-    "text": "RStudio\n🔗 on CofI Posit Workbench\n\n\nDiscussion forum\n🔗 on Teams\n\n\nCanvas Course\n🔗 on Canvas",
+    "text": "To access RStudio at the College of Idaho, go to the CofI Posit Workbench website and sign-in using the CofI email and password.",
     "crumbs": [
-      "Useful links"
+      "Computing",
+      "Computing access"
+    ]
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html",
+    "href": "ae/ae-01-multivariate-relationships.html",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "",
+    "text": "Important\n\n\n\n\nFor this exercise, you will work in groups, but everyone will work through the document and submit their solution.\nOpen RStudio and create a subfolder in your AE folder called “AE-01”\nGo to the Canvas and locate your AE 01 assignment to get started.\nUpload the ae-01.qmd files into the folder you just created. The .qmd and .html responses are due in Canvas no later than Monday, January 6th at 1:00pm."
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#quarto",
+    "href": "ae/ae-01-multivariate-relationships.html#quarto",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Quarto",
+    "text": "Quarto\nThe thing you are reading right now is an Quarto document (very similar to R Markdown if you’ve ever used that). Quarto runs inside R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. You can find the link to a useful Quarto guide here.\nWhen you click the Render button at the top of this window an html file will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R code, you can embed the output produced by the R code. In this way, your analysis is fully reproducible and updatable. All of your homework assignments must be prepared using Quarto.\nThe nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like \\(y_i = a + b x_i\\)), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)\nIn the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!\n\nExercise 1\nClick Render at the top of this document. Show Dr. Friedlander before moving on."
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "href": "ae/ae-01-multivariate-relationships.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Using R as a Calculator and Running Code within a Quarto Document",
+    "text": "Using R as a Calculator and Running Code within a Quarto Document\nWith R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by clicking the Run button, the sideways green arrow in the top right of the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.\nAs you work through this document, you should Run each chunk as you come to it.\n\nExercise 2\nRun the code chunk below.\n\n5 + 3\n\n[1] 8\n\n5.3 * 23.4\n\n[1] 124.02\n\nsqrt(16) # this is a comment.  R will not 'see' anything past a #, but you can use it to explain your code\n\n[1] 4\n\n\nLook closely at how Quarto denotes the R code and the output. Also note in the .qmd file how I include R code as separate from prose. These are called “chunks”. The easiest way to add a new chunk is to click on the green “c” icon with a plus in the corner above, then choose “R”. R code that is not inside of a chunk will not be run by Quarto!\n\n\nExercise 3\nCreate an R code chunk and compute the log of 10 using the function log. Why do you think the answer isn’t 1?\n\n\nExercise 4\nYou can also save values to named variables, to be used later:\n\nproduct &lt;- 15.3 * 23.4 #save result\n\nIf you save something like this, R will not show the output unless you expressly ask for it:\n\nproduct #show result\n\n[1] 358.02\n\n\nThe symbol “&lt;-” is the assignment operator. If you’ve ever programmed before, it’s essentially the same as “=” in this instance. There are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.\nOnce variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing Ctrl+Enter (Cmd +Enter for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)\n\n.5 * product # half of the product\n\n[1] 179.01\n\nproduct^(1/4) # fourth root of the product\n\n[1] 4.349875\n\n\n\n\nExercise 5\nYou can also use in-line R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?\n\n\nExercise 6\nOnly R code (and comments) should be inside chunks. Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code and they’ll run the code (resulting in the output and/or graphs).\nIf you want to run something in R but don’t want it to appear in the Quarto document, simply run it in the Console in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens."
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#carbohydrates-and-starbucks",
+    "href": "ae/ae-01-multivariate-relationships.html#carbohydrates-and-starbucks",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Carbohydrates and Starbucks",
+    "text": "Carbohydrates and Starbucks\nStarbucks often displays the total calories in their food items but not the other nutritional information. Carbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories. Our goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\nYou will now be introduced to the functions we will use most frequently for exploratory data analysis (EDA) in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. However, you should be prepared to answer questions about any uncited code which is not covered in this class on your oral exams. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\n\n\n\n\nImportant\n\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\n\n\nExercise 7\nThe code below loads the package called tidyverse which provides many functions that will be useful for manipulating data and the package called mosaic which is useful for teaching statistics. Add another line that loads a package called ggformula which we will use to plot our data and a third that loads the package openintro which will contain our data for this activity. Note that #| warning: FALSE causes the code to run without displaying any associated warnings when you render. You will often see #| eval: FALSE which prevents the code chunk from running when you render the document. Throughout this course, make sure you remove these lines or change them to #| eval: TRUE whenever you reach them. The reason that are included in the first place is so I can write scaffolded and fill-in-the-blank type exercises for you. These will cause errors (since they are incomplete code) until you finish writing them.\n\n# load packages we typically use for this class.\nlibrary(tidyverse)\nlibrary(mosaic)\nlibrary(_________) # load ggformula\n# load openintro"
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#loading-data",
+    "href": "ae/ae-01-multivariate-relationships.html#loading-data",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Loading data",
+    "text": "Loading data\nDoing statistics requires data. Sometimes we will have to load data from a file and sometimes we can get our data from an R package. Today’s dataset, called starbucks is from the openintro package. To load a this data from within R you can use the data command.\n\nExercise 8\nUse the code below to load the dataset starbucks, which is part of the openintro package. Don’t forget to change eval: FALSE to eval: TRUE… Why do you think we need eval: FALSE if you aren’t actually rewriting any code?\n\ndata(\"starbucks\")\n\nThis is a great chance to remind you that R cares about letter case. This means that data(\"starbucks\") works but data(\"Starbucks\") doesn’t!\n\n\nInspecting the data source\nNow you’re ready to learn a little bit about the starbucks data set.\n\n\nExercise 9\nRun the code below and then edit the bulleted list below to add a short description in your own words describing what each function does. Hint: if it isn’t clear based on the output you can use ? before the function name in the console to bring up the documentation on that function. Notify Dr. Friedlander when you’re finished.\n\n# Inspecting the data source\nglimpse(starbucks)\nhead(starbucks)\nnames(starbucks)\n\n\nglimpse() : this function…\nhead() : this function…\nnames() : this function…\n\n\n\nExercise 10\nBased on the output above, how many observations and how many variables does this data set have?\n\n\nExercise 11\nLet’s do a little bit of a data prep. In the console type ?starbucks and look at the definition of type.\nThe following is a little bit of data wrangling to get the source data in shape for our purposes. What do you think this code is doing? Make sure you change eval: FALSE to eval: TRUE.\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nStatisticians should always know something about the data domain in order to be useful. Why do you think we are changing our data like this?"
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#exploratory-data-analysis",
+    "href": "ae/ae-01-multivariate-relationships.html#exploratory-data-analysis",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The pseudo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do the number of carbs compare for bakery and non-bakery items?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nExercise 12\nUse the R code chunk below to calculate the mean carbs by for bakery and non-bakery items. Summarize your observations below the code chunk.\n\nmean(carb ~ bakery, data = starbucks)\n\n\n\nExercise 13\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for bakery and non-bakery items using the function favstats. Summarize your observations below the code chunk.\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section! Also, you can always find details and examples by searching the Help menu in the lower-right quadrant.)\n\n\nExercise 14\nLet’s generate some univariate (i.e. one-variable) EDA plots for our three variables. In general, can use histograms or boxplots (gf_histogram or gf_boxplot) for quantitative variables and bar charts gf_bar for categorical variables. Fill in the blanks in the code below to generate the corresponding plots. Then create a boxplot of carb. Finally, share your observations below the code:\n\n# make a histogram of carb\ngf_histogram(~ carb, data = starbucks)\n\n# make a histogram of calories\ngf_histgoram(~ _____, data = ______)\n\n# make a bar chart of bakery\ngf_bar(~ _____, data = _____)\n\n# make a boxplot of carb\n\n\n\nExercise 15\nLet’s not generate some bivariate (i.e. two-variable) EDA plots for our three variables. For two-quantitative variables we typically use a scatter plot gf_point. If we are comparing a quantitative and a categorical variable will use side-by-side boxplots gf_boxplot. Generate and plot to visualize carb and calories and one to visualize carb and bakery. Comment on your observations."
+  },
+  {
+    "objectID": "computing-inferencesummary.html",
+    "href": "computing-inferencesummary.html",
+    "title": "R Cheatsheet",
+    "section": "",
+    "text": "Histogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side “dodged” barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"dodge\")\nStacked barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data)\nStandardized barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"fill\")\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
+    "crumbs": [
+      "Computing",
+      "R Cheatsheet"
+    ]
+  },
+  {
+    "objectID": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "href": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "title": "R Cheatsheet",
+    "section": "Useful code for calculating summary statistics: (requires mosaic)",
+    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)\n\n\nUseful functions fitting and analyzing models\n\n\n\nModel type\nAction\nFunction\n\n\n\n\nSimple Linear Regression\nFit Model\nlm(Y ~ X, data = data_name)",
+    "crumbs": [
+      "Computing",
+      "R Cheatsheet"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MAT 212: Multiple Regression Analysis",
+    "section": "",
+    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125.\n\n\n\nWe will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
+  },
+  {
+    "objectID": "index.html#catalog-description",
+    "href": "index.html#catalog-description",
+    "title": "MAT 212: Multiple Regression Analysis",
+    "section": "",
+    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125."
+  },
+  {
+    "objectID": "index.html#erics-addition",
+    "href": "index.html#erics-addition",
+    "title": "MAT 212: Multiple Regression Analysis",
+    "section": "",
+    "text": "We will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "MAT 212: Multiple Regression Analysis",
+    "section": "Instructor",
+    "text": "Instructor\nEric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics.\nOutside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.\n\n\n\nOffice hours (Boone 126B)\n\n\n\n\n\nMTWRF\n10:30-11:30am\n\n\nor by appointment."
+  },
+  {
+    "objectID": "prepare/prep-01.html",
+    "href": "prepare/prep-01.html",
+    "title": "Preparation for Monday January 6th",
+    "section": "",
+    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model\nStat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+  },
+  {
+    "objectID": "prepare/prep-01.html#assigned-reading",
+    "href": "prepare/prep-01.html#assigned-reading",
+    "title": "Preparation for Monday January 6th",
+    "section": "",
+    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model\nStat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+  },
+  {
+    "objectID": "prepare/prep-01.html#additional-resources-optional",
+    "href": "prepare/prep-01.html#additional-resources-optional",
+    "title": "Preparation for Monday January 6th",
+    "section": "Additional resources (optional)",
+    "text": "Additional resources (optional)\n📖 Introduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\n📖 Introduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
+  },
+  {
+    "objectID": "project/project-instructions.html",
+    "href": "project/project-instructions.html",
+    "title": "Final Project Instructions",
+    "section": "",
+    "text": "TL;DR: Pick a data set and do a regression analysis. That is your final project.\nIn this project, you will select a data set of interest to you, pose a research question that you will attempt to answer using multiple linear and/or multiple logistic regression, and write a paper in a formal scientific style. The data set can come from one of the pre-selected data sets made available on Canvas. However, if you have data from research you have conducted or another source which you are passionate about, you may use that data subject to instructor permission.\n\n\nThere are four major deliverables for the final project:\n\nA written, reproducible report detailing your analysis to be submitted in either Microsoft word or a PDF and uploaded to Canvas.\nThe .qmd and .html files from a Quarto appendix you create.\nFormal peer review on another team’s work and presentation feedback.\nA PDF of a poster to be uploaded to Canvas which you will present at during the last day of class.\n\nHowever, due to the condensed nature of winter term, you will have small deliverable due on most days of class to make sure no one get’s left behind.\n\n\n\nFrom Christine Schutz:\n\nAn essential (and favorite) aspect of a librarian’s work is to provide assistance and coaching to students doing research for their projects and papers. Our two librarians - Christine Schutz and Lance McGrath – can help students to focus their source quests and locate appropriate and useful sources. Since students don’t always realize that not everyone who works in a library is a librarian (or even what that means) and that librarians aren’t in the library at all hours of the night (even though the library is open), please nudge them to reach out to us by email or Teams chat to set up a time to meet (or we can sometimes help over email/chat). From the history of the sufganiyot (this was last Fall’s favorite) to the Lamington crayfish (Euastacus sulcatus) and why they are blue (an all-time favorite of mine), student research projects are the best part of the job (and I know Lance feels the same way), please send those students our way.\n\nYou are more than welcome to contact me with any questions about your project but please do not hesitate reaching out to Christine or Lance with any questions.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-instructions.html#overview",
+    "href": "project/project-instructions.html#overview",
+    "title": "Final Project Instructions",
+    "section": "",
+    "text": "TL;DR: Pick a data set and do a regression analysis. That is your final project.\nIn this project, you will select a data set of interest to you, pose a research question that you will attempt to answer using multiple linear and/or multiple logistic regression, and write a paper in a formal scientific style. The data set can come from one of the pre-selected data sets made available on Canvas. However, if you have data from research you have conducted or another source which you are passionate about, you may use that data subject to instructor permission.\n\n\nThere are four major deliverables for the final project:\n\nA written, reproducible report detailing your analysis to be submitted in either Microsoft word or a PDF and uploaded to Canvas.\nThe .qmd and .html files from a Quarto appendix you create.\nFormal peer review on another team’s work and presentation feedback.\nA PDF of a poster to be uploaded to Canvas which you will present at during the last day of class.\n\nHowever, due to the condensed nature of winter term, you will have small deliverable due on most days of class to make sure no one get’s left behind.\n\n\n\nFrom Christine Schutz:\n\nAn essential (and favorite) aspect of a librarian’s work is to provide assistance and coaching to students doing research for their projects and papers. Our two librarians - Christine Schutz and Lance McGrath – can help students to focus their source quests and locate appropriate and useful sources. Since students don’t always realize that not everyone who works in a library is a librarian (or even what that means) and that librarians aren’t in the library at all hours of the night (even though the library is open), please nudge them to reach out to us by email or Teams chat to set up a time to meet (or we can sometimes help over email/chat). From the history of the sufganiyot (this was last Fall’s favorite) to the Lamington crayfish (Euastacus sulcatus) and why they are blue (an all-time favorite of mine), student research projects are the best part of the job (and I know Lance feels the same way), please send those students our way.\n\nYou are more than welcome to contact me with any questions about your project but please do not hesitate reaching out to Christine or Lance with any questions.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-instructions.html#timeline-grading",
+    "href": "project/project-instructions.html#timeline-grading",
+    "title": "Final Project Instructions",
+    "section": "Timeline & Grading",
+    "text": "Timeline & Grading\nCheckpoint I: Select a partner (0%)\n\ndue Monday, January 6\n\nCheckpoint II: Select a data set and write a research question (1%)\n\ndue Tuesday, January 7\n\nCheckpoint III: Literature Review (1%)\n\ndue Wednesday, January 8\n\nCheckpoint IV: Annotated Bibliography (1%)\n\ndue Thursday, January 9\n\nCheckpoint V: Project Proposal (3%)\n\ndue Friday, January 10",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-instructions.html#partner",
+    "href": "project/project-instructions.html#partner",
+    "title": "Final Project Instructions",
+    "section": "Checkpoint I: Select a partner",
+    "text": "Checkpoint I: Select a partner\nYour project will be completed with a partner. Try and select a partner with similar interests to you. Anyone who has not selected a partner by the deadline will be assigned a partner.\nDeliverables: Put yourselves in a group on Canvas.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-instructions.html#research-question",
+    "href": "project/project-instructions.html#research-question",
+    "title": "Final Project Instructions",
+    "section": "Checkpoint II: Select a data set and write a research question",
+    "text": "Checkpoint II: Select a data set and write a research question\nSelect one of the pre-approved data set and identify the research question which will guide your project (e.g. “Do youth who participate in physical exercise class have lower BMI?”, “Are males more likely to drink and drive after adjusting for confounding variables?”) and briefly describe why your chosen project is interesting to you.\nDeliverables: Word document identifying which data set you plan to use, the response variable of interest, and a brief description of why your chosen project is interesting to you.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-instructions.html#lit-review",
+    "href": "project/project-instructions.html#lit-review",
+    "title": "Final Project Instructions",
+    "section": "Checkpoint III: Literature Review",
+    "text": "Checkpoint III: Literature Review\nMeet with Christine Schutz and find articles in the refereed literature that are relevant to your question of interest. You must find at least two. You should avoid articles that are too technical to be relevant to the project or to be informative for the non-specialist. You must read the abstracts for each of these papers. Be sure you obtain the entire paper and not just an abstract! You will eventually use these references in the introduction of your paper.\nDeliverables: Word document containing the citation for each reference (in a standard format) and a link, if appropriate. Note that you are REQUIRED to meet with Christine to receive credit.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-instructions.html#annotated-bib",
+    "href": "project/project-instructions.html#annotated-bib",
+    "title": "Final Project Instructions",
+    "section": "Checkpoint IV: Literature Review",
+    "text": "Checkpoint IV: Literature Review\nBased on the abstracts, choose two of the papers you listed in your literature review. For these two papers, write a few sentences summarizing the primary findings and how they relate to your research question.\nDeliverables: Take the word document you submitted for Checkpoint III and, below your two chosen articles, add a few sentences that summarize the primary findings and how they relate to your proposal.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-instructions.html#project-proposal",
+    "href": "project/project-instructions.html#project-proposal",
+    "title": "Final Project Instructions",
+    "section": "Checkpoint V: Project proposal",
+    "text": "Checkpoint V: Project proposal\nYour proposal, to be turned in as a Word document or PDF on Canvas, will include the following. Note that some of the information below can be copied from previous Checkpoints:\n\nIdentify the original data source. Include a brief summary of how, from whom, and by whom, the data were collected. Describe how the study design will impact the generalizability of any analysis.\nIdentify the research question which will guide your project (e.g. “Do youth who participate in physical exercise class have lower BMI?”, “Are males more likely to drink and drive after adjusting for confounding variables?”).\nProvide a list of variables of interest and their definitions (including units). You should also include rationale for inclusion for each variable and identify the variable type, and whether it may need recoding. You should include at least 4 variables. A table is a good way to summarize this information; for example:\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable Name\nOriginal Definition\nUnits\nRange or Levels\nPossible recoding\nRationale\n\n\nbmi\nBody mass index\nKg/m^2\n&gt;0\n\nResponse variable\n\n\npe\nHow many days per week attends Physical education class\nDays/week\n0-5, integers\nCurrently categorical var. Recode to same values but numeric\nMain explanatory var of interest\n\n\nage\nAge of student\nyears\n12-19, integers\n\nPossible con founding var\n\n\nlunch\nPercent of students at the school receiving free /reduced lunch\n%\n0-100\n\nPossible con founding var (soc io-econ status)\n\n\n\n\n\nYour partially annotated bibliography. There must be at least six articles and at least two ust be annotated.\n\nDeliverables: Word document or PDF with the information above.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project/project-rubric.html",
+    "href": "project/project-rubric.html",
+    "title": "Final paper rubric",
+    "section": "",
+    "text": "Applied Stats Individual Project Evaluation\nPossible\nScore\n\n\n\n\nIntroduction and motivation for the project – 8 pts\n\n\n\n\nIs the overarching question motivating the analysis clearly stated and explained? Are the specific questions this analysis will address clearly stated and explained?\n4\n\n\n\nIs relevant literature described and properly cited? Is the connection between the literature and this work made clear?\n4\n\n\n\nMethods – 33 pts\n\n\n\n\nIs the data source described and referenced?\n3\n\n\n\nIs each variable used in the analysis defined, including: - descriptions of the levels for categorical variables - units for numerical variables\n6\n\n\n\nAre data preparation and cleaning procedures clearly described so that the study could be replicated by another researcher? Is the handling of missing data/unusual observations/outliers described and is there sound rationale for it? Is the initial and final number of observations in the analysis reported and are those that were removed accounted for?\n4\n\n\n\nIf necessary, were interactions and data transformations explored? Were these included in the model when appropriate? Were the conditions of the model checked, and were they met?\n10\n\n\n\nWas thoughtful variable selection employed to decide upon the final model? Was the final model compared with simpler options, and the form of the final model justified?\n10\n\n\n\nResults – 20 pts\n\n\n\n\nAre descriptive statistics provided for key variables? Are they presented in a tabular form that is concise and informative?\n5\n\n\n\nAre results of modeling reported in appropriate tabular form with parameter estimates, standard errors, p-values, and confidence intervals?\n5\n\n\n\nAre parameter estimates and CIs correctly interpreted in the context of the research question?\n5\n\n\n\nHow well are graphics/figures/equations presented? (axes labeled, captions, placement, readable, useful, add to content)\n5\n\n\n\nDiscussion – 21 pts\n\n\n\n\nDoes the discussion begin with an accurate summary statement of the major findings of the analysis? Are \\(R^2\\) or misclassification rate reported (either here or in the Results)?\n4\n\n\n\nAre the possible implications of the results discussed in the context of the research question?\n3\n\n\n\nIs there a thoughtful discussion of generalizability of the results? Are limitations of the study identified and is the potential impact on the conclusions stated?\n4\n\n\n\nAre strengths and weaknesses of the analysis identified, including a discussion of model conditions?\n4\n\n\n\nAre potential confounding variables discussed?\n3\n\n\n\nAre suggestions for future research identified and useful?\n3\n\n\n\nOverall – Report – 18 pts\n\n\n\n\nWere research question(s) complex and insightful, demonstrating understanding of the research topic?\n6\n\n\n\nHow well does the author demonstrate an understanding of the statistics? Are statements and conclusions accurate?\n6\n\n\n\nHow well-written is the report (e.g., correct grammar, spelling, etc.)?\n6\n\n\n\n(Tentative) Total\n100\n\n\n\nSupporting Materials (points to be deleted)\n\n\n\n\nBibliography included; citations are stylistically consistent.\n-3\n\n\n\nTitle and author appropriately identified Paper follows formatting guidelines (1.5 spacing, 8 page max, etc.)\n-5\n\n\n\nGrant Total"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nday\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nJan 6\nIntroduction to Simple Linear Regression",
+    "crumbs": [
+      "Schedule"
     ]
   },
   {

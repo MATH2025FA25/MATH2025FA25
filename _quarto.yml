@@ -45,6 +45,10 @@ website:
         - href: computing-inferencesummary.qmd
         - href: computing-r-resources.qmd
           text: R resources
+      - section: Project
+        contents:
+        - href: project/project-instructions.qmd
+          text: "Instructions"
   
  
 format:

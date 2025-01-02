@@ -1,0 +1,35 @@
+---
+title: Final poster rubric
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(knitr)
+library(broom)
+```
+
+Your poster will be evaluated as follows. Each student will be required to fill out the following rubric for every other poster. In addition, Dr. Friedlander will fill out the following rubric. 50% of your final poster grade will be based on Dr. Friedlander's assessment and 50% will be based on your peer's assessment. If your project was completed in pairs, Dr. Friedlander will assess each member separately.
+
+Instructions to reviewer: Use these criteria to rate the poster presentation on a scale of 1-5 (1=strongly disagree; 3=neutral; 5=strongly agree). 
+
+### Poster Organization
+
+1. Poster presentation is easy to follow.	1 2 3 4 5
+2. Graphics or other visuals on the poster enhance the oral description.	1 2 3 4 5
+
+### Presentation Content 	
+
+3. Question or hypothesis being addressed is stated clearly, 	1 2 3 4 5
+4. Content is easy to understand.	1 2 3 4 5
+5. There is enough detail about methods for me to understand the results.	1 2 3 4 5
+6. Results are stated clearly.	1 2 3 4 5
+7. Results are interpreted based on previous literature and reasonable next steps/implications are proposed. 	1 2 3 4 5
+
+### Question and Answer	
+
+8. Presenter's response to questions demonstrated knowledge of subject matter.	1 2 3 4 5
+9. Presenter's response to questions demonstrated knowledge of the statistical approach taken with the project.	1 2 3 4 5
+

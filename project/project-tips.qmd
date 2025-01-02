@@ -1,0 +1,74 @@
+---
+title: Final project tips + resources
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(knitr)
+library(ggformula)
+library(broom)
+```
+
+## Tips
+
+-   Ask questions if any of the expectations are unclear.
+
+-   Make sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team members).
+
+-   All team members are expected to contribute equally to the completion of this assignment and group assessments will be given at its completion - anyone judged to not have sufficient contributed to the final product will have their grade penalized. While different teams members may have different backgrounds and abilities, it is the responsibility of every team member to understand how and why all code and approaches in the assignment works.
+
+
+### Do a little more to make the plot look professional!
+
+-   Informative title and axis labels
+-   Flipped coordinates to make names readable
+-   Arranged bars based on count
+-   Capitalized manufacturer names
+-   *Optional: Added color - Use a coordinated color scheme throughout paper / presentation*
+-   *Optional: Applied a theme - Use same theme throughout paper / presentation*
+
+```{r}
+mpg |>
+  count(manufacturer) |>
+  mutate(manufacturer = str_to_title(manufacturer)) |>
+  gf_col(n ~ fct_reorder(manufacturer, n) , stat = "identity", fill = "steelblue") |> 
+  gf_refine(coord_flip()) |> 
+  gf_labs(x = "Manufacturer", 
+       y = "Count", 
+       title = "The most common manufacturer is Dodge") |> 
+  gf_refine(theme_bw() )
+```
+
+### Tables and model output
+
+-   Use the `kable` function from the knitr package to neatly output all tables and model output. This will also ensure all model coefficients are displayed.
+    -   Use the `digits` argument to display only 3 or 4 significant digits.
+    -   Use the `caption` argument to add captions to your table.
+
+```{r}
+model <- lm(mpg ~ hp, data = mtcars)
+tidy(model) |>
+  kable(digits = 3)
+```
+
+### Guidelines for communicating results
+
+-   **Don't use variable names in your narrative!** Use descriptive terms, so the reader understands your narrative without relying on the data dictionary.
+    -   ❌ There is a negative linear relationship between mpg and hp.
+    -   ✅ There is a negative linear relationship between a car's fuel economy (in miles per gallon) and its horsepower.
+-   **Know your audience:** Your report should be written for a general audience who has an understanding of statistics at the level of MAT 212.
+-   **Avoid subject matter jargon:** Don't assume the audience knows all of the specific terminology related to your subject area. If you must use jargon, include a brief definition the first time you introduce a term.
+-   **Tell the "so what":** Your report and presentation should be more than a list of interpretations and technical definitions. Focus on what the results mean, i.e. what you want the audience to know about your topic after reading your report or viewing your presentation.
+    -   ❌ For every one unit increase in horsepower, we expect the miles per gallon to decrease by 0.068 units, on average.
+    -   ✅ If the priority is to have good fuel economy, then one should choose a car with lower horsepower. Based on our model, the fuel economy is expected to decrease, on average, by 0.68 miles per gallon for every 10 additional horsepower.
+-   **Tell a story:** All visualizations, tables, model output, and narrative should tell a cohesive story!
+-   **Use one voice:** Though multiple people are writing the report, it should read as if it's from a single author. At least one team member should read through the report before submission to ensure it reads like a cohesive document.
+
+### Additional resources
+
+-   [Exploring RStudio's Visual Markdown Editor](https://www.rstudio.com/blog/exploring-rstudio-visual-markdown-editor/)
+-   [R for Data Science](https://r4ds.had.co.nz/)
+-   [Data Visualization: A Practical Introduction](https://socviz.co/index.html)
