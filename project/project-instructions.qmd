@@ -120,7 +120,7 @@ project is interesting to you.
 
 Meet with Christine Schutz and find articles in the refereed 
 literature that are relevant to your question of interest. You must find 
-**at least two**. You should avoid articles that are too technical to be 
+**at least six**. You should avoid articles that are too technical to be 
 relevant to the project or to be informative for the non-specialist. You must
 read the abstracts for each of these papers. Be sure you obtain the entire paper 
 and not just an abstract! You will eventually use these references in the 
@@ -131,7 +131,7 @@ introduction of your paper.
 a standard format) and a link, if appropriate. Note that you are REQUIRED to 
 meet with Christine to receive credit.
 
-## Checkpoint IV: Literature Review {#annotated-bib}
+## Checkpoint IV: Annotated Bibliography {#annotated-bib}
 
 Based on the abstracts, choose two of the papers you listed in your literature 
 review. For these two papers, write a few sentences summarizing the primary 

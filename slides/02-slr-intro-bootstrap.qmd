@@ -1,0 +1,454 @@
+---
+title: "Simple Linear Regression"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+## Application exercise
+
+::: appex
+📋 [AE 02 - DC Bikeshare](/ae/ae-02-bikeshare.qmd)
+:::
+
+Complete Exercises 0 and 1.
+
+# Introduction to Simple Linear Regression
+
+## Topics
+
+-   Use simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.
+
+-   Estimate the slope and intercept of the regression line using the least squares method.
+
+-   Interpret the slope and intercept of the regression line.
+
+## Computation set up {.smaller}
+
+```{r}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)       # for data wrangling
+library(ggformula)       # for plotting
+library(fivethirtyeight) # for the fandango dataset
+library(broom)           # for formatting model output
+library(knitr)           # for formatting tables
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
+
+# set default figure parameters for knitr
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%"
+)
+
+bikeshare <- read_csv("../data/dcbikeshare.csv") |> 
+  mutate(season = case_when(
+    season == 1 ~ "winter",
+    season == 2 ~ "spring",
+    season == 3 ~ "summer",
+    season == 4 ~ "fall"
+  ),
+  season = factor(season))
+```
+
+
+# Data
+
+## DC Bikeshare
+
+Our data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
+
+We will focus on the following variables in the analysis:
+
+-   `count`: total bike rentals
+-   `temp_orig`: Temperature in degrees Celsius
+-   `season`: 1 - winter, 2 - spring, 3 - summer, 4 - fall
+
+Click [here](https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
+
+Let's complete Exercises 2-6 together
+
+## Data prep
+
+-   Exercise 2: Recode `season` as a factor with names instead of numbers (livecode)
+-   Remember:
+    +   Think of `|>` as "and then"
+    +   `mutate` creates new columns and changes (mutates) existing columns
+    +   R called categorical data "factors"
+    
+```{r}
+bikeshare <- read_csv("../data/dcbikeshare.csv") |> 
+  mutate(season = case_when(
+    season == 1 ~ "winter",
+    season == 2 ~ "spring",
+    season == 3 ~ "summer",
+    season == 4 ~ "fall"
+  ),
+  season = factor(season))
+```
+
+## Exploratory data analysis (Exercise 3)
+
+```{r}
+#| echo: TRUE
+
+gf_point(count ~ temp_orig | season, data = bikeshare) |> 
+  gf_labs(x = "Temperature (Celsius)",
+          y = "Daily bike rentals")
+```
+
+## Exploratory data analysis (Exercise 3)
+
+```{r}
+#| echo: TRUE
+
+gf_point(count ~ temp_orig | season, data = bikeshare) |> 
+  gf_labs(x = "Temperature (Celsius)",
+          y = "Daily bike rentals")
+```
+
+## More data prep
+
+-   (Exercise 5) Filter your data for the season with the strongest relationship and give the resulting data set a new name
+
+```{r}
+winter <- bikeshare |> 
+  filter(season == "winter")
+```
+
+## Rentals vs Temperature
+
+**Goal**: Fit a line to describe the relationship between the temperature and the number of rentals in winter.
+
+```{r}
+#| echo: false
+#| fig-align: center
+p <- ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(x = "Temperature (Celsius)",
+       y = "Daily bike rentals")
+
+p
+```
+
+## Why fit a line?
+
+We fit a line to accomplish one or both of the following:
+
+. . .
+
+::: {style="color: #799100"}
+**Prediction**
+:::
+
+How many rentals are expected when it's 10 degrees out?\
+
+. . .
+
+::: {style="color : #799100"}
+**Inference**
+:::
+
+Is temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree celcius?
+
+## Terminology
+
+::: columns
+::: {.column width="30%"}
+-   **Response, *Y***: variable describing the outcome of interest
+
+-   **Predictor, *X***: variable we use to help understand the variability in the response
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-align: center
+p
+```
+:::
+:::
+
+## Regression model
+
+**Regression model:** a function that describes the relationship between a quantitive response, $Y$, and the predictor, $X$ (or many predictors).
+
+```{=tex}
+\begin{aligned} Y &= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
+&= \color{black}{\mathbf{f(X)}} + \epsilon \\[8pt]
+&= \color{black}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
+```
+
+## Regression model
+
+::: columns
+::: {.column width="30%"}
+```{=tex}
+\begin{aligned} Y &= \color{purple}{\textbf{Model}} + \text{Error} \\[8pt]
+&= \color{purple}{\mathbf{f(X)}} + \epsilon \\[8pt]
+&= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
+```
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-align: center
+ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", color = "purple", se = FALSE) +
+  labs(x = "X" ,
+       y = "Y") +
+  theme(axis.text = element_blank(),
+  axis.ticks.x = element_blank(),
+  axis.ticks.y = element_blank())
+```
+:::
+:::
+
+$\mu_{Y|X}$ is the mean value of $Y$ given a particular value of $X$.
+
+## Regression model
+
+::: columns
+::: {.column width="30%"}
+$$
+\begin{aligned} Y &= \color{purple}{\textbf{Model}} + \color{blue}{\textbf{Error}} \\[5pt]
+&= \color{purple}{\mathbf{f(X)}} + \color{blue}{\boldsymbol{\epsilon}} \\[5pt]
+&= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \color{blue}{\boldsymbol{\epsilon}} \\[5pt]
+ \end{aligned}
+$$
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-align: center
+m <- lm(count ~ temp_orig, data = winter)
+ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", color = "purple", se = FALSE) +
+  geom_segment(aes(x=temp_orig, xend=temp_orig, y=count, yend=predict(m, winter)), color = "blue", linetype = "dotted") +
+  labs(x = "X" ,
+       y = "Y") +
+  theme_bw() +
+  theme(axis.text = element_blank(),
+  axis.ticks.x = element_blank(),
+  axis.ticks.y = element_blank())
+```
+:::
+:::
+
+# Simple linear regression (SLR)
+
+## SLR: Statistical model
+
+- **Simple linear regression:** model to describe the relationship between $Y$ and $X$ where:
+  + $Y$ is a quantitative/numerical reponse
+  + $X$ is a *single* quantitative predictor
+  + $$\Large{Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon}$$
+
+. . .
+
+-   $\beta_1$: True slope of the relationship between $X$ and $Y$
+-   $\beta_0$: True intercept of the relationship between $X$ and $Y$
+-   $\epsilon$: Error
+
+## SLR: Regression equation
+
+$$\Large{\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X}$$
+
+-   $\hat{\beta}_1$: Estimated slope of the relationship between $X$ and $Y$
+-   $\hat{\beta}_0$: Estimated intercept of the relationship between $X$ and $Y$
+-   $\hat{Y}$: Predicted value of $Y$ for a given $X$
+-   No error term!
+
+## Choosing values for $\hat{\beta}_1$ and $\hat{\beta}_0$
+
+```{r}
+#| echo: false
+#| fig-align: center
+ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
+  geom_point(alpha = 0.4) +
+  geom_abline(intercept = -111.0, slope = 222.4, color = "red") +
+  geom_abline(intercept = 1000, slope = 100, color = "green") +
+  geom_abline(intercept = -1000, slope = 300, color = "blue") +
+  labs(x = "Temperature (Celsius)",
+       y = "Daily bike rentals")
+```
+
+## Residuals
+
+```{r}
+#| echo: false
+#| fig-align: center
+ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method ="lm", color = "red", se = FALSE) +
+  geom_segment(aes(x=temp_orig, xend=temp_orig, y=count, yend=predict(m, winter)), color = "blue", linetype = "dotted") +
+  labs(x = "Temperature (Celsius)",
+       y = "Daily bike rentals") +
+  theme(legend.position = "none")
+```
+
+$$\text{residual} = \text{observed} - \text{predicted} = y_i - \hat{y}_i$$
+
+## Least squares line
+
+-  **Residual** for the $i^{th}$ observation:
+
+$$e_i = \text{observed} - \text{predicted}
+= y_i - \hat{y}_i$$
+
+-   **Sum of squared residuals**:
+
+$$e^2_1 + e^2_2 + \dots + e^2_n$$
+
+-   **Least squares line** is the one that minimizes the sum of squared residuals
+
+```{r}
+#| echo: false
+sx <- round(sqrt(var(winter$temp_orig)),4)
+sy <- round(sqrt(var(winter$count)),4)
+r <- round(cor(winter$temp_orig, winter$count),4)
+xbar <- round(mean(winter$temp_orig),4)
+ybar <- round(mean(winter$count),4)
+```
+
+# Slope and intercept
+
+## Properties of least squares regression {.smaller}
+
+::: incremental
+-   Passes through center of mass point, the coordinates corresponding to average $X$ and average $Y$: $\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}$
+
+-   Slope has same sign as the correlation coefficient: $\hat{\beta}_1 = r \frac{s_Y}{s_X}$
+
+    + $r$: correlation coefficient
+    + $s_Y, s_X$: sample standard deviations of $X$ and $Y$
+
+-   Sum of the residuals is zero: $\sum_{i = 1}^n e_i \approx 0$
+
+    +   Intuition: Residuals are "balanced"
+
+-   The residuals and $X$ values are uncorrelated
+:::
+
+## Estimating the slope
+
+$$\large{\hat{\beta}_1 = r \frac{s_Y}{s_X}}$$
+
+::: columns
+::: {.column width="50%"}
+```{=tex}
+\begin{aligned}
+s_X &= 4.2121 \\
+s_Y &= 1399.942 \\
+r &= 0.6692
+\end{aligned}
+```
+:::
+
+::: {.column width="50%"}
+```{=tex}
+\begin{aligned}
+\hat{\beta}_1 &= 0.6692 \times \frac{1399.942}{4.2121} \\
+&= 222.417\end{aligned}
+```
+:::
+:::
+
+<br>
+
+::: small
+[Clickhere](https://introregression.netlify.app/98-appendix) for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus.
+:::
+
+## Estimating the intercept
+
+$$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
+
+::: columns
+::: {.column width="40%"}
+```{=tex}
+\begin{aligned}
+&\bar{x} = 12.2076 \\
+&\bar{y} = 2604.133 \\
+&\hat{\beta}_1 = 222.4167
+\end{aligned}
+```
+:::
+
+::: {.column width="60%"}
+```{=tex}
+\begin{aligned}\hat{\beta}_0 &= 2604.133 - 222.4167 \times 12.2076 \\
+&= -111.0411
+\end{aligned}
+```
+:::
+:::
+
+<br>
+
+::: small
+[Click here](https://introregression.netlify.app/98-appendix) for details on deriving the equations for slope and intercept.
+:::
+
+## Interpretation
+
+-  Slope: For each additional unit of $X$ we expect the $Y$ to increase by $\hat{\beta}_1$, on average.
+-  Intercept: If $X$ were 0, we predict $Y$ to be $\hat{\beta}_0$
+
+
+## Does it make sense to interpret the intercept?
+
+`r emo::ji("white_check_mark")` **The intercept is meaningful in the context of the data if**
+
+-   the predictor can feasibly take values equal to or near zero, or
+
+-   there are values near zero in the observed data.
+
+. . .
+
+`r emo::ji("stop_sign")` Otherwise, the intercept may not be meaningful!
+
+## Estimating the regression line in R
+
+-   Let's complete Exercises 7-10
+
+## Recap
+
+::: {.incremental style="font-size: 0.85em"}
+-   Used simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.
+
+-   Used the least squares method to estimate the slope and intercept.
+
+-   Interpreted the slope and intercept.
+
+    -   **Slope**: For every one unit increase in $x$, we expect y to change by $\hat{\beta}_1$ units, on average.
+    -   **Intercept**: If $x$ is 0, then we expect $y$ to be $\hat{\beta}_0$ units
+:::

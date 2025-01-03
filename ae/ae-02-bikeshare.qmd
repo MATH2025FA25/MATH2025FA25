@@ -1,0 +1,131 @@
+---
+title: "AE 02: Bike rentals in Washington, DC"
+subtitle: "Simple linear regression"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-02"
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202853) and locate the `AE-2` assignment. That link should take you directly there.
+
+-   Upload the `ae-02.qmd` and `dcbikeshare.csv` files into the folder you just created.
+:::
+
+```{r load-packages}
+#| message: false
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(patchwork)
+```
+
+## Data
+
+Our data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
+
+We will focus on the following variables in the analysis:
+
+-   `count`: total bike rentals
+-   `temp_orig`: Temperature in degrees Celsius
+-   `season`: 1 - winter, 2 - spring, 3 - summer, 4 - fall
+
+Click [here](https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
+
+## Exercises
+
+### Exercise 0
+
+The following code will load the data. Note that you will likely need to change the file path. You can do this easily by deleting the existing path, pressing the TAB button while your cursor is inbetween the quotes and then selecting the file you want to load.
+
+```{r load-data}
+#| message: false
+bikeshare <- read_csv("../data/dcbikeshare.csv")
+```
+
+### Exercise 1
+
+Below is code to create visualizations of the distributions of daily bike rentals and temperature. Create a scatter plot of the number of rentals vs the temperature and store it in a variable called `p3`. Make sure to include good appropriate labels. Finally, uncomment the last line of code in this chunk. What do you think this last line does? Comment on what you see.
+
+```{r bike-temp-viz}
+#| warning: false
+#| message: false
+
+p1 <- gf_histogram(~ count, data = bikeshare, binwidth = 250) |> 
+  gf_labs(x = "Daily bike rentals")
+
+p2 <- gf_histogram(~temp_orig, data = bikeshare) |>  
+  gf_labs(x = "Temperature (Celsius)")
+
+# (p1 | p2) / p3
+```
+
+\[Add your answer here\]
+
+### Exercise 2
+
+In the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the `season` variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).
+
+```{r recode-season}
+# add code developed during livecoding here
+```
+
+### Exercise 3
+
+We want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.
+
+```{r add-chunk-label-2}
+# add code developed during livecoding here
+```
+
+### Exercise 4
+
+-   Which season appears to have the **strongest** relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?
+
+-   Which season appears to have the **weakest** relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?
+
+\[Add your answer here\]
+
+### Exercise 5
+
+Filter your data for the season with the strongest apparent relationship between temperature and daily bike rentals. Give the resulting data set a new name.
+
+```{r add-chunk-label-3}
+# add code developed during livecoding here
+```
+
+### Exercise 6
+
+Going back to [Exercise 1], there appears to be one day with a very small number of bike rentals. Use `filter` to figure out what that day was? Why were the number of bike rentals so low on that day? *Hint: You can Google the date to figure out what was going on that day.*
+
+### Exercise 7
+
+Using the subset of the data from [Exercise 5], fit a linear model for predicting daily bike rentals from temperature for this season.
+
+```{r add-chunk-label-4}
+# add code developed during livecoding here
+```
+
+### Exercise 8
+
+Use the output to write out the estimated regression equation.
+
+\[Add your answer here\]
+
+### Exercise 9
+
+Interpret the slope in the context of the data.
+
+### Exercise 10
+
+Interpret the intercept in the context of the data.
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the HTML with all of your work from today's class.
+-   The driver for your group should upload your .qmd and .html files to the Canvas assignment.
+:::
