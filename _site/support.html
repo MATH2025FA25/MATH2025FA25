@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-de3f80bca771c548e0c57d70805d6fa2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -193,6 +193,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lectures" id="toc-lectures" class="nav-link active" data-scroll-target="#lectures">Lectures</a></li>
   <li><a href="#office-hours" id="toc-office-hours" class="nav-link" data-scroll-target="#office-hours">Office hours</a></li>
   <li><a href="#teams-discussion-forum" id="toc-teams-discussion-forum" class="nav-link" data-scroll-target="#teams-discussion-forum">Teams Discussion Forum</a></li>
+  <li><a href="#tutoring" id="toc-tutoring" class="nav-link" data-scroll-target="#tutoring">Tutoring</a></li>
   <li><a href="#email" id="toc-email" class="nav-link" data-scroll-target="#email">Email</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/support.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -232,16 +233,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="teams-discussion-forum" class="level2">
 <h2 class="anchored" data-anchor-id="teams-discussion-forum">Teams Discussion Forum</h2>
 <p>Outside of class and office hours, any general questions about course content or assignments should be posted on the <a href="https://teams.microsoft.com/l/channel/19%3AvBRIeFRpxyUJfvl-0Ur9bQWxhR_Wzkpr6iM6V_OBVKA1%40thread.tacv2/?groupId=ffcfc61b-032c-4fe3-883b-fe9fd969ea51">Teams Discussion Forum</a>. If you know the answer to a question that is posted, I encourage you to respond!</p>
-<!-- ## Tutoring -->
-<!-- All tutors are in Jewett 100 during their specified hours. Please see each of the course's tutors with their names and hours below: -->
-<!-- -  Brayden Banks -->
-<!--     +  Monday and Wednesday 7:00 PM - 8:00 PM -->
-<!-- -  Christian Benischek -->
-<!--     +  Wednesday 2:00 PM - 4:00 PM -->
-<!-- -  Logan Bright -->
-<!--     +  Tuesday and Thursday 6:30 PM - 7:30 PM -->
-<!-- -  Suthi de Silva -->
-<!--     +  Monday 12:00 PM - 2:00 PM -->
+</section>
+<section id="tutoring" class="level2">
+<h2 class="anchored" data-anchor-id="tutoring">Tutoring</h2>
+<p>Brayden Banks will be tutoring for MAT-212 this winter term. His hours are Monday and Wednesday from 10 am - 11 am in Jewett 100. If this time doesn’t work for you, feel free email him to meet outside these hours.</p>
 </section>
 <section id="email" class="level2">
 <h2 class="anchored" data-anchor-id="email">Email</h2>
@@ -333,6 +328,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -443,6 +440,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

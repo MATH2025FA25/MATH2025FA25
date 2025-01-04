@@ -33,13 +33,13 @@ We will focus on the following variables in the analysis:
 -   `temp_orig`: Temperature in degrees Celsius
 -   `season`: 1 - winter, 2 - spring, 3 - summer, 4 - fall
 
-Click [here](https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
+Click [here](https://tidyverse.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
 
 ## Exercises
 
 ### Exercise 0
 
-The following code will load the data. Note that you will likely need to change the file path. You can do this easily by deleting the existing path, pressing the TAB button while your cursor is inbetween the quotes and then selecting the file you want to load.
+The following code will load the data. Note that you will likely need to change the file path. You can do this easily by deleting the existing path, pressing the TAB button while your cursor is inbetween the quotes, and then selecting the file you want to load.
 
 ```{r load-data}
 #| message: false
@@ -122,6 +122,26 @@ Interpret the slope in the context of the data.
 ### Exercise 10
 
 Interpret the intercept in the context of the data.
+
+### Exercise 11
+
+Create a visualization of the model we just created.
+
+```{r add-chunk-label-5}
+# add code developed during livecoding here
+```
+
+### Exercise 12
+
+Using only addition, subtraction, multiplication, and division. Compute the number of rentals our model would predict if it were 10 degrees Celcius outside.
+
+### Exercise 13
+
+Verify your answer using the `predict` function.
+
+```{r add-chunk-label-6}
+# add code developed during livecoding here
+```
 
 ::: callout-important
 To submit the AE:

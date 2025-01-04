@@ -286,7 +286,7 @@ See the [syllabus](https://mat212wi25.netlify.app/syllabus) for details on how t
 ## Support
 
 -   Attend office hours to meet with Prof. Friedlander (Boone 126B)
-    -   MTWRF : 10:30-11:30am
+    -   MTWRF : 11:00am-12:00pm
 -   Ask and answer questions on course discussion forum
 -   Use email for questions regarding personal matters and/or grades
 -   See the [Course Support](https://mat212wi25.netlify.app/support) page for more details

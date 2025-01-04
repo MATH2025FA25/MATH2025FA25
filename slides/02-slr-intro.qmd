@@ -39,6 +39,8 @@ Complete Exercises 0 and 1.
 
 -   Interpret the slope and intercept of the regression line.
 
+-   Use R to fit and summarize regression models.
+
 ## Computation set up {.smaller}
 
 ```{r}
@@ -48,7 +50,6 @@ Complete Exercises 0 and 1.
 # load packages
 library(tidyverse)       # for data wrangling
 library(ggformula)       # for plotting
-library(fivethirtyeight) # for the fandango dataset
 library(broom)           # for formatting model output
 library(knitr)           # for formatting tables
 
@@ -63,15 +64,6 @@ knitr::opts_chunk$set(
   dpi = 300,
   out.width = "80%"
 )
-
-bikeshare <- read_csv("../data/dcbikeshare.csv") |> 
-  mutate(season = case_when(
-    season == 1 ~ "winter",
-    season == 2 ~ "spring",
-    season == 3 ~ "summer",
-    season == 4 ~ "fall"
-  ),
-  season = factor(season))
 ```
 
 
@@ -87,17 +79,17 @@ We will focus on the following variables in the analysis:
 -   `temp_orig`: Temperature in degrees Celsius
 -   `season`: 1 - winter, 2 - spring, 3 - summer, 4 - fall
 
-Click [here](https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
+Click [here](https://tidyverse.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
 
 Let's complete Exercises 2-6 together
 
-## Data prep
+## Data prep {.smaller}
 
 -   Exercise 2: Recode `season` as a factor with names instead of numbers (livecode)
 -   Remember:
     +   Think of `|>` as "and then"
     +   `mutate` creates new columns and changes (mutates) existing columns
-    +   R called categorical data "factors"
+    +   R calls categorical data "factors"
     
 ```{r}
 bikeshare <- read_csv("../data/dcbikeshare.csv") |> 
@@ -165,7 +157,7 @@ We fit a line to accomplish one or both of the following:
 **Prediction**
 :::
 
-How many rentals are expected when it's 10 degrees out?\
+How many rentals are expected when it's 10 degrees out?
 
 . . .
 
@@ -173,7 +165,18 @@ How many rentals are expected when it's 10 degrees out?\
 **Inference**
 :::
 
-Is temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree celcius?
+Is temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?
+
+## Population vs. Sample
+
+**Population:** The set of items or events that you're interested in and hoping (able) to generalize the results of your analysis to.
+
+**Sample:** The set of items that you have data for.
+
+**Representative Sample:** A sample that looks like a small version of your population.
+
+**Goal:** Build a model from your sample which generalizes to your population.
+
 
 ## Terminology
 
@@ -195,7 +198,7 @@ p
 
 ## Regression model
 
-**Regression model:** a function that describes the relationship between a quantitive response, $Y$, and the predictor, $X$ (or many predictors).
+**Regression model:** a function that describes the relationship between a quantitative response, $Y$, and the predictor, $X$ (or many predictors).
 
 ```{=tex}
 \begin{aligned} Y &= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
@@ -268,7 +271,7 @@ ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
 ## SLR: Statistical model
 
 - **Simple linear regression:** model to describe the relationship between $Y$ and $X$ where:
-  + $Y$ is a quantitative/numerical reponse
+  + $Y$ is a quantitative/numerical response
   + $X$ is a *single* quantitative predictor
   + $$\Large{Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon}$$
 
@@ -385,7 +388,7 @@ r &= 0.6692
 <br>
 
 ::: small
-[Clickhere](https://introregression.netlify.app/98-appendix) for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus.
+[Click here](https://introregression.netlify.app/98-appendix) for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus.
 :::
 
 ## Estimating the intercept
@@ -438,7 +441,110 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 
 ## Estimating the regression line in R
 
--   Let's complete Exercises 7-10
+-   Let's complete Exercises 7-11
+
+## Fit model & estimate parameters
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|1"
+
+winter_fit <- lm(count ~ temp_orig, data = winter)
+winter_fit
+```
+
+## Look at the regression output
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2"
+
+winter_fit <- lm(count ~ temp_orig, data = winter)
+winter_fit
+```
+
+
+$$\widehat{\text{count}} = -111.0 + 222.4 \times \text{temp_orig}$$
+
+. . .
+
+::: smallest
+**Note:** The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation.
+:::
+
+## The regression output
+
+We'll focus on the first column for now...
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2"
+
+winter_fit |> 
+  tidy() 
+```
+
+## Format output with `kable`
+
+Use the `kable` function from the [knitr](https://yihui.org/knitr/) package to produce a table and specify number of significant digits
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|3"
+
+winter_fit |> 
+  tidy() |>
+  kable(digits = 4)
+```
+
+## Visualize Model
+
+```{r}
+#| echo: true
+
+winter |> 
+  gf_point(count ~ temp_orig) |> 
+  gf_lm()
+```
+
+# Prediction
+
+## Our Model
+
+```{=tex}
+\begin{aligned}
+\widehat{Y} &=  -111.0 + 222.4 \times X\\
+
+\widehat{\text{count}} &=  -111.0 + 222.4 \times \text{temp_orig}
+\end{aligned}
+```
+
+## Making a prediction
+
+Suppose that it's 15 degrees Celsius outside. According to this model, how many bike rentals should we expect if it's winter?
+
+```{=tex}
+\begin{aligned}
+\widehat{\text{count}} &= -111.0 + 222.4 \times \text{temp_orig} \\
+&= -111.0 + 222.4 \times 15 \\
+&= 3225
+\end{aligned}
+```
+
+## Prediction in R
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2|5"
+
+# create a data frame for a new temperature
+new_day <- tibble(temp_orig = 15)
+
+# predict the outcome for a new day
+predict(winter_fit, new_day)
+```
+
+Complete Exercises 12-13.
 
 ## Recap
 
@@ -451,4 +557,9 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 
     -   **Slope**: For every one unit increase in $x$, we expect y to change by $\hat{\beta}_1$ units, on average.
     -   **Intercept**: If $x$ is 0, then we expect $y$ to be $\hat{\beta}_0$ units
+
+-   Predicted the response given a value of the predictor variable.
+
+-   Used `lm` and the `broom` package to fit and summarize regression models in R.
 :::
+
