@@ -62,7 +62,6 @@ Look closely at how Quarto denotes the R code and the output. Also note in the .
 
 Create an R code chunk and compute the log of 10 using the function `log`. Why do you think the answer isn't 1?
 
-
 ### Exercise 4
 
 You can also save values to named variables, to be used later:
@@ -95,7 +94,6 @@ You can also use in-line R code in Quarto, which can be useful when calling defi
 *Only R code (and comments) should be inside chunks.* Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code *and* they'll run the code (resulting in the output and/or graphs).
 
 If you want to run something in R but don't want it to appear in the Quarto document, simply run it in the **Console** in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens.
-
 
 # Multivariate Relationships and Exploratory Data Analysis (EDA) with R
 
@@ -167,7 +165,7 @@ Based on the output above, how many **observations** and how many **variables** 
 
 ### Exercise 11
 
-Let's do a little bit of a data prep. In the **console** type `?starbucks` and look at the definition of `type`. 
+Let's do a little bit of a data prep. In the **console** type `?starbucks` and look at the definition of `type`.
 
 The following is a little bit of data wrangling to get the source data in shape for our purposes. What do you think this code is doing? Make sure you change `eval: FALSE` to `eval: TRUE`.
 
@@ -195,7 +193,7 @@ Here's a short description of each part in the pseudo-code above:
 -   `X` is some explanatory variable; you can use `1` as a placeholder if there is no explanatory variable
 -   `DataSetName` is the name of a data set loaded into the R environment
 
-Always start with clear research questions. Our question for this exercise: 
+Always start with clear research questions. Our question for this exercise:
 
 > *How do the number of carbs compare for `bakery` and `non-bakery` items?*
 
@@ -211,14 +209,11 @@ Use the R code chunk below to calculate the mean carbs by for bakery and non-bak
 mean(carb ~ bakery, data = starbucks)
 ```
 
-
 ### Exercise 13
 
-Of course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for `bakery` and `non-bakery` items using the function `favstats`. Summarize your observations below the code chunk. 
+Of course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for `bakery` and `non-bakery` items using the function `favstats`. Summarize your observations below the code chunk.
 
 (Hint: Do you not know how `favstats` works? Well, it's a function just like any other: it follows the syntax described at the top of this section! Also, you can always find details and examples by searching the Help menu in the lower-right quadrant.)
-
-
 
 ### Exercise 14
 
