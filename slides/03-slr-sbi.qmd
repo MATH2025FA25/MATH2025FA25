@@ -1,0 +1,879 @@
+---
+title: "SLR: Simulation-based inference"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+library(priceR)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
+```
+
+## Application exercise
+
+::: appex
+📋 [AE 03 - Simulation Based Inference](/ae/ae-03-sbi.qmd)
+:::
+
+Complete Exercises 0-2.
+
+# Simulation-Based Inference
+
+-   Bootstrapped confidence intervals
+-   Randomization test for slope
+
+## [Data: San Antonio Income & Organic Food Access]{.r-fit-text}
+
+::: columns
+::: {.column width="60%"}
+-   Average household income (per zip code) and number of organic vegetable offerings in San Antonio, TX
+-   Data from HEB website, compiles by high school student Linda Saucedo, Fall 2019
+-   Source: [**Skew The Script**](https://skewthescript.org/3-1)
+:::
+
+::: {.column width="40%"}
+![](images/03/HEB-Logo.jpg)
+:::
+:::
+
+**Goal**: Use the average household income to understand variation in access to organic foods.
+
+
+## Computational setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)   # for data wrangling and visualization
+library(ggformula)  # for modeling
+library(scales)      # for pretty axis labels
+library(knitr)       # for neatly formatted tables
+library(kableExtra)  # also for neatly formatted tablesf
+
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
+```
+
+# Bootstrapped confidence intervals: Topics
+
+-   Find range of plausible values for the slope using bootstrap confidence intervals
+
+
+## Exploratory data analysis
+
+
+```{r}
+#| code-fold: true
+
+heb <- read_csv("../data/HEBIncome.csv") |> 
+  mutate(Avg_Income_K = Avg_Household_Income/1000)
+
+gf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |> 
+  gf_labs(
+    x = "Average Household Income (in thousands)",
+    y = "Number of Organic Vegetables",
+  ) |> 
+  gf_refine(scale_x_continuous(labels = label_dollar()))
+```
+
+## Modeling {.midi}
+
+```{r}
+#| echo: true
+
+heb_fit <- lm(Number_Organic ~ Avg_Income_K, data = heb)
+
+tidy(heb_fit) |>
+  kable(digits=2) #neatly format table to 2 digits
+```
+
+. . .
+
+```{r}
+#| echo: false
+intercept <- tidy(heb_fit) |> filter(term == "(Intercept)") |> pull(estimate) |> round(digits=2)
+slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> round(digits = 2)
+```
+
+-   **Intercept:** HEBs in Zip Codes with an average household income of \$0 are expected to have `r intercept` organic vegetable options, on average.
+    -   Is this interpretation useful?
+-   **Slope:** For each additional \$1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by `r slope`, on average.
+
+## From sample to population {.midi}
+
+> For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by `r slope`, on average.
+
+<br>
+
+-   Estimate is valid for the single sample of `r nrow(heb)` HEBs
+-   What if we're not interested quantifying the relationship between the size and price of a house in this single sample?
+-   What if we want to say something about the relationship between these variables for all supermarkets in America?
+
+## Statistical inference
+
+-   **Statistical inference** refers to ideas, methods, and tools for to generalizing the single observed sample to make statements (inferences) about the population it comes from
+
+-   For our inferences to be valid, the sample should be random and representative of the population we're interested in
+
+## Sampling is natural {.midi}
+
+![](images/03/soup.png){fig-alt="Illustration of a bowl of soup" fig-align="center"}
+
+-   When you taste a spoonful of soup and decide the spoonful you tasted isn't salty enough, that's exploratory analysis
+-   If you generalize and conclude that your entire soup needs salt, that's an inference
+-   For your inference to be valid, the spoonful you tasted (the sample) needs to be representative of the entire pot (the population)
+
+## Confidence interval via bootstrapping {.midi}
+
+-   Bootstrap new samples from the original sample
+-   Fit models to each of the samples and estimate the slope
+-   Use features of the distribution of the bootstrapped slopes to construct a confidence interval
+
+## Inference for simple linear regression
+
+::: incremental
+
+-   Calculate a confidence interval for the slope, $\beta_1$
+
+-   Conduct a hypothesis test for the slope, $\beta_1$
+
+-   Why not $\beta_0$?
+
+-   We can but it isn't super interesting typically
+
+:::
+
+. . .
+
+::: question
+
+- What is a confidence interval?
+
+- What is a hypothesis test?
+:::
+
+# Confidence interval for the slope
+
+## Confidence interval {.midi}
+
+::: incremental
+-   **Confidence interval**: plausible range of values for a population parameter
+-   single point estimate $\implies$ fishing in a murky lake with a spear
+-   confidence interval $\implies$ fishing with a net
+    -   We can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish
+    -  If we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter
+    -   High confidence $\implies$ wider interval (larger net)
+-   Remember: single CI $\implies$ either you hit parameter or you don't
+    -   [Favorite Visualization](https://rpsychologist.com/d3/ci/)
+:::
+
+## Confidence interval for the slope {.midi}
+
+A confidence interval will allow us to make a statement like "*For each \$1K in average income, the model predicts the number of organic vegetables available at local supermarkets to be higher, on average, by `r slope`, plus or minus X options.*"
+
+. . .
+
+-   Should X be 1? 2? 3?
+
+-   If we were to take another sample of `r nrow(heb)` would we expect the slope calculated based on that sample to be exactly `r slope`? Off by 1? 2? 3?
+
+-   The answer depends on how variable (from one sample to another sample) the sample statistic (the slope) is
+
+-   We need a way to quantify the variability of the sample statistic
+
+## Quantify the variability of the slope {.midi}
+
+**for estimation**
+
+::: incremental
+-   Two approaches:
+    1.  Via simulation (what we'll do today)
+    2.  Via mathematical models (what we'll do soon)
+-   **Bootstrapping** to quantify the variability of the slope for the purpose of estimation:
+    -   Generate new samples by sampling with replacement from the original sample
+    -   Fit models to each of the new samples and estimate the slope
+    -   Use features of the distribution of the bootstrapped slopes to construct a confidence interval
+:::
+
+```{r}
+#| echo: false
+set.seed(119)
+
+heb_boot_samples_5 <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  generate(reps = 5, type = "bootstrap")
+```
+
+## Original Sample
+
+<!-- Fix the scales for these slides, so the difference in slopes is easier to see-->
+```{r}
+#| echo: false
+#| out.width: "100%"
+
+p_heb_obs <- ggplot(heb, aes(x = Avg_Income_K, y = Number_Organic)) +
+  geom_point() +
+  labs(
+    x = "Average Household Income (in thousands)",
+    y = "Number of Organic Vegetables",
+  ) +
+  scale_x_continuous(labels = label_dollar(), limit = c(30, 130)) +
+  scale_y_continuous(labels = label_number(), limits = c(0, 120)) +
+  geom_smooth(method = "lm", se = FALSE, fullrange=TRUE)
+p_heb_obs
+```
+
+## Bootstrap sample 1
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+
+replicate_no <- 1
+
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
+```
+
+
+## Bootstrap sample 2
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+
+replicate_no <- 2
+
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
+```
+
+## Bootstrap sample 3
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+
+replicate_no <- 3
+
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
+```
+
+
+## Bootstrap sample 4
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+
+replicate_no <- 4
+
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
+```
+
+
+## Bootstrap sample 5
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+
+replicate_no <- 5
+
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
+```
+
+## Bootstrap samples 1 - 5
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+
+p_heb_obs +
+  geom_line(data = heb_boot_samples_5, 
+            mapping = aes(x = Avg_Income_K, y = Number_Organic, group = replicate), 
+            stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
+```
+
+## Bootstrap samples 1 - 100
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+set.seed(119)
+
+heb_boot_samples_100 <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  generate(reps = 100, type = "bootstrap")
+
+p_heb_boot_samples_100 <- p_heb_obs +
+  geom_line(data = heb_boot_samples_100, 
+            mapping = aes(x = Avg_Income_K, y = Number_Organic, group = replicate), 
+            stat = "smooth", method = "lm", se = FALSE, alpha = 0.1, color = "red",
+            fullrange=TRUE)
+
+p_heb_boot_samples_100
+```
+
+## Slopes of bootstrap samples
+
+::: question
+**Fill in the blank:** For each additional \$1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by `r slope`, plus or minus \_\_\_.
+:::
+
+```{r}
+#| echo: false
+p_heb_boot_samples_100
+```
+
+## Slopes of bootstrap samples
+
+::: question
+**Fill in the blank:** For each additional \$1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by `r slope`, plus or minus \_\_\_.
+:::
+
+```{r}
+#| echo: false
+heb_boot_samples_100_fit <- heb_boot_samples_100 |>
+  fit()
+
+heb_boot_samples_100_hist <- ggplot(heb_boot_samples_100_fit |> filter(term == "Avg_Income_K"), 
+                                    aes(x = estimate)) +
+  geom_histogram(bins=15, color = "white") +
+  geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
+  labs(x = "Slope", y = "Count",
+       title = "Slopes of 100 bootstrap samples") +
+  scale_x_continuous(labels = label_number())
+
+heb_boot_samples_100_hist
+```
+
+## Confidence level
+
+::: question
+How confident are you that the true slope is between 0.8 and 1.2? How about 0.9 and 1.0? How about 1.0 and 1.4?
+:::
+
+```{r}
+#| echo: false
+heb_boot_samples_100_hist
+```
+
+## 95% confidence interval {.smaller}
+
+```{r}
+#| echo: false
+#| out.width: "70%"
+#| fig-align: "center"
+lower <- heb_boot_samples_100_fit |>
+  ungroup() |>
+  filter(term == "Avg_Income_K") |>
+  summarise(quantile(estimate, 0.025)) |>
+  pull()
+
+upper <- heb_boot_samples_100_fit |>
+  ungroup() |>
+  filter(term == "Avg_Income_K") |>
+  summarise(quantile(estimate, 0.975)) |>
+  pull()
+
+heb_boot_samples_100_hist +
+  geom_vline(xintercept = lower, color = "steelblue", size = 1, linetype = "dashed") +
+  geom_vline(xintercept = upper, color = "steelblue", size = 1, linetype = "dashed")
+```
+
+::: incremental
+-   **95% bootstrapped confidence interval**: bounded by the middle 95% of the bootstrap distribution
+-   We are 95% confident that for each additional \$1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by `r round(lower, 2)` to `r round(upper, 2)`.
+:::
+
+## Computing the CI for the slope I
+
+Calculate the observed slope:
+
+```{r}
+#| echo: true
+
+library(infer) # package that does Simulation-Based Inference
+
+observed_fit <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  fit()
+
+observed_fit
+```
+
+## Computing the CI for the slope II {.smaller}
+
+Take `100` bootstrap samples and fit models to each one:
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|1,5,6"
+
+set.seed(1120)
+
+boot_fits <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  generate(reps = 100, type = "bootstrap") |>
+  fit()
+
+boot_fits
+```
+
+## Computing the CI for the slope III
+
+**Percentile method:** Compute the 95% CI as the middle 95% of the bootstrap distribution:
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|5"
+
+get_confidence_interval(
+  boot_fits, 
+  point_estimate = observed_fit, 
+  level = 0.95,
+  type = "percentile" #default method
+)
+```
+
+Complete Exercises 3-6
+
+## Precision vs. accuracy
+
+::: question
+If we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?
+:::
+
+. . .
+
+![](images/03/garfield.png)
+
+## Precision vs. accuracy
+
+::: question
+How can we get best of both worlds -- high precision and high accuracy?
+:::
+
+## Changing confidence level
+
+::: question
+How would you modify the following code to calculate a 90% confidence interval? How would you modify it for a 99% confidence interval?
+:::
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|4"
+
+get_confidence_interval(
+  boot_fits, 
+  point_estimate = observed_fit, 
+  level = 0.95,
+  type = "percentile"
+)
+```
+
+## Changing confidence level {.midi}
+
+```{r}
+#| echo: true
+
+## confidence level: 90%
+get_confidence_interval(
+  boot_fits, point_estimate = observed_fit, 
+  level = 0.90, type = "percentile"
+)
+
+## confidence level: 99%
+get_confidence_interval(
+  boot_fits, point_estimate = observed_fit, 
+  level = 0.99, type = "percentile"
+)
+```
+
+Complete Exercises 7-11.
+
+
+
+# Randomization Test for Slope: Topics
+
+-   Evaluate a claim about the slope using hypothesis testing
+
+<!-- -   Define mathematical models to conduct inference for slope -->
+
+
+## The regression model
+
+```{r}
+heb_fit <- lm(Number_Organic ~ Avg_Income_K, data = heb)
+
+tidy(heb_fit) |>
+  kable(digits = 2)
+```
+
+. . .
+
+```{r}
+#| echo: false
+intercept <- tidy(heb_fit) |> filter(term == "(Intercept)") |> pull(estimate) |> round(digits=2)
+slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> round(digits=2)
+```
+
+**Slope:** For each additional \$1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by `r slope`, on average.
+
+
+## Research question and hypotheses
+
+"Do the data provide sufficient evidence that $\beta_1$ (the true slope for the population) is different from 0?"
+
+. . .
+
+**Null hypothesis**: there is no linear relationship between `Number_Organic` and `Avg_Income_K`
+
+$$
+H_0: \beta_1 = 0
+$$
+
+. . .
+
+**Alternative hypothesis**: there is a linear relationship between `Number_Organic` and `Avg_Income_K`
+
+$$
+H_A: \beta_1 \ne 0
+$$
+
+## Hypothesis testing as a court trial
+
+::: incremental
+-   **Null hypothesis**, $H_0$: Defendant is innocent
+-   **Alternative hypothesis**, $H_A$: Defendant is guilty
+-   **Present the evidence:** Collect data
+-   **Judge the evidence:** "Could these data plausibly have happened by chance if the null hypothesis were true?"
+    -   Yes: Fail to reject $H_0$
+    -   No: Reject $H_0$
+-   Not guilty $\neq$ innocent $\implies$ why we say "fail to reject the null" rather than "accept the null"
+:::
+
+## Hypothesis testing framework {.midi}
+
+::: incremental
+-   Start with a null hypothesis, $H_0$ that represents the status quo
+-   Set an alternative hypothesis, $H_A$ that represents the research question, i.e. claim we're testing
+-   Under the assumption that the null hypothesis is true, calculate a **p-value** (probability of getting outcome or outcome even more favorable to the alternative)
+    -   if the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis
+    -   if they do, then reject the null hypothesis in favor of the alternative
+:::
+
+Complete Exercise 12
+
+## Quantify the variability of the slope {.midi}
+
+**for testing**
+
+::: incremental
+-   Two approaches:
+    1.  Via simulation
+    2.  Via mathematical models
+-   Use **Randomization** to quantify the variability of the slope for the purpose of testing, *under the assumption that the null hypothesis is true*:
+    -   Simulate new samples from the original sample via permutation
+    -   Fit models to each of the samples and estimate the slope
+    -   Use features of the distribution of the permuted slopes to conduct a hypothesis test
+:::
+
+## Permutation, described {.smaller}
+
+::: columns
+::: {.column width="40%"}
+-   Use permuting to simulate data under the assumption the null hypothesis is true and measure the natural variability in the data due to sampling, [**not**]{.underline} due to variables being correlated
+    -   Permute/shuffle response variable to eliminate any existing relationship with explanatory variable
+-   Each `Number_Organic` value is randomly assigned to the `Avg_Household_K`, i.e. `Number_Organic` and `Avg_Household_K` are no longer matched for a given store
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+set.seed(1234)
+
+heb_rand <- heb |>
+  mutate(
+    Number_Organic_Original = Number_Organic,
+    Number_Organic_Permuted = sample(Number_Organic, size = nrow(heb))
+    ) |>
+  select(contains("Number_Organic_"), Avg_Income_K)
+heb_rand
+```
+:::
+:::
+
+## Permutation, visualized
+
+::: columns
+::: {.column width="50%"}
+-   Each of the observed values for `area` (and for `price`) exist in both the observed data plot as well as the permuted `price` plot
+-   Permuting removes the relationship between `area` and `price`
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| fig.asp: 1.2
+#| echo: false
+
+heb_rand |>
+  pivot_longer(cols = contains("Number_Organic_"), names_to = "Number_Organic_Type", names_prefix = "Number_Organic_", values_to = "Number_Organic") |>
+  ggplot(aes(x = Avg_Income_K, y = Number_Organic)) +
+  geom_point() +
+  geom_smooth(aes(color = Number_Organic_Type), method = "lm", se = FALSE, show.legend = FALSE) +
+  facet_wrap(~Number_Organic_Type, nrow = 2) +
+  scale_color_manual(values = c("#8F2D56", "gray")) +
+  scale_x_continuous(labels = label_number()) +
+  scale_y_continuous(labels = label_dollar()) +
+  labs(x = "Avg_Income_K", y = "Number_Organic") +
+  theme(text = element_text(size = 20))
+```
+:::
+:::
+
+## Permutation, repeated
+
+Repeated permutations allow for quantifying the variability in the slope under the condition that there is no linear relationship (i.e., that the null hypothesis is true)
+
+```{r}
+#| echo: false
+
+set.seed(1125)
+
+heb_perms_1000 <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute")
+
+ggplot(heb_perms_1000,
+       aes(x = Avg_Income_K, y = Number_Organic, group = replicate)) +
+  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.1) +
+  labs(
+    x = "Average Household Income (in thousands)",
+    y = "Number of Organic Vegetables",
+  ) +
+  scale_x_continuous(labels = label_dollar(), limits = c(range(heb$Avg_Income_K))) +
+  scale_y_continuous(labels = label_number(), limits = c(range(heb$Number_Organic))) +
+  geom_abline(intercept = intercept, slope = slope, color = "#8F2D56")
+```
+
+## Concluding the hypothesis test {.smaller}
+
+::: question
+Is the observed slope of $\hat{\beta_1} = 0.96$ (or an even more extreme slope) a likely outcome under the null hypothesis that $\beta = 0$? What does this mean for our original question: "Do the data provide sufficient evidence that $\beta_1$ (the true slope for the population) is different from 0?"
+:::
+
+```{r}
+#| out.width: "60%"
+#| fig.asp: 0.618
+#| echo: false
+
+null_dist <- heb_perms_1000 |>
+  fit()
+
+ggplot(null_dist |> filter(term == "Avg_Income_K"),
+       aes(x = estimate)) +
+  geom_histogram(color = "white") +
+  labs(x = "Slope", y = "Count",
+       title = "Slopes of 1000 permuted samples") +
+  geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
+  geom_vline(xintercept = -1*slope, color = "#8F2D56", size = 1, linetype = "dashed") +
+  scale_x_continuous(limits = c(-slope, slope), breaks = seq(-150, 150, 50))
+```
+
+
+
+## Permutation pipeline I
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|1|3|4"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K)
+```
+
+## Permutation pipeline II
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|5"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence")
+```
+
+## Permutation pipeline III
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|6"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute")
+```
+
+## Permutation pipeline IV
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|7"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  fit()
+```
+
+## Permutation pipeline V
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|3"
+
+set.seed(1218)
+
+null_dist <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  fit()
+```
+
+## Visualize the null distribution
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2"
+
+null_dist |>
+  filter(term == "Avg_Income_K") |>
+  gf_histogram(~estimate, color = "white")
+```
+
+Complete Exercises 13 and 14.
+
+## Reason around the p-value {.smaller}
+
+::: question
+In a world where the there is no relationship between the the number of organic food options and the nearby average household income ($\beta_1 = 0$), what is the probability that we observe a sample of `r nrow(heb)` stores where the slope fo the model predicting the number of organic options from average household income is 0.96 or even more extreme?
+:::
+
+```{r}
+#| echo: false
+
+null_dist |>
+  filter(term == "Avg_Income_K") |>
+  ggplot(aes(x = estimate)) +
+  geom_histogram(color = "white") +
+  geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
+  geom_vline(xintercept = -1*slope, color = "#8F2D56", size = 1, linetype = "dashed") +
+  scale_x_continuous(limits = c(-slope, slope))
+```
+
+## Compute the p-value
+
+::: question
+What does this warning mean?
+:::
+
+```{r}
+#| echo: true
+#| warning: true
+
+get_p_value(
+  null_dist,
+  obs_stat = observed_fit, # Same as from confidence intervals
+  direction = "two-sided"
+)
+```
+
+Complete Exercises 15 and 16.
+
+## Recap {.smaller}
+
+-   **Population:** Complete set of observations of whatever we are studying, e.g., people, tweets, photographs, etc. (population size = $N$)
+
+-   **Sample:** Subset of the population, ideally random and representative (sample size = $n$)
+
+-   Sample statistic $\ne$ population parameter, but if the sample is good, it can be a good estimate
+
+-   **Statistical inference:** Discipline that concerns itself with the development of procedures, methods, and theorems that allow us to extract meaning and information from data that has been generated by stochastic (random) process
+
+## Recap Continued {.smaller}
+
+-   **Estimation:** Use data to compute point estimate
+
+    +   Report the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population
+
+-   **Testing:** Conduct a *hypothesis test*
+
+    +   Assume research question isn't true (Null hypothesis)
+    +   Ask what distribution of test statistic is if null is true
+    +   Ask if your data would be unusual if under this null distribution
+    +   P-value: Probability your data (or even stronger evidence) was obstained from null distribution

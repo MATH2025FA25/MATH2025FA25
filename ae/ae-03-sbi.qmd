@@ -1,0 +1,258 @@
+---
+title: "AE 03: Simulation-Based Inference"
+subtitle: "Bikeshare"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-03"
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202831) and locate your `AE 03` assignment to get started.
+
+-   Upload the `ae-03.qmd` and `dcbikeshare.csv` files into the folder you just created.
+:::
+
+```{r load-packages}
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(broom)
+library(openintro)
+library(kableExtra)
+```
+
+## Data
+
+Our dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
+
+We will focus on the following variables in the analysis:
+
+-   `count`: total bike rentals
+-   `temp_orig`: Temperature in degrees Celsius
+
+```{r glimpse-data}
+bikeshare <- read_csv("../data/dcbikeshare.csv") |>
+  mutate(season = case_when(
+    season == 1 ~ "winter",
+    season == 2 ~ "spring",
+    season == 3 ~ "summer",
+    season == 4 ~ "fall"
+  ),
+  season = factor(season))
+
+glimpse(bikeshare)
+```
+
+## Exercises
+
+In this activity, each group will be assigned a season to use:
+
+-   Group 1: `winter`
+-   Group 2: `spring`
+-   Group 3: `summer`
+-   Group 4: `fall`
+
+### Exercise 0
+
+Filter the `bikeshare` data set so that it only contains observations from your assigned season. Make sure to give the new data set a different name.
+
+### Exercise 1
+
+Conduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think `alpha` does?
+
+```{r scatterplot}
+#| eval: FALSE
+
+gf______(______, data = ______, alpha = 0.7) |> 
+  gf_labs(
+    x = "Temperature (C)",
+    y = "Number of Bike Rentals",
+  )
+```
+
+### Exercise 2
+
+Fit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.
+
+```{r fit-model}
+#| eval: FALSE
+
+model_fit <- lm(_____ ~ ______, data = _____)
+
+tidy(_____) |>
+  kable(digits = _____)
+```
+
+### Exercise 3
+
+Load the `infer` package and calculate the observed fit (slope)
+
+```{r observed-fit}
+#| eval: FALSE
+
+observed_fit <- ____ |>
+  specify(count ~ temp_orig) |>
+  fit()
+
+observed_fit
+```
+
+### Exercise 4
+
+Take *n* bootstrap samples and fit models to each one.
+
+Fill in the code, then set `eval: true` .
+
+```{r bootstrap}
+#| eval: false
+
+n <- 100
+set.seed(212)
+
+boot_fits <- ______ |>
+  specify(______) |>
+  generate(reps = ____, type = "bootstrap") |>
+  fit()
+
+boot_fits
+```
+
+-   Why do we set a seed before taking the bootstrap samples?
+
+### Exercise 5 (Challenging)
+
+Make a histogram of the bootstrap samples to visualize the bootstrap distribution.
+
+```{r boot-hist}
+# Code for histogram
+```
+
+### Exercise 6
+
+Compute *and interpret* the 95% confidence interval as the middle 95% of the bootstrap distribution.
+
+Fill in the code, then set `eval: true` .
+
+```{r calc-ci}
+#| eval: false
+
+get_confidence_interval(
+  boot_fits,
+  point_estimate = _____,
+  level = ____,
+  type = "percentile"
+)
+```
+
+### Exercise 7
+
+Modify the code from Exercise 6 to create a 90% confidence interval.
+
+```{r 90-ci}
+# Paste code for 90% confidence interval
+```
+
+### Exercise 8
+
+Modify the code from Exercise 6 to create a 90% confidence interval.
+
+```{r 99-ci}
+# Paste code for 90% confidence interval
+```
+
+### Exercise 9
+
+-   Which confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain
+
+-   Which confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain
+
+-   If we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?
+
+### Exercise 10
+
+-   If your sample size $n$ is increased, what impact do you think this will have on accuracy and precision?
+
+-   What about if you increase the number of bootstrapped replicates?
+
+### Exercise 11
+
+Your professor is interested in calculating the average amount of time CofI students spend doing homework.
+
+-   If he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?
+
+-   If, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?
+
+### Exercise 12
+
+Write down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage "math mode". 
+
+$$
+H_0: 
+$$
+
+### Exercise 13
+
+Generate null distribution using permutation
+
+Fill in the code, then set `eval: true` .
+
+```{r permutation}
+#| eval: false
+
+n = 100
+set.seed(212)
+
+null_dist <- _____ |>
+  specify(______) |>
+  hypothesize(null = "independence") |>
+  generate(reps = _____, type = "permute") |>
+  fit()
+```
+
+### Exercise 14
+
+Visualize the null distribution. Does your slope seem unusual if we assume the null hypothesis is the truth?
+
+```{r null-dist}
+# Code for histogram of null distribution
+```
+
+### Exercise 15
+
+Fill in the code below to compute the p-value. Have your reporter write the value on the board.
+
+```{r calc-pvalue}
+#| eval: false 
+
+# get observed fit 
+observed_fit <- _____ |>
+  specify(____) |>
+  fit()
+
+# calculate p-value
+get_p_value(
+  ____,
+  obs_stat = ____,
+  direction = "two-sided"
+)
+```
+
+### Exercise 16
+
+- Do larger or smaller p-values provide evidence for the alternative hypothesis?
+
+- Do larger or smaller p-values provide evidence for your research question?
+
+- Interpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?
+
+
+::: callout-important
+To submit the AE:
+
+Render the document to produce the HTML with all of your work from today's class.
+
+The driver for your group should upload your .qmd and .html files to the Canvas assignment.
+:::
