@@ -1002,108 +1002,75 @@
     "text": "Instructor\nEric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics.\nOutside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.\n\n\n\nOffice hours (Boone 126B)\n\n\n\n\n\nMTWRF\n11:00am-12:00pm\n\n\nor by appointment."
   },
   {
-    "objectID": "hw/hw-02-old.html",
-    "href": "hw/hw-02-old.html",
-    "title": "HW 02: Ice duration and air temperature in Madison, WI",
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "HW 01: Park access",
     "section": "",
-    "text": "In this homework, you’ll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.\n\n\nBy the end of the hw you will…\n\nBe able to fit a simple linear regression model using R.\nBe able to interpret the slope and intercept for the model.\nBe able to use simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis."
+    "text": "This HW will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts and to analyze real data and come to informed conclusions.\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\n\nBy the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
   },
   {
-    "objectID": "hw/hw-02-old.html#learning-goals",
-    "href": "hw/hw-02-old.html#learning-goals",
-    "title": "HW 02: Ice duration and air temperature in Madison, WI",
+    "objectID": "hw/hw-01.html#learning-goals",
+    "href": "hw/hw-01.html#learning-goals",
+    "title": "HW 01: Park access",
     "section": "",
-    "text": "By the end of the hw you will…\n\nBe able to fit a simple linear regression model using R.\nBe able to interpret the slope and intercept for the model.\nBe able to use simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis."
+    "text": "By the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
   },
   {
-    "objectID": "hw/hw-02-old.html#exercise-10",
-    "href": "hw/hw-02-old.html#exercise-10",
-    "title": "HW 02: Ice duration and air temperature in Madison, WI",
-    "section": "Exercise 10",
-    "text": "Exercise 10\n\nThere is a statistically significant linear relationship between average air temperature and average ice duration on Lake Monona \\((\\beta_1 \\neq 0)\\).\n\nDoes the confidence interval you calculated in the previous exercise support or refute this claim? Briefly explain.\nWritten answer here.\n\n\n\n\n\n\nTip\n\n\n\nRender your document here."
+    "objectID": "hw/hw-01.html#r-and-r-studio",
+    "href": "hw/hw-01.html#r-and-r-studio",
+    "title": "HW 01: Park access",
+    "section": "R and R Studio",
+    "text": "R and R Studio\nHere are the components of the RStudio IDE and here are the components of an Quarto (.qmd) file.\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for ““Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file."
   },
   {
-    "objectID": "hw/hw-02-old.html#footnotes",
-    "href": "hw/hw-02-old.html#footnotes",
-    "title": "HW 02: Ice duration and air temperature in Madison, WI",
+    "objectID": "hw/hw-01.html#footnotes",
+    "href": "hw/hw-01.html#footnotes",
+    "title": "HW 01: Park access",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nhttps://lter.github.io/lterdatasampler/index.html↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
-    "objectID": "computing-r-resources.html",
-    "href": "computing-r-resources.html",
-    "title": "Resources for learning R",
+    "objectID": "computing-inferencesummary.html",
+    "href": "computing-inferencesummary.html",
+    "title": "R Cheatsheet",
     "section": "",
-    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
+    "text": "Histogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side “dodged” barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"dodge\")\nStacked barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data)\nStandardized barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"fill\")\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
     "crumbs": [
       "Computing",
-      "R resources"
+      "R Cheatsheet"
     ]
   },
   {
-    "objectID": "computing-r-resources.html#books-free-online",
-    "href": "computing-r-resources.html#books-free-online",
-    "title": "Resources for learning R",
+    "objectID": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "href": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "title": "R Cheatsheet",
+    "section": "Useful code for calculating summary statistics: (requires mosaic)",
+    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)\n\n\nUseful functions fitting and analyzing models\n\n\n\nModel type\nAction\nFunction\n\n\n\n\nSimple Linear Regression\nFit Model\nlm(Y ~ X, data = data_name)",
+    "crumbs": [
+      "Computing",
+      "R Cheatsheet"
+    ]
+  },
+  {
+    "objectID": "ae/ae-03-sbi.html",
+    "href": "ae/ae-03-sbi.html",
+    "title": "AE 03: Simulation-Based Inference",
     "section": "",
-    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
-    "crumbs": [
-      "Computing",
-      "R resources"
-    ]
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-03”\nGo to the Canvas and locate your AE 03 assignment to get started.\nUpload the ae-03-sbi.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(openintro)\nlibrary(kableExtra)"
   },
   {
-    "objectID": "computing-r-resources.html#rstudio-primers",
-    "href": "computing-r-resources.html#rstudio-primers",
-    "title": "Resources for learning R",
-    "section": "RStudio Primers",
-    "text": "RStudio Primers\n\nInteractive LearnR Tutorial\nR Primers for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.",
-    "crumbs": [
-      "Computing",
-      "R resources"
-    ]
-  },
-  {
-    "objectID": "computing-r-resources.html#additional-resources",
-    "href": "computing-r-resources.html#additional-resources",
-    "title": "Resources for learning R",
-    "section": "Additional resources",
-    "text": "Additional resources\n\nRStudio Cheatsheets\nR Fun workshops and videos by Duke Center for Data and Visualization Sciences.",
-    "crumbs": [
-      "Computing",
-      "R resources"
-    ]
-  },
-  {
-    "objectID": "computing-access.html",
-    "href": "computing-access.html",
-    "title": "Computing access",
-    "section": "",
-    "text": "To access RStudio at the College of Idaho, go to the CofI Posit Workbench website and sign-in using the CofI email and password.",
-    "crumbs": [
-      "Computing",
-      "Computing access"
-    ]
-  },
-  {
-    "objectID": "ae/ae-02-bikeshare.html",
-    "href": "ae/ae-02-bikeshare.html",
-    "title": "AE 02: Bike rentals in Washington, DC",
-    "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-02”\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nUpload the ae-02.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
-  },
-  {
-    "objectID": "ae/ae-02-bikeshare.html#data",
-    "href": "ae/ae-02-bikeshare.html#data",
-    "title": "AE 02: Bike rentals in Washington, DC",
+    "objectID": "ae/ae-03-sbi.html#data",
+    "href": "ae/ae-03-sbi.html#data",
+    "title": "AE 03: Simulation-Based Inference",
     "section": "Data",
-    "text": "Data\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions."
+    "text": "Data\nOur dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt;\n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))\n\nRows: 731 Columns: 17\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...\ndate  (1): dteday\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nglimpse(bikeshare)\n\nRows: 731\nColumns: 17\n$ instant    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …\n$ dteday     &lt;date&gt; 2011-01-01, 2011-01-02, 2011-01-03, 2011-01-04, 2011-01-05…\n$ season     &lt;fct&gt; winter, winter, winter, winter, winter, winter, winter, win…\n$ yr         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ mnth       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ holiday    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,…\n$ weekday    &lt;dbl&gt; 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4,…\n$ workingday &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…\n$ weathersit &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2,…\n$ temp       &lt;dbl&gt; 0.3441670, 0.3634780, 0.1963640, 0.2000000, 0.2269570, 0.20…\n$ atemp      &lt;dbl&gt; 0.3636250, 0.3537390, 0.1894050, 0.2121220, 0.2292700, 0.23…\n$ hum        &lt;dbl&gt; 0.805833, 0.696087, 0.437273, 0.590435, 0.436957, 0.518261,…\n$ windspeed  &lt;dbl&gt; 0.1604460, 0.2485390, 0.2483090, 0.1602960, 0.1869000, 0.08…\n$ casual     &lt;dbl&gt; 331, 131, 120, 108, 82, 88, 148, 68, 54, 41, 43, 25, 38, 54…\n$ registered &lt;dbl&gt; 654, 670, 1229, 1454, 1518, 1518, 1362, 891, 768, 1280, 122…\n$ count      &lt;dbl&gt; 985, 801, 1349, 1562, 1600, 1606, 1510, 959, 822, 1321, 126…\n$ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.37826…"
   },
   {
-    "objectID": "ae/ae-02-bikeshare.html#exercises",
-    "href": "ae/ae-02-bikeshare.html#exercises",
-    "title": "AE 02: Bike rentals in Washington, DC",
+    "objectID": "ae/ae-03-sbi.html#exercises",
+    "href": "ae/ae-03-sbi.html#exercises",
+    "title": "AE 03: Simulation-Based Inference",
     "section": "Exercises",
-    "text": "Exercises\n\nExercise 0\nThe following code will load the data. Note that you will likely need to change the file path. You can do this easily by deleting the existing path, pressing the TAB button while your cursor is inbetween the quotes, and then selecting the file you want to load.\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\")\n\n\n\nExercise 1\nBelow is code to create visualizations of the distributions of daily bike rentals and temperature. Create a scatter plot of the number of rentals vs the temperature and store it in a variable called p3. Make sure to include good appropriate labels. Finally, uncomment the last line of code in this chunk. What do you think this last line does? Comment on what you see.\n\np1 &lt;- gf_histogram(~ count, data = bikeshare, binwidth = 250) |&gt; \n  gf_labs(x = \"Daily bike rentals\")\n\np2 &lt;- gf_histogram(~temp_orig, data = bikeshare) |&gt;  \n  gf_labs(x = \"Temperature (Celsius)\")\n\n# (p1 | p2) / p3\n\n[Add your answer here]\n\n\nExercise 2\nIn the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the season variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).\n\n# add code developed during livecoding here\n\n\n\nExercise 3\nWe want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.\n\n# add code developed during livecoding here\n\n\n\nExercise 4\n\nWhich season appears to have the strongest relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?\nWhich season appears to have the weakest relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?\n\n[Add your answer here]\n\n\nExercise 5\nFilter your data for the season with the strongest apparent relationship between temperature and daily bike rentals. Give the resulting data set a new name.\n\n# add code developed during livecoding here\n\n\n\nExercise 6\nGoing back to Exercise 1, there appears to be one day with a very small number of bike rentals. Use filter to figure out what that day was? Why were the number of bike rentals so low on that day? Hint: You can Google the date to figure out what was going on that day.\n\n\nExercise 7\nUsing the subset of the data from Exercise 5, fit a linear model for predicting daily bike rentals from temperature for this season.\n\n# add code developed during livecoding here\n\n\n\nExercise 8\nUse the output to write out the estimated regression equation.\n[Add your answer here]\n\n\nExercise 9\nInterpret the slope in the context of the data.\n\n\nExercise 10\nInterpret the intercept in the context of the data.\n\n\nExercise 11\nCreate a visualization of the model we just created.\n\n# add code developed during livecoding here\n\n\n\nExercise 12\nUsing only addition, subtraction, multiplication, and division. Compute the number of rentals our model would predict if it were 10 degrees Celcius outside.\n\n\nExercise 13\nVerify your answer using the predict function.\n\n# add code developed during livecoding here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
+    "text": "Exercises\nIn this activity, each group will be assigned a season to use:\n\nGroup 1: winter\nGroup 2: spring\nGroup 3: summer\nGroup 4: fall\n\n\nExercise 0\nFilter the bikeshare data set so that it only contains observations from your assigned season. Make sure to give the new data set a different name.\n\n\nExercise 1\nConduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think alpha does?\n\ngf______(______, data = ______, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Temperature (C)\",\n    y = \"Number of Bike Rentals\",\n  )\n\n\n\nExercise 2\nFit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.\n\nmodel_fit &lt;- lm(_____ ~ ______, data = _____)\n\ntidy(_____) |&gt;\n  kable(digits = _____)\n\n\n\nExercise 3\nLoad the infer package and calculate the observed fit (slope)\n\nobserved_fit &lt;- ____ |&gt;\n  specify(count ~ temp_orig) |&gt;\n  fit()\n\nobserved_fit\n\n\n\nExercise 4\nTake n bootstrap samples and fit models to each one.\nFill in the code, then set eval: true .\n\nn &lt;- 100\nset.seed(212)\n\nboot_fits &lt;- ______ |&gt;\n  specify(______) |&gt;\n  generate(reps = ____, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n\nWhy do we set a seed before taking the bootstrap samples?\n\n\n\nExercise 5 (Challenging)\nMake a histogram of the bootstrap samples to visualize the bootstrap distribution.\n\n# Code for histogram\n\n\n\nExercise 6\nCompute and interpret the 95% confidence interval as the middle 95% of the bootstrap distribution.\nFill in the code, then set eval: true .\n\nget_confidence_interval(\n  boot_fits,\n  point_estimate = _____,\n  level = ____,\n  type = \"percentile\"\n)\n\n\n\nExercise 7\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 8\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 9\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\nExercise 10\n\nIf your sample size \\(n\\) is increased, what impact do you think this will have on accuracy and precision?\nWhat about if you increase the number of bootstrapped replicates?\n\n\n\nExercise 11\nYour professor is interested in calculating the average amount of time CofI students spend doing homework.\n\nIf he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?\nIf, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?\n\n\n\nExercise 12\nWrite down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage “math mode”.\n\\[\nH_0:\n\\]\n\n\nExercise 13\nGenerate null distribution using permutation\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(212)\n\nnull_dist &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\") |&gt;\n  fit()\n\n\n\nExercise 14\nVisualize the null distribution. Does your slope seem unusual if we assume the null hypothesis is the truth?\n\n# Code for histogram of null distribution\n\n\n\nExercise 15\nFill in the code below to compute the p-value. Have your reporter write the value on the board.\n\n# get observed fit \nobserved_fit &lt;- _____ |&gt;\n  specify(____) |&gt;\n  fit()\n\n# calculate p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\n\n\nExercise 16\n\nDo larger or smaller p-values provide evidence for the alternative hypothesis?\nDo larger or smaller p-values provide evidence for your research question?\nInterpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
   },
   {
     "objectID": "ae/ae-01-multivariate-relationships.html",
@@ -1148,75 +1115,80 @@
     "text": "Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The pseudo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do the number of carbs compare for bakery and non-bakery items?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nExercise 12\nUse the R code chunk below to calculate the mean carbs by for bakery and non-bakery items. Summarize your observations below the code chunk.\n\nmean(carb ~ bakery, data = starbucks)\n\n\n\nExercise 13\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for bakery and non-bakery items using the function favstats. Summarize your observations below the code chunk.\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section! Also, you can always find details and examples by searching the Help menu in the lower-right quadrant.)\n\n\nExercise 14\nLet’s generate some univariate (i.e. one-variable) EDA plots for our three variables. In general, can use histograms or boxplots (gf_histogram or gf_boxplot) for quantitative variables and bar charts gf_bar for categorical variables. Fill in the blanks in the code below to generate the corresponding plots. Then create a boxplot of carb. Finally, share your observations below the code:\n\n# make a histogram of carb\ngf_histogram(~ carb, data = starbucks)\n\n# make a histogram of calories\ngf_histgoram(~ _____, data = ______)\n\n# make a bar chart of bakery\ngf_bar(~ _____, data = _____)\n\n# make a boxplot of carb\n\n\n\nExercise 15\nLet’s not generate some bivariate (i.e. two-variable) EDA plots for our three variables. For two-quantitative variables we typically use a scatter plot gf_point. If we are comparing a quantitative and a categorical variable will use side-by-side boxplots gf_boxplot. Generate and plot to visualize carb and calories and one to visualize carb and bakery. Comment on your observations."
   },
   {
-    "objectID": "ae/ae-03-sbi.html",
-    "href": "ae/ae-03-sbi.html",
-    "title": "AE 03: Simulation-Based Inference",
+    "objectID": "ae/ae-02-bikeshare.html",
+    "href": "ae/ae-02-bikeshare.html",
+    "title": "AE 02: Bike rentals in Washington, DC",
     "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-03”\nGo to the Canvas and locate your AE 03 assignment to get started.\nUpload the ae-03-sbi.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(openintro)\nlibrary(kableExtra)"
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-02”\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nUpload the ae-02.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
   },
   {
-    "objectID": "ae/ae-03-sbi.html#data",
-    "href": "ae/ae-03-sbi.html#data",
-    "title": "AE 03: Simulation-Based Inference",
+    "objectID": "ae/ae-02-bikeshare.html#data",
+    "href": "ae/ae-02-bikeshare.html#data",
+    "title": "AE 02: Bike rentals in Washington, DC",
     "section": "Data",
-    "text": "Data\nOur dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt;\n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))\n\nRows: 731 Columns: 17\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...\ndate  (1): dteday\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nglimpse(bikeshare)\n\nRows: 731\nColumns: 17\n$ instant    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …\n$ dteday     &lt;date&gt; 2011-01-01, 2011-01-02, 2011-01-03, 2011-01-04, 2011-01-05…\n$ season     &lt;fct&gt; winter, winter, winter, winter, winter, winter, winter, win…\n$ yr         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ mnth       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ holiday    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,…\n$ weekday    &lt;dbl&gt; 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4,…\n$ workingday &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…\n$ weathersit &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2,…\n$ temp       &lt;dbl&gt; 0.3441670, 0.3634780, 0.1963640, 0.2000000, 0.2269570, 0.20…\n$ atemp      &lt;dbl&gt; 0.3636250, 0.3537390, 0.1894050, 0.2121220, 0.2292700, 0.23…\n$ hum        &lt;dbl&gt; 0.805833, 0.696087, 0.437273, 0.590435, 0.436957, 0.518261,…\n$ windspeed  &lt;dbl&gt; 0.1604460, 0.2485390, 0.2483090, 0.1602960, 0.1869000, 0.08…\n$ casual     &lt;dbl&gt; 331, 131, 120, 108, 82, 88, 148, 68, 54, 41, 43, 25, 38, 54…\n$ registered &lt;dbl&gt; 654, 670, 1229, 1454, 1518, 1518, 1362, 891, 768, 1280, 122…\n$ count      &lt;dbl&gt; 985, 801, 1349, 1562, 1600, 1606, 1510, 959, 822, 1321, 126…\n$ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.37826…"
+    "text": "Data\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions."
   },
   {
-    "objectID": "ae/ae-03-sbi.html#exercises",
-    "href": "ae/ae-03-sbi.html#exercises",
-    "title": "AE 03: Simulation-Based Inference",
+    "objectID": "ae/ae-02-bikeshare.html#exercises",
+    "href": "ae/ae-02-bikeshare.html#exercises",
+    "title": "AE 02: Bike rentals in Washington, DC",
     "section": "Exercises",
-    "text": "Exercises\nIn this activity, each group will be assigned a season to use:\n\nGroup 1: winter\nGroup 2: spring\nGroup 3: summer\nGroup 4: fall\n\n\nExercise 0\nFilter the bikeshare data set so that it only contains observations from your assigned season. Make sure to give the new data set a different name.\n\n\nExercise 1\nConduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think alpha does?\n\ngf______(______, data = ______, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Temperature (C)\",\n    y = \"Number of Bike Rentals\",\n  )\n\n\n\nExercise 2\nFit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.\n\nmodel_fit &lt;- lm(_____ ~ ______, data = _____)\n\ntidy(_____) |&gt;\n  kable(digits = _____)\n\n\n\nExercise 3\nLoad the infer package and calculate the observed fit (slope)\n\nobserved_fit &lt;- ____ |&gt;\n  specify(count ~ temp_orig) |&gt;\n  fit()\n\nobserved_fit\n\n\n\nExercise 4\nTake n bootstrap samples and fit models to each one.\nFill in the code, then set eval: true .\n\nn &lt;- 100\nset.seed(212)\n\nboot_fits &lt;- ______ |&gt;\n  specify(______) |&gt;\n  generate(reps = ____, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n\nWhy do we set a seed before taking the bootstrap samples?\n\n\n\nExercise 5 (Challenging)\nMake a histogram of the bootstrap samples to visualize the bootstrap distribution.\n\n# Code for histogram\n\n\n\nExercise 6\nCompute and interpret the 95% confidence interval as the middle 95% of the bootstrap distribution.\nFill in the code, then set eval: true .\n\nget_confidence_interval(\n  boot_fits,\n  point_estimate = _____,\n  level = ____,\n  type = \"percentile\"\n)\n\n\n\nExercise 7\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 8\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 9\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\nExercise 10\n\nIf your sample size \\(n\\) is increased, what impact do you think this will have on accuracy and precision?\nWhat about if you increase the number of bootstrapped replicates?\n\n\n\nExercise 11\nYour professor is interested in calculating the average amount of time CofI students spend doing homework.\n\nIf he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?\nIf, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?\n\n\n\nExercise 12\nWrite down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage “math mode”.\n\\[\nH_0:\n\\]\n\n\nExercise 13\nGenerate null distribution using permutation\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(212)\n\nnull_dist &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\") |&gt;\n  fit()\n\n\n\nExercise 14\nVisualize the null distribution. Does your slope seem unusual if we assume the null hypothesis is the truth?\n\n# Code for histogram of null distribution\n\n\n\nExercise 15\nFill in the code below to compute the p-value. Have your reporter write the value on the board.\n\n# get observed fit \nobserved_fit &lt;- _____ |&gt;\n  specify(____) |&gt;\n  fit()\n\n# calculate p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\n\n\nExercise 16\n\nDo larger or smaller p-values provide evidence for the alternative hypothesis?\nDo larger or smaller p-values provide evidence for your research question?\nInterpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
+    "text": "Exercises\n\nExercise 0\nThe following code will load the data. Note that you will likely need to change the file path. You can do this easily by deleting the existing path, pressing the TAB button while your cursor is inbetween the quotes, and then selecting the file you want to load.\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\")\n\n\n\nExercise 1\nBelow is code to create visualizations of the distributions of daily bike rentals and temperature. Create a scatter plot of the number of rentals vs the temperature and store it in a variable called p3. Make sure to include good appropriate labels. Finally, uncomment the last line of code in this chunk. What do you think this last line does? Comment on what you see.\n\np1 &lt;- gf_histogram(~ count, data = bikeshare, binwidth = 250) |&gt; \n  gf_labs(x = \"Daily bike rentals\")\n\np2 &lt;- gf_histogram(~temp_orig, data = bikeshare) |&gt;  \n  gf_labs(x = \"Temperature (Celsius)\")\n\n# (p1 | p2) / p3\n\n[Add your answer here]\n\n\nExercise 2\nIn the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the season variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).\n\n# add code developed during livecoding here\n\n\n\nExercise 3\nWe want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.\n\n# add code developed during livecoding here\n\n\n\nExercise 4\n\nWhich season appears to have the strongest relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?\nWhich season appears to have the weakest relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?\n\n[Add your answer here]\n\n\nExercise 5\nFilter your data for the season with the strongest apparent relationship between temperature and daily bike rentals. Give the resulting data set a new name.\n\n# add code developed during livecoding here\n\n\n\nExercise 6\nGoing back to Exercise 1, there appears to be one day with a very small number of bike rentals. Use filter to figure out what that day was? Why were the number of bike rentals so low on that day? Hint: You can Google the date to figure out what was going on that day.\n\n\nExercise 7\nUsing the subset of the data from Exercise 5, fit a linear model for predicting daily bike rentals from temperature for this season.\n\n# add code developed during livecoding here\n\n\n\nExercise 8\nUse the output to write out the estimated regression equation.\n[Add your answer here]\n\n\nExercise 9\nInterpret the slope in the context of the data.\n\n\nExercise 10\nInterpret the intercept in the context of the data.\n\n\nExercise 11\nCreate a visualization of the model we just created.\n\n# add code developed during livecoding here\n\n\n\nExercise 12\nUsing only addition, subtraction, multiplication, and division. Compute the number of rentals our model would predict if it were 10 degrees Celcius outside.\n\n\nExercise 13\nVerify your answer using the predict function.\n\n# add code developed during livecoding here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
   },
   {
-    "objectID": "computing-inferencesummary.html",
-    "href": "computing-inferencesummary.html",
-    "title": "R Cheatsheet",
+    "objectID": "computing-access.html",
+    "href": "computing-access.html",
+    "title": "Computing access",
     "section": "",
-    "text": "Histogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side “dodged” barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"dodge\")\nStacked barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data)\nStandardized barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"fill\")\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
+    "text": "To access RStudio at the College of Idaho, go to the CofI Posit Workbench website and sign-in using the CofI email and password.",
     "crumbs": [
       "Computing",
-      "R Cheatsheet"
+      "Computing access"
     ]
   },
   {
-    "objectID": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
-    "href": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
-    "title": "R Cheatsheet",
-    "section": "Useful code for calculating summary statistics: (requires mosaic)",
-    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)\n\n\nUseful functions fitting and analyzing models\n\n\n\nModel type\nAction\nFunction\n\n\n\n\nSimple Linear Regression\nFit Model\nlm(Y ~ X, data = data_name)",
+    "objectID": "computing-r-resources.html",
+    "href": "computing-r-resources.html",
+    "title": "Resources for learning R",
+    "section": "",
+    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
     "crumbs": [
       "Computing",
-      "R Cheatsheet"
+      "R resources"
     ]
   },
   {
-    "objectID": "hw/hw-01.html",
-    "href": "hw/hw-01.html",
-    "title": "HW 01: Park access",
+    "objectID": "computing-r-resources.html#books-free-online",
+    "href": "computing-r-resources.html#books-free-online",
+    "title": "Resources for learning R",
     "section": "",
-    "text": "This HW will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts and to analyze real data and come to informed conclusions.\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\n\nBy the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
+    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
+    "crumbs": [
+      "Computing",
+      "R resources"
+    ]
   },
   {
-    "objectID": "hw/hw-01.html#learning-goals",
-    "href": "hw/hw-01.html#learning-goals",
-    "title": "HW 01: Park access",
-    "section": "",
-    "text": "By the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
+    "objectID": "computing-r-resources.html#rstudio-primers",
+    "href": "computing-r-resources.html#rstudio-primers",
+    "title": "Resources for learning R",
+    "section": "RStudio Primers",
+    "text": "RStudio Primers\n\nInteractive LearnR Tutorial\nR Primers for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.",
+    "crumbs": [
+      "Computing",
+      "R resources"
+    ]
   },
   {
-    "objectID": "hw/hw-01.html#r-and-r-studio",
-    "href": "hw/hw-01.html#r-and-r-studio",
-    "title": "HW 01: Park access",
-    "section": "R and R Studio",
-    "text": "R and R Studio\nHere are the components of the RStudio IDE and here are the components of an Quarto (.qmd) file.\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for ““Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file."
-  },
-  {
-    "objectID": "hw/hw-01.html#footnotes",
-    "href": "hw/hw-01.html#footnotes",
-    "title": "HW 01: Park access",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+    "objectID": "computing-r-resources.html#additional-resources",
+    "href": "computing-r-resources.html#additional-resources",
+    "title": "Resources for learning R",
+    "section": "Additional resources",
+    "text": "Additional resources\n\nRStudio Cheatsheets\nR Fun workshops and videos by Duke Center for Data and Visualization Sciences.",
+    "crumbs": [
+      "Computing",
+      "R resources"
+    ]
   },
   {
     "objectID": "hw/hw-02.html",
