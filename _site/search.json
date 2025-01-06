@@ -474,7 +474,7 @@
     "href": "slides/03-slr-sbi.html#recap-continued",
     "title": "SLR: Simulation-based inference",
     "section": "Recap Continued",
-    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution"
   },
   {
     "objectID": "slides/01-welcome.html#meet-prof.-friedlander",
@@ -586,7 +586,7 @@
     "href": "slides/01-welcome.html#support",
     "title": "Welcome to MAT 212!",
     "section": "Support",
-    "text": "Support\n\nAttend office hours to meet with Prof. Friedlander (Boone 126B)\n\nMTWRF : 11:00am-12:00pm\n\nAsk and answer questions on course discussion forum\nUse email for questions regarding personal matters and/or grades\nSee the Course Support page for more details"
+    "text": "Support\n\nAttend office hours to meet with Prof. Friedlander (Boone 126B)\n\nMTWRF : 10:30-11:30am\n\nAsk and answer questions on course discussion forum\nUse email for questions regarding personal matters and/or grades\nSee the Course Support page for more details"
   },
   {
     "objectID": "slides/01-welcome.html#late-homework",
@@ -887,7 +887,7 @@
     "href": "slides/01-welcome.html#references",
     "title": "Welcome to MAT 212!",
     "section": "References",
-    "text": "References\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+    "text": "References\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
   },
   {
     "objectID": "project/project-tips.html",
@@ -1000,6 +1000,34 @@
     "title": "MAT 212: Multiple Regression Analysis",
     "section": "Instructor",
     "text": "Instructor\nEric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics.\nOutside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.\n\n\n\nOffice hours (Boone 126B)\n\n\n\n\n\nMTWRF\n11:00am-12:00pm\n\n\nor by appointment."
+  },
+  {
+    "objectID": "hw/hw-02-old.html",
+    "href": "hw/hw-02-old.html",
+    "title": "HW 02: Ice duration and air temperature in Madison, WI",
+    "section": "",
+    "text": "In this homework, you’ll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.\n\n\nBy the end of the hw you will…\n\nBe able to fit a simple linear regression model using R.\nBe able to interpret the slope and intercept for the model.\nBe able to use simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02-old.html#learning-goals",
+    "href": "hw/hw-02-old.html#learning-goals",
+    "title": "HW 02: Ice duration and air temperature in Madison, WI",
+    "section": "",
+    "text": "By the end of the hw you will…\n\nBe able to fit a simple linear regression model using R.\nBe able to interpret the slope and intercept for the model.\nBe able to use simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02-old.html#exercise-10",
+    "href": "hw/hw-02-old.html#exercise-10",
+    "title": "HW 02: Ice duration and air temperature in Madison, WI",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\nThere is a statistically significant linear relationship between average air temperature and average ice duration on Lake Monona \\((\\beta_1 \\neq 0)\\).\n\nDoes the confidence interval you calculated in the previous exercise support or refute this claim? Briefly explain.\nWritten answer here.\n\n\n\n\n\n\nTip\n\n\n\nRender your document here."
+  },
+  {
+    "objectID": "hw/hw-02-old.html#footnotes",
+    "href": "hw/hw-02-old.html#footnotes",
+    "title": "HW 02: Ice duration and air temperature in Madison, WI",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://lter.github.io/lterdatasampler/index.html↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
     "objectID": "computing-r-resources.html",
@@ -1124,7 +1152,7 @@
     "href": "ae/ae-03-sbi.html",
     "title": "AE 03: Simulation-Based Inference",
     "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-03”\nGo to the Canvas and locate your AE 03 assignment to get started.\nUpload the ae-03.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(openintro)\nlibrary(kableExtra)"
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-03”\nGo to the Canvas and locate your AE 03 assignment to get started.\nUpload the ae-03-sbi.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(openintro)\nlibrary(kableExtra)"
   },
   {
     "objectID": "ae/ae-03-sbi.html#data",
@@ -1187,6 +1215,62 @@
     "objectID": "hw/hw-01.html#footnotes",
     "href": "hw/hw-01.html#footnotes",
     "title": "HW 01: Park access",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+  },
+  {
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "",
+    "text": "In this homework, you will use simple linear regression to examine the association between the percent of adults with a bachelor’s degree and the median household income for counties in the United States.\n\n\nIn this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02.html#learning-goals",
+    "href": "hw/hw-02.html#learning-goals",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "",
+    "text": "In this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-1-exploratory-data-analysis",
+    "href": "hw/hw-02.html#part-1-exploratory-data-analysis",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 1: Exploratory data analysis",
+    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the predictor variable bachelorsand calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\nExercise 2\nCreate a visualization of the relationship between bachelors and median_household_income and use the cor function to calculate the correlation. You will likely want to load the mosaic package. It is considered good form to load your packages at the beginning of the document so scroll up to the top and load mosaic there. Use the visualization and correlation to describe the relationship between the two variables.\n\n\n\n\n\n\nTip\n\n\n\nRecall the analysis objective stated at the beginning of the Exercises section.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIf you haven’t yet done so, now is a good time to render your document."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-2-modeling",
+    "href": "hw/hw-02.html#part-2-modeling",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 2: Modeling",
+    "text": "Part 2: Modeling\n\nExercise 3\nWe will use a linear regression model to better quantify the relationship between bachelors and median_household_income.\nWrite the form of the statistical model the researchers would like to estimate using the template below. Use mathematical notation (i.e. with Greek letters) and variable names (bachelors and median_household_income) in the equation. Note, I’m not asking you to fit the model yet. Replace each word in the equation below with either the name of a variable or a Greek letter.\n\\[Response = intercept + slope\\times predictor + error\\]\n\n\n\n\n\n\nTip\n\n\n\nClick here for a guide on writing mathematical symbols using LaTeX. You will need to use a backslash (\\) before each underscore in the LaTeX code. For example, avg_air_temp will be written as avg\\_air\\_temp.\n\n\n\n\nExercise 4\n\nFit the regression line corresponding to the statistical model in the previous exercise. Use tidy and kable to neatly display the model output using 3 digits. Note you will need to load the broom package before you can use the tidy function.\nWrite the equation of the fitted model using mathematical notation. Use variable names (bachelors and median_household_income) in the equation. Hint: Copy and paste your answer from the previous exercise, fill in the \\(\\beta\\)’s with numbers, and remove the error term.\n\n\n\nExercise 5\n\nInterpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.\nIs it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-3-inference-for-the-u.s.",
+    "href": "hw/hw-02.html#part-3-inference-for-the-u.s.",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 3: Inference for the U.S.",
+    "text": "Part 3: Inference for the U.S.\nWe want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor’s degree and median household income for the over 3,000 counties in the United States.\n\nExercise 6\n\nWhat is the population of interest? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not. If you have never taken a statistics course before, I encourage you to read subsections 2.1.4 and 2.1.5 from Introduction to Modern Statistics. Don’t worry, they’re very short.\n\n\n\nExercise 7\nConduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor’s degree and the median household income in a county. Use a randomization (permutation) test. Remember that you’ll need to load the infer package. In your response:\n\nState the null and alternative hypotheses in words and mathematical notation\nShow all relevant code and output used to conduct the test. Use set.seed(2025) and 1000 iterations to construct the appropriate distribution.\nState the conclusion in the context of the data.\n\n\n\nExercise 8\nNext, construct a 95% confidence interval for the slope using bootstrapping with set.seed(2025) and 1000 iterations.\n\nShow all relevant code and output used to calculate the interval.\nInterpret the confidence interval in the context of the data.\nIs the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
+  },
+  {
+    "objectID": "hw/hw-02.html#conceptual-questions",
+    "href": "hw/hw-02.html#conceptual-questions",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Conceptual Questions",
+    "text": "Conceptual Questions\nPlease try to answer these concisely and adhere to the sentence maximum.\n\nExercise 9\nShould all of your classmates get the same 95% confidence interval as you? Max one sentence.\n\n\nExercise 10\nWhy was it necessary to set a seed in the previous two exercises and how does it relate to the concept of reproducibility? Max two sentences.\n\n\nExercise 11\nWould taking a larger sample of counties most likely result in a more or less precise confidence interval? What about a wider or narrower confidence interval? Max one sentence each but you should be able to answer with a single sentence.\n\n\nExercise 12\nWhy would taking a larger sample of counties not impact the accuracy of the 95% confidence interval? How can we increase the accuracy? Max two sentences.\n\n\nExercise 13\nExplain why the following statement doesn’t make sense: “There is a 95% probability that the population slope is between the two numbers I stated in Exercise 8. Max three sentences."
+  },
+  {
+    "objectID": "hw/hw-02.html#reproducibility-conceptual-questions",
+    "href": "hw/hw-02.html#reproducibility-conceptual-questions",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Reproducibility & Conceptual Questions",
+    "text": "Reproducibility & Conceptual Questions\n\nExercise 14 (Extra Credit)\nYou are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. Here are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.\nChoose one of the scenarios from the table and read the linked article discussing what went wrong. Then,\n\nBriefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.\nThen, describe how the researchers could make the process reproducible.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again. Make sure that everything is formatted the way you want it to be."
+  },
+  {
+    "objectID": "hw/hw-02.html#footnotes",
+    "href": "hw/hw-02.html#footnotes",
+    "title": "HW 02: Education & median income in US Counties",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
@@ -1345,7 +1429,7 @@
     "href": "slides/02-slr-intro.html#computation-set-up",
     "title": "Simple Linear Regression",
     "section": "Computation set up",
-    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(fivethirtyeight) # for the fandango dataset\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
   },
   {
     "objectID": "slides/02-slr-intro.html#dc-bikeshare",
@@ -1359,7 +1443,7 @@
     "href": "slides/02-slr-intro.html#data-prep",
     "title": "Simple Linear Regression",
     "section": "Data prep",
-    "text": "Data prep\n\nExercise 2: Recode season as a factor with names instead of numbers (livecode)\nRemember:\n\nThink of |&gt; as “and then”\nmutate creates new columns and changes (mutates) existing columns\nR calls categorical data “factors”\n\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
+    "text": "Data prep\n\nExercise 2: Recode season as a factor with names instead of numbers (livecode)\nRemember:\n\nThink of |&gt; as “and then”\nmutate creates new columns and changes (mutates) existing columns\nR called categorical data “factors”\n\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
   },
   {
     "objectID": "slides/02-slr-intro.html#exploratory-data-analysis-exercise-3",
@@ -1394,14 +1478,7 @@
     "href": "slides/02-slr-intro.html#why-fit-a-line",
     "title": "Simple Linear Regression",
     "section": "Why fit a line?",
-    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n\n\nPrediction\n\nHow many rentals are expected when it’s 10 degrees out?\n\n\n\nInference\n\nIs temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?"
-  },
-  {
-    "objectID": "slides/02-slr-intro.html#population-vs.-sample",
-    "href": "slides/02-slr-intro.html#population-vs.-sample",
-    "title": "Simple Linear Regression",
-    "section": "Population vs. Sample",
-    "text": "Population vs. Sample\nPopulation: The set of items or events that you’re interested in and hoping (able) to generalize the results of your analysis to.\nSample: The set of items that you have data for.\nRepresentative Sample: A sample that looks like a small version of your population.\nGoal: Build a model from your sample which generalizes to your population."
+    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n\n\nPrediction\n\nHow many rentals are expected when it’s 10 degrees out?\n\n\n\n\nInference\n\nIs temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree celcius?"
   },
   {
     "objectID": "slides/02-slr-intro.html#terminology",
@@ -1415,7 +1492,7 @@
     "href": "slides/02-slr-intro.html#regression-model",
     "title": "Simple Linear Regression",
     "section": "Regression model",
-    "text": "Regression model\nRegression model: a function that describes the relationship between a quantitative response, \\(Y\\), and the predictor, \\(X\\) (or many predictors).\n\\[\\begin{aligned} Y &= \\color{black}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{black}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{black}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]"
+    "text": "Regression model\nRegression model: a function that describes the relationship between a quantitive response, \\(Y\\), and the predictor, \\(X\\) (or many predictors).\n\\[\\begin{aligned} Y &= \\color{black}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{black}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{black}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]"
   },
   {
     "objectID": "slides/02-slr-intro.html#regression-model-1",
@@ -1436,7 +1513,7 @@
     "href": "slides/02-slr-intro.html#slr-statistical-model",
     "title": "Simple Linear Regression",
     "section": "SLR: Statistical model",
-    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical response\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
+    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical reponse\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
   },
   {
     "objectID": "slides/02-slr-intro.html#slr-regression-equation",
@@ -1478,7 +1555,7 @@
     "href": "slides/02-slr-intro.html#estimating-the-slope",
     "title": "Simple Linear Regression",
     "section": "Estimating the slope",
-    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 4.2121 \\\\\ns_Y &= 1399.942 \\\\\nr &= 0.6692\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.6692 \\times \\frac{1399.942}{4.2121} \\\\\n&= 222.417\\end{aligned}\\]\n\n\n\nClick here for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus."
+    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 4.2121 \\\\\ns_Y &= 1399.942 \\\\\nr &= 0.6692\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.6692 \\times \\frac{1399.942}{4.2121} \\\\\n&= 222.417\\end{aligned}\\]\n\n\n\nClickhere for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus."
   },
   {
     "objectID": "slides/02-slr-intro.html#estimating-the-intercept",
@@ -1555,21 +1632,21 @@
     "href": "slides/02-slr-intro.html#making-a-prediction",
     "title": "Simple Linear Regression",
     "section": "Making a prediction",
-    "text": "Making a prediction\nSuppose that it’s 15 degrees Celsius outside. According to this model, how many bike rentals should we expect if it’s winter?\n\\[\\begin{aligned}\n\\widehat{\\text{count}} &= -111.0 + 222.4 \\times \\text{temp_orig} \\\\\n&= -111.0 + 222.4 \\times 15 \\\\\n&= 3225\n\\end{aligned}\\]"
+    "text": "Making a prediction\nSuppose that it’s 15 degrees celcius outside. According to this model, how many bike rentals should we expect if it’s winter?\n\\[\\begin{aligned}\n\\widehat{\\text{count}} &= -111.0 + 222.4 \\times \\text{temp_orig} \\\\\n&= -111.0 + 222.4 \\times 15 \\\\\n&= 3225\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/02-slr-intro.html#prediction-in-r",
     "href": "slides/02-slr-intro.html#prediction-in-r",
     "title": "Simple Linear Regression",
     "section": "Prediction in R",
-    "text": "Prediction in R\n\n# create a data frame for a new temperature\nnew_day &lt;- tibble(temp_orig = 15)\n\n# predict the outcome for a new day\npredict(winter_fit, new_day)\n\n       1 \n3225.195 \n\n\nComplete Exercises 12-13."
+    "text": "Prediction in R\n\n# create a data frame for a new temperature\nnew_day &lt;- tibble(temp_orig = 15)\n\n# predict the outcome for a new day\npredict(winter_fit, new_day)\n\n       1 \n3225.195"
   },
   {
     "objectID": "slides/02-slr-intro.html#recap",
     "href": "slides/02-slr-intro.html#recap",
     "title": "Simple Linear Regression",
     "section": "Recap",
-    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R.\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R."
   },
   {
     "objectID": "support.html",

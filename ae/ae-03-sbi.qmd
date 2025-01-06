@@ -12,7 +12,7 @@ format:
 
 -   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202831) and locate your `AE 03` assignment to get started.
 
--   Upload the `ae-03.qmd` and `dcbikeshare.csv` files into the folder you just created.
+-   Upload the `ae-03-sbi.qmd` and `dcbikeshare.csv` files into the folder you just created.
 :::
 
 ```{r load-packages}

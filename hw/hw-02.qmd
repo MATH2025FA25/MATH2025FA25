@@ -1,0 +1,225 @@
+---
+title: "HW 02: Education & median income in US Counties"
+subtitle: "Simulation-Based Inference for the slope"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+# Introduction
+
+In this homework, you will use simple linear regression to examine the association between the percent of adults with a bachelor's degree and the median household income for counties in the United States.
+
+## Learning goals
+
+In this assignment, you will...
+
+-   Fit and interpret simple linear regression models.
+-   Conduct simulation-based statistical inference for the population slope, $\beta_1$
+-   Continue developing a workflow for reproducible data analysis.
+
+# Getting started
+
+-   Go to <https://rstudio.collegeofidaho.edu> and login with your College of Idaho Email and Password.
+
+-   Make a subfolder called `hw02` in your `hw` directory to store this homework.
+
+-   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202860), navigate to Homework 2 and upload the `hw-02.qmd` file into the folder your just made.
+
+# Packages
+
+The following packages will be used in this assignment:
+
+```{r}
+#| message: false
+library(tidyverse) # for data wrangling
+library(ggformula) # for plotting
+
+# load other packages as needed
+```
+
+# Data: US Counties
+
+The data are from the `county_2019` data frame in the [usdata](https://openintrostat.github.io/usdata/index.html) R package. These data were originally collected in the 2019 [American Community Survey](https://www.census.gov/programs-surveys/acs) (ACS), an annual survey conducted by the United States Census Bureau that collects demographics and other information from a sample of households in the United States. The data in `county_2019` are county-level statistics from the ACS.
+
+The primary variables you will use are the following:
+
+-   `bachelors`: Percent of population 25 years old and older that earned a Bachelor's degree or higher
+-   `median_household_income`: Median household income in US dollars
+-   `household_has_computer`: Percent of households that have desktop or laptop computer
+
+[Click here](https://openintrostat.github.io/usdata/reference/county_2019.html) for the full codebook for the `county_2019` data set.
+
+# Exercises
+
+There has been a lot of conversation recently about the impact of graduating college, i.e., obtaining a bachelor's degree, on one's future career and lifetime earnings. The common sentiment is that individuals who have earned a bachelor's degree (or higher) will earn more income over the course of a lifetime than an individual who does not have such a degree.
+
+The culmination of individual factors can impact the wealth and resources of a county. Therefore will examine the association between these two factors at a county level and use the percent of adults 25 years old + with a Bachelor's degree to understand variability in the median income. Specifically we'd like to answer such as, "do counties that have a higher percentage of college graduates have higher median household incomes, on average, compared to counties with a lower percentage of college graduates?".
+
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
+
+### Exercise 0
+
+Load the `us-counties-sample.csv` into a data frame called `county_data_sample`.
+
+## Part 1: Exploratory data analysis
+
+### Exercise 1
+
+Create a histogram of the distribution of the predictor variable `bachelors`and calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.
+
+### Exercise 2
+
+Create a visualization of the relationship between `bachelors` and `median_household_income` and use the `cor` function to calculate the correlation. You will likely want to load the `mosaic` package. It is considered good form to load your packages at the beginning of the document so scroll up to the top and load `mosaic` there. Use the visualization and correlation to describe the relationship between the two variables.
+
+::: callout-tip
+Recall the analysis objective stated at the beginning of the Exercises section.
+:::
+
+::: callout-tip
+If you haven't yet done so, now is a good time to render your document.
+:::
+
+## Part 2: Modeling
+
+### Exercise 3
+
+We will use a linear regression model to better quantify the relationship between `bachelors` and `median_household_income`.
+
+Write the form of the statistical model the researchers would like to estimate using the template below. Use mathematical notation (i.e. with Greek letters) and variable names (`bachelors` and `median_household_income`) in the equation. Note, I'm not asking you to fit the model yet. Replace each word in the equation below with either the name of a variable or a Greek letter.
+
+$$Response = intercept + slope\times predictor + error$$
+
+::: callout-tip
+[Click here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a guide on writing mathematical symbols using LaTeX. You will need to use a backslash (\\) before each underscore in the LaTeX code. For example, `avg_air_temp` will be written as *avg\\\_air\\\_temp.*
+:::
+
+### Exercise 4
+
+-   Fit the regression line corresponding to the statistical model in the previous exercise. Use `tidy` and `kable` to neatly display the model output using 3 digits. Note you will need to load the `broom` package before you can use the `tidy` function.
+
+-   Write the equation of the fitted model using mathematical notation. Use variable names (`bachelors` and `median_household_income`) in the equation. Hint: Copy and paste your answer from the previous exercise, fill in the $\beta$'s with numbers, and remove the error term.
+
+### Exercise 5
+
+-   Interpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.
+-   Is it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.
+
+::: callout-tip
+Now is a good time to render your document again if you haven't done so recently.
+:::
+
+## Part 3: Inference for the U.S.
+
+We want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor's degree and median household income for the over 3,000 counties in the United States.
+
+### Exercise 6
+
+-   What is the population of interest? What is the sample?
+
+-   Is it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not. If you have never taken a statistics course before, I encourage you to read subsections [2.1.4](https://openintro-ims.netlify.app/data-design#sampling-from-a-population) and [2.1.5](https://openintro-ims.netlify.app/data-design#sec-samp-methods) from [Introduction to Modern Statistics](https://openintro-ims.netlify.app/). Don't worry, they're very short.
+
+### Exercise 7
+
+Conduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor's degree and the median household income in a county. Use a randomization (permutation) test. Remember that you'll need to load the `infer` package. In your response:
+
+-   State the null and alternative hypotheses in words and mathematical notation
+-   Show all relevant code and output used to conduct the test. Use `set.seed(2025)` and 1000 iterations to construct the appropriate distribution.
+-   State the conclusion in the context of the data.
+
+### Exercise 8
+
+Next, construct a 95% confidence interval for the slope using bootstrapping with `set.seed(2025)` and 1000 iterations.
+
+-   Show all relevant code and output used to calculate the interval.
+
+-   Interpret the confidence interval in the context of the data.
+
+-   Is the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.
+
+::: callout-tip
+Now is a good time to render your document again if you haven't done so recently.
+:::
+
+## Conceptual Questions
+
+Please try to answer these concisely and adhere to the sentence maximum.
+
+### Exercise 9
+
+Should all of your classmates get the same 95% confidence interval as you? Max one sentence.
+
+### Exercise 10
+
+Why was it necessary to set a seed in the previous two exercises and how does it relate to the concept of reproducibility? Max two sentences.
+
+### Exercise 11
+
+Would taking a larger sample of counties most likely result in a more or less precise confidence interval? What about a wider or narrower confidence interval? Max one sentence each but you should be able to answer with a single sentence.
+
+### Exercise 12
+
+Why would taking a larger sample of counties not impact the accuracy of the 95% confidence interval? How can we increase the accuracy? Max two sentences.
+
+### Exercise 13
+
+Explain why the following statement doesn't make sense: "There is a 95% probability that the population slope is between the two numbers I stated in Exercise 8. Max three sentences.
+
+## Reproducibility & Conceptual Questions
+
+
+### Exercise 14 (Extra Credit)
+
+You are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. [Here](https://mat212wi25.netlify.app/slides/01-welcome#/when-things-go-wrong) are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.
+
+Choose one of the scenarios from the table and read the linked article discussing what went wrong. Then,
+
+-   Briefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.
+
+-   Then, describe how the researchers could make the process reproducible.
+
+::: callout-tip
+Now is a good time to render your document again. Make sure that everything is formatted the way you want it to be.
+:::
+
+# Submission
+
+We'll be submitting HTML files and .qmd files to Canvas.
+
+::: callout-warning
+Before you wrap up the assignment, make sure you have rendered your document and that the HTML file appears as you want it to.
+:::
+
+::: callout-tip
+You're done and ready to submit your work! Render your document and upload the .qmd and .html files to Canvas.
+:::
+
+# Grading (20 pts + 2 pts extra credit)
+
+<br>
+
+| Component             | Points |
+|:----------------------|:-------|
+| Ex 1                  | 1      |
+| Ex 2                  | 1      |
+| Ex 3                  | 1      |
+| Ex 4                  | 1      |
+| Ex 5                  | 1      |
+| Ex 6                  | 2      |
+| Ex 7                  | 3      |
+| Ex 8                  | 3      |
+| Ex 9                  | 1      |
+| Ex 10                 | 1      |
+| Ex 11                 | 1      |
+| Ex 12                 | 1      |
+| Ex 13                 | 1      |
+| Ex 14 (Extra Credit)  | 2      |
+| Grammar & Writing     | 1[^1]  |
+| Workflow & formatting | 1[^2]  |
+
+[^1]: The "Grammar & Writing" grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.
+
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.
