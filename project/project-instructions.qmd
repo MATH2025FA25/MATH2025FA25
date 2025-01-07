@@ -61,7 +61,7 @@ You are more than welcome to contact me with any questions about your project bu
 
 -   due Thursday, January 9
 
-[Checkpoint V: Project Proposal (3%)](#project-proposal)
+[Checkpoint V: Project Proposal (2%)](#project-proposal)
 
 -   due Friday, January 10
 
@@ -176,7 +176,7 @@ from previous Checkpoints:
 4.  Your partially annotated bibliography. There must be at least six articles
 and at least two ust be annotated.
     
-**Deliverables:** Word document or PDF with the information above.
+**Deliverables:** Word document or PDF with the information above. **You may receive points back on Checkpoints II-IV for your work on this assignment.**
 
 <!-- ## Stage II: Exploratory Data Analysis {#exploratory-analysis} -->
 
