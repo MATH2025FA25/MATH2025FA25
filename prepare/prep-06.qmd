@@ -1,0 +1,7 @@
+---
+title: "Preparation for Model Evaluation"
+---
+
+## Assigned reading
+
+Stat2 Textbook: Chapter 2.2, 2.3

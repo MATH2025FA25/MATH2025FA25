@@ -579,7 +579,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nW\nJan 8\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTH\nJan 9\nSLR: Conditions and Evaluation",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT/W\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nW\nJan 8\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTH\nJan 9\nSLR: Conditions",
     "crumbs": [
       "Schedule"
     ]
@@ -2047,15 +2047,29 @@
   {
     "objectID": "prepare/prep-05.html",
     "href": "prepare/prep-05.html",
-    "title": "Preparation for Conditions for Inference and Model Evaluation",
+    "title": "Preparation for Conditions for Inference",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
+    "text": "Stat2 Textbook: Chapter 1.3"
   },
   {
     "objectID": "prepare/prep-05.html#assigned-reading",
     "href": "prepare/prep-05.html#assigned-reading",
-    "title": "Preparation for Conditions for Inference and Model Evaluation",
+    "title": "Preparation for Conditions for Inference",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
+    "text": "Stat2 Textbook: Chapter 1.3"
+  },
+  {
+    "objectID": "prepare/prep-06.html",
+    "href": "prepare/prep-06.html",
+    "title": "Preparation for Model Evaluation",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 2.2, 2.3"
+  },
+  {
+    "objectID": "prepare/prep-06.html#assigned-reading",
+    "href": "prepare/prep-06.html#assigned-reading",
+    "title": "Preparation for Model Evaluation",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 2.2, 2.3"
   }
 ]
