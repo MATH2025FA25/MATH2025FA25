@@ -1,5 +1,5 @@
 ---
-title: "AE 04: Mathematical Models"
+title: "AE 05: Model Conditions"
 subtitle: "Songs on Spotify"
 editor: visual
 format:
@@ -8,11 +8,11 @@ format:
 ---
 
 ::: callout-important
--   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-04"
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-05"
 
--   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202833) and locate your `AE 04` assignment to get started.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202834) and locate your `AE 05` assignment to get started.
 
--   Upload the `ae-04.qmd` and `spotify-popular.csv` files into the folder you just created.
+-   Upload the `ae-05.qmd` and `spotify-popular.csv` files into the folder you just created.
 :::
 
 ```{r}
@@ -25,6 +25,10 @@ library(broom)
 library(knitr)
 library(patchwork) #arrange plots in a grid
 ```
+
+## Introduction
+
+This is a continuation of AE-05. The **Data** section below is the same as in that exercise. Feel free to skip it if you feel you remember everything about the data set or simply use it as a reference when needed.
 
 ## Data
 
@@ -63,98 +67,68 @@ Below is your assigned predictor. Look at the table above for a definition.
 -   **Group 3:** `valence`
 -   **Group 4:** `tempo`
 
+
 ## Exercise 0
 
-Below are plots as part of the exploratory data analysis. Change `duration_ms` and the axis labels to match your explanatory variable.
-
-```{r}
-#| label: univariate-eda
-
-
-p1 <- gf_histogram(~duration_ms, data = spotify) |>  
-  gf_labs(title = "Distribution of Song Duration", 
-       subtitle = " for Popular songs on Spotify", 
-       x = "Duration (ms)")
-
-p2 <- gf_histogram(~danceability, data = spotify) |> 
-  gf_labs(title = "Distribution of Danceability", 
-       subtitle = "for Popular songs on Spotify", 
-       x = "Danceability")
-p1 + p2 # The patchwork package will arrange your plots for you
-```
-
-```{r}
-#| label: bivariate-eda
-gf_point(danceability ~ duration_ms, data = spotify) |> 
-  gf_labs(title = "Danceability vs. Duration", 
-       subtitle = "Popular songs on Spotify", 
-       x = "Duration (ms)", 
-       y = "Danceability")
-```
-
-## Exercise 1
-
-Fit a model using your assigned explanatory variable to predict a songs `danceability`. Use `tidy` and `kable` to neatly display your model and have your reporter write you model on the white board. Be prepared to verbally interpret the slope.
+Fit a model using your assigned explanatory variable to predict a songs `danceability`. Use `tidy` and `kable` to neatly display your model and have your reporter write you model on the white board along with a confidence interval and p-value for the slope. Be prepared to discuss the interpretation of these quantities.
 
 ```{r fit-model}
 ## add code
 ```
 
-## Exercise 2
+## Exercise 1
 
-Write down the the null and alternative hypotheses to test whether your explanatory variable is a useful predictor.
+Last time, we were too hasty in performing statistical inference. We need to make sure you data satifies the four conditions of inference. Let's check those model conditions now. Fill in the code below to use the `augment()` function to create a new data frame containing the residuals and fitted values (among other information)/
+
+::: callout-important
+Note: Remove `#|eval: false` from the code chunk after you have filled in the code.
+:::
+
+```{r}
+#| eval: false
+spotify_aug <- augment(_____)
+```
 
 ## Exercise 3
 
-Identify the standard error of $\hat{\beta}_1$ and your T-statistic from the output above. Interpret your test statistic. Do you think this provides evidence that your explanatory variable is a useful predictor of `danceability`?
+Make a plot of the residual vs. fitted values.
+
+```{r}
+#| label: resid-vs-fitted
+
+# add code here
+```
 
 ## Exercise 4
 
-Identify and interpret the p-value in the output from Exercise 1. On the white board, draw a sketch of your p-value.
+Fill in the code to make a histogram of the residuals and a normal QQ-plot.
+
+```{r}
+#| label: resid-dist
+#| eval: false
+
+resid_hist <- gf_histogram(~____, data = ____)) |> 
+  gf_labs(x = "_____", 
+       y = "_____", 
+       title = "____")
+
+resid_qq <- gf_qq(~____, data = ____)  |>
+  gf_qqline() |> 
+  gf_labs(x = "_____", 
+       y = "_____", 
+       title = "____")
+
+resid_hist + resid_qq
+```
 
 ## Exercise 5
 
-Based on your p-value, how strong is the evidence that your assigned explanatory variable is a useful predictor of `danceability`?
+Assess the four model conditions. Use the plots from the previous exercises to help make the assessment.
 
-## Exercise 6
-
-Write a conclusion for your test in the context of the problem.
-
-## Exercise 7
-
-Use `tidy` to compute a (95 - your group number)% confidence interval for your slope.
-
-## Exercise 8
-
-On the white board, draw a picture representing the critical value for you confidence interval.
-
-## Exercise 9
-
-Interpret your confidence interval in the context of the problem.
-
-## Exercise 10
-
-Predict the average danceability for a song with:
-
--   an energy score of 0.859
--   a loudness score of -5.03
--   a valence of 0.52
--   a tempo of 125
-
-Report and interpret a 90% confidence interval for the average danceability. Have your reporter write you interval and estimate on the board.
-
-## Exercise 11
-
-Report and interpret a 90% confidence interval for a single song with:
-
--   an energy score of 0.859
--   a loudness score of -5.03
--   a valence of 0.52
--   a tempo of 125
-
-## Exercise 12
-
-Would you expect you interval to get wider or narrower if you were making a prediction for all songs with the above characteristics?
+-   Linearity
+-   Constant variance
+-   Normality
+-   Independence
 
 ::: callout-important
 To submit the AE:

@@ -187,7 +187,7 @@ Your professor is interested in calculating the average amount of time CofI stud
 
 ### Exercise 12
 
-Write down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage "math mode". 
+Write down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage "math mode".
 
 $$
 H_0: 
@@ -242,12 +242,11 @@ get_p_value(
 
 ### Exercise 16
 
-- Do larger or smaller p-values provide evidence for the alternative hypothesis?
+-   Do larger or smaller p-values provide evidence for the alternative hypothesis?
 
-- Do larger or smaller p-values provide evidence for your research question?
+-   Do larger or smaller p-values provide evidence for your research question?
 
-- Interpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?
-
+-   Interpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?
 
 ::: callout-important
 To submit the AE:
