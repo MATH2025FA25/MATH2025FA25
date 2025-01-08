@@ -572,14 +572,14 @@
     "href": "slides/02-slr-intro.html#recap",
     "title": "Simple Linear Regression",
     "section": "Recap",
-    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R.\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R."
   },
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT/W\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nW\nJan 8\nSLR: Mathematical models for inference",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nW\nJan 8\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTH\nJan 9\nSLR: Conditions and Evaluation",
     "crumbs": [
       "Schedule"
     ]
@@ -1982,7 +1982,7 @@
     "href": "slides/03-slr-sbi.html#recap-continued",
     "title": "SLR: Simulation-based inference",
     "section": "Recap Continued",
-    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution"
   },
   {
     "objectID": "support.html",
@@ -2043,5 +2043,19 @@
     "crumbs": [
       "Course support"
     ]
+  },
+  {
+    "objectID": "prepare/prep-05.html",
+    "href": "prepare/prep-05.html",
+    "title": "Preparation for Conditions for Inference and Model Evaluation",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
+  },
+  {
+    "objectID": "prepare/prep-05.html#assigned-reading",
+    "href": "prepare/prep-05.html#assigned-reading",
+    "title": "Preparation for Conditions for Inference and Model Evaluation",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
   }
 ]
