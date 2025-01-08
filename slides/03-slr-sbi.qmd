@@ -83,7 +83,7 @@ library(tidyverse)   # for data wrangling and visualization
 library(ggformula)  # for modeling
 library(scales)      # for pretty axis labels
 library(knitr)       # for neatly formatted tables
-library(kableExtra)  # also for neatly formatted tablesf
+library(kableExtra)  # also for neatly formatted tables
 
 
 # set default theme and larger font size for ggplot2
@@ -142,7 +142,7 @@ slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> ro
 <br>
 
 -   Estimate is valid for the single sample of `r nrow(heb)` HEBs
--   What if we're not interested quantifying the relationship between the size and price of a house in this single sample?
+-   What if we're not interested quantifying the relationship between the household income and access to organic vegetables in this single sample?
 -   What if we want to say something about the relationship between these variables for all supermarkets in America?
 
 ## Statistical inference

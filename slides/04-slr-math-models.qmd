@@ -45,6 +45,8 @@ Complete Exercises 0 and 1.
     -   calculate confidence interval for the slope
 
     -   conduct a hypothesis test for the slope
+    
+    -   calculate confidence intervals for predictions
 
 ## Computational setup
 
@@ -255,7 +257,7 @@ tidy(spotify_fit) |>
 
 . . .
 
-Complete Exercises 4-6.
+Complete Exercises 4-7.
 
 ## Confidence interval for the slope
 
@@ -372,193 +374,219 @@ We are 95% confident that, as the duration of a song increases by 1 millisecond,
 
 . . .
 
-Complete Exercises 7-9
+Complete Exercises 7-10.
 
-<!-- # Intervals for predictions -->
+# Intervals for predictions
 
-<!-- ## Intervals for predictions {.smaller} -->
+## Intervals for predictions {.smaller}
 
-<!-- -   Question: *"What is the predicted number of organic vegetable options in a neighborhood with an average income of \$70k?"* -->
-<!-- -   We said reporting a single estimate for the slope is not wise, and we should report a plausible range instead -->
-<!-- -   Similarly, reporting a single prediction for a new value is not wise, and we should report a plausible range instead -->
+-   Question: *"What is the predicted danceability for a 3 minute (180,000 ms) song?"*
+-   We said reporting a single estimate for the slope is not wise, and we should report a plausible range instead
+-   Similarly, reporting a single prediction for a new value is not wise, and we should report a plausible range instead
 
-<!-- ```{r} -->
-<!-- #| fig.width: 10 -->
-<!-- #| fig.align: "center" -->
-<!-- #| echo: false -->
+```{r}
+#| fig.width: 10
+#| fig.align: "center"
+#| echo: false
 
-<!-- x_new <- 70 -->
-<!-- y_hat_x_new <- predict(spotify_fit, newdata = tibble(Avg_Income_K = x_new)) -->
+x_new <- 180000
+y_hat_x_new <- predict(spotify_fit, newdata = tibble(duration_ms = x_new))
 
-<!-- ggplot(spotify, aes(x = Avg_Income_K, y = Number_Organic)) + -->
-<!--   geom_segment( -->
-<!--     x = x_new, xend = x_new, y = y_hat_x_new-3, yend = y_hat_x_new+3, -->
-<!--     color = "#CDDBDC", size = 4 -->
-<!--   ) + -->
-<!--   geom_segment( -->
-<!--     x = x_new, xend = x_new, y = y_hat_x_new-2, yend = y_hat_x_new+2, -->
-<!--     color = "#ADC3C5", size = 4 -->
-<!--   ) + -->
-<!--   geom_segment( -->
-<!--     x = x_new, xend = x_new, y = y_hat_x_new-1, yend = y_hat_x_new+1, -->
-<!--     color = "#7B9FA3", size = 4 -->
-<!--   ) + -->
-<!--   geom_point() + -->
-<!--   geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") + -->
-<!--   geom_segment( -->
-<!--     x = x_new, xend = x_new, y = 0, yend = y_hat_x_new, -->
-<!--     linetype = "dashed", color = "#5B888C" -->
-<!--   ) + -->
-<!--   geom_segment( -->
-<!--     x = 0, xend = x_new, y = y_hat_x_new, yend = y_hat_x_new, -->
-<!--     linetype = "dashed", color = "#5B888C" -->
-<!--   ) + -->
-<!--   annotate("point", x = x_new, y = y_hat_x_new, size = 2, color = "magenta") + -->
-<!--   annotate("point", x = x_new, y = y_hat_x_new, size = 5, shape = "circle open", color = "#5B888C", stroke = 2) + -->
-<!--   labs( -->
-<!--     x = "Average Household Income (in thousands)", -->
-<!--     y = "Number of Organic Vegetables", -->
-<!--   ) + -->
-<!--   scale_x_continuous(labels = label_dollar()) -->
-<!-- ``` -->
+ggplot(spotify, aes(x = duration_ms, y = danceability)) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-3, yend = y_hat_x_new+3,
+    color = "#CDDBDC", size = 4
+  ) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-2, yend = y_hat_x_new+2,
+    color = "#ADC3C5", size = 4
+  ) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-1, yend = y_hat_x_new+1,
+    color = "#7B9FA3", size = 4
+  ) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  geom_segment(
+    x = x_new, xend = x_new, y = 0, yend = y_hat_x_new,
+    linetype = "dashed", color = "#5B888C"
+  ) +
+  geom_segment(
+    x = 0, xend = x_new, y = y_hat_x_new, yend = y_hat_x_new,
+    linetype = "dashed", color = "#5B888C"
+  ) +
+  annotate("point", x = x_new, y = y_hat_x_new, size = 2, color = "magenta") +
+  annotate("point", x = x_new, y = y_hat_x_new, size = 5, shape = "circle open", color = "#5B888C", stroke = 2) +
+  labs(
+    x = "Song Duration (ms)",
+    y = "Danceability",
+  )
+```
 
-<!-- ## Two types of predictions -->
+## Two types of predictions
 
-<!-- 1.  Prediction for the mean: "What is the average predicted number of organic vegetable options in a neighborhood with an average income of \$70k?" -->
+1.  Prediction for the mean: "What is the average predicted danceability for three minute songs?"
 
-<!-- 2.  Prediction for an individual observation: "What is the predicted number of organic vegetable options at a single spotify in a neighborhood with an average income of \$70k?" -->
+2.  Prediction for an individual observation: "What is the predicted danceability for the new Magdala Bay song which is exactly three minutes long?"
 
-<!-- . . . -->
+. . .
 
-<!-- ::: question -->
-<!-- Which would you expect to be more variable? The average prediction or the prediction for an individual observation? Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare? -->
-<!-- ::: -->
+::: question
+Which would you expect to be more variable? The average prediction or the prediction for an individual observation? Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare?
+:::
 
-<!-- ## Uncertainty in predictions -->
+## Uncertainty in predictions
 
-<!-- **Confidence interval for the mean outcome:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE}_{\hat{\boldsymbol{\mu}}}}}$$ -->
+**Confidence interval for the mean outcome:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE}_{\hat{\boldsymbol{\mu}}}}}$$
 
-<!-- . . . -->
+. . .
 
-<!-- **Prediction interval for an individual observation:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE_{\hat{y}}}}}$$ -->
+**Prediction interval for an individual observation:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE_{\hat{y}}}}}$$
 
-<!-- ## Standard errors -->
+## Standard errors
 
-<!-- **Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$ -->
+**Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
 
-<!-- . . . -->
+. . .
 
-<!-- **Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{1 + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$ -->
+**Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{1 + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
 
-<!-- ## Standard errors -->
+## Standard errors
 
-<!-- **Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$ -->
+**Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
 
-<!-- **Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{\mathbf{\color{purple}{\Large{1}}} + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$ -->
+**Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{\mathbf{\color{purple}{\Large{1}}} + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
 
-<!-- ## Confidence interval -->
+## Confidence interval
 
-<!-- The 95% **confidence interval** for the *mean* outcome: -->
+The 95% **confidence interval** for the *mean* outcome:
 
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- new_neighborhood <- tibble(Avg_Income_K = 70) -->
+```{r}
+#| echo: true
+new_songs <- tibble(duration_ms = 180000)
 
-<!-- predict(spotify_fit, newdata = new_neighborhood, interval = "confidence", level = 0.95) |> -->
-<!--   kable() -->
-<!-- ``` -->
+predict(spotify_fit, newdata = new_songs, interval = "confidence", 
+        level = 0.95) |>
+  kable()
+```
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- new_neighborhood_ci <- as.tibble(predict(spotify_fit, newdata = new_neighborhood, interval = "confidence", level = 0.95) ) -->
-<!-- ``` -->
+```{r}
+#| echo: false
+new_songs_ci <- as.tibble(predict(spotify_fit, newdata = new_songs, interval = "confidence", level = 0.95) )
+```
 
-<!-- . . . -->
+. . .
 
-<!-- * We are 95% confident that the *mean* number of organic vegetable options offered by spotify in a neighborhood with an average income of \$70k is between . -->
+We are 95% confident that the *mean* danceability for new popular three minute songs on Spotify will be between `r new_songs_ci$lwr |> round(digits=2)` and `r new_songs_ci$upr |>  round(digits=2)`. 
 
-<!-- ## Prediction interval -->
+## Prediction interval
 
-<!-- The 95% **prediction interval** for an *individual* outcome: -->
+The 95% **prediction interval** for an *individual* outcome:
 
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- predict(spotify_fit, newdata = new_neighborhood, interval = "prediction", level = 0.95) |> -->
-<!--   kable() -->
-<!-- ``` -->
+```{r}
+#| echo: true
+new_song <- tibble(duration_ms = 180000)
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- new_neighborhood_pi <- as.tibble(predict(spotify_fit, newdata = new_neighborhood, interval = "prediction", level = 0.95)) -->
-<!-- ``` -->
+predict(spotify_fit, newdata = new_song, interval = "prediction", 
+        level = 0.95) |>
+  kable()
+```
 
-<!-- . . . -->
+```{r}
+#| echo: false
+new_song_pi <- as.tibble(predict(spotify_fit, newdata = new_song, interval = "prediction", level = 0.95))
+```
 
-<!-- We are 95% confident that the number of organic vegetable options offered by spotify in a neighborhood with an average income of \$70k is between -->
+. . .
 
-<!-- ## Comparing intervals -->
+We are 95% confident that the new Magdala Bay song that is exactly three minutes long will have a danceability between `r new_song_pi$lwr |> round(digits=2)` and `r new_song_pi$upr |>  round(digits=2)`.
 
-<!-- ```{r} -->
-<!-- #| out.width: "100%" -->
-<!-- #| fig.width: 10 -->
-<!-- #| echo: false -->
+## Comparing intervals
 
-<!-- new_neighborhoods <- tibble(Avg_Income_K = seq(min(spotify$Avg_Income_K), max(spotify$Avg_Income_K), diff(range(spotify$Avg_Income_K))/30)) -->
-<!-- new_neighborhood_ci <- as.tibble(predict(spotify_fit, newdata = new_neighborhoods, interval = "confidence", level = 0.95)) |> -->
-<!--   mutate( -->
-<!--     Avg_Income_K = new_neighborhoods$Avg_Income_K, -->
-<!--     type = "Confidence interval" -->
-<!--     ) -->
-<!-- new_neighborhood_pi <- as.tibble(predict(spotify_fit, newdata = new_neighborhoods, interval = "prediction", level = 0.95)) |> -->
-<!--   mutate( -->
-<!--     Avg_Income_K = new_neighborhoods$Avg_Income_K, -->
-<!--     type = "Prediction interval" -->
-<!--     ) -->
-<!-- new_neighborhoods_int <- bind_rows(new_neighborhood_ci, new_neighborhood_pi) -->
+```{r}
+#| out.width: "100%"
+#| fig.width: 10
+#| echo: false
 
-<!-- ggplot(spotify, aes(x = Avg_Income_K, y = Number_Organic)) + -->
-<!--   geom_point() + -->
-<!--   geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") + -->
-<!--   geom_line(data = new_neighborhoods_int, -->
-<!--             aes(x = Avg_Income_K, y = lwr, linetype = type, color = type), -->
-<!--             size = 1) + -->
-<!--   geom_line(data = new_neighborhoods_int, -->
-<!--             aes(x = Avg_Income_K, y = upr, linetype = type, color = type), -->
-<!--             size = 1) + -->
-<!--   labs( -->
-<!--     x = "Average Household Income (in thousands)", -->
-<!--     y = "Number of Organic Vegetables", -->
-<!--   ) + -->
-<!--   scale_x_continuous(labels = label_dollar()) + -->
-<!--   theme( -->
-<!--     legend.position = c(0.2, 0.85) -->
-<!--   ) -->
-<!-- ``` -->
+new_songs <- tibble(duration_ms = seq(min(spotify$duration_ms), max(spotify$duration_ms), diff(range(spotify$duration_ms))/30))
+new_songs_ci <- as.tibble(predict(spotify_fit, newdata = new_songs, interval = "confidence", level = 0.95)) |>
+  mutate(
+    duration_ms = new_songs$duration_ms,
+    type = "Confidence interval"
+    )
+new_song_pi <- as.tibble(predict(spotify_fit, newdata = new_songs, interval = "prediction", level = 0.95)) |>
+  mutate(
+    duration_ms = new_songs$duration_ms,
+    type = "Prediction interval"
+    )
+new_songs_int <- bind_rows(new_songs_ci, new_song_pi)
 
-<!-- ## Extrapolation -->
+ggplot(spotify, aes(x = duration_ms, y = danceability)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  geom_line(data = new_songs_int,
+            aes(x = duration_ms, y = lwr, linetype = type, color = type),
+            size = 1) +
+  geom_line(data = new_songs_int,
+            aes(x = duration_ms, y = upr, linetype = type, color = type),
+            size = 1) +
+  labs(
+    x = "Song Duration (ms)",
+    y = "Danceability",
+  ) +
+  scale_x_continuous(labels = label_number())
+```
 
-<!-- Using the model to predict for values outside the range of the original data is **extrapolation**. -->
+. . .
 
-<!-- . . . -->
+Complete Exercises 11 and 12.
 
-<!-- ::: columns -->
-<!-- ::: {.column width="55%"} -->
-<!-- ::: question -->
-<!-- Calculate the prediction interval for the number of organic options in an extremely wealthy neighborhood with an average household income of \$500k. -->
-<!-- ::: -->
+## Extrapolation
 
-<!-- [*No, thanks!*]{.fragment} -->
-<!-- ::: -->
+Using the model to predict for values outside the range of the original data is **extrapolation**.
 
-<!-- ::: {.column width="45%"} -->
-<!-- ![](images/07/Dall_ERichPersonVeges.jpg){fig-alt='AI Generated Image of "A very rich person eating organic vegetables"' fig-align="center"} -->
-<!-- ::: -->
-<!-- ::: -->
+. . .
+
+::: columns
+::: {.column width="55%"}
+::: question
+Calculate the prediction interval for the danceability of a song which is 20 minutes (1.2 Million milliseconds) song.
+:::
+
+[*No, thanks!*]{.fragment}
+:::
+
+::: {.column width="45%"}
+![AI Generated Image of "Funny people dancing. Add in silly dance moves and make them look tired."](images/04/dancing.png){fig-align="center"}
+:::
+:::
 
 
 
-<!-- ## Extrapolation -->
+## Extrapolation
 
-<!-- ::: question -->
-<!-- Why do we want to avoid extrapolation? -->
-<!-- ::: -->
+::: question
+Why do we want to avoid extrapolation?
+:::
+
+## 2005 be like: OMG HOUSING PRICES ARE GOING TO INCREASE FOREVER, YOUR CREDIT DOESN'T MATTER
+
+![](images/04/case-shiller1.png){fig-align="center"}
+
+## 2007 be like: LOL NO
+
+![](images/04/case-shiller2.png){fig-align="center"}
+
+## Recap
+
+-   Learned how to use mathematical models to
+
+    -   calculate confidence interval for the slope
+
+    -   conduct a hypothesis test for the slope
+    
+    -   calculate confidence intervals for predictions
+    
+        -   predictions of averages: "confidence intervals"
+        
+        -   predictions for single observations: "prediction intervals"

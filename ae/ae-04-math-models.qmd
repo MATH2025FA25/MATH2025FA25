@@ -33,7 +33,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable | class | description |
-|:--------|:--------|:------------------------------------------------------|
+|:--------------|:--------------|:-----------------------------------------|
 | track_id | character | Song unique ID |
 | track_name | character | Song Name |
 | track_artist | character | Song Artist |
@@ -43,7 +43,7 @@ It contains numerous characteristics for each song. You can see the full list of
 | loudness | double | The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typical range between -60 and 0 db. |
 | valence | double | A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry). |
 | tempo | double | The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration. |
-| duration_ms | double | 	Duration of song in milliseconds |
+| duration_ms | double | Duration of song in milliseconds |
 
 ```{r}
 #| label: load-data
@@ -58,10 +58,10 @@ What makes a song danceable? To answer this question, we'll analyze data on some
 
 Below is your assigned predictor. Look at the table above for a definition.
 
-- **Group 1:** `energy`
-- **Group 2:** `loudness`
-- **Group 3:** `valence`
-- **Group 4:** `tempo`
+-   **Group 1:** `energy`
+-   **Group 2:** `loudness`
+-   **Group 3:** `valence`
+-   **Group 4:** `tempo`
 
 ## Exercise 0
 
@@ -120,7 +120,7 @@ Based on your p-value, how strong is the evidence that your assigned explanatory
 
 Write a conclusion for your test in the context of the problem.
 
-## Exericse 7
+## Exercise 7
 
 Use `tidy` to compute a (95 - your group number)% confidence interval for your slope.
 
@@ -130,15 +130,31 @@ On the white board, draw a picture representing the critical value for you confi
 
 ## Exercise 9
 
-Interpret your confidence interval.
+Interpret your confidence interval in the context of the problem.
 
-<!-- ## Exercise 8 -->
+## Exercise 10
 
-<!-- Predict what the average valence for a song with an energy score 0.5 is. Report and interpret a 90% confidence interval for the average valence. -->
+Predict the average danceability for a song with:
 
-<!-- ## Exercise 5 -->
+-   an energy score of 0.859
+-   a loudness score of -5.03
+-   a valence of 0.52
+-   a tempo of 125
 
-<!-- Report and interpret a 90% confidence interval for a single song with energy score 0.8. -->
+Report and interpret a 90% confidence interval for the average danceability. Have your reporter write you interval and estimate on the board.
+
+## Exercise 11
+
+Report and interpret a 90% confidence interval for a single song with:
+
+-   an energy score of 0.859
+-   a loudness score of -5.03
+-   a valence of 0.52
+-   a tempo of 125
+
+## Exercise 12
+
+Would you expect you interval to get wider or narrower if you were making a prediction for all songs with the above characteristics?
 
 ::: callout-important
 To submit the AE:
