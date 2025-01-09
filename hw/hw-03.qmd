@@ -162,7 +162,7 @@ Before you wrap up the assignment, make sure you have rendered your document and
 
 To submit your assignment, upload the .qmd and HTML files to Canvas.
 
-## Grading (21 pts)
+## Grading (23 pts)
 
 | Component             | Points |
 |:----------------------|:-------|
