@@ -28,7 +28,7 @@ library(patchwork) #arrange plots in a grid
 
 ## Introduction
 
-This is a continuation of AE-05. The **Data** section below is the same as in that exercise. Feel free to skip it if you feel you remember everything about the data set or simply use it as a reference when needed.
+This is a continuation of AE-04. The **Data** section below is the same as in that exercise. Feel free to skip it if you feel you remember everything about the data set or simply use it as a reference when needed.
 
 ## Data
 
@@ -37,7 +37,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable | class | description |
-|:----------------|:----------------|:--------------------------------------|
+|:-----------------|:-----------------|:------------------------------------|
 | track_id | character | Song unique ID |
 | track_name | character | Song Name |
 | track_artist | character | Song Artist |
@@ -66,7 +66,6 @@ Below is your assigned predictor. Look at the table above for a definition.
 -   **Group 2:** `loudness`
 -   **Group 3:** `valence`
 -   **Group 4:** `tempo`
-
 
 ## Exercise 0
 

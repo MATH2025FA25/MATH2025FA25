@@ -96,7 +96,7 @@ tidy(spotify_fit, conf.int = TRUE, conf.level = 0.95) |>
 
 - There is strong statistical evidence that there is a linear relationship between the duration of a song and it's danceability.
 
-- We are 95% confidence that as the length of a song increases by one minute the danceability will derease by between 0.009 and 0.039 units.
+- We are 95% confidence that as the length of a song increases by one minute the danceability will decrease by between 0.009 and 0.039 units.
 
 ## Mathematical representation, visualized {.midi}
 
@@ -117,7 +117,7 @@ $$
 
 ## WARNING {.smaller}
 
-- All of these assumptions are for the population
+- Many of these assumptions are for the population
 - We want to determine whether they are met from your data
 - In real life, these conditions are *almost always* violated in one way or another
 - Questions you should ask yourself:
@@ -127,330 +127,373 @@ $$
     
 ## ENGAGE: SOAP BOX {.smaller}
 
-Statistics and numbers are often used to make arguments seem more "rigorous" or infallable. I'm sure you've heard the phrase "the numbers are the numbers" or "you can't argue with the numbers". More often than not, this is **BULLSHIT**. Most data analyses involve making decision which are subjective. The interpretability of any form of statistical inference is heavily influenced by whether the assumptions and conditions of that inference is met, which is almost never is. It is up to the practitioner to determine whether those conditions are met and what impact those conditions have on the results of those analyses. In my work, I rarely encounter practicitions who even know what the conditions are, let alone understand why they are important. **FURTHERMORE!!!** the quality of your analysis is only as good as the quality of your data. Remember a crap study design will yield crap data which will yield crappy analysis.
+Statistics and numbers are often used to make arguments seem more "rigorous" or infallible. I'm sure you've heard the phrase "the numbers are the numbers" or "you can't argue with the numbers". More often than not, this is **BULLSHIT**. Most data analyses involve making decision which are subjective. The interpretability of any form of statistical inference is heavily influenced by whether the assumptions and conditions of that inference is met, which they almost never are. It is up to the practitioner to determine whether those conditions are met and what impact those conditions have on the results of those analyses. In my work, I rarely encounter practitioners who even know what the conditions are, let alone understand why they are important. **FURTHERMORE!!!** the quality of your analysis is only as good as the quality of your data. Remember a crap study design will yield crap data which will yield crappy analysis. Statistical analyses yield one important form of evidence which should be combined with other forms of evidence when making an argument.
 
+## Linearity
 
-<!-- ## Linearity -->
+-   If the linear model, $\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1X$, adequately describes the relationship between $X$ and $Y$, then the residuals should reflect random (chance) error
 
-<!-- -   If the linear model, $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i$, adequately describes the relationship between $X$ and $Y$, then the residuals should reflect random (chance) error -->
+-   To assess this, we can look at a plot of the residuals ($e_i$'s) vs. the fitted values ($\hat{y}_i$'s) or predictors(or $x_i$'s)
 
-<!-- -   To assess this, we can look at a plot of the residuals vs. the fitted values -->
+-   There should be no distinguishable pattern in the residuals plot, i.e. the residuals should be randomly scattered
+
+-   A non-random pattern (e.g. a parabola) suggests a linear model that does not adequately describe the relationship between $X$ and $Y$
+
+## Linearity
+
+✅ The residuals vs. fitted values plot should show a random scatter of residuals (no distinguishable pattern or structure)
 
-<!-- -   **Linearity satisfied** if there is no distinguishable pattern in the residuals plot, i.e. the residuals should be randomly scattered -->
+```{r res-vs-fit}
+#| echo: false
+spotify_aug <- augment(spotify_fit)
 
-<!-- -   A non-random pattern (e.g. a parabola) suggests a linear model does not adequately describe the relationship between $X$ and $Y$ -->
+gf_point(.resid ~ .fitted, data = spotify_aug) |>
+  gf_hline(yintercept = 0, linetype = "dashed") |>
+  gf_labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  )
+```
+
+## The augment function {.smaller}
+
+`augment` is from the `broom` package:
+
+```{r}
+spotify_aug <- augment(spotify_fit)
+
+head(spotify_aug) |> kable()
+```
+
+## Residuals vs. fitted values (code)
+
+```{r}
+#| echo: true
+#| ref.label: "res-vs-fit"
+#| fig.show: "hide"
+```
 
-<!-- ## Linearity -->
+## Non-linear relationships
 
-<!-- ✅ The residuals vs. fitted values plot should show a random scatter of residuals (no distinguishable pattern or structure) -->
+```{r}
+#| echo: false
+set.seed(1234)
 
-<!-- ```{r res-vs-fit} -->
-<!-- #| echo: false -->
-<!-- heb_aug <- augment(heb_fit) -->
+n = 100
 
-<!-- gf_point(.resid ~ .fitted, data = heb_aug) |>  -->
-<!--   gf_hline(yintercept = 0, linetype = "dashed") |>  -->
-<!--   gf_labs( -->
-<!--     x = "Fitted value", y = "Residual", -->
-<!--     title = "Residuals vs. fitted values" -->
-<!--   ) -->
-<!-- ``` -->
+df <- tibble(
+  x = -49:50,
+  e_curved = rnorm(n, 0, 150),
+  y_curved = x^2 + e_curved,
+  e_slight_curve = sort(rbeta(n, 5, 1) * 200) + rnorm(n, 0, 5),
+  y_slight_curve = x + e_slight_curve,
+  x_fan = seq(0, 3.99, 4 / n),
+  y_fan = c(rnorm(n / 8, 3, 1), rnorm(n / 8, 3.5, 2), rnorm(n / 8, 4, 2.5), rnorm(n / 8, 4.5, 3), rnorm(n / 4, 5, 4), rnorm((n / 4) + 2, 6, 5))
+)
+```
 
-
-<!-- ## The augment function {.smaller} -->
+::: columns
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| fig.asp: 1.2
+#| echo: false
 
-<!-- ```{r} -->
-<!-- heb_aug <- augment(heb_fit) -->
+p1 <- ggplot(df, aes(x = x, y = y_curved)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  labs(
+    x = "X", y = "Y",
+    title = "Observed data + model"
+    )
 
-<!-- head(heb_aug) |> kable() -->
-<!-- ``` -->
+curved_fit <- lm(y_curved ~ x, data = df)
 
-<!-- ## Residuals vs. fitted values (code) -->
+curved_aug <- augment(curved_fit)
 
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- #| ref.label: "res-vs-fit" -->
-<!-- #| fig.show: "hide" -->
-<!-- ``` -->
+p2 <- ggplot(curved_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  ) +
+  ylim(-2000, 2000)
 
-<!-- ## Non-linear relationships -->
+p1 / p2 +
+  plot_annotation(title = "Obviously curved")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| fig.asp: 1.2
+#| echo: false
+
+p1 <- ggplot(df, aes(x = x, y = y_slight_curve)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  labs(
+    x = "X", y = "Y",
+    title = "Observed data + model"
+    )
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- set.seed(1234) -->
+slight_curve_fit <- lm(y_slight_curve ~ x, data = df)
 
-<!-- n = 100 -->
+slight_curve_aug <- augment(slight_curve_fit)
 
-<!-- df <- tibble( -->
-<!--   x = -49:50, -->
-<!--   e_curved = rnorm(n, 0, 150), -->
-<!--   y_curved = x^2 + e_curved, -->
-<!--   e_slight_curve = sort(rbeta(n, 5, 1) * 200) + rnorm(n, 0, 5), -->
-<!--   y_slight_curve = x + e_slight_curve, -->
-<!--   x_fan = seq(0, 3.99, 4 / n), -->
-<!--   y_fan = c(rnorm(n / 8, 3, 1), rnorm(n / 8, 3.5, 2), rnorm(n / 8, 4, 2.5), rnorm(n / 8, 4.5, 3), rnorm(n / 4, 5, 4), rnorm((n / 4) + 2, 6, 5)) -->
-<!-- ) -->
-<!-- ``` -->
+p2 <- ggplot(slight_curve_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  )
 
-<!-- ::: columns -->
-<!-- ::: {.column width="50%"} -->
-<!-- ```{r} -->
-<!-- #| out.width: "100%" -->
-<!-- #| fig.asp: 1.2 -->
-<!-- #| echo: false -->
+p1 / p2 +
+  plot_annotation(title = "Not so obviously curved")
+```
+:::
+:::
 
-<!-- p1 <- ggplot(df, aes(x = x, y = y_curved)) + -->
-<!--   geom_point() + -->
-<!--   geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") + -->
-<!--   labs( -->
-<!--     x = "X", y = "Y", -->
-<!--     title = "Observed data + model" -->
-<!--     ) -->
+## Violations of Linearity
 
-<!-- curved_fit <- lm(y_curved ~ x, data = df) -->
+- Impact: inference relies on estimates of $\sigma_\epsilon$ computed from residuals:
+  + Residuals will be larger in certain places so estimates will be inaccurate
+  + Therefore, inference (i.e. CIs and p-values) will be inaccurate
+  + Most importantly... your predictions will be wrong most of the time
+- Remedy: transform your data (to come)
 
-<!-- curved_aug <- augment(curved_fit) -->
+. . .
 
-<!-- p2 <- ggplot(curved_aug, aes(x = .fitted, y = .resid)) + -->
-<!--   geom_point() + -->
-<!--   geom_hline(yintercept = 0, linetype = "dashed") + -->
-<!--   labs( -->
-<!--     x = "Fitted value", y = "Residual", -->
-<!--     title = "Residuals vs. fitted values" -->
-<!--   ) + -->
-<!--   ylim(-2000, 2000) -->
+Complete Exercises 1-3
 
-<!-- p1 / p2 + -->
-<!--   plot_annotation(title = "Obviously curved") -->
-<!-- ``` -->
-<!-- ::: -->
+## Constant variance {.midi}
 
-<!-- ::: {.column width="50%"} -->
-<!-- ```{r} -->
-<!-- #| out.width: "100%" -->
-<!-- #| fig.asp: 1.2 -->
-<!-- #| echo: false -->
+-   If the spread of the distribution of $Y$ is equal for all values of $X$ then the spread of the residuals should be approximately equal for each value of $X$
 
-<!-- p1 <- ggplot(df, aes(x = x, y = y_slight_curve)) + -->
-<!--   geom_point() + -->
-<!--   geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") + -->
-<!--   labs( -->
-<!--     x = "X", y = "Y", -->
-<!--     title = "Observed data + model" -->
-<!--     ) -->
+-   To assess this, we can look at a plot of the residuals vs. the fitted values
 
-<!-- slight_curve_fit <- lm(y_slight_curve ~ x, data = df) -->
+-   The vertical spread of the residuals should be approximately equal as you move from left to right
 
-<!-- slight_curve_aug <- augment(slight_curve_fit) -->
+-   **CAREFUL**: Inconsistent distribution of $X$s can make it seem as if there is non-constant variance
 
-<!-- p2 <- ggplot(slight_curve_aug, aes(x = .fitted, y = .resid)) + -->
-<!--   geom_point() + -->
-<!--   geom_hline(yintercept = 0, linetype = "dashed") + -->
-<!--   labs( -->
-<!--     x = "Fitted value", y = "Residual", -->
-<!--     title = "Residuals vs. fitted values" -->
-<!--   ) -->
+## Constant variance
 
-<!-- p1 / p2 + -->
-<!--   plot_annotation(title = "Not so obviously curved") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ::: -->
+✅ The vertical spread of the residuals is relatively constant across the plot
 
-<!-- ## Constant variance {.midi} -->
+```{r}
+#| ref.label: "res-vs-fit"
+#| echo: false
+```
 
-<!-- -   If the spread of the distribution of $Y$ is equal for all values of $X$ then the spread of the residuals should be approximately equal for each value of $X$ -->
+## Non-constant variance: Fan-Pattern {.smaller}
 
-<!-- -   To assess this, we can look at a plot of the residuals vs. the fitted values -->
+::: columns
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| echo: false
+ggplot(df, aes(x = x_fan, y = y_fan)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  labs(
+    x = "X", y = "Y",
+    title = "Observed data + model"
+    )
+```
+:::
 
-<!-- -   **Constant variance satisfied** if the vertical spread of the residuals is approximately equal as you move from left to right (i.e. there is no "fan" pattern) -->
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| echo: false
 
-<!-- -   A fan pattern suggests the constant variance assumption is not satisfied and transformation or some other remedy is required (more on this later in the semester) -->
+fan_fit <- lm(y_fan ~ x_fan, data = df)
 
-<!-- -   **CAREFUL**: Inconsistent distribution of $X$s can make it seem as if there is non-constant variance -->
-
-<!-- ## Constant variance -->
-
-<!-- ✅ The vertical spread of the residuals is relatively constant across the plot -->
-
-<!-- ```{r} -->
-<!-- #| ref.label: "res-vs-fit" -->
-<!-- #| echo: false -->
-<!-- ``` -->
-
-<!-- ## Non-constant variance -->
-
-<!-- ::: columns -->
-<!-- ::: {.column width="50%"} -->
-<!-- ```{r} -->
-<!-- #| out.width: "100%" -->
-<!-- #| echo: false -->
-<!-- ggplot(df, aes(x = x_fan, y = y_fan)) + -->
-<!--   geom_point() + -->
-<!--   geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") + -->
-<!--   labs( -->
-<!--     x = "X", y = "Y", -->
-<!--     title = "Observed data + model" -->
-<!--     ) -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- ::: {.column width="50%"} -->
-<!-- ```{r} -->
-<!-- #| out.width: "100%" -->
-<!-- #| echo: false -->
+fan_aug <- augment(fan_fit)
 
-<!-- fan_fit <- lm(y_fan ~ x_fan, data = df) -->
+ggplot(fan_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  ) +
+  ylim(-15, 15)
+```
+:::
+:::
 
-<!-- fan_aug <- augment(fan_fit) -->
+- Constant variance is frequently violated when the error/variance is proportional to the response variable
+- Whose wealth fluctuates more per day... Dr. Friedlander's or Elon Musk's?
 
-<!-- ggplot(fan_aug, aes(x = .fitted, y = .resid)) + -->
-<!--   geom_point() + -->
-<!--   geom_hline(yintercept = 0, linetype = "dashed") + -->
-<!--   labs( -->
-<!--     x = "Fitted value", y = "Residual", -->
-<!--     title = "Residuals vs. fitted values" -->
-<!--   ) + -->
-<!--   ylim(-15, 15) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ::: -->
+## Violations of Constant Variance
 
-<!-- - Think: Is my error/variance proportional to the thing I'm predicting? -->
+- Impact: inference relies on estimates of $\sigma_\epsilon$ computed from residuals:
+  + Residuals will be larger in certain places so estimates will be inaccurate
+  + Therefore, inference (i.e. CIs and p-values) will be inaccurate
+- Remedy: transform your data (to come)
 
+. . .
 
-<!-- ## Normality {.midi} -->
+Complete Exercises 4
 
-<!-- -   The linear model assumes that the distribution of $Y$ is Normal for every value of $X$ -->
+## Normality {.smaller}
 
-<!-- -   This is impossible to check in practice, so we will look at the overall distribution of the residuals to assess if the normality assumption is satisfied -->
+-   The linear model assumes that the distribution of $Y$ is Normal for every value of $X$
 
-<!-- -   **Normality satisfied** if a histogram of the residuals is approximately normal -->
+-   This is impossible to check in practice, so we will look at the overall distribution of the residuals to assess if the normality assumption is satisfied
 
-<!--     -   Can also check that the points on a normal QQ-plot falls along a diagonal line -->
+-   A histogram of the residuals should look approximately normal, symmetric, without any huge outliers
 
-<!-- -   Most inferential methods for regression are robust to some departures from normality, so we can proceed with inference if the sample size is sufficiently large, $n > 30$ -->
+-   A normal QQ-plot falls along a diagonal line
 
-<!-- ## Normality -->
+-   Most inferential methods for regression are robust to some departures from normality, so we can proceed with inference if the sample size is sufficiently large, roughly $n > 30$ depending on how non-normal your residuals look
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
+    +   **Notable exception:** predictions intervals!
 
-<!-- ggplot(heb_aug, aes(x = .resid)) + -->
-<!--   geom_histogram(bins = 7, color = "white") + -->
-<!--   labs( -->
-<!--     x = "Residual", -->
-<!--     y = "Count", -->
-<!--     title = "Histogram of residuals" -->
-<!--   ) -->
-<!-- ``` -->
+## Check normality using a histogram
 
-<!-- ## Check normality using a QQ-plot -->
+```{r}
+#| echo: false
 
-<!-- ::: columns -->
-<!-- ::: {.column width="50%"} -->
-<!-- ```{r} -->
-<!-- #| code-fold: true -->
-<!-- gf_histogram(~.resid, data = heb_aug, -->
-<!--              bins=7, color = "white") |>  -->
-<!--   gf_labs( -->
-<!--     x = "Residual", -->
-<!--     y = "Count", -->
-<!--     title = "Histogram of residuals" -->
-<!--   ) -->
-<!-- ``` -->
+ggplot(spotify_aug, aes(x = .resid)) +
+  geom_histogram(bins = 7, color = "white") +
+  labs(
+    x = "Residual",
+    y = "Count",
+    title = "Histogram of residuals"
+  )
+```
 
-<!-- ```          -->
-<!-- ``` -->
-<!-- ::: -->
+## Check normality using a QQ-plot {.smaller}
 
-<!-- ::: {.column width="50%"} -->
-<!-- ```{r} -->
-<!-- #| code-fold: true -->
-<!-- gf_qq(~.resid, data = heb_aug) |>  -->
-<!--   gf_qqline() |>   -->
-<!--   gf_labs(x = "Theoretical quantile",  -->
-<!--        y = "Observed quantile",  -->
-<!--        title = "Normal QQ-plot of residuals") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ::: -->
+```{r}
+#| code-fold: true
+gf_qq(~.resid, data = spotify_aug) |>
+  gf_qqline() |>
+  gf_labs(x = "Theoretical quantile",
+       y = "Observed quantile",
+       title = "Normal QQ-plot of residuals")
+```
 
-<!-- -   Assess whether residuals lie along the diagonal line of the Quantile-quantile plot (QQ-plot). -->
+-   $x$-axis: quantile we would expect from a true normal distribution
 
-<!-- -   If so, the residuals are normally distributed. -->
+-   $y$-axis: quantile we observe in the data
 
-<!-- ## Normality -->
+-   Bell-shaped does not necessarily equal normal... QQ-plot can detect distributions with heavier (i.e. more spread out) tails than a normal distribution
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| out.width: "80%" -->
+## Check normality using a QQ-plot {.smaller}
 
-<!-- ggplot(heb_aug, aes(sample = .resid)) + -->
-<!--   stat_qq()+ -->
-<!--   stat_qq_line() +  -->
-<!--   labs(x = "Theoretical quantile",  -->
-<!--        y = "Observed quantile",  -->
-<!--        title = "Normal QQ-plot of residuals") -->
-<!-- ``` -->
+::: columns
+::: {.column width="50%"}
+```{r}
+#| code-fold: true
+gf_histogram(~.resid, data = spotify_aug,
+             bins=7, color = "white") |>
+  gf_labs(
+    x = "Residual",
+    y = "Count",
+    title = "Histogram of residuals"
+  )
+```
+:::
 
-<!-- ❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied. -->
+::: {.column width="50%"}
+```{r}
+#| code-fold: true
+gf_qq(~.resid, data = spotify_aug) |>
+  gf_qqline() |>
+  gf_labs(x = "Theoretical quantile",
+       y = "Observed quantile",
+       title = "Normal QQ-plot of residuals")
+```
+:::
+:::
 
-<!-- ✅ The sample size  $n =  37 > 30$, so the sample size is large enough to relax this condition and proceed with inference. -->
+-   Assess whether residuals lie along the diagonal line of the Quantile-quantile plot (QQ-plot).
 
+-   If so, the residuals are normally distributed.
 
-<!-- ## Independence {.midi} -->
+-   Note: QQ-Plots are pretty sensitive so it doesn't take too much departure to conclude non-normality
 
-<!-- -   We can often check the independence assumption based on the context of the data and how the observations were collected -->
+## Normality {.smaller}
 
-<!-- -   Two common violations of the independence assumption: -->
+❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.
 
-<!--     -   **Serial Effect**: If the data were collected over time, plot the residuals in time order to see if there is a pattern (serial correlation) -->
+✅ The sample size  $n =  508>  30$, so the sample size is large enough to relax this condition and proceed with inference (mostly).
 
-<!--     -   **Cluster Effect**: If there are subgroups represented in the data that are not accounted for in the model (e.g., type of supermarket), you can color the points in the residual plots by group to see if the model systematically over or under predicts for a particular subgroup -->
+## Violations of Normality
 
-<!-- ## Independence {.nonincremental} -->
+- Impact: depends what you want to do and how large your sample size is
+    + Your predictions intervals will be wrong... they will be symmetric when they shouldn't be...
+    + If you have a large sample size not a big deal for anything else
+- Remedy... depends on what you want to do
+    + If sample size is large enough and don't care about prediction intervals... do nothing
+    + Otherwise, transform data... (hard for small sample sizes)
+    
+. . .
 
-<!-- Recall the description of the data: -->
+Complete Exercises 5 and 6.
 
-<!-- > -   Average household income (per zip code) and number of organic vegetable offerings in San Antonio, TX -->
-<!-- > -->
-<!-- > -   Data from HEB website, compiled by high school student Linda Saucedo, Fall 2019 -->
 
-<!-- <br> -->
+## Independence {.midi}
 
-<!-- ❌ Based on the information we have,  it's  unclear if the data are independent. In fact, I'd guess that they are likely geographically correlated. -->
+-   We can often check the independence assumption based on the context of the data and how the observations were collected
 
-<!-- ## Recap -->
+-   Two common violations of the independence assumption:
 
-<!-- Used residual plots to check conditions for SLR: -->
+    -   **Temporal Correlation**: If the data were collected over time, plot the residuals in time order to see if there is a pattern (serial correlation)
 
-<!-- ::: columns -->
-<!-- ::: {.column width="50%"} -->
-<!-- ::: nonincremental -->
-<!-- -   Linearity -->
-<!-- -   Constant variance -->
-<!-- ::: -->
-<!-- ::: -->
+    -   **Cluster Effect**: If there are subgroups represented in the data that are not accounted for in the model, you can color the points in the residual plots by group to see if the model systematically over or under predicts for a particular subgroup
+    
+    -   **Spatial Correlation**: If observations that were close to one another are more correlated than ones which are far apart then independent is violated
 
-<!-- ::: {.column width="50%"} -->
-<!-- ::: nonincremental -->
-<!-- -   Normality -->
-<!-- -   Independence -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ::: -->
+## Independence 
 
-<!-- . . . -->
+Complete Exercise 7
 
-<!-- ::: question -->
-<!-- 1. Which of these conditions are required for fitting a SLR (and not doing any inference)?  -->
-<!-- 2. Which for simulation-based inference for the slope for an SLR?  -->
-<!-- 3. Which for inference with mathematical models? -->
-<!-- ::: -->
+. . .
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- countdown(minutes = 3, font_size = "2em") -->
-<!-- ``` -->
+❌ Based on the information we have,  it's  unlikely the data are independent. 
+
+## Violations of Independence 
+
+- Impact: depends on how it's violated
+    + In some cases you'll underestimate p-values (too many false positives) and make CIs which are too narrow
+    + In other cases you'll do the opposite
+- Remedy... depends on the source and type of dependence
+    + Add variable accounting for dependence to model
+    + Otherwise, beyond the scope of this class
+      + Time-Series Analysis
+      + Mixed-Effects Models
+      + Spacial Statistics
+
+## Recap
+
+Used residual plots to check conditions for SLR:
+
+::: columns
+::: {.column width="50%"}
+::: nonincremental
+-   Linearity (residuals vs fitted vals)
+-   Constant variance (residuals vs fitted vals)
+:::
+:::
+
+::: {.column width="50%"}
+::: nonincremental
+-   Normality (histogram/QQ-plot of residuals)
+-   Independence (knowledge of data collection)
+:::
+:::
+:::
+
+. . .
+
+Note: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three
+
+Time permitting: Discussion on sources of dependence.
 

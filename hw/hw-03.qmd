@@ -20,11 +20,11 @@ By the end of the homework you will...
 
 # Getting started
 
-- Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
+-   Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
 
-- Make a subfolder in your hw directory to store this homework.
+-   Make a subfolder in your hw directory to store this homework.
 
-- Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202861), navigate to Homework 3 and upload the `hw-03.qmd` and `coffee-grades.csv` file into the folder your just made.
+-   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202861), navigate to Homework 3 and upload the `hw-03.qmd` and `coffee-grades.csv` file into the folder your just made.
 
 # Packages
 
@@ -130,9 +130,9 @@ The **linearity condition** is satisfied if there is random scatter of the resid
 The **constant variance** condition is satisfied if the vertical spread of the residuals is relatively across the plot.
 :::
 
--   Is the linearity condition satisfied? Briefly explain why or why not.
+-   To what extent is the linearity condition satisfied? Briefly explain why or why not.
 
--   Is the constant variance condition satisfied? Briefly explain why or why not.
+-   To what extent is the constant variance condition satisfied? Briefly explain why or why not.
 
 ### Exercise 9
 
@@ -148,7 +148,11 @@ Make a histogram or density plot of the residuals (`.resid`). Is the normality c
 The **independence** condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.
 :::
 
-Do you think the independence condition satisfied? Briefly explain why or why not. You may want to go to the top and look at the source of the data.
+To what extent is the independence condition satisfied? Briefly explain why or why not. You may want to go to the top and look at the source of the data.
+
+### Exercise 11
+
+Write a paragraph synthesizing the results of this homework. Contextualize the results of the inferential statistics (i.e. hypotheses tests and confidence intervals) with your assessment of the conditions required for them to be valid. Discuss what your results say about the true relationship between aroma and flavor grades along with how trustworthy you think these results are.
 
 # Submission
 
@@ -157,8 +161,6 @@ Before you wrap up the assignment, make sure you have rendered your document and
 :::
 
 To submit your assignment, upload the .qmd and HTML files to Canvas.
-
-
 
 ## Grading (21 pts)
 
@@ -174,10 +176,10 @@ To submit your assignment, upload the .qmd and HTML files to Canvas.
 | Ex 8                  | 2      |
 | Ex 9                  | 2      |
 | Ex 10                 | 2      |
+| Ex 11                 | 2      |
 | Grammar & Writing     | 1[^1]  |
 | Workflow & formatting | 1[^2]  |
 
 [^1]: The "Grammar & Writing" grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.
 
 [^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.
-
