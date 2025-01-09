@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -200,6 +234,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lit-review" id="toc-lit-review" class="nav-link" data-scroll-target="#lit-review">Checkpoint III: Literature Review</a></li>
   <li><a href="#annotated-bib" id="toc-annotated-bib" class="nav-link" data-scroll-target="#annotated-bib">Checkpoint IV: Annotated Bibliography</a></li>
   <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Checkpoint V: Project proposal</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Checkpoint VI: Load and Clean the Data Set</a>
+  <ul class="collapse">
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading the Data</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/project/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -270,6 +308,10 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#project-proposal">Checkpoint V: Project Proposal (2%)</a></p>
 <ul>
 <li>due Friday, January 10</li>
+</ul>
+<p><a href="#load-data">Checkpoint VI: Load and Clean the Data Set (1%)</a></p>
+<ul>
+<li>due Monday, January 13</li>
 </ul>
 <!-- [Stage II: Exploratory Data Analysis (5%)](#exploratory-analysis) -->
 <!-- -   due Wednesday, October 30 -->
@@ -375,6 +417,36 @@ ul.task-list li input[type="checkbox"] {
 <li>Your partially annotated bibliography. There must be at least six articles and at least two ust be annotated.</li>
 </ol>
 <p><strong>Deliverables:</strong> Word document or PDF with the information above. <strong>You may receive points back on Checkpoints II-IV for your work on this assignment.</strong></p>
+</section>
+<section id="load-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-data">Checkpoint VI: Load and Clean the Data Set</h2>
+<p>We now begin the second stage of your project, the Exploratory Data Analysis portion.</p>
+<p>You now need to load and “clean” your data set, make note of any problematic data and observations that need to be removed, determine whether you want to use the whole data set or a subset, and consider implications about any decisions you make about missing data. <a href="https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html">This website</a> shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).</p>
+<p><strong>Deliverables:</strong> A QMD and HTML file uploaded to Canvas containing the following:</p>
+<ul>
+<li>A chunk in which you load the data. See the <a href="#loading-data">Loading the Data</a> section below. Note that you will be building on this document.</li>
+<li>Any filtering that is necessary. At the very least this should include a treatment of your missing data.
+<ul>
+<li>A very brief discussion of whether your data represents a representative sample of your target population.</li>
+</ul></li>
+<li>The number of variable and observations in your resulting data set.</li>
+<li>Univariate plots of all your variables
+<ul>
+<li>No need to describe them yet but note any observations which seem troublesome.</li>
+</ul></li>
+<li>Bivariate plots of your repose variables with all of your
+<ul>
+<li>No need to describe them yet but note any observations which seem troublesome.</li>
+</ul></li>
+</ul>
+<section id="loading-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-data">Loading the Data</h3>
+<p><strong>Nation Financial Well-Being Survey:</strong> Simply download the csv from <a href="https://cofi.instructure.com/courses/17093/pages/national-financial-well-being-survey">Canvas</a>, upload it to Quarto, and read it using the <code>read_csv</code> function in the same way as we’ve been doing with activities and homeworks.</p>
+<p><strong>Behavioral Risk Factor Surveillance Survey:</strong> The data set is extremely large which results in a few problems. It is too big for you to upload to RStudio yourself so I have already uploaded it to RStudio. Furthermore, if you load the entire data set into memory, RStudio will begin to run extremely slowly. As a result, it will be advantageous to only load the columns that you need. Use the code below to load only the columns that you need. Simply replace <code>col_1</code>, <code>col_2</code>, etc. with the names of your columns. You may add as many columns as you need, simple separate the names using commas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"/srv/R/MAT212_WIN25/brfss2023.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(col_1, col_2, col_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <!-- ## Stage II: Exploratory Data Analysis {#exploratory-analysis} -->
 <!-- The second stage of your project is to conduct Exploratory Data Analysis.  -->
 <!-- 1. You may need to "clean" your data set first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data. [This website](https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html) shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach). -->
@@ -502,6 +574,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- -  Don't use codes in your prose unless absolutely necessary.  For example, if you're using "Return on Investment" = ROI, this is fine because it's a well-known and easy-to-remember acronym. . But "sem_trim_15" is meaningless, so don't use it! Even for acronyms it is good practice to write it out with the acronym the first time (e.g. "blah blah blah Return on Investment (ROI) blah blah") If you must use codes, italicize them for easy reading. -->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -65,6 +65,10 @@ You are more than welcome to contact me with any questions about your project bu
 
 -   due Friday, January 10
 
+[Checkpoint VI: Load and Clean the Data Set (1%)](#load-data)
+
+-   due Monday, January 13
+
 <!-- [Stage II: Exploratory Data Analysis (5%)](#exploratory-analysis) -->
 
 <!-- -   due Wednesday, October 30 -->
@@ -177,6 +181,36 @@ from previous Checkpoints:
 and at least two ust be annotated.
     
 **Deliverables:** Word document or PDF with the information above. **You may receive points back on Checkpoints II-IV for your work on this assignment.**
+
+## Checkpoint VI: Load and Clean the Data Set {#load-data}
+
+We now begin the second stage of your project, the Exploratory Data Analysis portion.
+
+You now need to load and "clean" your data set, make note of any problematic data and observations that need to be removed, determine whether you want to use the whole data set or a subset, and consider implications about any decisions you make about missing data. [This website](https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html) shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).
+
+**Deliverables:** A QMD and HTML file uploaded to Canvas containing the following: 
+
+- A chunk in which you load the data. See the [Loading the Data](#loading-data) section below. Note that you will be building on this document.
+- Any filtering that is necessary. At the very least this should include a treatment of your missing data.
+  + A very brief discussion of whether your data represents a representative sample of your target population.
+- The number of variable and observations in your resulting data set.
+- Univariate plots of all your variables
+  + No need to describe them yet but note any observations which seem troublesome.
+- Bivariate plots of your repose variables with all of your
+  + No need to describe them yet but note any observations which seem troublesome.
+
+### Loading the Data {#loading-data}
+
+**Nation Financial Well-Being Survey:** Simply download the csv from [Canvas](https://cofi.instructure.com/courses/17093/pages/national-financial-well-being-survey), upload it to Quarto, and read it using the `read_csv` function in the same way as we've been doing with activities and homeworks.
+
+**Behavioral Risk Factor Surveillance Survey:** The data set is extremely large which results in a few problems. It is too big for you to upload to RStudio yourself so I have already uploaded it to RStudio. Furthermore, if you load the entire data set into memory, RStudio will begin to run extremely slowly. As a result, it will be advantageous to only load the columns that you need. Use the code below to load only the columns that you need. Simply replace `col_1`, `col_2`, etc. with the names of your columns. You may add as many columns as you need, simple separate the names using commas.
+
+```{r}
+#| eval: FALSE
+
+read_csv("/srv/R/MAT212_WIN25/brfss2023.csv") |> 
+  select(col_1, col_2, col_3)
+```
 
 <!-- ## Stage II: Exploratory Data Analysis {#exploratory-analysis} -->
 

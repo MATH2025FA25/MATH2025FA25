@@ -1,0 +1,7 @@
+---
+title: "Preparation for Model Transformation and Outliers"
+---
+
+## Assigned reading
+
+Stat2 Textbook: Chapter 1.4, 1.5
