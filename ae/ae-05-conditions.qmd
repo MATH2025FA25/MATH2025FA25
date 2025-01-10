@@ -1,5 +1,5 @@
 ---
-title: "AE 05: Model Conditions"
+title: "AE 05: Model Conditions and Evaluation"
 subtitle: "Songs on Spotify"
 editor: visual
 format:
@@ -37,7 +37,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable | class | description |
-|:-----------------|:-----------------|:------------------------------------|
+|:-----------------|:-----------------|:-----------------------------------|
 | track_id | character | Song unique ID |
 | track_name | character | Song Name |
 | track_artist | character | Song Artist |
@@ -77,28 +77,21 @@ Fit a model using your assigned explanatory variable to predict a songs `danceab
 
 ## Exercise 1
 
-Last time, we were too hasty in performing statistical inference. We need to make sure you data satifies the four conditions of inference. Let's check those model conditions now. Fill in the code below to use the `augment()` function to create a new data frame containing the residuals and fitted values (among other information)/
+Use the `augment` function from the `broom` package to create an augmented data frame from the model you fit in Exercise 0.
 
-::: callout-important
-Note: Remove `#|eval: false` from the code chunk after you have filled in the code.
-:::
-
-```{r}
-#| eval: false
-spotify_aug <- augment(_____)
-```
-
-## Exercise 3
+## Exercise 2
 
 Make a plot of the residual vs. fitted values.
 
-```{r}
-#| label: resid-vs-fitted
+## Exercise 3
 
-# add code here
-```
+To what extent does the linearity condition appear to be met for your data?
 
 ## Exercise 4
+
+To what extent does the constant variance assumption appear to be met for your data?
+
+## Exercise 5
 
 Fill in the code to make a histogram of the residuals and a normal QQ-plot.
 
@@ -120,14 +113,29 @@ resid_qq <- gf_qq(~____, data = ____)  |>
 resid_hist + resid_qq
 ```
 
-## Exercise 5
+## Exercise 6
 
-Assess the four model conditions. Use the plots from the previous exercises to help make the assessment.
+To what extent does the normality condition of your data appear to be met?
 
--   Linearity
--   Constant variance
--   Normality
--   Independence
+## Exercise 7
+
+Our data was collected from Spotify... to what extent do you think the independence condition is met? Do you think there is a serial effect? Do you think there is a cluster effect?
+
+## Exercise 8
+
+Using the `anova` function, compute the SSE, SSM, and SST from your model. Note that the function will give you two of those values and you'll have to use subtraction to compute the other two.
+
+## Exercise 9
+
+Load the `yardstick` package and compute the $R^2$ of your model. Then verify that you get the same number when you divide your SSM by your SST. How do you interpret this value? Have your reporter write the resulting value on the board.
+
+## Exericse 10
+
+Compute the RMSE for your model. Interpret this value.
+
+## Exercise 11
+
+Which group has the best model?
 
 ::: callout-important
 To submit the AE:

@@ -707,8 +707,220 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </ul></li>
 </ul></li>
 </ul>
+</section></section>
+<section>
+<section id="model-evaluation" class="title-slide slide level1 center">
+<h1>Model evaluation</h1>
+
 </section>
-<section id="recap" class="slide level2">
+<section id="partitioning-variability" class="slide level2">
+<h2>Partitioning Variability</h2>
+<p>Let’s think about variation:</p>
+<div>
+<ul>
+<li class="fragment">DATA = MODEL + ERROR</li>
+<li class="fragment"><span class="math inline">\(\substack{\text{Variation} \\ \text{in Y}} = \substack{\text{Variation explained} \\ \text{by model}} + \substack{\text{Variation not explained} \\ \text{by model}}\)</span></li>
+</ul>
+</div>
+</section>
+<section id="partitioning-variability-anova" class="slide level2">
+<h2>Partitioning Variability (ANOVA)</h2>
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(y_i - \bar{y} = (\hat{y}_i - \bar{y}) + (y_i-\hat{y}_i)\)</span></li>
+<li class="fragment">Square and sum: <span class="math inline">\(\sum(y_i-\bar{y})^2 = \sum(\hat{y} - \bar{y})^2 + \sum(y-\hat{y})^2\)</span></li>
+<li class="fragment"><span class="math inline">\(\substack{\text{Sum of squares} \\ \text{Total}} = \substack{\text{Sum of squares} \\ \text{model}} + \substack{\text{Sum of squares} \\ \text{error}}\)</span></li>
+<li class="fragment"><span class="math inline">\(SSTotal = SSModel + SSE\)</span></li>
+<li class="fragment"><span class="math inline">\(SST = SSM + SSE\)</span></li>
+</ul>
+</div>
+</section>
+<section id="anova-in-r" class="slide level2">
+<h2>ANOVA in R</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>spotify_fit <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">anova</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">sumsq</th>
+<th style="text-align: right;">meansq</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">duration_min</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.1685294</td>
+<td style="text-align: right;">0.1685294</td>
+<td style="text-align: right;">9.928516</td>
+<td style="text-align: right;">0.0017237</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">506</td>
+<td style="text-align: right;">8.5889829</td>
+<td style="text-align: right;">0.0169743</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>More on this later in the semester</li>
+<li>Complete Exercise 8.</li>
+</ul>
+</div>
+</section>
+<section id="recall-correlation-coefficient" class="slide level2">
+<h2>Recall: Correlation Coefficient</h2>
+<ul>
+<li>The <strong>correlation coefficient</strong>, <span class="math inline">\(r\)</span>, is a number between -1 and +1 that measures how strong the linear relationship between two variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is.</li>
+</ul>
+<p><span class="math display">\[
+r = \frac{\sum(x_i - \bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}}
+= \frac{\sum(x_i - \bar{x})(y_i-\bar{y})}{s_xs_y}
+\]</span></p>
+</section>
+<section id="two-statistics-r2" class="slide level2 smaller">
+<h2>Two statistics: <span class="math inline">\(R^2\)</span></h2>
+<div>
+<ul>
+<li class="fragment"><strong>R-squared</strong>, <span class="math inline">\(R^2\)</span>, <strong>Coefficient of Determination</strong> : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor) <span class="math display">\[
+R^2 = Cor(y, \hat{y})^2
+\]</span>
+<ul>
+<li class="fragment">Also called <strong>PRE (Percent Reduction in Error)</strong> because: <span class="math display">\[
+R^2 = \frac{SSModel}{SSTotal}
+\]</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="two-statistics-rmse" class="slide level2 smaller">
+<h2>Two statistics: RMSE</h2>
+<ul>
+<li><strong>Root mean square error, RMSE</strong>: A measure of the average error (average difference between observed and predicted values of the outcome) <span class="math display">\[
+RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
+\]</span>
+<ul>
+<li>Sometimes people just case about numerator (SSE) or version without the square-root (MSE)</li>
+<li>Sometimes the denominator may have <span class="math inline">\(n-1\)</span> instead</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="question">
+<p>What indicates a good model fit? Higher or lower <span class="math inline">\(R^2\)</span>? Higher or lower RMSE?</p>
+</div>
+</div>
+</section>
+<section id="r2" class="slide level2">
+<h2><span class="math inline">\(R^2\)</span></h2>
+<div>
+<ul>
+<li class="fragment">Ranges between 0 (terrible predictor) and 1 (perfect predictor)</li>
+<li class="fragment">Has no units</li>
+<li class="fragment">Calculate with <code>rsq()</code> from <code>yardstick</code> package using the augmented data:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(yardstick)</span>
+<span id="cb10-2"><a></a>spotify_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(spotify_fit)</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a><span class="fu">rsq</span>(spotify_aug, <span class="at">truth =</span> danceability, <span class="at">estimate =</span> .fitted) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">.metric</th>
+<th style="text-align: left;">.estimator</th>
+<th style="text-align: right;">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">rsq</td>
+<td style="text-align: left;">standard</td>
+<td style="text-align: right;">0.019244</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="interpreting-r2" class="slide level2 smaller">
+<h2>Interpreting <span class="math inline">\(R^2\)</span></h2>
+<div class="poll">
+<p>🗳️ <strong>Discussion</strong></p>
+<div class="midi">
+<div class="poll">
+<p>The <span class="math inline">\(R^2\)</span> of the model for <code>danceability</code> from <code>Average_Income_K</code> is 1.9%. Which of the following is the correct interpretation of this value?</p>
+</div>
+<ol type="1">
+<li><code>duration_min</code> correctly predicts 1.9% of <code>danceability</code>.</li>
+<li>1.9% of the variability in <code>danceability</code> can be explained by <code>duration_min</code>.</li>
+<li>1.9% of the variability in <code>duration_min</code> can be explained by <code>danceability</code>.</li>
+<li>1.9% of the time <code>danceability</code> can be predicted by <code>duration_min</code>.</li>
+</ol>
+</div>
+</div>
+<p>Complete Exercise 9.</p>
+</section>
+<section id="activity" class="slide level2">
+<h2>Activity</h2>
+<div class="appex">
+<p>In groups, at the board, design a simulation-based procedure for producing a p-value for the following hypothesis test.</p>
+<ul>
+<li><span class="math inline">\(H_0: R^2 = 0\)</span></li>
+<li><span class="math inline">\(H_A: R^2 \neq 0\)</span></li>
+</ul>
+</div>
+</section>
+<section id="rmse" class="slide level2 smaller">
+<h2>RMSE</h2>
+<div>
+<ul>
+<li class="fragment"><p>Ranges between 0 (perfect predictor) and infinity (terrible predictor)</p></li>
+<li class="fragment"><p>Same units as the response variable</p></li>
+<li class="fragment"><p>Interpretation (kind of): how much does my model miss by, on average.</p></li>
+<li class="fragment"><p>Calculate with <code>rmse()</code> from <code>yardstick</code> package using the augmented data:</p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">rmse</span>(spotify_aug, <span class="at">truth =</span> danceability, <span class="at">estimate =</span> .fitted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 rmse    standard       0.130</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li>Complete Exercise 10.</li>
+</ul>
+</section>
+<section id="using-the-word-good" class="slide level2">
+<h2>Using the word “Good”</h2>
+<ul>
+<li>There is no such thing as a “Good” <span class="math inline">\(R^2\)</span> or, especially, RMSE without context</li>
+<li>Whether your model is a “Good” model depends on many things:
+<ul>
+<li>What are you using your model for?</li>
+<li>How good are other models?</li>
+</ul></li>
+</ul>
+</section>
+<section id="recap" class="slide level2 smaller">
 <h2>Recap</h2>
 <p>Used residual plots to check conditions for SLR:</p>
 <div class="columns">
@@ -729,7 +941,16 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div></div>
 <div class="fragment">
 <p>Note: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three</p>
-<p>Time permitting: Discussion on sources of dependence.</p>
+</div>
+<div class="fragment">
+<ul>
+<li>Can decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)</li>
+<li>Two metrics for evaluating and comparing models:
+<ul>
+<li><span class="math inline">\(R^2\)</span>: What proportion of the variation in the response variable is explained by the model?</li>
+<li><span class="math inline">\(RMSE\)</span>: How far is does my model miss by on average?</li>
+</ul></li>
+</ul>
 
 
 </div>

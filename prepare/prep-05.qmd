@@ -1,7 +1,7 @@
 ---
-title: "Preparation for Conditions for Inference"
+title: "Preparation for Conditions for Inference and Model Evaluation"
 ---
 
 ## Assigned reading
 
-Stat2 Textbook: Chapter 1.3
+Stat2 Textbook: Chapter 1.3, 2.2, 2.3

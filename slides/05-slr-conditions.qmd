@@ -471,7 +471,159 @@ Complete Exercise 7
       + Mixed-Effects Models
       + Spacial Statistics
 
-## Recap
+# Model evaluation
+
+## Partitioning Variability
+
+Let's think about variation:
+
+:::{.incremental}
+- DATA = MODEL + ERROR
+- $\substack{\text{Variation} \\ \text{in Y}} = \substack{\text{Variation explained} \\ \text{by model}} + \substack{\text{Variation not explained} \\ \text{by model}}$
+:::
+
+## Partitioning Variability (ANOVA)
+
+:::{.incremental}
+-   $y_i - \bar{y} = (\hat{y}_i - \bar{y}) + (y_i-\hat{y}_i)$
+-   Square and sum: $\sum(y_i-\bar{y})^2 = \sum(\hat{y} - \bar{y})^2 + \sum(y-\hat{y})^2$
+-   $\substack{\text{Sum of squares} \\ \text{Total}} = \substack{\text{Sum of squares} \\ \text{model}} + \substack{\text{Sum of squares} \\ \text{error}}$
+-   $SSTotal = SSModel + SSE$
+-   $SST = SSM + SSE$
+:::
+
+## ANOVA in R
+
+```{r}
+spotify_fit |>
+  anova() |>
+  tidy() |>
+  kable()
+```
+
+:::{.fragment}
+- More on this later in the semester
+- Complete Exercise 8.
+:::
+
+## Recall: Correlation Coefficient
+
+-   The **correlation coefficient**, $r$, is a number between -1 and +1 that measures how strong the linear relationship between two variables $x$ and $y$ is.
+
+$$
+r = \frac{\sum(x_i - \bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}}
+= \frac{\sum(x_i - \bar{x})(y_i-\bar{y})}{s_xs_y}
+$$
+
+
+## Two statistics: $R^2$ {.smaller}
+
+::: incremental
+-   **R-squared**, $R^2$, **Coefficient of Determination** : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)
+$$
+R^2 = Cor(y, \hat{y})^2
+$$
+    -  Also called **PRE (Percent Reduction in Error)** because:
+$$
+R^2 = \frac{SSModel}{SSTotal}
+$$
+:::
+
+
+## Two statistics: RMSE {.smaller}
+
+-   **Root mean square error, RMSE**: A measure of the average error (average difference between observed and predicted values of the outcome)
+$$
+RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
+$$
+    + Sometimes people just case about numerator (SSE) or version without the square-root (MSE)
+    + Sometimes the denominator may have $n-1$ instead
+
+. . .
+
+::: question
+What indicates a good model fit? Higher or lower $R^2$? Higher or lower RMSE?
+:::
+
+## $R^2$
+
+::: incremental
+-   Ranges between 0 (terrible predictor) and 1 (perfect predictor)
+-   Has no units
+-   Calculate with `rsq()` from `yardstick` package using the augmented data:
+```{r}
+#| echo: true
+
+library(yardstick)
+spotify_aug <- augment(spotify_fit)
+
+rsq(spotify_aug, truth = danceability, estimate = .fitted) |> kable()
+
+```
+:::
+
+## Interpreting $R^2$ {.smaller}
+
+```{r}
+#| echo: false
+#|
+spotify_fit_rsq <- round(rsq(spotify_aug, truth = danceability, estimate = .fitted) |> pull(.estimate) * 100, 1)
+```
+
+::: poll
+🗳️ **Discussion**
+
+::: midi
+::: poll
+The $R^2$ of the model for `danceability` from `Average_Income_K` is `r spotify_fit_rsq`%. Which of the following is the correct interpretation of this value?
+:::
+
+1.  `duration_min` correctly predicts `r spotify_fit_rsq`% of `danceability`.
+2.  `r spotify_fit_rsq`% of the variability in `danceability` can be explained by `duration_min`.
+3.  `r spotify_fit_rsq`% of the variability in `duration_min` can be explained by `danceability`.
+4.  `r spotify_fit_rsq`% of the time `danceability` can be predicted by `duration_min`.
+:::
+:::
+
+Complete Exercise 9.
+
+## Activity
+
+::: appex
+In groups, at the board, design a simulation-based procedure for producing a p-value for the following hypothesis test.
+
+- $H_0: R^2 = 0$
+- $H_A: R^2 \neq 0$
+:::
+
+## RMSE {.smaller}
+
+::: incremental
+-   Ranges between 0 (perfect predictor) and infinity (terrible predictor)
+
+-   Same units as the response variable
+
+-   Interpretation (kind of): how much does my model miss by, on average.
+
+-   Calculate with  `rmse()` from `yardstick` package using the augmented data:
+
+```{r}
+#| echo: true
+
+rmse(spotify_aug, truth = danceability, estimate = .fitted)
+```
+:::
+
+-   Complete Exercise 10.
+
+## Using the word "Good"
+
+-   There is no such thing as a "Good" $R^2$ or, especially, RMSE without context
+-   Whether your model is a "Good" model depends on many things:
+    +   What are you using your model for?
+    +   How good are other models?
+
+## Recap {.smaller}
 
 Used residual plots to check conditions for SLR:
 
@@ -495,5 +647,11 @@ Used residual plots to check conditions for SLR:
 
 Note: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three
 
-Time permitting: Discussion on sources of dependence.
+. . .
+
+-   Can decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)
+-   Two metrics for evaluating and comparing models: 
+    +   $R^2$: What proportion of the variation in the response variable is explained by the model?
+    +   $RMSE$: How far is does my model miss by on average?
+
 
