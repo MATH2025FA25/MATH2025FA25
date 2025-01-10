@@ -1219,316 +1219,192 @@
     "text": "Your poster will be evaluated as follows. Each student will be required to fill out the following rubric for every other poster. In addition, Dr. Friedlander will fill out the following rubric. 50% of your final poster grade will be based on Dr. Friedlander’s assessment and 50% will be based on your peer’s assessment. If your project was completed in pairs, Dr. Friedlander will assess each member separately.\nInstructions to reviewer: Use these criteria to rate the poster presentation on a scale of 1-5 (1=strongly disagree; 3=neutral; 5=strongly agree).\n\nPoster Organization\n\nPoster presentation is easy to follow. 1 2 3 4 5\nGraphics or other visuals on the poster enhance the oral description. 1 2 3 4 5\n\n\n\nPresentation Content\n\nQuestion or hypothesis being addressed is stated clearly, 1 2 3 4 5\nContent is easy to understand. 1 2 3 4 5\nThere is enough detail about methods for me to understand the results. 1 2 3 4 5\nResults are stated clearly. 1 2 3 4 5\nResults are interpreted based on previous literature and reasonable next steps/implications are proposed. 1 2 3 4 5\n\n\n\nQuestion and Answer\n\nPresenter’s response to questions demonstrated knowledge of subject matter. 1 2 3 4 5\nPresenter’s response to questions demonstrated knowledge of the statistical approach taken with the project. 1 2 3 4 5"
   },
   {
-    "objectID": "prepare/prep-05.html",
-    "href": "prepare/prep-05.html",
-    "title": "Preparation for Conditions for Inference and Model Evaluation",
+    "objectID": "prepare/prep-06.html",
+    "href": "prepare/prep-06.html",
+    "title": "Preparation for Model Transformation and Outliers",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
+    "text": "Stat2 Textbook: Chapter 1.4, 1.5"
   },
   {
-    "objectID": "prepare/prep-05.html#assigned-reading",
-    "href": "prepare/prep-05.html#assigned-reading",
-    "title": "Preparation for Conditions for Inference and Model Evaluation",
+    "objectID": "prepare/prep-06.html#assigned-reading",
+    "href": "prepare/prep-06.html#assigned-reading",
+    "title": "Preparation for Model Transformation and Outliers",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
+    "text": "Stat2 Textbook: Chapter 1.4, 1.5"
   },
   {
-    "objectID": "prepare/prep-03.html",
-    "href": "prepare/prep-03.html",
-    "title": "Preparation for Simulation Based Inference",
+    "objectID": "prepare/prep-04.html",
+    "href": "prepare/prep-04.html",
+    "title": "Preparation for Mathematical Models for Inference",
     "section": "",
-    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
   },
   {
-    "objectID": "prepare/prep-03.html#assigned-reading",
-    "href": "prepare/prep-03.html#assigned-reading",
-    "title": "Preparation for Simulation Based Inference",
+    "objectID": "prepare/prep-04.html#assigned-reading",
+    "href": "prepare/prep-04.html#assigned-reading",
+    "title": "Preparation for Mathematical Models for Inference",
     "section": "",
-    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
   },
   {
-    "objectID": "prepare/prep-03.html#additional-resources-optional",
-    "href": "prepare/prep-03.html#additional-resources-optional",
-    "title": "Preparation for Simulation Based Inference",
+    "objectID": "prepare/prep-02.html",
+    "href": "prepare/prep-02.html",
+    "title": "Preparation for Simple Linear Regression",
+    "section": "",
+    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
+  },
+  {
+    "objectID": "prepare/prep-02.html#assigned-reading",
+    "href": "prepare/prep-02.html#assigned-reading",
+    "title": "Preparation for Simple Linear Regression",
+    "section": "",
+    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
+  },
+  {
+    "objectID": "prepare/prep-02.html#additional-resources-optional",
+    "href": "prepare/prep-02.html#additional-resources-optional",
+    "title": "Preparation for Simple Linear Regression",
     "section": "Additional resources (optional)",
-    "text": "Additional resources (optional)\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
+    "text": "Additional resources (optional)\n📖 Introduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\n📖 Introduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
   },
   {
-    "objectID": "links.html",
-    "href": "links.html",
-    "title": "Useful links",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MAT 212: Multiple Regression Analysis",
     "section": "",
-    "text": "RStudio\n🔗 on CofI Posit Workbench\n\n\nDiscussion forum\n🔗 on Teams\n\n\nCanvas Course\n🔗 on Canvas",
-    "crumbs": [
-      "Useful links"
-    ]
+    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125.\n\n\n\nWe will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
   },
   {
-    "objectID": "hw/hw-03.html",
-    "href": "hw/hw-03.html",
-    "title": "Homework 03: Coffee grades",
+    "objectID": "index.html#catalog-description",
+    "href": "index.html#catalog-description",
+    "title": "MAT 212: Multiple Regression Analysis",
     "section": "",
-    "text": "In this homework you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aroma and its flavor grade.\n\n\nBy the end of the homework you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to assess conditions for simple linear regression"
+    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125."
   },
   {
-    "objectID": "hw/hw-03.html#learning-goals",
-    "href": "hw/hw-03.html#learning-goals",
-    "title": "Homework 03: Coffee grades",
+    "objectID": "index.html#erics-addition",
+    "href": "index.html#erics-addition",
+    "title": "MAT 212: Multiple Regression Analysis",
     "section": "",
-    "text": "By the end of the homework you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to assess conditions for simple linear regression"
+    "text": "We will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
   },
   {
-    "objectID": "hw/hw-03.html#grading-23-pts",
-    "href": "hw/hw-03.html#grading-23-pts",
-    "title": "Homework 03: Coffee grades",
-    "section": "Grading (23 pts)",
-    "text": "Grading (23 pts)\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n2\n\n\nEx 2\n1\n\n\nEx 3\n2\n\n\nEx 4\n2\n\n\nEx 5\n2\n\n\nEx 6\n2\n\n\nEx 7\n2\n\n\nEx 8\n2\n\n\nEx 9\n2\n\n\nEx 10\n2\n\n\nEx 11\n2\n\n\nGrammar & Writing\n11\n\n\nWorkflow & formatting\n12"
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "MAT 212: Multiple Regression Analysis",
+    "section": "Instructor",
+    "text": "Instructor\nEric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics.\nOutside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.\n\n\n\nOffice hours (Boone 126B)\n\n\n\n\n\nMTWRF\n11:00am-12:00pm\n\n\nor by appointment."
   },
   {
-    "objectID": "hw/hw-03.html#footnotes",
-    "href": "hw/hw-03.html#footnotes",
-    "title": "Homework 03: Coffee grades",
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "",
+    "text": "In this homework, you will use simple linear regression to examine the association between the percent of adults with a bachelor’s degree and the median household income for counties in the United States.\n\n\nIn this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02.html#learning-goals",
+    "href": "hw/hw-02.html#learning-goals",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "",
+    "text": "In this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-1-exploratory-data-analysis",
+    "href": "hw/hw-02.html#part-1-exploratory-data-analysis",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 1: Exploratory data analysis",
+    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the predictor variable bachelorsand calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\nExercise 2\nCreate a visualization of the relationship between bachelors and median_household_income and use the cor function to calculate the correlation. You will likely want to load the mosaic package. It is considered good form to load your packages at the beginning of the document so scroll up to the top and load mosaic there. Use the visualization and correlation to describe the relationship between the two variables.\n\n\n\n\n\n\nTip\n\n\n\nRecall the analysis objective stated at the beginning of the Exercises section.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIf you haven’t yet done so, now is a good time to render your document."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-2-modeling",
+    "href": "hw/hw-02.html#part-2-modeling",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 2: Modeling",
+    "text": "Part 2: Modeling\n\nExercise 3\nWe will use a linear regression model to better quantify the relationship between bachelors and median_household_income.\nWrite the form of the statistical model the researchers would like to estimate using the template below. Use mathematical notation (i.e. with Greek letters) and variable names (bachelors and median_household_income) in the equation. Note, I’m not asking you to fit the model yet. Replace each word in the equation below with either the name of a variable or a Greek letter.\n\\[Response = intercept + slope\\times predictor + error\\]\n\n\n\n\n\n\nTip\n\n\n\nClick here for a guide on writing mathematical symbols using LaTeX. You will need to use a backslash (\\) before each underscore in the LaTeX code. For example, avg_air_temp will be written as avg\\_air\\_temp.\n\n\n\n\nExercise 4\n\nFit the regression line corresponding to the statistical model in the previous exercise. Use tidy and kable to neatly display the model output using 3 digits. Note you will need to load the broom package before you can use the tidy function.\nWrite the equation of the fitted model using mathematical notation. Use variable names (bachelors and median_household_income) in the equation. Hint: Copy and paste your answer from the previous exercise, fill in the \\(\\beta\\)’s with numbers, and remove the error term.\n\n\n\nExercise 5\n\nInterpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.\nIs it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-3-inference-for-the-u.s.",
+    "href": "hw/hw-02.html#part-3-inference-for-the-u.s.",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 3: Inference for the U.S.",
+    "text": "Part 3: Inference for the U.S.\nWe want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor’s degree and median household income for the over 3,000 counties in the United States.\n\nExercise 6\n\nWhat is the population of interest? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not. If you have never taken a statistics course before, I encourage you to read subsections 2.1.4 and 2.1.5 from Introduction to Modern Statistics. Don’t worry, they’re very short.\n\n\n\nExercise 7\nConduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor’s degree and the median household income in a county. Use a randomization (permutation) test. Remember that you’ll need to load the infer package. In your response:\n\nState the null and alternative hypotheses in words and mathematical notation\nShow all relevant code and output used to conduct the test. Use set.seed(2025) and 1000 iterations to construct the appropriate distribution.\nState the conclusion in the context of the data.\n\n\n\nExercise 8\nNext, construct a 95% confidence interval for the slope using bootstrapping with set.seed(2025) and 1000 iterations.\n\nShow all relevant code and output used to calculate the interval.\nInterpret the confidence interval in the context of the data.\nIs the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
+  },
+  {
+    "objectID": "hw/hw-02.html#conceptual-questions",
+    "href": "hw/hw-02.html#conceptual-questions",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Conceptual Questions",
+    "text": "Conceptual Questions\nPlease try to answer these concisely and adhere to the sentence maximum.\n\nExercise 9\nShould all of your classmates get the same 95% confidence interval as you? Max one sentence.\n\n\nExercise 10\nWhy was it necessary to set a seed in the previous two exercises and how does it relate to the concept of reproducibility? Max two sentences.\n\n\nExercise 11\nWould taking a larger sample of counties most likely result in a more or less precise confidence interval? What about a wider or narrower confidence interval? Max one sentence each but you should be able to answer with a single sentence.\n\n\nExercise 12\nWhy would taking a larger sample of counties not impact the accuracy of the 95% confidence interval? How can we increase the accuracy? Max two sentences.\n\n\nExercise 13\nExplain why the following statement doesn’t make sense: “There is a 95% probability that the population slope is between the two numbers I stated in Exercise 8. Max three sentences."
+  },
+  {
+    "objectID": "hw/hw-02.html#reproducibility-conceptual-questions",
+    "href": "hw/hw-02.html#reproducibility-conceptual-questions",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Reproducibility & Conceptual Questions",
+    "text": "Reproducibility & Conceptual Questions\n\nExercise 14 (Extra Credit)\nYou are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. Here are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.\nChoose one of the scenarios from the table and read the linked article discussing what went wrong. Then,\n\nBriefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.\nThen, describe how the researchers could make the process reproducible.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again. Make sure that everything is formatted the way you want it to be."
+  },
+  {
+    "objectID": "hw/hw-02.html#footnotes",
+    "href": "hw/hw-02.html#footnotes",
+    "title": "HW 02: Education & median income in US Counties",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
-    "objectID": "hw/hw-01.html",
-    "href": "hw/hw-01.html",
-    "title": "HW 01: Park access",
+    "objectID": "computing-r-resources.html",
+    "href": "computing-r-resources.html",
+    "title": "Resources for learning R",
     "section": "",
-    "text": "This HW will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts and to analyze real data and come to informed conclusions.\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\n\nBy the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
-  },
-  {
-    "objectID": "hw/hw-01.html#learning-goals",
-    "href": "hw/hw-01.html#learning-goals",
-    "title": "HW 01: Park access",
-    "section": "",
-    "text": "By the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
-  },
-  {
-    "objectID": "hw/hw-01.html#r-and-r-studio",
-    "href": "hw/hw-01.html#r-and-r-studio",
-    "title": "HW 01: Park access",
-    "section": "R and R Studio",
-    "text": "R and R Studio\nHere are the components of the RStudio IDE and here are the components of an Quarto (.qmd) file.\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for ““Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file."
-  },
-  {
-    "objectID": "hw/hw-01.html#footnotes",
-    "href": "hw/hw-01.html#footnotes",
-    "title": "HW 01: Park access",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
-  },
-  {
-    "objectID": "computing-inferencesummary.html",
-    "href": "computing-inferencesummary.html",
-    "title": "R Cheatsheet",
-    "section": "",
-    "text": "Histogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side “dodged” barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"dodge\")\nStacked barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data)\nStandardized barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"fill\")\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
+    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
     "crumbs": [
       "Computing",
-      "R Cheatsheet"
+      "R resources"
     ]
   },
   {
-    "objectID": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
-    "href": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
-    "title": "R Cheatsheet",
-    "section": "Useful code for calculating summary statistics: (requires mosaic)",
-    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)\n\n\nUseful functions fitting and analyzing models\n\n\n\nModel type\nAction\nFunction\n\n\n\n\nSimple Linear Regression\nFit Model\nlm(Y ~ X, data = data_name)",
+    "objectID": "computing-r-resources.html#books-free-online",
+    "href": "computing-r-resources.html#books-free-online",
+    "title": "Resources for learning R",
+    "section": "",
+    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
     "crumbs": [
       "Computing",
-      "R Cheatsheet"
+      "R resources"
     ]
   },
   {
-    "objectID": "ae/ae-05-conditions.html",
-    "href": "ae/ae-05-conditions.html",
-    "title": "AE 05: Model Conditions and Evaluation",
+    "objectID": "computing-r-resources.html#rstudio-primers",
+    "href": "computing-r-resources.html#rstudio-primers",
+    "title": "Resources for learning R",
+    "section": "RStudio Primers",
+    "text": "RStudio Primers\n\nInteractive LearnR Tutorial\nR Primers for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.",
+    "crumbs": [
+      "Computing",
+      "R resources"
+    ]
+  },
+  {
+    "objectID": "computing-r-resources.html#additional-resources",
+    "href": "computing-r-resources.html#additional-resources",
+    "title": "Resources for learning R",
+    "section": "Additional resources",
+    "text": "Additional resources\n\nRStudio Cheatsheets\nR Fun workshops and videos by Duke Center for Data and Visualization Sciences.",
+    "crumbs": [
+      "Computing",
+      "R resources"
+    ]
+  },
+  {
+    "objectID": "computing-access.html",
+    "href": "computing-access.html",
+    "title": "Computing access",
     "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-05”\nGo to the Canvas and locate your AE 05 assignment to get started.\nUpload the ae-05.qmd and spotify-popular.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#introduction",
-    "href": "ae/ae-05-conditions.html#introduction",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Introduction",
-    "text": "Introduction\nThis is a continuation of AE-04. The Data section below is the same as in that exercise. Feel free to skip it if you feel you remember everything about the data set or simply use it as a reference when needed."
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#data",
-    "href": "ae/ae-05-conditions.html#data",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Data",
-    "text": "Data\nThe data set for this assignment is a subset from the Spotify Songs Tidy Tuesday data set. The data were originally obtained from Spotify using the spotifyr R package.\nIt contains numerous characteristics for each song. You can see the full list of variables and definitions here. This analysis will focus specifically on the following variables:\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\ntrack_id\ncharacter\nSong unique ID\n\n\ntrack_name\ncharacter\nSong Name\n\n\ntrack_artist\ncharacter\nSong Artist\n\n\ntrack_popularity\ndouble\nSong Popularity (0-100) where higher is better\n\n\ndanceability\ndouble\nDanceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.\n\n\nenergy\ndouble\nEnergy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.\n\n\nloudness\ndouble\nThe overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typical range between -60 and 0 db.\n\n\nvalence\ndouble\nA measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).\n\n\ntempo\ndouble\nThe overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.\n\n\nduration_ms\ndouble\nDuration of song in milliseconds\n\n\n\n\nspotify &lt;- read_csv(\"../data/spotify-popular.csv\")\n\nWhat makes a song danceable? To answer this question, we’ll analyze data on some of the most popular songs on Spotify, i.e. those with track_popularity &gt;= 80. We’ll use linear regression to fit some models to predict a song’s dancebility. Each group will be assigned a different predictor variable.\n\nPredictor Assignment:\nBelow is your assigned predictor. Look at the table above for a definition.\n\nGroup 1: energy\nGroup 2: loudness\nGroup 3: valence\nGroup 4: tempo"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-0",
-    "href": "ae/ae-05-conditions.html#exercise-0",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 0",
-    "text": "Exercise 0\nFit a model using your assigned explanatory variable to predict a songs danceability. Use tidy and kable to neatly display your model and have your reporter write you model on the white board along with a confidence interval and p-value for the slope. Be prepared to discuss the interpretation of these quantities.\n\n## add code"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-1",
-    "href": "ae/ae-05-conditions.html#exercise-1",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nUse the augment function from the broom package to create an augmented data frame from the model you fit in Exercise 0."
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-2",
-    "href": "ae/ae-05-conditions.html#exercise-2",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nMake a plot of the residual vs. fitted values."
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-3",
-    "href": "ae/ae-05-conditions.html#exercise-3",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nTo what extent does the linearity condition appear to be met for your data?"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-4",
-    "href": "ae/ae-05-conditions.html#exercise-4",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nTo what extent does the constant variance assumption appear to be met for your data?"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-5",
-    "href": "ae/ae-05-conditions.html#exercise-5",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nFill in the code to make a histogram of the residuals and a normal QQ-plot.\n\nresid_hist &lt;- gf_histogram(~____, data = ____)) |&gt; \n  gf_labs(x = \"_____\", \n       y = \"_____\", \n       title = \"____\")\n\nresid_qq &lt;- gf_qq(~____, data = ____)  |&gt;\n  gf_qqline() |&gt; \n  gf_labs(x = \"_____\", \n       y = \"_____\", \n       title = \"____\")\n\nresid_hist + resid_qq"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-6",
-    "href": "ae/ae-05-conditions.html#exercise-6",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nTo what extent does the normality condition of your data appear to be met?"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-7",
-    "href": "ae/ae-05-conditions.html#exercise-7",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nOur data was collected from Spotify… to what extent do you think the independence condition is met? Do you think there is a serial effect? Do you think there is a cluster effect?"
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-8",
-    "href": "ae/ae-05-conditions.html#exercise-8",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nUsing the anova function, compute the SSE, SSM, and SST from your model. Note that the function will give you two of those values and you’ll have to use subtraction to compute the other two."
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-9",
-    "href": "ae/ae-05-conditions.html#exercise-9",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nLoad the yardstick package and compute the \\(R^2\\) of your model. Then verify that you get the same number when you divide your SSM by your SST. How do you interpret this value? Have your reporter write the resulting value on the board."
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exericse-10",
-    "href": "ae/ae-05-conditions.html#exericse-10",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exericse 10",
-    "text": "Exericse 10\nCompute the RMSE for your model. Interpret this value."
-  },
-  {
-    "objectID": "ae/ae-05-conditions.html#exercise-11",
-    "href": "ae/ae-05-conditions.html#exercise-11",
-    "title": "AE 05: Model Conditions and Evaluation",
-    "section": "Exercise 11",
-    "text": "Exercise 11\nWhich group has the best model?\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your QMD and HTML files to the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-03-sbi.html",
-    "href": "ae/ae-03-sbi.html",
-    "title": "AE 03: Simulation-Based Inference",
-    "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-03”\nGo to the Canvas and locate your AE 03 assignment to get started.\nUpload the ae-03-sbi.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(openintro)\nlibrary(kableExtra)"
-  },
-  {
-    "objectID": "ae/ae-03-sbi.html#data",
-    "href": "ae/ae-03-sbi.html#data",
-    "title": "AE 03: Simulation-Based Inference",
-    "section": "Data",
-    "text": "Data\nOur dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt;\n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))\n\nRows: 731 Columns: 17\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...\ndate  (1): dteday\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nglimpse(bikeshare)\n\nRows: 731\nColumns: 17\n$ instant    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …\n$ dteday     &lt;date&gt; 2011-01-01, 2011-01-02, 2011-01-03, 2011-01-04, 2011-01-05…\n$ season     &lt;fct&gt; winter, winter, winter, winter, winter, winter, winter, win…\n$ yr         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ mnth       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ holiday    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,…\n$ weekday    &lt;dbl&gt; 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4,…\n$ workingday &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…\n$ weathersit &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2,…\n$ temp       &lt;dbl&gt; 0.3441670, 0.3634780, 0.1963640, 0.2000000, 0.2269570, 0.20…\n$ atemp      &lt;dbl&gt; 0.3636250, 0.3537390, 0.1894050, 0.2121220, 0.2292700, 0.23…\n$ hum        &lt;dbl&gt; 0.805833, 0.696087, 0.437273, 0.590435, 0.436957, 0.518261,…\n$ windspeed  &lt;dbl&gt; 0.1604460, 0.2485390, 0.2483090, 0.1602960, 0.1869000, 0.08…\n$ casual     &lt;dbl&gt; 331, 131, 120, 108, 82, 88, 148, 68, 54, 41, 43, 25, 38, 54…\n$ registered &lt;dbl&gt; 654, 670, 1229, 1454, 1518, 1518, 1362, 891, 768, 1280, 122…\n$ count      &lt;dbl&gt; 985, 801, 1349, 1562, 1600, 1606, 1510, 959, 822, 1321, 126…\n$ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.37826…"
-  },
-  {
-    "objectID": "ae/ae-03-sbi.html#exercises",
-    "href": "ae/ae-03-sbi.html#exercises",
-    "title": "AE 03: Simulation-Based Inference",
-    "section": "Exercises",
-    "text": "Exercises\nIn this activity, each group will be assigned a season to use:\n\nGroup 1: winter\nGroup 2: spring\nGroup 3: summer\nGroup 4: fall\n\n\nExercise 0\nFilter the bikeshare data set so that it only contains observations from your assigned season. Make sure to give the new data set a different name.\n\n\nExercise 1\nConduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think alpha does?\n\ngf______(______, data = ______, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Temperature (C)\",\n    y = \"Number of Bike Rentals\",\n  )\n\n\n\nExercise 2\nFit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.\n\nmodel_fit &lt;- lm(_____ ~ ______, data = _____)\n\ntidy(_____) |&gt;\n  kable(digits = _____)\n\n\n\nExercise 3\nLoad the infer package and calculate the observed fit (slope)\n\nobserved_fit &lt;- ____ |&gt;\n  specify(count ~ temp_orig) |&gt;\n  fit()\n\nobserved_fit\n\n\n\nExercise 4\nTake n bootstrap samples and fit models to each one.\nFill in the code, then set eval: true .\n\nn &lt;- 100\nset.seed(212)\n\nboot_fits &lt;- ______ |&gt;\n  specify(______) |&gt;\n  generate(reps = ____, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n\nWhy do we set a seed before taking the bootstrap samples?\n\n\n\nExercise 5 (Challenging)\nMake a histogram of the bootstrap samples to visualize the bootstrap distribution.\n\n# Code for histogram\n\n\n\nExercise 6\nCompute and interpret the 95% confidence interval as the middle 95% of the bootstrap distribution.\nFill in the code, then set eval: true .\n\nget_confidence_interval(\n  boot_fits,\n  point_estimate = _____,\n  level = ____,\n  type = \"percentile\"\n)\n\n\n\nExercise 7\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 8\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 9\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\nExercise 10\n\nIf your sample size \\(n\\) is increased, what impact do you think this will have on accuracy and precision?\nWhat about if you increase the number of bootstrapped replicates?\n\n\n\nExercise 11\nYour professor is interested in calculating the average amount of time CofI students spend doing homework.\n\nIf he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?\nIf, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?\n\n\n\nExercise 12\nWrite down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage “math mode”.\n\\[\nH_0:\n\\]\n\n\nExercise 13\nGenerate null distribution using permutation\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(212)\n\nnull_dist &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\") |&gt;\n  fit()\n\n\n\nExercise 14\nVisualize the null distribution. Does your slope seem unusual if we assume the null hypothesis is the truth?\n\n# Code for histogram of null distribution\n\n\n\nExercise 15\nFill in the code below to compute the p-value. Have your reporter write the value on the board.\n\n# get observed fit \nobserved_fit &lt;- _____ |&gt;\n  specify(____) |&gt;\n  fit()\n\n# calculate p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\n\n\nExercise 16\n\nDo larger or smaller p-values provide evidence for the alternative hypothesis?\nDo larger or smaller p-values provide evidence for your research question?\nInterpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-01-multivariate-relationships.html",
-    "href": "ae/ae-01-multivariate-relationships.html",
-    "title": "AE 01: Multivariate Relationships",
-    "section": "",
-    "text": "Important\n\n\n\n\nFor this exercise, you will work in groups, but everyone will work through the document and submit their solution.\nOpen RStudio and create a subfolder in your AE folder called “AE-01”\nGo to the Canvas and locate your AE 01 assignment to get started.\nUpload the ae-01.qmd files into the folder you just created. The .qmd and .html responses are due in Canvas no later than Monday, January 6th at 1:00pm."
-  },
-  {
-    "objectID": "ae/ae-01-multivariate-relationships.html#quarto",
-    "href": "ae/ae-01-multivariate-relationships.html#quarto",
-    "title": "AE 01: Multivariate Relationships",
-    "section": "Quarto",
-    "text": "Quarto\nThe thing you are reading right now is an Quarto document (very similar to R Markdown if you’ve ever used that). Quarto runs inside R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. You can find the link to a useful Quarto guide here.\nWhen you click the Render button at the top of this window an html file will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R code, you can embed the output produced by the R code. In this way, your analysis is fully reproducible and updatable. All of your homework assignments must be prepared using Quarto.\nThe nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like \\(y_i = a + b x_i\\)), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)\nIn the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!\n\nExercise 1\nClick Render at the top of this document. Show Dr. Friedlander before moving on."
-  },
-  {
-    "objectID": "ae/ae-01-multivariate-relationships.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
-    "href": "ae/ae-01-multivariate-relationships.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
-    "title": "AE 01: Multivariate Relationships",
-    "section": "Using R as a Calculator and Running Code within a Quarto Document",
-    "text": "Using R as a Calculator and Running Code within a Quarto Document\nWith R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by clicking the Run button, the sideways green arrow in the top right of the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.\nAs you work through this document, you should Run each chunk as you come to it.\n\nExercise 2\nRun the code chunk below.\n\n5 + 3\n\n[1] 8\n\n5.3 * 23.4\n\n[1] 124.02\n\nsqrt(16) # this is a comment.  R will not 'see' anything past a #, but you can use it to explain your code\n\n[1] 4\n\n\nLook closely at how Quarto denotes the R code and the output. Also note in the .qmd file how I include R code as separate from prose. These are called “chunks”. The easiest way to add a new chunk is to click on the green “c” icon with a plus in the corner above, then choose “R”. R code that is not inside of a chunk will not be run by Quarto!\n\n\nExercise 3\nCreate an R code chunk and compute the log of 10 using the function log. Why do you think the answer isn’t 1?\n\n\nExercise 4\nYou can also save values to named variables, to be used later:\n\nproduct &lt;- 15.3 * 23.4 #save result\n\nIf you save something like this, R will not show the output unless you expressly ask for it:\n\nproduct #show result\n\n[1] 358.02\n\n\nThe symbol “&lt;-” is the assignment operator. If you’ve ever programmed before, it’s essentially the same as “=” in this instance. There are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.\nOnce variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing Ctrl+Enter (Cmd +Enter for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)\n\n.5 * product # half of the product\n\n[1] 179.01\n\nproduct^(1/4) # fourth root of the product\n\n[1] 4.349875\n\n\n\n\nExercise 5\nYou can also use in-line R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?\n\n\nExercise 6\nOnly R code (and comments) should be inside chunks. Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code and they’ll run the code (resulting in the output and/or graphs).\nIf you want to run something in R but don’t want it to appear in the Quarto document, simply run it in the Console in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens."
-  },
-  {
-    "objectID": "ae/ae-01-multivariate-relationships.html#carbohydrates-and-starbucks",
-    "href": "ae/ae-01-multivariate-relationships.html#carbohydrates-and-starbucks",
-    "title": "AE 01: Multivariate Relationships",
-    "section": "Carbohydrates and Starbucks",
-    "text": "Carbohydrates and Starbucks\nStarbucks often displays the total calories in their food items but not the other nutritional information. Carbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories. Our goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\nYou will now be introduced to the functions we will use most frequently for exploratory data analysis (EDA) in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. However, you should be prepared to answer questions about any uncited code which is not covered in this class on your oral exams. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\n\n\n\n\nImportant\n\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\n\n\nExercise 7\nThe code below loads the package called tidyverse which provides many functions that will be useful for manipulating data and the package called mosaic which is useful for teaching statistics. Add another line that loads a package called ggformula which we will use to plot our data and a third that loads the package openintro which will contain our data for this activity. Note that #| warning: FALSE causes the code to run without displaying any associated warnings when you render. You will often see #| eval: FALSE which prevents the code chunk from running when you render the document. Throughout this course, make sure you remove these lines or change them to #| eval: TRUE whenever you reach them. The reason that are included in the first place is so I can write scaffolded and fill-in-the-blank type exercises for you. These will cause errors (since they are incomplete code) until you finish writing them.\n\n# load packages we typically use for this class.\nlibrary(tidyverse)\nlibrary(mosaic)\nlibrary(_________) # load ggformula\n# load openintro"
-  },
-  {
-    "objectID": "ae/ae-01-multivariate-relationships.html#loading-data",
-    "href": "ae/ae-01-multivariate-relationships.html#loading-data",
-    "title": "AE 01: Multivariate Relationships",
-    "section": "Loading data",
-    "text": "Loading data\nDoing statistics requires data. Sometimes we will have to load data from a file and sometimes we can get our data from an R package. Today’s dataset, called starbucks is from the openintro package. To load a this data from within R you can use the data command.\n\nExercise 8\nUse the code below to load the dataset starbucks, which is part of the openintro package. Don’t forget to change eval: FALSE to eval: TRUE… Why do you think we need eval: FALSE if you aren’t actually rewriting any code?\n\ndata(\"starbucks\")\n\nThis is a great chance to remind you that R cares about letter case. This means that data(\"starbucks\") works but data(\"Starbucks\") doesn’t!\n\n\nInspecting the data source\nNow you’re ready to learn a little bit about the starbucks data set.\n\n\nExercise 9\nRun the code below and then edit the bulleted list below to add a short description in your own words describing what each function does. Hint: if it isn’t clear based on the output you can use ? before the function name in the console to bring up the documentation on that function. Notify Dr. Friedlander when you’re finished.\n\n# Inspecting the data source\nglimpse(starbucks)\nhead(starbucks)\nnames(starbucks)\n\n\nglimpse() : this function…\nhead() : this function…\nnames() : this function…\n\n\n\nExercise 10\nBased on the output above, how many observations and how many variables does this data set have?\n\n\nExercise 11\nLet’s do a little bit of a data prep. In the console type ?starbucks and look at the definition of type.\nThe following is a little bit of data wrangling to get the source data in shape for our purposes. What do you think this code is doing? Make sure you change eval: FALSE to eval: TRUE.\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nStatisticians should always know something about the data domain in order to be useful. Why do you think we are changing our data like this?"
-  },
-  {
-    "objectID": "ae/ae-01-multivariate-relationships.html#exploratory-data-analysis",
-    "href": "ae/ae-01-multivariate-relationships.html#exploratory-data-analysis",
-    "title": "AE 01: Multivariate Relationships",
-    "section": "Exploratory Data Analysis",
-    "text": "Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The pseudo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do the number of carbs compare for bakery and non-bakery items?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nExercise 12\nUse the R code chunk below to calculate the mean carbs by for bakery and non-bakery items. Summarize your observations below the code chunk.\n\nmean(carb ~ bakery, data = starbucks)\n\n\n\nExercise 13\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for bakery and non-bakery items using the function favstats. Summarize your observations below the code chunk.\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section! Also, you can always find details and examples by searching the Help menu in the lower-right quadrant.)\n\n\nExercise 14\nLet’s generate some univariate (i.e. one-variable) EDA plots for our three variables. In general, can use histograms or boxplots (gf_histogram or gf_boxplot) for quantitative variables and bar charts gf_bar for categorical variables. Fill in the blanks in the code below to generate the corresponding plots. Then create a boxplot of carb. Finally, share your observations below the code:\n\n# make a histogram of carb\ngf_histogram(~ carb, data = starbucks)\n\n# make a histogram of calories\ngf_histgoram(~ _____, data = ______)\n\n# make a bar chart of bakery\ngf_bar(~ _____, data = _____)\n\n# make a boxplot of carb\n\n\n\nExercise 15\nLet’s not generate some bivariate (i.e. two-variable) EDA plots for our three variables. For two-quantitative variables we typically use a scatter plot gf_point. If we are comparing a quantitative and a categorical variable will use side-by-side boxplots gf_boxplot. Generate and plot to visualize carb and calories and one to visualize carb and bakery. Comment on your observations."
-  },
-  {
-    "objectID": "ae/ae-02-bikeshare.html",
-    "href": "ae/ae-02-bikeshare.html",
-    "title": "AE 02: Bike rentals in Washington, DC",
-    "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-02”\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nUpload the ae-02.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
-  },
-  {
-    "objectID": "ae/ae-02-bikeshare.html#data",
-    "href": "ae/ae-02-bikeshare.html#data",
-    "title": "AE 02: Bike rentals in Washington, DC",
-    "section": "Data",
-    "text": "Data\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions."
-  },
-  {
-    "objectID": "ae/ae-02-bikeshare.html#exercises",
-    "href": "ae/ae-02-bikeshare.html#exercises",
-    "title": "AE 02: Bike rentals in Washington, DC",
-    "section": "Exercises",
-    "text": "Exercises\n\nExercise 0\nThe following code will load the data. Note that you will likely need to change the file path. You can do this easily by deleting the existing path, pressing the TAB button while your cursor is inbetween the quotes, and then selecting the file you want to load.\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\")\n\n\n\nExercise 1\nBelow is code to create visualizations of the distributions of daily bike rentals and temperature. Create a scatter plot of the number of rentals vs the temperature and store it in a variable called p3. Make sure to include good appropriate labels. Finally, uncomment the last line of code in this chunk. What do you think this last line does? Comment on what you see.\n\np1 &lt;- gf_histogram(~ count, data = bikeshare, binwidth = 250) |&gt; \n  gf_labs(x = \"Daily bike rentals\")\n\np2 &lt;- gf_histogram(~temp_orig, data = bikeshare) |&gt;  \n  gf_labs(x = \"Temperature (Celsius)\")\n\n# (p1 | p2) / p3\n\n[Add your answer here]\n\n\nExercise 2\nIn the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the season variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).\n\n# add code developed during livecoding here\n\n\n\nExercise 3\nWe want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.\n\n# add code developed during livecoding here\n\n\n\nExercise 4\n\nWhich season appears to have the strongest relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?\nWhich season appears to have the weakest relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?\n\n[Add your answer here]\n\n\nExercise 5\nFilter your data for the season with the strongest apparent relationship between temperature and daily bike rentals. Give the resulting data set a new name.\n\n# add code developed during livecoding here\n\n\n\nExercise 6\nGoing back to Exercise 1, there appears to be one day with a very small number of bike rentals. Use filter to figure out what that day was? Why were the number of bike rentals so low on that day? Hint: You can Google the date to figure out what was going on that day.\n\n\nExercise 7\nUsing the subset of the data from Exercise 5, fit a linear model for predicting daily bike rentals from temperature for this season.\n\n# add code developed during livecoding here\n\n\n\nExercise 8\nUse the output to write out the estimated regression equation.\n[Add your answer here]\n\n\nExercise 9\nInterpret the slope in the context of the data.\n\n\nExercise 10\nInterpret the intercept in the context of the data.\n\n\nExercise 11\nCreate a visualization of the model we just created.\n\n# add code developed during livecoding here\n\n\n\nExercise 12\nUsing only addition, subtraction, multiplication, and division. Compute the number of rentals our model would predict if it were 10 degrees Celcius outside.\n\n\nExercise 13\nVerify your answer using the predict function.\n\n# add code developed during livecoding here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
+    "text": "To access RStudio at the College of Idaho, go to the CofI Posit Workbench website and sign-in using the CofI email and password.",
+    "crumbs": [
+      "Computing",
+      "Computing access"
+    ]
   },
   {
     "objectID": "ae/ae-04-math-models.html",
@@ -1636,192 +1512,330 @@
     "text": "Exercise 12\nWould you expect you interval to get wider or narrower if you were making a prediction for all songs with the above characteristics?\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your QMD and HTML files to the Canvas assignment."
   },
   {
-    "objectID": "computing-access.html",
-    "href": "computing-access.html",
-    "title": "Computing access",
+    "objectID": "ae/ae-02-bikeshare.html",
+    "href": "ae/ae-02-bikeshare.html",
+    "title": "AE 02: Bike rentals in Washington, DC",
     "section": "",
-    "text": "To access RStudio at the College of Idaho, go to the CofI Posit Workbench website and sign-in using the CofI email and password.",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-02”\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nUpload the ae-02.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#data",
+    "href": "ae/ae-02-bikeshare.html#data",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Data",
+    "text": "Data\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions."
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#exercises",
+    "href": "ae/ae-02-bikeshare.html#exercises",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Exercises",
+    "text": "Exercises\n\nExercise 0\nThe following code will load the data. Note that you will likely need to change the file path. You can do this easily by deleting the existing path, pressing the TAB button while your cursor is inbetween the quotes, and then selecting the file you want to load.\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\")\n\n\n\nExercise 1\nBelow is code to create visualizations of the distributions of daily bike rentals and temperature. Create a scatter plot of the number of rentals vs the temperature and store it in a variable called p3. Make sure to include good appropriate labels. Finally, uncomment the last line of code in this chunk. What do you think this last line does? Comment on what you see.\n\np1 &lt;- gf_histogram(~ count, data = bikeshare, binwidth = 250) |&gt; \n  gf_labs(x = \"Daily bike rentals\")\n\np2 &lt;- gf_histogram(~temp_orig, data = bikeshare) |&gt;  \n  gf_labs(x = \"Temperature (Celsius)\")\n\n# (p1 | p2) / p3\n\n[Add your answer here]\n\n\nExercise 2\nIn the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the season variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).\n\n# add code developed during livecoding here\n\n\n\nExercise 3\nWe want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.\n\n# add code developed during livecoding here\n\n\n\nExercise 4\n\nWhich season appears to have the strongest relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?\nWhich season appears to have the weakest relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?\n\n[Add your answer here]\n\n\nExercise 5\nFilter your data for the season with the strongest apparent relationship between temperature and daily bike rentals. Give the resulting data set a new name.\n\n# add code developed during livecoding here\n\n\n\nExercise 6\nGoing back to Exercise 1, there appears to be one day with a very small number of bike rentals. Use filter to figure out what that day was? Why were the number of bike rentals so low on that day? Hint: You can Google the date to figure out what was going on that day.\n\n\nExercise 7\nUsing the subset of the data from Exercise 5, fit a linear model for predicting daily bike rentals from temperature for this season.\n\n# add code developed during livecoding here\n\n\n\nExercise 8\nUse the output to write out the estimated regression equation.\n[Add your answer here]\n\n\nExercise 9\nInterpret the slope in the context of the data.\n\n\nExercise 10\nInterpret the intercept in the context of the data.\n\n\nExercise 11\nCreate a visualization of the model we just created.\n\n# add code developed during livecoding here\n\n\n\nExercise 12\nUsing only addition, subtraction, multiplication, and division. Compute the number of rentals our model would predict if it were 10 degrees Celcius outside.\n\n\nExercise 13\nVerify your answer using the predict function.\n\n# add code developed during livecoding here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html",
+    "href": "ae/ae-01-multivariate-relationships.html",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "",
+    "text": "Important\n\n\n\n\nFor this exercise, you will work in groups, but everyone will work through the document and submit their solution.\nOpen RStudio and create a subfolder in your AE folder called “AE-01”\nGo to the Canvas and locate your AE 01 assignment to get started.\nUpload the ae-01.qmd files into the folder you just created. The .qmd and .html responses are due in Canvas no later than Monday, January 6th at 1:00pm."
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#quarto",
+    "href": "ae/ae-01-multivariate-relationships.html#quarto",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Quarto",
+    "text": "Quarto\nThe thing you are reading right now is an Quarto document (very similar to R Markdown if you’ve ever used that). Quarto runs inside R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. You can find the link to a useful Quarto guide here.\nWhen you click the Render button at the top of this window an html file will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R code, you can embed the output produced by the R code. In this way, your analysis is fully reproducible and updatable. All of your homework assignments must be prepared using Quarto.\nThe nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like \\(y_i = a + b x_i\\)), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)\nIn the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!\n\nExercise 1\nClick Render at the top of this document. Show Dr. Friedlander before moving on."
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "href": "ae/ae-01-multivariate-relationships.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Using R as a Calculator and Running Code within a Quarto Document",
+    "text": "Using R as a Calculator and Running Code within a Quarto Document\nWith R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by clicking the Run button, the sideways green arrow in the top right of the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.\nAs you work through this document, you should Run each chunk as you come to it.\n\nExercise 2\nRun the code chunk below.\n\n5 + 3\n\n[1] 8\n\n5.3 * 23.4\n\n[1] 124.02\n\nsqrt(16) # this is a comment.  R will not 'see' anything past a #, but you can use it to explain your code\n\n[1] 4\n\n\nLook closely at how Quarto denotes the R code and the output. Also note in the .qmd file how I include R code as separate from prose. These are called “chunks”. The easiest way to add a new chunk is to click on the green “c” icon with a plus in the corner above, then choose “R”. R code that is not inside of a chunk will not be run by Quarto!\n\n\nExercise 3\nCreate an R code chunk and compute the log of 10 using the function log. Why do you think the answer isn’t 1?\n\n\nExercise 4\nYou can also save values to named variables, to be used later:\n\nproduct &lt;- 15.3 * 23.4 #save result\n\nIf you save something like this, R will not show the output unless you expressly ask for it:\n\nproduct #show result\n\n[1] 358.02\n\n\nThe symbol “&lt;-” is the assignment operator. If you’ve ever programmed before, it’s essentially the same as “=” in this instance. There are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.\nOnce variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing Ctrl+Enter (Cmd +Enter for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)\n\n.5 * product # half of the product\n\n[1] 179.01\n\nproduct^(1/4) # fourth root of the product\n\n[1] 4.349875\n\n\n\n\nExercise 5\nYou can also use in-line R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?\n\n\nExercise 6\nOnly R code (and comments) should be inside chunks. Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code and they’ll run the code (resulting in the output and/or graphs).\nIf you want to run something in R but don’t want it to appear in the Quarto document, simply run it in the Console in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens."
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#carbohydrates-and-starbucks",
+    "href": "ae/ae-01-multivariate-relationships.html#carbohydrates-and-starbucks",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Carbohydrates and Starbucks",
+    "text": "Carbohydrates and Starbucks\nStarbucks often displays the total calories in their food items but not the other nutritional information. Carbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories. Our goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\nYou will now be introduced to the functions we will use most frequently for exploratory data analysis (EDA) in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. However, you should be prepared to answer questions about any uncited code which is not covered in this class on your oral exams. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\n\n\n\n\nImportant\n\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\n\n\nExercise 7\nThe code below loads the package called tidyverse which provides many functions that will be useful for manipulating data and the package called mosaic which is useful for teaching statistics. Add another line that loads a package called ggformula which we will use to plot our data and a third that loads the package openintro which will contain our data for this activity. Note that #| warning: FALSE causes the code to run without displaying any associated warnings when you render. You will often see #| eval: FALSE which prevents the code chunk from running when you render the document. Throughout this course, make sure you remove these lines or change them to #| eval: TRUE whenever you reach them. The reason that are included in the first place is so I can write scaffolded and fill-in-the-blank type exercises for you. These will cause errors (since they are incomplete code) until you finish writing them.\n\n# load packages we typically use for this class.\nlibrary(tidyverse)\nlibrary(mosaic)\nlibrary(_________) # load ggformula\n# load openintro"
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#loading-data",
+    "href": "ae/ae-01-multivariate-relationships.html#loading-data",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Loading data",
+    "text": "Loading data\nDoing statistics requires data. Sometimes we will have to load data from a file and sometimes we can get our data from an R package. Today’s dataset, called starbucks is from the openintro package. To load a this data from within R you can use the data command.\n\nExercise 8\nUse the code below to load the dataset starbucks, which is part of the openintro package. Don’t forget to change eval: FALSE to eval: TRUE… Why do you think we need eval: FALSE if you aren’t actually rewriting any code?\n\ndata(\"starbucks\")\n\nThis is a great chance to remind you that R cares about letter case. This means that data(\"starbucks\") works but data(\"Starbucks\") doesn’t!\n\n\nInspecting the data source\nNow you’re ready to learn a little bit about the starbucks data set.\n\n\nExercise 9\nRun the code below and then edit the bulleted list below to add a short description in your own words describing what each function does. Hint: if it isn’t clear based on the output you can use ? before the function name in the console to bring up the documentation on that function. Notify Dr. Friedlander when you’re finished.\n\n# Inspecting the data source\nglimpse(starbucks)\nhead(starbucks)\nnames(starbucks)\n\n\nglimpse() : this function…\nhead() : this function…\nnames() : this function…\n\n\n\nExercise 10\nBased on the output above, how many observations and how many variables does this data set have?\n\n\nExercise 11\nLet’s do a little bit of a data prep. In the console type ?starbucks and look at the definition of type.\nThe following is a little bit of data wrangling to get the source data in shape for our purposes. What do you think this code is doing? Make sure you change eval: FALSE to eval: TRUE.\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nStatisticians should always know something about the data domain in order to be useful. Why do you think we are changing our data like this?"
+  },
+  {
+    "objectID": "ae/ae-01-multivariate-relationships.html#exploratory-data-analysis",
+    "href": "ae/ae-01-multivariate-relationships.html#exploratory-data-analysis",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The pseudo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do the number of carbs compare for bakery and non-bakery items?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nExercise 12\nUse the R code chunk below to calculate the mean carbs by for bakery and non-bakery items. Summarize your observations below the code chunk.\n\nmean(carb ~ bakery, data = starbucks)\n\n\n\nExercise 13\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for bakery and non-bakery items using the function favstats. Summarize your observations below the code chunk.\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section! Also, you can always find details and examples by searching the Help menu in the lower-right quadrant.)\n\n\nExercise 14\nLet’s generate some univariate (i.e. one-variable) EDA plots for our three variables. In general, can use histograms or boxplots (gf_histogram or gf_boxplot) for quantitative variables and bar charts gf_bar for categorical variables. Fill in the blanks in the code below to generate the corresponding plots. Then create a boxplot of carb. Finally, share your observations below the code:\n\n# make a histogram of carb\ngf_histogram(~ carb, data = starbucks)\n\n# make a histogram of calories\ngf_histgoram(~ _____, data = ______)\n\n# make a bar chart of bakery\ngf_bar(~ _____, data = _____)\n\n# make a boxplot of carb\n\n\n\nExercise 15\nLet’s not generate some bivariate (i.e. two-variable) EDA plots for our three variables. For two-quantitative variables we typically use a scatter plot gf_point. If we are comparing a quantitative and a categorical variable will use side-by-side boxplots gf_boxplot. Generate and plot to visualize carb and calories and one to visualize carb and bakery. Comment on your observations."
+  },
+  {
+    "objectID": "ae/ae-03-sbi.html",
+    "href": "ae/ae-03-sbi.html",
+    "title": "AE 03: Simulation-Based Inference",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-03”\nGo to the Canvas and locate your AE 03 assignment to get started.\nUpload the ae-03-sbi.qmd and dcbikeshare.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(openintro)\nlibrary(kableExtra)"
+  },
+  {
+    "objectID": "ae/ae-03-sbi.html#data",
+    "href": "ae/ae-03-sbi.html#data",
+    "title": "AE 03: Simulation-Based Inference",
+    "section": "Data",
+    "text": "Data\nOur dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt;\n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))\n\nRows: 731 Columns: 17\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...\ndate  (1): dteday\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nglimpse(bikeshare)\n\nRows: 731\nColumns: 17\n$ instant    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …\n$ dteday     &lt;date&gt; 2011-01-01, 2011-01-02, 2011-01-03, 2011-01-04, 2011-01-05…\n$ season     &lt;fct&gt; winter, winter, winter, winter, winter, winter, winter, win…\n$ yr         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ mnth       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ holiday    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,…\n$ weekday    &lt;dbl&gt; 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4,…\n$ workingday &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…\n$ weathersit &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2,…\n$ temp       &lt;dbl&gt; 0.3441670, 0.3634780, 0.1963640, 0.2000000, 0.2269570, 0.20…\n$ atemp      &lt;dbl&gt; 0.3636250, 0.3537390, 0.1894050, 0.2121220, 0.2292700, 0.23…\n$ hum        &lt;dbl&gt; 0.805833, 0.696087, 0.437273, 0.590435, 0.436957, 0.518261,…\n$ windspeed  &lt;dbl&gt; 0.1604460, 0.2485390, 0.2483090, 0.1602960, 0.1869000, 0.08…\n$ casual     &lt;dbl&gt; 331, 131, 120, 108, 82, 88, 148, 68, 54, 41, 43, 25, 38, 54…\n$ registered &lt;dbl&gt; 654, 670, 1229, 1454, 1518, 1518, 1362, 891, 768, 1280, 122…\n$ count      &lt;dbl&gt; 985, 801, 1349, 1562, 1600, 1606, 1510, 959, 822, 1321, 126…\n$ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.37826…"
+  },
+  {
+    "objectID": "ae/ae-03-sbi.html#exercises",
+    "href": "ae/ae-03-sbi.html#exercises",
+    "title": "AE 03: Simulation-Based Inference",
+    "section": "Exercises",
+    "text": "Exercises\nIn this activity, each group will be assigned a season to use:\n\nGroup 1: winter\nGroup 2: spring\nGroup 3: summer\nGroup 4: fall\n\n\nExercise 0\nFilter the bikeshare data set so that it only contains observations from your assigned season. Make sure to give the new data set a different name.\n\n\nExercise 1\nConduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think alpha does?\n\ngf______(______, data = ______, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Temperature (C)\",\n    y = \"Number of Bike Rentals\",\n  )\n\n\n\nExercise 2\nFit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.\n\nmodel_fit &lt;- lm(_____ ~ ______, data = _____)\n\ntidy(_____) |&gt;\n  kable(digits = _____)\n\n\n\nExercise 3\nLoad the infer package and calculate the observed fit (slope)\n\nobserved_fit &lt;- ____ |&gt;\n  specify(count ~ temp_orig) |&gt;\n  fit()\n\nobserved_fit\n\n\n\nExercise 4\nTake n bootstrap samples and fit models to each one.\nFill in the code, then set eval: true .\n\nn &lt;- 100\nset.seed(212)\n\nboot_fits &lt;- ______ |&gt;\n  specify(______) |&gt;\n  generate(reps = ____, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n\nWhy do we set a seed before taking the bootstrap samples?\n\n\n\nExercise 5 (Challenging)\nMake a histogram of the bootstrap samples to visualize the bootstrap distribution.\n\n# Code for histogram\n\n\n\nExercise 6\nCompute and interpret the 95% confidence interval as the middle 95% of the bootstrap distribution.\nFill in the code, then set eval: true .\n\nget_confidence_interval(\n  boot_fits,\n  point_estimate = _____,\n  level = ____,\n  type = \"percentile\"\n)\n\n\n\nExercise 7\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 8\nModify the code from Exercise 6 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nExercise 9\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\nExercise 10\n\nIf your sample size \\(n\\) is increased, what impact do you think this will have on accuracy and precision?\nWhat about if you increase the number of bootstrapped replicates?\n\n\n\nExercise 11\nYour professor is interested in calculating the average amount of time CofI students spend doing homework.\n\nIf he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?\nIf, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?\n\n\n\nExercise 12\nWrite down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage “math mode”.\n\\[\nH_0:\n\\]\n\n\nExercise 13\nGenerate null distribution using permutation\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(212)\n\nnull_dist &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\") |&gt;\n  fit()\n\n\n\nExercise 14\nVisualize the null distribution. Does your slope seem unusual if we assume the null hypothesis is the truth?\n\n# Code for histogram of null distribution\n\n\n\nExercise 15\nFill in the code below to compute the p-value. Have your reporter write the value on the board.\n\n# get observed fit \nobserved_fit &lt;- _____ |&gt;\n  specify(____) |&gt;\n  fit()\n\n# calculate p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\n\n\nExercise 16\n\nDo larger or smaller p-values provide evidence for the alternative hypothesis?\nDo larger or smaller p-values provide evidence for your research question?\nInterpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html",
+    "href": "ae/ae-05-conditions.html",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-05”\nGo to the Canvas and locate your AE 05 assignment to get started.\nUpload the ae-05.qmd and spotify-popular.csv files into the folder you just created.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#introduction",
+    "href": "ae/ae-05-conditions.html#introduction",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Introduction",
+    "text": "Introduction\nThis is a continuation of AE-04. The Data section below is the same as in that exercise. Feel free to skip it if you feel you remember everything about the data set or simply use it as a reference when needed."
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#data",
+    "href": "ae/ae-05-conditions.html#data",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Data",
+    "text": "Data\nThe data set for this assignment is a subset from the Spotify Songs Tidy Tuesday data set. The data were originally obtained from Spotify using the spotifyr R package.\nIt contains numerous characteristics for each song. You can see the full list of variables and definitions here. This analysis will focus specifically on the following variables:\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\ntrack_id\ncharacter\nSong unique ID\n\n\ntrack_name\ncharacter\nSong Name\n\n\ntrack_artist\ncharacter\nSong Artist\n\n\ntrack_popularity\ndouble\nSong Popularity (0-100) where higher is better\n\n\ndanceability\ndouble\nDanceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.\n\n\nenergy\ndouble\nEnergy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.\n\n\nloudness\ndouble\nThe overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typical range between -60 and 0 db.\n\n\nvalence\ndouble\nA measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).\n\n\ntempo\ndouble\nThe overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.\n\n\nduration_ms\ndouble\nDuration of song in milliseconds\n\n\n\n\nspotify &lt;- read_csv(\"../data/spotify-popular.csv\")\n\nWhat makes a song danceable? To answer this question, we’ll analyze data on some of the most popular songs on Spotify, i.e. those with track_popularity &gt;= 80. We’ll use linear regression to fit some models to predict a song’s dancebility. Each group will be assigned a different predictor variable.\n\nPredictor Assignment:\nBelow is your assigned predictor. Look at the table above for a definition.\n\nGroup 1: energy\nGroup 2: loudness\nGroup 3: valence\nGroup 4: tempo"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-0",
+    "href": "ae/ae-05-conditions.html#exercise-0",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nFit a model using your assigned explanatory variable to predict a songs danceability. Use tidy and kable to neatly display your model and have your reporter write you model on the white board along with a confidence interval and p-value for the slope. Be prepared to discuss the interpretation of these quantities.\n\n## add code"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-1",
+    "href": "ae/ae-05-conditions.html#exercise-1",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nUse the augment function from the broom package to create an augmented data frame from the model you fit in Exercise 0."
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-2",
+    "href": "ae/ae-05-conditions.html#exercise-2",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nMake a plot of the residual vs. fitted values."
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-3",
+    "href": "ae/ae-05-conditions.html#exercise-3",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nTo what extent does the linearity condition appear to be met for your data?"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-4",
+    "href": "ae/ae-05-conditions.html#exercise-4",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nTo what extent does the constant variance assumption appear to be met for your data?"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-5",
+    "href": "ae/ae-05-conditions.html#exercise-5",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFill in the code to make a histogram of the residuals and a normal QQ-plot.\n\nresid_hist &lt;- gf_histogram(~____, data = ____)) |&gt; \n  gf_labs(x = \"_____\", \n       y = \"_____\", \n       title = \"____\")\n\nresid_qq &lt;- gf_qq(~____, data = ____)  |&gt;\n  gf_qqline() |&gt; \n  gf_labs(x = \"_____\", \n       y = \"_____\", \n       title = \"____\")\n\nresid_hist + resid_qq"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-6",
+    "href": "ae/ae-05-conditions.html#exercise-6",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nTo what extent does the normality condition of your data appear to be met?"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-7",
+    "href": "ae/ae-05-conditions.html#exercise-7",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nOur data was collected from Spotify… to what extent do you think the independence condition is met? Do you think there is a serial effect? Do you think there is a cluster effect?"
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-8",
+    "href": "ae/ae-05-conditions.html#exercise-8",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nUsing the anova function, compute the SSE, SSM, and SST from your model. Note that the function will give you two of those values and you’ll have to use subtraction to compute the other two."
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-9",
+    "href": "ae/ae-05-conditions.html#exercise-9",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nLoad the yardstick package and compute the \\(R^2\\) of your model. Then verify that you get the same number when you divide your SSM by your SST. How do you interpret this value? Have your reporter write the resulting value on the board."
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exericse-10",
+    "href": "ae/ae-05-conditions.html#exericse-10",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exericse 10",
+    "text": "Exericse 10\nCompute the RMSE for your model. Interpret this value."
+  },
+  {
+    "objectID": "ae/ae-05-conditions.html#exercise-11",
+    "href": "ae/ae-05-conditions.html#exercise-11",
+    "title": "AE 05: Model Conditions and Evaluation",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nWhich group has the best model?\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your QMD and HTML files to the Canvas assignment."
+  },
+  {
+    "objectID": "computing-inferencesummary.html",
+    "href": "computing-inferencesummary.html",
+    "title": "R Cheatsheet",
+    "section": "",
+    "text": "Histogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side “dodged” barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"dodge\")\nStacked barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data)\nStandardized barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=\"fill\")\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
     "crumbs": [
       "Computing",
-      "Computing access"
+      "R Cheatsheet"
     ]
   },
   {
-    "objectID": "computing-r-resources.html",
-    "href": "computing-r-resources.html",
-    "title": "Resources for learning R",
-    "section": "",
-    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
+    "objectID": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "href": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "title": "R Cheatsheet",
+    "section": "Useful code for calculating summary statistics: (requires mosaic)",
+    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)\n\n\nUseful functions fitting and analyzing models\n\n\n\nModel type\nAction\nFunction\n\n\n\n\nSimple Linear Regression\nFit Model\nlm(Y ~ X, data = data_name)",
     "crumbs": [
       "Computing",
-      "R resources"
+      "R Cheatsheet"
     ]
   },
   {
-    "objectID": "computing-r-resources.html#books-free-online",
-    "href": "computing-r-resources.html#books-free-online",
-    "title": "Resources for learning R",
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "HW 01: Park access",
     "section": "",
-    "text": "R for Data Science by Hadley Wickham & Garrett Grolemund\nTidy Modeling with R by Max Kuhn & Julia Silge",
-    "crumbs": [
-      "Computing",
-      "R resources"
-    ]
+    "text": "This HW will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts and to analyze real data and come to informed conclusions.\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\n\nBy the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
   },
   {
-    "objectID": "computing-r-resources.html#rstudio-primers",
-    "href": "computing-r-resources.html#rstudio-primers",
-    "title": "Resources for learning R",
-    "section": "RStudio Primers",
-    "text": "RStudio Primers\n\nInteractive LearnR Tutorial\nR Primers for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.",
-    "crumbs": [
-      "Computing",
-      "R resources"
-    ]
-  },
-  {
-    "objectID": "computing-r-resources.html#additional-resources",
-    "href": "computing-r-resources.html#additional-resources",
-    "title": "Resources for learning R",
-    "section": "Additional resources",
-    "text": "Additional resources\n\nRStudio Cheatsheets\nR Fun workshops and videos by Duke Center for Data and Visualization Sciences.",
-    "crumbs": [
-      "Computing",
-      "R resources"
-    ]
-  },
-  {
-    "objectID": "hw/hw-02.html",
-    "href": "hw/hw-02.html",
-    "title": "HW 02: Education & median income in US Counties",
+    "objectID": "hw/hw-01.html#learning-goals",
+    "href": "hw/hw-01.html#learning-goals",
+    "title": "HW 01: Park access",
     "section": "",
-    "text": "In this homework, you will use simple linear regression to examine the association between the percent of adults with a bachelor’s degree and the median household income for counties in the United States.\n\n\nIn this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+    "text": "By the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
   },
   {
-    "objectID": "hw/hw-02.html#learning-goals",
-    "href": "hw/hw-02.html#learning-goals",
-    "title": "HW 02: Education & median income in US Counties",
-    "section": "",
-    "text": "In this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+    "objectID": "hw/hw-01.html#r-and-r-studio",
+    "href": "hw/hw-01.html#r-and-r-studio",
+    "title": "HW 01: Park access",
+    "section": "R and R Studio",
+    "text": "R and R Studio\nHere are the components of the RStudio IDE and here are the components of an Quarto (.qmd) file.\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for ““Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file."
   },
   {
-    "objectID": "hw/hw-02.html#part-1-exploratory-data-analysis",
-    "href": "hw/hw-02.html#part-1-exploratory-data-analysis",
-    "title": "HW 02: Education & median income in US Counties",
-    "section": "Part 1: Exploratory data analysis",
-    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the predictor variable bachelorsand calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\nExercise 2\nCreate a visualization of the relationship between bachelors and median_household_income and use the cor function to calculate the correlation. You will likely want to load the mosaic package. It is considered good form to load your packages at the beginning of the document so scroll up to the top and load mosaic there. Use the visualization and correlation to describe the relationship between the two variables.\n\n\n\n\n\n\nTip\n\n\n\nRecall the analysis objective stated at the beginning of the Exercises section.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIf you haven’t yet done so, now is a good time to render your document."
-  },
-  {
-    "objectID": "hw/hw-02.html#part-2-modeling",
-    "href": "hw/hw-02.html#part-2-modeling",
-    "title": "HW 02: Education & median income in US Counties",
-    "section": "Part 2: Modeling",
-    "text": "Part 2: Modeling\n\nExercise 3\nWe will use a linear regression model to better quantify the relationship between bachelors and median_household_income.\nWrite the form of the statistical model the researchers would like to estimate using the template below. Use mathematical notation (i.e. with Greek letters) and variable names (bachelors and median_household_income) in the equation. Note, I’m not asking you to fit the model yet. Replace each word in the equation below with either the name of a variable or a Greek letter.\n\\[Response = intercept + slope\\times predictor + error\\]\n\n\n\n\n\n\nTip\n\n\n\nClick here for a guide on writing mathematical symbols using LaTeX. You will need to use a backslash (\\) before each underscore in the LaTeX code. For example, avg_air_temp will be written as avg\\_air\\_temp.\n\n\n\n\nExercise 4\n\nFit the regression line corresponding to the statistical model in the previous exercise. Use tidy and kable to neatly display the model output using 3 digits. Note you will need to load the broom package before you can use the tidy function.\nWrite the equation of the fitted model using mathematical notation. Use variable names (bachelors and median_household_income) in the equation. Hint: Copy and paste your answer from the previous exercise, fill in the \\(\\beta\\)’s with numbers, and remove the error term.\n\n\n\nExercise 5\n\nInterpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.\nIs it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
-  },
-  {
-    "objectID": "hw/hw-02.html#part-3-inference-for-the-u.s.",
-    "href": "hw/hw-02.html#part-3-inference-for-the-u.s.",
-    "title": "HW 02: Education & median income in US Counties",
-    "section": "Part 3: Inference for the U.S.",
-    "text": "Part 3: Inference for the U.S.\nWe want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor’s degree and median household income for the over 3,000 counties in the United States.\n\nExercise 6\n\nWhat is the population of interest? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not. If you have never taken a statistics course before, I encourage you to read subsections 2.1.4 and 2.1.5 from Introduction to Modern Statistics. Don’t worry, they’re very short.\n\n\n\nExercise 7\nConduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor’s degree and the median household income in a county. Use a randomization (permutation) test. Remember that you’ll need to load the infer package. In your response:\n\nState the null and alternative hypotheses in words and mathematical notation\nShow all relevant code and output used to conduct the test. Use set.seed(2025) and 1000 iterations to construct the appropriate distribution.\nState the conclusion in the context of the data.\n\n\n\nExercise 8\nNext, construct a 95% confidence interval for the slope using bootstrapping with set.seed(2025) and 1000 iterations.\n\nShow all relevant code and output used to calculate the interval.\nInterpret the confidence interval in the context of the data.\nIs the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
-  },
-  {
-    "objectID": "hw/hw-02.html#conceptual-questions",
-    "href": "hw/hw-02.html#conceptual-questions",
-    "title": "HW 02: Education & median income in US Counties",
-    "section": "Conceptual Questions",
-    "text": "Conceptual Questions\nPlease try to answer these concisely and adhere to the sentence maximum.\n\nExercise 9\nShould all of your classmates get the same 95% confidence interval as you? Max one sentence.\n\n\nExercise 10\nWhy was it necessary to set a seed in the previous two exercises and how does it relate to the concept of reproducibility? Max two sentences.\n\n\nExercise 11\nWould taking a larger sample of counties most likely result in a more or less precise confidence interval? What about a wider or narrower confidence interval? Max one sentence each but you should be able to answer with a single sentence.\n\n\nExercise 12\nWhy would taking a larger sample of counties not impact the accuracy of the 95% confidence interval? How can we increase the accuracy? Max two sentences.\n\n\nExercise 13\nExplain why the following statement doesn’t make sense: “There is a 95% probability that the population slope is between the two numbers I stated in Exercise 8. Max three sentences."
-  },
-  {
-    "objectID": "hw/hw-02.html#reproducibility-conceptual-questions",
-    "href": "hw/hw-02.html#reproducibility-conceptual-questions",
-    "title": "HW 02: Education & median income in US Counties",
-    "section": "Reproducibility & Conceptual Questions",
-    "text": "Reproducibility & Conceptual Questions\n\nExercise 14 (Extra Credit)\nYou are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. Here are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.\nChoose one of the scenarios from the table and read the linked article discussing what went wrong. Then,\n\nBriefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.\nThen, describe how the researchers could make the process reproducible.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again. Make sure that everything is formatted the way you want it to be."
-  },
-  {
-    "objectID": "hw/hw-02.html#footnotes",
-    "href": "hw/hw-02.html#footnotes",
-    "title": "HW 02: Education & median income in US Counties",
+    "objectID": "hw/hw-01.html#footnotes",
+    "href": "hw/hw-01.html#footnotes",
+    "title": "HW 01: Park access",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MAT 212: Multiple Regression Analysis",
+    "objectID": "hw/hw-03.html",
+    "href": "hw/hw-03.html",
+    "title": "Homework 03: Coffee grades",
     "section": "",
-    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125.\n\n\n\nWe will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
+    "text": "In this homework you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aroma and its flavor grade.\n\n\nBy the end of the homework you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to assess conditions for simple linear regression"
   },
   {
-    "objectID": "index.html#catalog-description",
-    "href": "index.html#catalog-description",
-    "title": "MAT 212: Multiple Regression Analysis",
+    "objectID": "hw/hw-03.html#learning-goals",
+    "href": "hw/hw-03.html#learning-goals",
+    "title": "Homework 03: Coffee grades",
     "section": "",
-    "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125."
+    "text": "By the end of the homework you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to assess conditions for simple linear regression"
   },
   {
-    "objectID": "index.html#erics-addition",
-    "href": "index.html#erics-addition",
-    "title": "MAT 212: Multiple Regression Analysis",
+    "objectID": "hw/hw-03.html#grading-23-pts",
+    "href": "hw/hw-03.html#grading-23-pts",
+    "title": "Homework 03: Coffee grades",
+    "section": "Grading (23 pts)",
+    "text": "Grading (23 pts)\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n2\n\n\nEx 2\n1\n\n\nEx 3\n2\n\n\nEx 4\n2\n\n\nEx 5\n2\n\n\nEx 6\n2\n\n\nEx 7\n2\n\n\nEx 8\n2\n\n\nEx 9\n2\n\n\nEx 10\n2\n\n\nEx 11\n2\n\n\nGrammar & Writing\n11\n\n\nWorkflow & formatting\n12"
+  },
+  {
+    "objectID": "hw/hw-03.html#footnotes",
+    "href": "hw/hw-03.html#footnotes",
+    "title": "Homework 03: Coffee grades",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Useful links",
     "section": "",
-    "text": "We will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
+    "text": "RStudio\n🔗 on CofI Posit Workbench\n\n\nDiscussion forum\n🔗 on Teams\n\n\nCanvas Course\n🔗 on Canvas",
+    "crumbs": [
+      "Useful links"
+    ]
   },
   {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "MAT 212: Multiple Regression Analysis",
-    "section": "Instructor",
-    "text": "Instructor\nEric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics.\nOutside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.\n\n\n\nOffice hours (Boone 126B)\n\n\n\n\n\nMTWRF\n11:00am-12:00pm\n\n\nor by appointment."
-  },
-  {
-    "objectID": "prepare/prep-02.html",
-    "href": "prepare/prep-02.html",
-    "title": "Preparation for Simple Linear Regression",
+    "objectID": "prepare/prep-03.html",
+    "href": "prepare/prep-03.html",
+    "title": "Preparation for Simulation Based Inference",
     "section": "",
-    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
+    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
   },
   {
-    "objectID": "prepare/prep-02.html#assigned-reading",
-    "href": "prepare/prep-02.html#assigned-reading",
-    "title": "Preparation for Simple Linear Regression",
+    "objectID": "prepare/prep-03.html#assigned-reading",
+    "href": "prepare/prep-03.html#assigned-reading",
+    "title": "Preparation for Simulation Based Inference",
     "section": "",
-    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
+    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
   },
   {
-    "objectID": "prepare/prep-02.html#additional-resources-optional",
-    "href": "prepare/prep-02.html#additional-resources-optional",
-    "title": "Preparation for Simple Linear Regression",
+    "objectID": "prepare/prep-03.html#additional-resources-optional",
+    "href": "prepare/prep-03.html#additional-resources-optional",
+    "title": "Preparation for Simulation Based Inference",
     "section": "Additional resources (optional)",
-    "text": "Additional resources (optional)\n📖 Introduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\n📖 Introduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
+    "text": "Additional resources (optional)\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
   },
   {
-    "objectID": "prepare/prep-04.html",
-    "href": "prepare/prep-04.html",
-    "title": "Preparation for Mathematical Models for Inference",
+    "objectID": "prepare/prep-05.html",
+    "href": "prepare/prep-05.html",
+    "title": "Preparation for Conditions for Inference and Model Evaluation",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
+    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
   },
   {
-    "objectID": "prepare/prep-04.html#assigned-reading",
-    "href": "prepare/prep-04.html#assigned-reading",
-    "title": "Preparation for Mathematical Models for Inference",
+    "objectID": "prepare/prep-05.html#assigned-reading",
+    "href": "prepare/prep-05.html#assigned-reading",
+    "title": "Preparation for Conditions for Inference and Model Evaluation",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
+    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
   },
   {
-    "objectID": "prepare/prep-06.html",
-    "href": "prepare/prep-06.html",
-    "title": "Preparation for Model Transformation and Outliers",
+    "objectID": "prepare/prep-07.html",
+    "href": "prepare/prep-07.html",
+    "title": "Preparation for Multiple Linear Regression",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 1.4, 1.5"
+    "text": "Stat2 Textbook: Chapter 3.1"
   },
   {
-    "objectID": "prepare/prep-06.html#assigned-reading",
-    "href": "prepare/prep-06.html#assigned-reading",
-    "title": "Preparation for Model Transformation and Outliers",
+    "objectID": "prepare/prep-07.html#assigned-reading",
+    "href": "prepare/prep-07.html#assigned-reading",
+    "title": "Preparation for Multiple Linear Regression",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 1.4, 1.5"
+    "text": "Stat2 Textbook: Chapter 3.1"
   },
   {
     "objectID": "project/project-instructions.html",
@@ -1934,7 +1948,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT/W\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTH\nJan 8\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nF\nJan 9\nSLR: Conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nJan 10\nSLR: Transformations and Outliers",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT/W\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTH\nJan 8\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nF\nJan 9\nSLR: Conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nJan 10\nSLR: Transformations and Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nM\nJan 10\nMultiple Linear Regression",
     "crumbs": [
       "Schedule"
     ]
