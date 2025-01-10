@@ -56,6 +56,6 @@ knitr:
 # Application exercise
 
 ::: appex
-📋 [Exam 1 practice](/exam/exam-01-revew.qmd)
+📋 [Exam 1 practice](/exam/exam-01-practice.qmd)
 :::
 
