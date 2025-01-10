@@ -49,6 +49,15 @@ website:
         contents:
         - href: project/project-instructions.qmd
           text: "Instructions"
+      - section: Exams
+        contents:
+        - href: exam/exam-rubric.qmd
+          text: "Oral Exam Rubric"
+        - href: exam/exam-01-review.qmd
+          text: "Exam 1 Overview"
+        - href: exam/exam-rubric.qmd
+          text: "Exam 1 Practice"
+        
   
  
 format:

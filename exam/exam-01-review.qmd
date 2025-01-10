@@ -1,0 +1,61 @@
+---
+title: "Exam 01 review"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+---
+
+## Exam 01 {.midi}
+
+::: columns
+::: {.column width="50%"}
+-   20% of final course grade
+
+-   Exploratory data analysis
+
+-   Fitting and interpreting simple linear regression models
+
+-   Statistical models and regression equations
+
+-   Simulation-based inference (SBI)
+
+    +   Concepts not code for SBI
+:::
+
+::: {.column width="50%"}
+-   Mathematical models for inference
+
+-   Prediction
+
+-   Model conditions
+
+-   Model evaluation
+:::
+:::
+
+
+# Application exercise
+
+::: appex
+📋 [Exam 1 practice](/exam/exam-01-revew.qmd)
+:::
+
