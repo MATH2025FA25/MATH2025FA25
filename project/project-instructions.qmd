@@ -185,7 +185,7 @@ and at least two must be annotated.
     
 **Deliverables:** Word document or PDF with the information above. **You may receive points back on Checkpoints II-IV for your work on this assignment.**
 
-## Checkpoint VI: Generate Plots and Tables {#load-data}
+## Checkpoint VI: Load and Clean the Data Set {#load-data}
 
 We now begin the second stage of your project, the Exploratory Data Analysis portion.
 
