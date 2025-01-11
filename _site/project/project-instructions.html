@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-de3f80bca771c548e0c57d70805d6fa2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -237,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exam/exam-rubric.html" class="sidebar-item-text sidebar-link">
+  <a href="../exam/exam-01-practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exam 1 Practice</span></a>
   </div>
 </li>
@@ -264,10 +264,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lit-review" id="toc-lit-review" class="nav-link" data-scroll-target="#lit-review">Checkpoint III: Literature Review</a></li>
   <li><a href="#annotated-bib" id="toc-annotated-bib" class="nav-link" data-scroll-target="#annotated-bib">Checkpoint IV: Annotated Bibliography</a></li>
   <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Checkpoint V: Project proposal</a></li>
-  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Checkpoint VI: Load and Clean the Data Set</a>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Checkpoint VI: Generate Plots and Tables</a>
   <ul class="collapse">
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading the Data</a></li>
   </ul></li>
+  <li><a href="#plots-tables" id="toc-plots-tables" class="nav-link" data-scroll-target="#plots-tables">Checkpoint VII: Generate Plots and Tables</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/project/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -342,6 +343,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="#load-data">Checkpoint VI: Load and Clean the Data Set (1%)</a></p>
 <ul>
 <li>due Monday, January 13</li>
+</ul>
+<p><a href="#plots-tables">Checkpoint VII: Generate Summaries (1%)</a></p>
+<ul>
+<li>due Tuesday, January 14</li>
 </ul>
 <!-- [Stage II: Exploratory Data Analysis (5%)](#exploratory-analysis) -->
 <!-- -   due Wednesday, October 30 -->
@@ -444,12 +449,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 <ol start="4" type="1">
-<li>Your partially annotated bibliography. There must be at least six articles and at least two ust be annotated.</li>
+<li>Your partially annotated bibliography. There must be at least six articles and at least two must be annotated.</li>
 </ol>
 <p><strong>Deliverables:</strong> Word document or PDF with the information above. <strong>You may receive points back on Checkpoints II-IV for your work on this assignment.</strong></p>
 </section>
 <section id="load-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-data">Checkpoint VI: Load and Clean the Data Set</h2>
+<h2 class="anchored" data-anchor-id="load-data">Checkpoint VI: Generate Plots and Tables</h2>
 <p>We now begin the second stage of your project, the Exploratory Data Analysis portion.</p>
 <p>You now need to load and “clean” your data set, make note of any problematic data and observations that need to be removed, determine whether you want to use the whole data set or a subset, and consider implications about any decisions you make about missing data. <a href="https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html">This website</a> shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).</p>
 <p><strong>Deliverables:</strong> A QMD and HTML file uploaded to Canvas containing the following:</p>
@@ -477,6 +482,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"/srv/R/MAT212_WIN25/brfss2023.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(col_1, col_2, col_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+</section>
+<section id="plots-tables" class="level2">
+<h2 class="anchored" data-anchor-id="plots-tables">Checkpoint VII: Generate Plots and Tables</h2>
+<p>Generate univariate and bivariate summaries of your data.</p>
+<p><strong>Deliverables:</strong> A QMD and HTML file uploaded to Canvas. You should start with the same file you used for your last checkpoint and add the following:</p>
+<ul>
+<li>Univariate summaries:
+<ul>
+<li>A plot for every variable you are considering</li>
+<li>A table of every variable you are considering</li>
+</ul></li>
+<li>Bivariate summaries:
+<ul>
+<li>A plot comparing your response variable to all of your explanatory variables</li>
+<li>Use the function <code>ggpairs</code> from the package <code>GGally</code> to display a grid of all bivariate plots for your data. Feel free to use any resource available to use without citing it (e.g.&nbsp;ChatGPT, tutor, Dr.&nbsp;F, etc…)</li>
+</ul></li>
+<li>Note that you don’t need to analyze the plots yet… just create them.</li>
+</ul>
 <!-- ## Stage II: Exploratory Data Analysis {#exploratory-analysis} -->
 <!-- The second stage of your project is to conduct Exploratory Data Analysis.  -->
 <!-- 1. You may need to "clean" your data set first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data. [This website](https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html) shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach). -->
@@ -605,7 +629,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -690,6 +713,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -800,6 +825,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

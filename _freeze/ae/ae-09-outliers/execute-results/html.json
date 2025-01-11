@@ -1,0 +1,15 @@
+{
+  "hash": "856e8bb59beea77b805e863752598f2a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"AE 09: Outliers\"\nsubtitle: \"Baseball game times\"\nauthor: \"Driver: _______, Reporter: _______, Gopher: ________\"\neditor: visual\n---\n\n\n\n\n\n::: callout-important\n-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called \"AE-09\".\n\n-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/182299) and locate your `AE-09` assignment to get started.\n\n-   Upload the `ae-09.qmd` file into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.\n:::\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(yardstick)\nlibrary(Stat2Data)\nlibrary(mosaic)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid\n```\n:::\n\n\n\n\n\n## Data\n\nThe data set for this assignment is from the `Stat2Data` R package which is the companion package for this course's textbook. The data contains data from all MLB games played on August, 11, 2017. On this day there were no extra-innings games or rain delays. You can find information [here](https://cran.r-project.org/web/packages/Stat2Data/Stat2Data.pdf) by searching for the *Baseball Game TImes of One Day in 2017* dataset.\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndata(\"BaseballTimes2017\") # Loads the data from the package\n```\n:::\n\n\n\n\n\nWe are interested in predicting `Time` the time in minutes to play the game, from either `Runs`, the number of runs scores by the two teams combined, or `Pitchers`, the number of pitchers sued total for the two teams.\n\n## Exercise 1\n\nArgue that `Runs` is a better predictor of `Time` than `Pitchers`.\n\n## Exercise 2\n\nArgue whether you think the CIN-MIL game would be considered a high leverage and/or high influence point.\n\n## Exercise 3\n\nRemove the CIN-MIL game from the data set. Which model is better now?\n\n## To submit the AE:\n\n::: callout-important\n-   Render the document to produce the PDF with all of your work from today's class.\n-   Upload your QMD and PDF files to the Canvas assignment.\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

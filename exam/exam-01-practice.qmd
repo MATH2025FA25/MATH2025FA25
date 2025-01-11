@@ -8,6 +8,7 @@ format:
 
 ```{r}
 #| echo: FALSE
+#| include: FALSE
 library(tidyverse)
 library(broom)
 library(yardstick)

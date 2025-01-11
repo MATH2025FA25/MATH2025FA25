@@ -1,0 +1,631 @@
+---
+title: "SLR: Transformations"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+```
+
+## Application exercise
+
+::: appex
+📋 [AE 06 - Transformations + Outliers](/ae/ae-06-transformations.qmd)
+:::
+
+Complete Exercises 0 and 1.
+
+## Computational set up
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)   # for data wrangling and visualization
+library(broom)       # for formatting model output
+library(ggformula)   # for creating plots using formulas
+library(scales)      # for pretty axis labels
+library(knitr)       # for pretty tables
+library(moderndive)  # for house_price dataset
+library(fivethirtyeight)   # for fandango dataset
+library(kableExtra)  # also for pretty tables
+library(patchwork)   # arrange plots
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+## Data: `house_prices` {.smaller}
+
+::: nonincremental
+-   Contains house sale prices for King County, which includes Seattle, from homes
+sold between May 2014 and May 2015
+-   Obtained from [Kaggle.com](https://www.kaggle.com/harlfoxem/housesalesprediction/data)
+-   Imported from the `moderndive` package
+:::
+
+```{r}
+glimpse(house_prices)
+```
+
+## Variables
+
+- Outcome
+  + `price`: the sale price in dollars
+- Predictor 
+  + `sqft_living`: the square footage of the home
+  
+## Recap: Fit the model
+
+```{r}
+hp_fit <- lm(price ~ sqft_living, data = house_prices)
+tidy(hp_fit) |>  kable(digits = 2)
+```
+
+:::{.incremental}
+- Write down the model:
+  + **Model:** $\hat{\text{price}} = -43580.74 + 280.62\times\text{sqft_living}$
+- Interpret the slope and intercept in the context of this problem:
+  + **Interpretation:** If the square footage of the house increases by 1, the price increases by and average of \$280.62 and a (theoretical) house with 0 square feet with cost -\$43,580.74.
+:::
+
+## Recap: Fit the model
+
+```{r}
+#| code-fold: true
+
+gf_point(price ~ sqft_living, data = house_prices,
+         alpha = 0.25, size = 0.01) |> 
+  gf_smooth(method = "lm", color = "red") |> 
+  gf_labs(x = "Square Footage", 
+       y = "Sale Price")  |> 
+  gf_refine(scale_y_continuous(labels = label_dollar()),
+  scale_x_continuous(labels = label_number()))
+```
+
+## Recap: Model conditions
+
+1.  **Linearity:** There is a linear relationship between the outcome and predictor variables
+2.  **Constant variance:** The variability of the errors is equal for all values of the predictor variable
+3.  **Normality:** The errors follow a normal distribution
+4.  **Independence:** The errors are independent from each other
+
+. . .
+
+::: question
+How should we check these assumptions?
+:::
+
+## Recap: Residual Histogram
+
+```{r}
+#| code-fold: true
+
+hp_aug <- augment(hp_fit)
+
+gf_histogram(~.resid, data = hp_aug, bins = 100) |> 
+  gf_labs(x = "Residual", 
+       y = "Count", 
+       title = "Residual Histogram")
+```
+
+## Recap: QQ-Plot of Residuals
+
+```{r}
+#| code-fold: true
+
+gf_qq(~.resid, data = hp_aug) |> 
+  gf_qqline() |>
+  gf_labs(x = "Theoretical quantile", 
+       y = "Observed quantile", 
+       title = "Normal QQ-plot of residuals")
+```
+
+## Recap: Residuals vs. Fitted Values
+
+```{r}
+#| code-fold: true
+gf_point(.resid ~ .fitted, data = hp_aug, 
+         alpha = 0.25, size = 0.01) |> 
+  gf_hline(yintercept = 0, linetype = "dashed") |> 
+  gf_labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  )
+```
+
+
+## [Are model conditions satisfied?]{.r-fit-text}
+
+1.  **Linearity:** ```r emo:::ji("question")```
+2.  **Constant variance:** ```r emo:::ji("x")```
+3.  **Normality:** ```r emo:::ji("x")```
+4.  **Independence:** ```r emo:::ji("check")```
+
+## [What to do when regression conditions are violated]{.r-fit-text}
+
+Examples:
+
+1. Lack of normality in residuals 
+2. Patterns in residuals
+3. Heteroscedasticity (non-constant variance)
+4. Outliers: influential points, large residuals
+
+
+# Transformations
+
+## Data Transformations
+
+Can be used to:
+
+a. Address nonlinear patterns
+b. Stabilize variance
+c. Remove skewness from residuals
+d. Minimize effects of outliers
+
+## Common Transformations
+
+For either the response $Y$ or predictor $X$:
+
+- Logarithm $Z \to \log(Z)$
+  - Note: "log" means "log base $e$"
+- Square Root $Z \to \sqrt{Z}$
+- Exponential $Z \to e^Z$
+- Power functions $Z \to Z^2, Z^3, Z^4, \ldots$
+- Reciprocal $Z \to 1/Z$
+
+## General Approach
+
+- Fix non-constant variance be transforming $Y$ (do this first)
+    + Fan Pattern: Log-Transform $Y$
+- Fix non-linearity by transforming $X$
+
+
+## Why a Log Transformation? {.smaller}
+
+> Some relationship are *multiplicative* (not linear)
+
+Example: Area of a circle
+
+$$
+\begin{aligned}
+A &= \pi r^2 \text{ (not linear)}\\
+\log(A) &= \log(\pi r^2)
+= \log(\pi) + 2\log(r)\\
+\log(A) &= \beta_0 + \beta_1\times \log(r)\\
+\implies & \log(A) \text{ is a linear function of } \log(r)
+\end{aligned}
+$$
+
+Look for:
+
+- Increasing variability in scatterplot
+- Strongly right-skewed residual distributions
+- Complete Exercise 2
+
+## Fixing non-linearity
+
+-   Many departures from linearity can be solved with power transformations (e.g. $X^{power}$)
+
+    +   For technical reasons, $power = 0$ corresponds to $\log$
+
+-   Concave down pattern $\Rightarrow$ transform down (i.e. $power < 1$)
+
+    +   $\log$ is typically a good first choice
+
+-   Concave up pattern $\Rightarrow$ transform up (i.e. $power > 1$)
+
+-   Complete Exercises 3-5.
+
+
+## Back to `house_sales`
+
+```{r}
+#| code-fold: true
+
+p1 <- gf_point(price ~ sqft_living, data = house_prices,
+         alpha = 0.25, size = 0.01) |> 
+  gf_smooth(method = "lm", color = "red") |> 
+  gf_labs(x = "Square Footage", 
+       y = "Sale Price")  |> 
+  gf_refine(scale_y_continuous(labels = label_dollar()),
+  scale_x_continuous(labels = label_number()))
+
+p2 <- gf_point(log(price) ~ sqft_living, data = house_prices,
+         alpha = 0.25, size = 0.01) |> 
+  gf_smooth(method = "lm", color = "red") |> 
+  gf_labs(x = "Square Footage", 
+       y = "log(Sale Price)")  |> 
+  gf_refine(scale_y_continuous(labels = label_dollar()),
+  scale_x_continuous(labels = label_number()))
+
+p3 <- gf_point(price ~ log(sqft_living), data = house_prices,
+         alpha = 0.25, size = 0.01) |> 
+  gf_smooth(method = "lm", color = "red") |> 
+  gf_labs(x = "log(Square Footage)", 
+       y = "Sale Price")  |> 
+  gf_refine(scale_y_continuous(labels = label_dollar()),
+  scale_x_continuous(labels = label_number()))
+
+p4 <- gf_point(log(price) ~ log(sqft_living), data = house_prices,
+         alpha = 0.25, size = 0.01) |> 
+  gf_smooth(method = "lm", color = "red") |> 
+  gf_labs(x = "log(Square Footage)", 
+       y = "log(Sale Price)")  |> 
+  gf_refine(scale_y_continuous(labels = label_dollar()),
+  scale_x_continuous(labels = label_number()))
+
+(p1 + p2)/ (p3 + p4)
+```
+
+## Fitting Transformed Models {.smaller}
+
+::::{.columns}
+:::{.column}
+```{r}
+logprice_model <- lm(log(price) ~ sqft_living, data = house_prices)
+tidy(logprice_model) |> kable()
+```
+
+$$
+\begin{aligned}
+\log(Y) &= 12.22  + 3.99\times 10^{-4}\times X\\
+Y &= e^{12.22 + 3.99\times 10^{-4}\times X}\\
+&= 202805\times e^{3.99\times 10^{-4}\times X}
+\end{aligned}
+$$
+:::
+:::{.column}
+```{r}
+loglog_model <- lm(log(price) ~ log(sqft_living), data = house_prices)
+tidy(loglog_model) |> kable()
+```
+$$
+\begin{aligned}
+\log(Y) &=6.73 + 0.837\times \log(X)\\
+\log(Y) &= \log(e^{6.73})  + \log(X^{0.837})\\
+Y &= 873.15\times X^{0.837}
+\end{aligned}
+$$
+:::
+::::
+
+## Residuals Histograms
+
+```{r}
+#| code-fold: true
+
+lp_aug <- augment(logprice_model)
+ll_aug <- augment(loglog_model)
+
+p1 <- gf_histogram(~.resid, data = lp_aug, bins = 100) |> 
+  gf_labs(x = "Residual", 
+       y = "Count", 
+       title = "Log Price Residuals")
+
+p2 <- gf_histogram(~.resid, data = ll_aug, bins = 100) |> 
+  gf_labs(x = "Residual", 
+       y = "Count", 
+       title = "Log-Log Residuals")
+
+(p1 + p2)
+```
+
+## QQ-Plots of Residuals
+
+```{r}
+#| code-fold: true
+
+p1 <- gf_qq(~.resid, data = lp_aug) |> 
+  gf_qqline() |>
+  gf_labs(x = "Theoretical quantile", 
+       y = "Observed quantile", 
+       title = "Log Price QQ")
+
+p2 <- gf_qq(~.resid, data = ll_aug) |> 
+  gf_qqline() |>
+  gf_labs(x = "Theoretical quantile", 
+       y = "Observed quantile", 
+       title = "Log-Log QQ")
+
+p1 + p2
+```
+
+## Residuals vs. Fitted Values
+
+```{r}
+#| code-fold: true
+p1 <- gf_point(.resid ~ .fitted, data = lp_aug, 
+         alpha = 0.25, size = 0.01) |> 
+  gf_hline(yintercept = 0, linetype = "dashed") |> 
+  gf_labs(
+    x = "Fitted value", y = "Residual",
+    title = "Log Price Model"
+  )
+
+p2 <- gf_point(.resid ~ .fitted, data = ll_aug, 
+         alpha = 0.25, size = 0.01) |> 
+  gf_hline(yintercept = 0, linetype = "dashed") |> 
+  gf_labs(
+    x = "Fitted value", y = "Residual",
+    title = "Log-Log Model"
+  )
+
+p1 + p2
+```
+
+## A note on evaluation
+
+If you are computing your evaluation metrics (e.g. $R^2$ or RMSE), you should transform your predictions BACK to their original scale, especially if you're trying to choose the best model
+
+:::{.question}
+- Why do we need to undo the transformation for evaluation metrics by not residuals plots? 
+- Why don't we need to worry about the predictors?
+:::
+
+# Outliers
+
+## Types of "Unusual" Points in SLR
+
+- **Outlier**: a data point that is far from the regression line
+- **Influential point**: a data point that has a large effect on the regression fit
+
+. . .
+
+:::{.question}
+- How do we measure "far"?
+- How do we measure "effect on the fit"?
+:::
+
+## Detecting Unusual Cases: Overview
+
+1. Compute residuals
+    + "raw", standardized, studentized
+2. Plots of residuals
+    + boxplot, scatterplot, normal plot
+3. Leverage
+    + unusual values for the predictors
+  
+## Example: Movie scores
+
+::: columns
+::: {.column width="70%"}
+-   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings*](https://fivethirtyeight.com/features/fandango-movies-ratings/)[*, Especially Fandango's*](%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22)
+-   In the **fivethirtyeight** package: [`fandango`](https://fivethirtyeight-r.netlify.app/reference/fandango.html)
+-   Contains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores
+:::
+
+::: {.column width="30%"}
+![](images/06/fandango.png){fig-alt="Fandango logo" width="200"}
+
+![](images/06/imdb.png){fig-alt="IMDB logo" width="200"}
+
+![](images/06/rotten-tomatoes.png){fig-alt="Rotten Tomatoes logo" width="200"}
+
+![](images/06/metacritic.png){fig-alt="Metacritic logo" width="200"}
+:::
+:::
+
+## Data prep
+
+-   Rename Rotten Tomatoes columns as `critics` and `audience`
+-   Rename the dataset as `movie_scores`
+
+```{r data-prep}
+#| echo: true
+
+data("fandango")
+
+movie_scores <- fandango |>
+  rename(critics = rottentomatoes, 
+         audience = rottentomatoes_user)
+```
+
+## Example: Movie Scores
+
+```{r}
+#| code-fold: true
+#| 
+movie_scores |> 
+  gf_point(audience ~ critics) |> 
+  gf_lm() |> 
+  gf_labs(x = "Critics Score", 
+       y = "Audience Score")
+```
+
+## Boxplot of Residuals
+
+:::{.smaller}
+```{r}
+#| output-location: column
+movie_fit <- lm(audience ~ critics, data = movie_scores)
+movie_fit_aug <- augment(movie_fit)
+
+gf_boxplot(.resid ~ "", data = movie_fit_aug, 
+           fill = "salmon", ylab = "Residuals", xlab = "")
+```
+:::
+
+- Dots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles
+
+## Standardized Residuals
+
+:::{.incremental}
+- Recall: Z-scores
+- Fact: If $X$ has mean $\mu$ and standard deviation $\sigma$, then $(X-\mu)/\sigma$ has mean 0 and standard deviation 1
+- For residuals: mean 0 and standard deviation $\hat{\sigma}_\epsilon$
+- **Standardized residuals:** $\frac{y_i-\hat{y}_i}{\hat{\sigma}_\epsilon}$
+  + Look for values beyond $\pm 2$ or $\pm 3$
+:::
+
+## Recap: `Augment` function
+
+```{r}
+movie_fit_aug |> 
+  head() |> 
+  kable()
+```
+
+## Example: Movie Scores
+
+```{r}
+#| code-fold: true
+p1 <- movie_fit_aug |>  # Augmented data
+  gf_boxplot("" ~ .std.resid, 
+           xlab = "Standardized Residual")
+
+p2 <- movie_fit_aug |>  # Augmented data
+  gf_point(.std.resid ~ .fitted, 
+           xlab = "Predicted", ylab = "Standardized Residual")
+
+p1 + p2
+```
+
+## (Externally) Studentized Residuals
+
+- Concern: An unusual value may exert great influence on the fit
+  + Its residual might be underestimated because the model "moves" a lot to fit it
+  + The standard error may also be inflated due to the outlier error
+- **Studentize:** Fit the model *without* that case, then find new $\hat{\sigma}_\epsilon$
+
+## Example: Movie Scores
+
+```{r}
+#| code-line-numbers: |2
+movie_fit_aug |>  # Augmented data
+  mutate(studentized_residual = rstudent(movie_fit)) |> 
+  gf_point(studentized_residual ~ .fitted, 
+           xlab = "Predicted", ylab = "Studentized Residual")
+```
+
+## What to do with an outlier?
+
+- Look into it
+- If something is unusual about it and you can make a case that it is not a good representation of the population you can throw it out
+- If not and the value is just unusual, keep it
+
+## Influence vs. Leverage
+
+- **High Influence Point**: point that DOES impact the regression line
+- **High Leverage Point**: point with "potential" to impact regression line because $X$-value is unusual
+
+## High Leverage, Low Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=-2.93, -4.95, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(x > -2), fullrange=TRUE)
+```
+
+## High Leverage, High Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = -2.93, y = 10))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=-2.93, y = 10, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(x > -2), fullrange=TRUE)
+```
+
+## Low Leverage, Low Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = 0, y = -20))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=0, y = -20, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(y > -10), fullrange=TRUE)
+```
+
+
+## Low Leverage, High Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = 0, y = -100))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=0, y = -100, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(y > -10), fullrange=TRUE)
+```
+
+## Low Leverage, High Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = 0, y = -100))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red", fullrange=TRUE) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(y > -10), fullrange=TRUE) +
+  coord_cartesian(ylim = c(-1, 12))
+```
+
+## Recap {.smaller}
+
+- Transformations
+  + Transform $Y$ to fix non-constant variance (and non-normality)
+  + Transform $X$ to fix non-linearity
+  + Power transformations are powerful (concave up/drown $\Rightarrow$ power up/down)
+  + logs allow us to model a lot of non-linear relationships with a linear model
+- Outliers
+  + Leverage
+  + Influence
+  + Used plots of residuals, standardized residuals, and studentized residuals to diagnose outliers
+- Spend the rest of class working on Exercise 6.

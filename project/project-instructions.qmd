@@ -69,6 +69,10 @@ You are more than welcome to contact me with any questions about your project bu
 
 -   due Monday, January 13
 
+[Checkpoint VII: Generate Summaries (1%)](#plots-tables)
+
+-   due Tuesday, January 14
+
 <!-- [Stage II: Exploratory Data Analysis (5%)](#exploratory-analysis) -->
 
 <!-- -   due Wednesday, October 30 -->
@@ -141,7 +145,6 @@ Based on the abstracts, choose two of the papers you listed in your literature
 review. For these two papers, write a few sentences summarizing the primary 
 findings and how they relate to your research question.
 
-
 **Deliverables:** Take the word document you submitted for Checkpoint III and, 
 below your two chosen articles, add a few sentences that summarize the primary 
 findings and how they relate to your proposal.
@@ -178,11 +181,11 @@ from previous Checkpoints:
 :::
 
 4.  Your partially annotated bibliography. There must be at least six articles
-and at least two ust be annotated.
+and at least two must be annotated.
     
 **Deliverables:** Word document or PDF with the information above. **You may receive points back on Checkpoints II-IV for your work on this assignment.**
 
-## Checkpoint VI: Load and Clean the Data Set {#load-data}
+## Checkpoint VI: Generate Plots and Tables {#load-data}
 
 We now begin the second stage of your project, the Exploratory Data Analysis portion.
 
@@ -211,6 +214,20 @@ You now need to load and "clean" your data set, make note of any problematic dat
 read_csv("/srv/R/MAT212_WIN25/brfss2023.csv") |> 
   select(col_1, col_2, col_3)
 ```
+
+## Checkpoint VII: Generate Plots and Tables {#plots-tables}
+
+Generate univariate and bivariate summaries of your data.
+
+**Deliverables:** A QMD and HTML file uploaded to Canvas. You should start with the same file you used for your last checkpoint and add the following: 
+
+- Univariate summaries:
+  + A plot for every variable you are considering
+  + A table of every variable you are considering
+- Bivariate summaries:
+  + A plot comparing your response variable to all of your explanatory variables
+  + Use the function `ggpairs` from the package `GGally` to display a grid of all bivariate plots for your data. Feel free to use any resource available to use without citing it (e.g. ChatGPT, tutor, Dr. F, etc...)
+- Note that you don't need to analyze the plots yet... just create them. 
 
 <!-- ## Stage II: Exploratory Data Analysis {#exploratory-analysis} -->
 

@@ -55,7 +55,7 @@ website:
           text: "Oral Exam Rubric"
         - href: exam/exam-01-review.qmd
           text: "Exam 1 Overview"
-        - href: exam/exam-rubric.qmd
+        - href: exam/exam-01-practice.qmd
           text: "Exam 1 Practice"
         
   
