@@ -1,0 +1,157 @@
+---
+title: "AE 07: Multiple Linear Regression"
+subtitle: "Credit Cards"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-07".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202838) and locate your `AE-07` assignment to get started.
+
+-   Upload the `ae-07.qmd` file into the folder you just created.
+:::
+
+## Packages + data
+
+```{r load-packages}
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(broom)
+library(mosaic)
+library(knitr)
+library(ISLR2)
+library(GGally)
+library(yardstick)
+```
+
+The data for this AE is from the `Credit` data set in the **ISLR2** R package. It is a simulated data set of 400 credit card customers. We will focus on the following variables:
+
+**Response**
+
+-   `Limit`: Credit limit
+
+**Predictors**
+
+-   Everyone:
+
+    -   `Rating`: Credit Rating
+
+-   Group 1:
+
+    -   `Age`
+    -   `Own`
+
+-   Group 2:
+
+    -   `Balance`
+    -   `Student`
+
+-   Group 3:
+
+    -   `Education`
+    -   `Region`
+
+-   Group 4:
+
+    -   `Income`
+    -   `Married`
+
+## Analysis goal
+
+The goals of this analysis is to fit a multiple linear regression model that that predicts a person's credit limit.
+
+## Exercise 0
+
+Look at the documentation for the data using `?Credit` and Google to figure out what each of your variables represents. What is a credit rating and what is a credit limit as it applies to a credit card? The primary credit rating in the US is called a FICO score. Use `favstats` on `Rating`. Do you think that `Rating` corresponds to the borrower's FICO score? 
+
+Without writing any more code (i.e. just using what you know about the world): 
+
+- Do you think `Rating` will be a good predictor of `Limit`? 
+- In addition to `Limit`, everyone has been assigned two additional variables, one quantitative and one categorical. Do you think these two variables will be predictive of `Limit`?
+
+## Exercise 1
+
+Use the function `ggpairs` from the `GGally` package (already loaded) to create a matrix of plots and correlations for your four variables of interest. Note that you will have to use `select` to select the four columns you are interested in. Which variable do you think will be the best predictor of `Limit`?
+
+```{r}
+Credit |> 
+  select(Limit, Rating) |> # add your extra variables here.
+  ggpairs()
+```
+
+## Exercise 2
+
+Fit a linear model with just `Rating` as the predictor and get the p-value associated with it's coefficient. Is it statistically significant?
+
+## Exercise 3
+
+Fit a linear model with just your second quantitative predictor and get the p-value associated with it's coefficient. Is it statistically significant?
+
+## Exercise 4
+
+Fit a model with both `Income` and your second quantitative variable as predictors. Find a spot on the white board to write down an equation representing the fitted model. How do the coefficients and p-values of `Income` and `Rating` compare to those in the two models above? Discuss what you see and the possible reasons you see them.
+
+## Exercise 5
+
+Interpret all coefficients in the model.
+
+## Exercise 6
+
+Use `head` to look at the first observation in the data set. Use addition, subtraction, multiplication, and division to figure out what credit limit your model would predict for a person with the same characteristics of this person.
+
+## Exercise 7
+
+Now use the `predict` function to verify the value you computed in the previous exercise and compute a 90% prediction interval. How would you interpret this interval in context?
+
+## Exercise 8
+
+Fit a linear model predicting `Limit` from **ONLY** your categorical variable. What is the reference level?
+
+## Exercise 9
+
+WITHOUT WRITING ANY CODE except for addition, subtraction, multiplication, and addition, what would the model predict the average `Limit` to be for each of the level of your categorical variable?
+
+## Exercise 10
+
+Compute the average `Limit` for each level in your categorical variable. Hint: you can use "formulas" (i.e. `repsonse ~ explanatory`) in the `mean` function from the `mosaic` package. How do these answers compare to your answers from Exercise 9?
+
+## Exercise 11
+
+Fit a linear model using your quantitative and your categorical variable as predictors (don't use `Rating`). Use the function `plotModel` to make a nifty plot for your model. Your syntax should look like `plotModel(model_name)`.
+
+## Exercise 12
+
+Your model contains one line for every level of your categorical variable. On the board, write out the equations for two of them.
+
+## Exercise 13
+
+How do you think the plot above will change if you add in an interaction term between your variables? **AFTER** thinking about it, add in an in the interaction term and plot the model using `plotModel`.
+
+## Exercise 14
+
+Your model contains one line for every level of your categorical variable. On the board, write out the equations for two of them.
+
+
+## Exercise 15
+
+Fit a model with your quantitative predictor, `Rating`, and an interaction term. Write your model on the board.
+
+## Exercise 16 (Optional)
+
+Look back at all of the models that you've fit. If you compare the p-values for the same variable across multiple models, what do you notice?
+
+## Exercise 17 (Optional)
+
+Note that this data set only considers borrowers who have actually been granted loans. How does this impact the generalizability of our analysis?
+
+## To submit the AE
+
+::: callout-important
+-   Render the document to produce the HTML file with all of your work from today's class.
+-   Upload your QMD and HTML files to the Canvas assignment.
+:::

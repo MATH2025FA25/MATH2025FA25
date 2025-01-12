@@ -1,0 +1,698 @@
+---
+title: "Multiple linear regression (MLR)"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+## Trying something new {.smaller}
+
+::: appex
+📋 [AE 07 - Multiple Linear Regression and Categorical Predictors](/ae/ae-07-mlr.qmd)
+:::
+
+Complete Exercise 0-3.
+
+## Computational setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)
+library(broom)
+library(mosaic)
+library(ISLR2)
+library(patchwork)
+library(knitr)
+library(coursekata)
+library(kableExtra)
+library(scales)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+
+# Create new variable
+
+Credit <- Credit |> 
+  mutate(Has_Balance = factor(ifelse(Balance == 0, "No", "Yes")))
+```
+
+# Considering multiple variables
+
+## Data: Credit Cards
+
+The data is from the `Credit` data set in the **ISLR2** R package. It is a simulated data set of 400 credit card customers.
+
+```{r}
+#| echo: false
+Credit |>  glimpse()
+```
+
+## Variables
+
+**Features (another name for predictors)**
+
+-   `Cards`: Number of credit cards
+-   `Rating`: Credit Rating
+-   `Has_Balance`: Whether they have a credit card balance
+
+**Outcome**
+
+-   `Limit`: Credit limit
+
+## Outcome: `Limit`
+
+```{r}
+#| code-fold: true
+Credit |> 
+  gf_density(~Limit, fill = "steelblue") |> 
+  gf_labs(title = "Distribution of credit limit",
+          x = "Credit Limit")|> 
+  gf_refine(scale_x_continuous(labels = dollar_format()))
+```
+
+```{r}
+#| echo: false
+favstats(~Limit, data = Credit)|>
+  kable("html") |> 
+  kable_styling(font_size = 24)
+```
+
+## Predictors {.small}
+
+```{r}
+#| code-fold: true
+#| out.width: "100%"
+p1 <- Credit |> 
+  gf_density(~Limit, fill = "steelblue") |> 
+  gf_labs(title = "Distribution of credit limit",
+          x = "Credit Limit")|> 
+    gf_refine(scale_x_continuous(labels = dollar_format()))
+
+p2 <- Credit |> 
+  gf_histogram(~Rating, binwidth = 50) |> 
+  gf_labs(title = "",
+       x = "Credit Rating")
+
+p3 <- Credit |> 
+  gf_histogram(~Cards, binwidth = 1) |> 
+  gf_labs(title = "",
+       x = "Number of Credit Cards")
+
+p4 <- Credit |> 
+  gf_bar(~Has_Balance)|> 
+  gf_labs(title = "",
+       x = "Has a Credit Card Balance")
+
+(p1 + p2) / (p3 + p4)
+```
+
+## Outcome vs. predictors {.small}
+
+```{r}
+#| code-fold: true
+library(GGally)
+
+Credit |> 
+  select(Limit, Rating, Cards, Has_Balance) |> 
+  ggpairs()
+```
+
+## Single vs. multiple predictors
+
+So far we've used a *single predictor variable* to understand variation in a quantitative response variable
+
+. . .
+
+Now we want to use *multiple predictor variables* to understand variation in a quantitative response variable
+
+# Multiple linear regression
+
+## Multiple linear regression (MLR) {.smaller}
+
+Based on the analysis goals, we will use a **multiple linear regression** model of the following form
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Rating} + \hat{\beta}_2 \text{Cards}
+\end{aligned}
+$$
+
+Similar to simple linear regression, this model assumes that at each combination of the predictor variables, the values of `Limit` follow a Normal distribution.
+
+## Multiple linear regression
+
+**Recall:** The simple linear regression model assumes
+
+$$
+Y|X\sim N(\beta_0 + \beta_1 X, \sigma_{\epsilon}^2)
+$$
+
+. . .
+
+**Similarly:** The multiple linear regression model assumes
+
+$$
+Y|X_1, X_2, \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p, \sigma_{\epsilon}^2)
+$$
+
+## Multiple linear regression
+
+At any combination of the predictors, the mean value of the response $Y$, is
+
+$$
+\mu_{Y|X_1, \ldots, X_p} = \beta_0 + \beta_1 X_{1} + \beta_2 X_2 + \dots + \beta_p X_p
+$$
+
+. . .
+
+Using multiple linear regression, we can estimate the mean response for any combination of predictors
+
+$$
+\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X_{1} + \hat{\beta}_2 X_2 + \dots + \hat{\beta}_p X_{p}
+$$
+
+
+## Model fit
+
+```{r}
+#| echo: false
+lim_fit <- lm(Limit ~ Rating   + Cards,
+      data = Credit)
+
+tidy(lim_fit) |>
+  kable()
+```
+
+## Model equation
+
+$$
+\begin{align}\hat{\text{Limit}} =  -341.159 &+14.906 \times \text{Rating}\\
+& -72.318 \times \text{Cards}
+\end{align}
+$$
+
+## Interpreting $\hat{\beta}_j$
+
+-   The estimated coefficient $\hat{\beta}_j$ is the expected change in the mean of $y$ when $x_j$ increases by one unit, *holding the values of all other predictor variables constant*.
+
+. . .
+
+::: appex
+Complete Exercises 4-6.
+:::
+
+## Prediction
+
+::: question
+What is the predicted credit limit for a borrower with these characteristics?
+:::
+
+```{r}
+head(Credit, n = 1) |> kable()
+```
+
+
+
+<br>
+
+```{r}
+#| echo: true
+
+-341.159 +14.906 * 283 -72.318 * 2
+```
+
+. . .
+
+The predicted credit limit for an borrower with an credit rating of 700 and who has 2 credit cards is \$`r round(-341.159 +14.906 * 283 -72.318 * 2)`.
+
+## Prediction, revisited {.midi}
+
+Just like with simple linear regression, we can use the `predict` function in R to calculate the appropriate intervals for our predicted values:
+
+```{r}
+#| echo: false
+
+new_borrower <- tibble(
+  Rating = 283, 
+  Cards = 2
+)
+
+predict(lim_fit, new_borrower, interval="prediction")
+```
+
+::: callout-note
+Difference in predicted value due to rounding the coefficients on the previous slide.
+:::
+
+Complete Exercise 7.
+
+## Prediction interval for $\hat{y}$
+
+::: question
+Calculate a 90% confidence interval for the **predicted credit limit** for an individual borrower an  credit rating of 700, and who has 2 credit cards.
+:::
+
+<br>
+
+```{r}
+#| echo: true
+
+predict(lim_fit, new_borrower, interval = "prediction", level = 0.90)
+```
+
+::: question
+When would you use `"confidence"`? Would the interval be wider or narrower?
+:::
+
+## Cautions
+
+-   **Do not extrapolate!** Because there are multiple predictor variables, there is the potential to extrapolate in many directions
+-   The multiple regression model only shows **association, not causality**
+    -   To show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study
+    
+# Categorical Predictors
+    
+## Indicator variables
+
+-   Suppose there is a categorical variable with $K$ categories (levels)
+
+-   We can make $K$ indicator variables - one indicator for each category
+
+-   An **indicator variable** takes values 1 or 0
+
+    -   1 if the observation belongs to that category
+    -   0 if the observation does not belong to that category
+
+## Data manipulation: Create indicator variables for `Has_Balance`
+
+```{r}
+#| echo: true
+
+Credit_dummy <- Credit |>
+  mutate(
+    No_Balance = if_else(Has_Balance == "No", 1, 0),
+    Yes_Balance = if_else(Has_Balance == "Yes", 1, 0)
+  )
+
+Credit_dummy |>
+  select(Has_Balance, No_Balance, Yes_Balance) |>
+  slice(1, 12)
+```
+
+## Indicators in the model {.smaller}
+
+-   We will use $K-1$ of the indicator variables in the model.
+-   The **reference level** or **baseline** is the category that doesn't have a term in the model.
+-   The coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.
+-   This approach is also called **dummy coding** and *R will do this for you*
+
+```{r}
+Credit_dummy |>
+  select(Has_Balance, No_Balance, Yes_Balance) |>
+  slice(1, 12)
+```
+
+## Interpreting Categorical Predictors {.smaller}
+
+::::{.columns}
+:::{.column}
+```{r}
+#| echo: false
+cat_mod <- lm(Limit ~ Has_Balance, data = Credit)
+cat_mod |>
+  tidy() |>
+  kable(digits = 3)
+```
+:::
+:::{.column}
+```{r}
+#| echo: false
+Credit |>
+  gf_jitter(Limit ~ Has_Balance, height = 0, width = 0.15) |>
+  gf_model(cat_mod)
+```
+:::
+::::
+
+::: question
+-   Where do we see each of the estimates in the plot?
+-   Where do we see the values we'd predict in the plot?
+-   Are `Has_Balance` and `Limit` **correlated**?
+:::
+
+
+```{r}
+#| echo: false
+
+countdown::countdown(minutes = 3, seconds = 0)
+```
+
+. . .
+
+Complete Exercises 8-10.
+
+## Model equation
+
+$$
+\begin{align}\hat{\text{Limit}} =  2152.722 &+ 3332.746 \times \text{Yes_Balance}
+\end{align}
+$$
+
+# Adding in another predictor
+
+::: appex
+Complete Exercise 11.
+:::
+
+## Credit Limit vs. Cards: parallel slopes
+
+```{r}
+#| code-fold: true
+
+cards_model <- lm(Limit ~ Cards, data = Credit)
+
+cards_hasbal_model <- lm(Limit ~ Cards + Has_Balance, data = Credit)
+
+p1 <- plotModel(cards_model) |>
+  gf_labs(title = "SLR")
+p2 <- plotModel(cards_hasbal_model) |>
+  gf_labs(title = "Balance Indicator")
+
+p1 + p2
+```
+
+## Parallel slopes interpretation {.smaller}
+
+```{r}
+#| echo: FALSE
+
+cards_hasbal_model |>
+  tidy() |>
+  kable(digits = 3)
+```
+
+-   Slope of `Cards` is -36.964 regardless of `Has_Balance` level
+-   Change in `Has_Balance` corresponds to a shift in the intercept
+    +   Intercept for `No` is 2257.044
+    +   For `Yes` shift intercept up 3339.198
+        -   (i.e. intercept $= 2257.044 + 3339.198 = 5596.242$)
+-   Complete Exercise 12
+        
+# Interaction terms
+
+## Interaction terms {.smaller}
+
+-   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.
+-   This is an **interaction effect**.
+-   To account for this, we can include **interaction terms** in the model.
+-   We want a model of the form:
+
+$$
+\begin{aligned}\hat{Y} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 +
+\hat{\beta}_3X_1\times X_2
+\end{aligned}
+$$
+
+## Interaction terms: Quantitative and Categorical
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Cards} + \hat{\beta}_2 \text{Has_Balance} +
+\hat{\beta}_3\text{Cards}\times\text{Has_Balance}
+\end{aligned}
+$$
+
+
+## Interest rate vs. cards: interaction term
+
+```{r}
+#| echo: false
+
+cards_hasbal_interaction_model <- lm(Limit ~ Cards + Has_Balance + Has_Balance*Cards, data = Credit)
+
+p1 <- plotModel(cards_hasbal_model) |>
+  gf_labs(title = "No Interaction Term")
+p2 <- plotModel(cards_hasbal_interaction_model) |>
+  gf_labs(title = "Interaction Term")
+
+p1 + p2+ plot_layout(guides = "collect")
+```
+
+## Bike Rentals vs. Temperature: interaction term
+
+```{r}
+#| echo: false
+
+bikeshare <- read_csv("../data/dcbikeshare.csv") |> 
+  mutate(season = case_when(
+    season == 1 ~ "winter",
+    season == 2 ~ "spring",
+    season == 3 ~ "summer",
+    season == 4 ~ "fall"
+  ),
+  season = factor(season))
+
+bike_model <- lm(count ~ temp_orig + season, data = bikeshare)
+bike_model_interaction <- lm(count ~ temp_orig + season + temp_orig*season, data = bikeshare)
+
+p1 <- plotModel(bike_model) |>
+  gf_labs(title = "No Interaction Term")
+p2 <- plotModel(bike_model_interaction) |>
+  gf_labs(title = "Interaction Term")
+
+p1 + p2+ plot_layout(guides = "collect")
+```
+
+
+## Interpreting interaction terms {.smaller}
+
+```{r}
+#| echo: FALSE
+
+cards_hasbal_interaction_model |>
+  tidy() |>
+  kable(digits = 3)
+```
+
+-   Slope of `Rating` **depends** on `Has_Balance` level
+-   **Equivalent:** fit two separate linear models on the data corresponding to each level of `Has_Balance`
+
+## Understanding the model {.midi}
+
+$$
+\begin{aligned}
+\hat{Limit} &= 2324.664 - 60.924 \times Cards \\ 
+&\qquad+ 3257.976 \times Has\_Balance\\
+&\qquad+ 28.499 \times Cards \times Has\_Balance
+\end{aligned}
+$$
+
+## Interpreting the interaction term
+
+-  For a borrower in no balance, the slope of `Cards` is $-60.924$
+-  For a borrower with a balance, the slope of `Cards` is $(-60.924 + 28.499=-32.425)$
+
+::: appex
+Complete Exercise 13 and 14.
+:::
+
+## Interaction terms: Two Quantitative
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Cards} + \hat{\beta}_2 \text{Rating} +
+\hat{\beta}_3\text{Cards}\times\text{Rating}
+\end{aligned}
+$$
+
+## Interpreting interaction terms
+
+-   What the interaction means: The effect of the number of open credit cards on the credit limit depends on the borrowers credit rating and vice versa
+
+## Visualizing Model: No Interaction
+
+```{r}
+#| echo: FALSE
+library(plotly)
+library(reshape2)
+credit_plot <- plot_ly(Credit, 
+         x = ~Rating, 
+         y = ~Cards, 
+         z = ~Limit,
+         color = I("red"),
+         opacity = 1,
+         type = "scatter3d", 
+         mode = "markers",
+         size = 1)
+
+axis_x <- seq(min(Credit$Rating), max(Credit$Rating), length.out = 100)
+axis_y <- seq(min(Credit$Cards), max(Credit$Cards), length.out = 100)
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Cards = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Cards ~ Rating, value.var = "Limit")
+
+credit_plot |> 
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000", 
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
+```
+
+
+## Visualizing Interaction Model: Exaggerated
+
+```{r}
+#| echo: FALSE
+
+Credit_sim <- tibble(Cards = round(runif(100, 0, 20)), Rating = runif(100, 0, 1000), 
+                     Limit = 100 + 50*Cards + Rating + 1000*Cards*Rating)
+
+credit_plot_sim <- plot_ly(Credit_sim, 
+         x = ~Rating, 
+         y = ~Cards, 
+         z = ~Limit,
+         color = I("red"),
+         opacity = 1,
+         type = "scatter3d", 
+         mode = "markers",
+         size = 1)
+
+axis_x_sim <- seq(min(Credit_sim$Rating), max(Credit_sim$Rating), length.out = 100)
+axis_y_sim <- seq(min(Credit_sim$Cards), max(Credit_sim$Cards), length.out = 100)
+
+lim_fit_int_sim <- lm(Limit ~ Rating  + Cards + Rating * Cards,
+      data = Credit_sim)
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x_sim, Cards = axis_y_sim,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit_int_sim, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Cards ~ Rating, value.var = "Limit")
+
+credit_plot_sim |>
+  add_surface(z = credit_lm_surface,
+           x = axis_x_sim,
+           y = axis_y_sim,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000",
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
+```
+
+## Visualizing Interaction Model: Real
+
+```{r}
+#| echo: FALSE
+
+lim_fit_int <- lm(Limit ~ Rating  + Cards + Rating * Cards,
+      data = Credit)
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Cards = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit_int, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Cards ~ Rating, value.var = "Limit")
+
+credit_plot |>
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000",
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
+```
+
+
+## Model Fit {.smaller}
+
+```{r}
+#| echo: FALSE
+lm(Limit ~ Cards + Rating + Cards * Rating, data = Credit) |>
+  tidy() |>
+  kable(digits = 5)
+```
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ =
+&  -315.005 + 14.834~\text{Rating} -81.116~\text{Cards}\\
+& \qquad+ 0.024~\text{Rating}\times\text{Cards}
+\end{aligned}
+$$
+
+## Interpreting the interaction term
+
+-  For a fixed `Rating` the slope of `Cards` is $(-81.116 + 0.024\times\text{Rating})$
+-  For a fixed `Cards` the slope of `Rating` is $(14.834 + 0.024\times\text{Cards})$
+
+
+
+## What's actually happening: {.smaller}
+
+```{r}
+#| echo: TRUE
+Credit_int <- Credit |>
+  mutate(Interaction = Cards * Rating)
+
+Credit_int |>
+  select(Limit, Cards, Rating, Interaction) |>
+  head() |>
+  kable()
+```
+
+## What's actually happening:
+
+```{r}
+lm(Limit ~ Cards + Rating + Interaction, data = Credit_int) |>
+  tidy() |>
+  kable(digits = 5)
+```
+
+
+# Wrap up
+
+## Recap
+
+-   Introduced multiple linear regression
+
+-   Interpreted coefficients in the multiple linear regression model
+
+-   Calculated predictions and associated intervals for multiple linear regression models
+
+-   Introduced categorical variables
+
+-   Used interaction terms
+
