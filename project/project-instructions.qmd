@@ -73,9 +73,13 @@ You are more than welcome to contact me with any questions about your project bu
 
 -   due Tuesday, January 14
 
-<!-- [Stage II: Exploratory Data Analysis (5%)](#exploratory-analysis) -->
+[Checkpoint VIII: Analyze Plots and Tables (1%)](#plots-tables-analysis)
 
-<!-- -   due Wednesday, October 30 -->
+-   due Wednesday, January 15
+
+[Checkpoint IX: Exploratory Data Analysis (2%)](#exploratory-analysis)
+
+-   due Thursday, January 16
 
 <!-- [Stage III: Project Paper (25%)](#draft-report) -->
 
@@ -229,37 +233,42 @@ Generate univariate and bivariate summaries of your data.
   + Use the function `ggpairs` from the package `GGally` to display a grid of all bivariate plots for your data. Feel free to use any resource available to use without citing it (e.g. ChatGPT, tutor, Dr. F, etc...)
 - Note that you don't need to analyze the plots yet... just create them. 
 
-<!-- ## Stage II: Exploratory Data Analysis {#exploratory-analysis} -->
+## Checkpoint VIII: Analyze Plots and Tables {#plots-tables-analysis}
 
-<!-- The second stage of your project is to conduct Exploratory Data Analysis.  -->
+Now that you've created all of your plots and tables, it's time to start figuring out which ones are important and which ones you need. Each plot and table you have in your final EDA should have a purpose. That is, there should be something in that plot for you to talk about and point to. If not, then it's not worth including. For this checkpoint I will have you go through all of your plots and tables, determine whether they are worth including, and summarize why you are including each plot. In general, plots are better than tables for visualizing patters, whereas tables are better if you want to reference specific numbers.
 
-<!-- 1.	You may need to "clean" your data set first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data. [This website](https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html) shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach). -->
-<!-- 2.	Produce descriptive statistics (5-number summaries and histograms or boxplots for continuous variables; tables of counts/proportions and bar charts for categorical variables) for all relevant variables in your data set.  -->
-<!-- 3.	Explore the relationships between important pairs of variables both graphically and numerically. Depending on the type of your response and explanatory variables, you may consider graphs such as boxplots, scatterplots/jitterplots, or segmented bar charts.  You may consider summary statistics (like mean, median, or standard deviation) by group, correlations, and two-way tables with proportions. At this stage plots can be loose in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels! -->
-<!-- 4.	You should not be fitting any models at this point. -->
+**Deliverables:** A QMD and HTML file uploaded to Canvas. You should start with the same file you used for your last checkpoint and add the following: 
 
-<!-- ### Your EDA report, to be turned in on Canvas, will meet these guidelines: -->
+- Under each plot and table:
+  + **Keep:** Do you plan to keep this plot in your EDA. (If no, skip the rest). The answer to most of these should be no.
+  + **Key insights:** What's important piece(s) of information is in this plot/table and how does it relate back to your research question?
+  + **Redundancy:** Is there information in the plot/table that is not evident in any of the other plots and tables? If the answer to this is no, why are you including it?
+  + **Medium:** Why are you using a plot/table to display this information rather than a table/plot to display this information?
 
-<!-- In no more than 3 pages, summarize the main findings of your exploratory analysis, referring to specific plots and summary statistics where necessary. In addition, describe your plans for building models to address important research questions, including which variables will be important to consider in light of your exploratory analyses. This report should be meaningful and readable to someone familiar with statistics but unfamiliar with your particular research topic and dataset (i.e. your professor). Give concise but precise statements interpreting summary statistics, etc. – in the context of your data set and research questions you pose. Avoid vague terms like "this data", "these results", etc. Also avoid cryptic variable names that you may have used in R. A report like this might be something you’d share with collaborators or store as a reference as you proceed with your analysis.  -->
+## Checkpoint IX: Exploratory Data Analysis {#exploratory-analysis}
 
-<!-- a) The Main Body of your EDA report should follow these guidelines: -->
-<!--     + No more than 3 pages -->
-<!--     + Begin with a short paragraph introducing your project and primary research questions. (This introduction will be expanded into several paragraphs for the final paper.) -->
-<!--     + Use your graphical and numerical summaries to tell a story, supporting your conclusions with summary statistics. Weave numerical summaries seamlessly into your text, and refer to graphs where appropriate. -->
-<!--    + You do not need to include EVERY plot or table you made in the report. Include at least 2 interesting plots/tables (if not more!). Name each figure (e.g. Figure 1) so they are easily referred to in your report, and format the figures neatly within your report (without taking up too much space). These exploratory plots/tables don’t have to be perfect in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels! -->
-<!--     + Preview directions you plan to go with modeling. What models will you begin by fitting, and what variables will be involved. This should be the last paragraph of the report. -->
-<!--     + Write well! Complete sentences, good flow, proper grammar, etc. -->
+You will now be synthesizing what you did in the preview three checkpoint into an exploratory data analysis report. You may receive points back on the previous three checkpoints for your work here. Note that you should not be fitting any models at this point.
 
-<!-- b)  Your EDA report should also include an Annotated Appendix and References section (not included in the 3 page limit) which include these elements: -->
-<!--     + Clear definitions of important variables and the (properly cited) source of the data.   -->
-<!--     + Tables and figures that are informative but were not referenced specifically in the main report. Include a short annotation – one or two sentences on what they show. -->
-<!--     + A citation for each reference article (in a standard format) you included in your proposal. Also include a link, if appropriate.  -->
+**Deliverables:** Your EDA report, to be turned in on Canvas, will meet these guidelines:
 
-<!-- c) You should also upload to Canvas: -->
-<!--     +	A Quarto document with R code and (commented) output so that I can trace how you constructed your final data set, what the results of your exploratory data analyses were, and what plots you generated. Comments should be short, but clarify what you’ve done and why. -->
-<!--     +	The rendered pdf document that was created from the Quarto above. -->
-<!--     +	The data file (as .txt, .csv, or .xls). -->
+In no more than 3 pages, summarize the main findings of your exploratory analysis, referring to specific plots and summary statistics where necessary. In addition, describe your plans for building models to address important research questions, including which variables will be important to consider in light of your exploratory analyses. This report should be meaningful and readable to someone familiar with statistics but unfamiliar with your particular research topic and dataset (i.e. your professor). Give concise but precise statements interpreting your plots, tables, summary statistics, etc. – in the context of your data set and research question you pose. Avoid vague terms like "this data", "these results", etc. Also avoid cryptic variable names that you may have used in R. A report like this might be something you’d share with collaborators or store as a reference as you proceed with your analysis.
 
+a) The Main Body of your EDA report should follow these guidelines:
+    + No more than 3 pages
+    + Be submitted as a word document or PDF and include no code.
+    + Begin with a short paragraph introducing your project and primary research questions. (This introduction will be expanded into several paragraphs for the final paper.)
+    + Use your graphical and numerical summaries to tell a story, supporting your conclusions with plots, tables, and summary statistics. Weave numerical summaries and graphs seamlessly into your text.
+   + You do not need to include EVERY plot or table you made in the report but include at least 2 interesting plots/tables (if not more!). Name each figure (e.g. Figure 1) so they are easily referred to in your report. These exploratory plots/tables don’t have to be perfect in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels!
+    + Preview directions you plan to go with modeling. What models will you begin by fitting, and what variables will be involved. This should be the last paragraph of the report.
+    + Write well! Complete sentences, good flow, proper grammar, etc.
+
+b)  Your EDA report should also include an Annotated Appendix and References section (not included in the 3 page limit) which include these elements:
+    + Clear definitions of important variables and the (properly cited) source of the data.
+    + Tables and figures that are informative but were not referenced specifically in the main report. Include a short annotation – one or two sentences on what they show.
+    + A citation for each reference article (in a standard format) you included in your proposal. Also include a link, if appropriate.
+
+c) All of the code you used to generate the plots and graphs for this EDA should be included in your previous checkpoint. However, you are welcome to make changes. If you do, please re-upload the code and HTML file to Checkpoint VIII so I can reference it if I need to.
+    
 <!-- ## Stage III: Project Report {#draft-report} -->
 
 <!-- Your report should be a thoughtful, concise, and polished document, no longer than 8 pages. Relevant tables and/or figures should be formatted neatly into your report. Be sure to label and reference your graphs and tables so they are interpretable on their own. An annotated appendix containing less relevant figures and tables along with important R code and output should be attached to the end of your report (see below for more details). -->
