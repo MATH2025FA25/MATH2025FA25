@@ -67,12 +67,12 @@ The goals of this analysis is to fit a multiple linear regression model that tha
 
 ## Exercise 0
 
-Look at the documentation for the data using `?Credit` and Google to figure out what each of your variables represents. What is a credit rating and what is a credit limit as it applies to a credit card? The primary credit rating in the US is called a FICO score. Use `favstats` on `Rating`. Do you think that `Rating` corresponds to the borrower's FICO score? 
+Look at the documentation for the data using `?Credit` and Google to figure out what each of your variables represents. What is a credit rating and what is a credit limit as it applies to a credit card? The primary credit rating in the US is called a FICO score. Use `favstats` on `Rating`. Do you think that `Rating` corresponds to the borrower's FICO score?
 
-Without writing any more code (i.e. just using what you know about the world): 
+Without writing any more code (i.e. just using what you know about the world):
 
-- Do you think `Rating` will be a good predictor of `Limit`? 
-- In addition to `Limit`, everyone has been assigned two additional variables, one quantitative and one categorical. Do you think these two variables will be predictive of `Limit`?
+-   Do you think `Rating` will be a good predictor of `Limit`?
+-   In addition to `Limit`, everyone has been assigned two additional variables, one quantitative and one categorical. Do you think these two variables will be predictive of `Limit`?
 
 ## Exercise 1
 
@@ -135,7 +135,6 @@ How do you think the plot above will change if you add in an interaction term be
 ## Exercise 14
 
 Your model contains one line for every level of your categorical variable. On the board, write out the equations for two of them.
-
 
 ## Exercise 15
 

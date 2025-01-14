@@ -1,0 +1,115 @@
+---
+title: "AE 08: Inference for Multiple Linear Regression"
+subtitle: "Rail Trails"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-08".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202839) and locate your `AE-08` assignment to get started.
+
+-   Upload the `ae-08.qmd` and `rail-trail.csv` files into the folder you just created.
+:::
+
+## Packages + data
+
+```{r load-packages}
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(broom)
+library(knitr)
+library(mosaic)
+library(mosaicData)
+
+rail_trail <- read_csv("../data/rail_trail.csv")
+```
+
+The data for this AE is based on data from the Pioneer Valley Planning Commission (PVPC) and is included in the **mosaicData** package. The PVPC collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. More information can be found [here](http://www.fvgreenway.org), [here](https://www.trafx.net/), and [here](https://fchtrail.org/wp-content/uploads/2021/07/FVTC-Trail-Usage-Study-2013-15.pdf).
+
+**Response**
+
+-   `volume`: Number bikes that broke the laser beam
+
+## Analysis goal
+
+The goals of this activity are to:
+
+-   Perform inference for multiple linear regression
+-   Conduct/interpret hypothesis tests
+-   Construct/interpret confidence intervals
+-   Determine whether the conditions for inference are satisfied in this multi-predictor setting.
+
+
+## Exercise 0
+
+Import `GGally` and use `ggpairs` to plot all combinations of variables.
+
+
+## Exercise 1
+
+Choose two explanatory variables which you think will best predict `Volume` based on the plot above. Write your two variables on the board. You may not use the same combination as another group. If you choose a temperature, only select one.
+
+## Exercise 2 
+
+Fit and display two linear regression models predicting `volume` from the two predictors you chose. In one, include an interaction term between the two variables and in the other, do not.
+
+## Exercise 3
+
+Consider the model *without* an interaction term. Perform a hypothesis test on one of your explanatory variables (fill in the blanks where appropriate:
+
+1.  **Set hypothesis:** $H_0: \beta_{fill in} [fill in]$ vs. $\beta_{fill in} [fill in]$. Restate these hypothesis in words: \[fill in\]
+2.  **Calculate test statistics and p-value:** The test statistic is $[fill in]$. The p-value is $[fill in]$.
+3.  **State the conclusion:** \[fill in\]
+
+## Exercise 4
+
+Consider the model *with* an interaction term. Interpret the the p-value associated with the interaction term.
+
+## Exercise 5
+
+Generate 95% confidence intervals for the model *without* an interaction term. Hint: use the `tidy` function with the argument `conf.int = TRUE`. Interpret the confidence interval for the same explanatory variable as Exercise 3 and explain why the combination of p-value and confidence interval makes sense.
+
+## Exercise 6
+
+What does it mean for two things to be **independent** in statistics (feel free to use Google)? Do we think our p-values/confidence intervals are **independent** across variables?
+
+## Exercise 7
+
+::: callout-important
+If the intercept term was significant, use that model for the rest of this activity, otherwise use the model without the interaction term. 
+:::
+
+Generate a scatter plot of the residuals vs. the fitted values for this model.
+
+## Exercise 8
+
+Plot the residuals vs. each of your predictors (two plots total).
+
+## Exercise 9
+
+Based on the three plots you've made, do you think the linearity condition is satisfied?
+
+## Exerise 10
+
+We check the constant variance assumption in the same way we do with SLR. To what extent does the constant variance condition seem to be satisfied?
+
+## Exercise 11
+
+Generate a histogram and QQ-plot of the residuals. To what extent do you believe the normality condition is satisfied?
+
+## Exercise 12
+
+How do you think would you go about checking the independence condition?
+
+
+## To submit the AE
+
+::: callout-important
+-   Render the document to produce the HTML file with all of your work from today's class.
+-   Upload your QMD and HTML files to the Canvas assignment.
+:::

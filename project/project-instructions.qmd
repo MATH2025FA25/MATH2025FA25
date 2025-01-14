@@ -257,6 +257,7 @@ a) The Main Body of your EDA report should follow these guidelines:
     + No more than 3 pages
     + Be submitted as a word document or PDF and include no code.
     + Begin with a short paragraph introducing your project and primary research questions. (This introduction will be expanded into several paragraphs for the final paper.)
+    + Your next paragraph should be about your data. You should address where it's from, how the study was conducted, and whether it contains a representative sample of the population you're interested in.
     + Use your graphical and numerical summaries to tell a story, supporting your conclusions with plots, tables, and summary statistics. Weave numerical summaries and graphs seamlessly into your text.
    + You do not need to include EVERY plot or table you made in the report but include at least 2 interesting plots/tables (if not more!). Name each figure (e.g. Figure 1) so they are easily referred to in your report. These exploratory plots/tables don’t have to be perfect in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels!
     + Preview directions you plan to go with modeling. What models will you begin by fitting, and what variables will be involved. This should be the last paragraph of the report.

@@ -1,0 +1,15 @@
+{
+  "hash": "56f85b01eddec37b5f4231e450f3179c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"AE 15: Model Comparison\"\nauthor: \"Driver: ____, Reporter: _____, Gopher: _____\"\nsubtitle: \"Tips Data\"\neditor: visual\n---\n\n\n\n\n::: callout-important\n-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called \"AE-15\".\n\n-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/183899) and locate your `AE-15` assignment to get started.\n\n-   Upload the `ae-15.qmd` and `tip-data.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.\n:::\n\n## Packages + data\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(yardstick)\nlibrary(ggformula)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\ntips <- read_csv(\"../data/tip-data.csv\") |> \n  drop_na(Party)\n```\n:::\n\n\n\n\nWhat factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.[^1]\n\n[^1]: Dahlquist, Samantha, and Jin Dong. 2011. \"The Effects of Credit Cards on Tipping.\" Project for Statistics 212-Statistics for the Sciences, St. Olaf College.\n\nThe variables we'll focus on for this analysis are\n\n-   `Tip`: amount of the tip\n-   `Meal`: which meal this was (`Lunch`, `Dinner`, `Late Night`)\n-   `Party`: number of people in the party\n-   `Age`: Age category of person paying the bill (`Yadult`, `Middle`, `SenCit`)\n\n## Analysis goal\n\nThe goals of this activity are to comparing models with:\n\n-   $R^2$ vs. $R^2_{Adj}$\n-   AIC and BIC\n\n## Exercise 1\n\nFit two models:\n\n1.  `tip_fit_1`: predict `Tip` from `Party`, `Age`, and `Meal`\n2.  `tip_fit_2`: predict `Tip` from `Party`, `Age`, `Meal`, and `Day`.\n\n## Exercise 2\n\nApply `glance` to both models above to find the $R^2$ and $R^2_{adj}$ values?\n\n## Exercise 3\n\n1.  Which model would we choose based on $R^2$?\n2.  Which model would we choose based on Adjusted $R^2$?\n3.  Which statistic should we use to choose the final model - $R^2$ or Adjusted $R^2$? Why?\n\n## Exercise 4\n\nReference the output from Exercise 2.\n\n1.  Which model would we choose based on AIC?\n\n2.  Which model would we choose based on BIC?\n\n## Exercise 5 (Time Permitting)\n\nFind the best model you can! You have until the end of class! Team with the best model gets a seriously great high-five.\n\n## To submit the AE\n\n::: callout-important\n-   Render the document to produce the PDF with all of your work from today's class.\n-   Upload your QMD and PDF files to the Canvas assignment.\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

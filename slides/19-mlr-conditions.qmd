@@ -1,0 +1,252 @@
+---
+title: "MLR: Conditions"
+author: "Prof. Eric Friedlander"
+date: "2024-10-21"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618,
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+```
+
+## Announcements
+
+-   Project: EDA Due Wednesday, October 30th
+-   Oral R Quiz (time to start scheduling it)
+
+::: appex
+📋 [AE 13 - Rail Trails](https://mat212fa24.netlify.app/ae/ae-13-mlr-conditions)
+
+- Open up AE 13
+:::
+
+
+## Topics
+
+::: nonincremental
+-   Checking model conditions
+:::
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+
+# load packages
+library(tidyverse)
+library(broom)
+library(mosaic)
+library(mosaicData)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(countdown)
+library(rms)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+```
+
+
+## Data: `rail_trail` {.smaller}
+
+::: nonincremental
+-   The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.
+-   Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
+:::
+
+```{r}
+#| echo: false
+rail_trail <- read_csv("../data/rail_trail.csv")
+rail_trail
+```
+
+
+Source: [Pioneer Valley Planning Commission](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf) via the **mosaicData** package.
+
+
+# Conditions for inference
+
+## Full model
+
+Complete Exercise 0 to fit the so-called "full-model".
+
+## Full model
+
+```{r}
+#| echo: FALSE
+rt_full_fit <- lm(volume ~ ., data = rail_trail)
+tidy(rt_full_fit) |> kable()
+
+rt_full_aug <- augment(rt_full_fit)
+```
+
+
+## Model conditions
+
+Our model conditions are the same as they were with SLR:
+
+1.  **Linearity:** There is a linear relationship between the response and predictor variables.
+
+2.  **Constant Variance:** The variability about the least squares line is generally constant.
+
+3.  **Normality:** The distribution of the residuals is approximately normal.
+
+4.  **Independence:** The residuals are independent from each other.
+
+
+## Checking Linearity
+
+-   Look at a plot of the residuals vs. predicted values
+
+-   Look at a plot of the residuals vs. each predictor
+
+    +   Use scatter plots for quantitative and boxplots of categorical predictors
+
+-   Linearity is met if there is no discernible pattern in each of these plots
+
+Complete Exercises 1-4
+
+## Residuals vs. predicted values
+
+```{r}
+#| label: main_res_pred
+#| echo: FALSE
+
+gf_point(.resid ~ .fitted, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed") |>
+  gf_labs(x = "Predicted values", y = "Residuals")
+```
+
+## Residuals vs. each predictor
+
+```{r}
+#| fig.asp: 0.5
+#| echo: false
+
+p1 <- gf_point(.resid ~ hightemp, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+p2 <- gf_point(.resid ~ avgtemp, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+p3 <- gf_boxplot(.resid ~ season, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+p4 <- gf_point(.resid ~ cloudcover, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+(p1 + p2) / (p3 + p4)
+```
+
+## Checking linearity
+
+-   The plot of the residuals vs. predicted values looked OK
+
+-   The plots of residuals vs. `hightemp` and `avgtemp` appear to have a parabolic pattern.
+
+-   The linearity condition does not appear to be satisfied given these plots.
+
+. . .
+
+::: question
+Given this conclusion, what might be a next step in the analysis?
+:::
+
+## Checking constant variance
+
+::: question
+Does the constant variance condition appear to be satisfied?
+:::
+
+```{r}
+#| ref.label: main_res_pred
+#| echo: false
+```
+
+## Checking constant variance
+
+-   The vertical spread of the residuals is not constant across the plot.
+
+-   The constant variance condition is not satisfied.
+
+. . .
+
+::: question
+Given this conclusion, what might be a next step in the analysis?
+:::
+
+Complete Exercises 5-6.
+
+## Checking normality
+
+```{r}
+#| fig.asp: 0.8
+#| echo: false
+
+resid_hist <- ggplot(rt_full_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 25) +
+  labs(x = "Residuals")
+
+resid_hist
+```
+
+The distribution of the residuals is approximately unimodal and symmetric, so the normality condition is satisfied. The sample size 90 is sufficiently large to relax this condition if it was not satisfied.
+
+## Checking independence
+
+-   We can often check the independence condition based on the context of the data and how the observations were collected.
+
+-   If the data were collected in a particular order, examine a scatter plot of the residuals versus order in which the data were collected.
+
+-   If there is a grouping variable lurking in the background, check the residuals based on that grouping variable.
+
+-   Why might the independence condition be violated here? 
+
+## Checking independence {.midi}
+
+Residuals vs. order of data collection:
+
+```{r}
+#| code-fold: true
+gf_line(.resid ~ 1:nrow(rt_full_aug), data = rt_full_aug) |>
+  gf_point()  |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")  |>
+  gf_labs(x = "Order of data collection", y = "Residuals")
+```
+
+
+
+
+
+
