@@ -1,7 +1,7 @@
 ---
-title: "Preparation for Multiple Linear Regression Inference and Comparison"
+title: "Preparation for Multicollinearity and Model Comparison"
 ---
 
 ## Assigned reading
 
-Stat2 Textbook: Chapter 3.2
+Stat2 Textbook: Chapter 3.2, 3.5
