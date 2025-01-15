@@ -1,0 +1,464 @@
+---
+title: "MLR: Inference and Conditions"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618,
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+```
+
+
+
+## Application Exercise
+
+::: appex
+📋 [AE 08 - Inference for MLR](/ae/ae-08-mlr-inference.qmd)
+
+- Open up AE 08 and complete Exercises 0-2
+:::
+
+
+## Topics
+
+::: nonincremental
+-   Inference for multiple linear regression
+-   Checking model conditions
+:::
+
+## Computational setup
+
+
+
+```{r}
+#| echo: true
+
+
+# load packages
+library(tidyverse)
+library(broom)
+library(mosaic)
+library(mosaicData)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(GGally)
+library(countdown)
+library(rms)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+```
+
+
+
+
+## Data: `rail_trail` {.smaller}
+
+::: nonincremental
+-   The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.
+-   Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
+:::
+
+
+
+```{r}
+#| echo: false
+rail_trail <- read_csv("../data/rail_trail.csv")
+rail_trail |> glimpse()
+```
+
+
+
+
+Source: [Pioneer Valley Planning Commission](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-volume-Counts%20_05_LTA.pdf) via the **mosaicData** package.
+
+## Visualizing the data
+
+
+
+```{r}
+rail_trail |> ggpairs()
+```
+
+
+
+
+# Conduct a hypothesis test for $\beta_j$
+
+## [Review: Simple linear regression (SLR)]{.r-fit-text}
+
+
+
+```{r}
+gf_point(volume ~ avgtemp, data = rail_trail, alpha = 0.5) |>
+  gf_lm()  |>
+  gf_labs(x = "rail_trail avgtemp", y = "avgtemp")
+```
+
+
+
+
+
+## SLR model summary
+
+
+
+```{r}
+avgtemp_slr_fit <- lm(volume ~ avgtemp, data = rail_trail)
+
+tidy(avgtemp_slr_fit) |> kable()
+```
+
+
+
+
+## SLR hypothesis test {.smaller}
+
+
+
+```{r}
+#| echo: false
+
+tidy(avgtemp_slr_fit) |> kable()
+```
+
+
+
+1.  **Set hypotheses:** $H_0: \beta_1 = 0$ vs. $H_A: \beta_1 \ne 0$
+
+. . .
+
+2.  **Calculate test statistic and p-value:** The test statistic is $t= 4.43$ . The p-value is calculated using a $t$ distribution with 88 degrees of freedom. The p-value is $2.72\times 10^{-5}$.
+
+. . .
+
+3.  **State the conclusion:** The p-value is small, so we reject $H_0$. The data provide strong evidence that avgtemp is a helpful predictor for a rail_trail card holder's rail_trail volume, i.e. there is a linear relationship between avgtemp and rail_trail volume.
+
+## Multiple linear regression
+
+
+
+```{r}
+rail_trail_fit <- lm(volume ~ avgtemp + hightemp, data = rail_trail)
+
+tidy(rail_trail_fit) |> kable()
+```
+
+
+
+## Multiple linear regression
+
+The multiple linear regression model assumes $$Y|X_1, X_2,  \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p, \sigma_\epsilon^2)$$
+
+. . .
+
+For a given observation $(x_{i1}, x_{i2}, \ldots, x_{ip}, y_i)$, we can rewrite the previous statement as
+
+$$y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsilon_{i}, \hspace{10mm} \epsilon_i \sim N(0,\sigma_{\epsilon}^2)$$
+
+
+## Estimating $\sigma_\epsilon$ {.smaller}
+
+For a given observation $(x_{i1}, x_{i2}, \ldots,x_{ip}, y_i)$ the residual is
+$$
+\begin{aligned}
+e_i &= y_{i} - \hat{y_i}\\
+&= y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_{2} x_{i2} + \dots + \hat{\beta}_p x_{ip})
+\end{aligned}
+$$
+
+. . .
+
+The estimated value of the regression standard error , $\sigma_{\epsilon}$, is
+
+$$\hat{\sigma}_\epsilon  = \sqrt{\frac{\sum_{i=1}^ne_i^2}{n-p-1}}$$
+
+. . .
+
+As with SLR, we use $\hat{\sigma}_{\epsilon}$ to calculate $SE_{\hat{\beta}_j}$, the standard error of each coefficient. See [Matrix Form of Linear Regression](https://github.com/STA210-Sp19/supplemental-notes/blob/master/regression-basics-matrix.pdf) for more detail.
+
+## MLR hypothesis test: avgtemp {.smaller}
+
+1.  **Set hypotheses:** $H_0: \beta_{avgtemp} = 0$ vs. $H_A: \beta_{avgtemp} \ne 0$, given `hightemp` is in the model
+
+. . .
+
+2.  **Calculate test statistic and p-value:** The test statistic is $t = -3.39$. The p-value is calculated using a $t$ distribution with $$(n - p - 1) = 90 - 2 -1 = 87$$ degrees of freedom. The p-value is $\approx 0.0011$.
+  
+    + Note that $p$ counts all non-intercept $\beta$'s
+
+. . .
+
+3.  **State the conclusion:** The p-value is small, so we reject $H_0$. The data provides convincing evidence that a avgtemp is a useful predictor *in a model that already contains rail_trail hightemp as a predictor for the rail_trail volume*.
+
+
+## MLR hypothesis test: interaction terms {.smaller}
+
+- Framework: Same as previous slide except use $\beta$ of interaction term
+- $p$ (the number of predictors) should include the interaction term
+- Conclusion: tells you whether interaction term is a useful predictor
+- Warning: if $X_1$ and $X_2$ have an interaction term, don't try to interpret their individual p-values... if interaction term is significant, then both variables are important
+
+::: appex
+Complete Exercises 3 and 4.
+:::
+
+
+# Confidence interval for $\beta_j$
+
+## Confidence interval for $\beta_j$ {.midi}
+
+-   The $C\%$ confidence interval for $\beta_j$ $$\hat{\beta}_j \pm t^* SE(\hat{\beta}_j)$$ where $t^*$ follows a $t$ distribution with $n - p - 1$ degrees of freedom.
+
+-   **Generically**: We are $C\%$ confident that the interval LB to UB contains the population coefficient of $x_j$.
+
+-   **In context:** We are $C\%$ confident that for every one unit increase in $x_j$, we expect $y$ to change by LB to UB units, *holding all else constant*.
+
+::: appex
+Complete Exercise 5.
+:::
+
+## Confidence interval for $\beta_j$
+
+
+
+```{r}
+#| echo: FALSE
+tidy(rail_trail_fit, conf.int = TRUE) |>
+  kable(digits = 2)
+```
+
+
+
+
+# Inference pitfalls
+
+## Large sample sizes
+
+::: callout-caution
+If the sample size is large enough, the test will likely result in rejecting $H_0: \beta_j = 0$ even $x_j$ has a very small effect on $y$.
+
+::: nonincremental
+-   Consider the **practical significance** of the result not just the statistical significance.
+
+-   Instead of saying **statistically significant** say **statistically detectable**
+
+-   Use confidence intervals to draw conclusions instead of relying only on p-values.
+:::
+:::
+
+## Small sample sizes
+
+::: callout-caution
+If the sample size is small, there may not be enough evidence to reject $H_0: \beta_j=0$.
+
+::: nonincremental
+-   When you fail to reject the null hypothesis, **DON'T** immediately conclude that the variable has no association with the response.
+
+-   There may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.
+:::
+:::
+
+## Effect Size and Power {.smaller}
+
+-   **Effect Size:** 
+    +   General Idea: how big is your parameter compared to the variability of your data
+    +   Why is it important: if parameter has small effect size, it may not be a useful parameter to include. However, what effect size is useful depends on your problem
+    +   In practice: many formal ways of determining effects size which we won't talk about
+
+-   **Statistical Power:** the ability of a hypothesis test to detect a given **effect size**
+    +   more data = more power
+    +   tons of data = tons of power
+    +   In practice: think about how what effect size you'd like to be able to detect and design your study to collect enough data to do so
+
+::: appex
+Complete Exercise 6
+:::
+
+# Conditions for inference
+
+
+## Model conditions
+
+Our model conditions are the same as they were with SLR:
+
+1.  **Linearity:** There is a linear relationship between the response and predictor variables.
+
+2.  **Constant Variance:** The variability about the least squares line is generally constant.
+
+3.  **Normality:** The distribution of the residuals is approximately normal.
+
+4.  **Independence:** The residuals are independent from each other.
+
+
+## Checking Linearity
+
+-   Look at a plot of the residuals vs. predicted values
+
+-   Look at a plot of the residuals vs. each predictor
+
+    +   Use scatter plots for quantitative and boxplots of categorical predictors
+
+-   Linearity is met if there is no discernible pattern in each of these plots
+
+Complete Exercises 7-10
+
+## Fitting the Full Model {.smaller}
+
+
+
+```{r}
+full_model <- lm(volume ~ . , data = rail_trail)
+full_model |> tidy() |>  kable()
+```
+
+
+
+## Residuals vs. predicted values
+
+
+
+```{r}
+#| label: main_res_pred
+#| echo: FALSE
+
+rt_full_aug <- augment(full_model)
+
+gf_point(.resid ~ .fitted, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed") |>
+  gf_labs(x = "Predicted values", y = "Residuals")
+```
+
+
+
+::: question
+Does the constant variance condition appear to be satisfied?
+:::
+
+
+
+```{r}
+#| ref.label: main_res_pred
+#| echo: false
+```
+
+
+
+## Checking constant variance
+
+-   The vertical spread of the residuals is not constant across the plot.
+
+-   The constant variance condition is not satisfied.
+
+. . .
+
+::: question
+Given this conclusion, what might be a next step in the analysis?
+:::
+
+## Residuals vs. each predictor
+
+
+
+```{r}
+#| fig.asp: 0.5
+#| echo: false
+
+p1 <- gf_point(.resid ~ hightemp, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+p2 <- gf_point(.resid ~ avgtemp, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+p3 <- gf_boxplot(.resid ~ season, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+p4 <- gf_point(.resid ~ cloudcover, data = rt_full_aug, alpha = 0.7) |>
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed")
+
+(p1 + p2) / (p3 + p4)
+```
+
+
+
+## Checking linearity
+
+-   The plot of the residuals vs. predicted values looked OK
+
+-   The plots of residuals vs. `hightemp` and `avgtemp` appear to have a parabolic pattern.
+
+-   The linearity condition does not appear to be satisfied given these plots.
+
+. . .
+
+::: question
+Given this conclusion, what might be a next step in the analysis?
+:::
+
+Complete Exercises 11-12.
+
+## Checking normality
+
+
+
+```{r}
+#| fig.asp: 0.8
+#| echo: false
+
+resid_hist <- gf_histogram(~.resid, data = rt_full_aug, binwidth = 25) |> 
+  gf_labs(x = "Residuals")
+
+resid_qq <- gf_qq(~.resid, data = rt_full_aug) |>
+  gf_qqline()
+
+resid_hist + resid_qq
+```
+
+
+
+The distribution of the residuals is approximately unimodal and symmetric but the qqplot shows that tails are too heavy, so the normality condition is likely not satisfied. The sample size 90 is sufficiently large to relax this condition.
+
+## Checking independence
+
+-   We can often check the independence condition based on the context of the data and how the observations were collected.
+
+-   If the data were collected in a particular order, examine a scatter plot of the residuals versus order in which the data were collected.
+
+-   If there is a grouping variable lurking in the background, check the residuals based on that grouping variable.
+
+## Recap
+
+- Inference for individual predictors
+    + Hypothesis testing: same as SLR but add *if all other terms are in the model*
+    + Confidence intervals: same as SLR but add *holding all other variables in the model constant*
+- Conditions: Same as for SLR
+    + For linearity, also check fitter values vs. each predictor
