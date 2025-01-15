@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Final Project Instructions – MAT 212 - Winter 2025</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../exam/exam-rubric.html" rel="next">
+<link href="../computing-r-resources.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-de3f80bca771c548e0c57d70805d6fa2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="../project/project-instructions.html">Instructions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
+    <a href="https://cofi.instructure.com/courses/17093" title="Canvas" class="quarto-navigation-tool px-1" aria-label="Canvas"><i class="bi bi-person"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course support</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Cheatsheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/project-instructions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Exams</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exam/exam-rubric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Oral Exam Rubric</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exam/exam-01-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam 1 Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exam/exam-01-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam 1 Practice</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
+  <li><a href="#utilizing-the-librarians-for-help-with-research" id="toc-utilizing-the-librarians-for-help-with-research" class="nav-link" data-scroll-target="#utilizing-the-librarians-for-help-with-research">Utilizing the Librarians for Help with Research</a></li>
+  </ul></li>
+  <li><a href="#timeline-grading" id="toc-timeline-grading" class="nav-link" data-scroll-target="#timeline-grading">Timeline &amp; Grading</a></li>
+  <li><a href="#partner" id="toc-partner" class="nav-link" data-scroll-target="#partner">Checkpoint I: Select a partner</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Checkpoint II: Select a data set and write a research question</a></li>
+  <li><a href="#lit-review" id="toc-lit-review" class="nav-link" data-scroll-target="#lit-review">Checkpoint III: Literature Review</a></li>
+  <li><a href="#annotated-bib" id="toc-annotated-bib" class="nav-link" data-scroll-target="#annotated-bib">Checkpoint IV: Annotated Bibliography</a></li>
+  <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Checkpoint V: Project proposal</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Checkpoint VI: Load and Clean the Data Set</a>
+  <ul class="collapse">
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading the Data</a></li>
+  </ul></li>
+  <li><a href="#plots-tables" id="toc-plots-tables" class="nav-link" data-scroll-target="#plots-tables">Checkpoint VII: Generate Plots and Tables</a></li>
+  <li><a href="#plots-tables-analysis" id="toc-plots-tables-analysis" class="nav-link" data-scroll-target="#plots-tables-analysis">Checkpoint VIII: Analyze Plots and Tables</a></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Checkpoint IX: Exploratory Data Analysis</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/project/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="../project/project-instructions.html">Instructions</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Final Project Instructions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><strong>TL;DR</strong>: <em>Pick a data set and do a regression analysis. That is your final project.</em></p>
+<p>In this project, you will select a data set of interest to you, pose a research question that you will attempt to answer using multiple linear and/or multiple logistic regression, and write a paper in a formal scientific style. The data set can come from one of the pre-selected data sets made available on Canvas. However, if you have data from research you have conducted or another source which you are passionate about, you may use that data subject to instructor permission.</p>
+<section id="logistics" class="level3">
+<h3 class="anchored" data-anchor-id="logistics">Logistics</h3>
+<p>There are four major deliverables for the final project:</p>
+<ol type="1">
+<li>A written, reproducible report detailing your analysis to be submitted in either Microsoft word or a PDF and uploaded to Canvas.</li>
+<li>The .qmd and .html files from a Quarto appendix you create.</li>
+<li>Formal peer review on another team’s work and presentation feedback.</li>
+<li>A PDF of a poster to be uploaded to Canvas which you will present at during the last day of class.</li>
+</ol>
+<p>However, due to the condensed nature of winter term, you will have small deliverable due on most days of class to make sure no one get’s left behind.</p>
+</section>
+<section id="utilizing-the-librarians-for-help-with-research" class="level3">
+<h3 class="anchored" data-anchor-id="utilizing-the-librarians-for-help-with-research">Utilizing the Librarians for Help with Research</h3>
+<p>From Christine Schutz:</p>
+<blockquote class="blockquote">
+<p>An essential (and favorite) aspect of a librarian’s work is to provide assistance and coaching to students doing research for their projects and papers. Our two librarians - <a href="cschustz@collegeofidaho.edu">Christine Schutz</a> and <a href="mailto:lmcgrath@collegeofidaho.edu">Lance McGrath</a> – can help students to focus their source quests and locate appropriate and useful sources. Since students don’t always realize that not everyone who works in a library is a librarian (or even what that means) and that librarians aren’t in the library at all hours of the night (even though the library is open), please nudge them to <em>reach out to us by email or Teams chat</em> to set up a time to meet (or we can sometimes help over email/chat). From the history of the sufganiyot (this was last Fall’s favorite) to the Lamington crayfish (<em>Euastacus sulcatus</em>) and why they are blue (an all-time favorite of mine), student research projects are the best part of the job (and I know Lance feels the same way), please send those students our way.</p>
+</blockquote>
+<p>You are more than welcome to contact me with any questions about your project but please do not hesitate reaching out to Christine or Lance with any questions.</p>
+</section>
+</section>
+<section id="timeline-grading" class="level2">
+<h2 class="anchored" data-anchor-id="timeline-grading">Timeline &amp; Grading</h2>
+<p><a href="#partner">Checkpoint I: Select a partner (0%)</a></p>
+<ul>
+<li>due Monday, January 6</li>
+</ul>
+<p><a href="#research-question">Checkpoint II: Select a data set and write a research question (1%)</a></p>
+<ul>
+<li>due Tuesday, January 7</li>
+</ul>
+<p><a href="#lit-review">Checkpoint III: Literature Review (1%)</a></p>
+<ul>
+<li>due Wednesday, January 8</li>
+</ul>
+<p><a href="#annotated-bib">Checkpoint IV: Annotated Bibliography (1%)</a></p>
+<ul>
+<li>due Thursday, January 9</li>
+</ul>
+<p><a href="#project-proposal">Checkpoint V: Project Proposal (2%)</a></p>
+<ul>
+<li>due Friday, January 10</li>
+</ul>
+<p><a href="#load-data">Checkpoint VI: Load and Clean the Data Set (1%)</a></p>
+<ul>
+<li>due Monday, January 13</li>
+</ul>
+<p><a href="#plots-tables">Checkpoint VII: Generate Summaries (1%)</a></p>
+<ul>
+<li>due Tuesday, January 14</li>
+</ul>
+<p><a href="#plots-tables-analysis">Checkpoint VIII: Analyze Plots and Tables (1%)</a></p>
+<ul>
+<li>due Wednesday, January 15</li>
+</ul>
+<p><a href="#exploratory-analysis">Checkpoint IX: Exploratory Data Analysis (2%)</a></p>
+<ul>
+<li>due Thursday, January 16</li>
+</ul>
+<!-- [Stage III: Project Paper (25%)](#draft-report) -->
+<!-- -   due Monday, November 18 -->
+<!-- [Stage IV: Peer Review (5%)](#peer-review) -->
+<!-- -   due Monday, November 25 -->
+<!-- [Stage V: Revised Project Paper (45%)](#written-report) -->
+<!-- -   due Monday December 9 -->
+<!-- [Stage VI: Poster Presentation (15%)](#poster-presentation) -->
+<!-- -   due in Canvas by Tuesday, December 10th, 11:59pm -->
+<!-- -   posters presentations will be on TVs in CML (Library) 105 from 8:30am-11am on Wednesday December 11th -->
+<!-- ### Logistics -->
+<!-- The four primary deliverables for the final project are -->
+<!-- 1. A written, reproducible report detailing your analysis to be submitted in either Microsoft word or a PDF and uploaded to Canvas. -->
+<!-- 2. The .qmd and PDF from a Quarto appendix you create. -->
+<!-- 3. Formal peer review on another team's work and presentation feedback. -->
+<!-- 4. A PDF of a poster to be uploaded to Canvas and a physical poster which you will present at during the final exam period. -->
+</section>
+<section id="partner" class="level2">
+<h2 class="anchored" data-anchor-id="partner">Checkpoint I: Select a partner</h2>
+<p>Your project will be completed with a partner. Try and select a partner with similar interests to you. Anyone who has not selected a partner by the deadline will be assigned a partner.</p>
+<p><strong>Deliverables:</strong> Put yourselves in a group on Canvas.</p>
+</section>
+<section id="research-question" class="level2">
+<h2 class="anchored" data-anchor-id="research-question">Checkpoint II: Select a data set and write a research question</h2>
+<p>Select one of the pre-approved data set and identify the research question which will guide your project (e.g.&nbsp;“Do youth who participate in physical exercise class have lower BMI?”, “Are males more likely to drink and drive after adjusting for confounding variables?”) and briefly describe why your chosen project is interesting to you.</p>
+<p><strong>Deliverables:</strong> Word document identifying which data set you plan to use, the response variable of interest, and a brief description of why your chosen project is interesting to you.</p>
+</section>
+<section id="lit-review" class="level2">
+<h2 class="anchored" data-anchor-id="lit-review">Checkpoint III: Literature Review</h2>
+<p>Meet with Christine Schutz and find articles in the refereed literature that are relevant to your question of interest. You must find <strong>at least six</strong>. You should avoid articles that are too technical to be relevant to the project or to be informative for the non-specialist. You must read the abstracts for each of these papers. Be sure you obtain the entire paper and not just an abstract! You will eventually use these references in the introduction of your paper.</p>
+<p><strong>Deliverables:</strong> Word document containing the citation for each reference (in a standard format) and a link, if appropriate. Note that you are REQUIRED to meet with Christine to receive credit.</p>
+</section>
+<section id="annotated-bib" class="level2">
+<h2 class="anchored" data-anchor-id="annotated-bib">Checkpoint IV: Annotated Bibliography</h2>
+<p>Based on the abstracts, choose two of the papers you listed in your literature review. For these two papers, write a few sentences summarizing the primary findings and how they relate to your research question.</p>
+<p><strong>Deliverables:</strong> Take the word document you submitted for Checkpoint III and, below your two chosen articles, add a few sentences that summarize the primary findings and how they relate to your proposal.</p>
+</section>
+<section id="project-proposal" class="level2">
+<h2 class="anchored" data-anchor-id="project-proposal">Checkpoint V: Project proposal</h2>
+<p>Your proposal, to be turned in as a Word document or PDF on Canvas, will include the following. Note that some of the information below can be copied from previous Checkpoints:</p>
+<ol type="1">
+<li><p>Identify the original data source. Include a brief summary of how, from whom, and by whom, the data were collected. Describe how the study design will impact the generalizability of any analysis.</p></li>
+<li><p>Identify the research question which will guide your project (e.g.&nbsp;“Do youth who participate in physical exercise class have lower BMI?”, “Are males more likely to drink and drive after adjusting for confounding variables?”).</p></li>
+<li><p>Provide a list of variables of interest and their definitions (including units). You should also include rationale for inclusion for each variable and identify the variable type, and whether it may need recoding. You should include at least 4 variables. A table is a good way to summarize this information; for example:</p></li>
+</ol>
+<div class="center">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Variable Name</strong></td>
+<td><strong>Original Definition</strong></td>
+<td><strong>Units</strong></td>
+<td><strong>Range or Levels</strong></td>
+<td><strong>Possible recoding</strong></td>
+<td><strong>Rationale</strong></td>
+</tr>
+<tr class="even">
+<td>bmi</td>
+<td>Body mass index</td>
+<td>Kg/m^2</td>
+<td>&gt;0</td>
+<td></td>
+<td>Response variable</td>
+</tr>
+<tr class="odd">
+<td>pe</td>
+<td>How many days per week attends Physical education class</td>
+<td>Days/week</td>
+<td>0-5, integers</td>
+<td>Currently categorical var. Recode to same values but numeric</td>
+<td>Main explanatory var of interest</td>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>Age of student</td>
+<td>years</td>
+<td>12-19, integers</td>
+<td></td>
+<td>Possible con founding var</td>
+</tr>
+<tr class="odd">
+<td>lunch</td>
+<td>Percent of students at the school receiving free /reduced lunch</td>
+<td>%</td>
+<td>0-100</td>
+<td></td>
+<td>Possible con founding var (soc io-econ status)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="4" type="1">
+<li>Your partially annotated bibliography. There must be at least six articles and at least two must be annotated.</li>
+</ol>
+<p><strong>Deliverables:</strong> Word document or PDF with the information above. <strong>You may receive points back on Checkpoints II-IV for your work on this assignment.</strong></p>
+</section>
+<section id="load-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-data">Checkpoint VI: Load and Clean the Data Set</h2>
+<p>We now begin the second stage of your project, the Exploratory Data Analysis portion.</p>
+<p>You now need to load and “clean” your data set, make note of any problematic data and observations that need to be removed, determine whether you want to use the whole data set or a subset, and consider implications about any decisions you make about missing data. <a href="https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html">This website</a> shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).</p>
+<p><strong>Deliverables:</strong> A QMD and HTML file uploaded to Canvas containing the following:</p>
+<ul>
+<li>A chunk in which you load the data. See the <a href="#loading-data">Loading the Data</a> section below. Note that you will be building on this document.</li>
+<li>Any filtering that is necessary. At the very least this should include a treatment of your missing data.
+<ul>
+<li>A very brief discussion of whether your data represents a representative sample of your target population.</li>
+</ul></li>
+<li>The number of variable and observations in your resulting data set.</li>
+<li>Univariate plots of all your variables
+<ul>
+<li>No need to describe them yet but note any observations which seem troublesome.</li>
+</ul></li>
+<li>Bivariate plots of your repose variables with all of your
+<ul>
+<li>No need to describe them yet but note any observations which seem troublesome.</li>
+</ul></li>
+</ul>
+<section id="loading-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-data">Loading the Data</h3>
+<p><strong>Nation Financial Well-Being Survey:</strong> Simply download the csv from <a href="https://cofi.instructure.com/courses/17093/pages/national-financial-well-being-survey">Canvas</a>, upload it to Quarto, and read it using the <code>read_csv</code> function in the same way as we’ve been doing with activities and homeworks.</p>
+<p><strong>Behavioral Risk Factor Surveillance Survey:</strong> The data set is extremely large which results in a few problems. It is too big for you to upload to RStudio yourself so I have already uploaded it to RStudio. Furthermore, if you load the entire data set into memory, RStudio will begin to run extremely slowly. As a result, it will be advantageous to only load the columns that you need. Use the code below to load only the columns that you need. Simply replace <code>col_1</code>, <code>col_2</code>, etc. with the names of your columns. You may add as many columns as you need, simple separate the names using commas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"/srv/R/MAT212_WIN25/brfss2023.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(col_1, col_2, col_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="plots-tables" class="level2">
+<h2 class="anchored" data-anchor-id="plots-tables">Checkpoint VII: Generate Plots and Tables</h2>
+<p>Generate univariate and bivariate summaries of your data.</p>
+<p><strong>Deliverables:</strong> A QMD and HTML file uploaded to Canvas. You should start with the same file you used for your last checkpoint and add the following:</p>
+<ul>
+<li>Univariate summaries:
+<ul>
+<li>A plot for every variable you are considering</li>
+<li>A table of every variable you are considering</li>
+</ul></li>
+<li>Bivariate summaries:
+<ul>
+<li>A plot comparing your response variable to all of your explanatory variables</li>
+<li>Use the function <code>ggpairs</code> from the package <code>GGally</code> to display a grid of all bivariate plots for your data. Feel free to use any resource available to use without citing it (e.g.&nbsp;ChatGPT, tutor, Dr.&nbsp;F, etc…)</li>
+</ul></li>
+<li>Note that you don’t need to analyze the plots yet… just create them.</li>
+</ul>
+</section>
+<section id="plots-tables-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="plots-tables-analysis">Checkpoint VIII: Analyze Plots and Tables</h2>
+<p>Now that you’ve created all of your plots and tables, it’s time to start figuring out which ones are important and which ones you need. Each plot and table you have in your final EDA should have a purpose. That is, there should be something in that plot for you to talk about and point to. If not, then it’s not worth including. For this checkpoint I will have you go through all of your plots and tables, determine whether they are worth including, and summarize why you are including each plot. In general, plots are better than tables for visualizing patters, whereas tables are better if you want to reference specific numbers.</p>
+<p><strong>Deliverables:</strong> A QMD and HTML file uploaded to Canvas. You should start with the same file you used for your last checkpoint and add the following:</p>
+<ul>
+<li>Under each plot and table:
+<ul>
+<li><strong>Keep:</strong> Do you plan to keep this plot in your EDA. (If no, skip the rest). The answer to most of these should be no.</li>
+<li><strong>Key insights:</strong> What’s important piece(s) of information is in this plot/table and how does it relate back to your research question?</li>
+<li><strong>Redundancy:</strong> Is there information in the plot/table that is not evident in any of the other plots and tables? If the answer to this is no, why are you including it?</li>
+<li><strong>Medium:</strong> Why are you using a plot/table to display this information rather than a table/plot to display this information?</li>
+</ul></li>
+</ul>
+</section>
+<section id="exploratory-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-analysis">Checkpoint IX: Exploratory Data Analysis</h2>
+<p>You will now be synthesizing what you did in the preview three checkpoint into an exploratory data analysis report. You may receive points back on the previous three checkpoints for your work here. Note that you should not be fitting any models at this point.</p>
+<p><strong>Deliverables:</strong> Your EDA report, to be turned in on Canvas, will meet these guidelines:</p>
+<p>In no more than 3 pages, summarize the main findings of your exploratory analysis, referring to specific plots and summary statistics where necessary. In addition, describe your plans for building models to address important research questions, including which variables will be important to consider in light of your exploratory analyses. This report should be meaningful and readable to someone familiar with statistics but unfamiliar with your particular research topic and dataset (i.e.&nbsp;your professor). Give concise but precise statements interpreting your plots, tables, summary statistics, etc. – in the context of your data set and research question you pose. Avoid vague terms like “this data”, “these results”, etc. Also avoid cryptic variable names that you may have used in R. A report like this might be something you’d share with collaborators or store as a reference as you proceed with your analysis.</p>
+<ol type="a">
+<li>The Main Body of your EDA report should follow these guidelines:
+<ul>
+<li>No more than 3 pages</li>
+<li>Be submitted as a word document or PDF and include no code.</li>
+<li>Begin with a short paragraph introducing your project and primary research questions. (This introduction will be expanded into several paragraphs for the final paper.)</li>
+<li>Your next paragraph should be about your data. You should address where it’s from, how the study was conducted, and whether it contains a representative sample of the population you’re interested in.</li>
+<li>Use your graphical and numerical summaries to tell a story, supporting your conclusions with plots, tables, and summary statistics. Weave numerical summaries and graphs seamlessly into your text.</li>
+<li>You do not need to include EVERY plot or table you made in the report but include at least 2 interesting plots/tables (if not more!). Name each figure (e.g.&nbsp;Figure 1) so they are easily referred to in your report. These exploratory plots/tables don’t have to be perfect in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels!</li>
+<li>Preview directions you plan to go with modeling. What models will you begin by fitting, and what variables will be involved. This should be the last paragraph of the report.</li>
+<li>Write well! Complete sentences, good flow, proper grammar, etc.</li>
+</ul></li>
+<li>Your EDA report should also include an Annotated Appendix and References section (not included in the 3 page limit) which include these elements:
+<ul>
+<li>Clear definitions of important variables and the (properly cited) source of the data.</li>
+<li>Tables and figures that are informative but were not referenced specifically in the main report. Include a short annotation – one or two sentences on what they show.</li>
+<li>A citation for each reference article (in a standard format) you included in your proposal. Also include a link, if appropriate.</li>
+</ul></li>
+<li>All of the code you used to generate the plots and graphs for this EDA should be included in your previous checkpoint. However, you are welcome to make changes. If you do, please re-upload the code and HTML file to Checkpoint VIII so I can reference it if I need to.</li>
+</ol>
+<!-- ## Stage III: Project Report {#draft-report} -->
+<!-- Your report should be a thoughtful, concise, and polished document, no longer than 8 pages. Relevant tables and/or figures should be formatted neatly into your report. Be sure to label and reference your graphs and tables so they are interpretable on their own. An annotated appendix containing less relevant figures and tables along with important R code and output should be attached to the end of your report (see below for more details). -->
+<!-- The report should include four LABELED sections plus bibliography and annotated appendix. There is no page limit on the bibliography and appendix. The rubric that I use to grade the reports is [here](project-rubric.qmd). -->
+<!-- ### Introduction  -->
+<!-- A few paragraphs that contain background information, motivation for your research, and a statement of your research goals. Be sure to incorporate your supporting references into the text. The purpose of the background is to place your work in the greater context of the literature in the area you are investigating. Then you should explicitly identify the research question that you will investigate with your analysis. -->
+<!-- ### Methods  -->
+<!-- A few paragraphs that… -->
+<!--   -    Briefly describe your data, where it came from (source), definitions of important variables, and how it was collected (random/representative sampling? From what population?) -->
+<!--   -    Indicate any modifications made to the data, recoding, or decisions about missing data. Be sure to report the sample size and the number of observations removed, if any. -->
+<!--   -    Briefly but thoroughly describe the statistical methods used to investigate the association between your outcome and predictor variables.  What summary statistics were calculated?  (Just list: e.g. proportions, and conditional proportions for categorical variables; means, medians, and standard deviation for quantitative variables). What statistical tests were performed?  What type of modeling was done?   -->
+<!--   -    Do not report results in the Methods section! -->
+<!-- *Note: If you are using a method not covered in this class (e.g., a nonparametric method, time series), you may choose to expand Methods a bit to describe your statistical method.* -->
+<!-- ### Results  -->
+<!-- The densest (but not necessarily longest) section of your report, which should include… -->
+<!-- -  A general description of your data. (This is where you integrate your exploratory data analysis from Stage II.) -->
+<!-- -  The final model, presented in a table with variables, coefficients, standard errors, p-values, and confidence intervals for each coefficient. -->
+<!-- -  A description of the results from your analyses, including interpretations of parameter estimates and/or confidence intervals in context.  -->
+<!-- -  Tables that summarize results and figures that illustrate results. These tables and figures should be well-labeled, numbered (e.g. Figure 1), and have good, descriptive captions. Each report should have a minimum of two tables/figures.  Rarely are residual plots part of the main body of the report unless they are an integral part of the story. -->
+<!-- -  It may be helpful to refer to the articles you’ve cited as a guide for the writing style of the results section. -->
+<!-- -  While you should interpret confidence intervals and/or coefficients in this section, you should not editorialize here! Save that for the Discussion. -->
+<!-- -  $R^2$ (for linear regression) or misclassification rate (for logistic regression) should be reported here or in the Discussion (or both).  -->
+<!-- ### Discussion  -->
+<!-- A few paragraphs that: -->
+<!-- -  Begin with an accurate summary statement; describe how the results help answer your research questions and what was most interesting from your analysis. In fact, the first paragraph of the Discussion is very important – in professional journals, it is often the first and sometimes the only paragraph that is read in a paper. After the first sentence highlights primary results, the remainder of the first paragraph might compare your results to others in the literature or include interesting secondary results. -->
+<!-- -  Discuss possible implications of the results in the context of the research question. -->
+<!-- -  Make a statement regarding potential confounding variables in your study. -->
+<!-- -  Make a statement about the generalizability of your results. Don’t give generic statements of possible causation and generalizability, but thoughtfully discuss relevant issues – confounding variables, representativeness of the sample, etc. You should demonstrate your knowledge of these issues and their importance in context; the research topic is the focus here, not statistics for statistics sake.   -->
+<!-- -  Identify any limitations of your study. Discuss the potential impact of such limitations on the conclusions. -->
+<!-- -  Identify strengths and weaknesses of your analysis.  This is where you should (briefly) mention whether the conditions of the model are met. -->
+<!-- -  Make suggestions for future research. Identify important next steps that a researcher could take to build on your work. -->
+<!-- -  Do not include test statistics or p-values in this section, although you can of course reference Results when discussing your overall conclusions. -->
+<!-- -  See the end of this document for some additional advice about writing Discussions. -->
+<!-- ### Bibliography -->
+<!-- Include full citations for any papers cited in your introduction or other sections of your report. Also cite the dataset you use as appropriate. You may use any bibliographic style you are familiar with (APA, MLA, Chicago, etc), but you MUST be consistent with this style (use the same style for both the bibliography and in-text citations). -->
+<!-- ### Annotated Appendix -->
+<!-- -  Tables and figures that are informative but were not referenced specifically in the main report. Include a short annotation – one or two sentences on what they show. -->
+<!-- -  R code and output (commented and annotated) so that I can trace how you constructed your final data set, what models you ran to produce the results quoted in your report, and what intermediate models you also considered. -->
+<!-- -  Description of statistical modeling steps that were not included in the main body of your report. Possible entries here include: -->
+<!--   +    How you handled missing data or recoded variables -->
+<!--   +    Evaluation of assumptions (including residual plots or empirical logit plots) -->
+<!--   +    How you went from the model output in R to interpretations in your report (e.g. exponentiate coefficients, then take inverse) -->
+<!--   +    Steps in your model building process -- how you decided on the explanatory variables you ultimately included in your final model. -->
+<!-- -  Two tips on constructing this section:  -->
+<!--   +    Anticipate questions someone might have after reading your report, and make sure those questions can be answered with information in the appendix. -->
+<!--   +    The easiest way to create the appendix is to use Quarto, then knit it into a PDF document (just to create this section, not the entire report).   -->
+<!-- -  The appendix should be uploaded as a separate document on Canvas and titled "Appendix".  -->
+<!-- ## Stage IV: Peer Review {#peer-review} -->
+<!-- An important part of any work is reflection and review. When you submit your paper to Canvas, it will be reviewed by another student, and you will be asked to review as well. For more detailed instructions on this exercise see the [Project Review Guildelines](/project-review-guidelines.qmd). You will be evaluated on your effort in the review, including how constructive and insightful your comments are.  -->
+<!-- ## Stage V: Project Revision {#written-report} -->
+<!-- After submitting your project report, you will receive feedback from your professor and 1-2 peers. You will have the opportunity to revise your project paper and resubmit it. A portion of your revision grade is based on the adequacy of your response to comments. (This means that if you just resubmit the first copy of your paper without changes, it will receive a lower grade.) -->
+<!-- ## Stage VI: Poster Presentation {#poster-presentation} -->
+<!-- The following is from [Passion-Driven Statistics](https://ldierker1.github.io/passiondrivenstatistics/posters.html): -->
+<!-- You have conducted a quantitative research project. Now you will learn how to present your results as a research poster and presentation. Posters offer the opportunity to engage with an audience and to meaningfully disseminate your research findings to others. -->
+<!-- Learn keys to a successful poster presentation. Consider your audience and frame your research question and results in an understandable and interesting way. Understand you should be brief, use large font size, and incorporate graphics instead of text whenever possible. See how being clear and concise with a logical layout will ensure the viewing experience is intellectually and aesthetically satisfying for your audience. Click [HERE](https://www.youtube.com/watch?v=WpRpCzoumOQ) to a watch the video lesson. -->
+<!-- You will create a 3 column, 40" X 36" poster including an introduction, research questions, methods, results, and discussion. -->
+<!-- A rubric can be found [here](/poster-rubric.html) and poster template can be found on Canvas. -->
+<!-- ## Writing Tips -->
+<!-- A major goal of this semester is to be able to write a paper based on a statistical analysis that follows the format typically used for academic journal articles, specifically those in the natural and social sciences. -->
+<!-- The purpose of an article in this style is NOT to dazzle me with your knowledge of statistical methodology (e.g., the meaning of a p-value, how to write down the null and alternative hypotheses… do this on the exams!). The purpose of this paper is to show me you know how to *USE* statistics to make a persuasive quantitative argument and to communicate results to other scientists with a similar level of statistics background.  -->
+<!-- The audience for the paper is a scientist interested in your research question. This scientist has knowledge of statistical techniques and interpretation, but is NOT a statistician. -->
+<!-- An article in this style includes four labelled sections: -->
+<!-- **Introduction:** What are we doing? Why are we doing this? -->
+<!-- **Methods:** Where do the data come from? What did we do to it? -->
+<!-- **Results:** What did we learn from the data? Tell me a story supported with statistics, not about statistics. The results section will also include labeled Figures and Tables with informative captions. Tell me a story with pictures and tables! (But not so many that it’s overwhelming.) -->
+<!-- **Discussion:** Why do we care about what we found? How generalizable are the results? What other questions would we like to answer? -->
+<!-- ### Some tips for writing the results section -->
+<!-- #### The Results section should include: -->
+<!-- -  A general description of your data (completed via your exploratory data analysis) -->
+<!-- -  A description of the results from your analyses, including interpretations of parameter estimates and confidence intervals in context.  -->
+<!-- -  Tables that summarize results and figures that illustrate results. These tables and figures should be numbered (e.g. Figure 1) and have good, descriptive captions. They should also be referenced and mentioned in the body of the paper – you should not have a table/figure that is floating on the page with no reference in the paper.  Rarely are residual plots part of the main body of the report unless they are an integral part of the story. -->
+<!-- -  While you should interpret confidence intervals and coefficients in this section, you should not editorialize here! Save that for the Discussion. -->
+<!-- #### Here is one potential Results writing strategy:  -->
+<!-- For the first paragraph, start with simple descriptions about relevant variables: *50% of the subjects are male, 20% smoke cigarettes, and 40% are overweight*. Often, studies will include demographic or other baseline characteristics about the subjects in the study, even if they are not the main variables of interest. This baseline descriptive information can be helpful for determining generalizability of the study (for instance, if a random sample is not used what population is this study representative of?) Often these baseline characteristics are just included in a table (e.g. mean/SD or proportion for each variable) and only a couple important ones are discussed in text.  -->
+<!-- Your final model should be presented in a table with variables, coefficients, standard errors, p-values, and confidence intervals for each coefficient (similar to the output from R, although not cut-and-pasted from R). This table should look professional! Among other things, this means that you should choose a reasonable and consistent number of significant figures (3 or 4) and confidence intervals should be reported using the (\#, \#) notation. Somewhere (in this table or in prose), you should also report the $R^2$ value. -->
+<!-- In a second paragraph, discuss the relationships seen in the model  – that is, interpretations of all statistically significant coefficients. Try to make it flow together nicely: report things in an order that makes sense and that emphasizes your point. Don’t just create a list of interpretations. Think about tables or figures that support this story. If you’re making the same comparison across many categories (e.g. how Pulse changes for different income groups), consider reporting the general pattern, or pointing out a few important values in the text (with the rest in a table or graph). THEN add p-values and/or confidence intervals in parentheses.  Again, insert references to tables and figures into the text ("as seen in Figure 1, ....").  You do not need to interpret all confidence intervals, but you should interpret one or two especially significant or interesting CIs.  -->
+<!-- Before including a figure in the Results section, ask yourself: Does this add to my story? Does this help the reader understand the interesting relationships that are present here? If the answer to both these questions is "No", then you absolutely should not include it. -->
+<!-- It may be helpful to look at the Results sections of the articles you cite in your report. -->
+<!-- ### Some tips for writing the Discussion section.   -->
+<!-- As stated above, in the Discussion you should do the following (among other things): -->
+<!-- -  Identify any limitations of your *study*. Discuss the potential impact of such limitations on the conclusions. -->
+<!-- -  Identify strengths and weaknesses of your *analysis*.  -->
+<!-- It can often be difficult to differentiate between these two, but they are two separate issues. -->
+<!-- *Limitations of the study* often have to do with study design and/or data collection... is it generalizable? If not, why not? Are there potential measurement errors or other biases? (e.g. students feel social pressure to lie about drug use, sex, etc when asked in survey). Are you trying to measure something that isn’t easily defined (e.g. "Very happy", "Somewhat happy", etc)?  -->
+<!-- *Strengths and weaknesses of the analysis* are statistical decisions that you made which may strengthen or weaken your potential conclusions.  This is also where we mention that model conditions are met (hopefully!), or discuss possible problems with those conditions.  -->
+<!-- #### Example of a strength -->
+<!-- Very large sample size means very high power (especially interesting if you fail to reject null hypothesis... this means it has very low probability of a type II error... and even though we can’t officially accept $H_0$, this is stronger evidence that $H_0$ may really be true.) -->
+<!-- #### Example weaknesses -->
+<!-- -  Had to combine two or more categories of responses into one in order to use your chosen statistical method (e.g. had to make the explanatory variable binary for logistic regression), which means you now can’t make inferences about those groups separately.  -->
+<!-- -  We treated a variable as continuous even when it was recorded as \{1, 2, 3, 4, 5, 6 or more\}. The numeric value of the last group is questionable (would analysis change if we replaced it with the numeric value of 7 instead of 6? 6.5? 8? which of these is most representative of the answers "6 or more"?... we don’t and can’t know). -->
+<!-- These limitations and weaknesses are natural suggestions for further research. When suggesting further research, feel free to make suggestions of things you can’t or don’t know how to do (yet!), e.g. include another variable (not in your data set), or examine a non-linear relationship. -->
+<!-- ### Other hints -->
+<!-- -  Relevant output from a multiple regression model is appropriate, but any tables should be cleaned up, easy to read, and include only relevant information – that is, they should not be copy/pasted from the R output.  R code/R output should never be included in the body of a paper.  Similarly, variables should be given logical names in your written document; you should not use "codes" from the raw data set.  -->
+<!-- -  There are three documents on Canvas, all by Jane Miller, that will be extremely useful in writing a good Results section (and writing a good statistical report in general).  She includes examples of "poor", "better" and "best" phrasings – paying attention to these and following her advice will save you from many common pitfalls!  I strongly encourage you to read all three of these (short) pieces before you sit down to write your Results.   -->
+<!-- -  While Quarto is perfectly suited to homework and informal reports, it is not the best choice for producing a formal paper, because you don’t want the R code cluttering things up and you’ll want more control over figures and tables than R markdown can provide. -->
+<!-- -  Never include R code or output in the body of your paper   -->
+<!-- -  CI's should be reported as (#, #), including in Tables. -->
+<!-- -  Everything should look professional and organized, including page numbers, numbered and captions tables/figures, etc. -->
+<!-- -  Remember your audience: a scientist interested in your research question. This scientist has knowledge of statistical techniques and interpretation, but is NOT a statistician. -->
+<!-- -  Go read the documents by Jane Miller on Canvas, especially her advice about the "Goldilocks Principle" when interpreting coefficients. -->
+<!-- -  In the caption of the Table with your model results, state the response variable, including units if applicable. -->
+<!-- -  Keep the number of decimal places less than 4. If you have a very small value use scientific notation; e.g., $3.45\times 10^{-7}$. -->
+<!-- -  Don't use codes in your prose unless absolutely necessary.  For example, if you're using "Return on Investment" = ROI, this is fine because it's a well-known and easy-to-remember acronym. . But "sem_trim_15" is meaningless, so don't use it! Even for acronyms it is good practice to write it out with the acronym the first time (e.g. "blah blah blah Return on Investment (ROI) blah blah") If you must use codes, italicize them for easy reading. -->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mat212wi25\.netlify\.app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../computing-r-resources.html" class="pagination-link" aria-label="R resources">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R resources</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../exam/exam-rubric.html" class="pagination-link" aria-label="Oral Exam Rubric">
+        <span class="nav-page-text">Oral Exam Rubric</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Eric Friedlander</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/project/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

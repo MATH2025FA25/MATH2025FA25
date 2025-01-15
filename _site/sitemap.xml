@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-10.html</loc>
-    <lastmod>2025-01-15T18:54:12.248Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-08.html</loc>
-    <lastmod>2025-01-12T00:52:45.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-06.html</loc>
-    <lastmod>2025-01-10T02:55:18.457Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-04.html</loc>
-    <lastmod>2025-01-07T15:58:22.568Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-02.html</loc>
-    <lastmod>2025-01-03T18:54:46.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-03.html</loc>
-    <lastmod>2025-01-03T18:55:19.411Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-05.html</loc>
-    <lastmod>2025-01-10T02:55:01.091Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-07.html</loc>
-    <lastmod>2025-01-11T17:55:48.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-09.html</loc>
-    <lastmod>2025-01-15T18:49:59.987Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/schedule.html</loc>
-    <lastmod>2025-01-10T02:19:30.180Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/slides/07-mlr.html</loc>
-    <lastmod>2025-01-14T19:57:27.584Z</lastmod>
+    <loc>https://mat212wi25.netlify.app/slides/08-mlr-inference.html</loc>
+    <lastmod>2025-01-14T18:41:16.930Z</lastmod>
   </url>
 </urlset>

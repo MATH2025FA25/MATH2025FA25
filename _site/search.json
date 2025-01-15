@@ -1,446 +1,198 @@
 [
   {
-    "objectID": "prepare/prep-10.html",
-    "href": "prepare/prep-10.html",
-    "title": "Preparation for Model Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "prepare/prep-10.html#assigned-reading",
-    "href": "prepare/prep-10.html#assigned-reading",
-    "title": "Preparation for Model Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "prepare/prep-08.html",
-    "href": "prepare/prep-08.html",
-    "title": "Preparation for Multiple Linear Regression Inference and Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "prepare/prep-08.html#assigned-reading",
-    "href": "prepare/prep-08.html#assigned-reading",
-    "title": "Preparation for Multiple Linear Regression Inference and Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "prepare/prep-06.html",
-    "href": "prepare/prep-06.html",
-    "title": "Preparation for Model Transformation and Outliers",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 1.4, 1.5"
-  },
-  {
-    "objectID": "prepare/prep-06.html#assigned-reading",
-    "href": "prepare/prep-06.html#assigned-reading",
-    "title": "Preparation for Model Transformation and Outliers",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 1.4, 1.5"
-  },
-  {
-    "objectID": "prepare/prep-04.html",
-    "href": "prepare/prep-04.html",
-    "title": "Preparation for Mathematical Models for Inference",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
-  },
-  {
-    "objectID": "prepare/prep-04.html#assigned-reading",
-    "href": "prepare/prep-04.html#assigned-reading",
-    "title": "Preparation for Mathematical Models for Inference",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
-  },
-  {
-    "objectID": "prepare/prep-02.html",
-    "href": "prepare/prep-02.html",
-    "title": "Preparation for Simple Linear Regression",
-    "section": "",
-    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
-  },
-  {
-    "objectID": "prepare/prep-02.html#assigned-reading",
-    "href": "prepare/prep-02.html#assigned-reading",
-    "title": "Preparation for Simple Linear Regression",
-    "section": "",
-    "text": "Review Syllabus\nRead Chapter 0 of Stat2\nStat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
-  },
-  {
-    "objectID": "prepare/prep-02.html#additional-resources-optional",
-    "href": "prepare/prep-02.html#additional-resources-optional",
-    "title": "Preparation for Simple Linear Regression",
-    "section": "Additional resources (optional)",
-    "text": "Additional resources (optional)\n📖 Introduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\n📖 Introduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
-  },
-  {
-    "objectID": "prepare/prep-03.html",
-    "href": "prepare/prep-03.html",
-    "title": "Preparation for Simulation Based Inference",
-    "section": "",
-    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
-  },
-  {
-    "objectID": "prepare/prep-03.html#assigned-reading",
-    "href": "prepare/prep-03.html#assigned-reading",
-    "title": "Preparation for Simulation Based Inference",
-    "section": "",
-    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
-  },
-  {
-    "objectID": "prepare/prep-03.html#additional-resources-optional",
-    "href": "prepare/prep-03.html#additional-resources-optional",
-    "title": "Preparation for Simulation Based Inference",
-    "section": "Additional resources (optional)",
-    "text": "Additional resources (optional)\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
-  },
-  {
-    "objectID": "prepare/prep-05.html",
-    "href": "prepare/prep-05.html",
-    "title": "Preparation for Conditions for Inference and Model Evaluation",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
-  },
-  {
-    "objectID": "prepare/prep-05.html#assigned-reading",
-    "href": "prepare/prep-05.html#assigned-reading",
-    "title": "Preparation for Conditions for Inference and Model Evaluation",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 1.3, 2.2, 2.3"
-  },
-  {
-    "objectID": "prepare/prep-07.html",
-    "href": "prepare/prep-07.html",
-    "title": "Preparation for Multiple Linear Regression",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.1, 3.3, 3.4"
-  },
-  {
-    "objectID": "prepare/prep-07.html#assigned-reading",
-    "href": "prepare/prep-07.html#assigned-reading",
-    "title": "Preparation for Multiple Linear Regression",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.1, 3.3, 3.4"
-  },
-  {
-    "objectID": "prepare/prep-09.html",
-    "href": "prepare/prep-09.html",
-    "title": "Preparation for Multicollinearity",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.5"
-  },
-  {
-    "objectID": "prepare/prep-09.html#assigned-reading",
-    "href": "prepare/prep-09.html#assigned-reading",
-    "title": "Preparation for Multicollinearity",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.5"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT/W\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTH\nJan 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nF/M\nJan 10\nSLR: Conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nJan 13\nSLR: Transformations and Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nT/W\nJan 14\nIntro to Multiple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nW\nJan 15\nMLR: Inference and Conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTH\nJan 16\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTH\nJan 16\nMLR: Model Comparison",
-    "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "slides/07-mlr.html#application-exercise",
-    "href": "slides/07-mlr.html#application-exercise",
-    "title": "Multiple linear regression (MLR)",
+    "objectID": "slides/08-mlr-inference.html#application-exercise",
+    "href": "slides/08-mlr-inference.html#application-exercise",
+    "title": "MLR: Inference and Conditions",
     "section": "Application Exercise",
-    "text": "Application Exercise\n\n📋 AE 07 - Multiple Linear Regression and Categorical Predictors\n\nComplete Exercise 0-3."
+    "text": "Application Exercise\n\n📋 AE 08 - Inference for MLR\n\nOpen up AE 08 and complete Exercises 0-2"
   },
   {
-    "objectID": "slides/07-mlr.html#computational-setup",
-    "href": "slides/07-mlr.html#computational-setup",
-    "title": "Multiple linear regression (MLR)",
+    "objectID": "slides/08-mlr-inference.html#topics",
+    "href": "slides/08-mlr-inference.html#topics",
+    "title": "MLR: Inference and Conditions",
+    "section": "Topics",
+    "text": "Topics\n\n\nInference for multiple linear regression\nChecking model conditions"
+  },
+  {
+    "objectID": "slides/08-mlr-inference.html#computational-setup",
+    "href": "slides/08-mlr-inference.html#computational-setup",
+    "title": "MLR: Inference and Conditions",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(ISLR2)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(coursekata)\nlibrary(kableExtra)\nlibrary(scales)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n# Create new variable\n\nCredit &lt;- Credit |&gt; \n  mutate(Has_Balance = factor(ifelse(Balance == 0, \"No\", \"Yes\")))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(mosaicData)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\nlibrary(GGally)\nlibrary(countdown)\nlibrary(rms)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
   },
   {
-    "objectID": "slides/07-mlr.html#data-credit-cards",
-    "href": "slides/07-mlr.html#data-credit-cards",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Data: Credit Cards",
-    "text": "Data: Credit Cards\nThe data is from the Credit data set in the ISLR2 R package. It is a simulated data set of 400 credit card customers.\n\n\nRows: 400\nColumns: 12\n$ Income      &lt;dbl&gt; 14.891, 106.025, 104.593, 148.924, 55.882, 80.180, 20.996,…\n$ Limit       &lt;dbl&gt; 3606, 6645, 7075, 9504, 4897, 8047, 3388, 7114, 3300, 6819…\n$ Rating      &lt;dbl&gt; 283, 483, 514, 681, 357, 569, 259, 512, 266, 491, 589, 138…\n$ Cards       &lt;dbl&gt; 2, 3, 4, 3, 2, 4, 2, 2, 5, 3, 4, 3, 1, 1, 2, 3, 3, 3, 1, 2…\n$ Age         &lt;dbl&gt; 34, 82, 71, 36, 68, 77, 37, 87, 66, 41, 30, 64, 57, 49, 75…\n$ Education   &lt;dbl&gt; 11, 15, 11, 11, 16, 10, 12, 9, 13, 19, 14, 16, 7, 9, 13, 1…\n$ Own         &lt;fct&gt; No, Yes, No, Yes, No, No, Yes, No, Yes, Yes, No, No, Yes, …\n$ Student     &lt;fct&gt; No, Yes, No, No, No, No, No, No, No, Yes, No, No, No, No, …\n$ Married     &lt;fct&gt; Yes, Yes, No, No, Yes, No, No, No, No, Yes, Yes, No, Yes, …\n$ Region      &lt;fct&gt; South, West, West, West, South, South, East, West, South, …\n$ Balance     &lt;dbl&gt; 333, 903, 580, 964, 331, 1151, 203, 872, 279, 1350, 1407, …\n$ Has_Balance &lt;fct&gt; Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes, No,…"
+    "objectID": "slides/08-mlr-inference.html#data-rail_trail",
+    "href": "slides/08-mlr-inference.html#data-rail_trail",
+    "title": "MLR: Inference and Conditions",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\nRows: 90\nColumns: 7\n$ volume     &lt;dbl&gt; 501, 419, 397, 385, 200, 375, 417, 629, 533, 547, 432, 418,…\n$ hightemp   &lt;dbl&gt; 83, 73, 74, 95, 44, 69, 66, 66, 80, 79, 78, 65, 41, 59, 50,…\n$ avgtemp    &lt;dbl&gt; 66.5, 61.0, 63.0, 78.0, 48.0, 61.5, 52.5, 52.0, 67.5, 62.0,…\n$ season     &lt;chr&gt; \"Summer\", \"Summer\", \"Spring\", \"Summer\", \"Spring\", \"Spring\",…\n$ cloudcover &lt;dbl&gt; 7.6, 6.3, 7.5, 2.6, 10.0, 6.6, 2.4, 0.0, 3.8, 4.1, 8.5, 7.2…\n$ precip     &lt;dbl&gt; 0.00, 0.29, 0.32, 0.00, 0.14, 0.02, 0.00, 0.00, 0.00, 0.00,…\n$ day_type   &lt;chr&gt; \"Weekday\", \"Weekday\", \"Weekday\", \"Weekend\", \"Weekday\", \"Wee…\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
   },
   {
-    "objectID": "slides/07-mlr.html#variables",
-    "href": "slides/07-mlr.html#variables",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Variables",
-    "text": "Variables\nFeatures (another name for predictors)\n\nCards: Number of credit cards\nRating: Credit Rating\nHas_Balance: Whether they have a credit card balance\n\nOutcome\n\nLimit: Credit limit"
+    "objectID": "slides/08-mlr-inference.html#visualizing-the-data",
+    "href": "slides/08-mlr-inference.html#visualizing-the-data",
+    "title": "MLR: Inference and Conditions",
+    "section": "Visualizing the data",
+    "text": "Visualizing the data\n\nrail_trail |&gt; ggpairs()"
   },
   {
-    "objectID": "slides/07-mlr.html#outcome-limit",
-    "href": "slides/07-mlr.html#outcome-limit",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Outcome: Limit",
-    "text": "Outcome: Limit\n\n\nCode\nCredit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()))\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n855\n3088\n4622.5\n5872.75\n13913\n4735.6\n2308.199\n400\n0"
+    "objectID": "slides/08-mlr-inference.html#review-simple-linear-regression-slr",
+    "href": "slides/08-mlr-inference.html#review-simple-linear-regression-slr",
+    "title": "MLR: Inference and Conditions",
+    "section": "Review: Simple linear regression (SLR)",
+    "text": "Review: Simple linear regression (SLR)\n\ngf_point(volume ~ avgtemp, data = rail_trail, alpha = 0.5) |&gt;\n  gf_lm()  |&gt;\n  gf_labs(x = \"rail_trail avgtemp\", y = \"avgtemp\")"
   },
   {
-    "objectID": "slides/07-mlr.html#predictors",
-    "href": "slides/07-mlr.html#predictors",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Predictors",
-    "text": "Predictors\n\n\nCode\np1 &lt;- Credit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n    gf_refine(scale_x_continuous(labels = dollar_format()))\n\np2 &lt;- Credit |&gt; \n  gf_histogram(~Rating, binwidth = 50) |&gt; \n  gf_labs(title = \"\",\n       x = \"Credit Rating\")\n\np3 &lt;- Credit |&gt; \n  gf_histogram(~Cards, binwidth = 1) |&gt; \n  gf_labs(title = \"\",\n       x = \"Number of Credit Cards\")\n\np4 &lt;- Credit |&gt; \n  gf_bar(~Has_Balance)|&gt; \n  gf_labs(title = \"\",\n       x = \"Has a Credit Card Balance\")\n\n(p1 + p2) / (p3 + p4)"
+    "objectID": "slides/08-mlr-inference.html#slr-model-summary",
+    "href": "slides/08-mlr-inference.html#slr-model-summary",
+    "title": "MLR: Inference and Conditions",
+    "section": "SLR model summary",
+    "text": "SLR model summary\n\navgtemp_slr_fit &lt;- lm(volume ~ avgtemp, data = rail_trail)\n\ntidy(avgtemp_slr_fit) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n99.60227\n63.473587\n1.569192\n0.1201920\n\n\navgtemp\n4.80205\n1.084499\n4.427899\n0.0000272"
   },
   {
-    "objectID": "slides/07-mlr.html#outcome-vs.-predictors",
-    "href": "slides/07-mlr.html#outcome-vs.-predictors",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Outcome vs. predictors",
-    "text": "Outcome vs. predictors\n\n\nCode\nlibrary(GGally)\n\nCredit |&gt; \n  select(Limit, Rating, Cards, Has_Balance) |&gt; \n  ggpairs()"
+    "objectID": "slides/08-mlr-inference.html#slr-hypothesis-test",
+    "href": "slides/08-mlr-inference.html#slr-hypothesis-test",
+    "title": "MLR: Inference and Conditions",
+    "section": "SLR hypothesis test",
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n99.60227\n63.473587\n1.569192\n0.1201920\n\n\navgtemp\n4.80205\n1.084499\n4.427899\n0.0000272\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t= 4.43\\) . The p-value is calculated using a \\(t\\) distribution with 88 degrees of freedom. The p-value is \\(2.72\\times 10^{-5}\\).\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that avgtemp is a helpful predictor for a rail_trail card holder’s rail_trail volume, i.e. there is a linear relationship between avgtemp and rail_trail volume."
   },
   {
-    "objectID": "slides/07-mlr.html#single-vs.-multiple-predictors",
-    "href": "slides/07-mlr.html#single-vs.-multiple-predictors",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Single vs. multiple predictors",
-    "text": "Single vs. multiple predictors\nSo far we’ve used a single predictor variable to understand variation in a quantitative response variable\n\nNow we want to use multiple predictor variables to understand variation in a quantitative response variable"
-  },
-  {
-    "objectID": "slides/07-mlr.html#multiple-linear-regression-mlr",
-    "href": "slides/07-mlr.html#multiple-linear-regression-mlr",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Multiple linear regression (MLR)",
-    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{Rating} + \\hat{\\beta}_2 \\text{Cards}\n\\end{aligned}\n\\]\nSimilar to simple linear regression, this model assumes that at each combination of the predictor variables, the values of Limit follow a Normal distribution."
-  },
-  {
-    "objectID": "slides/07-mlr.html#multiple-linear-regression-1",
-    "href": "slides/07-mlr.html#multiple-linear-regression-1",
-    "title": "Multiple linear regression (MLR)",
+    "objectID": "slides/08-mlr-inference.html#multiple-linear-regression",
+    "href": "slides/08-mlr-inference.html#multiple-linear-regression",
+    "title": "MLR: Inference and Conditions",
     "section": "Multiple linear regression",
-    "text": "Multiple linear regression\nRecall: The simple linear regression model assumes\n\\[\nY|X\\sim N(\\beta_0 + \\beta_1 X, \\sigma_{\\epsilon}^2)\n\\]\n\nSimilarly: The multiple linear regression model assumes\n\\[\nY|X_1, X_2, \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_{\\epsilon}^2)\n\\]"
+    "text": "Multiple linear regression\n\nrail_trail_fit &lt;- lm(volume ~ avgtemp + hightemp, data = rail_trail)\n\ntidy(rail_trail_fit) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n1.667237\n56.424299\n0.0295482\n0.9764951\n\n\navgtemp\n-7.942489\n2.346235\n-3.3852060\n0.0010689\n\n\nhightemp\n12.056606\n2.041231\n5.9065368\n0.0000001"
   },
   {
-    "objectID": "slides/07-mlr.html#multiple-linear-regression-2",
-    "href": "slides/07-mlr.html#multiple-linear-regression-2",
-    "title": "Multiple linear regression (MLR)",
+    "objectID": "slides/08-mlr-inference.html#multiple-linear-regression-1",
+    "href": "slides/08-mlr-inference.html#multiple-linear-regression-1",
+    "title": "MLR: Inference and Conditions",
     "section": "Multiple linear regression",
-    "text": "Multiple linear regression\nAt any combination of the predictors, the mean value of the response \\(Y\\), is\n\\[\n\\mu_{Y|X_1, \\ldots, X_p} = \\beta_0 + \\beta_1 X_{1} + \\beta_2 X_2 + \\dots + \\beta_p X_p\n\\]\n\nUsing multiple linear regression, we can estimate the mean response for any combination of predictors\n\\[\n\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_{1} + \\hat{\\beta}_2 X_2 + \\dots + \\hat{\\beta}_p X_{p}\n\\]"
+    "text": "Multiple linear regression\nThe multiple linear regression model assumes \\[Y|X_1, X_2,  \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_\\epsilon^2)\\]\n\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots, x_{ip}, y_i)\\), we can rewrite the previous statement as\n\\[y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_{i}, \\hspace{10mm} \\epsilon_i \\sim N(0,\\sigma_{\\epsilon}^2)\\]"
   },
   {
-    "objectID": "slides/07-mlr.html#model-fit",
-    "href": "slides/07-mlr.html#model-fit",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Model fit",
-    "text": "Model fit\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-341.15903\n24.7670758\n-13.77470\n0\n\n\nRating\n14.90573\n0.0496795\n300.03798\n0\n\n\nCards\n-72.31808\n5.6054513\n-12.90138\n0"
+    "objectID": "slides/08-mlr-inference.html#estimating-sigma_epsilon",
+    "href": "slides/08-mlr-inference.html#estimating-sigma_epsilon",
+    "title": "MLR: Inference and Conditions",
+    "section": "Estimating \\(\\sigma_\\epsilon\\)",
+    "text": "Estimating \\(\\sigma_\\epsilon\\)\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots,x_{ip}, y_i)\\) the residual is \\[\n\\begin{aligned}\ne_i &= y_{i} - \\hat{y_i}\\\\\n&= y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 x_{i1} + \\hat{\\beta}_{2} x_{i2} + \\dots + \\hat{\\beta}_p x_{ip})\n\\end{aligned}\n\\]\n\nThe estimated value of the regression standard error , \\(\\sigma_{\\epsilon}\\), is\n\\[\\hat{\\sigma}_\\epsilon  = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n-p-1}}\\]\n\n\nAs with SLR, we use \\(\\hat{\\sigma}_{\\epsilon}\\) to calculate \\(SE_{\\hat{\\beta}_j}\\), the standard error of each coefficient. See Matrix Form of Linear Regression for more detail."
   },
   {
-    "objectID": "slides/07-mlr.html#model-equation",
-    "href": "slides/07-mlr.html#model-equation",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Model equation",
-    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{Limit}} =  -341.159 &+14.906 \\times \\text{Rating}\\\\\n& -72.318 \\times \\text{Cards}\n\\end{align}\n\\]"
+    "objectID": "slides/08-mlr-inference.html#mlr-hypothesis-test-avgtemp",
+    "href": "slides/08-mlr-inference.html#mlr-hypothesis-test-avgtemp",
+    "title": "MLR: Inference and Conditions",
+    "section": "MLR hypothesis test: avgtemp",
+    "text": "MLR hypothesis test: avgtemp\n\nSet hypotheses: \\(H_0: \\beta_{avgtemp} = 0\\) vs. \\(H_A: \\beta_{avgtemp} \\ne 0\\), given hightemp is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = -3.39\\). The p-value is calculated using a \\(t\\) distribution with \\[(n - p - 1) = 90 - 2 -1 = 87\\] degrees of freedom. The p-value is \\(\\approx 0.0011\\).\n\nNote that \\(p\\) counts all non-intercept \\(\\beta\\)’s\n\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provides convincing evidence that a avgtemp is a useful predictor in a model that already contains rail_trail hightemp as a predictor for the rail_trail volume."
   },
   {
-    "objectID": "slides/07-mlr.html#interpreting-hatbeta_j",
-    "href": "slides/07-mlr.html#interpreting-hatbeta_j",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(y\\) when \\(x_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n\n\nComplete Exercises 4-6."
+    "objectID": "slides/08-mlr-inference.html#mlr-hypothesis-test-interaction-terms",
+    "href": "slides/08-mlr-inference.html#mlr-hypothesis-test-interaction-terms",
+    "title": "MLR: Inference and Conditions",
+    "section": "MLR hypothesis test: interaction terms",
+    "text": "MLR hypothesis test: interaction terms\n\nFramework: Same as previous slide except use \\(\\beta\\) of interaction term\n\\(p\\) (the number of predictors) should include the interaction term\nConclusion: tells you whether interaction term is a useful predictor\nWarning: if \\(X_1\\) and \\(X_2\\) have an interaction term, don’t try to interpret their individual p-values… if interaction term is significant, then both variables are important\n\n\nComplete Exercises 3 and 4."
   },
   {
-    "objectID": "slides/07-mlr.html#prediction",
-    "href": "slides/07-mlr.html#prediction",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Prediction",
-    "text": "Prediction\n\nWhat is the predicted credit limit for a borrower with these characteristics?\n\n\nhead(Credit, n = 1) |&gt; kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIncome\nLimit\nRating\nCards\nAge\nEducation\nOwn\nStudent\nMarried\nRegion\nBalance\nHas_Balance\n\n\n\n\n14.891\n3606\n283\n2\n34\n11\nNo\nNo\nYes\nSouth\n333\nYes\n\n\n\n\n\n\n\n-341.159 +14.906 * 283 -72.318 * 2\n\n[1] 3732.603\n\n\n\nThe predicted credit limit for an borrower with an credit rating of 700 and who has 2 credit cards is $3733."
+    "objectID": "slides/08-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "href": "slides/08-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "title": "MLR: Inference and Conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C\\%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically: We are \\(C\\%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).\nIn context: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, holding all else constant.\n\n\nComplete Exercise 5."
   },
   {
-    "objectID": "slides/07-mlr.html#prediction-revisited",
-    "href": "slides/07-mlr.html#prediction-revisited",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Prediction, revisited",
-    "text": "Prediction, revisited\nJust like with simple linear regression, we can use the predict function in R to calculate the appropriate intervals for our predicted values:\n\n\n       fit      lwr      upr\n1 3732.526 3430.472 4034.581\n\n\n\n\n\n\n\n\nNote\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide.\n\n\n\nComplete Exercise 7."
+    "objectID": "slides/08-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "href": "slides/08-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "title": "MLR: Inference and Conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n1.67\n56.42\n0.03\n0.98\n-110.48\n113.82\n\n\navgtemp\n-7.94\n2.35\n-3.39\n0.00\n-12.61\n-3.28\n\n\nhightemp\n12.06\n2.04\n5.91\n0.00\n8.00\n16.11"
   },
   {
-    "objectID": "slides/07-mlr.html#prediction-interval-for-haty",
-    "href": "slides/07-mlr.html#prediction-interval-for-haty",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Prediction interval for \\(\\hat{y}\\)",
-    "text": "Prediction interval for \\(\\hat{y}\\)\n\nCalculate a 90% confidence interval for the predicted credit limit for an individual borrower an credit rating of 700, and who has 2 credit cards.\n\n\n\npredict(lim_fit, new_borrower, interval = \"prediction\", level = 0.90)\n\n       fit      lwr      upr\n1 3732.526 3479.216 3985.837\n\n\n\nWhen would you use \"confidence\"? Would the interval be wider or narrower?"
+    "objectID": "slides/08-mlr-inference.html#large-sample-sizes",
+    "href": "slides/08-mlr-inference.html#large-sample-sizes",
+    "title": "MLR: Inference and Conditions",
+    "section": "Large sample sizes",
+    "text": "Large sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\n\nConsider the practical significance of the result not just the statistical significance.\nInstead of saying statistically significant say statistically detectable\nUse confidence intervals to draw conclusions instead of relying only on p-values."
   },
   {
-    "objectID": "slides/07-mlr.html#cautions",
-    "href": "slides/07-mlr.html#cautions",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Cautions",
-    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study"
+    "objectID": "slides/08-mlr-inference.html#small-sample-sizes",
+    "href": "slides/08-mlr-inference.html#small-sample-sizes",
+    "title": "MLR: Inference and Conditions",
+    "section": "Small sample sizes",
+    "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association."
   },
   {
-    "objectID": "slides/07-mlr.html#indicator-variables",
-    "href": "slides/07-mlr.html#indicator-variables",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Indicator variables",
-    "text": "Indicator variables\n\nSuppose there is a categorical variable with \\(K\\) categories (levels)\nWe can make \\(K\\) indicator variables - one indicator for each category\nAn indicator variable takes values 1 or 0\n\n1 if the observation belongs to that category\n0 if the observation does not belong to that category"
+    "objectID": "slides/08-mlr-inference.html#effect-size-and-power",
+    "href": "slides/08-mlr-inference.html#effect-size-and-power",
+    "title": "MLR: Inference and Conditions",
+    "section": "Effect Size and Power",
+    "text": "Effect Size and Power\n\nEffect Size:\n\nGeneral Idea: how big is your parameter compared to the variability of your data\nWhy is it important: if parameter has small effect size, it may not be a useful parameter to include. However, what effect size is useful depends on your problem\nIn practice: many formal ways of determining effects size which we won’t talk about\n\nStatistical Power: the ability of a hypothesis test to detect a given effect size\n\nmore data = more power\ntons of data = tons of power\nIn practice: think about how what effect size you’d like to be able to detect and design your study to collect enough data to do so\n\n\n\nComplete Exercise 6"
   },
   {
-    "objectID": "slides/07-mlr.html#data-manipulation-create-indicator-variables-for-has_balance",
-    "href": "slides/07-mlr.html#data-manipulation-create-indicator-variables-for-has_balance",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Data manipulation: Create indicator variables for Has_Balance",
-    "text": "Data manipulation: Create indicator variables for Has_Balance\n\nCredit_dummy &lt;- Credit |&gt;\n  mutate(\n    No_Balance = if_else(Has_Balance == \"No\", 1, 0),\n    Yes_Balance = if_else(Has_Balance == \"Yes\", 1, 0)\n  )\n\nCredit_dummy |&gt;\n  select(Has_Balance, No_Balance, Yes_Balance) |&gt;\n  slice(1, 12)\n\n  Has_Balance No_Balance Yes_Balance\n1         Yes          0           1\n2          No          1           0"
+    "objectID": "slides/08-mlr-inference.html#model-conditions",
+    "href": "slides/08-mlr-inference.html#model-conditions",
+    "title": "MLR: Inference and Conditions",
+    "section": "Model conditions",
+    "text": "Model conditions\nOur model conditions are the same as they were with SLR:\n\nLinearity: There is a linear relationship between the response and predictor variables.\nConstant Variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the residuals is approximately normal.\nIndependence: The residuals are independent from each other."
   },
   {
-    "objectID": "slides/07-mlr.html#indicators-in-the-model",
-    "href": "slides/07-mlr.html#indicators-in-the-model",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Indicators in the model",
-    "text": "Indicators in the model\n\nWe will use \\(K-1\\) of the indicator variables in the model.\nThe reference level or baseline is the category that doesn’t have a term in the model.\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.\nThis approach is also called dummy coding and R will do this for you\n\n\nCredit_dummy |&gt;\n  select(Has_Balance, No_Balance, Yes_Balance) |&gt;\n  slice(1, 12)\n\n  Has_Balance No_Balance Yes_Balance\n1         Yes          0           1\n2          No          1           0"
+    "objectID": "slides/08-mlr-inference.html#checking-linearity",
+    "href": "slides/08-mlr-inference.html#checking-linearity",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking Linearity",
+    "text": "Checking Linearity\n\nLook at a plot of the residuals vs. predicted values\nLook at a plot of the residuals vs. each predictor\n\nUse scatter plots for quantitative and boxplots of categorical predictors\n\nLinearity is met if there is no discernible pattern in each of these plots\n\nComplete Exercises 7-10"
   },
   {
-    "objectID": "slides/07-mlr.html#interpreting-categorical-predictors",
-    "href": "slides/07-mlr.html#interpreting-categorical-predictors",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting Categorical Predictors",
-    "text": "Interpreting Categorical Predictors\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2152.722\n194.211\n11.084\n0\n\n\nHas_BalanceYes\n3332.746\n220.609\n15.107\n0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhere do we see each of the estimates in the plot?\nWhere do we see the values we’d predict in the plot?\nAre Has_Balance and Limit correlated?\n\n\n\n\n\n−+\n03:00\n\n\n\n\nComplete Exercises 8-10."
+    "objectID": "slides/08-mlr-inference.html#fitting-the-full-model",
+    "href": "slides/08-mlr-inference.html#fitting-the-full-model",
+    "title": "MLR: Inference and Conditions",
+    "section": "Fitting the Full Model",
+    "text": "Fitting the Full Model\n\nfull_model &lt;- lm(volume ~ . , data = rail_trail)\nfull_model |&gt; tidy() |&gt;  kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n17.622161\n76.582860\n0.2301058\n0.8185826\n\n\nhightemp\n7.070528\n2.420523\n2.9210743\n0.0045045\n\n\navgtemp\n-2.036685\n3.142113\n-0.6481896\n0.5186733\n\n\nseasonSpring\n35.914983\n32.992762\n1.0885716\n0.2795319\n\n\nseasonSummer\n24.153571\n52.810486\n0.4573632\n0.6486195\n\n\ncloudcover\n-7.251776\n3.843071\n-1.8869743\n0.0627025\n\n\nprecip\n-95.696525\n42.573359\n-2.2478030\n0.0272735\n\n\nday_typeWeekend\n35.903750\n22.429056\n1.6007696\n0.1132738"
   },
   {
-    "objectID": "slides/07-mlr.html#model-equation-1",
-    "href": "slides/07-mlr.html#model-equation-1",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Model equation",
-    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{Limit}} =  2152.722 &+ 3332.746 \\times \\text{Yes_Balance}\n\\end{align}\n\\]"
+    "objectID": "slides/08-mlr-inference.html#residuals-vs.-predicted-values",
+    "href": "slides/08-mlr-inference.html#residuals-vs.-predicted-values",
+    "title": "MLR: Inference and Conditions",
+    "section": "Residuals vs. predicted values",
+    "text": "Residuals vs. predicted values\n\n\n\n\n\n\n\n\n\n\nDoes the constant variance condition appear to be satisfied?"
   },
   {
-    "objectID": "slides/07-mlr.html#credit-limit-vs.-cards-parallel-slopes",
-    "href": "slides/07-mlr.html#credit-limit-vs.-cards-parallel-slopes",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Credit Limit vs. Cards: parallel slopes",
-    "text": "Credit Limit vs. Cards: parallel slopes\n\n\nCode\ncards_model &lt;- lm(Limit ~ Cards, data = Credit)\n\ncards_hasbal_model &lt;- lm(Limit ~ Cards + Has_Balance, data = Credit)\n\np1 &lt;- plotModel(cards_model) |&gt;\n  gf_labs(title = \"SLR\")\np2 &lt;- plotModel(cards_hasbal_model) |&gt;\n  gf_labs(title = \"Balance Indicator\")\n\np1 + p2"
+    "objectID": "slides/08-mlr-inference.html#checking-constant-variance",
+    "href": "slides/08-mlr-inference.html#checking-constant-variance",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nThe vertical spread of the residuals is not constant across the plot.\nThe constant variance condition is not satisfied.\n\n\n\nGiven this conclusion, what might be a next step in the analysis?"
   },
   {
-    "objectID": "slides/07-mlr.html#parallel-slopes-interpretation",
-    "href": "slides/07-mlr.html#parallel-slopes-interpretation",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Parallel slopes interpretation",
-    "text": "Parallel slopes interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2257.044\n272.007\n8.298\n0.000\n\n\nCards\n-36.964\n67.419\n-0.548\n0.584\n\n\nHas_BalanceYes\n3339.198\n221.117\n15.102\n0.000\n\n\n\n\n\n\nSlope of Cards is -36.964 regardless of Has_Balance level\nChange in Has_Balance corresponds to a shift in the intercept\n\nIntercept for No is 2257.044\nFor Yes shift intercept up 3339.198\n\n(i.e. intercept \\(= 2257.044 + 3339.198 = 5596.242\\))\n\n\nComplete Exercise 12"
+    "objectID": "slides/08-mlr-inference.html#residuals-vs.-each-predictor",
+    "href": "slides/08-mlr-inference.html#residuals-vs.-each-predictor",
+    "title": "MLR: Inference and Conditions",
+    "section": "Residuals vs. each predictor",
+    "text": "Residuals vs. each predictor"
   },
   {
-    "objectID": "slides/07-mlr.html#interaction-terms-1",
-    "href": "slides/07-mlr.html#interaction-terms-1",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interaction terms",
-    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model.\nWe want a model of the form:\n\n\\[\n\\begin{aligned}\\hat{Y} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 X_1 + \\hat{\\beta}_2 X_2 +\n\\hat{\\beta}_3X_1\\times X_2\n\\end{aligned}\n\\]"
+    "objectID": "slides/08-mlr-inference.html#checking-linearity-1",
+    "href": "slides/08-mlr-inference.html#checking-linearity-1",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking linearity",
+    "text": "Checking linearity\n\nThe plot of the residuals vs. predicted values looked OK\nThe plots of residuals vs. hightemp and avgtemp appear to have a parabolic pattern.\nThe linearity condition does not appear to be satisfied given these plots.\n\n\n\nGiven this conclusion, what might be a next step in the analysis?\n\nComplete Exercises 11-12."
   },
   {
-    "objectID": "slides/07-mlr.html#interaction-terms-quantitative-and-categorical",
-    "href": "slides/07-mlr.html#interaction-terms-quantitative-and-categorical",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interaction terms: Quantitative and Categorical",
-    "text": "Interaction terms: Quantitative and Categorical\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{Cards} + \\hat{\\beta}_2 \\text{Has_Balance} +\n\\hat{\\beta}_3\\text{Cards}\\times\\text{Has_Balance}\n\\end{aligned}\n\\]"
+    "objectID": "slides/08-mlr-inference.html#checking-normality",
+    "href": "slides/08-mlr-inference.html#checking-normality",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking normality",
+    "text": "Checking normality\n\nThe distribution of the residuals is approximately unimodal and symmetric but the qqplot shows that tails are too heavy, so the normality condition is likely not satisfied. The sample size 90 is sufficiently large to relax this condition."
   },
   {
-    "objectID": "slides/07-mlr.html#interest-rate-vs.-cards-interaction-term",
-    "href": "slides/07-mlr.html#interest-rate-vs.-cards-interaction-term",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interest rate vs. cards: interaction term",
-    "text": "Interest rate vs. cards: interaction term"
+    "objectID": "slides/08-mlr-inference.html#checking-independence",
+    "href": "slides/08-mlr-inference.html#checking-independence",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nWe can often check the independence condition based on the context of the data and how the observations were collected.\nIf the data were collected in a particular order, examine a scatter plot of the residuals versus order in which the data were collected.\nIf there is a grouping variable lurking in the background, check the residuals based on that grouping variable."
   },
   {
-    "objectID": "slides/07-mlr.html#bike-rentals-vs.-temperature-interaction-term",
-    "href": "slides/07-mlr.html#bike-rentals-vs.-temperature-interaction-term",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Bike Rentals vs. Temperature: interaction term",
-    "text": "Bike Rentals vs. Temperature: interaction term"
-  },
-  {
-    "objectID": "slides/07-mlr.html#interpreting-interaction-terms",
-    "href": "slides/07-mlr.html#interpreting-interaction-terms",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting interaction terms",
-    "text": "Interpreting interaction terms\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2324.664\n515.510\n4.509\n0.000\n\n\nCards\n-60.924\n169.143\n-0.360\n0.719\n\n\nHas_BalanceYes\n3257.976\n570.455\n5.711\n0.000\n\n\nCards:Has_BalanceYes\n28.499\n184.470\n0.154\n0.877\n\n\n\n\n\n\nSlope of Rating depends on Has_Balance level\nEquivalent: fit two separate linear models on the data corresponding to each level of Has_Balance"
-  },
-  {
-    "objectID": "slides/07-mlr.html#understanding-the-model",
-    "href": "slides/07-mlr.html#understanding-the-model",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Understanding the model",
-    "text": "Understanding the model\n\\[\n\\begin{aligned}\n\\hat{Limit} &= 2324.664 - 60.924 \\times Cards \\\\\n&\\qquad+ 3257.976 \\times Has\\_Balance\\\\\n&\\qquad+ 28.499 \\times Cards \\times Has\\_Balance\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/07-mlr.html#interpreting-the-interaction-term",
-    "href": "slides/07-mlr.html#interpreting-the-interaction-term",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting the interaction term",
-    "text": "Interpreting the interaction term\n\nFor a borrower in no balance, the slope of Cards is \\(-60.924\\)\nFor a borrower with a balance, the slope of Cards is \\((-60.924 + 28.499=-32.425)\\)\n\n\nComplete Exercise 13 and 14."
-  },
-  {
-    "objectID": "slides/07-mlr.html#interaction-terms-two-quantitative",
-    "href": "slides/07-mlr.html#interaction-terms-two-quantitative",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interaction terms: Two Quantitative",
-    "text": "Interaction terms: Two Quantitative\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{Cards} + \\hat{\\beta}_2 \\text{Rating} +\n\\hat{\\beta}_3\\text{Cards}\\times\\text{Rating}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/07-mlr.html#interpreting-interaction-terms-1",
-    "href": "slides/07-mlr.html#interpreting-interaction-terms-1",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting interaction terms",
-    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of the number of open credit cards on the credit limit depends on the borrowers credit rating and vice versa"
-  },
-  {
-    "objectID": "slides/07-mlr.html#visualizing-model-no-interaction",
-    "href": "slides/07-mlr.html#visualizing-model-no-interaction",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Visualizing Model: No Interaction",
-    "text": "Visualizing Model: No Interaction"
-  },
-  {
-    "objectID": "slides/07-mlr.html#visualizing-interaction-model-exaggerated",
-    "href": "slides/07-mlr.html#visualizing-interaction-model-exaggerated",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Visualizing Interaction Model: Exaggerated",
-    "text": "Visualizing Interaction Model: Exaggerated"
-  },
-  {
-    "objectID": "slides/07-mlr.html#visualizing-interaction-model-real",
-    "href": "slides/07-mlr.html#visualizing-interaction-model-real",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Visualizing Interaction Model: Real",
-    "text": "Visualizing Interaction Model: Real"
-  },
-  {
-    "objectID": "slides/07-mlr.html#model-fit-1",
-    "href": "slides/07-mlr.html#model-fit-1",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Model Fit",
-    "text": "Model Fit\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-315.00522\n46.72441\n-6.74177\n0.00000\n\n\nCards\n-81.11569\n14.45641\n-5.61105\n0.00000\n\n\nRating\n14.83433\n0.11902\n124.64042\n0.00000\n\n\nCards:Rating\n0.02376\n0.03598\n0.66030\n0.50945\n\n\n\n\n\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n&  -315.005 + 14.834~\\text{Rating} -81.116~\\text{Cards}\\\\\n& \\qquad+ 0.024~\\text{Rating}\\times\\text{Cards}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/07-mlr.html#interpreting-the-interaction-term-1",
-    "href": "slides/07-mlr.html#interpreting-the-interaction-term-1",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting the interaction term",
-    "text": "Interpreting the interaction term\n\nFor a fixed Rating the slope of Cards is \\((-81.116 + 0.024\\times\\text{Rating})\\)\nFor a fixed Cards the slope of Rating is \\((14.834 + 0.024\\times\\text{Cards})\\)"
-  },
-  {
-    "objectID": "slides/07-mlr.html#whats-actually-happening",
-    "href": "slides/07-mlr.html#whats-actually-happening",
-    "title": "Multiple linear regression (MLR)",
-    "section": "What’s actually happening:",
-    "text": "What’s actually happening:\n\nCredit_int &lt;- Credit |&gt;\n  mutate(Interaction = Cards * Rating)\n\nCredit_int |&gt;\n  select(Limit, Cards, Rating, Interaction) |&gt;\n  head() |&gt;\n  kable()\n\n\n\n\nLimit\nCards\nRating\nInteraction\n\n\n\n\n3606\n2\n283\n566\n\n\n6645\n3\n483\n1449\n\n\n7075\n4\n514\n2056\n\n\n9504\n3\n681\n2043\n\n\n4897\n2\n357\n714\n\n\n8047\n4\n569\n2276"
-  },
-  {
-    "objectID": "slides/07-mlr.html#whats-actually-happening-1",
-    "href": "slides/07-mlr.html#whats-actually-happening-1",
-    "title": "Multiple linear regression (MLR)",
-    "section": "What’s actually happening:",
-    "text": "What’s actually happening:\n\nlm(Limit ~ Cards + Rating + Interaction, data = Credit_int) |&gt;\n  tidy() |&gt;\n  kable(digits = 5)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-315.00522\n46.72441\n-6.74177\n0.00000\n\n\nCards\n-81.11569\n14.45641\n-5.61105\n0.00000\n\n\nRating\n14.83433\n0.11902\n124.64042\n0.00000\n\n\nInteraction\n0.02376\n0.03598\n0.66030\n0.50945"
-  },
-  {
-    "objectID": "slides/07-mlr.html#recap",
-    "href": "slides/07-mlr.html#recap",
-    "title": "Multiple linear regression (MLR)",
+    "objectID": "slides/08-mlr-inference.html#recap",
+    "href": "slides/08-mlr-inference.html#recap",
+    "title": "MLR: Inference and Conditions",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms"
+    "text": "Recap\n\nInference for individual predictors\n\nHypothesis testing: same as SLR but add if all other terms are in the model\nConfidence intervals: same as SLR but add holding all other variables in the model constant\n\nConditions: Same as for SLR\n\nFor linearity, also check fitter values vs. each predictor"
   }
 ]

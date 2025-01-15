@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.39">
+
+  <meta name="author" content="Prof.&nbsp;Eric Friedlander">
+  <title>MAT 212 - Winter 2025 – SLR: Transformations</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-72811bd306436bae30bfb620bac545c3.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">SLR: Transformations</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof.&nbsp;Eric Friedlander 
+</div>
+</div>
+</div>
+
+</section>
+<section id="application-exercise" class="slide level2">
+<h2>Application exercise</h2>
+<div class="appex">
+<p>📋 <a href="../ae/ae-06-transformations.html">AE 06 - Transformations + Outliers</a></p>
+</div>
+<p>Complete Exercises 0 and 1.</p>
+</section>
+<section id="computational-set-up" class="slide level2">
+<h2>Computational set up</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(broom)       <span class="co"># for formatting model output</span></span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(ggformula)   <span class="co"># for creating plots using formulas</span></span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for pretty tables</span></span>
+<span id="cb1-7"><a></a><span class="fu">library</span>(moderndive)  <span class="co"># for house_price dataset</span></span>
+<span id="cb1-8"><a></a><span class="fu">library</span>(fivethirtyeight)   <span class="co"># for fandango dataset</span></span>
+<span id="cb1-9"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for pretty tables</span></span>
+<span id="cb1-10"><a></a><span class="fu">library</span>(patchwork)   <span class="co"># arrange plots</span></span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-13"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-house_prices" class="slide level2 smaller">
+<h2>Data: <code>house_prices</code></h2>
+<div>
+<ul>
+<li>Contains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015</li>
+<li>Obtained from <a href="https://www.kaggle.com/harlfoxem/housesalesprediction/data">Kaggle.com</a></li>
+<li>Imported from the <code>moderndive</code> package</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">glimpse</span>(house_prices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 21,613
+Columns: 21
+$ id            &lt;chr&gt; "7129300520", "6414100192", "5631500400", "2487200875", …
+$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…
+$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…
+$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…
+$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…
+$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…
+$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…
+$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…
+$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …
+$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…
+$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…
+$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…
+$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…
+$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …
+$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…
+$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …
+$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…
+$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…
+$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…
+$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …</code></pre>
+</div>
+</div>
+</section>
+<section id="variables" class="slide level2">
+<h2>Variables</h2>
+<ul>
+<li>Outcome
+<ul>
+<li><code>price</code>: the sale price in dollars</li>
+</ul></li>
+<li>Predictor
+<ul>
+<li><code>sqft_living</code>: the square footage of the home</li>
+</ul></li>
+</ul>
+</section>
+<section id="recap-fit-the-model" class="slide level2">
+<h2>Recap: Fit the model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>hp_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices)</span>
+<span id="cb4-2"><a></a><span class="fu">tidy</span>(hp_fit) <span class="sc">|&gt;</span>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-43580.74</td>
+<td style="text-align: right;">4402.69</td>
+<td style="text-align: right;">-9.90</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sqft_living</td>
+<td style="text-align: right;">280.62</td>
+<td style="text-align: right;">1.94</td>
+<td style="text-align: right;">144.92</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<ul>
+<li class="fragment">Write down the model:
+<ul>
+<li class="fragment"><strong>Model:</strong> <span class="math inline">\(\hat{\text{price}} = -43580.74 + 280.62\times\text{sqft_living}\)</span></li>
+</ul></li>
+<li class="fragment">Interpret the slope and intercept in the context of this problem:
+<ul>
+<li class="fragment"><strong>Interpretation:</strong> If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost -$43,580.74.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="recap-fit-the-model-1" class="slide level2">
+<h2>Recap: Fit the model</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">gf_point</span>(price <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices,</span>
+<span id="cb5-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Square Footage"</span>, </span>
+<span id="cb5-5"><a></a>       <span class="at">y =</span> <span class="st">"Sale Price"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb5-6"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb5-7"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="recap-model-conditions" class="slide level2">
+<h2>Recap: Model conditions</h2>
+<ol type="1">
+<li><strong>Linearity:</strong> There is a linear relationship between the outcome and predictor variables</li>
+<li><strong>Constant variance:</strong> The variability of the errors is equal for all values of the predictor variable</li>
+<li><strong>Normality:</strong> The errors follow a normal distribution</li>
+<li><strong>Independence:</strong> The errors are independent from each other</li>
+</ol>
+<div class="fragment">
+<div class="question">
+<p>How should we check these assumptions?</p>
+</div>
+</div>
+</section>
+<section id="recap-residual-histogram" class="slide level2">
+<h2>Recap: Residual Histogram</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>hp_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(hp_fit)</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> hp_aug, <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Residual"</span>, </span>
+<span id="cb6-5"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb6-6"><a></a>       <span class="at">title =</span> <span class="st">"Residual Histogram"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="recap-qq-plot-of-residuals" class="slide level2">
+<h2>Recap: QQ-Plot of Residuals</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> hp_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb7-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb7-5"><a></a>       <span class="at">title =</span> <span class="st">"Normal QQ-plot of residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="recap-residuals-vs.-fitted-values" class="slide level2">
+<h2>Recap: Residuals vs.&nbsp;Fitted Values</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> hp_aug, </span>
+<span id="cb8-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb8-5"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb8-6"><a></a>    <span class="at">title =</span> <span class="st">"Residuals vs. fitted values"</span></span>
+<span id="cb8-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="are-model-conditions-satisfied" class="slide level2">
+<h2><span class="r-fit-text">Are model conditions satisfied?</span></h2>
+<ol type="1">
+<li><strong>Linearity:</strong> <code>❓</code></li>
+<li><strong>Constant variance:</strong> <code>❌</code></li>
+<li><strong>Normality:</strong> <code>❌</code></li>
+<li><strong>Independence:</strong> <code>✅</code></li>
+</ol>
+</section>
+<section id="what-to-do-when-regression-conditions-are-violated" class="slide level2">
+<h2><span class="r-fit-text">What to do when regression conditions are violated</span></h2>
+<p>Examples:</p>
+<ol type="1">
+<li>Lack of normality in residuals</li>
+<li>Patterns in residuals</li>
+<li>Heteroscedasticity (non-constant variance)</li>
+<li>Outliers: influential points, large residuals</li>
+</ol>
+</section>
+<section>
+<section id="transformations" class="title-slide slide level1 center">
+<h1>Transformations</h1>
+
+</section>
+<section id="data-transformations" class="slide level2">
+<h2>Data Transformations</h2>
+<p>Can be used to:</p>
+<ol type="a">
+<li>Address nonlinear patterns</li>
+<li>Stabilize variance</li>
+<li>Remove skewness from residuals</li>
+<li>Minimize effects of outliers</li>
+</ol>
+</section>
+<section id="common-transformations" class="slide level2">
+<h2>Common Transformations</h2>
+<p>For either the response <span class="math inline">\(Y\)</span> or predictor <span class="math inline">\(X\)</span>:</p>
+<ul>
+<li>Logarithm <span class="math inline">\(Z \to \log(Z)\)</span>
+<ul>
+<li>Note: “log” means “log base <span class="math inline">\(e\)</span>”</li>
+</ul></li>
+<li>Square Root <span class="math inline">\(Z \to \sqrt{Z}\)</span></li>
+<li>Exponential <span class="math inline">\(Z \to e^Z\)</span></li>
+<li>Power functions <span class="math inline">\(Z \to Z^2, Z^3, Z^4, \ldots\)</span></li>
+<li>Reciprocal <span class="math inline">\(Z \to 1/Z\)</span></li>
+</ul>
+</section>
+<section id="general-approach" class="slide level2">
+<h2>General Approach</h2>
+<ul>
+<li>Fix non-constant variance be transforming <span class="math inline">\(Y\)</span> (do this first)
+<ul>
+<li>Fan Pattern: Log-Transform <span class="math inline">\(Y\)</span></li>
+</ul></li>
+<li>Fix non-linearity by transforming <span class="math inline">\(X\)</span></li>
+</ul>
+</section>
+<section id="why-a-log-transformation" class="slide level2 smaller">
+<h2>Why a Log Transformation?</h2>
+<blockquote>
+<p>Some relationship are <em>multiplicative</em> (not linear)</p>
+</blockquote>
+<p>Example: Area of a circle</p>
+<p><span class="math display">\[
+\begin{aligned}
+A &amp;= \pi r^2 \text{ (not linear)}\\
+\log(A) &amp;= \log(\pi r^2)
+= \log(\pi) + 2\log(r)\\
+\log(A) &amp;= \beta_0 + \beta_1\times \log(r)\\
+\implies &amp; \log(A) \text{ is a linear function of } \log(r)
+\end{aligned}
+\]</span></p>
+<p>Look for:</p>
+<ul>
+<li>Increasing variability in scatterplot</li>
+<li>Strongly right-skewed residual distributions</li>
+<li>Complete Exercise 2</li>
+</ul>
+</section>
+<section id="fixing-non-linearity" class="slide level2">
+<h2>Fixing non-linearity</h2>
+<ul>
+<li><p>Many departures from linearity can be solved with power transformations (e.g.&nbsp;<span class="math inline">\(X^{power}\)</span>)</p>
+<ul>
+<li>For technical reasons, <span class="math inline">\(power = 0\)</span> corresponds to <span class="math inline">\(\log\)</span></li>
+</ul></li>
+<li><p>Concave down pattern <span class="math inline">\(\Rightarrow\)</span> transform down (i.e.&nbsp;<span class="math inline">\(power &lt; 1\)</span>)</p>
+<ul>
+<li><span class="math inline">\(\log\)</span> is typically a good first choice</li>
+</ul></li>
+<li><p>Concave up pattern <span class="math inline">\(\Rightarrow\)</span> transform up (i.e.&nbsp;<span class="math inline">\(power &gt; 1\)</span>)</p></li>
+<li><p>Complete Exercises 3-5.</p></li>
+</ul>
+</section>
+<section id="back-to-house_sales" class="slide level2">
+<h2>Back to <code>house_sales</code></h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(price <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices,</span>
+<span id="cb9-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Square Footage"</span>, </span>
+<span id="cb9-5"><a></a>       <span class="at">y =</span> <span class="st">"Sale Price"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb9-6"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb9-7"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(<span class="fu">log</span>(price) <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices,</span>
+<span id="cb9-10"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-11"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-12"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Square Footage"</span>, </span>
+<span id="cb9-13"><a></a>       <span class="at">y =</span> <span class="st">"log(Sale Price)"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb9-14"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb9-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb9-16"><a></a></span>
+<span id="cb9-17"><a></a>p3 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(price <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices,</span>
+<span id="cb9-18"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-19"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-20"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"log(Square Footage)"</span>, </span>
+<span id="cb9-21"><a></a>       <span class="at">y =</span> <span class="st">"Sale Price"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb9-22"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb9-23"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb9-24"><a></a></span>
+<span id="cb9-25"><a></a>p4 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices,</span>
+<span id="cb9-26"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-27"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-28"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"log(Square Footage)"</span>, </span>
+<span id="cb9-29"><a></a>       <span class="at">y =</span> <span class="st">"log(Sale Price)"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb9-30"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb9-31"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb9-32"><a></a></span>
+<span id="cb9-33"><a></a>(p1 <span class="sc">+</span> p2)<span class="sc">/</span> (p3 <span class="sc">+</span> p4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="fitting-transformed-models" class="slide level2 smaller">
+<h2>Fitting Transformed Models</h2>
+<div class="columns">
+<div class="column">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>logprice_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices)</span>
+<span id="cb10-2"><a></a><span class="fu">tidy</span>(logprice_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">12.2184641</td>
+<td style="text-align: right;">0.0063741</td>
+<td style="text-align: right;">1916.8830</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sqft_living</td>
+<td style="text-align: right;">0.0003987</td>
+<td style="text-align: right;">0.0000028</td>
+<td style="text-align: right;">142.2326</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span class="math display">\[
+\begin{aligned}
+\log(Y) &amp;= 12.22  + 3.99\times 10^{-4}\times X\\
+Y &amp;= e^{12.22 + 3.99\times 10^{-4}\times X}\\
+&amp;= 202805\times e^{3.99\times 10^{-4}\times X}
+\end{aligned}
+\]</span></p>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>loglog_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices)</span>
+<span id="cb11-2"><a></a><span class="fu">tidy</span>(loglog_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">6.729916</td>
+<td style="text-align: right;">0.0470620</td>
+<td style="text-align: right;">143.0011</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">log(sqft_living)</td>
+<td style="text-align: right;">0.836771</td>
+<td style="text-align: right;">0.0062233</td>
+<td style="text-align: right;">134.4587</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span class="math display">\[
+\begin{aligned}
+\log(Y) &amp;=6.73 + 0.837\times \log(X)\\
+\log(Y) &amp;= \log(e^{6.73})  + \log(X^{0.837})\\
+Y &amp;= 873.15\times X^{0.837}
+\end{aligned}
+\]</span></p>
+</div></div>
+</section>
+<section id="residuals-histograms" class="slide level2">
+<h2>Residuals Histograms</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>lp_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(logprice_model)</span>
+<span id="cb12-2"><a></a>ll_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(loglog_model)</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> lp_aug, <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Residual"</span>, </span>
+<span id="cb12-6"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb12-7"><a></a>       <span class="at">title =</span> <span class="st">"Log Price Residuals"</span>)</span>
+<span id="cb12-8"><a></a></span>
+<span id="cb12-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> ll_aug, <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-10"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Residual"</span>, </span>
+<span id="cb12-11"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb12-12"><a></a>       <span class="at">title =</span> <span class="st">"Log-Log Residuals"</span>)</span>
+<span id="cb12-13"><a></a></span>
+<span id="cb12-14"><a></a>(p1 <span class="sc">+</span> p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="qq-plots-of-residuals" class="slide level2">
+<h2>QQ-Plots of Residuals</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> lp_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb13-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb13-5"><a></a>       <span class="at">title =</span> <span class="st">"Log Price QQ"</span>)</span>
+<span id="cb13-6"><a></a></span>
+<span id="cb13-7"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> ll_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb13-8"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-9"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb13-10"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb13-11"><a></a>       <span class="at">title =</span> <span class="st">"Log-Log QQ"</span>)</span>
+<span id="cb13-12"><a></a></span>
+<span id="cb13-13"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="residuals-vs.-fitted-values" class="slide level2">
+<h2>Residuals vs.&nbsp;Fitted Values</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> lp_aug, </span>
+<span id="cb14-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb14-5"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb14-6"><a></a>    <span class="at">title =</span> <span class="st">"Log Price Model"</span></span>
+<span id="cb14-7"><a></a>  )</span>
+<span id="cb14-8"><a></a></span>
+<span id="cb14-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> ll_aug, </span>
+<span id="cb14-10"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-11"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-12"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb14-13"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb14-14"><a></a>    <span class="at">title =</span> <span class="st">"Log-Log Model"</span></span>
+<span id="cb14-15"><a></a>  )</span>
+<span id="cb14-16"><a></a></span>
+<span id="cb14-17"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="a-note-on-evaluation" class="slide level2">
+<h2>A note on evaluation</h2>
+<p>If you are computing your evaluation metrics (e.g.&nbsp;<span class="math inline">\(R^2\)</span> or RMSE), you should transform your predictions BACK to their original scale, especially if you’re trying to choose the best model</p>
+<div class="question">
+<ul>
+<li>Why do we need to undo the transformation for evaluation metrics by not residuals plots?</li>
+<li>Why don’t we need to worry about the predictors?</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="outliers" class="title-slide slide level1 center">
+<h1>Outliers</h1>
+
+</section>
+<section id="types-of-unusual-points-in-slr" class="slide level2">
+<h2>Types of “Unusual” Points in SLR</h2>
+<ul>
+<li><strong>Outlier</strong>: a data point that is far from the regression line</li>
+<li><strong>Influential point</strong>: a data point that has a large effect on the regression fit</li>
+</ul>
+<div class="fragment">
+<div class="question">
+<ul>
+<li>How do we measure “far”?</li>
+<li>How do we measure “effect on the fit”?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="detecting-unusual-cases-overview" class="slide level2">
+<h2>Detecting Unusual Cases: Overview</h2>
+<ol type="1">
+<li>Compute residuals
+<ul>
+<li>“raw”, standardized, studentized</li>
+</ul></li>
+<li>Plots of residuals
+<ul>
+<li>boxplot, scatterplot, normal plot</li>
+</ul></li>
+<li>Leverage
+<ul>
+<li>unusual values for the predictors</li>
+</ul></li>
+</ol>
+</section>
+<section id="example-movie-scores" class="slide level2">
+<h2>Example: Movie scores</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li>Data behind the FiveThirtyEight story <a href="https://fivethirtyeight.com/features/fandango-movies-ratings/"><em>Be Suspicious Of Online Movie Ratings</em></a><a href="&quot;Be Suspicious Of Online Movie Ratings, Especially Fandango's&quot;"><em>, Especially Fandango’s</em></a></li>
+<li>In the <strong>fivethirtyeight</strong> package: <a href="https://fivethirtyeight-r.netlify.app/reference/fandango.html"><code>fandango</code></a></li>
+<li>Contains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/06/fandango.png" alt="Fandango logo" width="200"></p>
+<p><img data-src="images/06/imdb.png" alt="IMDB logo" width="200"></p>
+<p><img data-src="images/06/rotten-tomatoes.png" alt="Rotten Tomatoes logo" width="200"></p>
+<p><img data-src="images/06/metacritic.png" alt="Metacritic logo" width="200"></p>
+</div></div>
+</section>
+<section id="data-prep" class="slide level2">
+<h2>Data prep</h2>
+<ul>
+<li>Rename Rotten Tomatoes columns as <code>critics</code> and <code>audience</code></li>
+<li>Rename the dataset as <code>movie_scores</code></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">data</span>(<span class="st">"fandango"</span>)</span>
+<span id="cb15-2"><a></a></span>
+<span id="cb15-3"><a></a>movie_scores <span class="ot">&lt;-</span> fandango <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a></a>  <span class="fu">rename</span>(<span class="at">critics =</span> rottentomatoes, </span>
+<span id="cb15-5"><a></a>         <span class="at">audience =</span> rottentomatoes_user)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-movie-scores-1" class="slide level2">
+<h2>Example: Movie Scores</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>movie_scores <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">gf_point</span>(audience <span class="sc">~</span> critics) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a></a>  <span class="fu">gf_lm</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Critics Score"</span>, </span>
+<span id="cb16-5"><a></a>       <span class="at">y =</span> <span class="st">"Audience Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="boxplot-of-residuals" class="slide level2">
+<h2>Boxplot of Residuals</h2>
+<div class="smaller">
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>movie_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(audience <span class="sc">~</span> critics, <span class="at">data =</span> movie_scores)</span>
+<span id="cb17-2"><a></a>movie_fit_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(movie_fit)</span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a><span class="fu">gf_boxplot</span>(.resid <span class="sc">~</span> <span class="st">""</span>, <span class="at">data =</span> movie_fit_aug, </span>
+<span id="cb17-5"><a></a>           <span class="at">fill =</span> <span class="st">"salmon"</span>, <span class="at">ylab =</span> <span class="st">"Residuals"</span>, <span class="at">xlab =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+<ul>
+<li>Dots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles</li>
+</ul>
+</section>
+<section id="standardized-residuals" class="slide level2">
+<h2>Standardized Residuals</h2>
+<div>
+<ul>
+<li class="fragment">Recall: Z-scores</li>
+<li class="fragment">Fact: If <span class="math inline">\(X\)</span> has mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, then <span class="math inline">\((X-\mu)/\sigma\)</span> has mean 0 and standard deviation 1</li>
+<li class="fragment">For residuals: mean 0 and standard deviation <span class="math inline">\(\hat{\sigma}_\epsilon\)</span></li>
+<li class="fragment"><strong>Standardized residuals:</strong> <span class="math inline">\(\frac{y_i-\hat{y}_i}{\hat{\sigma}_\epsilon}\)</span>
+<ul>
+<li class="fragment">Look for values beyond <span class="math inline">\(\pm 2\)</span> or <span class="math inline">\(\pm 3\)</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="recap-augment-function" class="slide level2">
+<h2>Recap: <code>Augment</code> function</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>movie_fit_aug <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">audience</th>
+<th style="text-align: right;">critics</th>
+<th style="text-align: right;">.fitted</th>
+<th style="text-align: right;">.resid</th>
+<th style="text-align: right;">.hat</th>
+<th style="text-align: right;">.sigma</th>
+<th style="text-align: right;">.cooksd</th>
+<th style="text-align: right;">.std.resid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">70.69768</td>
+<td style="text-align: right;">15.302321</td>
+<td style="text-align: right;">0.0081597</td>
+<td style="text-align: right;">12.51615</td>
+<td style="text-align: right;">0.0061774</td>
+<td style="text-align: right;">1.2254688</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">76.40313</td>
+<td style="text-align: right;">3.596866</td>
+<td style="text-align: right;">0.0112688</td>
+<td style="text-align: right;">12.57830</td>
+<td style="text-align: right;">0.0004743</td>
+<td style="text-align: right;">0.2885034</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">73.80975</td>
+<td style="text-align: right;">16.190255</td>
+<td style="text-align: right;">0.0096283</td>
+<td style="text-align: right;">12.50817</td>
+<td style="text-align: right;">0.0081839</td>
+<td style="text-align: right;">1.2975389</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">41.65173</td>
+<td style="text-align: right;">42.348272</td>
+<td style="text-align: right;">0.0207618</td>
+<td style="text-align: right;">12.06226</td>
+<td style="text-align: right;">0.1234982</td>
+<td style="text-align: right;">3.4131653</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">39.57702</td>
+<td style="text-align: right;">-11.577018</td>
+<td style="text-align: right;">0.0234805</td>
+<td style="text-align: right;">12.54373</td>
+<td style="text-align: right;">0.0104964</td>
+<td style="text-align: right;">-0.9343768</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">64.99222</td>
+<td style="text-align: right;">-2.992225</td>
+<td style="text-align: right;">0.0068844</td>
+<td style="text-align: right;">12.57943</td>
+<td style="text-align: right;">0.0001988</td>
+<td style="text-align: right;">-0.2394750</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="example-movie-scores-2" class="slide level2">
+<h2>Example: Movie Scores</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>p1 <span class="ot">&lt;-</span> movie_fit_aug <span class="sc">|&gt;</span>  <span class="co"># Augmented data</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">gf_boxplot</span>(<span class="st">""</span> <span class="sc">~</span> .std.resid, </span>
+<span id="cb19-3"><a></a>           <span class="at">xlab =</span> <span class="st">"Standardized Residual"</span>)</span>
+<span id="cb19-4"><a></a></span>
+<span id="cb19-5"><a></a>p2 <span class="ot">&lt;-</span> movie_fit_aug <span class="sc">|&gt;</span>  <span class="co"># Augmented data</span></span>
+<span id="cb19-6"><a></a>  <span class="fu">gf_point</span>(.std.resid <span class="sc">~</span> .fitted, </span>
+<span id="cb19-7"><a></a>           <span class="at">xlab =</span> <span class="st">"Predicted"</span>, <span class="at">ylab =</span> <span class="st">"Standardized Residual"</span>)</span>
+<span id="cb19-8"><a></a></span>
+<span id="cb19-9"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="externally-studentized-residuals" class="slide level2">
+<h2>(Externally) Studentized Residuals</h2>
+<ul>
+<li>Concern: An unusual value may exert great influence on the fit
+<ul>
+<li>Its residual might be underestimated because the model “moves” a lot to fit it</li>
+<li>The standard error may also be inflated due to the outlier error</li>
+</ul></li>
+<li><strong>Studentize:</strong> Fit the model <em>without</em> that case, then find new <span class="math inline">\(\hat{\sigma}_\epsilon\)</span></li>
+</ul>
+</section>
+<section id="example-movie-scores-3" class="slide level2">
+<h2>Example: Movie Scores</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>movie_fit_aug <span class="sc">|&gt;</span>  <span class="co"># Augmented data</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">mutate</span>(<span class="at">studentized_residual =</span> <span class="fu">rstudent</span>(movie_fit)) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a></a>  <span class="fu">gf_point</span>(studentized_residual <span class="sc">~</span> .fitted, </span>
+<span id="cb20-4"><a></a>           <span class="at">xlab =</span> <span class="st">"Predicted"</span>, <span class="at">ylab =</span> <span class="st">"Studentized Residual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="what-to-do-with-an-outlier" class="slide level2">
+<h2>What to do with an outlier?</h2>
+<ul>
+<li>Look into it</li>
+<li>If something is unusual about it and you can make a case that it is not a good representation of the population you can throw it out</li>
+<li>If not and the value is just unusual, keep it</li>
+</ul>
+</section>
+<section id="influence-vs.-leverage" class="slide level2">
+<h2>Influence vs.&nbsp;Leverage</h2>
+<ul>
+<li><strong>High Influence Point</strong>: point that DOES impact the regression line</li>
+<li><strong>High Leverage Point</strong>: point with “potential” to impact regression line because <span class="math inline">\(X\)</span>-value is unusual</li>
+</ul>
+</section>
+<section id="high-leverage-low-influence" class="slide level2">
+<h2>High Leverage, Low Influence</h2>
+
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="high-leverage-high-influence" class="slide level2">
+<h2>High Leverage, High Influence</h2>
+
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="low-leverage-low-influence" class="slide level2">
+<h2>Low Leverage, Low Influence</h2>
+
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="low-leverage-high-influence" class="slide level2">
+<h2>Low Leverage, High Influence</h2>
+
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="low-leverage-high-influence-1" class="slide level2">
+<h2>Low Leverage, High Influence</h2>
+
+<img data-src="06-slr-transformations_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="recap" class="slide level2 smaller">
+<h2>Recap</h2>
+<ul>
+<li>Transformations
+<ul>
+<li>Transform <span class="math inline">\(Y\)</span> to fix non-constant variance (and non-normality)</li>
+<li>Transform <span class="math inline">\(X\)</span> to fix non-linearity</li>
+<li>Power transformations are powerful (concave up/drown <span class="math inline">\(\Rightarrow\)</span> power up/down)</li>
+<li>logs allow us to model a lot of non-linear relationships with a linear model</li>
+</ul></li>
+<li>Outliers
+<ul>
+<li>Leverage</li>
+<li>Influence</li>
+<li>Used plots of residuals, standardized residuals, and studentized residuals to diagnose outliers</li>
+</ul></li>
+<li>Spend the rest of class working on Exercise 6.</li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://mat212wi25.netlify.app/schedule">🔗 MAT 212 - Winter 2025 - Schedule</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/mat212wi25\.netlify\.app\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
