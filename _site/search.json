@@ -414,11 +414,11 @@
     "text": "Checking independence\nResiduals vs. order of data collection:\n\n\nCode\ngf_line(.resid ~ 1:nrow(rt_full_aug), data = rt_full_aug) |&gt;\n  gf_point()  |&gt;\n  gf_hline(yintercept = 0, color = \"red\", linetype = \"dashed\")  |&gt;\n  gf_labs(x = \"Order of data collection\", y = \"Residuals\")"
   },
   {
-    "objectID": "slides/07-mlr.html#trying-something-new",
-    "href": "slides/07-mlr.html#trying-something-new",
+    "objectID": "slides/07-mlr.html#application-exercise",
+    "href": "slides/07-mlr.html#application-exercise",
     "title": "Multiple linear regression (MLR)",
-    "section": "Trying something new",
-    "text": "Trying something new\n\n📋 AE 07 - Multiple Linear Regression and Categorical Predictors\n\nComplete Exercise 0-3."
+    "section": "Application Exercise",
+    "text": "Application Exercise\n\n📋 AE 07 - Multiple Linear Regression and Categorical Predictors\n\nComplete Exercise 0-3."
   },
   {
     "objectID": "slides/07-mlr.html#computational-setup",
@@ -460,7 +460,7 @@
     "href": "slides/07-mlr.html#outcome-vs.-predictors",
     "title": "Multiple linear regression (MLR)",
     "section": "Outcome vs. predictors",
-    "text": "Outcome vs. predictors\n\n\nCode\nlibrary(GGally)\n\nCredit |&gt; \n  select(Limit, Rating, Cards, Has_Balance) |&gt; \n  ggpairs()"
+    "text": "Outcome vs. predictors\n\n\nCode\nlibrary(GGally)\n\n\nRegistered S3 method overwritten by 'GGally':\n  method from   \n  +.gg   ggplot2\n\n\nCode\nCredit |&gt; \n  select(Limit, Rating, Cards, Has_Balance) |&gt; \n  ggpairs()\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
   },
   {
     "objectID": "slides/07-mlr.html#single-vs.-multiple-predictors",
@@ -614,7 +614,7 @@
     "href": "slides/07-mlr.html#bike-rentals-vs.-temperature-interaction-term",
     "title": "Multiple linear regression (MLR)",
     "section": "Bike Rentals vs. Temperature: interaction term",
-    "text": "Bike Rentals vs. Temperature: interaction term"
+    "text": "Bike Rentals vs. Temperature: interaction term\n\n\nRows: 731 Columns: 17\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...\ndate  (1): dteday\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
     "objectID": "slides/07-mlr.html#interpreting-interaction-terms",
@@ -656,7 +656,7 @@
     "href": "slides/07-mlr.html#visualizing-model-no-interaction",
     "title": "Multiple linear regression (MLR)",
     "section": "Visualizing Model: No Interaction",
-    "text": "Visualizing Model: No Interaction"
+    "text": "Visualizing Model: No Interaction\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:mosaic':\n\n    do\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\n\nAttaching package: 'reshape2'\n\n\nThe following object is masked from 'package:tidyr':\n\n    smiths"
   },
   {
     "objectID": "slides/07-mlr.html#visualizing-interaction-model-exaggerated",

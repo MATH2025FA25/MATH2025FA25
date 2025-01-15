@@ -25,7 +25,7 @@ knitr:
 bibliography: references.bib  
 ---
 
-## Trying something new {.smaller}
+## Application Exercise
 
 ::: appex
 📋 [AE 07 - Multiple Linear Regression and Categorical Predictors](/ae/ae-07-mlr.qmd)
