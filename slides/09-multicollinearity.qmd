@@ -1,0 +1,304 @@
+---
+title: "Multicollinearity"
+author: "Prof. Eric Friedlander"
+date: "2024-10-30"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618,
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+```
+
+## First things first
+
+-   Finish-up AE-16
+
+## Announcements
+
+-   Project: EDA Due Today
+-   Project: [Paper Due November 18th](https://mat212fa24.netlify.app/project-instructions#draft-report)
+-   Oral R Quiz
+
+::: appex
+📋 [AE 17 - Multicollinearity](https://mat212fa24.netlify.app/ae/ae-17-multicollinearity)
+
+- Open up AE 17 and Complete Exercise 0
+:::
+
+## Topics
+
+::: nonincremental
+-   Defining Multicollinearity
+-   Detecting Multicollinearity
+-   Variance Inflation Factors
+:::
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+
+# load packages
+library(tidyverse)
+library(broom)
+library(mosaic)
+library(mosaicData)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(countdown)
+library(rms)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+```
+
+
+## Data: `rail_trail` {.smaller}
+
+::: nonincremental
+-   The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.
+-   Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
+:::
+
+```{r}
+#| echo: false
+rail_trail <- read_csv("data/rail_trail.csv")
+rail_trail
+```
+
+
+Source: [Pioneer Valley Planning Commission](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf) via the **mosaicData** package.
+
+## Full model
+
+```{r}
+#| echo: FALSE
+rt_full_fit <- lm(volume ~ ., data = rail_trail)
+tidy(rt_full_fit) |> kable()
+
+rt_full_aug <- augment(rt_full_fit)
+```
+
+# Multicollinearity
+
+## What is multicollinearity
+
+-   **Multicollinearity** is the case when one or more predictor variables are strongly correlated with some combination of other predictors
+-   **Intuition:** if you could fit a good linear model with one of your predictors as the response and the rest of the predictors as your explanatory variables, then your predictors are exhibiting multicollinearity
+
+
+
+## Example
+
+Let's assume the true population regression equation is $y = 3 + 4x$
+
+. . .
+
+Suppose we try estimating that equation using a model with variables $x$ and $z = x/10$
+
+$$
+\begin{aligned}\hat{y}&= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2z\\
+&= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2\frac{x}{10}\\
+&= \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x
+\end{aligned}
+$$
+
+## Example {.smaller}
+
+$$\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x$$
+
+-   We can set $\hat{\beta}_1$ and $\hat{\beta}_2$ to any two numbers such that $\hat{\beta}_1 + \frac{\hat{\beta}_2}{10} = 4$
+
+-   Therefore, we are unable to choose the "best" combination of $\hat{\beta}_1$ and $\hat{\beta}_2$
+
+-   In statistics, we say this model is "unidentifiable" because different parameters combinations can result in the same model
+
+-   This is also why we need to set a reference level for categorical variables
+
+-   Complete Exercises 1-2.
+
+## Why multicollinearity is a problem
+
+-   When we have perfect collinearities, we are unable to get estimates for the coefficients
+
+    -   When we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate
+
+    -   In other words, we lose precision in our estimates of the regression coefficients
+
+    -   This impedes our ability to use the model for inference
+
+    -   It is also difficult to interpret the model coefficients
+
+## Detecting Multicollinearity {.midi}
+
+Multicollinearity may occur when...
+
+-   There are very high correlations $(r > 0.9)$ among two or more predictor variables, especially when the sample size is small
+
+-   One (or more) predictor variables is an almost perfect linear combination of the others
+
+-   There are interactions between two or more continuous variables
+
+
+## Detecting multicollinearity in the EDA
+
+-   Look at a correlation matrix of the predictor variables, including all indicator variables
+    -   Look out for values close to 1 or -1
+-   Look at a scatter plot matrix of the predictor variables
+    -   Look out for plots that show a relatively linear relationship
+-   Complete Exercises 3-4.
+
+## Detecting Multicollinearity (VIF)
+
+**Variance Inflation Factor (VIF)**: Measure of multicollinearity in the regression model
+
+$$VIF(\hat{\beta}_j) = \frac{1}{1-R^2_{X_j|X_{-j}}}$$
+
+where $R^2_{X_j|X_{-j}}$ is the proportion of variation in $X_j$ that is explained by the linear combination of the other explanatory variables in the model.
+
+## Detecting Multicollinearity (VIF)
+
+-   Typically $VIF > 10$ indicates concerning multicollinearity
+
+-   Variables with similar values of VIF are typically the ones correlated with each other
+
+-   Use the `vif()` function in the **rms** R package to calculate VIF
+
+## VIF for rail trail model
+
+Complete Exercise 5.
+
+. . .
+
+```{r echo = T}
+vif(rt_full_fit)
+```
+
+<br>
+
+. . .
+
+`hightemp` and `avgtemp` are correlated. 
+
+## What to do about Multicollinearity
+
+1. Drop some predictors.
+    - Example: Remove <u>**one**</u> of these variables and refit the model.
+2. Combine some predictors.
+    - Example: Create a new variable `temp_comsite` that is the average of `avgtemp` and `hightemp`.
+3. Discount the individual coefficients and t-tests.
+    - Example: Think about `avgtemp` and `hightemp` together with their individual $\beta$'s and p-values not having much meaning.
+    
+. . .
+
+Complete Exercises 6 & 7.
+
+## Model without `hightemp` {.smaller}
+
+```{r}
+#| echo: FALSE
+m1 <- lm(volume ~ . - hightemp, data = rail_trail)
+  
+m1 |>
+  tidy() |>
+  kable(digits = 3)
+```
+
+## Model without `avgtemp` {.smaller}
+
+```{r}
+#| echo: FALSE
+m2 <- lm(volume ~ . - avgtemp, data = rail_trail)
+  
+m2 |>
+  tidy() |>
+  kable(digits = 3)
+```
+
+## Model without `temp_composite` {.smaller}
+
+```{r}
+#| echo: FALSE
+
+rail_trail <- rail_trail |> 
+  mutate(temp_composite = (avgtemp+hightemp)/2)
+
+m3 <- lm(volume ~ . - avgtemp - hightemp, data = rail_trail)
+  
+m3 |>
+  tidy() |>
+  kable(digits = 3)
+```
+
+## Choosing a model {.midi}
+
+Model without `hightemp`:
+
+```{r}
+#| echo: false
+
+glance(m1) |>
+  select(adj.r.squared, AIC, BIC) |> kable(digits = 2)
+```
+
+Model without `avgtemp`:
+
+```{r echo = F}
+#| echo: false
+
+glance(m2) |>
+  select(adj.r.squared, AIC, BIC) |> kable(digits = 2)
+```
+
+Model with `temp_composite`:
+
+```{r echo = F}
+#| echo: false
+
+glance(m3) |>
+  select(adj.r.squared, AIC, BIC) |> kable(digits = 2)
+```
+
+
+. . .
+
+Based on Adjusted $R^2$, AIC, and BIC, the model without **avgtemp** is a better fit. Therefore, we choose to remove **avgtemp** from the model and leave **hightemp** in the model to deal with the multicollinearity.
+
+## Selected model (for now)
+
+```{r}
+#| echo: false
+tidy(m2) |>
+  kable(digits = 3)
+```
