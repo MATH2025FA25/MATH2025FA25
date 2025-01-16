@@ -1,0 +1,253 @@
+---
+title: "Logistic regression continued"
+subtitle: "Introduction"
+author: "Prof. Eric Friedlander"
+date: "2024-11-06"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+## Announcements
+
+-   Project: [Paper Due November 18th](https://mat212fa24.netlify.app/project-instructions#draft-report)
+-   Oral R Quiz
+
+::: appex
+📋 [AE 19 - Intro to Logistic Regression Continued](https://mat212fa24.netlify.app/ae/ae-19-logistic-intro2)
+
+- Open up AE 19 and complete Exercise 0.
+:::
+
+
+# Logistic regression
+
+## Topics
+
+
+-   Use R to fit logistic regression models
+-   Interpret coefficients of logistic regression models
+-   Use logistic regression model to calculate predicted odds and probabilities
+
+## Computational setup
+
+```{r}
+#| warning: false
+
+# load packages
+library(tidyverse)
+library(ggformula)
+library(ggforce)
+library(broom)
+library(knitr)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+
+## Data: Framingham Study {.smaller}
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+```{r}
+heart_disease <- read_csv("data/framingham.csv") |>
+  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate) |>
+  drop_na()
+```
+
+## Variables
+
+- Response: 
+    -   `TenYearCHD`:
+        -   1: Patient developed heart disease within 10 years of exam
+        -   0: Patient did not develop heart disease within 10 years of exam
+- Predictors: 
+  -   `totChol`: total cholesterol (mg/dL)
+  -   `age`: age in years
+
+
+# Logistic regression
+
+## Logistic regression model
+
+**Logit form**: $$\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1~X$$
+
+. . .
+
+**Probability form**:
+
+$$
+\pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}
+$$
+
+. . .
+
+Today: Using R to fit this model.
+
+
+
+## High risk vs. age
+
+```{r}
+#| echo: true
+
+heart_disease |> 
+gf_sina(age ~ factor(TenYearCHD)) |> 
+  gf_labs(x = "High risk - 1: yes, 0: no",
+       y = "Age", 
+       title = "Age vs. High risk of heart disease")
+```
+
+## High risk vs. age
+
+```{r}
+#| echo: true
+
+heart_disease |> 
+gf_violin(age ~ factor(TenYearCHD), fill = "steelblue") |> 
+  gf_labs(x = "High risk - 1: yes, 0: no",
+       y = "Age", 
+       title = "Age vs. High risk of heart disease")
+```
+
+## High risk vs. age
+
+```{r}
+#| echo: true
+
+heart_disease |> 
+gf_boxplot(age ~ factor(TenYearCHD), fill = "steelblue") |> 
+  gf_sina(size = 0.75, alpha=0.25) |> 
+  gf_labs(x = "High risk - 1: yes, 0: no",
+       y = "Age", 
+       title = "Age vs. High risk of heart disease")
+```
+
+## Let's fit a model
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|3"
+heart_disease_fit <- glm(TenYearCHD ~ age, data = heart_disease, family = "binomial")
+
+tidy(heart_disease_fit) |> kable(digits = 3)
+```
+
+## The model
+
+```{r}
+#| echo: true
+
+tidy(heart_disease_fit) |> kable(digits = 3)
+```
+
+
+$$\textbf{Logit form:}\qquad\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}$$ 
+
+$$\textbf{Probability form:}\qquad\hat{\pi} = \frac{\exp(-5.561 + 0.075 \times \text{age})}{1+\exp(-5.561 + 0.075 \times \text{age})}$$
+
+where $\hat{\pi}$ is the predicted probability of developing heart disease in the next 10 years.
+
+## Interpreting $\hat{\beta}$'s
+
+```{r}
+tidy(heart_disease_fit) |> kable(digits = 3)
+```
+
+For every addition year of age, the **log-odds** of developing heart disease in the next 10 years, increases by 0.077.
+
+. . .
+
+
+Complete Exercises 1 - 3.
+
+## Interpretability of $\beta$ for predicted probabilities
+
+```{r}
+#| echo: false
+
+augment(heart_disease_fit) |> 
+  mutate(predicted_prob = exp(.fitted)/(1+exp(.fitted))) |> 
+  gf_point(predicted_prob ~ age) |> 
+  gf_labs( x = "Age", y = "Predicted Probability")
+```
+
+-   SLOPE IS CHANGING!
+-   Increase in $\hat{\pi}$ due to increase of 1 year of Age *depends on what starting age is*
+
+## `glm` and `augment` {.smaller}
+
+The `.fitted` values in `augment` correspond to predictions from the logistic form of the model (i.e. the log-odds):
+
+```{r}
+augment(heart_disease_fit)  |> head()
+```
+
+. . .
+
+Note: The residuals do not make sense here!
+
+**For observation 1**
+
+$$\text{predicted probability} = \hat{\pi} = \frac{\exp\{-2.650\}}{1 + \exp\{-2.650\}} = 0.066$$
+
+## Using `predict` with `glm`
+
+Default output is log-odds:
+
+```{r}
+predict(heart_disease_fit, new_data = heart_disease) |> head() |> kable(digits = 3)
+```
+
+## Using `predict` with `glm`
+
+More commonly you want the predicted probability:
+
+```{r}
+predict(heart_disease_fit, newdata = heart_disease, type = "response") |> head() |> kable(digits = 3)
+```
+
+. . .
+
+Complete Exercise 4
+
+
+## Recap
+
+-   Fit logistic regression models using `glm`
+-   Interpreted coefficients in logistic regression models
+-   Used logistic regression model to calculate predicted odds and probabilities
+-   Use `predict` to make predictions using `glm`

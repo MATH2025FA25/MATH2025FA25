@@ -1,9 +1,7 @@
 ---
 title: "Multicollinearity"
 author: "Prof. Eric Friedlander"
-date: "2024-10-30"
-date-format: "MMM DD, YYYY"
-footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -24,7 +22,7 @@ knitr:
   opts_chunk: 
     R.options:      
     width: 200
-bibliography: references.bib
+bibliography: references.bib  
 ---
 
 ```{r}
@@ -93,7 +91,7 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
 
 ```{r}
 #| echo: false
-rail_trail <- read_csv("data/rail_trail.csv")
+rail_trail <- read_csv("../data/rail_trail.csv")
 rail_trail
 ```
 
