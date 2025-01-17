@@ -1893,6 +1893,138 @@
     ]
   },
   {
+    "objectID": "exam/exam-02-practice.html",
+    "href": "exam/exam-02-practice.html",
+    "title": "Exam 02 Review",
+    "section": "",
+    "text": "Important\n\n\n\n\nOn the exam, you will not be tested on your ability to use Quarto. You will do most of your coding using an R Script (think of it as one big chunk). You can open one of these by clicking File &gt; New File &gt; R Script. You can then run your code there. The data set is contained in the ISLR2 package so you don’t need any csv file.\nWhile I will want you to understand simulation-based inference, I will not ask you to code up any simulation-based inference on the exam\nThis practice is meant to be as exhaustive as possible so it is longer than the exam will be",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#packages",
+    "href": "exam/exam-02-practice.html#packages",
+    "title": "Exam 02 Review",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(ISLR2)\nlibrary(broom)\nlibrary(knitr)\nlibrary(rms)",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#data",
+    "href": "exam/exam-02-practice.html#data",
+    "title": "Exam 02 Review",
+    "section": "Data",
+    "text": "Data\nThe data for this analysis is about credit card customers. The following variables are in the data set:\n\nincome: Income in $1,000’s\nlimit: Credit limit\nrating: Credit rating\ncards: Number of credit cards\nage: Age in years\neducation: Number of years of education\nown: A factor with levels No and Yes indicating whether the individual owns their home\nstudent: A factor with levels No and Yes indicating whether the individual was a student\nmarried: A factor with levels No and Yes indicating whether the individual was married\nregion: A factor with levels South, East, and West indicating the region of the US the individual is from\nbalance: Average credit card balance in $.",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-1",
+    "href": "exam/exam-02-practice.html#exercise-1",
+    "title": "Exam 02 Review",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit a model using limit and age to predict balance. Write the regression equation corresponding to this model on the board. Interpret all coefficients in the output. Draw of picture of the resulting model.",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-2",
+    "href": "exam/exam-02-practice.html#exercise-2",
+    "title": "Exam 02 Review",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWhat is the p-value assocociated with the slope of age? Describe what conclusions you can draw from it. What is this p-value the probability of and why can we use it in hypothesis testing? Would you necessarily draw the same conclusion to a hypothesis test for the slope of age if income were not in the model.",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-3",
+    "href": "exam/exam-02-practice.html#exercise-3",
+    "title": "Exam 02 Review",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute, describe, and interpret the confidence interval associated with the slope of age? Does it make sense when compared to p-value for age?",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-4",
+    "href": "exam/exam-02-practice.html#exercise-4",
+    "title": "Exam 02 Review",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFit a model using income, limit, and student to predict balance, but include an interaction term between limit and student.\nDescribe and interpret the interaction term from the above model. Be sure to give the value of the coefficient and describe what it means. Draw of picture of the resulting model. Explain how it is different than the picture you drew in Exercise 1.",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-5",
+    "href": "exam/exam-02-practice.html#exercise-5",
+    "title": "Exam 02 Review",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nBoth models you have fit have two lines nested in them. Write the equations for all four lines (two for the first model, two for the second).",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-6",
+    "href": "exam/exam-02-practice.html#exercise-6",
+    "title": "Exam 02 Review",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nHow would you determine which model is better? What are two quantities you could compute?",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-7",
+    "href": "exam/exam-02-practice.html#exercise-7",
+    "title": "Exam 02 Review",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nWhy is it more difficult to visualize an interaction between two quantitative variables than the interaction between a quantitative and a categorical variable?",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-8",
+    "href": "exam/exam-02-practice.html#exercise-8",
+    "title": "Exam 02 Review",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nList the four conditions for conducting mulitple linear regression. For each one, discuss how you assess them, and what, if anything, you do differently than for simple linear regression.",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-practice.html#exercise-9",
+    "href": "exam/exam-02-practice.html#exercise-9",
+    "title": "Exam 02 Review",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nBe ready to talk about transformations. Specifically, be ready to talk about \\(\\log\\) transformations and power transformations. Know what they are good for and when you would use them. Also be ready to explain why \\(\\log\\) transformations are so powerful.",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Practice"
+    ]
+  },
+  {
     "objectID": "exam/exam-01-practice.html",
     "href": "exam/exam-01-practice.html",
     "title": "Exam 01 Review/Practice",
@@ -3101,6 +3233,39 @@
     "crumbs": [
       "Exams",
       "Exam 1 Overview"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-review.html#exam-02",
+    "href": "exam/exam-02-review.html#exam-02",
+    "title": "Exam 02 review",
+    "section": "Exam 02",
+    "text": "Exam 02\n\n20% of final course grade\nMay receive Exam 1 “subscore” which will replace your first exam if it is higher (maximum 90%)",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Overview"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-review.html#content-week-2",
+    "href": "exam/exam-02-review.html#content-week-2",
+    "title": "Exam 02 review",
+    "section": "Content: Week 2",
+    "text": "Content: Week 2\n\nTransformations and Outliers for simple linear regression\nFitting and interpreting multiple linear regression models\nInference for multiple linear regression\nConditions for multiple linear regression",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Overview"
+    ]
+  },
+  {
+    "objectID": "exam/exam-02-review.html#practice",
+    "href": "exam/exam-02-review.html#practice",
+    "title": "Exam 02 review",
+    "section": "Practice",
+    "text": "Practice\n\n📋 Exam 2 Review",
+    "crumbs": [
+      "Exams",
+      "Exam 2 Overview"
     ]
   },
   {

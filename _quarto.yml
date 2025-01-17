@@ -57,6 +57,10 @@ website:
           text: "Exam 1 Overview"
         - href: exam/exam-01-practice.qmd
           text: "Exam 1 Practice"
+        - href: exam/exam-02-review.qmd
+          text: "Exam 2 Overview"
+        - href: exam/exam-02-practice.qmd
+          text: "Exam 2 Practice"
         
   
  

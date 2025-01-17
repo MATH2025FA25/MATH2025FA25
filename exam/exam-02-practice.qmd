@@ -1,0 +1,90 @@
+---
+title: "Exam 02 Review"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   On the exam, you will not be tested on your ability to use Quarto. You will do most of your coding using an R Script (think of it as one big chunk). You can open one of these by clicking File \> New File \> R Script. You can then run your code there. The data set is contained in the ISLR2 package so you don't need any `csv` file.
+
+-   While I will want you to understand simulation-based inference, I will not ask you to code up any simulation-based inference on the exam
+
+-   This practice is meant to be as exhaustive as possible so it is longer than the exam will be
+:::
+
+## Packages
+
+```{r}
+#| message: false
+ 
+library(tidyverse)
+library(ggformula)
+library(Stat2Data)
+library(ISLR2)
+library(broom)
+library(knitr)
+library(rms)
+```
+
+## Data
+
+The data for this analysis is about credit card customers. The following variables are in the data set:
+
+-   `income`: Income in \$1,000's
+-   `limit`: Credit limit
+-   `rating`: Credit rating
+-   `cards`: Number of credit cards
+-   `age`: Age in years
+-   `education`: Number of years of education
+-   `own`: A factor with levels `No` and `Yes` indicating whether the individual owns their home
+-   `student`: A factor with levels `No` and `Yes` indicating whether the individual was a student
+-   `married`: A factor with levels `No` and `Yes` indicating whether the individual was married
+-   `region`: A factor with levels `South`, `East`, and `West` indicating the region of the US the individual is from
+-   `balance`: Average credit card balance in \$.
+
+# Part 1: Linear Regression
+
+**The objective of this analysis is to predict a persons average card balance.**
+
+## Exercise 1
+
+Fit a model using `limit` and `age` to predict `balance`. Write the regression equation corresponding to this model on the board. Interpret all coefficients in the output. Draw of picture of the resulting model.
+
+
+## Exercise 2
+
+What is the p-value assocociated with the slope of `age`? Describe what conclusions you can draw from it. What is this p-value the probability of and why can we use it in hypothesis testing? Would you necessarily draw the same conclusion to a hypothesis test for the slope of `age` if `income` were not in the model.
+
+## Exercise 3 
+
+Compute, describe, and interpret the confidence interval associated with the slope of `age`? Does it make sense when compared to p-value for `age`?
+
+
+## Exercise 4
+
+Fit a model using `income`, `limit`, and `student` to predict balance, but include an interaction term between `limit` and `student`.
+
+Describe and interpret the interaction term from the above model. Be sure to give the value of the coefficient and describe what it means. Draw of picture of the resulting model. Explain how it is different than the picture you drew in Exercise 1.
+
+## Exercise 5
+
+Both models you have fit have two lines nested in them. Write the equations for all four lines (two for the first model, two for the second).
+
+## Exercise 6
+
+How would you determine which model is better? What are two quantities you could compute?
+
+## Exercise 7
+
+Why is it more difficult to visualize an interaction between two quantitative variables than the interaction between a quantitative and a categorical variable?
+
+## Exercise 8
+
+List the four conditions for conducting mulitple linear regression. For each one, discuss how you assess them, and what, if anything, you do differently than for simple linear regression.
+
+## Exercise 9
+
+Be ready to talk about transformations. Specifically, be ready to talk about $\log$ transformations and power transformations. Know what they are good for and when you would use them. Also be ready to explain why $\log$ transformations are so powerful.
+

@@ -1,5 +1,5 @@
 ---
-title: "Exam 01 review"
+title: "Exam 02 review"
 author: "Prof. Eric Friedlander"
 footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -24,38 +24,23 @@ knitr:
     width: 200
 ---
 
-## Exam 01 {.midi}
+## Exam 02 {.midi}
 
-::: columns
-::: {.column width="50%"}
 -   20% of final course grade
+-   May receive Exam 1 "subscore" which will replace your first exam if it is higher (maximum 90%)
 
--   Exploratory data analysis
+## Content: Week 2 {.midi}
 
--   Fitting and interpreting simple linear regression models
+-   Transformations and Outliers for simple linear regression
 
--   Statistical models and regression equations
+-   Fitting and interpreting multiple linear regression models
 
--   Simulation-based inference (SBI)
+-   Inference for multiple linear regression
 
-    +   Concepts not code for SBI
-:::
+-   Conditions for multiple linear regression
 
-::: {.column width="50%"}
--   Mathematical models for inference
-
--   Prediction
-
--   Model conditions
-
--   Model evaluation
-:::
-:::
-
-
-# Application exercise
+## Practice
 
 ::: appex
-📋 [Exam 1 practice](/exam/exam-01-practice.qmd)
+📋 [Exam 2 Review](/exam/exam-02-practice.qmd)
 :::
-
