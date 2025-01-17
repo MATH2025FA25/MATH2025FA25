@@ -1,5 +1,5 @@
 ---
-title: "Exam 02 review"
+title: "Exam 02 Overview"
 author: "Prof. Eric Friedlander"
 footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
 logo: "../images/logo.png"

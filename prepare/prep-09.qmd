@@ -1,7 +1,7 @@
 ---
-title: "Preparation for Intro to Logistic Regression"
+title: "Preparation for Inference and Conditions for Logistic Regression"
 ---
 
 ## Assigned reading
 
-Stat2 Textbook: Chapter 9 (Intro Page), 9.1, 9.2
+Stat2 Textbook: Chapters 9.3, 9.4
