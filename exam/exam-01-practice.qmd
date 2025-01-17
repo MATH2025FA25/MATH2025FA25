@@ -1,5 +1,5 @@
 ---
-title: "Exam 01 Review/Practice"
+title: "Exam 01 Practice"
 editor: visual
 format:
   html:
@@ -21,11 +21,11 @@ tips <- read_csv("../data/tip-data.csv")
 ```
 
 ::: callout-important
-- On the exam, you will not be tested on your ability to use Quarto. You will do most of your coding using an R Script (think of it as one big chunk). You can open one of these by clicking File \> New File \> R Script. You can then run your code there. The data set `tips.csv` can be found in Canvas [here](https://cofi.instructure.com/courses/17093/assignments/204171).
+-   On the exam, you will not be tested on your ability to use Quarto. You will do most of your coding using an R Script (think of it as one big chunk). You can open one of these by clicking File \> New File \> R Script. You can then run your code there. The data set `tips.csv` can be found in Canvas [here](https://cofi.instructure.com/courses/17093/assignments/204171).
 
-- While I will want you to understand simulation-based inference, I will not ask you to code up any simulation-based inference on the exam
+-   While I will want you to understand simulation-based inference, I will not ask you to code up any simulation-based inference on the exam
 
-- This practice is meant to be as exhaustive as possible so it is longer than the exam will be
+-   This practice is meant to be as exhaustive as possible so it is longer than the exam will be
 :::
 
 ## Restaurant tips
@@ -52,13 +52,13 @@ Load and look at the `tips.csv` data set.
 
 Generate appropriate plots AND numerical summaries for the following variables:
 
-- Univariate:
-    + `Tip`
-    + `Party`
-    + `Meal`
-- Bivariate:
-    + `Tip` vs. `Meal`
-    + `Tip` vs. 
+-   Univariate:
+    -   `Tip`
+    -   `Party`
+    -   `Meal`
+-   Bivariate:
+    -   `Tip` vs. `Meal`
+    -   `Tip` vs.
 
 The goal is to fit a model that uses the number of diners in the party to understand variability in the tips. For Exercise 4-8, assume we are only using `Party` and **not** `Meal` to predict `Tip`.
 

@@ -1919,7 +1919,7 @@
     "href": "exam/exam-02-practice.html#data",
     "title": "Exam 02 Review",
     "section": "Data",
-    "text": "Data\nThe data for this analysis is about credit card customers. The following variables are in the data set:\n\nincome: Income in $1,000’s\nlimit: Credit limit\nrating: Credit rating\ncards: Number of credit cards\nage: Age in years\neducation: Number of years of education\nown: A factor with levels No and Yes indicating whether the individual owns their home\nstudent: A factor with levels No and Yes indicating whether the individual was a student\nmarried: A factor with levels No and Yes indicating whether the individual was married\nregion: A factor with levels South, East, and West indicating the region of the US the individual is from\nbalance: Average credit card balance in $.",
+    "text": "Data\nThe data for this analysis is about credit card customers. The following variables are in the data set:\n\nIncome: Income in $1,000’s\nLimit: Credit limit\nRating: Credit rating\nCards: Number of credit cards\nAge: Age in years\nEducation: Number of years of education\nOwn: A factor with levels No and Yes indicating whether the individual owns their home\nStudent: A factor with levels No and Yes indicating whether the individual was a student\nMarried: A factor with levels No and Yes indicating whether the individual was married\nRegion: A factor with levels South, East, and West indicating the region of the US the individual is from\nBalance: Average credit card balance in $.",
     "crumbs": [
       "Exams",
       "Exam 2 Practice"
@@ -2027,7 +2027,7 @@
   {
     "objectID": "exam/exam-01-practice.html",
     "href": "exam/exam-01-practice.html",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "",
     "text": "Important\n\n\n\n\nOn the exam, you will not be tested on your ability to use Quarto. You will do most of your coding using an R Script (think of it as one big chunk). You can open one of these by clicking File &gt; New File &gt; R Script. You can then run your code there. The data set tips.csv can be found in Canvas here.\nWhile I will want you to understand simulation-based inference, I will not ask you to code up any simulation-based inference on the exam\nThis practice is meant to be as exhaustive as possible so it is longer than the exam will be",
     "crumbs": [
@@ -2038,7 +2038,7 @@
   {
     "objectID": "exam/exam-01-practice.html#restaurant-tips",
     "href": "exam/exam-01-practice.html#restaurant-tips",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Restaurant tips",
     "text": "Restaurant tips\nWhat factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.1\nThe variables we’ll focus on for this analysis are\n\nTip: amount of the tip\nMeal: which meal this was (Lunch, Late Lunch, Dinner)\nParty: number of people in the party",
     "crumbs": [
@@ -2049,7 +2049,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-1",
     "href": "exam/exam-01-practice.html#exercise-1",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 1",
     "text": "Exercise 1\nLoad the following packages tidyverse, broom, ggformula, yardstick and mosaic.",
     "crumbs": [
@@ -2060,7 +2060,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-2",
     "href": "exam/exam-01-practice.html#exercise-2",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 2",
     "text": "Exercise 2\nLoad and look at the tips.csv data set.",
     "crumbs": [
@@ -2071,9 +2071,9 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-3",
     "href": "exam/exam-01-practice.html#exercise-3",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 3",
-    "text": "Exercise 3\nGenerate appropriate plots AND numerical summaries for the following variables:\n\nUnivariate:\n\nTip\nParty\nMeal\n\nBivariate:\n\nTip vs. Meal\nTip vs. \n\n\nThe goal is to fit a model that uses the number of diners in the party to understand variability in the tips. For Exercise 4-8, assume we are only using Party and not Meal to predict Tip.",
+    "text": "Exercise 3\nGenerate appropriate plots AND numerical summaries for the following variables:\n\nUnivariate:\n\nTip\nParty\nMeal\n\nBivariate:\n\nTip vs. Meal\nTip vs.\n\n\nThe goal is to fit a model that uses the number of diners in the party to understand variability in the tips. For Exercise 4-8, assume we are only using Party and not Meal to predict Tip.",
     "crumbs": [
       "Exams",
       "Exam 1 Practice"
@@ -2082,7 +2082,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-4",
     "href": "exam/exam-01-practice.html#exercise-4",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 4",
     "text": "Exercise 4\nWrite the statistical model that we will be trying to estimate. Use Greek letters and include an error term. (This will be completed on a white board on the exam).",
     "crumbs": [
@@ -2093,7 +2093,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-5",
     "href": "exam/exam-01-practice.html#exercise-5",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 5",
     "text": "Exercise 5\nFit the regression model corresponding to the statistical model in the previous exercise. Use tidy to get a 99% confidence interval for the slope.\n\nWrite the regression equation and interpret the slope and intercept in the context of the data.\nWrite down and interpret the confidence interval for the slope from above.",
     "crumbs": [
@@ -2104,7 +2104,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-6",
     "href": "exam/exam-01-practice.html#exercise-6",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 6",
     "text": "Exercise 6\nOne family for four walks into your restaurant. On a piece of paper use your model to predict the tip. Then use R to create a confidence interval for your predictions. Did you use a “prediction interval” or not? Explain.",
     "crumbs": [
@@ -2115,7 +2115,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-7",
     "href": "exam/exam-01-practice.html#exercise-7",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 7",
     "text": "Exercise 7\n\nDefine \\(R^2\\), compute the \\(R^2\\) for your model, and interpret it in the context of the data.\nDefine RMSE, compute the RMSE for your model, and interpret it in the context of the data.",
     "crumbs": [
@@ -2126,7 +2126,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-8",
     "href": "exam/exam-01-practice.html#exercise-8",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 8",
     "text": "Exercise 8\nThe following code can be used to create a bootstrap distribution for the slope (and the intercept, though we’ll focus primarily on the slope in our inference) for the coefficient of Party in our linear model. Use the plot below to (visually) construct a 90% confidence interval for the slope:\n\nDescribe why you chose the values you chose for your interval.\nInterpret the interval in the context of the data.\nHow would increasing the number of repetitions change the size of the confidence interval?\nHow would increasing the sample size change the size of the confidence interval?\nHow would increasing the confidence level change the size of the confidence interval?\n\n\nset.seed(1234)\n\nboot_dist &lt;- tips |&gt;\n  specify(Tip ~ Party) |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_dist |&gt;\n  filter(term == \"Party\") |&gt; \n  gf_histogram(~estimate)",
     "crumbs": [
@@ -2137,7 +2137,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-9",
     "href": "exam/exam-01-practice.html#exercise-9",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 9",
     "text": "Exercise 9\nSet-up a hypothesis test for the slope of Party. Make sure to include:\n\nBoth hypotheses in mathematical notation and words.\nThe test statistic.\nThe distribution of the test statistic.\nThe p-value.\nThe result of your test at a significance level of \\(\\alpha= 0.05\\).\n\nYou may want to refer to the output in Exercise 5.",
     "crumbs": [
@@ -2148,7 +2148,7 @@
   {
     "objectID": "exam/exam-01-practice.html#exercise-10",
     "href": "exam/exam-01-practice.html#exercise-10",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Exercise 10",
     "text": "Exercise 10\nList the conditions necessary for conducting inference. Include how you would test each one and how you would determine if they were satisfied.\nBased on the context of this problem, you should expect that the constant variance assumption is likely to be violated… why? Think about how people tip.",
     "crumbs": [
@@ -2159,7 +2159,7 @@
   {
     "objectID": "exam/exam-01-practice.html#footnotes",
     "href": "exam/exam-01-practice.html#footnotes",
-    "title": "Exam 01 Review/Practice",
+    "title": "Exam 01 Practice",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nDahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St. Olaf College.↩︎",
     "crumbs": [
