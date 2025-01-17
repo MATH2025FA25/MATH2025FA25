@@ -1,0 +1,192 @@
+---
+title: "HW 07: Intro to Logistic regression"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+# Introduction
+
+
+In this homework, you'll analyze data from an online Ipsos survey that was conducted for the FiveThirtyEight article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) using logistic regression for interpretation and prediction. You can read more about the polling design and respondents in the README of the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data.
+
+## Learning goals
+
+By the end of the assignment you will be able to...
+
+-   Use logistic regression to explore the relationship between a binary response variable and multiple predictor variables
+
+-   Conduct exploratory data analysis for logistic regression
+
+-   Interpret coefficients of logistic regression model
+
+-   Use the logistic regression model for prediction
+
+## Getting started
+
+-   Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
+
+-   Make a subfolder in your `hw` directory to store this homework.
+
+-   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202865), navigate to Homework 7, and upload the `hw-07.qmd` files into the folder your just made.
+
+## Packages
+
+The following packages will be used for this assignment.
+
+```{r}
+#| label: load-packages
+#| message: false
+#| eval: true
+
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(Stat2Data)
+library(knitr)
+
+# add other packages as needed
+```
+
+# Data: "Why Many Americans Don't Vote"
+
+The data from the article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) includes information from polling done by Ipsos for FiveThirtyEight. Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior. For the next two homeworks, we will focus on using the demographic variables and someone's party identification to understand whether an eligible voter is a "frequent" voter.
+
+The codebook for the variable definitions can be found in the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data. The variables we'll focus on are:
+
+-   `ppage`: Age of respondent
+
+-   `educ`: Highest educational attainment category.
+
+-   `race`: Race of respondent, census categories. Note: all categories except Hispanic are non-Hispanic.
+
+-   `gender`: Gender of respondent
+
+-   `income_cat`: Household income category of respondent
+
+-   `Q30`: Response to the question "Generally speaking, do you think of yourself as a..."
+
+    -   1:Republican
+    -   2: Democrat
+    -   3: Independent
+    -   4: Another party, please specify
+    -   5: No preference
+    -   -1: No response
+
+-   `voter_category`: past voting behavior:
+
+    -   always: respondent voted in all or all-but-one of the elections they were eligible in
+    -   sporadic: respondent voted in at least two, but fewer than all-but-one of the elections they were eligible in
+    -   rarely/never: respondent voted in 0 or 1 of the elections they were eligible in
+
+You can read in the data directly from the GitHub repo:
+
+```{r}
+#| warning: false
+#| message: false
+#| eval: true
+
+voter_data <- read_csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/non-voters/nonvoters_data.csv')
+```
+
+Note that the authors use weighting to make the final sample more representative on the US population for their article. We will not use the weighting in this assignment, so we should treat the sample as a convenience sample rather than a random sample of the population.
+
+# Exercises
+
+The goal of this analysis is use the polling data to examine the relationship between U.S. adults' political party identification and voting behavior.
+
+## Exercise 1
+
+Why do you think the authors chose to only include data from people who were eligible to vote for at least four election cycles?
+
+## Exercise 2
+
+Let's prepare the data for analysis and modeling.
+
+-   Create a new variable called `frequent_voter` that takes the value 1 if the `voter_category` is "always" and 0 otherwise.
+-   Make a table of the distribution of `frequent_voter`.
+-   What percentage of the respondents in the data say they voted "in all or all-but-one of the elections they were eligible in"?
+
+## Exercise 3
+
+The variable `Q30` contains the respondent's political party identification. Make a new variable, `party_id`, that simplifies `Q30` into three categories: "Democrat", "Republican", "Independent/Neither". The category "Independent/Neither" will also include respondents who did not answer the question. Make `party_id` a factor and relevel it so that it is consistent with the ordering of the responses in Question 30 of the survey.
+
+-   Make a plot of the distribution of `party_id`.
+-   Which category of `party_id` occurs most frequently in this data set?
+
+## Exercise 4
+
+In the FiveThirtyEight article, the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc.
+
+-   Make a segmented barplot (also known as a standardized barplot) displaying the distribution of `frequent_voter` for each category of `party_id`. Make the plot such that the proportions (instead of counts) are displayed:
+
+    -   Use the function `gf_props`.
+    
+    -   Put `party_id` on the x-axis.
+    
+    -   Attach `voter_category` to the `fill` aesthetic (use a tilde).
+    
+    -   Add the argument `position = "fill"`
+
+-   Use the plot to describe the relationship between these two variables.
+
+::: callout-tip
+See the plots of demographic information by voting history in the [FiveThirtyEight article](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) for examples of segmented bar plots.
+:::
+
+## Exercise 5
+
+Consider the plot from the previous question. A logistic regression model predicting `frequent_voter` from `party_id` is visible in this plot. Explain what that means. Why should the response variable be attached the `fill` aesthetic instead of the explanatory variable. 
+
+## Exercise 6
+
+Compute the empirical log-odds that someone is a `frequent_voter` based on their `party_id`.
+
+## Exercise 7
+
+Fit a model using `party_id` to predict the probability that a person is a frequent voter. Neatly display the model using the `tidy` function. What is the predicted probability of voting for each of the three categories in `party_id`?
+
+## Exercise 8
+
+Fit a model using `ppage` to predict the probability that a person is a frequent voter. Interpret the coefficient of `ppage` in the context of the data in terms of the **log-odds** a person is a frequent voter.
+
+## Exercise 9
+
+Determine whether you think the three conditions for a logistic regression are met.
+
+## Exercise 10
+
+-   Use your first model to predict the probability that an independent will vote.
+-   Use your second model to predict the probability that someone your age will vote.
+
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure you render your PDF and it appears how you want it to.
+:::
+
+Upload the qmd and PDF files to Canvas.
+
+
+    Grading (18 pts)
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 1      |
+| Ex 2                  | 1      |
+| Ex 3                  | 2      |
+| Ex 4                  | 2      |
+| Ex 5                  | 1      |
+| Ex 6                  | 1      |
+| Ex 7                  | 2      |
+| Ex 8                  | 2      |
+| Ex 9                  | 2      |
+| Ex 10                 | 2      |
+| Grammar & Writing     | 1[^1]  |
+| Workflow & formatting | 1[^2]  |
+
+[^1]: The "Grammar & Writing" grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.
+
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.
