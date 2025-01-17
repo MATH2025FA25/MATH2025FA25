@@ -1,0 +1,110 @@
+---
+title: "AE 09: Logistic regression introduction"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-09".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202847) and locate your `AE-09` assignment to get started.
+
+-   Upload the `ae-09.qmd` and `framingham.csv` files into the folder you just created.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+
+heart_disease <- read_csv("../data/framingham.csv") |>
+  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate)
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+### Response variable
+
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+
+### What's my predictor variable?
+
+Based on your group, use the following as your predictor variable.
+
+-   Group 1 - `totChol`: total cholesterol (mg/dL)
+-   Group 2 -`BMI`: patient's body mass index
+-   Group 3 -`cigsPerDay`: number of cigarettes patient smokes per day
+-   Group 4 -`heartRate`: Heart rate (beats per minute)
+
+## Exercise 0
+
+Look up the `drop_na` function. Describe how it works. Drop any rows with missing data in `TenYearCHD` or your aassigned predictor.
+
+## Exercise 1
+
+Generate a plot and table of `TenYearCHD`, and a plot to visualize the relationship between `TenYearCHD` and `totChol`. Hint: none of these should be scatterplots.
+
+## Exercise 2
+
+Generate a scatterplot of `totChol` vs. `TenYearCHD`. Use `gf_lm()` to add a line to your plot. Do you think this is a good model? Why or why not?
+
+## Exercise 3
+
+State whether a linear regression model or logistic regression model is more appropriate for each of your research projects.
+
+## Exercise 4
+
+Using the table you generated in Exercise 1 (answer 1-3 on the board):
+
+0.  Based on our data, what is considered "success"?
+
+1.  What is the probability a randomly selected person will be a "success"?
+
+2.  What are the **odds** a randomly selected person will be a "success"?
+
+3.  What are the **log-odds** a randomly selected person will be a "success"?
+
+## Exercise 5
+
+On the whiteboard, show that the formula for log-odds (see the slide) corresponds with the formula of probability on the slide.
+
+## Exercise 6
+
+Generate a plot of `TenYearCHD` vs. your groups predictor variable. Based on this plot, what do you think the relationship between this variable and `TenYearCHD` is?
+
+## Exercise 7
+
+Fit a logistic regression model predicting the probability of developing heart disease within the next 10 years from your assigned predictor. Have your reporter write your model on the white board in both the logistic and probability form. Interpret the coefficient of your predictor in context.
+
+## Exercise 8
+
+Look at the first row in `heart_disease`, what log-odds and probability would you predict for this observation. Find your response variable and plug it into the model you just wrote down. Only use the `exp` function along with addition, subtraction, multiplication, and division to compute your estimate.
+
+
+## Exercise 9
+
+1.  Use `predict` to generate a vector of predicted probability for the whole data set.
+2.  Use `mutate` to add this vector of predicted probabilities to the original data set.
+3.  Plot the predicted probabilities against your explanatory variable.
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the HTML file with all of your work from today's class.
+-   Upload your QMD and HTML files to the Canvas assignment.
+:::

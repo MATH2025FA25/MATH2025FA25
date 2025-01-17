@@ -2,9 +2,7 @@
 title: "Logistic regression"
 subtitle: "Introduction"
 author: "Prof. Eric Friedlander"
-date: "2024-11-01"
-date-format: "MMM DD, YYYY"
-footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -25,7 +23,7 @@ knitr:
   opts_chunk: 
     R.options:      
     width: 200
-bibliography: references.bib
+bibliography: references.bib  
 ---
 
 ```{r}
@@ -40,15 +38,12 @@ knitr::opts_chunk$set(
 library(countdown)
 ```
 
-## Announcements
-
--   Project: [Paper Due November 18th](https://mat212fa24.netlify.app/project-instructions#draft-report)
--   Oral R Quiz
+## Application Exercise
 
 ::: appex
-📋 [AE 18 - Intro to Logistic Regression](https://mat212fa24.netlify.app/ae/ae-18-logistic-intro)
+📋 [AE 09 - Intro to Logistic Regression](/ae/ae-09-logistic-intro.qmd)
 
-- Open up AE 18
+- Complete Exercises 0-2.
 :::
 
 
@@ -58,7 +53,7 @@ library(countdown)
 
 -   Introduction to modeling categorical data
 
--   Logistic regression for binary response variable
+-   Logistic regression for *binary* response variable
 
 -   Relationship between odds and probabilities
 
@@ -72,6 +67,7 @@ library(tidyverse)
 library(ggformula)
 library(broom)
 library(knitr)
+library(ggforce)
 
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
@@ -90,7 +86,7 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 
 **Categorical outcome variable**:
 
--   Indicator of being high risk of getting coronary heart disease in the next 10 years
+-   Indicator for developing coronary heart disease in the next 10 years
 -   **Model**: Probability an adult is high risk of heart disease in the next 10 years given their age, total cholesterol, etc.
 
 ## Models for categorical outcomes
@@ -129,28 +125,22 @@ Source: [FiveThirtyEight 2019-20 NBA Predictions](https://projects.fivethirtyeig
 
 ## Data: Framingham Study {.smaller}
 
-This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the patients age to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
 
 ```{r}
-heart_disease <- read_csv("data/framingham.csv") |>
-  select(totChol, TenYearCHD) |>
-  drop_na() |>
-  mutate(high_risk = TenYearCHD) |>
-  select(totChol, high_risk)
+heart_disease <- read_csv("../data/framingham.csv") |>
+  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate) |>
+  drop_na()
 ```
 
 ## Variables
 
 - Response: 
-    -   `high_risk`:
-        -   1: High risk of having heart disease in next 10 years
-        -   0: Not high risk of having heart disease in next 10 years
+    -   `TenYearCHD`:
+        -   1: Patient developed heart disease within 10 years of exam
+        -   0: Patient did not develop heart disease within 10 years of exam
 - Predictor: 
-  -   `totChol`: total cholesterol (mg/dL)    
-
-. . .
-
-Complete Exercises 1-2.
+  -   `age`: age in years at time of visit    
 
 
 ## Plot the data
@@ -158,33 +148,18 @@ Complete Exercises 1-2.
 ```{r}
 #| echo: FALSE
 heart_disease |> 
-  gf_point(high_risk ~ totChol)  |>
-  gf_labs(y = "High Risk", x = "Total Cholesterol")
+  gf_point(TenYearCHD ~ age)  |>
+  gf_labs(y = "CHD Risk", x = "Age")
 ```
 
 ## Let's fit a linear regression model
 
-**Outcome:** $Y$ = 1: high risk, 0: not high risk
-
 ```{r}
 #| echo: false
 heart_disease |> 
-  gf_point(high_risk ~ totChol)  |>
+  gf_point(TenYearCHD ~ age)  |>
   gf_lm()  |> 
-  gf_labs(y = "High Risk", x = "Total Cholesterol")
-```
-
-
-## What happens if we zoom out?
-
-```{r}
-#| echo: false
-
-heart_disease |> 
-  gf_point(high_risk ~ totChol)  |>
-  gf_lm()  |> 
-  gf_labs(y = "High Risk", x = "Total Cholesterol") |> 
-  gf_lims(x=c(-1000, 2000), y = c(-1, 2))
+  gf_labs(y = "CHD Risk", x = "Age")
 ```
 
 🛑 *This model produces predictions outside of 0 and 1.*
@@ -196,10 +171,24 @@ heart_disease |>
 #| echo: false
 
 heart_disease |> 
-  gf_point(high_risk ~ totChol)  |>
+  gf_point(TenYearCHD ~ age)  |>
   gf_hline(yintercept = c(0,1), lty = 2) |> 
-  gf_lims(x=c(-1000, 2000), y = c(-1, 2)) |> 
-  gf_labs(y = "High Risk", x = "Total Cholesterol") |> 
+  gf_labs(y = "CHD Risk", x = "Age") |> 
+  gf_refine(stat_smooth(method ="glm", method.args = list(family = "binomial"), 
+              fullrange = TRUE, se = FALSE))
+```
+
+## Let's try another model: Zooming Out
+
+```{r}
+#| label: logistic-model-plot-2
+#| echo: false
+
+heart_disease |> 
+  gf_point(TenYearCHD ~ age)  |>
+  gf_hline(yintercept = c(0,1), lty = 2) |> 
+  gf_lims(x = c(0, 300)) |> 
+  gf_labs(y = "CHD Risk", x = "Age") |> 
   gf_refine(stat_smooth(method ="glm", method.args = list(family = "binomial"), 
               fullrange = TRUE, se = FALSE))
 ```
@@ -254,7 +243,7 @@ State whether a linear regression model or logistic regression model is more app
 -   Go from $\pi$ to $\log\big(\frac{\pi}{1-\pi}\big)$ using the **logit transformation**
 :::
 
-## Odds
+## Odds {.smaller}
 
 ::: incremental
 Suppose there is a **70% chance** it will rain tomorrow
@@ -262,12 +251,14 @@ Suppose there is a **70% chance** it will rain tomorrow
 -   Probability it will rain is $\mathbf{p = 0.7}$
 -   Probability it won't rain is $\mathbf{1 - p = 0.3}$
 -   Odds it will rain are **7 to 3**, **7:3**, $\mathbf{\frac{0.7}{0.3} \approx 2.33}$
+    +   For every 3 times it doesn't rain, it will rain 7 times
+    +   For every time it *doesn't* rain, it will rain 2.33 times
 -   Log-Odds it will rain is $\log\mathbf{\frac{0.7}{0.3} \approx \log(2.33) \approx 0.847}$
+    +   Negative $\Rightarrow$ probability of success less than 50-50 (0.5)
+    +   Positive $\Rightarrow$ probability of success greater than 50-50 (0.5)
+    +   What are the log-odds of of a probability of 0? What about 1?
 :::
 
-## What are the odds of developing heart disease?
-
-Complete Exercise 4.
 
 ## From log-odds to probabilities
 
@@ -288,6 +279,8 @@ $$e^\omega = \frac{\pi}{1-\pi}$$
 $$\pi = \frac{e^\omega}{1 + e^\omega}$$
 :::
 :::
+
+Complete Exercise 4-5.
 
 # Logistic regression
 
@@ -313,10 +306,167 @@ $$
 \pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}
 $$
 
+## Variables
+
+- Response: 
+    -   `TenYearCHD`:
+        -   1: Patient developed heart disease within 10 years of exam
+        -   0: Patient did not develop heart disease within 10 years of exam
+- Predictors: 
+  -   `age`: age in years
+
+
+# Logistic regression
+
+## Logistic regression model
+
+**Logit form**: $$\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1~X$$
+
+. . .
+
+**Probability form**:
+
+$$
+\pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}
+$$
+
+. . .
+
+Today: Using R to fit this model.
+
+
+
+## TenYearCHD vs. age
+
+```{r}
+#| echo: true
+
+heart_disease |> 
+gf_sina(age ~ factor(TenYearCHD)) |> 
+  gf_labs(x = "TenYearCHD - 1: yes, 0: no",
+       y = "Age", 
+       title = "Age vs. Ten YearCHD")
+```
+
+## TenYearCHD vs. age
+
+```{r}
+#| echo: true
+
+heart_disease |> 
+gf_violin(age ~ factor(TenYearCHD), fill = "steelblue") |> 
+  gf_labs(x = "TenYearCHD - 1: yes, 0: no",
+       y = "Age", 
+       title = "Age vs. TenYearCHD")
+```
+
+## TenYearCHD vs. age
+
+```{r}
+#| echo: true
+
+heart_disease |> 
+gf_boxplot(age ~ factor(TenYearCHD), fill = "steelblue") |> 
+  gf_sina(size = 0.75, alpha=0.25) |> 
+  gf_labs(x = "TenYearCHD - 1: yes, 0: no",
+       y = "Age", 
+       title = "Age vs. TenYearCHD")
+```
+
+## Let's fit a model
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|3"
+heart_disease_fit <- glm(TenYearCHD ~ age, data = heart_disease, family = "binomial")
+
+tidy(heart_disease_fit) |> kable()
+```
+
+## The model {.smaller}
+
+```{r}
+#| echo: true
+
+tidy(heart_disease_fit) |> kable(digits = 3)
+```
+
+
+$$\textbf{Logit form:}\qquad\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.076 \times \text{age}$$ 
+
+$$\textbf{Probability form:}\qquad\hat{\pi} = \frac{\exp(-5.561 + 0.076 \times \text{age})}{1+\exp(-5.561 + 0.075 \times \text{age})}$$
+
+where $\hat{\pi}$ is the predicted probability of developing heart disease in the next 10 years.
+
+## Interpreting $\hat{\beta}$'s
+
+```{r}
+tidy(heart_disease_fit) |> kable(digits = 3)
+```
+
+For every addition year of age, the **log-odds** of developing heart disease in the next 10 years, increases by 0.076.
+
+. . .
+
+
+Complete Exercises 6-8.
+
+## Interpretability of $\beta$ for predicted probabilities
+
+```{r}
+#| echo: false
+
+augment(heart_disease_fit) |> 
+  mutate(predicted_prob = exp(.fitted)/(1+exp(.fitted))) |> 
+  gf_point(predicted_prob ~ age) |> 
+  gf_labs( x = "Age", y = "Predicted Probability")
+```
+
+-   SLOPE IS CHANGING!
+-   Increase in $\hat{\pi}$ due to increase of 1 year of Age *depends on what starting age is*
+
+## `glm` and `augment` {.smaller}
+
+The `.fitted` values in `augment` correspond to predictions from the logistic form of the model (i.e. the log-odds):
+
+```{r}
+augment(heart_disease_fit)  |> head()
+```
+
+. . .
+
+Note: The residuals do not make sense here!
+
+**For observation 1**
+
+$$\text{predicted probability} = \hat{\pi} = \frac{\exp\{-2.680\}}{1 + \exp\{-2.680\}} = 0.0733$$
+
+## Using `predict` with `glm`
+
+Default output is log-odds:
+
+```{r}
+predict(heart_disease_fit, new_data = heart_disease) |> head() |> kable(digits = 3)
+```
+
+## Using `predict` with `glm`
+
+More commonly you want the predicted probability:
+
+```{r}
+predict(heart_disease_fit, newdata = heart_disease, type = "response") |> head() |> kable(digits = 3)
+```
+
+. . .
+
+Complete Exercise 9
 
 
 ## Recap
 
 -   Introduced logistic regression for binary response variable
-
 -   Described relationship between odds and probabilities
+-   Fit logistic regression models using `glm`
+-   Interpreted coefficients in logistic regression models
+-   Used logistic regression model to calculate predicted odds and probabilities
+-   Use `predict` to make predictions using `glm`
