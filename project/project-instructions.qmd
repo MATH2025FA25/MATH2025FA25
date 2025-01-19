@@ -89,15 +89,15 @@ You are more than welcome to contact me with any questions about your project bu
 
 <!-- -   due Monday, November 25 -->
 
-<!-- [Stage V: Revised Project Paper (45%)](#written-report) -->
+[Checkpoint X: Poster Presentation (50%)](#poster-presentation)
 
-<!-- -   due Monday December 9 -->
+-   due in Canvas by Friday, January 24th, 11:59am
 
-<!-- [Stage VI: Poster Presentation (15%)](#poster-presentation) -->
+-   posters presentations will be on TVs in CML (Library) 105 from 1pm-3:30pm on Friday, January 24th
 
-<!-- -   due in Canvas by Tuesday, December 10th, 11:59pm -->
+[Checkpoint XI: Supplementary Report (40%)](#supplementary-presentation)
 
-<!-- -   posters presentations will be on TVs in CML (Library) 105 from 8:30am-11am on Wednesday December 11th -->
+-   due in Canvas by Friday, January 24th, 11:59pm
 
 <!-- ### Logistics -->
 
@@ -337,16 +337,26 @@ c) All of the code you used to generate the plots and graphs for this EDA should
 <!-- ## Stage V: Project Revision {#written-report} -->
 <!-- After submitting your project report, you will receive feedback from your professor and 1-2 peers. You will have the opportunity to revise your project paper and resubmit it. A portion of your revision grade is based on the adequacy of your response to comments. (This means that if you just resubmit the first copy of your paper without changes, it will receive a lower grade.) -->
 
-<!-- ## Stage VI: Poster Presentation {#poster-presentation} -->
-<!-- The following is from [Passion-Driven Statistics](https://ldierker1.github.io/passiondrivenstatistics/posters.html): -->
+## Checkpoint X: Poster Presentation {#poster-presentation}
+The following is from [Passion-Driven Statistics](https://ldierker1.github.io/passiondrivenstatistics/posters.html):
 
-<!-- You have conducted a quantitative research project. Now you will learn how to present your results as a research poster and presentation. Posters offer the opportunity to engage with an audience and to meaningfully disseminate your research findings to others. -->
+You have conducted a quantitative research project. Now you will learn how to present your results as a research poster and presentation. Posters offer the opportunity to engage with an audience and to meaningfully disseminate your research findings to others.
 
-<!-- Learn keys to a successful poster presentation. Consider your audience and frame your research question and results in an understandable and interesting way. Understand you should be brief, use large font size, and incorporate graphics instead of text whenever possible. See how being clear and concise with a logical layout will ensure the viewing experience is intellectually and aesthetically satisfying for your audience. Click [HERE](https://www.youtube.com/watch?v=WpRpCzoumOQ) to a watch the video lesson. -->
+Learn keys to a successful poster presentation. Consider your audience and frame your research question and results in an understandable and interesting way. Understand you should be brief, use large font size, and incorporate graphics instead of text whenever possible. See how being clear and concise with a logical layout will ensure the viewing experience is intellectually and aesthetically satisfying for your audience. Click [HERE](https://www.youtube.com/watch?v=WpRpCzoumOQ) to a watch the video lesson.
 
-<!-- You will create a 3 column, 40" X 36" poster including an introduction, research questions, methods, results, and discussion. -->
+You will create a 3 column, 40" X 36" poster including an introduction, research questions, methods, results, and discussion.
 
-<!-- A rubric can be found [here](/poster-rubric.html) and poster template can be found on Canvas. -->
+**Deliverables:** Your poster, to be turned in on Canvas, will be a PDF. A rubric can be found [here](/project/poster-rubric.qmd) and poster template can be found on Canvas.
+
+
+
+## Checkpoint XI: Supplementary Report {#supplementary-presentation}
+
+Your supplementary report should... wait for it... supplment your poster presentation.
+
+**Deliverables:** Your Supplementary Report report, to be turned in on Canvas, should be created in Canvas. A rubric can be found [here](/project/project-rubric.qmd).
+
+
 
 <!-- ## Writing Tips -->
 

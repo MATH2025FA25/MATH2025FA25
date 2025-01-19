@@ -49,6 +49,10 @@ website:
         contents:
         - href: project/project-instructions.qmd
           text: "Instructions"
+        - href: project/project-rubric.qmd
+          text: "Supplementary Report Rubric"
+        - href: project/poster-rubric.qmd
+          text: "Poster Rubric"
       - section: Exams
         contents:
         - href: exam/exam-rubric.qmd

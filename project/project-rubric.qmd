@@ -1,5 +1,5 @@
 ---
-title: Final paper rubric
+title: Supplementary report rubric
 ---
 
 ```{r}
@@ -13,33 +13,20 @@ library(broom)
 
 | Applied Stats Individual Project Evaluation | Possible | Score |
 |---------------------------------------------|----------|-------|
-| **Introduction and motivation for the project – 8 pts** | | |
-| Is the overarching question motivating the analysis clearly stated and explained? Are the specific questions this analysis will address clearly stated and explained? | 4 | |
-| Is relevant literature described and properly cited? Is the connection between the literature and this work made clear? | 4 | |
-| **Methods – 33 pts** | | |
-| Is the data source described and referenced? | 3 | |
-| Is each variable used in the analysis defined, including:<br>    -    descriptions of the levels for categorical variables<br>     -    units for numerical variables | 6 | |
-| Are data preparation and cleaning procedures clearly described so that the study could be replicated by another researcher?<br> Is the handling of missing data/unusual observations/outliers described and is there sound rationale for it?<br> Is the initial and final number of observations in the analysis reported and are those that were removed accounted for? | 4 | |
-| If necessary, were interactions and data transformations explored? Were these included in the model when appropriate? Were the conditions of the model checked, and were they met? | 10 | |
-| Was thoughtful variable selection employed to decide upon the final model? Was the final model compared with simpler options, and the form of the final model justified? | 10 | |
-| **Results – 20 pts** | | |
-| Are descriptive statistics provided for key variables? Are they presented in a tabular form that is concise and informative? | 5 | |
-| Are results of modeling reported in appropriate tabular form with parameter estimates, standard errors, p-values, and confidence intervals? | 5 | |
-| Are parameter estimates and CIs correctly interpreted in the context of the research question? | 5 | |
-| How well are graphics/figures/equations presented? (axes labeled, captions, placement, readable, useful, add to content) | 5 | |
-| **Discussion – 21 pts** | | |
-| Does the discussion begin with an accurate summary statement of the major findings of the analysis? Are $R^2$ or misclassification rate reported (either here or in the Results)? | 4 | |
-| Are the possible implications of the results discussed in the context of the research question? | 3 | |
-|Is there a thoughtful discussion of generalizability of the results?  Are limitations of the study identified and is the potential impact on the conclusions stated? | 4 | |
-|Are strengths and weaknesses of the analysis identified, including a discussion of model conditions? | 4 | |
-|Are potential confounding variables discussed? | 3 | |
-|Are suggestions for future research identified and useful? | 3 | |
-| **Overall – Report – 18 pts** | | |
-|Were research question(s) complex and insightful, demonstrating understanding of the research topic? | 6 | |
-|How well does the author demonstrate an understanding of the statistics? Are statements and conclusions accurate? | 6 | |
-|How well-written is the report (e.g., correct grammar, spelling, etc.)? | 6 | |
-| **(Tentative) Total** | 100 | |
-| **Supporting Materials (points to be deleted)** |  | |
-| Bibliography included; citations are stylistically consistent. | -3 | |
-| Title and author appropriately identified<br> Paper follows formatting guidelines (1.5 spacing, 8 page max, etc.) | -5 | |
-| **Grant Total** |  | |
+| **Data import and data cleaning – 5 pts** | | |
+| Data is imported appropriately | 1 | |
+| Missing values are dealt with appropriately and intentionally | 1 | |
+| Categorical variables are recoded as factors | 1 | |
+| The initial and final number of observations in the analysis reported and are those that were removed accounted for. | 1 | |
+| Data preparation and cleaning procedures are clearly described so that the study could be replicated by another researcher. | 1 | |
+| **Modeling – 20 pts** | | |
+| Thoughtful variable selection employed to decide upon the final model. The the final model was compared with simpler options, and the form of the final model was justified. | 5 | |
+| The conditions of the model were checked. | 5 | |
+| If necessary, data transformations were explored. | 5 | |
+| Interaction were explored and were included in the model when appropriat. | 5 | |
+| **Results – 15 pts** | | |
+| Final model is reported with parameter estimates, standard errors, p-values, and confidence intervals. | 5 | |
+| Parameter estimates and CIs werecorrectly interpreted in the context of the research question. | 5 | |
+| Implications of the results are discussed in the context of the research question. | 2 | |
+|Aa thoughtful discussion of generalizability of the results and limitations of the study are identified. | 1 | |
+|Strengths and weaknesses of the analysis are identified, including a discussion of model conditions. | 2 | |

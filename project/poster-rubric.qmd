@@ -23,13 +23,15 @@ Instructions to reviewer: Use these criteria to rate the poster presentation on 
 ### Presentation Content 	
 
 3. Question or hypothesis being addressed is stated clearly, 	1 2 3 4 5
-4. Content is easy to understand.	1 2 3 4 5
-5. There is enough detail about methods for me to understand the results.	1 2 3 4 5
-6. Results are stated clearly.	1 2 3 4 5
-7. Results are interpreted based on previous literature and reasonable next steps/implications are proposed. 	1 2 3 4 5
+4. A model answering the research question is presented and analyzed used content from class. 1 2 3 4 5
+5. The model selected and the inferential techniques applied are approrpiate for the problem being addressed.  1 2 3 4 5 
+6. Content is easy to understand.	1 2 3 4 5
+7. There is enough detail about methods for me to understand the results.	1 2 3 4 5
+8. Results are stated clearly.	1 2 3 4 5
+9. Results are interpreted based on previous literature and reasonable next steps/implications are proposed. 	1 2 3 4 5
 
 ### Question and Answer	
 
-8. Presenter's response to questions demonstrated knowledge of subject matter.	1 2 3 4 5
-9. Presenter's response to questions demonstrated knowledge of the statistical approach taken with the project.	1 2 3 4 5
+10. Presenter's response to questions demonstrated knowledge of subject matter.	1 2 3 4 5
+11. Presenter's response to questions demonstrated knowledge of the statistical approach taken with the project.	1 2 3 4 5
 
