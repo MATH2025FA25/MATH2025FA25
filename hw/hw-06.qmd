@@ -21,11 +21,11 @@ By the end of the homework you will be able to
 
 ## Getting started
 
-- Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
+-   Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
 
-- Make a subfolder in your `hw` directory to store this homework.
+-   Make a subfolder in your `hw` directory to store this homework.
 
-- Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202864), navigate to Homework 6 and upload the `hw-06.qmd` file into the folder your just made.
+-   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202864), navigate to Homework 6 and upload the `hw-06.qmd` file into the folder your just made.
 
 ## Packages
 
@@ -52,20 +52,20 @@ The data from this lab comes from the the article FiveThirtyEight [*The Ultimate
 
 The data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are
 
-| Variable           | Description                                                               |
-|--------------------|---------------------------------------------------------------------------|
-| `chocolate`        | Does it contain chocolate?                                                |
-| `fruity`           | Is it fruit flavored?                                                     |
-| `caramel`          | Is there caramel in the candy?                                            |
-| `peanutalmondy`    | Does it contain peanuts, peanut butter or almonds?                        |
-| `nougat`           | Does it contain nougat?                                                   |
-| `crispedricewafer` | Does it contain crisped rice, wafers, or a cookie component?              |
-| `hard`             | Is it a hard candy?                                                       |
-| `bar`              | Is it a candy bar?                                                        |
-| `pluribus`         | Is it one of many candies in a bag or box?                                |
-| `sugarpercent`     | The percentile of sugar it falls under within the data set. Values 0 - 1. |
-| `pricepercent`     | The unit price percentile compared to the rest of the set. Values 0 - 1.  |
-| `winpercent`       | The overall win percentage according to 269,000 matchups. Values 0 - 100. |
+| Variable | Description |
+|-----------------|-------------------------------------------------------|
+| `chocolate` | Does it contain chocolate? |
+| `fruity` | Is it fruit flavored? |
+| `caramel` | Is there caramel in the candy? |
+| `peanutyalmondy` | Does it contain peanuts, peanut butter or almonds? |
+| `nougat` | Does it contain nougat? |
+| `crispedricewafer` | Does it contain crisped rice, wafers, or a cookie component? |
+| `hard` | Is it a hard candy? |
+| `bar` | Is it a candy bar? |
+| `pluribus` | Is it one of many candies in a bag or box? |
+| `sugarpercent` | The percentile of sugar it falls under within the data set. Values 0 - 1. |
+| `pricepercent` | The unit price percentile compared to the rest of the set. Values 0 - 1. |
+| `winpercent` | The overall win percentage according to 269,000 matchups. Values 0 - 100. |
 
 Use the code below to get a glimpse of the `candy_rankings` data frame in the **fivethirtyeight** R package.
 
@@ -119,7 +119,6 @@ Now fit a model using the same explanatory variables, but include an interaction
 ## Exercise 9
 
 Interpret the p-value associated with the interaction term.
-
 
 ## Exercise 10
 

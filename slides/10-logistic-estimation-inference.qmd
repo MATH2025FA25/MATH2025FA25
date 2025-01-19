@@ -1,0 +1,709 @@
+---
+title: "Logistic Regression Estimation and Inference"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+## Application Exercise {.midi}
+
+::: appex
+📋 [AE 10 - Logistic Regression Inference](/ae/ae-10-logistic-inference.qmd)
+
+- Open up AE 10 and complete Exercise 0.
+:::
+
+
+
+## Topics
+
+::: nonincremental
+-   Estimating coefficients in logistic regression
+-   Checking model conditions for logistic regression
+-   Inference for coefficients in logistic regression
+:::
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(openintro)
+library(knitr)
+library(kableExtra)  # for table embellishments
+library(Stat2Data)   # for empirical logit
+library(countdown)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+# Data
+
+## Risk of coronary heart disease {.midi}
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.
+
+-   `TenYearCHD`:
+
+    -   1: High risk of having heart disease in next 10 years
+    -   0: Not high risk of having heart disease in next 10 years
+
+-   `age`: Age at exam time (in years)
+
+-   `currentSmoker`: 0 = nonsmoker, 1 = smoker
+
+## Data prep
+
+```{r}
+heart_disease <- read_csv("../data/framingham.csv") |>
+  select(TenYearCHD, age, currentSmoker) |>
+  drop_na() |>
+  mutate(currentSmoker = as.factor(currentSmoker))
+
+heart_disease |> head() |> kable()
+```
+
+# Estimating coefficients
+
+## Statistical model {.midi}
+
+The form of the statistical model for logistic regression is
+
+$$
+\log\Big(\frac{\pi}{1-\pi}\Big) = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_pX_p
+$$
+
+where $\pi$ is the probability $Y = 1$.
+
+. . .
+
+Notice there is no error term when writing the statistical model for logistic regression. Why?
+
+-   The statistical model is the "data-generating" model
+-   Each individual observed $Y$ is generated from a *Bernoulli distribution*, $Bernoulli(\pi)$
+-   Therefore, the randomness is not produced by an error term but rather in the distribution used to generate $Y$
+
+## Bernoulli Distribution {.smaller}
+
+-   Think of two possible outcomes:
+  -   1 = "Success" which occurs with probability $\pi$
+  -   0 = "Failure" which occurs with probability $1-\pi$
+-   We can think of each of our observations as having a Bernoulli distribution with mean $\pi_i$
+-   Our logistic regression model is changing $\pi_i$ (the probability of success) for each new observation
+-   The probability that we got our data, given our model is the truth, is then called the *Likelihood* $$L = \prod_{i=1}^n \pi_i^{y_i}(1-\pi_i)^{1-y_i}$$
+
+## Log Likelihood Function {.smaller}
+
+**Log-Likelihood Function**: the log of the likelihood function is easier to work with and has the same maxima and minima!
+
+$$
+\log L = \sum\limits_{i=1}^n[y_i \log(\hat{\pi}_i) + (1 - y_i)\log(1 - \hat{\pi}_i)]
+$$
+
+where
+
+$$\hat{\pi} = \frac{\exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}{1 + \exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}$$
+
+. . .
+
+-   The coefficients $\hat{\beta}_0, \ldots, \hat{\beta}_p$ are estimated using maximum likelihood estimation
+
+-   Basic idea: Find the values of $\hat{\beta}_0, \ldots, \hat{\beta}_p$ that give the observed data the maximum probability of occurring
+
+## Maximum Likelihood Estimation
+
+-   This is called **maximum likelihood estimation** and is EXTREMELY common in statistics and data science
+
+  -   Need a strong foundation in probability and applied mathematics to fully understand
+  
+  -   Logistic regression: maximum found through **numerical methods** (clever computer algorithms that approximate the maximum)
+  
+  -   Linear regression: maximum found through **calculus**
+  
+
+. . .
+
+Complete Exercise 1.  
+
+```{r} 
+#| echo: FALSE
+countdown(minutes = 5L)
+```
+
+# Conditions
+
+## The models {.smaller}
+
+Model 1: Let's predict `TenYearCHD` from `currentSmoker`:
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ currentSmoker, 
+      data = heart_disease, family = "binomial")
+
+tidy(risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3)
+```
+
+Model 2: Let's predict `TenYearCHD` from `age`:
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ age, 
+      data = heart_disease, family = "binomial")
+
+tidy(risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3)
+```
+
+## Conditions for logistic regression
+
+1.  **Linearity:** The log-odds have a linear relationship with the predictors.
+
+2.  **Randomness:** The data were obtained from a random process.
+
+3.  **Independence:** The observations are independent from one another.
+
+## Empirical logit
+
+The **empirical logit** is the log of the observed odds:
+
+$$
+\text{logit}(\hat{p}) = \log\Big(\frac{\hat{p}}{1 - \hat{p}}\Big) = \log\Big(\frac{\# \text{Yes}}{\# \text{No}}\Big)
+$$
+
+## Calculating empirical logit (categorical predictor)
+
+If the predictor is categorical, we can calculate the empirical logit for each level of the predictor.
+
+```{r}
+#| echo: FALSE
+
+heart_disease |>
+  count(currentSmoker, TenYearCHD) |>
+  group_by(currentSmoker) |>
+  mutate(prop = n/sum(n)) |>
+  filter(TenYearCHD == 1) |>
+  mutate(emp_logit = log(prop/(1-prop))) |> 
+  kable()
+```
+
+. . .
+
+Complete Exercise 2.
+
+## Calculating empirical logit (quantitative predictor)
+
+1.  Divide the range of the predictor into intervals with approximately equal number of cases. (If you have enough observations, use 5 - 10 intervals.)
+
+2.  Compute the empirical logit for each interval
+
+. . .
+
+You can then calculate the mean value of the predictor in each interval and create a plot of the empirical logit versus the mean value of the predictor in each interval.
+
+## Empirical logit plot in R (quantitative predictor)
+
+Created using `dplyr` and `ggplot` functions.
+
+```{r}
+#| echo: false
+heart_disease |> 
+  mutate(age_bin = cut_number(age, n = 10)) |>
+  group_by(age_bin) |>
+  mutate(mean_age = mean(age)) |>
+  count(mean_age, TenYearCHD) |>
+  mutate(prop = n/sum(n)) |>
+  filter(TenYearCHD == 1) |>
+  mutate(emp_logit = log(prop/(1-prop))) |>
+  gf_point(emp_logit ~ mean_age)  |>  
+  gf_smooth(method = "lm", se = FALSE) |> 
+  gf_labs(x = "Mean Age", 
+       y = "Empirical logit")
+```
+
+## Empirical logit plot in R (quantitative predictor)
+
+Created using `dplyr` and `ggformula` functions.
+
+```{r}
+#| eval: false
+
+heart_disease |> 
+  mutate(age_bin = cut_interval(age, n = 10)) |>
+  group_by(age_bin) |>
+  mutate(mean_age = mean(age)) |>
+  count(mean_age, TenYearCHD) |>
+  mutate(prop = n/sum(n)) |>
+  filter(TenYearCHD == "1") |>
+  mutate(emp_logit = log(prop/(1-prop))) |>
+  gf_point(emp_logit ~ mean_age)  |>  
+  gf_smooth(method = "lm", se = FALSE) |> 
+  gf_labs(x = "Mean Age", 
+       y = "Empirical logit")
+```
+
+## Empirical logit plot in R (quantitative predictor)
+
+Using the `emplogitplot1` function from the **Stat2Data** R package
+
+```{r}
+emplogitplot1(TenYearCHD ~ age, 
+              data = heart_disease, 
+              ngroups = 10)
+```
+
+## Checking linearity
+
+`r emo::ji("white_check_mark")` The linearity condition is satisfied. There is a linear relationship between the empirical logit and the predictor variables.
+
+. . .
+
+Complete Exercise 3.
+
+## Checking randomness
+
+We can check the randomness condition based on the context of the data and how the observations were collected.
+
+-   Was the sample randomly selected?
+-   Did the successes and failures occur from a random process?
+
+. . .
+
+`r emo::ji("white_check_mark")` The randomness condition is satisfied. Who does and does not develop heart disease occurs from a random process.
+
+## Checking independence
+
+-   We can check the independence condition based on the context of the data and how the observations were collected.
+-   Independence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.
+
+. . .
+
+`r emo::ji("white_check_mark")` The independence condition is satisfied. It is reasonable to conclude that the participants' health characteristics are independent of one another.
+
+## Modeling risk of coronary heart disease
+
+:::question
+What's wrong with this code?
+:::
+
+```{r}
+#| eval: FALSE
+#| code-line-numbers: "|3,4"
+risk_fit <- glm(TenYearCHD ~ age, data = heart_disease, 
+                family = "binomial") |> 
+  tidy() |> 
+  kable()
+```
+
+## Modeling risk of coronary heart disease
+
+Using `age`:
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ age, data = heart_disease, 
+                family = "binomial")
+
+risk_fit |> tidy() |> kable()
+```
+    
+# Inference for Logistic Regression
+
+## Recall: Inference for Linear Regression
+
+-   **t-test:** determine whether $\beta_1$ (the slope) is different than zero
+-   **ANOVA/F-Test:** To test the full model or to compare nested models
+-   **SSModel/SSE/ $R^2$ / $\hat{\sigma}_{\epsilon}$ :** metrics to try a measure the amount of variability explained by competing models
+
+## Hypothesis test for $\beta_1$
+
+**Hypotheses:** $H_0: \beta_1 = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_1 \neq 0$
+
+. . .
+
+**Test Statistic:** $$z = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}}$$
+
+$z$ is sometimes called a *Wald statistic* and this test is sometimes called a *Wald Hypothesis Test*.
+
+. . .
+
+**P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
+
+## Confidence interval for $\beta_1$
+
+We can calculate the **C% confidence interval** for $\beta_1$ as the following:
+
+$$
+\Large{\hat{\beta}_1 \pm z^* SE_{\hat{\beta}_1}}
+$$
+
+where $z^*$ is calculated from the $N(0,1)$ distribution
+
+. . .
+
+::: callout-note
+This is an interval for the change in the *log-odds* for every one unit increase in $x$
+:::
+
+## Interpretation in terms of the odds
+
+The change in **odds** for every one unit increase in $x_1$.
+
+$$
+\Large{\exp\{\hat{\beta}_1 \pm z^* SE_{\hat{\beta}_1}\}}
+$$
+
+. . .
+
+**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_1$, the odds multiply by a factor of $\exp\{\hat{\beta}_1 - z^* SE_{\hat{\beta}_1}\}$ to $\exp\{\hat{\beta}_1 + z^* SE_{\hat{\beta}_1}\}$.
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| label: risk-model-age-highlight
+#| echo: false
+
+tidy(risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+. . .
+
+**Hypotheses:**
+
+$$
+H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
+$$
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Test statistic:**
+
+$$z = \frac{0.0747 - 0}{0.00527} \approx 14.178$$
+
+Note: rounding errors!
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**P-value:**
+
+$$
+P(|Z| > |14.178|) \approx 0
+$$
+
+. . .
+
+```{r}
+2 * pnorm(14.178,lower.tail = FALSE)
+```
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Conclusion:**
+
+The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone will develop heart disease in the next 10 years.
+
+## CI for `age`
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+We are 95% confident that for each additional year of age, the change in the *log-odds* of someone developing heart disease in the next 10 years is between 0.064 and 0.085.
+
+. . .
+
+We are 95% confident that for each additional year of age, the *odds* of someone developing heart disease in the next 10 years will increase by a factor of $\exp(0.064) \approx 1.077$ to $\exp(0.085)\approx 1.089$.
+
+. . .
+
+Complete Exercises 4-7.
+
+## Recall: Inference for Linear Regression
+
+-   **t-test:** determine whether $\beta_1$ (the slope) is different than zero
+-   **ANOVA/F-Test:** To test the full model or to compare nested models
+-   **SSModel/SSE/ $R^2$ / $\hat{\sigma}_{\epsilon}$ :** metrics to try a measure the amount of variability explained by competing models
+
+## Recall: Likelihood
+
+$$
+L = \prod_{i=1}^n\hat{\pi}_i^{y_i}(1 - \hat{\pi}_i)^{1 - y_i}
+$$
+
+-   Intuition: probability of obtaining our data given a certain set of parameters
+
+$$
+L(\hat{\beta}_0, \ldots, \hat{\beta}_p) = \prod_{i=1}^n\hat{\pi}_i(\hat{\beta}_0, \ldots, \hat{\beta}_p)^{y_i}(1 - \hat{\pi}_i(\hat{\beta}_0, \ldots, \hat{\beta}_p))^{1 - y_i}
+$$
+
+## Recall: Log-Likelihood
+
+Taking the log makes the likelihood easier to work with and **doesn't change which $\beta$'s maximize it**.
+
+$$
+\log L = \sum\limits_{i=1}^n[y_i \log(\hat{\pi}_i) + (1 - y_i)\log(1 - \hat{\pi}_i)]
+$$
+
+## Log-Likelihood to Deviance
+
+-   The log-likelihood measures of how well the model fits the data
+
+-   Higher values of $\log L$ are better
+
+-   **Deviance** = $-2 \log L$
+
+    -   $-2 \log L$ follows a $\chi^2$ distribution with 1 degree of freedom
+    
+    -   Think of deviace as the analog of the residual sum of squares (SSE) in linear regression
+
+
+
+## Calculate deviance for our model:
+
+We can use our trusty ol' `glance` function
+
+```{r}
+risk_fit |>  glance() |> kable()
+```
+
+. . .
+
+Complete Exercise 8.
+
+## Comparing nested models
+
+-   Suppose there are two models:
+
+    -   Reduced Model includes only an intercept $\beta_0$
+    -   Full Model includes $\beta_1$
+
+-   We want to test the hypotheses
+
+    $$
+    \begin{aligned}
+    H_0&: \beta_{1} = 0\\
+    H_A&: \beta_1 \neq 0
+    \end{aligned}
+    $$
+
+-   To do so, we will use something called a **Likelihood Ratio test (LRT)**, also known as the **Drop-in-deviance test**
+
+## Likelihood Ratio Test (LRT) {.smaller}
+
+**Hypotheses:**
+
+$$
+\begin{aligned}
+H_0&: \beta_1 = 0 \\
+H_A&: \beta_1 \neq 0
+\end{aligned}
+$$
+
+. . .
+
+**Test Statistic:** $$G = (-2 \log L_{reduced}) - (-2 \log L_{full})$$
+
+Sometimes written as $$G = (-2 \log L_0) - (-2 \log L)$$
+
+. . .
+
+**P-value:** $P(\chi^2 > G)$, calculated using a $\chi^2$ distribution with 1 degree of freedom
+
+## $\chi^2$ distribution
+
+```{r}
+#| echo: false
+#| fig-height: 6
+
+x <- seq(from =0, to = 10, length = 100)
+
+# Evaluate the densities
+y_1 <- dchisq(x, 1)
+y_2 <- dchisq(x,2)
+y_3 <- dchisq(x,3)
+y_4 <- dchisq(x,5)
+
+# Plot the densities
+plot(x, y_1, col = 1, type = "l", ylab="",lwd=3, ylim = c(0, 0.5), 
+     main  = "Chi-square Distribution")
+lines(x,y_2, col = 2,lwd=3)
+lines(x, y_3, col = 3,lwd=3)
+lines(x, y_4, col = 4,lwd=3)
+
+# Add the legend
+legend("topright",
+       c("df = 1", "df = 2 ", "df = 3", "df = 5"), 
+       col = c(1, 2, 3, 4), lty = 1)
+```
+
+## Reduced model {.smaller}
+
+First model, reduced:
+
+```{r}
+
+risk_fit_reduced <- glm(TenYearCHD ~ 1, 
+      data = heart_disease, family = "binomial",
+      control = glm.control(epsilon = 1e-20)) # Ignore this line
+
+risk_fit_reduced |> tidy() |> kable()
+```
+
+. . .
+
+Side bar... 
+
+::::{.columns}
+:::{.column}
+Probability predicted by model
+
+```{r}
+exp(coef(risk_fit_reduced)[1])/(1 + exp(coef(risk_fit_reduced)[1]))
+```
+:::
+:::{.column}
+```{r}
+library(mosaic)
+tally(~TenYearCHD, data = heart_disease, format = "proportion") |> kable()
+```
+:::
+::::
+
+## Should we add `age` to the model? {.smaller}
+
+Second model, full:
+
+```{r}
+risk_fit_full <- glm(TenYearCHD ~ age, 
+      data = heart_disease, family = "binomial")
+
+risk_fit_full |>  tidy() |> kable()
+```
+
+## Should we add `age` to the model? {.smaller}
+
+Calculate deviance for each model:
+
+```{r}
+dev_reduced <- glance(risk_fit_reduced)$deviance #Use $ instead of select
+
+dev_full <- glance(risk_fit_full)$deviance
+
+dev_reduced
+
+dev_full
+```
+
+## Should we add `age` to the model? {.smaller}
+Drop-in-deviance test statistic:
+
+```{r}
+test_stat <- dev_reduced - dev_full
+```
+
+## Should we add `age` to the model?
+
+Calculate the p-value using a `pchisq()`, with 1 degree of freedom:
+
+```{r}
+pchisq(test_stat, 1, lower.tail = FALSE)
+```
+
+. . .
+
+**Conclusion:** The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that the coefficient of `age` is not equal to 0. Therefore, we should add it to the model.
+
+. . .
+
+Complete Exercises 9-10.
+
+## Drop-in-Deviance test in R {.midi}
+
+-   We can use the **`anova`** function to conduct this test
+
+-   Add **`test = "Chisq"`** to conduct the drop-in-deviance test
+
+. . .
+
+```{r}
+anova(risk_fit_reduced, risk_fit_full, test = "Chisq") |>
+  tidy() |> kable(digits = 3)
+```
+
+Complete Exercises 11-12.
+
+
+
+# Recap
+
+## Recap
+
+-   How do we fit a logistic regression model?
+    -   Maximum likelihood estimation
+    
+-   Logistic regression conditions
+    -   Linearity
+    -   Randomness
+    -   Independence
+
+## Inference for $\beta_1$
+
+-   Wald Test
+-   Likelihood Ratio Test
+    -   More reliable than Wald
+    -   More computationally taxing
+    -   Deviance: think of like SSE
+-   Next time: Multiple predictors!

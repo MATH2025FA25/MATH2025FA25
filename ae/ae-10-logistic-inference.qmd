@@ -1,0 +1,154 @@
+---
+title: "AE 10: Logistic Regression Inference"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-10".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202848) and locate your `AE-10` assignment to get started.
+
+-   Upload the `ae-10.qmd` and `framingham.csv` files into the folder you just created.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+
+heart_disease <- read_csv("../data/framingham.csv") |>
+  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate, sysBP, diabetes) |>
+  drop_na()
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+### Response variable
+
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+
+### What's my predictor variable?
+
+Based on your group, use the following as your predictor variable.
+
+-   Group 1 - `totChol`: total cholesterol (mg/dL)
+-   Group 2 -`BMI`: patient's body mass index
+-   Group 3 -`cigsPerDay`: number of cigarettes patient smokes per day
+-   Group 4 -`heartRate`: Heart rate (beats per minute)
+
+### Additional Variables
+
+-   `sysbp` - the patients systolic blood pressure at the time of examination
+
+-   `diabetes` - 1 if the patient had diabetes and 0 if the patient didn't have diabetes at the time of examination
+
+## Exercise 0
+
+Fit a logistic regression model predicting `TenYearCHD` from your group's predictor variable. Note that we won't return to this model until Exercise 3.
+
+## Exercise 1
+
+Before you work on your own model, lets consider the variable `sysBP` which represents the patients systolic blood pressure (the top number). You have five minutes, find the $\beta$'s that result in the largest log-likelihood for a logistic regression model predicting the risk of coronary heart disease from `sysBP`:
+
+```{r}
+# Change these
+beta0 <- 0
+beta1 <- 0
+
+
+# Don't change anything below this line
+predicted_probabilities <- exp(beta0 + beta1*heart_disease$sysBP)/(1+exp(beta0 + beta1*heart_disease$sysBP))
+log_likelihoods <- heart_disease$TenYearCHD*log(predicted_probabilities) +
+                        (1-heart_disease$TenYearCHD)*log(1-predicted_probabilities)
+
+# Final log likelihood
+sum(log_likelihoods)
+
+```
+
+## Exercise 2
+
+Compute the empirical logit for each level of `diabetes`:
+
+1.  Use the function `tally` to compute the count the number of successes and failures for each level of `diabetes`.
+2.  Compute the empirical odds.
+3.  Compute the log of these odds.
+
+## Exercise 3
+
+Is linearity satisfied for the model you fit in Exercise 0?
+
+## Exercise 4
+
+For your quantitative predictor, conduct a hypothesis test to determine whether the slope of your variable is statistically significant. On the white board:
+
+1.  Specify the null and alternative hypotheses.
+2.  Compute the test statistic.
+3.  Give the p-value.
+4.  Interpret the result.
+
+## Exercise 5
+
+For your quantitative variable. Construct a 99% confidence interval. Hint, you can use the `conf.level` argument in `tidy` to change the confidence level. On the white board:
+
+1.  Interpret your confidence interval in *log-odds*.
+2.  Interpret your confidence interval in *odds*.
+
+## Exercise 6
+
+Conduct a hypothesis test for your $\beta_1$. Interpret it in context and be prepared to discuss with the class. Note that you need not write down the entire hypothesis testing framework.
+
+## Exercise 7
+
+Why do you think it doesn't quite make sense to talk about prediction intervals or confidence intervals in the context of a logistic regression model?
+
+## Exercise 8
+
+Compute the deviance for the model you fit above. Do larger or smaller values of deviance indicate a better model?
+
+## Exercise 9
+
+In Exercise 6, we used a \_\_\_\_ test to compute our p-value. Test the same hypotheses, this time using a likelihood ratio test. Write out all the steps on the white board, following the slides :
+
+1.  Specify the null and alternative hypotheses.
+2.  Compute the test statistic.
+3.  Give the p-value. Draw a picture!
+4.  Interpret the result.
+
+## Exercise 10
+
+The test statistic for a LRT is the difference in deviance between your full and reduced model:
+
+1.  Do larger or smaller values of your test statistic provide more evidence for the alternative hypothesis?
+2.  Do you think your test statistic can ever be negative? Why? Do not use the Chi-Squared distribution to justify your answer.
+
+## Exercise 11
+
+Use the `anova` function to recreate your p-value from the previous problem.
+
+## Exercise 12
+
+Are the p-values you got from Exercises 6, 9, and 11 all the EXACT same? Make sure you are displaying enough digits so that your p-values aren't rounding to zero. If they are different, which one do you think is the most reliable? Why?
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the HTML file with all of your work from today's class.
+-   Upload your QMD and HTML files to the Canvas assignment.
+:::
