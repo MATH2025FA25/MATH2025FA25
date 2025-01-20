@@ -431,30 +431,20 @@ Prof.&nbsp;Eric Friedlander
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)       <span class="co"># for data wrangling</span></span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)       <span class="co"># for plotting</span></span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(fivethirtyeight) <span class="co"># for the fandango dataset</span></span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(broom)           <span class="co"># for formatting model output</span></span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(knitr)           <span class="co"># for formatting tables</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a><span class="co"># set default figure parameters for knitr</span></span>
-<span id="cb1-12"><a></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb1-13"><a></a>  <span class="at">fig.width =</span> <span class="dv">8</span>,</span>
-<span id="cb1-14"><a></a>  <span class="at">fig.asp =</span> <span class="fl">0.618</span>,</span>
-<span id="cb1-15"><a></a>  <span class="at">fig.retina =</span> <span class="dv">3</span>,</span>
-<span id="cb1-16"><a></a>  <span class="at">dpi =</span> <span class="dv">300</span>,</span>
-<span id="cb1-17"><a></a>  <span class="at">out.width =</span> <span class="st">"80%"</span></span>
-<span id="cb1-18"><a></a>)</span>
-<span id="cb1-19"><a></a></span>
-<span id="cb1-20"><a></a>bikeshare <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/dcbikeshare.csv"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-21"><a></a>  <span class="fu">mutate</span>(<span class="at">season =</span> <span class="fu">case_when</span>(</span>
-<span id="cb1-22"><a></a>    season <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"winter"</span>,</span>
-<span id="cb1-23"><a></a>    season <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"spring"</span>,</span>
-<span id="cb1-24"><a></a>    season <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"summer"</span>,</span>
-<span id="cb1-25"><a></a>    season <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"fall"</span></span>
-<span id="cb1-26"><a></a>  ),</span>
-<span id="cb1-27"><a></a>  <span class="at">season =</span> <span class="fu">factor</span>(season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a></a><span class="fu">library</span>(broom)           <span class="co"># for formatting model output</span></span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(knitr)           <span class="co"># for formatting tables</span></span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-8"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># set default figure parameters for knitr</span></span>
+<span id="cb1-11"><a></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb1-12"><a></a>  <span class="at">fig.width =</span> <span class="dv">8</span>,</span>
+<span id="cb1-13"><a></a>  <span class="at">fig.asp =</span> <span class="fl">0.618</span>,</span>
+<span id="cb1-14"><a></a>  <span class="at">fig.retina =</span> <span class="dv">3</span>,</span>
+<span id="cb1-15"><a></a>  <span class="at">dpi =</span> <span class="dv">300</span>,</span>
+<span id="cb1-16"><a></a>  <span class="at">out.width =</span> <span class="st">"80%"</span></span>
+<span id="cb1-17"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -471,10 +461,10 @@ Prof.&nbsp;Eric Friedlander
 <li><code>temp_orig</code>: Temperature in degrees Celsius</li>
 <li><code>season</code>: 1 - winter, 2 - spring, 3 - summer, 4 - fall</li>
 </ul>
-<p>Click <a href="https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html">here</a> for the full list of variables and definitions.</p>
+<p>Click <a href="https://tidyverse.github.io/dsbox/reference/dcbikeshare.html">here</a> for the full list of variables and definitions.</p>
 <p>Let’s complete Exercises 2-6 together</p>
 </section>
-<section id="data-prep" class="slide level2">
+<section id="data-prep" class="slide level2 smaller">
 <h2>Data prep</h2>
 <ul>
 <li>Exercise 2: Recode <code>season</code> as a factor with names instead of numbers (livecode)</li>
@@ -482,7 +472,7 @@ Prof.&nbsp;Eric Friedlander
 <ul>
 <li>Think of <code>|&gt;</code> as “and then”</li>
 <li><code>mutate</code> creates new columns and changes (mutates) existing columns</li>
-<li>R called categorical data “factors”</li>
+<li>R calls categorical data “factors”</li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -536,15 +526,21 @@ Prof.&nbsp;Eric Friedlander
 <div style="color: #799100">
 <p><strong>Prediction</strong></p>
 </div>
-<p>How many rentals are expected when it’s 10 degrees out?<br>
-</p>
+<p>How many rentals are expected when it’s 10 degrees out?</p>
 </div>
 <div class="fragment">
 <div style="color : #799100">
 <p><strong>Inference</strong></p>
 </div>
-<p>Is temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree celcius?</p>
+<p>Is temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?</p>
 </div>
+</section>
+<section id="population-vs.-sample" class="slide level2">
+<h2>Population vs.&nbsp;Sample</h2>
+<p><strong>Population:</strong> The set of items or events that you’re interested in and hoping (able) to generalize the results of your analysis to.</p>
+<p><strong>Sample:</strong> The set of items that you have data for.</p>
+<p><strong>Representative Sample:</strong> A sample that looks like a small version of your population.</p>
+<p><strong>Goal:</strong> Build a model from your sample which generalizes to your population.</p>
 </section>
 <section id="terminology" class="slide level2">
 <h2>Terminology</h2>
@@ -568,7 +564,7 @@ Prof.&nbsp;Eric Friedlander
 </section>
 <section id="regression-model" class="slide level2">
 <h2>Regression model</h2>
-<p><strong>Regression model:</strong> a function that describes the relationship between a quantitive response, <span class="math inline">\(Y\)</span>, and the predictor, <span class="math inline">\(X\)</span> (or many predictors).</p>
+<p><strong>Regression model:</strong> a function that describes the relationship between a quantitative response, <span class="math inline">\(Y\)</span>, and the predictor, <span class="math inline">\(X\)</span> (or many predictors).</p>
 <span class="math display">\[\begin{aligned} Y &amp;= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
 &amp;= \color{black}{\mathbf{f(X)}} + \epsilon \\[8pt]
 &amp;= \color{black}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}\]</span>
@@ -625,7 +621,7 @@ Prof.&nbsp;Eric Friedlander
 <ul>
 <li><strong>Simple linear regression:</strong> model to describe the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> where:
 <ul>
-<li><span class="math inline">\(Y\)</span> is a quantitative/numerical reponse</li>
+<li><span class="math inline">\(Y\)</span> is a quantitative/numerical response</li>
 <li><span class="math inline">\(X\)</span> is a <em>single</em> quantitative predictor</li>
 <li><span class="math display">\[\Large{Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon}\]</span></li>
 </ul></li>
@@ -712,7 +708,7 @@ r &amp;= 0.6692
 </div></div>
 <p><br></p>
 <div class="small">
-<p><a href="https://introregression.netlify.app/98-appendix">Clickhere</a> for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus.</p>
+<p><a href="https://introregression.netlify.app/98-appendix">Click here</a> for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus.</p>
 </div>
 </section>
 <section id="estimating-the-intercept" class="slide level2">
@@ -874,7 +870,7 @@ Coefficients:
 </section>
 <section id="making-a-prediction" class="slide level2">
 <h2>Making a prediction</h2>
-<p>Suppose that it’s 15 degrees celcius outside. According to this model, how many bike rentals should we expect if it’s winter?</p>
+<p>Suppose that it’s 15 degrees Celsius outside. According to this model, how many bike rentals should we expect if it’s winter?</p>
 <span class="math display">\[\begin{aligned}
 \widehat{\text{count}} &amp;= -111.0 + 222.4 \times \text{temp_orig} \\
 &amp;= -111.0 + 222.4 \times 15 \\
@@ -894,6 +890,7 @@ Coefficients:
 3225.195 </code></pre>
 </div>
 </div>
+<p>Complete Exercises 12-13.</p>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>

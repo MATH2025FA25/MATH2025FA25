@@ -837,3 +837,4 @@ Complete Exercise 15.
 -   Choosing models using:
     -   Exhaustive search
     -   Forward/Backward/Stepwise selection
+    -   For logistic regression see the [blorr package](https://blorr.rsquaredacademy.com/reference/)

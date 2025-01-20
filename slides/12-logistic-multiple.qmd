@@ -244,6 +244,144 @@ $$
 
 The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is will develop heart disease in the next year, [after accounting for education]{.fragment .highlight-red}.
 
+# Comparing Nested Models
+
+## Comparing nested models
+
+-   Suppose there are two models:
+
+    -   Reduced Model includes predictors $x_1, \ldots, x_q$
+    -   Full Model includes predictors $x_1, \ldots, x_q, x_{q+1}, \ldots, x_p$
+
+-   We want to test the hypotheses
+
+    $$
+    \begin{aligned}
+    H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
+    H_A&: \text{ at least one }\beta_j \text{ is not } 0
+    \end{aligned}
+    $$
+
+-   To do so, we will use the **Nested Likelihood Ratio test (LRT)**, also known as the **Drop-in-deviance test**,
+
+## Likelihood Ratio test {.smaller}
+
+**Hypotheses:**
+
+$$
+\begin{aligned}
+H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
+H_A&: \text{ at least 1 }\beta_j \text{ is not } 0
+\end{aligned}
+$$
+
+. . .
+
+**Test Statistic:** $$G = (-2 \log L_{reduced}) - (-2 \log L_{full})$$
+
+or sometimes
+
+**Test Statistic:** $$G = (-2 \log L_{0}) - (-2 \log L)$$
+
+. . .
+
+**P-value:** $P(\chi^2 > G)$, calculated using a $\chi^2$ distribution [with degrees of freedom equal to the difference in the number of parameters in the full and reduced models]{.fragment .highlight-red}
+
+## $\chi^2$ distribution
+
+```{r}
+#| echo: false
+#| fig-height: 6
+
+x <- seq(from =0, to = 10, length = 100)
+
+# Evaluate the densities
+y_1 <- dchisq(x, 1)
+y_2 <- dchisq(x,2)
+y_3 <- dchisq(x,3)
+y_4 <- dchisq(x,5)
+
+# Plot the densities
+plot(x, y_1, col = 1, type = "l", ylab="",lwd=3, ylim = c(0, 0.5), 
+     main  = "Chi-square Distribution")
+lines(x,y_2, col = 2,lwd=3)
+lines(x, y_3, col = 3,lwd=3)
+lines(x, y_4, col = 4,lwd=3)
+
+# Add the legend
+legend("topright",
+       c("df = 1", "df = 2 ", "df = 3", "df = 5"), 
+       col = c(1, 2, 3, 4), lty = 1)
+```
+
+## Should we add `education` to a model with only `age`?
+
+First model, reduced:
+
+```{r}
+
+risk_fit_reduced <- glm(TenYearCHD ~ age, 
+      data = heart_disease, family = "binomial")
+```
+
+<br>
+
+. . .
+
+Second model, full:
+
+```{r}
+#| code-line-numbers: "3"
+
+risk_fit_full <- glm(TenYearCHD ~ age + education, 
+      data = heart_disease, family = "binomial")
+```
+
+## Should we add `education` to the model?
+
+Calculate deviance for each model:
+
+```{r}
+dev_reduced <- glance(risk_fit_reduced)$deviance
+dev_reduced
+dev_full <- glance(risk_fit_full)$deviance
+dev_full
+```
+
+## Should we add `education` to the model?
+
+Drop-in-deviance test statistic:
+
+```{r}
+test_stat <- dev_reduced - dev_full
+test_stat
+```
+
+## Should we add `education` to the model?
+
+Calculate the p-value using a `pchisq()`, with degrees of freedom equal to the number of new model terms in the second model:
+
+```{r}
+pchisq(test_stat, 3, lower.tail = FALSE) 
+```
+
+. . .
+
+**Conclusion:** The p-value is between 0.1 and 0.05 indicating mild but not strong evidence that a model with `education` is a [useful predictor when `age` is already in the model]{.fragment .highlight-red}.
+
+## Drop-in-Deviance test in R {.midi}
+
+-   We can use the **`anova`** function to conduct this test
+
+-   Add **`test = "Chisq"`** to conduct the drop-in-deviance test
+
+. . .
+
+```{r}
+anova(risk_fit_reduced, risk_fit_full, test = "Chisq") |>
+  tidy() |> kable(digits = 3)
+```
+
 
 
 ## Recap
@@ -251,4 +389,6 @@ The p-value is very small, so we reject $H_0$. The data provide sufficient evide
 -   Today: Simple logistic to Multiple logistic
     -   Coefficient interpretations
     -   Wald test interpretations
+    -   LRTs and Drop-in-Deviance tests
 -   Basic idea add "holding all else constant"
+-   LRT allows you to compare nested models and requires a degree of free for each extra parameter in the full model

@@ -1,0 +1,221 @@
+---
+title: "HW 09: Multiple Logistic regression"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+# Introduction
+
+
+In this homework, you'll continue analyzing data from an online Ipsos survey that was conducted for the FiveThirtyEight article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) using logistic regression for interpretation and prediction. You can read more about the polling design and respondents in the README of the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data.
+
+## Learning goals
+
+By the end of the assignment you will be able to...
+
+-   Use logistic regression to explore the relationship between a binary response variable and multiple predictor variables
+
+-   Interpret coefficients of logistic regression models
+
+-   Use statistics to help choose the best fit model
+
+-   Conduct inference controlling the familywise error rate
+
+-   Incorporate survey weights into your analysis
+
+
+## Getting started
+
+-   Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
+
+-   Make a subfolder in your `hw` directory to store this homework.
+
+-   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202867), navigate to Homework 10, and upload the `hw-10.qmd` files into the folder your just made.
+
+## Packages
+
+The following packages will be used for this assignment.
+
+```{r}
+#| label: load-packages
+#| message: false
+#| eval: true
+
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(Stat2Data)
+library(knitr)
+
+# add other packages as needed
+```
+
+# Data: "Why Many Americans Don't Vote"
+
+The data from the article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) includes information from polling done by Ipsos for FiveThirtyEight. Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior. We continue focusing on using the demographic variables and someone's party identification to understand whether an eligible voter is a "frequent" voter.
+
+The codebook for the variable definitions can be found in the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data. The variables we'll focus on are:
+
+-   `ppage`: Age of respondent
+
+-   `educ`: Highest educational attainment category.
+
+-   `race`: Race of respondent, census categories. Note: all categories except Hispanic are non-Hispanic.
+
+-   `gender`: Gender of respondent
+
+-   `income_cat`: Household income category of respondent
+
+-   `Q30`: Response to the question "Generally speaking, do you think of yourself as a..."
+
+    -   1:Republican
+    -   2: Democrat
+    -   3: Independent
+    -   4: Another party, please specify
+    -   5: No preference
+    -   -1: No response
+
+-   `voter_category`: past voting behavior:
+
+    -   always: respondent voted in all or all-but-one of the elections they were eligible in
+    -   sporadic: respondent voted in at least two, but fewer than all-but-one of the elections they were eligible in
+    -   rarely/never: respondent voted in 0 or 1 of the elections they were eligible in
+
+You can read in the data directly from the GitHub repo:
+
+```{r}
+#| warning: false
+#| message: false
+#| eval: true
+
+voter_data <- read_csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/non-voters/nonvoters_data.csv')
+```
+
+Note that the authors use weighting to make the final sample more representative on the US population for their article. We will not use the weighting for the majority of this assignment, so we should treat the sample as a convenience sample rather than a random sample of the population.
+
+# Exercises
+
+The goal of this analysis is use the polling data to examine the relationship between U.S. adults' political party identification and voting behavior.
+
+## Exercise 1
+
+Let's prepare the data for analysis and modeling. Most of this can be copied from your previous homework.
+
+-   Create a new variable called `frequent_voter` that takes the value 1 if the `voter_category` is "always" and 0 otherwise.
+-   The variable `Q30` contains the respondent's political party identification. Make a new variable, `party_id`, that simplifies `Q30` into three categories: "Democrat", "Republican", "Independent/Neither", The category "Independent/Neither" will also include respondents who did not answer the question.
+-   Make sure that `educ`, `race`, `gender`, `income_cat`and `party_id` are all factors.
+
+## Exercise 2
+
+Let's start by fitting a model using the demographic factors - `ppage`, `educ`, `race`, `gender`, `income_cat` - to predict the odds a person is a frequent voter. Fit the model and display the model using 3 digits.
+
+-   Consider the relationship between `ppage` and one's voting behavior. Interpret the coefficient of `ppage` in the context of the data in terms of the **odds** a person is a frequent voter.
+
+
+## Exercise 3
+
+Generate a 95% confidence interval for the coefficient of `ppage`. Interpret this interval in the context of the data in terms of the **odds** a person is a frequent voter.
+
+
+## Exercise 4
+
+*Should party identification be added to the model?* Use a drop-in-deviance test to determine if party identification should be added to the model fit in the previous exercise. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.
+
+## Exercise 5
+
+Display the model chosen from the previous exercise using 3 digits.
+
+Then use the model selected to write a short paragraph (2 - 5 sentences) describing the effect (or lack of effect) of political party on the odds a person is a frequent voter. The paragraph should include an indication of which levels (if any) are statistically significant along with specifics about the differences in the odds between the political parties, as appropriate. Discuss whether the choice of reference level is important to your findings.
+
+## Exercise 6
+
+Read *Topic 5.7 Multiple Comparisons and Fisher’s Least Significant Difference* in the course textbook.
+
+In the code below:
+
+1. Input your glm object (your model) in the first blank.
+2. Input the name of the variable for party identification in the second.
+3. Change `eval: FALSE` to `eval:TRUE` and run the code.
+
+```{r}
+#| eval: FALSE
+library(multcomp)
+
+glht(__________, linfct = mcp(_________ = "Tukey")) |> 
+  tidy(conf.int = TRUE, conf.level = 0.95)
+```
+
+The code you just executed generates estimates of the pairwise differences between all of the levels of the categorical variable you put in the second blank and adjusts your p-values and confidence intervals to control the *familywise error rate*. Note that despite that fact that it says "Tukey", it is NOT using Tukey HSD to do this, but the interpretation of the p-values and confidence intervals is the same.
+
+Describe what familywise error rate means in this context? If you are controlling for your familywise error rate, how would you expect your p-values and confidence intervals to change?
+
+## Exercise 7
+
+Rewrite the paragraph you wrote in Exercise 5, incorporating information from Exercise 6.
+
+## Exercise 8
+
+In the article, the authors write
+
+> *"Nonvoters were more likely to have lower incomes; to be young; to have lower levels of education; and to say they don't belong to either political party, which are all traits that square with what we know about people less likely to engage with the political system."*
+
+Consider the model you selected in Exercise 4. Is it consistent with this statement? Briefly explain why or why not.
+
+## Exercise 9
+
+You have been tasked by a local political organization to identify adults in the community who are frequent voters. These adults will receive targeted political mailings that will be different from the mailings sent to adults who are not frequent voters. You will use the model selected in Exercise 4 to identify the frequent voters.
+
+## Exercise 10
+
+This survey actually uses something called *weighting* to produce more accurate estimates. If we want to be able to generalize our results to the population of interest we HAVE to use these weights.
+
+1. [Watch this video on weighting survey data.](https://campus.datacamp.com/courses/analyzing-survey-data-in-r/introduction-to-survey-data?ex=1)
+2. Read the [README](https://github.com/fivethirtyeight/data/tree/master/non-voters) on the github repo for the data.
+3. Fill in the blanks in the code below to refit our glm model while accounted for the weights in the data.
+4. Change `eval: FALSE` to `eval: TRUE` and add any code you want to look at the model. `tidy` and `kable` should work just fine.
+
+```{r}
+#| eval: FALSE
+#| 
+library(survey)
+
+# create survey object
+survey_538 <- svydesign(data = [data_set], ids = ~[column with IDs], weights = ~[column describing weights])
+
+# fit logistic regression model
+weighted_model <- svyglm([insert formula], design= [survey object], family = "binomial")
+```
+
+Write a paragraph including the following: 
+
+-   What groups of people were oversampled and does that mean they get larger or smaller weights in the data?
+-   Why weighting was used?
+-   (Extra Credit) To what extent did the results from your analysis considering the weights differ from your results earlier in this homework. You can earn a possible 5 points of extra credit on this assignment based on how thorough your answer is to this question.
+
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure you render your PDF and it appears how you want it to.
+:::
+
+Upload the qmd and PDF files to Canvas.
+
+
+    Grading (50 pts + 5 pts extra credit)
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 2      |
+| Ex 2                  | 4      |
+| Ex 3                  | 4      |
+| Ex 4                  | 4      |
+| Ex 5                  | 8      |
+| Ex 6                  | 8      |
+| Ex 7                  | 8      |
+| Ex 8                  | 4      |
+| Ex 9                  | 4      |
+| Ex 10                 | 8      |
+| Workflow & formatting | 3      |

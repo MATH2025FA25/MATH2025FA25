@@ -1047,6 +1047,160 @@ P(|Z| &gt; |13.39|) \approx 0
 </div>
 <p><strong>Conclusion:</strong></p>
 <p>The p-value is very small, so we reject <span class="math inline">\(H_0\)</span>. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is will develop heart disease in the next year, <span class="fragment highlight-red">after accounting for education</span>.</p>
+</section></section>
+<section>
+<section id="comparing-nested-models" class="title-slide slide level1 center">
+<h1>Comparing Nested Models</h1>
+
+</section>
+<section id="comparing-nested-models-1" class="slide level2">
+<h2>Comparing nested models</h2>
+<ul>
+<li><p>Suppose there are two models:</p>
+<ul>
+<li>Reduced Model includes predictors <span class="math inline">\(x_1, \ldots, x_q\)</span></li>
+<li>Full Model includes predictors <span class="math inline">\(x_1, \ldots, x_q, x_{q+1}, \ldots, x_p\)</span></li>
+</ul></li>
+<li><p>We want to test the hypotheses</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0&amp;: \beta_{q+1} = \dots = \beta_p = 0 \\
+H_A&amp;: \text{ at least one }\beta_j \text{ is not } 0
+\end{aligned}
+\]</span></p></li>
+<li><p>To do so, we will use the <strong>Nested Likelihood Ratio test (LRT)</strong>, also known as the <strong>Drop-in-deviance test</strong>,</p></li>
+</ul>
+</section>
+<section id="likelihood-ratio-test" class="slide level2 smaller">
+<h2>Likelihood Ratio test</h2>
+<p><strong>Hypotheses:</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0&amp;: \beta_{q+1} = \dots = \beta_p = 0 \\
+H_A&amp;: \text{ at least 1 }\beta_j \text{ is not } 0
+\end{aligned}
+\]</span></p>
+<div class="fragment">
+<p><strong>Test Statistic:</strong> <span class="math display">\[G = (-2 \log L_{reduced}) - (-2 \log L_{full})\]</span></p>
+<p>or sometimes</p>
+<p><strong>Test Statistic:</strong> <span class="math display">\[G = (-2 \log L_{0}) - (-2 \log L)\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>P-value:</strong> <span class="math inline">\(P(\chi^2 &gt; G)\)</span>, calculated using a <span class="math inline">\(\chi^2\)</span> distribution <span class="fragment highlight-red">with degrees of freedom equal to the difference in the number of parameters in the full and reduced models</span></p>
+</div>
+</section>
+<section id="chi2-distribution" class="slide level2">
+<h2><span class="math inline">\(\chi^2\)</span> distribution</h2>
+
+<img data-src="12-logistic-multiple_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="should-we-add-education-to-a-model-with-only-age" class="slide level2">
+<h2>Should we add <code>education</code> to a model with only <code>age</code>?</h2>
+<p>First model, reduced:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>risk_fit_reduced <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, </span>
+<span id="cb8-2"><a></a>      <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="fragment">
+<p>Second model, full:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>risk_fit_full <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> education, </span>
+<span id="cb9-2"><a></a>      <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="should-we-add-education-to-the-model" class="slide level2">
+<h2>Should we add <code>education</code> to the model?</h2>
+<p>Calculate deviance for each model:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>dev_reduced <span class="ot">&lt;-</span> <span class="fu">glance</span>(risk_fit_reduced)<span class="sc">$</span>deviance</span>
+<span id="cb10-2"><a></a>dev_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3306.68</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>dev_full <span class="ot">&lt;-</span> <span class="fu">glance</span>(risk_fit_full)<span class="sc">$</span>deviance</span>
+<span id="cb12-2"><a></a>dev_full</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3300.135</code></pre>
+</div>
+</div>
+</section>
+<section id="should-we-add-education-to-the-model-1" class="slide level2">
+<h2>Should we add <code>education</code> to the model?</h2>
+<p>Drop-in-deviance test statistic:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>test_stat <span class="ot">&lt;-</span> dev_reduced <span class="sc">-</span> dev_full</span>
+<span id="cb14-2"><a></a>test_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.544306</code></pre>
+</div>
+</div>
+</section>
+<section id="should-we-add-education-to-the-model-2" class="slide level2">
+<h2>Should we add <code>education</code> to the model?</h2>
+<p>Calculate the p-value using a <code>pchisq()</code>, with degrees of freedom equal to the number of new model terms in the second model:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">pchisq</span>(test_stat, <span class="dv">3</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08793145</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Conclusion:</strong> The p-value is between 0.1 and 0.05 indicating mild but not strong evidence that a model with <code>education</code> is a <span class="fragment highlight-red">useful predictor when <code>age</code> is already in the model</span>.</p>
+</div>
+</section>
+<section id="drop-in-deviance-test-in-r" class="slide level2 midi">
+<h2>Drop-in-Deviance test in R</h2>
+<ul>
+<li><p>We can use the <strong><code>anova</code></strong> function to conduct this test</p></li>
+<li><p>Add <strong><code>test = "Chisq"</code></strong> to conduct the drop-in-deviance test</p></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">anova</span>(risk_fit_reduced, risk_fit_full, <span class="at">test =</span> <span class="st">"Chisq"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 3%">
+<col style="width: 11%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">df.residual</th>
+<th style="text-align: right;">residual.deviance</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">deviance</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TenYearCHD ~ age</td>
+<td style="text-align: right;">4133</td>
+<td style="text-align: right;">3306.680</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TenYearCHD ~ age + education</td>
+<td style="text-align: right;">4130</td>
+<td style="text-align: right;">3300.135</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6.544</td>
+<td style="text-align: right;">0.088</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
@@ -1055,8 +1209,10 @@ P(|Z| &gt; |13.39|) \approx 0
 <ul>
 <li>Coefficient interpretations</li>
 <li>Wald test interpretations</li>
+<li>LRTs and Drop-in-Deviance tests</li>
 </ul></li>
 <li>Basic idea add “holding all else constant”</li>
+<li>LRT allows you to compare nested models and requires a degree of free for each extra parameter in the full model</li>
 </ul>
 
 <div class="quarto-auto-generated-content">

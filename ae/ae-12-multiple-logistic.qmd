@@ -106,6 +106,13 @@ Interpret the the confidence intervals below:
 
 **Odds-ratio interpretation (Categorical):**
 
+## Exercise 7
+
+1.  Fit the full model. I.e. the model using all eight predictors included in the data set.
+2.  Use `glance` to compute the deviance of both models. Which has the better deviance?
+3.  Use the `anova` function to conduct a likelihood ratio test between the model containing your two predictors and the full model.
+4.  On the white board, write the null and alternative hypotheses (in both symbols and words), the test statistic, the p-value on the board. 5 What is the conclusion of your test in context?
+
 ## Submission
 
 ::: callout-important
