@@ -38,9 +38,9 @@ knitr::opts_chunk$set(
 ## Announcements
 
 ::: appex
-📋 [AE 12 - Model Comparison](/ae/ae-12-comparison.qmd)
+📋 [AE 11 - Model Comparison](/ae/ae-11-comparison.qmd)
 
-- Open up AE 12 and complete Exercises 0-2
+- Open up AE 11 and complete Exercises 0-2
 :::
 
 
@@ -84,8 +84,9 @@ Which variables help us predict the amount customers tip at a restaurant?
 ```{r}
 #| echo: false
 #| message: false
-tips <- read_csv("../data/tip-data.csv") |>
-  drop_na(Party)
+tips <- read_csv("../data/tip-data.csv")  |>
+  drop_na(Party) |> 
+  select(-`Tip Percentage`, -`W/Tip`)
 ```
 
 ```{r}
@@ -398,6 +399,106 @@ calculated from an $F$ distribution with $k$ and $n - k - 1$ degrees of freedom.
   - `statistic`: F-statistic
   - `p.value`: p-value from F-test
 
+. . .
+
+Complete Exercise 4.
+
+# Comparing sets of predictors
+
+## Nested Models {.smaller}
+
+-   We say one model is **nested** inside another model if all of its **TERMS** are present in the other model
+
+. . .
+
+-   Consider three different models:
+    -   **Model 1:** $Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_3 + \epsilon$
+    -   **Model 2:** $Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \epsilon$
+    -   **Model 3:** $Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_1X_2 + \epsilon$
+  
+. . .
+
+-   **Model 2** is nested inside both **Model 1** and **Model 3**. 
+-   Why isn't **Model 3** nested in **Model 1**?
+-   Smaller model is called the **Reduced Model**
+-   Larger model is called the **Full Model** (be careful, this term depends on context)
+
+. . .
+
+- Complete Exercises 5-7.
+
+## Recall: ANOVA, F-Test {.smaller}
+
+**Hypotheses:** 
+
+$H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ 
+
+**Test statistic:** F-statistic
+
+$$
+F = \frac{MSModel}{MSE} = \frac{SSModel/p}{SSE/(n-p-1)} \\
+$$
+
+**p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
+
+$$
+\text{p-value} = P(F > \text{test statistic}),
+$$
+
+calculated from an $F$ distribution with $p$ and $n - p - 1$ degrees of freedom.
+
+## Nested F-Test {.smaller}
+
+Suppose $k$ is the number of $\beta$'s in the nested model and $p$ is the full number of predictors in the larger model. I.e. $\beta_{k+1},\ldots, \beta_{p}$ are the new $\beta$'s
+
+**Hypotheses:** 
+
+$H_0: \beta_{k+1} = \beta_{k+2} = \cdots = \beta_p = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ for $i>k+1$ 
+
+**Test statistic:** F-statistic
+
+$$
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(p-k)}{SSE_{full}/(n-p-1)} \\
+$$
+
+**p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
+
+$$
+\text{p-value} = P(F > \text{test statistic}),
+$$
+
+calculated from an $F$ distribution with $p-k$ (the number of predictors being tested) and $n - p - 1$ degrees of freedom.
+
+. . .
+
+Note: Same as regular F-test if reduced model is just $Y= \beta_0$.
+
+## Nested F-Test in R {.smaller}
+
+```{r}
+tip_fit_1 <- lm(Tip ~ Party + Age + Meal, data = tips)
+tip_fit_2 <- lm(Tip ~ Party + Age + Meal + Day, data = tips)
+
+anova(tip_fit_1, tip_fit_2) |> # Enter reduced model first
+  tidy() |> 
+  kable()
+```
+
+$$
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(p-k)}{SSE_{full}/(n-p-1)}
+= \frac{15.59778/5}{6073815/158}
+= 0.8114993
+$$
+
+Let's interpret this together.
+
+. . .
+
+Complete Exercise 8.
+
+
+# Model comparison
+
 ## R-squared, $R^2$
 
 **Recall**: $R^2$ is the proportion of the variation in the response variable explained by the regression model.
@@ -408,9 +509,7 @@ $$
 R^2 = \frac{SS_{Model}}{SS_{Total}} = 1 - \frac{SS_{Error}}{SS_{Total}}
 $$
 
-Complete Exercises 4-7.
-
-# Model comparison
+Complete Exercises 9-11.
 
 ## R-squared, $R^2$, Overfitting
 
@@ -446,7 +545,7 @@ where
 -   $R^2_{adj}$ can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!
 -   Use $R^2$ when describing the relationship between the response and predictor variables
 
-Complete Exercises 8-10.
+Complete Exercises 12-13.
 
 ## Comparing models with $R^2_{adj}$ {.smaller}
 
@@ -550,7 +649,7 @@ $$
 
 -   If $n \geq 8$, the **penalty** for BIC is larger than that of AIC, so BIC tends to favor *more parsimonious* models (i.e. models with fewer terms)
 
-Complete Exercise 11 and 12.
+Complete Exercise 14.
 
 ## Comparing models with AIC and BIC
 
@@ -647,6 +746,86 @@ glance(tip_fit_2) |>
 -   All criteria we considered for model comparison require making predictions for our data and then uses the prediction error ($SS_{Error}$) somewhere in the formula
 -   But we're making prediction for the data we used to build the model (estimate the coefficients), which can lead to **overfitting**
 
+
+
+# Model Selection
+
+## Model Selection
+
+-   So far: We've come up with a variety of metrics and tests which help us compare different models
+-   How do we choose the models to compare in the first place?
+-   Today: Best subset, forward selection, and backward selection
+
+## AIC, BIC, Mallows' $C_p$ {.smaller}
+
+Estimators of prediction error and *relative* quality of models:
+
+**Akaike's Information Criterion (AIC)**: $$AIC = n\log(SS_\text{Error}) - n \log(n) + 2(p+1)$$ <br>
+
+**Schwarz's Bayesian Information Criterion (BIC)**: $$BIC = n\log(SS_\text{Error}) - n\log(n) + log(n)\times(p+1)$$
+
+. . .
+
+**Mallows' $C_p$**: $$C_p = \frac{SSE_{p}}{MSE_{full model}} - n + 2(p+1)$$
+
+## Best Subset Selection
+
+-   Computers are great now!
+-   Frequently feasible to try out EVERY combination of predictors if you total number of possible predictors is not too high.
+
+## Best Subset Selection in R {.smaller}
+
+```{r}
+library(olsrr)
+
+full_model <- lm(Tip ~ ., data = tips)
+
+ols_step_best_subset(full_model)
+```
+
+Shows you "best" model for every model size.
+
+## Backward Elimination {.smaller}
+
+Different model selection technique:
+
+1. Start by fitting the full model (the model that includes all terms under consideration).
+2. Identify the term with the largest p-value.
+    a. If p-value is large (say, greater than 5%), eliminate that term to produce a smaller model. Fit that model and return to the start of Step 2.
+    b. If p-value is small (less than 5%), stop since all of the predictors in the model are "significant."
+
+Note: this can be altered to work with other criterea (e.g. AIC) instead of p-values. This is actually what `regsubsets` does.
+
+
+## Forward Selection {.smaller}
+
+1. Start with a model with no predictors and find the best single predictor (the largest correlation with the response gives the biggest initial).
+2. Add the new predictor to the model, run the regression, and find its individual p-value:
+    a. If p-value is small (say, less than 5%), add predictor which would produce the most benefit (biggest increase in $R^2$) when added to the existing model.
+    b. If the p-value is large (over 5%), stop and discard this predictor. At this point, no (unused) predictor should be significant when added to the model and we are done.
+
+## Stepwise Selection {.smaller}
+
+Forward, stepwise selection
+
+1. Start with a model with no predictors and find the best single predictor (the largest correlation with the response gives the biggest initial).
+2. Add the new predictor to the model, run the regression, and find its individual p-value:
+    a. If p-value is small (say, less than 5%), **run backward elimination**, then add predictor which would produce the most benefit (biggest increase in $R^2$) when added to the existing model.
+    b. If the p-value is large (over 5%), stop and discard this predictor. At this point, no (unused) predictor should be significant when added to the model and we are done.
+    
+- Why? Sometimes variables that were significant early on, can become insignificant after other new variables are added to the model.
+
+Backward, stepwise selection is the same, except you perform forward selection every time you delete a term from the model.
+
+## CAUTION {.smaller}
+
+-   These automated methods have fallen out of favor in recent years, but you can still use them and should know what they are.
+-   Automated methods ARE NOT a replacement for subject matter expertise
+-   Think of the models that come out of these procedures as *suggestions*
+-   The order in which variables are added to a model can *help* us understand which variables are more important and which are redundant.
+
+Complete Exercise 15.
+
 ## Recap
 
 -   ANOVA for multiple linear regression and sum of squares
@@ -655,3 +834,6 @@ glance(tip_fit_2) |>
     -   $R^2$ vs. $R^2_{Adj}$
     -   AIC and BIC
 -   Occam's razor and parsimony
+-   Choosing models using:
+    -   Exhaustive search
+    -   Forward/Backward/Stepwise selection

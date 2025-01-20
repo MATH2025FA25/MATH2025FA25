@@ -46,9 +46,9 @@ library(countdown)
 . . .
  
 ::: appex
-📋 [AE 11 - Multiple Logistic Regression](/ae/ae-11-multiple-logistic.qmd)
+📋 [AE 12 - Multiple Logistic Regression](/ae/ae-12-multiple-logistic.qmd)
 
-- Complete all of AE 11 using slides as needed.
+- Complete all of AE 12 using slides as needed.
 :::
 
 

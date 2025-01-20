@@ -1,7 +1,7 @@
 ---
-title: "Preparation for Multiple Logistic Regression"
+title: "Preparation for Multicollinearity"
 ---
 
 ## Assigned reading
 
-Stat2 Textbook: Chapter 10.1, 10.2
+Stat2 Textbook: Chapter 3.5

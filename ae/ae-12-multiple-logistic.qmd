@@ -1,5 +1,5 @@
 ---
-title: "AE 11: Multiple Logistic Regression"
+title: "AE 12: Multiple Logistic Regression"
 editor: visual
 format:
   html:
@@ -7,11 +7,11 @@ format:
 ---
 
 ::: callout-important
--   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-11".
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-12".
 
--   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202842) and locate your `AE-11` assignment to get started.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202842) and locate your `AE-12` assignment to get started.
 
--   Upload the `ae-11.qmd` and `framingham.csv` files into the folder you just created.
+-   Upload the `ae-12.qmd` and `framingham.csv` files into the folder you just created.
 :::
 
 ## Packages

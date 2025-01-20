@@ -1,5 +1,5 @@
 ---
-title: "AE 12: Model Comparison"
+title: "AE 11: Model Comparison"
 editor: visual
 format:
   html:
@@ -7,11 +7,11 @@ format:
 ---
 
 ::: callout-important
--   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-12".
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-11".
 
--   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/183786) and locate your `AE-12` assignment to get started.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/183786) and locate your `AE-11` assignment to get started.
 
--   Upload the `ae-12.qmd` and `tip-data.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
+-   Upload the `ae-11.qmd` and `tip-data.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
 :::
 
 ## Packages + data
@@ -26,7 +26,8 @@ library(patchwork)
 library(knitr)
 library(kableExtra)
 
-tips <- read_csv("../data/tip-data.csv") 
+tips <- read_csv("../data/tip-data.csv") |> 
+  select(-`Tip Percentage`, -`W/Tip`)
 ```
 
 What factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.[^1]
@@ -36,10 +37,16 @@ What factors are associated with the amount customers tip at a restaurant? To an
 The variables we'll focus on for this analysis are
 
 -   `Tip`: amount of the tip
--   `Meal`: which meal this was (`Lunch`, `Dinner`, `Late Night`)
--   `Party`: number of people in the party
+-   `Party`: Number of people in the party
+-   `Meal`: Time of day (`Lunch`, `Dinner`, `Late Night`)
 -   `Age`: Age category of person paying the bill (`Yadult`, `Middle`, `SenCit`)
--   `Day`: Day of the week (`Tuesday` through `Sunday`)
+-   `Day`: Day of the week
+-   `Payment`: the type of payment used
+-   `GiftCard`: whether a gift card was used\
+-   `Comps`: Whether any food was comped\
+-   `Alcohol`: Whether any alcohol was ordered
+-   `Bday`: whether it was someones birthday\
+-   `Bill`: the size of the bill
 
 ## Analysis goal
 
@@ -81,7 +88,7 @@ tips <- tips |>
 
 ## Exercise 1
 
-Fit a linear model to predict `Tips` from `Party` and `Age`.
+Fir a model called `tip_fit_1` to predict `Tip` from `Party`, `Age`, and `Meal`
 
 ## Exercise 2
 
@@ -97,39 +104,57 @@ Pipe your model into the `glance` function. Identify, the F-statistic and p-valu
 
 ## Exercise 5
 
-What is the $R^2$ value for this model?
+Fit a model `tip_fit_2` to predict `Tip` from `Party`, `Age`, `Meal`, and `Day`.
 
 ## Exercise 6
 
-Fit the full model. What is it's $R^2$? Does this model have a higher or lower $R^2$ than the previous model? Does this mean it is a better model? Be prepared to discuss.
+Of the two models you just fit, which is nested inside the other?
 
 ## Exercise 7
 
-The following code converts the numerical variable `Bill` into a new categorical variable `Bill_factor`. Essentially, each different number in `Bill` is treated as it's own category. Fit a model predicting `Tip` from `Bill_factor`. What is your `R^2`? Think about the implications of this and what it means for the usefullness of $R^2$.
+Fit a third model called `tip_fit_3` so that `tip_fit_1` is nested inside `tip_fit_3`. Try to choose a model that you think will do a better job than `tip_fit_1` of modeling the data. Feel free to include interaction or polynomial terms. Have your reporter write the model on the board.
+
+## Exercise 8
+
+Change `eval: FALSE` to `eval: TRUE`. Alter the code below so that you're comparing `tip_fit_3` to `tip_fit_1`.
+
+```{r}
+#| eval: FALSE
+anova(tip_fit_1, tip_fit_2) |> # Enter reduced model first
+  tidy() |> 
+  kable()
+```
+
+Write down the hypotheses, test statistic, and p-value of your test. Interpret the output in the context of the problem. Have your reporter write the p-value on the board. 
+
+## Exercise 9
+
+Based on your test, choose `tip_fit_1` or `tip_fit_3`. What is the $R^2$ value for this model?
+
+## Exercise 10
+
+Fit the full model. What is it's $R^2$? Does this model have a higher or lower $R^2$ than the previous model? Does this mean it is a better model? Be prepared to discuss.
+
+## Exercise 11
+
+The following code converts the numerical variable `Bill` into a new categorical variable `Bill_factor`. Essentially, each different number in `Bill` is treated as it's own category. Fit a model predicting `Tip` from `Bill_factor`. What is your `R^2`? Think about the implications of this and what it means for the usefulness of $R^2$.
 
 ```{r}
 tips <- tips |> 
   mutate(Bill_factor = factor(Bill))
 ```
 
-## Exercise 8
-
-Fit two models:
-
-1.  `tip_fit_1`: predict `Tip` from `Party`, `Age`, and `Meal`
-2.  `tip_fit_2`: predict `Tip` from `Party`, `Age`, `Meal`, and `Day`.
-
-## Exercise 9
+## Exercise 12
 
 Apply `glance` to both models above to find the $R^2$ and $R^2_{adj}$ values?
 
-## Exercise 10
+## Exercise 13
 
 1.  Which model would we choose based on $R^2$?
 2.  Which model would we choose based on Adjusted $R^2$?
 3.  Which statistic should we use to choose the final model - $R^2$ or Adjusted $R^2$? Why?
 
-## Exercise 11
+## Exercise 14
 
 Reference the output from Exercise 9.
 
@@ -137,9 +162,14 @@ Reference the output from Exercise 9.
 
 2.  Which model would we choose based on BIC?
 
-## Exercise 12 (Time Permitting)
+## Exercise 15
 
-What might be the problem if we are comparing models with different transformation of the reponse variable.
+Navigate to the website for `olsrr` [here](https://olsrr.rsquaredacademy.com/reference/). Choose a selection technique other than best subset and apply it. Fit your resulting model.
+
+```{r}
+
+```
+
 
 ## To submit the AE
 
