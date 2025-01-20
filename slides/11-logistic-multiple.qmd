@@ -1,0 +1,254 @@
+---
+title: "Multiple Logistic Regression"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+
+
+## Topics
+
+-   Extending what we've learned to logistic regression models with multiple predictors
+
+. . .
+ 
+::: appex
+📋 [AE 11 - Multiple Logistic Regression](/ae/ae-11-multiple-logistic.qmd)
+
+- Complete all of AE 11 using slides as needed.
+:::
+
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(broom)
+library(openintro)
+library(knitr)
+library(kableExtra)  # for table embellishments
+library(Stat2Data)   # for empirical logit
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+# Data
+
+## Risk of coronary heart disease {.midi}
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.
+
+-   `TenYearCHD`:
+
+    -   1: Developed heart disease in next 10 years
+    -   0: Did not develop heart disease in next 10 years
+
+-   `age`: Age at exam time (in years)
+
+-   `education`: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College
+
+## Data prep
+
+```{r}
+heart_disease <- read_csv("../data/framingham.csv") |>
+  select(TenYearCHD, age, education) |>
+  drop_na() |> 
+  mutate(education = as.factor(education))
+
+heart_disease |> head() |> kable()
+```
+
+# Coefficient Interpretation
+
+
+## Model output {.midi}
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ age + education, 
+      data = heart_disease, family = "binomial")
+
+risk_fit |> tidy() |> kable(digits = 3)
+```
+
+$$
+\small{\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.385 + 0.073 ~ \text{age} - 0.242 ~ \text{ed2} - 0.235 ~ \text{ed3} - 0.020 ~ \text{ed4}}
+$$
+
+## Model Interpretation {.smaller}
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ age + education, 
+      data = heart_disease, family = "binomial")
+
+risk_fit |> tidy() |> kable(digits = 3)
+```
+
+As `age` increases by a year, the typical log-odds of developing coronary heart disease within the next 10 years increases by 0.073 [for patients with the same level of education]{.fragment .highlight-red}.
+
+. . .
+
+As `age` increases by a year, the typical odds of developing coronary heart disease within the next 10 years increases by a factor of $\exp(0.073)\approx 1.08$ (i.e. 8%) [for patients with the same level of education]{.fragment .highlight-red}.
+
+## Model Interpretation {.smaller}
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ age + education, 
+      data = heart_disease, family = "binomial")
+
+risk_fit |> tidy() |> kable(digits = 3)
+```
+
+Patients [of the same age]{.fragment .highlight-red} who have [a High School diploma or GED/Some College or Vocational School/a College education], the typical log-odds of developing coronary heart disease within the next 10 years is 0.242/0.235/0.020 lower than patients with only some high school.
+
+. . .
+
+Patients [of the same age]{.fragment .highlight-red} who have [a High School diploma or GED/Some College or Vocational School/a College education], the typical odds of developing coronary heart disease within the next 10 years is 79.5%/79.1%/98.0% of the odds for patients with only some high school.
+
+# Inference for a single $\beta_j$
+
+## Hypothesis test for $\beta_j$
+
+**Hypotheses:** $H_0: \beta_j = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_j \neq 0$, [given the other variables in the model]{.fragment .highlight-red}
+
+. . .
+
+**Test Statistic:** $$z = \frac{\hat{\beta}_j - 0}{SE_{\hat{\beta}_j}}$$
+
+. . .
+
+**P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
+
+## Confidence interval for $\beta_j$
+
+We can calculate the **C% confidence interval** for $\beta_j$ as the following:
+
+$$
+\Large{\hat{\beta}_j \pm z^* SE_{\hat{\beta}_j}}
+$$
+
+where $z^*$ is calculated from the $N(0,1)$ distribution
+
+. . .
+
+::: callout-note
+This is an interval for the change in the log-odds for every one unit increase in $x_j$
+:::
+
+## Interpretation in terms of the odds
+
+The change in **odds** for every one unit increase in $x_j$.
+
+$$
+\Large{\exp\{\hat{\beta}_j \pm z^* SE_{\hat{\beta}_j}\}}
+$$
+
+. . .
+
+**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $\exp\{\hat{\beta}_j - z^* SE_{\hat{\beta}_j}\}$ to $\exp\{\hat{\beta}_j + z^* SE_{\hat{\beta}_j}\}$, [holding all else constant]{.fragment .highlight-red}.
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| label: risk-model-age-highlight
+#| echo: false
+
+tidy(risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+. . .
+
+**Hypotheses:**
+
+$$
+H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
+$$
+[given education is in the model]{.fragment .highlight-red}
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Test statistic:**
+
+$$z = \frac{0.07328 - 0}{0.00547} = 13.39$$
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**P-value:**
+
+$$
+P(|Z| > |13.39|) \approx 0
+$$
+
+. . .
+
+```{r}
+2 * pnorm(13.64,lower.tail = FALSE)
+```
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Conclusion:**
+
+The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is will develop heart disease in the next year, [after accounting for education]{.fragment .highlight-red}.
+
+
+
+## Recap
+
+-   Today: Simple logistic to Multiple logistic
+    -   Coefficient interpretations
+    -   Wald test interpretations
+-   Basic idea add "holding all else constant"

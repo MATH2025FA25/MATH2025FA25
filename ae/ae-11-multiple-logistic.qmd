@@ -1,0 +1,116 @@
+---
+title: "AE 11: Multiple Logistic Regression"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-11".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202842) and locate your `AE-11` assignment to get started.
+
+-   Upload the `ae-11.qmd` and `framingham.csv` files into the folder you just created.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+### Response variable
+
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+
+### What are my predictor variables?
+
+Based on your group, use the following as your predictor variables.
+
+-   Group 1:
+    -   `BMI`: patient's body mass index
+    -   `diabetes`: 1 if patient has diabetes, 0 otherwise
+-   Group 2:
+    -   `cigsPerDay`: number of cigarettes patient smokes per day
+    -   `currentSmoker`: 1 if current smoker, 0 otherwise
+-   Group 3:
+    -   `sysBP`: systolic blood pressure (mmHg)
+    -   `BPMeds`: 1 if they are on blood pressure medication, 0 otherwise
+-   Group 4:
+    -   `totChol`: total cholesterol (mg/dL)
+    -   `prevalentHyp`: 1 if patient was hypertensive, 0 otherwise
+
+## Exercise 0
+
+Edit the code below to drop any missing values, convert the categorical predictors into factors, and select only the eight variables listed above along with `TenYearCHD`. Make sure to do those thing in an order that makes sense:
+
+```{r}
+heart_disease <- read_csv("../data/framingham.csv")
+```
+
+## Exercise 1
+
+Fit a logistic regression model predicting `TenYearCHD` using your two assigned predictors. Write your resulting model on the board in any format you choose.
+
+## Exercise 2
+
+For both of your coefficients complete the madlibs below interpreting the value, you may need to edit a bit to make the final sentence grammatically correct:
+
+Quantitative variable: When \[variable name\] increases by \[number\], the typical \[increase/decrease\] in \[quantity\] is \[number\], \[qualifying statement that makes this different than when we have one predictor\].
+
+Quantitative variable: When \[variable name\] increases by \[number\], the typical odds-ratio is multiplied by a factor of \[number\], \[qualifying statement that makes this different than when we have one predictor\].
+
+Categorical variable: For patients who are \[insert category\] at the time of examination, the typical \[increase/decrease\] in \[quantity\] is \[number\] vs patients \[insert opposite category\], \[qualifying statement that makes this different than when we have one predictor\].
+
+Categorical variable: For patients who are \[insert category\] at the time of examination, the odds-ratio typically \[increases/decreases\] by a factor of \[number\] vs patients \[insert opposite category\], \[qualifying statement that makes this different than when we have one predictor\].
+
+## Exercise 3
+
+Compute p-values for both of your coefficients using `tidy`.
+
+## Exercise 4
+
+For both of your coefficients write the null and alternative hypotheses (in both symbols and words), the test statistics, and the p-values on the board (just pick them out from the `tidy` output). Then, complete the madlibs below interpreting the p-values, you may need to edit the final statements to make them grammatically correct:
+
+Quantitative variable: The \[quantity\] is \[size\], so we \[do something to\] $H_0$. The data \[do/do not\] provide sufficient evidence that \[variable name\] is a statistically significant predictor of \[variable\], \[qualifying statement that makes this different than when we have one predictor\].
+
+Categorical variable: The \[quantity\] is \[size\], so we \[do something to\] $H_0$. The data \[do/do not\] provide sufficient evidence that \[variable name\] is a statistically significant predictor of \[variable\], \[qualifying statement that makes this different than when we have one predictor\].
+
+## Exercise 5
+
+Use `tidy` to compute 99% confidence intervals for both of your coefficients. Write them on the board.
+
+## Exercise 6
+
+Interpret the the confidence intervals below:
+
+**Log-odds interpretation (Quantitative):**
+
+**Odds-ratio interpretation (Quantitative):**
+
+**Log-odds interpretation (Categorical):**
+
+**Odds-ratio interpretation (Categorical):**
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the HTML file with all of your work from today's class.
+-   Upload your QMD and HTML files to the Canvas assignment.
+:::
