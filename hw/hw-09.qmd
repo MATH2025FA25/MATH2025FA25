@@ -101,7 +101,7 @@ The goal of this analysis is use the polling data to examine the relationship be
 
 ## Exercise 1
 
-Let's prepare the data for analysis and modeling. Most of this can be copied from your previous homework.
+Let's prepare the data for analysis and modeling. Most of this can be copied from homework 7.
 
 -   Create a new variable called `frequent_voter` that takes the value 1 if the `voter_category` is "always" and 0 otherwise.
 -   The variable `Q30` contains the respondent's political party identification. Make a new variable, `party_id`, that simplifies `Q30` into three categories: "Democrat", "Republican", "Independent/Neither", The category "Independent/Neither" will also include respondents who did not answer the question.
@@ -192,7 +192,7 @@ Write a paragraph including the following:
 
 -   What groups of people were oversampled and does that mean they get larger or smaller weights in the data?
 -   Why weighting was used?
--   (Extra Credit) To what extent did the results from your analysis considering the weights differ from your results earlier in this homework. You can earn a possible 5 points of extra credit on this assignment based on how thorough your answer is to this question.
+-   To what extent did the results from your analysis considering the weights differ from your results earlier in this homework.
 
 
 # Submission
@@ -204,18 +204,23 @@ Before you wrap up the assignment, make sure you render your PDF and it appears 
 Upload the qmd and PDF files to Canvas.
 
 
-    Grading (50 pts + 5 pts extra credit)
+    Grading (20 pts)
 
 | Component             | Points |
 |-----------------------|--------|
-| Ex 1                  | 2      |
-| Ex 2                  | 4      |
-| Ex 3                  | 4      |
-| Ex 4                  | 4      |
-| Ex 5                  | 8      |
-| Ex 6                  | 8      |
-| Ex 7                  | 8      |
-| Ex 8                  | 4      |
-| Ex 9                  | 4      |
-| Ex 10                 | 8      |
-| Workflow & formatting | 3      |
+| Ex 1                  | 1      |
+| Ex 2                  | 2      |
+| Ex 3                  | 2      |
+| Ex 4                  | 2      |
+| Ex 5                  | 2      |
+| Ex 6                  | 3      |
+| Ex 7                  | 1      |
+| Ex 8                  | 1      |
+| Ex 9                  | 1      |
+| Ex 10                 | 3      |
+| Grammar & Writing     | 1[^1]  |
+| Workflow & formatting | 1[^2]  |
+
+[^1]: The "Grammar & Writing" grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.
+
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.

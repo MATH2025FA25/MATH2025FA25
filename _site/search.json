@@ -1251,7 +1251,7 @@
     "href": "slides/05-slr-conditions.html#non-linear-relationships",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Non-linear relationships",
-    "text": "Non-linear relationships\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'"
+    "text": "Non-linear relationships"
   },
   {
     "objectID": "slides/05-slr-conditions.html#violations-of-linearity",
@@ -1279,7 +1279,7 @@
     "href": "slides/05-slr-conditions.html#non-constant-variance-fan-pattern",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Non-constant variance: Fan-Pattern",
-    "text": "Non-constant variance: Fan-Pattern\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConstant variance is frequently violated when the error/variance is proportional to the response variable\nWhose wealth fluctuates more per day… Dr. Friedlander’s or Elon Musk’s?"
+    "text": "Non-constant variance: Fan-Pattern\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConstant variance is frequently violated when the error/variance is proportional to the response variable\nWhose wealth fluctuates more per day… Dr. Friedlander’s or Elon Musk’s?"
   },
   {
     "objectID": "slides/05-slr-conditions.html#violations-of-constant-variance",
@@ -1398,7 +1398,7 @@
     "href": "slides/05-slr-conditions.html#r2",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "\\(R^2\\)",
-    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nlibrary(yardstick)\n\n\nAttaching package: 'yardstick'\n\n\nThe following object is masked from 'package:readr':\n\n    spec\n\nspotify_aug &lt;- augment(spotify_fit)\n\nrsq(spotify_aug, truth = danceability, estimate = .fitted) |&gt; kable()\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nrsq\nstandard\n0.019244"
+    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nlibrary(yardstick)\nspotify_aug &lt;- augment(spotify_fit)\n\nrsq(spotify_aug, truth = danceability, estimate = .fitted) |&gt; kable()\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nrsq\nstandard\n0.019244"
   },
   {
     "objectID": "slides/05-slr-conditions.html#interpreting-r2",
@@ -2372,6 +2372,111 @@
     "crumbs": [
       "Useful links"
     ]
+  },
+  {
+    "objectID": "hw/hw-09.html",
+    "href": "hw/hw-09.html",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "",
+    "text": "In this homework, you’ll continue analyzing data from an online Ipsos survey that was conducted for the FiveThirtyEight article “Why Many Americans Don’t Vote” using logistic regression for interpretation and prediction. You can read more about the polling design and respondents in the README of the GitHub repo for the data.\n\n\nBy the end of the assignment you will be able to…\n\nUse logistic regression to explore the relationship between a binary response variable and multiple predictor variables\nInterpret coefficients of logistic regression models\nUse statistics to help choose the best fit model\nConduct inference controlling the familywise error rate\nIncorporate survey weights into your analysis\n\n\n\n\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 10, and upload the hw-10.qmd files into the folder your just made.\n\n\n\n\nThe following packages will be used for this assignment.\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(knitr)\n\n# add other packages as needed"
+  },
+  {
+    "objectID": "hw/hw-09.html#learning-goals",
+    "href": "hw/hw-09.html#learning-goals",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "",
+    "text": "By the end of the assignment you will be able to…\n\nUse logistic regression to explore the relationship between a binary response variable and multiple predictor variables\nInterpret coefficients of logistic regression models\nUse statistics to help choose the best fit model\nConduct inference controlling the familywise error rate\nIncorporate survey weights into your analysis"
+  },
+  {
+    "objectID": "hw/hw-09.html#getting-started",
+    "href": "hw/hw-09.html#getting-started",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "",
+    "text": "Go to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 10, and upload the hw-10.qmd files into the folder your just made."
+  },
+  {
+    "objectID": "hw/hw-09.html#packages",
+    "href": "hw/hw-09.html#packages",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "",
+    "text": "The following packages will be used for this assignment.\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(knitr)\n\n# add other packages as needed"
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-1",
+    "href": "hw/hw-09.html#exercise-1",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nLet’s prepare the data for analysis and modeling. Most of this can be copied from homework 7.\n\nCreate a new variable called frequent_voter that takes the value 1 if the voter_category is “always” and 0 otherwise.\nThe variable Q30 contains the respondent’s political party identification. Make a new variable, party_id, that simplifies Q30 into three categories: “Democrat”, “Republican”, “Independent/Neither”, The category “Independent/Neither” will also include respondents who did not answer the question.\nMake sure that educ, race, gender, income_catand party_id are all factors."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-2",
+    "href": "hw/hw-09.html#exercise-2",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nLet’s start by fitting a model using the demographic factors - ppage, educ, race, gender, income_cat - to predict the odds a person is a frequent voter. Fit the model and display the model using 3 digits.\n\nConsider the relationship between ppage and one’s voting behavior. Interpret the coefficient of ppage in the context of the data in terms of the odds a person is a frequent voter."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-3",
+    "href": "hw/hw-09.html#exercise-3",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nGenerate a 95% confidence interval for the coefficient of ppage. Interpret this interval in the context of the data in terms of the odds a person is a frequent voter."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-4",
+    "href": "hw/hw-09.html#exercise-4",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nShould party identification be added to the model? Use a drop-in-deviance test to determine if party identification should be added to the model fit in the previous exercise. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-5",
+    "href": "hw/hw-09.html#exercise-5",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nDisplay the model chosen from the previous exercise using 3 digits.\nThen use the model selected to write a short paragraph (2 - 5 sentences) describing the effect (or lack of effect) of political party on the odds a person is a frequent voter. The paragraph should include an indication of which levels (if any) are statistically significant along with specifics about the differences in the odds between the political parties, as appropriate. Discuss whether the choice of reference level is important to your findings."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-6",
+    "href": "hw/hw-09.html#exercise-6",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nRead Topic 5.7 Multiple Comparisons and Fisher’s Least Significant Difference in the course textbook.\nIn the code below:\n\nInput your glm object (your model) in the first blank.\nInput the name of the variable for party identification in the second.\nChange eval: FALSE to eval:TRUE and run the code.\n\n\nlibrary(multcomp)\n\nglht(__________, linfct = mcp(_________ = \"Tukey\")) |&gt; \n  tidy(conf.int = TRUE, conf.level = 0.95)\n\nThe code you just executed generates estimates of the pairwise differences between all of the levels of the categorical variable you put in the second blank and adjusts your p-values and confidence intervals to control the familywise error rate. Note that despite that fact that it says “Tukey”, it is NOT using Tukey HSD to do this, but the interpretation of the p-values and confidence intervals is the same.\nDescribe what familywise error rate means in this context? If you are controlling for your familywise error rate, how would you expect your p-values and confidence intervals to change?"
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-7",
+    "href": "hw/hw-09.html#exercise-7",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nRewrite the paragraph you wrote in Exercise 5, incorporating information from Exercise 6."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-8",
+    "href": "hw/hw-09.html#exercise-8",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nIn the article, the authors write\n\n“Nonvoters were more likely to have lower incomes; to be young; to have lower levels of education; and to say they don’t belong to either political party, which are all traits that square with what we know about people less likely to engage with the political system.”\n\nConsider the model you selected in Exercise 4. Is it consistent with this statement? Briefly explain why or why not."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-9",
+    "href": "hw/hw-09.html#exercise-9",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nYou have been tasked by a local political organization to identify adults in the community who are frequent voters. These adults will receive targeted political mailings that will be different from the mailings sent to adults who are not frequent voters. You will use the model selected in Exercise 4 to identify the frequent voters."
+  },
+  {
+    "objectID": "hw/hw-09.html#exercise-10",
+    "href": "hw/hw-09.html#exercise-10",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nThis survey actually uses something called weighting to produce more accurate estimates. If we want to be able to generalize our results to the population of interest we HAVE to use these weights.\n\nWatch this video on weighting survey data.\nRead the README on the github repo for the data.\nFill in the blanks in the code below to refit our glm model while accounted for the weights in the data.\nChange eval: FALSE to eval: TRUE and add any code you want to look at the model. tidy and kable should work just fine.\n\n\nlibrary(survey)\n\n# create survey object\nsurvey_538 &lt;- svydesign(data = [data_set], ids = ~[column with IDs], weights = ~[column describing weights])\n\n# fit logistic regression model\nweighted_model &lt;- svyglm([insert formula], design= [survey object], family = \"binomial\")\n\nWrite a paragraph including the following:\n\nWhat groups of people were oversampled and does that mean they get larger or smaller weights in the data?\nWhy weighting was used?\nTo what extent did the results from your analysis considering the weights differ from your results earlier in this homework."
+  },
+  {
+    "objectID": "hw/hw-09.html#footnotes",
+    "href": "hw/hw-09.html#footnotes",
+    "title": "HW 09: Multiple Logistic regression",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
     "objectID": "hw/hw-07.html",
@@ -4447,6 +4552,118 @@
     "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
+    "objectID": "hw/hw-08.html",
+    "href": "hw/hw-08.html",
+    "title": "HW 08: Lego Prices",
+    "section": "",
+    "text": "In this homework you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.\n\n\nIn this assignment, you will…\n\nUse exploratory data analysis to inform feature engineering steps\nEvaluate and compare models\nAssess model conditions\nUse inference to draw conclusions\n\n\n\n\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 8 and upload the hw-08.qmd and lego-sample.csv files into the folder your just made.\n\n\n\n\nThe following packages will be used in this assignment:\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(knitr) \nlibrary(rms)\nlibrary(patchwork)\n# add other packages as needed\n\n\n\n\n\n\n\nImportant\n\n\n\nAll narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.\n\n\n\n\n\nThe data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from Peterson and Ziegla (2021).\nYou will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are\n\nPieces: Number of pieces in the set from brickset.com.\nMinifigures: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.\nAmazon_Price: Amazon price of the set scraped from brickset.com (in U.S. dollars)\nSize: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)\nTheme: Theme of the LEGO set\nYear : Year the LEGO set was produced\nPages: Number of pages in the instruction booklet"
+  },
+  {
+    "objectID": "hw/hw-08.html#learning-goals",
+    "href": "hw/hw-08.html#learning-goals",
+    "title": "HW 08: Lego Prices",
+    "section": "",
+    "text": "In this assignment, you will…\n\nUse exploratory data analysis to inform feature engineering steps\nEvaluate and compare models\nAssess model conditions\nUse inference to draw conclusions"
+  },
+  {
+    "objectID": "hw/hw-08.html#getting-started",
+    "href": "hw/hw-08.html#getting-started",
+    "title": "HW 08: Lego Prices",
+    "section": "",
+    "text": "Go to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 8 and upload the hw-08.qmd and lego-sample.csv files into the folder your just made."
+  },
+  {
+    "objectID": "hw/hw-08.html#packages",
+    "href": "hw/hw-08.html#packages",
+    "title": "HW 08: Lego Prices",
+    "section": "",
+    "text": "The following packages will be used in this assignment:\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(knitr) \nlibrary(rms)\nlibrary(patchwork)\n# add other packages as needed\n\n\n\n\n\n\n\nImportant\n\n\n\nAll narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels."
+  },
+  {
+    "objectID": "hw/hw-08.html#data-legos",
+    "href": "hw/hw-08.html#data-legos",
+    "title": "HW 08: Lego Prices",
+    "section": "",
+    "text": "The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from Peterson and Ziegla (2021).\nYou will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are\n\nPieces: Number of pieces in the set from brickset.com.\nMinifigures: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.\nAmazon_Price: Amazon price of the set scraped from brickset.com (in U.S. dollars)\nSize: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)\nTheme: Theme of the LEGO set\nYear : Year the LEGO set was produced\nPages: Number of pages in the instruction booklet"
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-1",
+    "href": "hw/hw-08.html#exercise-1",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nThe data are contained in lego-sample.csv. Use the code below to read in the data, replace the NAs in Minifigure with 0, and remove any observations that have missing values for the relevant variables.\n\nlegos &lt;- read_csv(\"../data/lego-sample.csv\") |&gt;\n  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |&gt;\n  mutate(Minifigures = replace_na(Minifigures, 0)) |&gt;\n  drop_na()\n\nRows: 400 Columns: 15\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (7): Set_Name, Theme, Ages, Packaging, Weight, Availability, Size\ndbl (8): Item_Number, Pieces, Price, Amazon_Price, Year, Pages, Minifigures,...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nLet’s think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? Feel free to Google “structurally missing data”. We also replaced ALL of the NAs in Minifigures with 0’s. What are the advantages and disadvantages of doing this? Make sure you read the description of Minifigures in the introduction before answering."
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-2",
+    "href": "hw/hw-08.html#exercise-2",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nVisualize the distributions of the predictor variables Pieces, Size, Year, and Pages. Neatly arrange the plots using the patchwork package. Create univariate visualizations not bivariate visualizations."
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-3",
+    "href": "hw/hw-08.html#exercise-3",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\nlegos |&gt;\n  count(Theme) |&gt;\n  mutate(Theme = fct_reorder(Theme, n)) |&gt; \ngf_col(Theme ~ n) |&gt; \n    gf_labs(title = \"Lego Set Theme\", \n         y = \"Theme\", \n         x = \"Number of LEGO sets\")\n\n\n\n\n\n\n\n\nBased solely on information that is visible in this plot, what is one reason we should avoid putting the variable Theme in a model as is?"
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-4",
+    "href": "hw/hw-08.html#exercise-4",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nCreate a new variable called Theme_coarse that collapses any levels of Theme with fewer than 20 observations into a single category called Other. Hint: Look into the function fct_lump_min. You’ll want to use it inside a mutate statement."
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-5",
+    "href": "hw/hw-08.html#exercise-5",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFit a model that uses the variables Size, Theme_coarse, and Pages to predict Amazon_Price. Call this model1."
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-6",
+    "href": "hw/hw-08.html#exercise-6",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nCreate a new variable called since2018 that calculates the number of years since 2018 based on the variable Year."
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-7",
+    "href": "hw/hw-08.html#exercise-7",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nNow let’s consider a new model that includes all the variables used in the model from Exercise 5 along with since2018, Pieces, and Minifigures. Call this model2"
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-8",
+    "href": "hw/hw-08.html#exercise-8",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nCompute the \\(R^2\\), \\(R^2_{adj}\\), AIC, and BIC for model1 and model2. Based on your results, what model do you believe is the “best” model? Justify your answer citing specific evidence from the values you just generated. Note, they may not all be useful."
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-9",
+    "href": "hw/hw-08.html#exercise-9",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nFor whichever model you chose above, determine whether the conditions for inference are met."
+  },
+  {
+    "objectID": "hw/hw-08.html#exercise-10",
+    "href": "hw/hw-08.html#exercise-10",
+    "title": "HW 08: Lego Prices",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nFor the same model, conduct an F-test and interpret your results in the context of the problem. Make sure to:\n\nIdentify the null and alternative hypotheses.\nCompute the F-statistic.\nCompute the p-value.\nInterpret the result of your test at a significance level of \\(\\alpha = 0.05\\)"
+  },
+  {
+    "objectID": "hw/hw-08.html#footnotes",
+    "href": "hw/hw-08.html#footnotes",
+    "title": "HW 08: Lego Prices",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "MAT 212: Multiple Regression Analysis",
@@ -4773,7 +4990,7 @@
     "href": "slides/02-slr-intro.html#computation-set-up",
     "title": "Simple Linear Regression",
     "section": "Computation set up",
-    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(fivethirtyeight) # for the fandango dataset\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
+    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
   },
   {
     "objectID": "slides/02-slr-intro.html#dc-bikeshare",
@@ -4787,7 +5004,7 @@
     "href": "slides/02-slr-intro.html#data-prep",
     "title": "Simple Linear Regression",
     "section": "Data prep",
-    "text": "Data prep\n\nExercise 2: Recode season as a factor with names instead of numbers (livecode)\nRemember:\n\nThink of |&gt; as “and then”\nmutate creates new columns and changes (mutates) existing columns\nR called categorical data “factors”\n\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
+    "text": "Data prep\n\nExercise 2: Recode season as a factor with names instead of numbers (livecode)\nRemember:\n\nThink of |&gt; as “and then”\nmutate creates new columns and changes (mutates) existing columns\nR calls categorical data “factors”\n\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
   },
   {
     "objectID": "slides/02-slr-intro.html#exploratory-data-analysis-exercise-3",
@@ -4822,7 +5039,14 @@
     "href": "slides/02-slr-intro.html#why-fit-a-line",
     "title": "Simple Linear Regression",
     "section": "Why fit a line?",
-    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n\n\nPrediction\n\nHow many rentals are expected when it’s 10 degrees out?\n\n\n\n\nInference\n\nIs temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree celcius?"
+    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n\n\nPrediction\n\nHow many rentals are expected when it’s 10 degrees out?\n\n\n\nInference\n\nIs temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#population-vs.-sample",
+    "href": "slides/02-slr-intro.html#population-vs.-sample",
+    "title": "Simple Linear Regression",
+    "section": "Population vs. Sample",
+    "text": "Population vs. Sample\nPopulation: The set of items or events that you’re interested in and hoping (able) to generalize the results of your analysis to.\nSample: The set of items that you have data for.\nRepresentative Sample: A sample that looks like a small version of your population.\nGoal: Build a model from your sample which generalizes to your population."
   },
   {
     "objectID": "slides/02-slr-intro.html#terminology",
@@ -4836,7 +5060,7 @@
     "href": "slides/02-slr-intro.html#regression-model",
     "title": "Simple Linear Regression",
     "section": "Regression model",
-    "text": "Regression model\nRegression model: a function that describes the relationship between a quantitive response, \\(Y\\), and the predictor, \\(X\\) (or many predictors).\n\\[\\begin{aligned} Y &= \\color{black}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{black}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{black}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]"
+    "text": "Regression model\nRegression model: a function that describes the relationship between a quantitative response, \\(Y\\), and the predictor, \\(X\\) (or many predictors).\n\\[\\begin{aligned} Y &= \\color{black}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{black}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{black}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]"
   },
   {
     "objectID": "slides/02-slr-intro.html#regression-model-1",
@@ -4857,7 +5081,7 @@
     "href": "slides/02-slr-intro.html#slr-statistical-model",
     "title": "Simple Linear Regression",
     "section": "SLR: Statistical model",
-    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical reponse\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
+    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical response\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
   },
   {
     "objectID": "slides/02-slr-intro.html#slr-regression-equation",
@@ -4899,7 +5123,7 @@
     "href": "slides/02-slr-intro.html#estimating-the-slope",
     "title": "Simple Linear Regression",
     "section": "Estimating the slope",
-    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 4.2121 \\\\\ns_Y &= 1399.942 \\\\\nr &= 0.6692\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.6692 \\times \\frac{1399.942}{4.2121} \\\\\n&= 222.417\\end{aligned}\\]\n\n\n\nClickhere for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus."
+    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 4.2121 \\\\\ns_Y &= 1399.942 \\\\\nr &= 0.6692\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.6692 \\times \\frac{1399.942}{4.2121} \\\\\n&= 222.417\\end{aligned}\\]\n\n\n\nClick here for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus."
   },
   {
     "objectID": "slides/02-slr-intro.html#estimating-the-intercept",
@@ -4976,14 +5200,14 @@
     "href": "slides/02-slr-intro.html#making-a-prediction",
     "title": "Simple Linear Regression",
     "section": "Making a prediction",
-    "text": "Making a prediction\nSuppose that it’s 15 degrees celcius outside. According to this model, how many bike rentals should we expect if it’s winter?\n\\[\\begin{aligned}\n\\widehat{\\text{count}} &= -111.0 + 222.4 \\times \\text{temp_orig} \\\\\n&= -111.0 + 222.4 \\times 15 \\\\\n&= 3225\n\\end{aligned}\\]"
+    "text": "Making a prediction\nSuppose that it’s 15 degrees Celsius outside. According to this model, how many bike rentals should we expect if it’s winter?\n\\[\\begin{aligned}\n\\widehat{\\text{count}} &= -111.0 + 222.4 \\times \\text{temp_orig} \\\\\n&= -111.0 + 222.4 \\times 15 \\\\\n&= 3225\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/02-slr-intro.html#prediction-in-r",
     "href": "slides/02-slr-intro.html#prediction-in-r",
     "title": "Simple Linear Regression",
     "section": "Prediction in R",
-    "text": "Prediction in R\n\n# create a data frame for a new temperature\nnew_day &lt;- tibble(temp_orig = 15)\n\n# predict the outcome for a new day\npredict(winter_fit, new_day)\n\n       1 \n3225.195"
+    "text": "Prediction in R\n\n# create a data frame for a new temperature\nnew_day &lt;- tibble(temp_orig = 15)\n\n# predict the outcome for a new day\npredict(winter_fit, new_day)\n\n       1 \n3225.195 \n\n\nComplete Exercises 12-13."
   },
   {
     "objectID": "slides/02-slr-intro.html#recap",
@@ -6248,222 +6472,5 @@
     "crumbs": [
       "Course support"
     ]
-  },
-  {
-    "objectID": "hw/hw-08.html",
-    "href": "hw/hw-08.html",
-    "title": "HW 08: Lego Prices",
-    "section": "",
-    "text": "In this homework you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.\n\n\nIn this assignment, you will…\n\nUse exploratory data analysis to inform feature engineering steps\nEvaluate and compare models\nAssess model conditions\nUse inference to draw conclusions\n\n\n\n\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 8 and upload the hw-08.qmd and lego-sample.csv files into the folder your just made.\n\n\n\n\nThe following packages will be used in this assignment:\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(knitr) \nlibrary(rms)\nlibrary(patchwork)\n# add other packages as needed\n\n\n\n\n\n\n\nImportant\n\n\n\nAll narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.\n\n\n\n\n\nThe data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from Peterson and Ziegla (2021).\nYou will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are\n\nPieces: Number of pieces in the set from brickset.com.\nMinifigures: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.\nAmazon_Price: Amazon price of the set scraped from brickset.com (in U.S. dollars)\nSize: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)\nTheme: Theme of the LEGO set\nYear : Year the LEGO set was produced\nPages: Number of pages in the instruction booklet"
-  },
-  {
-    "objectID": "hw/hw-08.html#learning-goals",
-    "href": "hw/hw-08.html#learning-goals",
-    "title": "HW 08: Lego Prices",
-    "section": "",
-    "text": "In this assignment, you will…\n\nUse exploratory data analysis to inform feature engineering steps\nEvaluate and compare models\nAssess model conditions\nUse inference to draw conclusions"
-  },
-  {
-    "objectID": "hw/hw-08.html#getting-started",
-    "href": "hw/hw-08.html#getting-started",
-    "title": "HW 08: Lego Prices",
-    "section": "",
-    "text": "Go to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 8 and upload the hw-08.qmd and lego-sample.csv files into the folder your just made."
-  },
-  {
-    "objectID": "hw/hw-08.html#packages",
-    "href": "hw/hw-08.html#packages",
-    "title": "HW 08: Lego Prices",
-    "section": "",
-    "text": "The following packages will be used in this assignment:\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(knitr) \nlibrary(rms)\nlibrary(patchwork)\n# add other packages as needed\n\n\n\n\n\n\n\nImportant\n\n\n\nAll narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels."
-  },
-  {
-    "objectID": "hw/hw-08.html#data-legos",
-    "href": "hw/hw-08.html#data-legos",
-    "title": "HW 08: Lego Prices",
-    "section": "",
-    "text": "The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from Peterson and Ziegla (2021).\nYou will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are\n\nPieces: Number of pieces in the set from brickset.com.\nMinifigures: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.\nAmazon_Price: Amazon price of the set scraped from brickset.com (in U.S. dollars)\nSize: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)\nTheme: Theme of the LEGO set\nYear : Year the LEGO set was produced\nPages: Number of pages in the instruction booklet"
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-1",
-    "href": "hw/hw-08.html#exercise-1",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nThe data are contained in lego-sample.csv. Use the code below to read in the data, replace the NAs in Minifigure with 0, and remove any observations that have missing values for the relevant variables.\n\nlegos &lt;- read_csv(\"../data/lego-sample.csv\") |&gt;\n  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |&gt;\n  mutate(Minifigures = replace_na(Minifigures, 0)) |&gt;\n  drop_na()\n\nRows: 400 Columns: 15\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (7): Set_Name, Theme, Ages, Packaging, Weight, Availability, Size\ndbl (8): Item_Number, Pieces, Price, Amazon_Price, Year, Pages, Minifigures,...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nLet’s think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? Feel free to Google “structurally missing data”. We also replaced ALL of the NAs in Minifigures with 0’s. What are the advantages and disadvantages of doing this? Make sure you read the description of Minifigures in the introduction before answering."
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-2",
-    "href": "hw/hw-08.html#exercise-2",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nVisualize the distributions of the predictor variables Pieces, Size, Year, and Pages. Neatly arrange the plots using the patchwork package. Create univariate visualizations not bivariate visualizations."
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-3",
-    "href": "hw/hw-08.html#exercise-3",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\nlegos |&gt;\n  count(Theme) |&gt;\n  mutate(Theme = fct_reorder(Theme, n)) |&gt; \ngf_col(Theme ~ n) |&gt; \n    gf_labs(title = \"Lego Set Theme\", \n         y = \"Theme\", \n         x = \"Number of LEGO sets\")\n\n\n\n\n\n\n\n\nBased solely on information that is visible in this plot, what is one reason we should avoid putting the variable Theme in a model as is?"
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-4",
-    "href": "hw/hw-08.html#exercise-4",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nCreate a new variable called Theme_coarse that collapses any levels of Theme with fewer than 20 observations into a single category called Other. Hint: Look into the function fct_lump_min. You’ll want to use it inside a mutate statement."
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-5",
-    "href": "hw/hw-08.html#exercise-5",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nFit a model that uses the variables Size, Theme_coarse, and Pages to predict Amazon_Price. Call this model1."
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-6",
-    "href": "hw/hw-08.html#exercise-6",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nCreate a new variable called since2018 that calculates the number of years since 2018 based on the variable Year."
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-7",
-    "href": "hw/hw-08.html#exercise-7",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nNow let’s consider a new model that includes all the variables used in the model from Exercise 5 along with since2018, Pieces, and Minifigures. Call this model2"
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-8",
-    "href": "hw/hw-08.html#exercise-8",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nCompute the \\(R^2\\), \\(R^2_{adj}\\), AIC, and BIC for model1 and model2. Based on your results, what model do you believe is the “best” model? Justify your answer citing specific evidence from the values you just generated. Note, they may not all be useful."
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-9",
-    "href": "hw/hw-08.html#exercise-9",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nFor whichever model you chose above, determine whether the conditions for inference are met."
-  },
-  {
-    "objectID": "hw/hw-08.html#exercise-10",
-    "href": "hw/hw-08.html#exercise-10",
-    "title": "HW 08: Lego Prices",
-    "section": "Exercise 10",
-    "text": "Exercise 10\nFor the same model, conduct an F-test and interpret your results in the context of the problem. Make sure to:\n\nIdentify the null and alternative hypotheses.\nCompute the F-statistic.\nCompute the p-value.\nInterpret the result of your test at a significance level of \\(\\alpha = 0.05\\)"
-  },
-  {
-    "objectID": "hw/hw-08.html#references",
-    "href": "hw/hw-08.html#references",
-    "title": "HW 08: Lego Prices",
-    "section": "References",
-    "text": "References"
-  },
-  {
-    "objectID": "hw/hw-08.html#footnotes",
-    "href": "hw/hw-08.html#footnotes",
-    "title": "HW 08: Lego Prices",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
-  },
-  {
-    "objectID": "hw/hw-09.html",
-    "href": "hw/hw-09.html",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "",
-    "text": "In this homework, you’ll continue analyzing data from an online Ipsos survey that was conducted for the FiveThirtyEight article “Why Many Americans Don’t Vote” using logistic regression for interpretation and prediction. You can read more about the polling design and respondents in the README of the GitHub repo for the data.\n\n\nBy the end of the assignment you will be able to…\n\nUse logistic regression to explore the relationship between a binary response variable and multiple predictor variables\nInterpret coefficients of logistic regression models\nUse statistics to help choose the best fit model\nConduct inference controlling the familywise error rate\nIncorporate survey weights into your analysis\n\n\n\n\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 10, and upload the hw-10.qmd files into the folder your just made.\n\n\n\n\nThe following packages will be used for this assignment.\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(knitr)\n\n# add other packages as needed"
-  },
-  {
-    "objectID": "hw/hw-09.html#learning-goals",
-    "href": "hw/hw-09.html#learning-goals",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "",
-    "text": "By the end of the assignment you will be able to…\n\nUse logistic regression to explore the relationship between a binary response variable and multiple predictor variables\nInterpret coefficients of logistic regression models\nUse statistics to help choose the best fit model\nConduct inference controlling the familywise error rate\nIncorporate survey weights into your analysis"
-  },
-  {
-    "objectID": "hw/hw-09.html#getting-started",
-    "href": "hw/hw-09.html#getting-started",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "",
-    "text": "Go to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 10, and upload the hw-10.qmd files into the folder your just made."
-  },
-  {
-    "objectID": "hw/hw-09.html#packages",
-    "href": "hw/hw-09.html#packages",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "",
-    "text": "The following packages will be used for this assignment.\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(knitr)\n\n# add other packages as needed"
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-1",
-    "href": "hw/hw-09.html#exercise-1",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nLet’s prepare the data for analysis and modeling. Most of this can be copied from your previous homework.\n\nCreate a new variable called frequent_voter that takes the value 1 if the voter_category is “always” and 0 otherwise.\nThe variable Q30 contains the respondent’s political party identification. Make a new variable, party_id, that simplifies Q30 into three categories: “Democrat”, “Republican”, “Independent/Neither”, The category “Independent/Neither” will also include respondents who did not answer the question.\nMake sure that educ, race, gender, income_catand party_id are all factors."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-2",
-    "href": "hw/hw-09.html#exercise-2",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nLet’s start by fitting a model using the demographic factors - ppage, educ, race, gender, income_cat - to predict the odds a person is a frequent voter. Fit the model and display the model using 3 digits.\n\nConsider the relationship between ppage and one’s voting behavior. Interpret the coefficient of ppage in the context of the data in terms of the odds a person is a frequent voter."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-3",
-    "href": "hw/hw-09.html#exercise-3",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nGenerate a 95% confidence interval for the coefficient of ppage. Interpret this interval in the context of the data in terms of the odds a person is a frequent voter."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-4",
-    "href": "hw/hw-09.html#exercise-4",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nShould party identification be added to the model? Use a drop-in-deviance test to determine if party identification should be added to the model fit in the previous exercise. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-5",
-    "href": "hw/hw-09.html#exercise-5",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nDisplay the model chosen from the previous exercise using 3 digits.\nThen use the model selected to write a short paragraph (2 - 5 sentences) describing the effect (or lack of effect) of political party on the odds a person is a frequent voter. The paragraph should include an indication of which levels (if any) are statistically significant along with specifics about the differences in the odds between the political parties, as appropriate. Discuss whether the choice of reference level is important to your findings."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-6",
-    "href": "hw/hw-09.html#exercise-6",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nRead Topic 5.7 Multiple Comparisons and Fisher’s Least Significant Difference in the course textbook.\nIn the code below:\n\nInput your glm object (your model) in the first blank.\nInput the name of the variable for party identification in the second.\nChange eval: FALSE to eval:TRUE and run the code.\n\n\nlibrary(multcomp)\n\nglht(__________, linfct = mcp(_________ = \"Tukey\")) |&gt; \n  tidy(conf.int = TRUE, conf.level = 0.95)\n\nThe code you just executed generates estimates of the pairwise differences between all of the levels of the categorical variable you put in the second blank and adjusts your p-values and confidence intervals to control the familywise error rate. Note that despite that fact that it says “Tukey”, it is NOT using Tukey HSD to do this, but the interpretation of the p-values and confidence intervals is the same.\nDescribe what familywise error rate means in this context? If you are controlling for your familywise error rate, how would you expect your p-values and confidence intervals to change?"
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-7",
-    "href": "hw/hw-09.html#exercise-7",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nRewrite the paragraph you wrote in Exercise 5, incorporating information from Exercise 6."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-8",
-    "href": "hw/hw-09.html#exercise-8",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nIn the article, the authors write\n\n“Nonvoters were more likely to have lower incomes; to be young; to have lower levels of education; and to say they don’t belong to either political party, which are all traits that square with what we know about people less likely to engage with the political system.”\n\nConsider the model you selected in Exercise 4. Is it consistent with this statement? Briefly explain why or why not."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-9",
-    "href": "hw/hw-09.html#exercise-9",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nYou have been tasked by a local political organization to identify adults in the community who are frequent voters. These adults will receive targeted political mailings that will be different from the mailings sent to adults who are not frequent voters. You will use the model selected in Exercise 4 to identify the frequent voters."
-  },
-  {
-    "objectID": "hw/hw-09.html#exercise-10",
-    "href": "hw/hw-09.html#exercise-10",
-    "title": "HW 09: Multiple Logistic regression",
-    "section": "Exercise 10",
-    "text": "Exercise 10\nThis survey actually uses something called weighting to produce more accurate estimates. If we want to be able to generalize our results to the population of interest we HAVE to use these weights.\n\nWatch this video on weighting survey data.\nRead the README on the github repo for the data.\nFill in the blanks in the code below to refit our glm model while accounted for the weights in the data.\nChange eval: FALSE to eval: TRUE and add any code you want to look at the model. tidy and kable should work just fine.\n\n\nlibrary(survey)\n\n# create survey object\nsurvey_538 &lt;- svydesign(data = [data_set], ids = ~[column with IDs], weights = ~[column describing weights])\n\n# fit logistic regression model\nweighted_model &lt;- svyglm([insert formula], design= [survey object], family = \"binomial\")\n\nWrite a paragraph including the following:\n\nWhat groups of people were oversampled and does that mean they get larger or smaller weights in the data?\nWhy weighting was used?\n(Extra Credit) To what extent did the results from your analysis considering the weights differ from your results earlier in this homework. You can earn a possible 5 points of extra credit on this assignment based on how thorough your answer is to this question."
   }
 ]
