@@ -120,333 +120,256 @@
     ]
   },
   {
-    "objectID": "slides/21-comparison2.html#announcements",
-    "href": "slides/21-comparison2.html#announcements",
-    "title": "Model comparison continued",
-    "section": "Announcements",
-    "text": "Announcements\n\nProject: EDA Due Wednesday, October 30th\nOral R Quiz\n\n\n📋 AE 15 - Model Comparison 2\n\nOpen up AE 15"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#topics",
-    "href": "slides/21-comparison2.html#topics",
-    "title": "Model comparison continued",
-    "section": "Topics",
-    "text": "Topics\n\n\nComparing models with \\(R^2\\) vs. \\(R^2_{adj}\\)\nComparing models with AIC and BIC\nOccam’s razor and parsimony"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#computational-setup",
-    "href": "slides/21-comparison2.html#computational-setup",
-    "title": "Model comparison continued",
-    "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(yardstick)\nlibrary(ggformula)\nlibrary(supernova)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(janitor)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#data-restaurant-tips",
-    "href": "slides/21-comparison2.html#data-restaurant-tips",
-    "title": "Model comparison continued",
-    "section": "Data: Restaurant tips",
-    "text": "Data: Restaurant tips\nWhich variables help us predict the amount customers tip at a restaurant?\n\n\n# A tibble: 169 × 4\n     Tip Party Meal   Age   \n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; \n 1  2.99     1 Dinner Yadult\n 2  2        1 Dinner Yadult\n 3  5        1 Dinner SenCit\n 4  4        3 Dinner Middle\n 5 10.3      2 Dinner SenCit\n 6  4.85     2 Dinner Middle\n 7  5        4 Dinner Yadult\n 8  4        3 Dinner Middle\n 9  5        2 Dinner Middle\n10  1.58     1 Dinner SenCit\n# ℹ 159 more rows"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#variables",
-    "href": "slides/21-comparison2.html#variables",
-    "title": "Model comparison continued",
-    "section": "Variables",
-    "text": "Variables\nPredictors:\n\n\nParty: Number of people in the party\nMeal: Time of day (Lunch, Dinner, Late Night)\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\n\n\nOutcome: Tip: Amount of tip"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#outcome-tip",
-    "href": "slides/21-comparison2.html#outcome-tip",
-    "title": "Model comparison continued",
-    "section": "Outcome: Tip",
-    "text": "Outcome: Tip"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#predictors",
-    "href": "slides/21-comparison2.html#predictors",
-    "title": "Model comparison continued",
-    "section": "Predictors",
-    "text": "Predictors"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#outcome-vs.-predictors",
-    "href": "slides/21-comparison2.html#outcome-vs.-predictors",
-    "title": "Model comparison continued",
-    "section": "Outcome vs. predictors",
-    "text": "Outcome vs. predictors"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#fit-and-summarize-model",
-    "href": "slides/21-comparison2.html#fit-and-summarize-model",
-    "title": "Model comparison continued",
-    "section": "Fit and summarize model",
-    "text": "Fit and summarize model\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.838\n0.397\n2.112\n0.036\n\n\nParty\n1.837\n0.124\n14.758\n0.000\n\n\nAgeSenCit\n0.379\n0.410\n0.925\n0.356\n\n\nAgeYadult\n-1.009\n0.408\n-2.475\n0.014\n\n\n\n\n\n\n\n\nIs this model good?"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#r-squared-r2-overfitting",
-    "href": "slides/21-comparison2.html#r-squared-r2-overfitting",
-    "title": "Model comparison continued",
-    "section": "R-squared, \\(R^2\\), Overfitting",
-    "text": "R-squared, \\(R^2\\), Overfitting\n\n\\(R^2\\) will always increase as we add more variables to the model\n\nIf we add enough variables, we can usually achieve \\(R^2=100\\%\\)\nEventually our model will over-align to the noise in our data and become worse at predicting new data… this is called overfitting\n\n\nIf we only use \\(R^2\\) to choose a best fit model, we will be prone to choosing the model with the most predictor variables"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#adjusted-r2",
-    "href": "slides/21-comparison2.html#adjusted-r2",
-    "title": "Model comparison continued",
-    "section": "Adjusted \\(R^2\\)",
-    "text": "Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\): measure that includes a penalty for unnecessary predictor variables\nSimilar to \\(R^2\\), it is a measure of the amount of variation in the response that is explained by the regression model\nDiffers from \\(R^2\\) by using the mean squares (sum of squares/degrees of freedom) rather than sums of squares and therefore adjusting for the number of predictor variables"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#r2-and-adjusted-r2",
-    "href": "slides/21-comparison2.html#r2-and-adjusted-r2",
-    "title": "Model comparison continued",
-    "section": "\\(R^2\\) and Adjusted \\(R^2\\)",
-    "text": "\\(R^2\\) and Adjusted \\(R^2\\)\n\\[R^2 = \\frac{SS_{Model}}{SS_{Total}} = 1 - \\frac{SS_{Error}}{SS_{Total}}\\]\n\n\n\\[R^2_{adj} = 1 - \\frac{SS_{Error}/(n-p-1)}{SS_{Total}/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of terms (not including the intercept) in the model"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#using-r2-and-adjusted-r2",
-    "href": "slides/21-comparison2.html#using-r2-and-adjusted-r2",
-    "title": "Model comparison continued",
-    "section": "Using \\(R^2\\) and Adjusted \\(R^2\\)",
-    "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\n\\(R^2_{adj}\\) can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!\nUse \\(R^2\\) when describing the relationship between the response and predictor variables\n\nComplete Exercises 1-3."
-  },
-  {
-    "objectID": "slides/21-comparison2.html#comparing-models-with-r2_adj",
-    "href": "slides/21-comparison2.html#comparing-models-with-r2_adj",
-    "title": "Model comparison continued",
-    "section": "Comparing models with \\(R^2_{adj}\\)",
-    "text": "Comparing models with \\(R^2_{adj}\\)\n\n\ntip_fit_1:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nr.squared\nadj.r.squared\nsigma\nstatistic\np.value\ndf\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n0.6743626\n0.6643738\n1.954983\n67.51136\n0\n5\n-350.0405\n714.0811\n735.9904\n622.9793\n163\n169\n\n\n\n\n\n\ntip_fit_2:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nr.squared\nadj.r.squared\nsigma\nstatistic\np.value\ndf\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n0.6825157\n0.6624218\n1.96066\n33.96625\n0\n10\n-347.898\n719.7959\n757.3547\n607.3815\n158\n169\n\n\n\n\n\n\n\n\nWhich model would we choose based on \\(R^2\\)?\nWhich model would we choose based on Adjusted \\(R^2\\)?\nWhich statistic should we use to choose the final model - \\(R^2\\) or Adjusted \\(R^2\\)? Why?"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#aic-bic",
-    "href": "slides/21-comparison2.html#aic-bic",
-    "title": "Model comparison continued",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\nEstimators of prediction error and relative quality of models:\n\nAkaike’s Information Criterion (AIC): \\[AIC = n\\log(SS_\\text{Error}) - n \\log(n) + 2(p+1)\\] \n\n\nSchwarz’s Bayesian Information Criterion (BIC): \\[BIC = n\\log(SS_\\text{Error}) - n\\log(n) + log(n)\\times(p+1)\\]"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#aic-bic-1",
-    "href": "slides/21-comparison2.html#aic-bic-1",
-    "title": "Model comparison continued",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\n\\[\n\\begin{aligned}\n& AIC = \\color{blue}{n\\log(SS_\\text{Error})} - n \\log(n) + 2(p+1) \\\\\n& BIC = \\color{blue}{n\\log(SS_\\text{Error})} - n\\log(n) + \\log(n)\\times(p+1)\n\\end{aligned}\n\\]\n\n\nFirst Term: Decreases as p increases… why?"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#aic-bic-2",
-    "href": "slides/21-comparison2.html#aic-bic-2",
-    "title": "Model comparison continued",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\n\\[\n\\begin{aligned}\n& AIC = n\\log(SS_\\text{Error}) - \\color{blue}{n \\log(n)} + 2(p+1) \\\\\n& BIC = n\\log(SS_\\text{Error}) - \\color{blue}{n\\log(n)} + \\log(n)\\times(p+1)\n\\end{aligned}\n\\]\n\nSecond Term: Fixed for a given sample size n"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#aic-bic-3",
-    "href": "slides/21-comparison2.html#aic-bic-3",
-    "title": "Model comparison continued",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\n\\[\n\\begin{aligned} & AIC = n\\log(SS_\\text{Error}) - n\\log(n) + \\color{blue}{2(p+1)} \\\\\n& BIC = n\\log(SS_\\text{Error}) - n\\log(n) + \\color{blue}{\\log(n)\\times(p+1)}\n\\end{aligned}\n\\]\n\nThird Term: Increases as p increases"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#using-aic-bic",
-    "href": "slides/21-comparison2.html#using-aic-bic",
-    "title": "Model comparison continued",
-    "section": "Using AIC & BIC",
-    "text": "Using AIC & BIC\n\\[\n\\begin{aligned} & AIC = n\\log(SS_{Error}) - n \\log(n) + \\color{red}{2(p+1)} \\\\\n& BIC = n\\log(SS_{Error}) - n\\log(n) + \\color{red}{\\log(n)\\times(p+1)}\n\\end{aligned}\n\\]\n\nChoose model with the smaller value of AIC or BIC\nIf \\(n \\geq 8\\), the penalty for BIC is larger than that of AIC, so BIC tends to favor more parsimonious models (i.e. models with fewer terms)\n\nComplete Exercise 4."
-  },
-  {
-    "objectID": "slides/21-comparison2.html#comparing-models-with-aic-and-bic",
-    "href": "slides/21-comparison2.html#comparing-models-with-aic-and-bic",
-    "title": "Model comparison continued",
-    "section": "Comparing models with AIC and BIC",
-    "text": "Comparing models with AIC and BIC\n\n\ntip_fit_1\n\n\n\n\n\nAIC\nBIC\n\n\n\n\n714.0811\n735.9904\n\n\n\n\n\n\ntip_fit_2\n\n\n\n\n\nAIC\nBIC\n\n\n\n\n719.7959\n757.3547\n\n\n\n\n\n\n\n\nWhich model would we choose based on AIC?\nWhich model would we choose based on BIC?"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#commonalities-between-criteria",
-    "href": "slides/21-comparison2.html#commonalities-between-criteria",
-    "title": "Model comparison continued",
-    "section": "Commonalities between criteria",
-    "text": "Commonalities between criteria\n\n\\(R^2_{adj}\\), AIC, and BIC all apply a penalty for more predictors\nThe penalty for added model complexity attempts to strike a balance between underfitting (too few predictors in the model) and overfitting (too many predictors in the model)\nGoal: Parsimony"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#parsimony-and-occams-razor",
-    "href": "slides/21-comparison2.html#parsimony-and-occams-razor",
-    "title": "Model comparison continued",
-    "section": "Parsimony and Occam’s razor",
-    "text": "Parsimony and Occam’s razor\n\nThe principle of parsimony is attributed to William of Occam (early 14th-century English nominalist philosopher), who insisted that, given a set of equally good explanations for a given phenomenon, the correct explanation is the simplest explanation1\nCalled Occam’s razor because he “shaved” his explanations down to the bare minimum\nParsimony in modeling:\n\n\nmodels should have as few parameters as possible\nlinear models should be preferred to non-linear models\nexperiments relying on few assumptions should be preferred to those relying on many\nmodels should be pared down until they are minimal adequate (i.e. contain the minimum number of predictors required to meet some critereon)\nsimple explanations should be preferred to complex explanations\n\n\n\nSource: The R Book by Michael J. Crawley."
-  },
-  {
-    "objectID": "slides/21-comparison2.html#in-pursuit-of-occams-razor",
-    "href": "slides/21-comparison2.html#in-pursuit-of-occams-razor",
-    "title": "Model comparison continued",
-    "section": "In pursuit of Occam’s razor",
-    "text": "In pursuit of Occam’s razor\n\nOccam’s razor states that among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected\nModel selection follows this principle\nWe only want to add another variable to the model if the addition of that variable brings something valuable in terms of predictive power to the model\nIn other words, we prefer the simplest best model, i.e. parsimonious model"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#alternate-views",
-    "href": "slides/21-comparison2.html#alternate-views",
-    "title": "Model comparison continued",
-    "section": "Alternate views",
-    "text": "Alternate views\n\nSometimes a simple model will outperform a more complex model . . . Nevertheless, I believe that deliberately limiting the complexity of the model is not fruitful when the problem is evidently complex. Instead, if a simple model is found that outperforms some particular complex model, the appropriate response is to define a different complex model that captures whatever aspect of the problem led to the simple model performing well.\n\nRadford Neal - Bayesian Learning for Neural Networks1\n\nSuggested blog post: Occam by Andrew Gelman"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#other-concerns-with-our-approach",
-    "href": "slides/21-comparison2.html#other-concerns-with-our-approach",
-    "title": "Model comparison continued",
-    "section": "Other concerns with our approach",
-    "text": "Other concerns with our approach\n\nAll criteria we considered for model comparison require making predictions for our data and then uses the prediction error (\\(SS_{Error}\\)) somewhere in the formula\nBut we’re making prediction for the data we used to build the model (estimate the coefficients), which can lead to overfitting"
-  },
-  {
-    "objectID": "slides/21-comparison2.html#recap",
-    "href": "slides/21-comparison2.html#recap",
-    "title": "Model comparison continued",
-    "section": "Recap",
-    "text": "Recap\n\nComparing models with\n\n\\(R^2\\) vs. \\(R^2_{Adj}\\)\nAIC and BIC\n\nOccam’s razor and parsimony\nComplete Exercise 5."
-  },
-  {
-    "objectID": "slides/12-multicollinearity.html#first-things-first",
-    "href": "slides/12-multicollinearity.html#first-things-first",
+    "objectID": "slides/13-multicollinearity.html#first-things-first",
+    "href": "slides/13-multicollinearity.html#first-things-first",
     "title": "Multicollinearity",
     "section": "First things first",
     "text": "First things first\n\nFinish-up AE-16"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#announcements",
-    "href": "slides/12-multicollinearity.html#announcements",
+    "objectID": "slides/13-multicollinearity.html#announcements",
+    "href": "slides/13-multicollinearity.html#announcements",
     "title": "Multicollinearity",
     "section": "Announcements",
     "text": "Announcements\n\nProject: EDA Due Today\nProject: Paper Due November 18th\nOral R Quiz\n\n\n📋 AE 17 - Multicollinearity\n\nOpen up AE 17 and Complete Exercise 0"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#topics",
-    "href": "slides/12-multicollinearity.html#topics",
+    "objectID": "slides/13-multicollinearity.html#topics",
+    "href": "slides/13-multicollinearity.html#topics",
     "title": "Multicollinearity",
     "section": "Topics",
     "text": "Topics\n\n\nDefining Multicollinearity\nDetecting Multicollinearity\nVariance Inflation Factors"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#computational-setup",
-    "href": "slides/12-multicollinearity.html#computational-setup",
+    "objectID": "slides/13-multicollinearity.html#computational-setup",
+    "href": "slides/13-multicollinearity.html#computational-setup",
     "title": "Multicollinearity",
     "section": "Computational setup",
     "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(mosaicData)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\nlibrary(countdown)\nlibrary(rms)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#data-rail_trail",
-    "href": "slides/12-multicollinearity.html#data-rail_trail",
+    "objectID": "slides/13-multicollinearity.html#data-rail_trail",
+    "href": "slides/13-multicollinearity.html#data-rail_trail",
     "title": "Multicollinearity",
     "section": "Data: rail_trail",
     "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\n# A tibble: 90 × 7\n   volume hightemp avgtemp season cloudcover precip day_type\n    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   \n 1    501       83    66.5 Summer       7.60 0      Weekday \n 2    419       73    61   Summer       6.30 0.290  Weekday \n 3    397       74    63   Spring       7.5  0.320  Weekday \n 4    385       95    78   Summer       2.60 0      Weekend \n 5    200       44    48   Spring      10    0.140  Weekday \n 6    375       69    61.5 Spring       6.60 0.0200 Weekday \n 7    417       66    52.5 Spring       2.40 0      Weekday \n 8    629       66    52   Spring       0    0      Weekend \n 9    533       80    67.5 Summer       3.80 0      Weekend \n10    547       79    62   Summer       4.10 0      Weekday \n# ℹ 80 more rows\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
   },
   {
-    "objectID": "slides/12-multicollinearity.html#full-model",
-    "href": "slides/12-multicollinearity.html#full-model",
+    "objectID": "slides/13-multicollinearity.html#full-model",
+    "href": "slides/13-multicollinearity.html#full-model",
     "title": "Multicollinearity",
     "section": "Full model",
     "text": "Full model\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n17.622161\n76.582860\n0.2301058\n0.8185826\n\n\nhightemp\n7.070528\n2.420523\n2.9210743\n0.0045045\n\n\navgtemp\n-2.036685\n3.142113\n-0.6481896\n0.5186733\n\n\nseasonSpring\n35.914983\n32.992762\n1.0885716\n0.2795319\n\n\nseasonSummer\n24.153571\n52.810486\n0.4573632\n0.6486195\n\n\ncloudcover\n-7.251776\n3.843071\n-1.8869743\n0.0627025\n\n\nprecip\n-95.696525\n42.573359\n-2.2478030\n0.0272735\n\n\nday_typeWeekend\n35.903750\n22.429056\n1.6007696\n0.1132738"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#what-is-multicollinearity",
-    "href": "slides/12-multicollinearity.html#what-is-multicollinearity",
+    "objectID": "slides/13-multicollinearity.html#what-is-multicollinearity",
+    "href": "slides/13-multicollinearity.html#what-is-multicollinearity",
     "title": "Multicollinearity",
     "section": "What is multicollinearity",
     "text": "What is multicollinearity\n\nMulticollinearity is the case when one or more predictor variables are strongly correlated with some combination of other predictors\nIntuition: if you could fit a good linear model with one of your predictors as the response and the rest of the predictors as your explanatory variables, then your predictors are exhibiting multicollinearity"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#example",
-    "href": "slides/12-multicollinearity.html#example",
+    "objectID": "slides/13-multicollinearity.html#example",
+    "href": "slides/13-multicollinearity.html#example",
     "title": "Multicollinearity",
     "section": "Example",
     "text": "Example\nLet’s assume the true population regression equation is \\(y = 3 + 4x\\)\n\nSuppose we try estimating that equation using a model with variables \\(x\\) and \\(z = x/10\\)\n\\[\n\\begin{aligned}\\hat{y}&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2z\\\\\n&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2\\frac{x}{10}\\\\\n&= \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\n\\end{aligned}\n\\]"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#example-1",
-    "href": "slides/12-multicollinearity.html#example-1",
+    "objectID": "slides/13-multicollinearity.html#example-1",
+    "href": "slides/13-multicollinearity.html#example-1",
     "title": "Multicollinearity",
     "section": "Example",
     "text": "Example\n\\[\\hat{y} = \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\\]\n\nWe can set \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\) to any two numbers such that \\(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10} = 4\\)\nTherefore, we are unable to choose the “best” combination of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\)\nIn statistics, we say this model is “unidentifiable” because different parameters combinations can result in the same model\nThis is also why we need to set a reference level for categorical variables\nComplete Exercises 1-2."
   },
   {
-    "objectID": "slides/12-multicollinearity.html#why-multicollinearity-is-a-problem",
-    "href": "slides/12-multicollinearity.html#why-multicollinearity-is-a-problem",
+    "objectID": "slides/13-multicollinearity.html#why-multicollinearity-is-a-problem",
+    "href": "slides/13-multicollinearity.html#why-multicollinearity-is-a-problem",
     "title": "Multicollinearity",
     "section": "Why multicollinearity is a problem",
     "text": "Why multicollinearity is a problem\n\nWhen we have perfect collinearities, we are unable to get estimates for the coefficients\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate\nIn other words, we lose precision in our estimates of the regression coefficients\nThis impedes our ability to use the model for inference\nIt is also difficult to interpret the model coefficients"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#detecting-multicollinearity",
-    "href": "slides/12-multicollinearity.html#detecting-multicollinearity",
+    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity",
+    "href": "slides/13-multicollinearity.html#detecting-multicollinearity",
     "title": "Multicollinearity",
     "section": "Detecting Multicollinearity",
     "text": "Detecting Multicollinearity\nMulticollinearity may occur when…\n\nThere are very high correlations \\((r &gt; 0.9)\\) among two or more predictor variables, especially when the sample size is small\nOne (or more) predictor variables is an almost perfect linear combination of the others\nThere are interactions between two or more continuous variables"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#detecting-multicollinearity-in-the-eda",
-    "href": "slides/12-multicollinearity.html#detecting-multicollinearity-in-the-eda",
+    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity-in-the-eda",
+    "href": "slides/13-multicollinearity.html#detecting-multicollinearity-in-the-eda",
     "title": "Multicollinearity",
     "section": "Detecting multicollinearity in the EDA",
     "text": "Detecting multicollinearity in the EDA\n\nLook at a correlation matrix of the predictor variables, including all indicator variables\n\nLook out for values close to 1 or -1\n\nLook at a scatter plot matrix of the predictor variables\n\nLook out for plots that show a relatively linear relationship\n\nComplete Exercises 3-4."
   },
   {
-    "objectID": "slides/12-multicollinearity.html#detecting-multicollinearity-vif",
-    "href": "slides/12-multicollinearity.html#detecting-multicollinearity-vif",
+    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity-vif",
+    "href": "slides/13-multicollinearity.html#detecting-multicollinearity-vif",
     "title": "Multicollinearity",
     "section": "Detecting Multicollinearity (VIF)",
     "text": "Detecting Multicollinearity (VIF)\nVariance Inflation Factor (VIF): Measure of multicollinearity in the regression model\n\\[VIF(\\hat{\\beta}_j) = \\frac{1}{1-R^2_{X_j|X_{-j}}}\\]\nwhere \\(R^2_{X_j|X_{-j}}\\) is the proportion of variation in \\(X_j\\) that is explained by the linear combination of the other explanatory variables in the model."
   },
   {
-    "objectID": "slides/12-multicollinearity.html#detecting-multicollinearity-vif-1",
-    "href": "slides/12-multicollinearity.html#detecting-multicollinearity-vif-1",
+    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity-vif-1",
+    "href": "slides/13-multicollinearity.html#detecting-multicollinearity-vif-1",
     "title": "Multicollinearity",
     "section": "Detecting Multicollinearity (VIF)",
     "text": "Detecting Multicollinearity (VIF)\n\nTypically \\(VIF &gt; 10\\) indicates concerning multicollinearity\nVariables with similar values of VIF are typically the ones correlated with each other\nUse the vif() function in the rms R package to calculate VIF"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#vif-for-rail-trail-model",
-    "href": "slides/12-multicollinearity.html#vif-for-rail-trail-model",
+    "objectID": "slides/13-multicollinearity.html#vif-for-rail-trail-model",
+    "href": "slides/13-multicollinearity.html#vif-for-rail-trail-model",
     "title": "Multicollinearity",
     "section": "VIF for rail trail model",
     "text": "VIF for rail trail model\nComplete Exercise 5.\n\n\nvif(rt_full_fit)\n\n       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover \n      10.259978       13.086175        2.751577        5.841985        1.587485 \n         precip day_typeWeekend \n       1.295352        1.125741 \n\n\n\n\n\nhightemp and avgtemp are correlated."
   },
   {
-    "objectID": "slides/12-multicollinearity.html#what-to-do-about-multicollinearity",
-    "href": "slides/12-multicollinearity.html#what-to-do-about-multicollinearity",
+    "objectID": "slides/13-multicollinearity.html#what-to-do-about-multicollinearity",
+    "href": "slides/13-multicollinearity.html#what-to-do-about-multicollinearity",
     "title": "Multicollinearity",
     "section": "What to do about Multicollinearity",
     "text": "What to do about Multicollinearity\n\nDrop some predictors.\n\nExample: Remove one of these variables and refit the model.\n\nCombine some predictors.\n\nExample: Create a new variable temp_comsite that is the average of avgtemp and hightemp.\n\nDiscount the individual coefficients and t-tests.\n\nExample: Think about avgtemp and hightemp together with their individual \\(\\beta\\)’s and p-values not having much meaning.\n\n\n\nComplete Exercises 6 & 7."
   },
   {
-    "objectID": "slides/12-multicollinearity.html#model-without-hightemp",
-    "href": "slides/12-multicollinearity.html#model-without-hightemp",
+    "objectID": "slides/13-multicollinearity.html#model-without-hightemp",
+    "href": "slides/13-multicollinearity.html#model-without-hightemp",
     "title": "Multicollinearity",
     "section": "Model without hightemp",
     "text": "Model without hightemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n76.071\n77.204\n0.985\n0.327\n\n\navgtemp\n6.003\n1.583\n3.792\n0.000\n\n\nseasonSpring\n34.555\n34.454\n1.003\n0.319\n\n\nseasonSummer\n13.531\n55.024\n0.246\n0.806\n\n\ncloudcover\n-12.807\n3.488\n-3.672\n0.000\n\n\nprecip\n-110.736\n44.137\n-2.509\n0.014\n\n\nday_typeWeekend\n48.420\n22.993\n2.106\n0.038"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#model-without-avgtemp",
-    "href": "slides/12-multicollinearity.html#model-without-avgtemp",
+    "objectID": "slides/13-multicollinearity.html#model-without-avgtemp",
+    "href": "slides/13-multicollinearity.html#model-without-avgtemp",
     "title": "Multicollinearity",
     "section": "Model without avgtemp",
     "text": "Model without avgtemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#model-without-temp_composite",
-    "href": "slides/12-multicollinearity.html#model-without-temp_composite",
+    "objectID": "slides/13-multicollinearity.html#model-without-temp_composite",
+    "href": "slides/13-multicollinearity.html#model-without-temp_composite",
     "title": "Multicollinearity",
     "section": "Model without temp_composite",
     "text": "Model without temp_composite\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n18.823\n77.430\n0.243\n0.809\n\n\nseasonSpring\n28.458\n33.059\n0.861\n0.392\n\n\nseasonSummer\n-0.986\n51.234\n-0.019\n0.985\n\n\ncloudcover\n-10.367\n3.409\n-3.041\n0.003\n\n\nprecip\n-104.475\n42.725\n-2.445\n0.017\n\n\nday_typeWeekend\n40.914\n22.479\n1.820\n0.072\n\n\ntemp_composite\n6.292\n1.376\n4.571\n0.000"
   },
   {
-    "objectID": "slides/12-multicollinearity.html#choosing-a-model",
-    "href": "slides/12-multicollinearity.html#choosing-a-model",
+    "objectID": "slides/13-multicollinearity.html#choosing-a-model",
+    "href": "slides/13-multicollinearity.html#choosing-a-model",
     "title": "Multicollinearity",
     "section": "Choosing a model",
     "text": "Choosing a model\nModel without hightemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.42\n1087.5\n1107.5\n\n\n\n\n\nModel without avgtemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.47\n1079.05\n1099.05\n\n\n\n\n\nModel with temp_composite:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.46\n1081.67\n1101.67\n\n\n\n\n\n\nBased on Adjusted \\(R^2\\), AIC, and BIC, the model without avgtemp is a better fit. Therefore, we choose to remove avgtemp from the model and leave hightemp in the model to deal with the multicollinearity."
   },
   {
-    "objectID": "slides/12-multicollinearity.html#selected-model-for-now",
-    "href": "slides/12-multicollinearity.html#selected-model-for-now",
+    "objectID": "slides/13-multicollinearity.html#selected-model-for-now",
+    "href": "slides/13-multicollinearity.html#selected-model-for-now",
     "title": "Multicollinearity",
     "section": "Selected model (for now)",
-    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#topics",
+    "href": "slides/11-logistic-multiple.html#topics",
+    "title": "Multiple Logistic Regression",
+    "section": "Topics",
+    "text": "Topics\n\nExtending what we’ve learned to logistic regression models with multiple predictors\n\n\n\n📋 AE 11 - Multiple Logistic Regression\n\nComplete all of AE 11 using slides as needed."
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#computational-setup",
+    "href": "slides/11-logistic-multiple.html#computational-setup",
+    "title": "Multiple Logistic Regression",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(openintro)\nlibrary(knitr)\nlibrary(kableExtra)  # for table embellishments\nlibrary(Stat2Data)   # for empirical logit\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#risk-of-coronary-heart-disease",
+    "href": "slides/11-logistic-multiple.html#risk-of-coronary-heart-disease",
+    "title": "Multiple Logistic Regression",
+    "section": "Risk of coronary heart disease",
+    "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nTenYearCHD:\n\n1: Developed heart disease in next 10 years\n0: Did not develop heart disease in next 10 years\n\nage: Age at exam time (in years)\neducation: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#data-prep",
+    "href": "slides/11-logistic-multiple.html#data-prep",
+    "title": "Multiple Logistic Regression",
+    "section": "Data prep",
+    "text": "Data prep\n\nheart_disease &lt;- read_csv(\"../data/framingham.csv\") |&gt;\n  select(TenYearCHD, age, education) |&gt;\n  drop_na() |&gt; \n  mutate(education = as.factor(education))\n\nheart_disease |&gt; head() |&gt; kable()\n\n\n\n\nTenYearCHD\nage\neducation\n\n\n\n\n0\n39\n4\n\n\n0\n46\n2\n\n\n0\n48\n1\n\n\n1\n61\n3\n\n\n0\n46\n3\n\n\n0\n43\n2"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#model-output",
+    "href": "slides/11-logistic-multiple.html#model-output",
+    "title": "Multiple Logistic Regression",
+    "section": "Model output",
+    "text": "Model output\n\nrisk_fit &lt;- glm(TenYearCHD ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n\n\nage\n0.073\n0.005\n13.385\n0.000\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n\n\n\n\n\n\\[\n\\small{\\log\\Big(\\frac{\\hat{\\pi}}{1-\\hat{\\pi}}\\Big) = -5.385 + 0.073 ~ \\text{age} - 0.242 ~ \\text{ed2} - 0.235 ~ \\text{ed3} - 0.020 ~ \\text{ed4}}\n\\]"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#model-interpretation",
+    "href": "slides/11-logistic-multiple.html#model-interpretation",
+    "title": "Multiple Logistic Regression",
+    "section": "Model Interpretation",
+    "text": "Model Interpretation\n\nrisk_fit &lt;- glm(TenYearCHD ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n\n\nage\n0.073\n0.005\n13.385\n0.000\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n\n\n\n\n\nAs age increases by a year, the typical log-odds of developing coronary heart disease within the next 10 years increases by 0.073 for patients with the same level of education.\n\nAs age increases by a year, the typical odds of developing coronary heart disease within the next 10 years increases by a factor of \\(\\exp(0.073)\\approx 1.08\\) (i.e. 8%) for patients with the same level of education."
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#model-interpretation-1",
+    "href": "slides/11-logistic-multiple.html#model-interpretation-1",
+    "title": "Multiple Logistic Regression",
+    "section": "Model Interpretation",
+    "text": "Model Interpretation\n\nrisk_fit &lt;- glm(TenYearCHD ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n\n\nage\n0.073\n0.005\n13.385\n0.000\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n\n\n\n\n\nPatients of the same age who have [a High School diploma or GED/Some College or Vocational School/a College education], the typical log-odds of developing coronary heart disease within the next 10 years is 0.242/0.235/0.020 lower than patients with only some high school.\n\nPatients of the same age who have [a High School diploma or GED/Some College or Vocational School/a College education], the typical odds of developing coronary heart disease within the next 10 years is 79.5%/79.1%/98.0% of the odds for patients with only some high school."
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#hypothesis-test-for-beta_j",
+    "href": "slides/11-logistic-multiple.html#hypothesis-test-for-beta_j",
+    "title": "Multiple Logistic Regression",
+    "section": "Hypothesis test for \\(\\beta_j\\)",
+    "text": "Hypothesis test for \\(\\beta_j\\)\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n\nTest Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE_{\\hat{\\beta}_j}}\\]\n\n\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#confidence-interval-for-beta_j",
+    "href": "slides/11-logistic-multiple.html#confidence-interval-for-beta_j",
+    "title": "Multiple Logistic Regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* SE_{\\hat{\\beta}_j}}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n\n\n\n\n\n\n\nNote\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/11-logistic-multiple.html#interpretation-in-terms-of-the-odds",
+    "title": "Multiple Logistic Regression",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* SE_{\\hat{\\beta}_j}\\}}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* SE_{\\hat{\\beta}_j}\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* SE_{\\hat{\\beta}_j}\\}\\), holding all else constant."
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age",
+    "href": "slides/11-logistic-multiple.html#coefficient-for-age",
+    "title": "Multiple Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\] given education is in the model"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age-1",
+    "href": "slides/11-logistic-multiple.html#coefficient-for-age-1",
+    "title": "Multiple Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{0.07328 - 0}{0.00547} = 13.39\\]"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age-2",
+    "href": "slides/11-logistic-multiple.html#coefficient-for-age-2",
+    "title": "Multiple Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nP-value:\n\\[\nP(|Z| &gt; |13.39|) \\approx 0\n\\]\n\n\n2 * pnorm(13.64,lower.tail = FALSE)\n\n[1] 2.315606e-42"
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age-3",
+    "href": "slides/11-logistic-multiple.html#coefficient-for-age-3",
+    "title": "Multiple Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is will develop heart disease in the next year, after accounting for education."
+  },
+  {
+    "objectID": "slides/11-logistic-multiple.html#recap",
+    "href": "slides/11-logistic-multiple.html#recap",
+    "title": "Multiple Logistic Regression",
+    "section": "Recap",
+    "text": "Recap\n\nToday: Simple logistic to Multiple logistic\n\nCoefficient interpretations\nWald test interpretations\n\nBasic idea add “holding all else constant”\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/09-logistic-intro.html#application-exercise",
@@ -691,7 +614,7 @@
     "href": "slides/09-logistic-intro.html#recap",
     "title": "Logistic regression",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced logistic regression for binary response variable\nDescribed relationship between odds and probabilities\nFit logistic regression models using glm\nInterpreted coefficients in logistic regression models\nUsed logistic regression model to calculate predicted odds and probabilities\nUse predict to make predictions using glm"
+    "text": "Recap\n\nIntroduced logistic regression for binary response variable\nDescribed relationship between odds and probabilities\nFit logistic regression models using glm\nInterpreted coefficients in logistic regression models\nUsed logistic regression model to calculate predicted odds and probabilities\nUse predict to make predictions using glm\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/07-mlr.html#application-exercise",
@@ -985,7 +908,7 @@
     "href": "slides/07-mlr.html#recap",
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms"
+    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/05-slr-conditions.html#computational-set-up",
@@ -1251,7 +1174,7 @@
     "href": "slides/05-slr-conditions.html#recap",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Recap",
-    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity (residuals vs fitted vals)\nConstant variance (residuals vs fitted vals)\n\n\n\n\n\nNormality (histogram/QQ-plot of residuals)\nIndependence (knowledge of data collection)\n\n\n\n\nNote: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three\n\n\n\nCan decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)\nTwo metrics for evaluating and comparing models:\n\n\\(R^2\\): What proportion of the variation in the response variable is explained by the model?\n\\(RMSE\\): How far is does my model miss by on average?"
+    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity (residuals vs fitted vals)\nConstant variance (residuals vs fitted vals)\n\n\n\n\n\nNormality (histogram/QQ-plot of residuals)\nIndependence (knowledge of data collection)\n\n\n\n\nNote: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three\n\n\n\nCan decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)\nTwo metrics for evaluating and comparing models:\n\n\\(R^2\\): What proportion of the variation in the response variable is explained by the model?\n\\(RMSE\\): How far is does my model miss by on average?\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/03-slr-sbi.html#application-exercise",
@@ -1608,7 +1531,7 @@
     "href": "slides/03-slr-sbi.html#recap-continued",
     "title": "SLR: Simulation-based inference",
     "section": "Recap Continued",
-    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution"
+    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/01-welcome.html#meet-prof.-friedlander",
@@ -2021,7 +1944,7 @@
     "href": "slides/01-welcome.html#references",
     "title": "Welcome to MAT 212!",
     "section": "References",
-    "text": "References\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+    "text": "References\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
   },
   {
     "objectID": "project/project-tips.html",
@@ -2089,6 +2012,20 @@
       "Project",
       "Poster Rubric"
     ]
+  },
+  {
+    "objectID": "prepare/prep-13.html",
+    "href": "prepare/prep-13.html",
+    "title": "Preparation for Model Comparison",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 3.2"
+  },
+  {
+    "objectID": "prepare/prep-13.html#assigned-reading",
+    "href": "prepare/prep-13.html#assigned-reading",
+    "title": "Preparation for Model Comparison",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 3.2"
   },
   {
     "objectID": "prepare/prep-11.html",
@@ -2463,7 +2400,7 @@
     "href": "exam/exam-02-review.html#practice",
     "title": "Exam 02 Overview",
     "section": "Practice",
-    "text": "Practice\n\n📋 Exam 2 Review",
+    "text": "Practice\n\n📋 Exam 2 Review\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule",
     "crumbs": [
       "Exams",
       "Exam 2 Overview"
@@ -2536,93 +2473,128 @@
     ]
   },
   {
-    "objectID": "ae/ae-14-comparison.html",
-    "href": "ae/ae-14-comparison.html",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html",
+    "href": "ae/ae-12-comparison.html",
+    "title": "AE 12: Model Comparison",
     "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-14”.\nGo to the Canvas and locate your AE-14 assignment to get started.\nUpload the ae-14.qmd and tip-data.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-12”.\nGo to the Canvas and locate your AE-12 assignment to get started.\nUpload the ae-12.qmd and tip-data.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
   },
   {
-    "objectID": "ae/ae-14-comparison.html#packages-data",
-    "href": "ae/ae-14-comparison.html#packages-data",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#packages-data",
+    "href": "ae/ae-12-comparison.html#packages-data",
+    "title": "AE 12: Model Comparison",
     "section": "Packages + data",
-    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(yardstick)\nlibrary(ggformula)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\ntips &lt;- read_csv(\"../data/tip-data.csv\") \n\nWhat factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.1\nThe variables we’ll focus on for this analysis are\n\nTip: amount of the tip\nMeal: which meal this was (Lunch, Dinner, Late Night)\nParty: number of people in the party\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)"
+    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(yardstick)\nlibrary(ggformula)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\ntips &lt;- read_csv(\"../data/tip-data.csv\") \n\nWhat factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.1\nThe variables we’ll focus on for this analysis are\n\nTip: amount of the tip\nMeal: which meal this was (Lunch, Dinner, Late Night)\nParty: number of people in the party\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\nDay: Day of the week (Tuesday through Sunday)"
   },
   {
-    "objectID": "ae/ae-14-comparison.html#analysis-goal",
-    "href": "ae/ae-14-comparison.html#analysis-goal",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#analysis-goal",
+    "href": "ae/ae-12-comparison.html#analysis-goal",
+    "title": "AE 12: Model Comparison",
     "section": "Analysis goal",
     "text": "Analysis goal\nThe goals of this activity are to:\n\nUse ANOVA to determine whether our model is useful as a whole\nBegin thinking about \\(R^2\\) in a multivariate setting"
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-0",
-    "href": "ae/ae-14-comparison.html#exercise-0",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-0",
+    "href": "ae/ae-12-comparison.html#exercise-0",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 0",
     "text": "Exercise 0\nComplete the following to clean and then observe your data:\n\nUse drop_na to remove any rows where Party is missing.\n\n\ntips &lt;- tips |&gt; \n  _______   # drop missing values from party\n\n\nGenerate a bar chart of the variable Meal.\n\n\n# insert code here\n\n\nRun the following code and generate the same bar chart as above. You can even copy and paste your code. What’s the difference between the two plots? What do you think fct_relevel does?\n\n\ntips &lt;- tips |&gt; \n  mutate(\n    Meal = fct_relevel(Meal, \"Lunch\", \"Dinner\", \"Late Night\"),\n    Age  = fct_relevel(Age, \"Yadult\", \"Middle\", \"SenCit\")\n  )\n\n# Generate plot here"
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-1",
-    "href": "ae/ae-14-comparison.html#exercise-1",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-1",
+    "href": "ae/ae-12-comparison.html#exercise-1",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 1",
     "text": "Exercise 1\nFit a linear model to predict Tips from Party and Age."
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-2",
-    "href": "ae/ae-14-comparison.html#exercise-2",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-2",
+    "href": "ae/ae-12-comparison.html#exercise-2",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 2",
     "text": "Exercise 2\nPipe the model you generated in the previous Exercise into the function anova."
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-3",
-    "href": "ae/ae-14-comparison.html#exercise-3",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-3",
+    "href": "ae/ae-12-comparison.html#exercise-3",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 3",
     "text": "Exercise 3\nBased on the output above, compute \\(SSTotal\\), \\(SSError\\), and \\(SSModel\\). You should only need to use addition and/or subtraction."
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-4",
-    "href": "ae/ae-14-comparison.html#exercise-4",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-4",
+    "href": "ae/ae-12-comparison.html#exercise-4",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 4",
     "text": "Exercise 4\nPipe your model into the glance function. Identify, the F-statistic and p-value for an F-test of this model. Interpret the outcome of your test in the context of the problem. Be prepared to discuss the difference between this p-value and the p-values from the individual model coefficients."
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-5",
-    "href": "ae/ae-14-comparison.html#exercise-5",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-5",
+    "href": "ae/ae-12-comparison.html#exercise-5",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 5",
     "text": "Exercise 5\nWhat is the \\(R^2\\) value for this model?"
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-6",
-    "href": "ae/ae-14-comparison.html#exercise-6",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-6",
+    "href": "ae/ae-12-comparison.html#exercise-6",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 6",
     "text": "Exercise 6\nFit the full model. What is it’s \\(R^2\\)? Does this model have a higher or lower \\(R^2\\) than the previous model? Does this mean it is a better model? Be prepared to discuss."
   },
   {
-    "objectID": "ae/ae-14-comparison.html#exercise-7",
-    "href": "ae/ae-14-comparison.html#exercise-7",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-7",
+    "href": "ae/ae-12-comparison.html#exercise-7",
+    "title": "AE 12: Model Comparison",
     "section": "Exercise 7",
     "text": "Exercise 7\nThe following code converts the numerical variable Bill into a new categorical variable Bill_factor. Essentially, each different number in Bill is treated as it’s own category. Fit a model predicting Tip from Bill_factor. What is your R^2? Think about the implications of this and what it means for the usefullness of \\(R^2\\).\n\ntips &lt;- tips |&gt; \n  mutate(Bill_factor = factor(Bill))"
   },
   {
-    "objectID": "ae/ae-14-comparison.html#to-submit-the-ae",
-    "href": "ae/ae-14-comparison.html#to-submit-the-ae",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#exercise-8",
+    "href": "ae/ae-12-comparison.html#exercise-8",
+    "title": "AE 12: Model Comparison",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nFit two models:\n\ntip_fit_1: predict Tip from Party, Age, and Meal\ntip_fit_2: predict Tip from Party, Age, Meal, and Day."
+  },
+  {
+    "objectID": "ae/ae-12-comparison.html#exercise-9",
+    "href": "ae/ae-12-comparison.html#exercise-9",
+    "title": "AE 12: Model Comparison",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nApply glance to both models above to find the \\(R^2\\) and \\(R^2_{adj}\\) values?"
+  },
+  {
+    "objectID": "ae/ae-12-comparison.html#exercise-10",
+    "href": "ae/ae-12-comparison.html#exercise-10",
+    "title": "AE 12: Model Comparison",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\nWhich model would we choose based on \\(R^2\\)?\nWhich model would we choose based on Adjusted \\(R^2\\)?\nWhich statistic should we use to choose the final model - \\(R^2\\) or Adjusted \\(R^2\\)? Why?"
+  },
+  {
+    "objectID": "ae/ae-12-comparison.html#exercise-11",
+    "href": "ae/ae-12-comparison.html#exercise-11",
+    "title": "AE 12: Model Comparison",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nReference the output from Exercise 9.\n\nWhich model would we choose based on AIC?\nWhich model would we choose based on BIC?"
+  },
+  {
+    "objectID": "ae/ae-12-comparison.html#exercise-12-time-permitting",
+    "href": "ae/ae-12-comparison.html#exercise-12-time-permitting",
+    "title": "AE 12: Model Comparison",
+    "section": "Exercise 12 (Time Permitting)",
+    "text": "Exercise 12 (Time Permitting)\nWhat might be the problem if we are comparing models with different transformation of the reponse variable."
+  },
+  {
+    "objectID": "ae/ae-12-comparison.html#to-submit-the-ae",
+    "href": "ae/ae-12-comparison.html#to-submit-the-ae",
+    "title": "AE 12: Model Comparison",
     "section": "To submit the AE",
     "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
   },
   {
-    "objectID": "ae/ae-14-comparison.html#footnotes",
-    "href": "ae/ae-14-comparison.html#footnotes",
-    "title": "AE 14: Model Comparison",
+    "objectID": "ae/ae-12-comparison.html#footnotes",
+    "href": "ae/ae-12-comparison.html#footnotes",
+    "title": "AE 12: Model Comparison",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nDahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St. Olaf College.↩︎"
   },
@@ -3474,158 +3446,158 @@
     "text": "Submission\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your QMD and HTML files to the Canvas assignment."
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html",
-    "href": "ae/ae-12-multicollinearity.html",
+    "objectID": "ae/ae-11-multiple-logistic.html",
+    "href": "ae/ae-11-multiple-logistic.html",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-11”.\nGo to the Canvas and locate your AE-11 assignment to get started.\nUpload the ae-11.qmd and framingham.csv files into the folder you just created."
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#packages",
+    "href": "ae/ae-11-multiple-logistic.html#packages",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat are my predictor variables?\nBased on your group, use the following as your predictor variables.\n\nGroup 1:\n\nBMI: patient’s body mass index\ndiabetes: 1 if patient has diabetes, 0 otherwise\n\nGroup 2:\n\ncigsPerDay: number of cigarettes patient smokes per day\ncurrentSmoker: 1 if current smoker, 0 otherwise\n\nGroup 3:\n\nsysBP: systolic blood pressure (mmHg)\nBPMeds: 1 if they are on blood pressure medication, 0 otherwise\n\nGroup 4:\n\ntotChol: total cholesterol (mg/dL)\nprevalentHyp: 1 if patient was hypertensive, 0 otherwise"
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#exercise-0",
+    "href": "ae/ae-11-multiple-logistic.html#exercise-0",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nEdit the code below to drop any missing values, convert the categorical predictors into factors, and select only the eight variables listed above along with TenYearCHD. Make sure to do those thing in an order that makes sense:\n\nheart_disease &lt;- read_csv(\"../data/framingham.csv\")\n\nRows: 4240 Columns: 16\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (16): male, age, education, currentSmoker, cigsPerDay, BPMeds, prevalent...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#exercise-1",
+    "href": "ae/ae-11-multiple-logistic.html#exercise-1",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit a logistic regression model predicting TenYearCHD using your two assigned predictors. Write your resulting model on the board in any format you choose."
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#exercise-2",
+    "href": "ae/ae-11-multiple-logistic.html#exercise-2",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFor both of your coefficients complete the madlibs below interpreting the value, you may need to edit a bit to make the final sentence grammatically correct:\nQuantitative variable: When [variable name] increases by [number], the typical [increase/decrease] in [quantity] is [number], [qualifying statement that makes this different than when we have one predictor].\nQuantitative variable: When [variable name] increases by [number], the typical odds-ratio is multiplied by a factor of [number], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: For patients who are [insert category] at the time of examination, the typical [increase/decrease] in [quantity] is [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: For patients who are [insert category] at the time of examination, the odds-ratio typically [increases/decreases] by a factor of [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor]."
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#exercise-3",
+    "href": "ae/ae-11-multiple-logistic.html#exercise-3",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute p-values for both of your coefficients using tidy."
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#exercise-4",
+    "href": "ae/ae-11-multiple-logistic.html#exercise-4",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFor both of your coefficients write the null and alternative hypotheses (in both symbols and words), the test statistics, and the p-values on the board (just pick them out from the tidy output). Then, complete the madlibs below interpreting the p-values, you may need to edit the final statements to make them grammatically correct:\nQuantitative variable: The [quantity] is [size], so we [do something to] \\(H_0\\). The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: The [quantity] is [size], so we [do something to] \\(H_0\\). The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor]."
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#exercise-5",
+    "href": "ae/ae-11-multiple-logistic.html#exercise-5",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nUse tidy to compute 99% confidence intervals for both of your coefficients. Write them on the board."
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#exercise-6",
+    "href": "ae/ae-11-multiple-logistic.html#exercise-6",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nInterpret the the confidence intervals below:\nLog-odds interpretation (Quantitative):\nOdds-ratio interpretation (Quantitative):\nLog-odds interpretation (Categorical):\nOdds-ratio interpretation (Categorical):"
+  },
+  {
+    "objectID": "ae/ae-11-multiple-logistic.html#submission",
+    "href": "ae/ae-11-multiple-logistic.html#submission",
+    "title": "AE 11: Multiple Logistic Regression",
+    "section": "Submission",
+    "text": "Submission\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your QMD and HTML files to the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-13-multicollinearity.html",
+    "href": "ae/ae-13-multicollinearity.html",
     "title": "AE 17: Multicollinearity",
     "section": "",
     "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-17”.\nGo to the Canvas and locate your AE-17 assignment to get started.\nUpload the ae-17.qmd and rail_trail.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#packages-data",
-    "href": "ae/ae-12-multicollinearity.html#packages-data",
+    "objectID": "ae/ae-13-multicollinearity.html#packages-data",
+    "href": "ae/ae-13-multicollinearity.html#packages-data",
     "title": "AE 17: Multicollinearity",
     "section": "Packages + data",
     "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(GGally)\nlibrary(broom)\nlibrary(knitr)\nlibrary(mosaic)\nlibrary(mosaicData)\n\nrail_trail &lt;- read_csv(\"../data/rail_trail.csv\")\n\nThe data for this AE is based on data from the Pioneer Valley Planning Commission (PVPC) and is included in the mosaicData package. The PVPC collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. More information can be found here."
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#analysis-goal",
-    "href": "ae/ae-12-multicollinearity.html#analysis-goal",
+    "objectID": "ae/ae-13-multicollinearity.html#analysis-goal",
+    "href": "ae/ae-13-multicollinearity.html#analysis-goal",
     "title": "AE 17: Multicollinearity",
     "section": "Analysis goal",
     "text": "Analysis goal\nThe goals of this activity are to:\n\nDetect and remedy multicollinearity in our data"
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-0",
-    "href": "ae/ae-12-multicollinearity.html#exercise-0",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-0",
+    "href": "ae/ae-13-multicollinearity.html#exercise-0",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 0",
     "text": "Exercise 0\nFit a linear model to predict volume from ALL of the other predictors. The resulting model is called the “full model”."
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-1",
-    "href": "ae/ae-12-multicollinearity.html#exercise-1",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-1",
+    "href": "ae/ae-13-multicollinearity.html#exercise-1",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 1",
     "text": "Exercise 1\nCreate a new data frame called rail_trail_new with two new columns, hightemp_c and avgtemp_c. These two new columns should store the hightemp and avgtemp measured in Celsius rather than Fahrenheit. Note that the formula to convert between Fahrenheit and Celsius is \\(C = (F-32)\\times \\frac{5}{9}\\). Make sure hightemp and avgtemp are still in your data set."
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-2",
-    "href": "ae/ae-12-multicollinearity.html#exercise-2",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-2",
+    "href": "ae/ae-13-multicollinearity.html#exercise-2",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 2",
     "text": "Exercise 2\nTry to refit the full model on your data. Do you notice anything odd about your coefficients? If so, what do you think is happening?"
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-3",
-    "href": "ae/ae-12-multicollinearity.html#exercise-3",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-3",
+    "href": "ae/ae-13-multicollinearity.html#exercise-3",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 3",
     "text": "Exercise 3\nAdd a comment next to each line of code explaining what that line of code is doing.\n\nlibrary(corrplot)\n\nrail_trail |&gt; # Take the rail_trail data set and then\n  select(-volume) |&gt; # What do I do\n  select(where(is.numeric)) |&gt; # What do I do\n  cor() |&gt;   # What do I do\n  corrplot(method=\"number\") # What do I do\n\n\n\n\n\n\n\nrail_trail |&gt; \n  select(-volume) |&gt; # What do I do\n  ggpairs()"
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-4",
-    "href": "ae/ae-12-multicollinearity.html#exercise-4",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-4",
+    "href": "ae/ae-13-multicollinearity.html#exercise-4",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 4",
     "text": "Exercise 4\nBased on the output from the previous exercise, do you have reason to believe that our data is exhibiting multicollinearity?"
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-5",
-    "href": "ae/ae-12-multicollinearity.html#exercise-5",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-5",
+    "href": "ae/ae-13-multicollinearity.html#exercise-5",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 5",
     "text": "Exercise 5\nPipe the model you fit in Exercise 0 (i.e. not including the variable measured in Celcius) into the function vif. Are any of the vif’s concerning? If so, which ones."
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-6",
-    "href": "ae/ae-12-multicollinearity.html#exercise-6",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-6",
+    "href": "ae/ae-13-multicollinearity.html#exercise-6",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 6",
     "text": "Exercise 6\nFit two models:\n\nm1: use all predictors except for avgtemp\nm2: use all predictors except for hightemp\nm3: average avgtemp and hightemp together and use it instead of either avgtemp and hightemp"
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#exercise-7",
-    "href": "ae/ae-12-multicollinearity.html#exercise-7",
+    "objectID": "ae/ae-13-multicollinearity.html#exercise-7",
+    "href": "ae/ae-13-multicollinearity.html#exercise-7",
     "title": "AE 17: Multicollinearity",
     "section": "Exercise 7",
     "text": "Exercise 7\nUse glance to compute the \\(R^2_{adj}\\), AIC, and BIC for both of these models. Which should we choose?"
   },
   {
-    "objectID": "ae/ae-12-multicollinearity.html#to-submit-the-ae",
-    "href": "ae/ae-12-multicollinearity.html#to-submit-the-ae",
+    "objectID": "ae/ae-13-multicollinearity.html#to-submit-the-ae",
+    "href": "ae/ae-13-multicollinearity.html#to-submit-the-ae",
     "title": "AE 17: Multicollinearity",
     "section": "To submit the AE",
     "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html",
-    "href": "ae/ae-15-comparison2.html",
-    "title": "AE 15: Model Comparison",
-    "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-15”.\nGo to the Canvas and locate your AE-15 assignment to get started.\nUpload the ae-15.qmd and tip-data.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#packages-data",
-    "href": "ae/ae-15-comparison2.html#packages-data",
-    "title": "AE 15: Model Comparison",
-    "section": "Packages + data",
-    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(yardstick)\nlibrary(ggformula)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\ntips &lt;- read_csv(\"../data/tip-data.csv\") |&gt; \n  drop_na(Party)\n\nWhat factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.1\nThe variables we’ll focus on for this analysis are\n\nTip: amount of the tip\nMeal: which meal this was (Lunch, Dinner, Late Night)\nParty: number of people in the party\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)"
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#analysis-goal",
-    "href": "ae/ae-15-comparison2.html#analysis-goal",
-    "title": "AE 15: Model Comparison",
-    "section": "Analysis goal",
-    "text": "Analysis goal\nThe goals of this activity are to comparing models with:\n\n\\(R^2\\) vs. \\(R^2_{Adj}\\)\nAIC and BIC"
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#exercise-1",
-    "href": "ae/ae-15-comparison2.html#exercise-1",
-    "title": "AE 15: Model Comparison",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFit two models:\n\ntip_fit_1: predict Tip from Party, Age, and Meal\ntip_fit_2: predict Tip from Party, Age, Meal, and Day."
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#exercise-2",
-    "href": "ae/ae-15-comparison2.html#exercise-2",
-    "title": "AE 15: Model Comparison",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nApply glance to both models above to find the \\(R^2\\) and \\(R^2_{adj}\\) values?"
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#exercise-3",
-    "href": "ae/ae-15-comparison2.html#exercise-3",
-    "title": "AE 15: Model Comparison",
-    "section": "Exercise 3",
-    "text": "Exercise 3\n\nWhich model would we choose based on \\(R^2\\)?\nWhich model would we choose based on Adjusted \\(R^2\\)?\nWhich statistic should we use to choose the final model - \\(R^2\\) or Adjusted \\(R^2\\)? Why?"
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#exercise-4",
-    "href": "ae/ae-15-comparison2.html#exercise-4",
-    "title": "AE 15: Model Comparison",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nReference the output from Exercise 2.\n\nWhich model would we choose based on AIC?\nWhich model would we choose based on BIC?"
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#exercise-5-time-permitting",
-    "href": "ae/ae-15-comparison2.html#exercise-5-time-permitting",
-    "title": "AE 15: Model Comparison",
-    "section": "Exercise 5 (Time Permitting)",
-    "text": "Exercise 5 (Time Permitting)\nFind the best model you can! You have until the end of class! Team with the best model gets a seriously great high-five."
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#to-submit-the-ae",
-    "href": "ae/ae-15-comparison2.html#to-submit-the-ae",
-    "title": "AE 15: Model Comparison",
-    "section": "To submit the AE",
-    "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-15-comparison2.html#footnotes",
-    "href": "ae/ae-15-comparison2.html#footnotes",
-    "title": "AE 15: Model Comparison",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nDahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St. Olaf College.↩︎"
   },
   {
     "objectID": "computing-inferencesummary.html",
@@ -4281,16 +4253,16 @@
   {
     "objectID": "prepare/prep-10.html",
     "href": "prepare/prep-10.html",
-    "title": "Preparation for Model Comparison",
+    "title": "Preparation for Inference and Conditions for Logistic Regression",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
+    "text": "Stat2 Textbook: Chapters 9.3, 9.4"
   },
   {
     "objectID": "prepare/prep-10.html#assigned-reading",
     "href": "prepare/prep-10.html#assigned-reading",
-    "title": "Preparation for Model Comparison",
+    "title": "Preparation for Inference and Conditions for Logistic Regression",
     "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
+    "text": "Stat2 Textbook: Chapters 9.3, 9.4"
   },
   {
     "objectID": "prepare/prep-12.html",
@@ -4305,6 +4277,20 @@
     "title": "Preparation for Multicollinearity",
     "section": "",
     "text": "Stat2 Textbook: Chapter 3.5"
+  },
+  {
+    "objectID": "prepare/prep-14.html",
+    "href": "prepare/prep-14.html",
+    "title": "Preparation for Model Comparison",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 3.2"
+  },
+  {
+    "objectID": "prepare/prep-14.html#assigned-reading",
+    "href": "prepare/prep-14.html#assigned-reading",
+    "title": "Preparation for Model Comparison",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 3.2"
   },
   {
     "objectID": "project/project-instructions.html",
@@ -4476,7 +4462,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT/W\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTH\nJan 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nF/M\nJan 10\nSLR: Conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nJan 13\nSLR: Transformations and Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nT/W\nJan 14\nIntro to Multiple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nW/TH\nJan 15\nMLR: Inference and Conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nF\nJan 16\nIntroduction to Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nT\nJan 21\nLogistic Regression: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nW\nJan 22\nMultiple Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nW/TH\nJan 23\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nF/M\nJan 3\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM/T\nJan 6\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nT/W\nJan 7\nSimulation-Based Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTH\nJan 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nF/M\nJan 10\nSLR: Conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nJan 13\nSLR: Transformations and Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nT/W\nJan 14\nIntro to Multiple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nW/TH\nJan 15\nMLR: Inference and Conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nF\nJan 16\nIntroduction to Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nT\nJan 21\nLogistic Regression: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nW\nJan 22\nMultiple Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nW/TH\nJan 23\nModel Comparison",
     "crumbs": [
       "Schedule"
     ]
@@ -4717,7 +4703,7 @@
     "href": "slides/02-slr-intro.html#recap",
     "title": "Simple Linear Regression",
     "section": "Recap",
-    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R."
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R.\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/04-slr-math-models.html#topics",
@@ -4934,7 +4920,7 @@
     "href": "slides/04-slr-math-models.html#recap",
     "title": "SLR: Mathematical models for inference",
     "section": "Recap",
-    "text": "Recap\n\nLearned how to use mathematical models to\n\ncalculate confidence interval for the slope\nconduct a hypothesis test for the slope\ncalculate confidence intervals for predictions\n\npredictions of averages: “confidence intervals”\npredictions for single observations: “prediction intervals”"
+    "text": "Recap\n\nLearned how to use mathematical models to\n\ncalculate confidence interval for the slope\nconduct a hypothesis test for the slope\ncalculate confidence intervals for predictions\n\npredictions of averages: “confidence intervals”\npredictions for single observations: “prediction intervals”\n\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/06-slr-transformations.html#application-exercise",
@@ -5228,7 +5214,7 @@
     "href": "slides/06-slr-transformations.html#recap",
     "title": "SLR: Transformations",
     "section": "Recap",
-    "text": "Recap\n\nTransformations\n\nTransform \\(Y\\) to fix non-constant variance (and non-normality)\nTransform \\(X\\) to fix non-linearity\nPower transformations are powerful (concave up/drown \\(\\Rightarrow\\) power up/down)\nlogs allow us to model a lot of non-linear relationships with a linear model\n\nOutliers\n\nLeverage\nInfluence\nUsed plots of residuals, standardized residuals, and studentized residuals to diagnose outliers\n\nSpend the rest of class working on Exercise 6."
+    "text": "Recap\n\nTransformations\n\nTransform \\(Y\\) to fix non-constant variance (and non-normality)\nTransform \\(X\\) to fix non-linearity\nPower transformations are powerful (concave up/drown \\(\\Rightarrow\\) power up/down)\nlogs allow us to model a lot of non-linear relationships with a linear model\n\nOutliers\n\nLeverage\nInfluence\nUsed plots of residuals, standardized residuals, and studentized residuals to diagnose outliers\n\nSpend the rest of class working on Exercise 6.\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/08-mlr-inference.html#application-exercise",
@@ -5424,7 +5410,7 @@
     "href": "slides/08-mlr-inference.html#recap",
     "title": "MLR: Inference and Conditions",
     "section": "Recap",
-    "text": "Recap\n\nInference for individual predictors\n\nHypothesis testing: same as SLR but add if all other terms are in the model\nConfidence intervals: same as SLR but add holding all other variables in the model constant\n\nConditions: Same as for SLR\n\nFor linearity, also check fitter values vs. each predictor"
+    "text": "Recap\n\nInference for individual predictors\n\nHypothesis testing: same as SLR but add if all other terms are in the model\nConfidence intervals: same as SLR but add holding all other variables in the model constant\n\nConditions: Same as for SLR\n\nFor linearity, also check fitter values vs. each predictor\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#application-exercise",
@@ -5753,872 +5739,7 @@
     "href": "slides/10-logistic-estimation-inference.html#inference-for-beta_1",
     "title": "Logistic Regression Estimation and Inference",
     "section": "Inference for \\(\\beta_1\\)",
-    "text": "Inference for \\(\\beta_1\\)\n\nWald Test\nLikelihood Ratio Test\n\nMore reliable than Wald\nMore computationally taxing\nDeviance: think of like SSE\n\nNext time: Multiple predictors!"
-  },
-  {
-    "objectID": "slides/20-comparison.html#announcements",
-    "href": "slides/20-comparison.html#announcements",
-    "title": "Model comparison",
-    "section": "Announcements",
-    "text": "Announcements\n\nProject: EDA Due Wednesday, October 30th\nOral R Quiz (time to start scheduling it)\n\n\n📋 AE 14 - Model Comparison\n\nOpen up AE 14 and complete Exercises 0-2"
-  },
-  {
-    "objectID": "slides/20-comparison.html#topics",
-    "href": "slides/20-comparison.html#topics",
-    "title": "Model comparison",
-    "section": "Topics",
-    "text": "Topics\n\n\nANOVA for multiple linear regression and sum of squares\nComparing models with \\(R^2\\)"
-  },
-  {
-    "objectID": "slides/20-comparison.html#computational-setup",
-    "href": "slides/20-comparison.html#computational-setup",
-    "title": "Model comparison",
-    "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(yardstick)\nlibrary(ggformula)\nlibrary(supernova)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(janitor)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
-  },
-  {
-    "objectID": "slides/20-comparison.html#data-restaurant-tips",
-    "href": "slides/20-comparison.html#data-restaurant-tips",
-    "title": "Model comparison",
-    "section": "Data: Restaurant tips",
-    "text": "Data: Restaurant tips\nWhich variables help us predict the amount customers tip at a restaurant?\n\n\n# A tibble: 169 × 4\n     Tip Party Meal   Age   \n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; \n 1  2.99     1 Dinner Yadult\n 2  2        1 Dinner Yadult\n 3  5        1 Dinner SenCit\n 4  4        3 Dinner Middle\n 5 10.3      2 Dinner SenCit\n 6  4.85     2 Dinner Middle\n 7  5        4 Dinner Yadult\n 8  4        3 Dinner Middle\n 9  5        2 Dinner Middle\n10  1.58     1 Dinner SenCit\n# ℹ 159 more rows"
-  },
-  {
-    "objectID": "slides/20-comparison.html#variables",
-    "href": "slides/20-comparison.html#variables",
-    "title": "Model comparison",
-    "section": "Variables",
-    "text": "Variables\nPredictors:\n\n\nParty: Number of people in the party\nMeal: Time of day (Lunch, Dinner, Late Night)\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\n\n\nOutcome: Tip: Amount of tip"
-  },
-  {
-    "objectID": "slides/20-comparison.html#outcome-tip",
-    "href": "slides/20-comparison.html#outcome-tip",
-    "title": "Model comparison",
-    "section": "Outcome: Tip",
-    "text": "Outcome: Tip"
-  },
-  {
-    "objectID": "slides/20-comparison.html#predictors",
-    "href": "slides/20-comparison.html#predictors",
-    "title": "Model comparison",
-    "section": "Predictors",
-    "text": "Predictors"
-  },
-  {
-    "objectID": "slides/20-comparison.html#relevel-categorical-predictors",
-    "href": "slides/20-comparison.html#relevel-categorical-predictors",
-    "title": "Model comparison",
-    "section": "Relevel categorical predictors",
-    "text": "Relevel categorical predictors\n\ntips &lt;- tips |&gt;\n  mutate(\n    Meal = fct_relevel(Meal, \"Lunch\", \"Dinner\", \"Late Night\"),\n    Age  = fct_relevel(Age, \"Yadult\", \"Middle\", \"SenCit\")\n  )"
-  },
-  {
-    "objectID": "slides/20-comparison.html#predictors-again",
-    "href": "slides/20-comparison.html#predictors-again",
-    "title": "Model comparison",
-    "section": "Predictors, again",
-    "text": "Predictors, again"
-  },
-  {
-    "objectID": "slides/20-comparison.html#outcome-vs.-predictors",
-    "href": "slides/20-comparison.html#outcome-vs.-predictors",
-    "title": "Model comparison",
-    "section": "Outcome vs. predictors",
-    "text": "Outcome vs. predictors"
-  },
-  {
-    "objectID": "slides/20-comparison.html#fit-and-summarize-model",
-    "href": "slides/20-comparison.html#fit-and-summarize-model",
-    "title": "Model comparison",
-    "section": "Fit and summarize model",
-    "text": "Fit and summarize model\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.170\n0.366\n-0.465\n0.643\n\n\nParty\n1.837\n0.124\n14.758\n0.000\n\n\nAgeMiddle\n1.009\n0.408\n2.475\n0.014\n\n\nAgeSenCit\n1.388\n0.485\n2.862\n0.005\n\n\n\n\n\n\n\n\nIs this model good?"
-  },
-  {
-    "objectID": "slides/20-comparison.html#another-model-summary",
-    "href": "slides/20-comparison.html#another-model-summary",
-    "title": "Model comparison",
-    "section": "Another model summary",
-    "text": "Another model summary\n\nanova(tip_fit) |&gt;\n  tidy() |&gt;\n  kable(digits = 2)\n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nParty\n1\n1188.64\n1188.64\n285.71\n0.00\n\n\nAge\n2\n38.03\n19.01\n4.57\n0.01\n\n\nResiduals\n165\n686.44\n4.16\nNA\nNA"
-  },
-  {
-    "objectID": "slides/20-comparison.html#analysis-of-variance-anova-1",
-    "href": "slides/20-comparison.html#analysis-of-variance-anova-1",
-    "title": "Model comparison",
-    "section": "Analysis of variance (ANOVA)",
-    "text": "Analysis of variance (ANOVA)"
-  },
-  {
-    "objectID": "slides/20-comparison.html#anova",
-    "href": "slides/20-comparison.html#anova",
-    "title": "Model comparison",
-    "section": "ANOVA",
-    "text": "ANOVA\n\nMain Idea: Decompose the total variation of the outcome into:\n\nthe variation that can be explained by the each of the variables in the model\nthe variation that can’t be explained by the model (left in the residuals)\n\n\\(SS_{Total}\\): Total sum of squares, variability of outcome, \\(\\sum_{i = 1}^n (y_i - \\bar{y})^2\\)\n\\(SS_{Error}\\): Residual sum of squares, variability of residuals, \\(\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2\\)\n\\(SS_{Model} = SS_{Total} - SS_{Error}\\): Variability explained by the model, \\(\\sum_{i = 1}^n (\\hat{y}_i - \\bar{y})^2\\)\n\n\nComplete Exercise 3."
-  },
-  {
-    "objectID": "slides/20-comparison.html#anova-output-in-r1",
-    "href": "slides/20-comparison.html#anova-output-in-r1",
-    "title": "Model comparison",
-    "section": "ANOVA output in R1",
-    "text": "ANOVA output in R1\n\n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nParty\n1\n1188.63588\n1188.635880\n285.711511\n0.000000\n\n\nAge\n2\n38.02783\n19.013916\n4.570361\n0.011699\n\n\nResiduals\n165\n686.44389\n4.160266\nNA\nNA\n\n\n\n\n\nClick here for explanation about the way R calculates sum of squares for each variable."
-  },
-  {
-    "objectID": "slides/20-comparison.html#anova-output-with-totals",
-    "href": "slides/20-comparison.html#anova-output-with-totals",
-    "title": "Model comparison",
-    "section": "ANOVA output, with totals",
-    "text": "ANOVA output, with totals\n\n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nParty\n1\n1188.64\n1188.64\n285.71\n0\n\n\nAge\n2\n38.03\n19.01\n4.57\n0.01\n\n\nResiduals\n165\n686.44\n4.16\n\n\n\n\nTotal\n168\n1913.11"
-  },
-  {
-    "objectID": "slides/20-comparison.html#sum-of-squares",
-    "href": "slides/20-comparison.html#sum-of-squares",
-    "title": "Model comparison",
-    "section": "Sum of squares",
-    "text": "Sum of squares\n\n\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Total}\\): Total sum of squares, variability of outcome, \\(\\sum_{i = 1}^n (y_i - \\bar{y})^2\\)\n\\(SS_{Error}\\): Residual sum of squares, variability of residuals, \\(\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2\\)\n\\(SS_{Model} = SS_{Total} - SS_{Error}\\): Variability explained by the model, \\(\\sum_{i = 1}^n (\\hat{y}_i - \\bar{y})^2\\)"
-  },
-  {
-    "objectID": "slides/20-comparison.html#sum-of-squares-ss_total",
-    "href": "slides/20-comparison.html#sum-of-squares-ss_total",
-    "title": "Model comparison",
-    "section": "Sum of squares: \\(SS_{Total}\\)",
-    "text": "Sum of squares: \\(SS_{Total}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Total}\\): Total sum of squares, variability of outcome\n\n\\(\\sum_{i = 1}^n (y_i - \\bar{y})^2\\) = 1913.11"
-  },
-  {
-    "objectID": "slides/20-comparison.html#sum-of-squares-ss_error",
-    "href": "slides/20-comparison.html#sum-of-squares-ss_error",
-    "title": "Model comparison",
-    "section": "Sum of squares: \\(SS_{Error}\\)",
-    "text": "Sum of squares: \\(SS_{Error}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Error}\\): Residual sum of squares, variability of residuals\n\n\\(\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2\\) = 686.44"
-  },
-  {
-    "objectID": "slides/20-comparison.html#sum-of-squares-ss_model",
-    "href": "slides/20-comparison.html#sum-of-squares-ss_model",
-    "title": "Model comparison",
-    "section": "Sum of squares: \\(SS_{Model}\\)",
-    "text": "Sum of squares: \\(SS_{Model}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Model}\\): Variability explained by the model\n\n\\(\\sum_{i = 1}^n (\\hat{y}_i - \\bar{y})^2 = SS_{Model} = SS_{Total} - SS_{Error} =\\) 1226.67"
-  },
-  {
-    "objectID": "slides/20-comparison.html#f-test-testing-the-whole-model-at-once",
-    "href": "slides/20-comparison.html#f-test-testing-the-whole-model-at-once",
-    "title": "Model comparison",
-    "section": "F-Test: Testing the whole model at once",
-    "text": "F-Test: Testing the whole model at once\nHypotheses:\n\\(H_0: \\beta_1 = \\beta_2 = \\cdots = \\beta_k = 0\\) vs. \\(H_A:\\) at least one \\(\\beta_i \\neq 0\\)\n\nTest statistic: F-statistics\n\\[\nF = \\frac{MSModel}{MSE} = \\frac{SSModel/k}{SSE/(n-k-1)} \\\\\n\\]\n\n\np-value: Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed\n\\[\n\\text{p-value} = P(F &gt; \\text{test statistic}),\n\\]\ncalculated from an \\(F\\) distribution with \\(k\\) and \\(n - k - 1\\) degrees of freedom."
-  },
-  {
-    "objectID": "slides/20-comparison.html#f-test-in-r",
-    "href": "slides/20-comparison.html#f-test-in-r",
-    "title": "Model comparison",
-    "section": "F-test in R",
-    "text": "F-test in R\n\nUse glance function from broom package\n\nstatistic: F-statistic\np.value: p-value from F-test"
-  },
-  {
-    "objectID": "slides/20-comparison.html#r-squared-r2",
-    "href": "slides/20-comparison.html#r-squared-r2",
-    "title": "Model comparison",
-    "section": "R-squared, \\(R^2\\)",
-    "text": "R-squared, \\(R^2\\)\nRecall: \\(R^2\\) is the proportion of the variation in the response variable explained by the regression model.\n\n\\[\nR^2 = \\frac{SS_{Model}}{SS_{Total}} = 1 - \\frac{SS_{Error}}{SS_{Total}}\n\\]\nComplete Exercises 4-7."
-  },
-  {
-    "objectID": "slides/20-comparison.html#recap",
-    "href": "slides/20-comparison.html#recap",
-    "title": "Model comparison",
-    "section": "Recap",
-    "text": "Recap\n\nANOVA for multiple linear regression and sum of squares\n\\(R^2\\) for multiple linear regression"
-  },
-  {
-    "objectID": "support.html",
-    "href": "support.html",
-    "title": "Course support",
-    "section": "",
-    "text": "We expect everyone will have questions at some point in the semester, so we want to make sure you can identify when that is and feel comfortable seeking help.",
-    "crumbs": [
-      "Course support"
-    ]
-  },
-  {
-    "objectID": "support.html#lectures",
-    "href": "support.html#lectures",
-    "title": "Course support",
-    "section": "Lectures",
-    "text": "Lectures\nIf you have a question during lecture, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.",
-    "crumbs": [
-      "Course support"
-    ]
-  },
-  {
-    "objectID": "support.html#office-hours",
-    "href": "support.html#office-hours",
-    "title": "Course support",
-    "section": "Office hours",
-    "text": "Office hours\nI am here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage you to take advantage of them!\nMake a pledge to stop by office hours at least once before Wednesday’s (1/9) class. If you truly have no questions to ask, just stop by and say hi and introduce yourself.",
-    "crumbs": [
-      "Course support"
-    ]
-  },
-  {
-    "objectID": "support.html#teams-discussion-forum",
-    "href": "support.html#teams-discussion-forum",
-    "title": "Course support",
-    "section": "Teams Discussion Forum",
-    "text": "Teams Discussion Forum\nOutside of class and office hours, any general questions about course content or assignments should be posted on the Teams Discussion Forum. If you know the answer to a question that is posted, I encourage you to respond!",
-    "crumbs": [
-      "Course support"
-    ]
-  },
-  {
-    "objectID": "support.html#tutoring",
-    "href": "support.html#tutoring",
-    "title": "Course support",
-    "section": "Tutoring",
-    "text": "Tutoring\nBrayden Banks will be tutoring for MAT-212 this winter term. His hours are Monday and Wednesday from 10 am - 11 am in Jewett 100. If this time doesn’t work for you, feel free email him to meet outside these hours.",
-    "crumbs": [
-      "Course support"
-    ]
-  },
-  {
-    "objectID": "support.html#email",
-    "href": "support.html#email",
-    "title": "Course support",
-    "section": "Email",
-    "text": "Email\nIf you have questions about personal matters that are not appropriate for the class discussion forum (e.g. illness, accommodations, etc.), you may email Professor Friedlander at efriedlander@collegeofidaho.edu. If you email me, please include “MAT 212” in the subject line. Barring extenuating circumstances, I will respond to MAT 212 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
-    "crumbs": [
-      "Course support"
-    ]
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#do-now",
-    "href": "slides/11-logistic-multiple.html#do-now",
-    "title": "Multiple Logistic Regression",
-    "section": "Do now",
-    "text": "Do now\nGet back in your groups from Friday and finish AE-22 (skip Exercise 6)."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#announcements",
-    "href": "slides/11-logistic-multiple.html#announcements",
-    "title": "Multiple Logistic Regression",
-    "section": "Announcements",
-    "text": "Announcements\n\nProject draft due today\nPeer Review due Monday, November 25th\nHW 10 due Monday, November 25th\n\nReleased today\n\nMidterm 2 Wednesday, November 27th (day before break)\n\n\n📋 AE 23 - Multiple Logistic Regression\n\nOpen up AE 23."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#topics",
-    "href": "slides/11-logistic-multiple.html#topics",
-    "title": "Multiple Logistic Regression",
-    "section": "Topics",
-    "text": "Topics\n\nExtending what we’ve learned to logistic regression models with multiple predictors\n\n\n\n📋 AE 11 - Multiple Logistic Regression\n\nComplete all of AE 11 using slides as needed."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#computational-setup",
-    "href": "slides/11-logistic-multiple.html#computational-setup",
-    "title": "Multiple Logistic Regression",
-    "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(openintro)\nlibrary(knitr)\nlibrary(kableExtra)  # for table embellishments\nlibrary(Stat2Data)   # for empirical logit\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#risk-of-coronary-heart-disease",
-    "href": "slides/11-logistic-multiple.html#risk-of-coronary-heart-disease",
-    "title": "Multiple Logistic Regression",
-    "section": "Risk of coronary heart disease",
-    "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nTenYearCHD:\n\n1: Developed heart disease in next 10 years\n0: Did not develop heart disease in next 10 years\n\nage: Age at exam time (in years)\neducation: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#data-prep",
-    "href": "slides/11-logistic-multiple.html#data-prep",
-    "title": "Multiple Logistic Regression",
-    "section": "Data prep",
-    "text": "Data prep\n\nheart_disease &lt;- read_csv(\"../data/framingham.csv\") |&gt;\n  select(TenYearCHD, age, education) |&gt;\n  drop_na() |&gt; \n  mutate(education = as.factor(education))\n\nheart_disease |&gt; head() |&gt; kable()\n\n\n\n\nTenYearCHD\nage\neducation\n\n\n\n\n0\n39\n4\n\n\n0\n46\n2\n\n\n0\n48\n1\n\n\n1\n61\n3\n\n\n0\n46\n3\n\n\n0\n43\n2"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#model-output",
-    "href": "slides/11-logistic-multiple.html#model-output",
-    "title": "Multiple Logistic Regression",
-    "section": "Model output",
-    "text": "Model output\n\nrisk_fit &lt;- glm(TenYearCHD ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n\n\nage\n0.073\n0.005\n13.385\n0.000\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n\n\n\n\n\n\\[\n\\small{\\log\\Big(\\frac{\\hat{\\pi}}{1-\\hat{\\pi}}\\Big) = -5.385 + 0.073 ~ \\text{age} - 0.242 ~ \\text{ed2} - 0.235 ~ \\text{ed3} - 0.020 ~ \\text{ed4}}\n\\]"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#model-interpretation",
-    "href": "slides/11-logistic-multiple.html#model-interpretation",
-    "title": "Multiple Logistic Regression",
-    "section": "Model Interpretation",
-    "text": "Model Interpretation\n\nrisk_fit &lt;- glm(TenYearCHD ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n\n\nage\n0.073\n0.005\n13.385\n0.000\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n\n\n\n\n\nAs age increases by a year, the typical log-odds of developing coronary heart disease within the next 10 years increases by 0.073 for patients with the same level of education.\n\nAs age increases by a year, the typical odds of developing coronary heart disease within the next 10 years increases by a factor of \\(\\exp(0.073)\\approx 1.08\\) (i.e. 8%) for patients with the same level of education."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#model-interpretation-1",
-    "href": "slides/11-logistic-multiple.html#model-interpretation-1",
-    "title": "Multiple Logistic Regression",
-    "section": "Model Interpretation",
-    "text": "Model Interpretation\n\nrisk_fit &lt;- glm(TenYearCHD ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n\n\nage\n0.073\n0.005\n13.385\n0.000\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n\n\n\n\n\nPatients of the same age who have [a High School diploma or GED/Some College or Vocational School/a College education], the typical log-odds of developing coronary heart disease within the next 10 years is 0.242/0.235/0.020 lower than patients with only some high school.\n\nPatients of the same age who have [a High School diploma or GED/Some College or Vocational School/a College education], the typical odds of developing coronary heart disease within the next 10 years is 79.5%/79.1%/98.0% of the odds for patients with only some high school."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#hypothesis-test-for-beta_j",
-    "href": "slides/11-logistic-multiple.html#hypothesis-test-for-beta_j",
-    "title": "Multiple Logistic Regression",
-    "section": "Hypothesis test for \\(\\beta_j\\)",
-    "text": "Hypothesis test for \\(\\beta_j\\)\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n\nTest Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE_{\\hat{\\beta}_j}}\\]\n\n\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#confidence-interval-for-beta_j",
-    "href": "slides/11-logistic-multiple.html#confidence-interval-for-beta_j",
-    "title": "Multiple Logistic Regression",
-    "section": "Confidence interval for \\(\\beta_j\\)",
-    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* SE_{\\hat{\\beta}_j}}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n\n\n\n\n\n\n\nNote\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#interpretation-in-terms-of-the-odds",
-    "href": "slides/11-logistic-multiple.html#interpretation-in-terms-of-the-odds",
-    "title": "Multiple Logistic Regression",
-    "section": "Interpretation in terms of the odds",
-    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* SE_{\\hat{\\beta}_j}\\}}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* SE_{\\hat{\\beta}_j}\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* SE_{\\hat{\\beta}_j}\\}\\), holding all else constant."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age",
-    "href": "slides/11-logistic-multiple.html#coefficient-for-age",
-    "title": "Multiple Logistic Regression",
-    "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\] given education is in the model"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age-1",
-    "href": "slides/11-logistic-multiple.html#coefficient-for-age-1",
-    "title": "Multiple Logistic Regression",
-    "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{0.07328 - 0}{0.00547} = 13.39\\]"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age-2",
-    "href": "slides/11-logistic-multiple.html#coefficient-for-age-2",
-    "title": "Multiple Logistic Regression",
-    "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nP-value:\n\\[\nP(|Z| &gt; |13.39|) \\approx 0\n\\]\n\n\n2 * pnorm(13.64,lower.tail = FALSE)\n\n[1] 2.315606e-42"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#coefficient-for-age-3",
-    "href": "slides/11-logistic-multiple.html#coefficient-for-age-3",
-    "title": "Multiple Logistic Regression",
-    "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is will develop heart disease in the next year, after accounting for education."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#comparing-nested-models-1",
-    "href": "slides/11-logistic-multiple.html#comparing-nested-models-1",
-    "title": "Multiple Logistic Regression",
-    "section": "Comparing nested models",
-    "text": "Comparing nested models\n\nSuppose there are two models:\n\nReduced Model includes predictors \\(x_1, \\ldots, x_q\\)\nFull Model includes predictors \\(x_1, \\ldots, x_q, x_{q+1}, \\ldots, x_p\\)\n\nWe want to test the hypotheses\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least one }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\nTo do so, we will use the Nested Likelihood Ratio test (LRT), also known as the Drop-in-deviance test,"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#likelihood-ratio-test",
-    "href": "slides/11-logistic-multiple.html#likelihood-ratio-test",
-    "title": "Multiple Logistic Regression",
-    "section": "Likelihood Ratio test",
-    "text": "Likelihood Ratio test\nHypotheses:\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least 1 }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\n\nTest Statistic: \\[G = (-2 \\log L_{reduced}) - (-2 \\log L_{full})\\]\nor sometimes\nTest Statistic: \\[G = (-2 \\log L_{0}) - (-2 \\log L)\\]\n\n\nP-value: \\(P(\\chi^2 &gt; G)\\), calculated using a \\(\\chi^2\\) distribution with degrees of freedom equal to the difference in the number of parameters in the full and reduced models"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#chi2-distribution",
-    "href": "slides/11-logistic-multiple.html#chi2-distribution",
-    "title": "Multiple Logistic Regression",
-    "section": "\\(\\chi^2\\) distribution",
-    "text": "\\(\\chi^2\\) distribution"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#should-we-add-education-to-a-model-with-only-age",
-    "href": "slides/11-logistic-multiple.html#should-we-add-education-to-a-model-with-only-age",
-    "title": "Multiple Logistic Regression",
-    "section": "Should we add education to a model with only age?",
-    "text": "Should we add education to a model with only age?\nFirst model, reduced:\n\nrisk_fit_reduced &lt;- glm(TenYearCHD ~ age, \n      data = heart_disease, family = \"binomial\")\n\n\n\nSecond model, full:\n\nrisk_fit_full &lt;- glm(TenYearCHD ~ age + education, \n      data = heart_disease, family = \"binomial\")"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#should-we-add-education-to-the-model",
-    "href": "slides/11-logistic-multiple.html#should-we-add-education-to-the-model",
-    "title": "Multiple Logistic Regression",
-    "section": "Should we add education to the model?",
-    "text": "Should we add education to the model?\nCalculate deviance for each model:\n\ndev_reduced &lt;- glance(risk_fit_reduced)$deviance\ndev_reduced\n\n[1] 3306.68\n\ndev_full &lt;- glance(risk_fit_full)$deviance\ndev_full\n\n[1] 3300.135"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#should-we-add-education-to-the-model-1",
-    "href": "slides/11-logistic-multiple.html#should-we-add-education-to-the-model-1",
-    "title": "Multiple Logistic Regression",
-    "section": "Should we add education to the model?",
-    "text": "Should we add education to the model?\nDrop-in-deviance test statistic:\n\ntest_stat &lt;- dev_reduced - dev_full\ntest_stat\n\n[1] 6.544306"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#should-we-add-education-to-the-model-2",
-    "href": "slides/11-logistic-multiple.html#should-we-add-education-to-the-model-2",
-    "title": "Multiple Logistic Regression",
-    "section": "Should we add education to the model?",
-    "text": "Should we add education to the model?\nCalculate the p-value using a pchisq(), with degrees of freedom equal to the number of new model terms in the second model:\n\npchisq(test_stat, 3, lower.tail = FALSE) \n\n[1] 0.08793145\n\n\n\nConclusion: The p-value is between 0.1 and 0.05 indicating mild but not strong evidence that a model with education is a useful predictor when age is already in the model."
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#drop-in-deviance-test-in-r",
-    "href": "slides/11-logistic-multiple.html#drop-in-deviance-test-in-r",
-    "title": "Multiple Logistic Regression",
-    "section": "Drop-in-Deviance test in R",
-    "text": "Drop-in-Deviance test in R\n\nWe can use the anova function to conduct this test\nAdd test = \"Chisq\" to conduct the drop-in-deviance test\n\n\n\nanova(risk_fit_reduced, risk_fit_full, test = \"Chisq\") |&gt;\n  tidy() |&gt; kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.residual\nresidual.deviance\ndf\ndeviance\np.value\n\n\n\n\nTenYearCHD ~ age\n4133\n3306.680\nNA\nNA\nNA\n\n\nTenYearCHD ~ age + education\n4130\n3300.135\n3\n6.544\n0.088"
-  },
-  {
-    "objectID": "slides/11-logistic-multiple.html#recap",
-    "href": "slides/11-logistic-multiple.html#recap",
-    "title": "Multiple Logistic Regression",
-    "section": "Recap",
-    "text": "Recap\n\nToday: Simple logistic to Multiple logistic\n\nCoefficient interpretations\nWald test interpretations\n\nBasic idea add “holding all else constant”\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
-  },
-  {
-    "objectID": "prepare/prep-13.html",
-    "href": "prepare/prep-13.html",
-    "title": "Preparation for Model Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "prepare/prep-13.html#assigned-reading",
-    "href": "prepare/prep-13.html#assigned-reading",
-    "title": "Preparation for Model Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html",
-    "href": "ae/ae-11-multiple-logistic.html",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-11”.\nGo to the Canvas and locate your AE-11 assignment to get started.\nUpload the ae-11.qmd and framingham.csv files into the folder you just created."
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#packages",
-    "href": "ae/ae-11-multiple-logistic.html#packages",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat are my predictor variables?\nBased on your group, use the following as your predictor variables.\n\nGroup 1:\n\nBMI: patient’s body mass index\ndiabetes: 1 if patient has diabetes, 0 otherwise\n\nGroup 2:\n\ncigsPerDay: number of cigarettes patient smokes per day\ncurrentSmoker: 1 if current smoker, 0 otherwise\n\nGroup 3:\n\nsysBP: systolic blood pressure (mmHg)\nBPMeds: 1 if they are on blood pressure medication, 0 otherwise\n\nGroup 4:\n\ntotChol: total cholesterol (mg/dL)\nprevalentHyp: 1 if patient was hypertensive, 0 otherwise"
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-0",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-0",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 0",
-    "text": "Exercise 0\nEdit the code below to drop any missing values, convert the categorical predictors into factors, and select only the eight variables listed above along with TenYearCHD. Make sure to do those thing in an order that makes sense:\n\nheart_disease &lt;- read_csv(\"../data/framingham.csv\")\n\nRows: 4240 Columns: 16\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (16): male, age, education, currentSmoker, cigsPerDay, BPMeds, prevalent...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-1",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-1",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFit a logistic regression model predicting TenYearCHD using your two assigned predictors. Write your resulting model on the board in any format you choose."
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-2",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-2",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nFor both of your coefficients complete the madlibs below interpreting the value, you may need to edit a bit to make the final sentence grammatically correct:\nQuantitative variable: When [variable name] increases by [number], the typical [increase/decrease] in [quantity] is [number], [qualifying statement that makes this different than when we have one predictor].\nQuantitative variable: When [variable name] increases by [number], the typical odds-ratio is multiplied by a factor of [number], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: For patients who are [insert category] at the time of examination, the typical [increase/decrease] in [quantity] is [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: For patients who are [insert category] at the time of examination, the odds-ratio typically [increases/decreases] by a factor of [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor]."
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-3",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-3",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nCompute p-values for both of your coefficients using tidy."
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-4",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-4",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nFor both of your coefficients write the null and alternative hypotheses (in both symbols and words), the test statistics, and the p-values on the board (just pick them out from the tidy output). Then, complete the madlibs below interpreting the p-values, you may need to edit the final statements to make them grammatically correct:\nQuantitative variable: The [quantity] is [size], so we [do something to] \\(H_0\\). The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: The [quantity] is [size], so we [do something to] \\(H_0\\). The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor]."
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-5",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-5",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nUse tidy to compute 99% confidence intervals for both of your coefficients. Write them on the board."
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-6",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-6",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nInterpret the the confidence intervals below:\nLog-odds interpretation (Quantitative):\nOdds-ratio interpretation (Quantitative):\nLog-odds interpretation (Categorical):\nOdds-ratio interpretation (Categorical):"
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#exercise-7",
-    "href": "ae/ae-11-multiple-logistic.html#exercise-7",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Exercise 7",
-    "text": "Exercise 7\n\nFit the full model. I.e. the model using all eight predictors included in the data set.\nUse glance to compute the deviance of both models. Which has the better deviance?\nUse the anova function to conduct a likelihood ratio test between the model containing your two predictors and the full model.\nOn the white board, write the null and alternative hypotheses (in both symbols and words), the test statistic, the p-value on the board. 5 What is the conclusion of your test in context?"
-  },
-  {
-    "objectID": "ae/ae-11-multiple-logistic.html#submission",
-    "href": "ae/ae-11-multiple-logistic.html#submission",
-    "title": "AE 11: Multiple Logistic Regression",
-    "section": "Submission",
-    "text": "Submission\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your QMD and HTML files to the Canvas assignment."
-  },
-  {
-    "objectID": "prepare/prep-14.html",
-    "href": "prepare/prep-14.html",
-    "title": "Preparation for Model Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "prepare/prep-14.html#assigned-reading",
-    "href": "prepare/prep-14.html#assigned-reading",
-    "title": "Preparation for Model Comparison",
-    "section": "",
-    "text": "Stat2 Textbook: Chapter 3.2"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#first-things-first",
-    "href": "slides/13-multicollinearity.html#first-things-first",
-    "title": "Multicollinearity",
-    "section": "First things first",
-    "text": "First things first\n\nFinish-up AE-16"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#announcements",
-    "href": "slides/13-multicollinearity.html#announcements",
-    "title": "Multicollinearity",
-    "section": "Announcements",
-    "text": "Announcements\n\nProject: EDA Due Today\nProject: Paper Due November 18th\nOral R Quiz\n\n\n📋 AE 17 - Multicollinearity\n\nOpen up AE 17 and Complete Exercise 0"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#topics",
-    "href": "slides/13-multicollinearity.html#topics",
-    "title": "Multicollinearity",
-    "section": "Topics",
-    "text": "Topics\n\n\nDefining Multicollinearity\nDetecting Multicollinearity\nVariance Inflation Factors"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#computational-setup",
-    "href": "slides/13-multicollinearity.html#computational-setup",
-    "title": "Multicollinearity",
-    "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(mosaicData)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\nlibrary(countdown)\nlibrary(rms)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#data-rail_trail",
-    "href": "slides/13-multicollinearity.html#data-rail_trail",
-    "title": "Multicollinearity",
-    "section": "Data: rail_trail",
-    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\n# A tibble: 90 × 7\n   volume hightemp avgtemp season cloudcover precip day_type\n    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   \n 1    501       83    66.5 Summer       7.60 0      Weekday \n 2    419       73    61   Summer       6.30 0.290  Weekday \n 3    397       74    63   Spring       7.5  0.320  Weekday \n 4    385       95    78   Summer       2.60 0      Weekend \n 5    200       44    48   Spring      10    0.140  Weekday \n 6    375       69    61.5 Spring       6.60 0.0200 Weekday \n 7    417       66    52.5 Spring       2.40 0      Weekday \n 8    629       66    52   Spring       0    0      Weekend \n 9    533       80    67.5 Summer       3.80 0      Weekend \n10    547       79    62   Summer       4.10 0      Weekday \n# ℹ 80 more rows\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#full-model",
-    "href": "slides/13-multicollinearity.html#full-model",
-    "title": "Multicollinearity",
-    "section": "Full model",
-    "text": "Full model\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n17.622161\n76.582860\n0.2301058\n0.8185826\n\n\nhightemp\n7.070528\n2.420523\n2.9210743\n0.0045045\n\n\navgtemp\n-2.036685\n3.142113\n-0.6481896\n0.5186733\n\n\nseasonSpring\n35.914983\n32.992762\n1.0885716\n0.2795319\n\n\nseasonSummer\n24.153571\n52.810486\n0.4573632\n0.6486195\n\n\ncloudcover\n-7.251776\n3.843071\n-1.8869743\n0.0627025\n\n\nprecip\n-95.696525\n42.573359\n-2.2478030\n0.0272735\n\n\nday_typeWeekend\n35.903750\n22.429056\n1.6007696\n0.1132738"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#what-is-multicollinearity",
-    "href": "slides/13-multicollinearity.html#what-is-multicollinearity",
-    "title": "Multicollinearity",
-    "section": "What is multicollinearity",
-    "text": "What is multicollinearity\n\nMulticollinearity is the case when one or more predictor variables are strongly correlated with some combination of other predictors\nIntuition: if you could fit a good linear model with one of your predictors as the response and the rest of the predictors as your explanatory variables, then your predictors are exhibiting multicollinearity"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#example",
-    "href": "slides/13-multicollinearity.html#example",
-    "title": "Multicollinearity",
-    "section": "Example",
-    "text": "Example\nLet’s assume the true population regression equation is \\(y = 3 + 4x\\)\n\nSuppose we try estimating that equation using a model with variables \\(x\\) and \\(z = x/10\\)\n\\[\n\\begin{aligned}\\hat{y}&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2z\\\\\n&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2\\frac{x}{10}\\\\\n&= \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#example-1",
-    "href": "slides/13-multicollinearity.html#example-1",
-    "title": "Multicollinearity",
-    "section": "Example",
-    "text": "Example\n\\[\\hat{y} = \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\\]\n\nWe can set \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\) to any two numbers such that \\(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10} = 4\\)\nTherefore, we are unable to choose the “best” combination of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\)\nIn statistics, we say this model is “unidentifiable” because different parameters combinations can result in the same model\nThis is also why we need to set a reference level for categorical variables\nComplete Exercises 1-2."
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#why-multicollinearity-is-a-problem",
-    "href": "slides/13-multicollinearity.html#why-multicollinearity-is-a-problem",
-    "title": "Multicollinearity",
-    "section": "Why multicollinearity is a problem",
-    "text": "Why multicollinearity is a problem\n\nWhen we have perfect collinearities, we are unable to get estimates for the coefficients\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate\nIn other words, we lose precision in our estimates of the regression coefficients\nThis impedes our ability to use the model for inference\nIt is also difficult to interpret the model coefficients"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity",
-    "href": "slides/13-multicollinearity.html#detecting-multicollinearity",
-    "title": "Multicollinearity",
-    "section": "Detecting Multicollinearity",
-    "text": "Detecting Multicollinearity\nMulticollinearity may occur when…\n\nThere are very high correlations \\((r &gt; 0.9)\\) among two or more predictor variables, especially when the sample size is small\nOne (or more) predictor variables is an almost perfect linear combination of the others\nThere are interactions between two or more continuous variables"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity-in-the-eda",
-    "href": "slides/13-multicollinearity.html#detecting-multicollinearity-in-the-eda",
-    "title": "Multicollinearity",
-    "section": "Detecting multicollinearity in the EDA",
-    "text": "Detecting multicollinearity in the EDA\n\nLook at a correlation matrix of the predictor variables, including all indicator variables\n\nLook out for values close to 1 or -1\n\nLook at a scatter plot matrix of the predictor variables\n\nLook out for plots that show a relatively linear relationship\n\nComplete Exercises 3-4."
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity-vif",
-    "href": "slides/13-multicollinearity.html#detecting-multicollinearity-vif",
-    "title": "Multicollinearity",
-    "section": "Detecting Multicollinearity (VIF)",
-    "text": "Detecting Multicollinearity (VIF)\nVariance Inflation Factor (VIF): Measure of multicollinearity in the regression model\n\\[VIF(\\hat{\\beta}_j) = \\frac{1}{1-R^2_{X_j|X_{-j}}}\\]\nwhere \\(R^2_{X_j|X_{-j}}\\) is the proportion of variation in \\(X_j\\) that is explained by the linear combination of the other explanatory variables in the model."
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#detecting-multicollinearity-vif-1",
-    "href": "slides/13-multicollinearity.html#detecting-multicollinearity-vif-1",
-    "title": "Multicollinearity",
-    "section": "Detecting Multicollinearity (VIF)",
-    "text": "Detecting Multicollinearity (VIF)\n\nTypically \\(VIF &gt; 10\\) indicates concerning multicollinearity\nVariables with similar values of VIF are typically the ones correlated with each other\nUse the vif() function in the rms R package to calculate VIF"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#vif-for-rail-trail-model",
-    "href": "slides/13-multicollinearity.html#vif-for-rail-trail-model",
-    "title": "Multicollinearity",
-    "section": "VIF for rail trail model",
-    "text": "VIF for rail trail model\nComplete Exercise 5.\n\n\nvif(rt_full_fit)\n\n       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover \n      10.259978       13.086175        2.751577        5.841985        1.587485 \n         precip day_typeWeekend \n       1.295352        1.125741 \n\n\n\n\n\nhightemp and avgtemp are correlated."
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#what-to-do-about-multicollinearity",
-    "href": "slides/13-multicollinearity.html#what-to-do-about-multicollinearity",
-    "title": "Multicollinearity",
-    "section": "What to do about Multicollinearity",
-    "text": "What to do about Multicollinearity\n\nDrop some predictors.\n\nExample: Remove one of these variables and refit the model.\n\nCombine some predictors.\n\nExample: Create a new variable temp_comsite that is the average of avgtemp and hightemp.\n\nDiscount the individual coefficients and t-tests.\n\nExample: Think about avgtemp and hightemp together with their individual \\(\\beta\\)’s and p-values not having much meaning.\n\n\n\nComplete Exercises 6 & 7."
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#model-without-hightemp",
-    "href": "slides/13-multicollinearity.html#model-without-hightemp",
-    "title": "Multicollinearity",
-    "section": "Model without hightemp",
-    "text": "Model without hightemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n76.071\n77.204\n0.985\n0.327\n\n\navgtemp\n6.003\n1.583\n3.792\n0.000\n\n\nseasonSpring\n34.555\n34.454\n1.003\n0.319\n\n\nseasonSummer\n13.531\n55.024\n0.246\n0.806\n\n\ncloudcover\n-12.807\n3.488\n-3.672\n0.000\n\n\nprecip\n-110.736\n44.137\n-2.509\n0.014\n\n\nday_typeWeekend\n48.420\n22.993\n2.106\n0.038"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#model-without-avgtemp",
-    "href": "slides/13-multicollinearity.html#model-without-avgtemp",
-    "title": "Multicollinearity",
-    "section": "Model without avgtemp",
-    "text": "Model without avgtemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#model-without-temp_composite",
-    "href": "slides/13-multicollinearity.html#model-without-temp_composite",
-    "title": "Multicollinearity",
-    "section": "Model without temp_composite",
-    "text": "Model without temp_composite\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n18.823\n77.430\n0.243\n0.809\n\n\nseasonSpring\n28.458\n33.059\n0.861\n0.392\n\n\nseasonSummer\n-0.986\n51.234\n-0.019\n0.985\n\n\ncloudcover\n-10.367\n3.409\n-3.041\n0.003\n\n\nprecip\n-104.475\n42.725\n-2.445\n0.017\n\n\nday_typeWeekend\n40.914\n22.479\n1.820\n0.072\n\n\ntemp_composite\n6.292\n1.376\n4.571\n0.000"
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#choosing-a-model",
-    "href": "slides/13-multicollinearity.html#choosing-a-model",
-    "title": "Multicollinearity",
-    "section": "Choosing a model",
-    "text": "Choosing a model\nModel without hightemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.42\n1087.5\n1107.5\n\n\n\n\n\nModel without avgtemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.47\n1079.05\n1099.05\n\n\n\n\n\nModel with temp_composite:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.46\n1081.67\n1101.67\n\n\n\n\n\n\nBased on Adjusted \\(R^2\\), AIC, and BIC, the model without avgtemp is a better fit. Therefore, we choose to remove avgtemp from the model and leave hightemp in the model to deal with the multicollinearity."
-  },
-  {
-    "objectID": "slides/13-multicollinearity.html#selected-model-for-now",
-    "href": "slides/13-multicollinearity.html#selected-model-for-now",
-    "title": "Multicollinearity",
-    "section": "Selected model (for now)",
-    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html",
-    "href": "ae/ae-12-comparison.html",
-    "title": "AE 12: Model Comparison",
-    "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-12”.\nGo to the Canvas and locate your AE-12 assignment to get started.\nUpload the ae-12.qmd and tip-data.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#packages-data",
-    "href": "ae/ae-12-comparison.html#packages-data",
-    "title": "AE 12: Model Comparison",
-    "section": "Packages + data",
-    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(yardstick)\nlibrary(ggformula)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\ntips &lt;- read_csv(\"../data/tip-data.csv\") \n\nWhat factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.1\nThe variables we’ll focus on for this analysis are\n\nTip: amount of the tip\nMeal: which meal this was (Lunch, Dinner, Late Night)\nParty: number of people in the party\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\nDay: Day of the week (Tuesday through Sunday)"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#analysis-goal",
-    "href": "ae/ae-12-comparison.html#analysis-goal",
-    "title": "AE 12: Model Comparison",
-    "section": "Analysis goal",
-    "text": "Analysis goal\nThe goals of this activity are to:\n\nUse ANOVA to determine whether our model is useful as a whole\nBegin thinking about \\(R^2\\) in a multivariate setting"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-0",
-    "href": "ae/ae-12-comparison.html#exercise-0",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 0",
-    "text": "Exercise 0\nComplete the following to clean and then observe your data:\n\nUse drop_na to remove any rows where Party is missing.\n\n\ntips &lt;- tips |&gt; \n  _______   # drop missing values from party\n\n\nGenerate a bar chart of the variable Meal.\n\n\n# insert code here\n\n\nRun the following code and generate the same bar chart as above. You can even copy and paste your code. What’s the difference between the two plots? What do you think fct_relevel does?\n\n\ntips &lt;- tips |&gt; \n  mutate(\n    Meal = fct_relevel(Meal, \"Lunch\", \"Dinner\", \"Late Night\"),\n    Age  = fct_relevel(Age, \"Yadult\", \"Middle\", \"SenCit\")\n  )\n\n# Generate plot here"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-1",
-    "href": "ae/ae-12-comparison.html#exercise-1",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFit a linear model to predict Tips from Party and Age."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-2",
-    "href": "ae/ae-12-comparison.html#exercise-2",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nPipe the model you generated in the previous Exercise into the function anova."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-3",
-    "href": "ae/ae-12-comparison.html#exercise-3",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nBased on the output above, compute \\(SSTotal\\), \\(SSError\\), and \\(SSModel\\). You should only need to use addition and/or subtraction."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-4",
-    "href": "ae/ae-12-comparison.html#exercise-4",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nPipe your model into the glance function. Identify, the F-statistic and p-value for an F-test of this model. Interpret the outcome of your test in the context of the problem. Be prepared to discuss the difference between this p-value and the p-values from the individual model coefficients."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-5",
-    "href": "ae/ae-12-comparison.html#exercise-5",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nWhat is the \\(R^2\\) value for this model?"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-6",
-    "href": "ae/ae-12-comparison.html#exercise-6",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nFit the full model. What is it’s \\(R^2\\)? Does this model have a higher or lower \\(R^2\\) than the previous model? Does this mean it is a better model? Be prepared to discuss."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-7",
-    "href": "ae/ae-12-comparison.html#exercise-7",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nThe following code converts the numerical variable Bill into a new categorical variable Bill_factor. Essentially, each different number in Bill is treated as it’s own category. Fit a model predicting Tip from Bill_factor. What is your R^2? Think about the implications of this and what it means for the usefullness of \\(R^2\\).\n\ntips &lt;- tips |&gt; \n  mutate(Bill_factor = factor(Bill))"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-1-1",
-    "href": "ae/ae-12-comparison.html#exercise-1-1",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFit two models:\n\ntip_fit_1: predict Tip from Party, Age, and Meal\ntip_fit_2: predict Tip from Party, Age, Meal, and Day."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-2-1",
-    "href": "ae/ae-12-comparison.html#exercise-2-1",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nApply glance to both models above to find the \\(R^2\\) and \\(R^2_{adj}\\) values?"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-3-1",
-    "href": "ae/ae-12-comparison.html#exercise-3-1",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 3",
-    "text": "Exercise 3\n\nWhich model would we choose based on \\(R^2\\)?\nWhich model would we choose based on Adjusted \\(R^2\\)?\nWhich statistic should we use to choose the final model - \\(R^2\\) or Adjusted \\(R^2\\)? Why?"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-4-1",
-    "href": "ae/ae-12-comparison.html#exercise-4-1",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nReference the output from Exercise 2.\n\nWhich model would we choose based on AIC?\nWhich model would we choose based on BIC?"
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#exercise-5-time-permitting",
-    "href": "ae/ae-12-comparison.html#exercise-5-time-permitting",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 5 (Time Permitting)",
-    "text": "Exercise 5 (Time Permitting)\nFind the best model you can! You have until the end of class! Team with the best model gets a seriously great high-five."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#to-submit-the-ae",
-    "href": "ae/ae-12-comparison.html#to-submit-the-ae",
-    "title": "AE 12: Model Comparison",
-    "section": "To submit the AE",
-    "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-12-comparison.html#footnotes",
-    "href": "ae/ae-12-comparison.html#footnotes",
-    "title": "AE 12: Model Comparison",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nDahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St. Olaf College.↩︎"
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html",
-    "href": "ae/ae-13-multicollinearity.html",
-    "title": "AE 17: Multicollinearity",
-    "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-17”.\nGo to the Canvas and locate your AE-17 assignment to get started.\nUpload the ae-17.qmd and rail_trail.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#packages-data",
-    "href": "ae/ae-13-multicollinearity.html#packages-data",
-    "title": "AE 17: Multicollinearity",
-    "section": "Packages + data",
-    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(GGally)\nlibrary(broom)\nlibrary(knitr)\nlibrary(mosaic)\nlibrary(mosaicData)\n\nrail_trail &lt;- read_csv(\"../data/rail_trail.csv\")\n\nThe data for this AE is based on data from the Pioneer Valley Planning Commission (PVPC) and is included in the mosaicData package. The PVPC collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. More information can be found here."
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#analysis-goal",
-    "href": "ae/ae-13-multicollinearity.html#analysis-goal",
-    "title": "AE 17: Multicollinearity",
-    "section": "Analysis goal",
-    "text": "Analysis goal\nThe goals of this activity are to:\n\nDetect and remedy multicollinearity in our data"
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-0",
-    "href": "ae/ae-13-multicollinearity.html#exercise-0",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 0",
-    "text": "Exercise 0\nFit a linear model to predict volume from ALL of the other predictors. The resulting model is called the “full model”."
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-1",
-    "href": "ae/ae-13-multicollinearity.html#exercise-1",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nCreate a new data frame called rail_trail_new with two new columns, hightemp_c and avgtemp_c. These two new columns should store the hightemp and avgtemp measured in Celsius rather than Fahrenheit. Note that the formula to convert between Fahrenheit and Celsius is \\(C = (F-32)\\times \\frac{5}{9}\\). Make sure hightemp and avgtemp are still in your data set."
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-2",
-    "href": "ae/ae-13-multicollinearity.html#exercise-2",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nTry to refit the full model on your data. Do you notice anything odd about your coefficients? If so, what do you think is happening?"
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-3",
-    "href": "ae/ae-13-multicollinearity.html#exercise-3",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nAdd a comment next to each line of code explaining what that line of code is doing.\n\nlibrary(corrplot)\n\nrail_trail |&gt; # Take the rail_trail data set and then\n  select(-volume) |&gt; # What do I do\n  select(where(is.numeric)) |&gt; # What do I do\n  cor() |&gt;   # What do I do\n  corrplot(method=\"number\") # What do I do\n\n\n\n\n\n\n\nrail_trail |&gt; \n  select(-volume) |&gt; # What do I do\n  ggpairs()"
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-4",
-    "href": "ae/ae-13-multicollinearity.html#exercise-4",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nBased on the output from the previous exercise, do you have reason to believe that our data is exhibiting multicollinearity?"
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-5",
-    "href": "ae/ae-13-multicollinearity.html#exercise-5",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nPipe the model you fit in Exercise 0 (i.e. not including the variable measured in Celcius) into the function vif. Are any of the vif’s concerning? If so, which ones."
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-6",
-    "href": "ae/ae-13-multicollinearity.html#exercise-6",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nFit two models:\n\nm1: use all predictors except for avgtemp\nm2: use all predictors except for hightemp\nm3: average avgtemp and hightemp together and use it instead of either avgtemp and hightemp"
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#exercise-7",
-    "href": "ae/ae-13-multicollinearity.html#exercise-7",
-    "title": "AE 17: Multicollinearity",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nUse glance to compute the \\(R^2_{adj}\\), AIC, and BIC for both of these models. Which should we choose?"
-  },
-  {
-    "objectID": "ae/ae-13-multicollinearity.html#to-submit-the-ae",
-    "href": "ae/ae-13-multicollinearity.html#to-submit-the-ae",
-    "title": "AE 17: Multicollinearity",
-    "section": "To submit the AE",
-    "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
+    "text": "Inference for \\(\\beta_1\\)\n\nWald Test\nLikelihood Ratio Test\n\nMore reliable than Wald\nMore computationally taxing\nDeviance: think of like SSE\n\nNext time: Multiple predictors!\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/12-comparison.html#announcements",
@@ -6901,38 +6022,63 @@
     "text": "Recap\n\nANOVA for multiple linear regression and sum of squares\n\\(R^2\\) for multiple linear regression\nComparing models with\n\n\\(R^2\\) vs. \\(R^2_{Adj}\\)\nAIC and BIC\n\nOccam’s razor and parsimony\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
-    "objectID": "ae/ae-12-comparison.html#exercise-8",
-    "href": "ae/ae-12-comparison.html#exercise-8",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nFit two models:\n\ntip_fit_1: predict Tip from Party, Age, and Meal\ntip_fit_2: predict Tip from Party, Age, Meal, and Day."
+    "objectID": "support.html",
+    "href": "support.html",
+    "title": "Course support",
+    "section": "",
+    "text": "We expect everyone will have questions at some point in the semester, so we want to make sure you can identify when that is and feel comfortable seeking help.",
+    "crumbs": [
+      "Course support"
+    ]
   },
   {
-    "objectID": "ae/ae-12-comparison.html#exercise-9",
-    "href": "ae/ae-12-comparison.html#exercise-9",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nApply glance to both models above to find the \\(R^2\\) and \\(R^2_{adj}\\) values?"
+    "objectID": "support.html#lectures",
+    "href": "support.html#lectures",
+    "title": "Course support",
+    "section": "Lectures",
+    "text": "Lectures\nIf you have a question during lecture, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.",
+    "crumbs": [
+      "Course support"
+    ]
   },
   {
-    "objectID": "ae/ae-12-comparison.html#exercise-10",
-    "href": "ae/ae-12-comparison.html#exercise-10",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 10",
-    "text": "Exercise 10\n\nWhich model would we choose based on \\(R^2\\)?\nWhich model would we choose based on Adjusted \\(R^2\\)?\nWhich statistic should we use to choose the final model - \\(R^2\\) or Adjusted \\(R^2\\)? Why?"
+    "objectID": "support.html#office-hours",
+    "href": "support.html#office-hours",
+    "title": "Course support",
+    "section": "Office hours",
+    "text": "Office hours\nI am here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage you to take advantage of them!\nMake a pledge to stop by office hours at least once before Wednesday’s (1/9) class. If you truly have no questions to ask, just stop by and say hi and introduce yourself.",
+    "crumbs": [
+      "Course support"
+    ]
   },
   {
-    "objectID": "ae/ae-12-comparison.html#exercise-11",
-    "href": "ae/ae-12-comparison.html#exercise-11",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 11",
-    "text": "Exercise 11\nReference the output from Exercise 9.\n\nWhich model would we choose based on AIC?\nWhich model would we choose based on BIC?"
+    "objectID": "support.html#teams-discussion-forum",
+    "href": "support.html#teams-discussion-forum",
+    "title": "Course support",
+    "section": "Teams Discussion Forum",
+    "text": "Teams Discussion Forum\nOutside of class and office hours, any general questions about course content or assignments should be posted on the Teams Discussion Forum. If you know the answer to a question that is posted, I encourage you to respond!",
+    "crumbs": [
+      "Course support"
+    ]
   },
   {
-    "objectID": "ae/ae-12-comparison.html#exercise-12-time-permitting",
-    "href": "ae/ae-12-comparison.html#exercise-12-time-permitting",
-    "title": "AE 12: Model Comparison",
-    "section": "Exercise 12 (Time Permitting)",
-    "text": "Exercise 12 (Time Permitting)\nWhat might be the problem if we are comparing models with different transformation of the reponse variable."
+    "objectID": "support.html#tutoring",
+    "href": "support.html#tutoring",
+    "title": "Course support",
+    "section": "Tutoring",
+    "text": "Tutoring\nBrayden Banks will be tutoring for MAT-212 this winter term. His hours are Monday and Wednesday from 10 am - 11 am in Jewett 100. If this time doesn’t work for you, feel free email him to meet outside these hours.",
+    "crumbs": [
+      "Course support"
+    ]
+  },
+  {
+    "objectID": "support.html#email",
+    "href": "support.html#email",
+    "title": "Course support",
+    "section": "Email",
+    "text": "Email\nIf you have questions about personal matters that are not appropriate for the class discussion forum (e.g. illness, accommodations, etc.), you may email Professor Friedlander at efriedlander@collegeofidaho.edu. If you email me, please include “MAT 212” in the subject line. Barring extenuating circumstances, I will respond to MAT 212 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
+    "crumbs": [
+      "Course support"
+    ]
   }
 ]

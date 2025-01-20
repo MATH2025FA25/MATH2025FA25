@@ -2,47 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mat212wi25.netlify.app/syllabus.html</loc>
-    <lastmod>2025-01-04T23:18:09.000Z</lastmod>
+    <lastmod>2025-01-04T23:18:09.476Z</lastmod>
   </url>
   <url>
-    <loc>https://mat212wi25.netlify.app/slides/21-comparison2.html</loc>
-    <lastmod>2025-01-14T16:28:36.499Z</lastmod>
+    <loc>https://mat212wi25.netlify.app/slides/13-multicollinearity.html</loc>
+    <lastmod>2025-01-16T01:35:57.000Z</lastmod>
   </url>
   <url>
-    <loc>https://mat212wi25.netlify.app/slides/12-multicollinearity.html</loc>
-    <lastmod>2025-01-16T15:47:53.617Z</lastmod>
+    <loc>https://mat212wi25.netlify.app/slides/11-logistic-multiple.html</loc>
+    <lastmod>2025-01-20T18:57:00.393Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/09-logistic-intro.html</loc>
-    <lastmod>2025-01-17T02:38:26.212Z</lastmod>
+    <lastmod>2025-01-17T02:38:26.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/07-mlr.html</loc>
-    <lastmod>2025-01-14T19:57:27.584Z</lastmod>
+    <lastmod>2025-01-14T19:57:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/05-slr-conditions.html</loc>
-    <lastmod>2025-01-11T16:09:03.000Z</lastmod>
+    <lastmod>2025-01-11T16:09:03.341Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/03-slr-sbi.html</loc>
-    <lastmod>2025-01-08T02:31:16.000Z</lastmod>
+    <lastmod>2025-01-08T02:31:16.727Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/01-welcome.html</loc>
-    <lastmod>2025-01-04T23:19:07.000Z</lastmod>
+    <lastmod>2025-01-04T23:19:07.086Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/project/project-tips.html</loc>
-    <lastmod>2025-01-02T18:26:13.750Z</lastmod>
+    <lastmod>2025-01-02T18:26:13.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/project/project-review-guidelines.html</loc>
-    <lastmod>2024-12-25T15:28:43.260Z</lastmod>
+    <lastmod>2024-12-25T15:28:43.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/project/poster-rubric.html</loc>
-    <lastmod>2025-01-19T22:10:11.265Z</lastmod>
+    <lastmod>2025-01-19T22:10:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212wi25.netlify.app/prepare/prep-13.html</loc>
+    <lastmod>2025-01-20T18:40:17.714Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-11.html</loc>
@@ -54,23 +58,23 @@
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-07.html</loc>
-    <lastmod>2025-01-11T17:55:48.000Z</lastmod>
+    <lastmod>2025-01-11T17:55:48.063Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-05.html</loc>
-    <lastmod>2025-01-10T02:55:01.091Z</lastmod>
+    <lastmod>2025-01-10T02:55:01.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-03.html</loc>
-    <lastmod>2025-01-03T18:55:19.411Z</lastmod>
+    <lastmod>2025-01-03T18:55:19.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/links.html</loc>
-    <lastmod>2024-12-25T15:18:04.662Z</lastmod>
+    <lastmod>2024-12-25T15:18:04.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/hw/hw-07.html</loc>
-    <lastmod>2025-01-17T19:34:54.153Z</lastmod>
+    <lastmod>2025-01-17T19:34:54.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/hw/hw-05.html</loc>
@@ -78,107 +82,107 @@
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/hw/hw-03.html</loc>
-    <lastmod>2025-01-09T16:55:26.497Z</lastmod>
+    <lastmod>2025-01-09T16:55:26.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/hw/hw-01.html</loc>
-    <lastmod>2025-01-05T00:43:07.000Z</lastmod>
+    <lastmod>2025-01-05T00:43:07.224Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/exam/exam-02-review.html</loc>
-    <lastmod>2025-01-17T18:41:22.651Z</lastmod>
+    <lastmod>2025-01-17T18:41:22.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/exam/exam-01-review.html</loc>
-    <lastmod>2025-01-17T18:41:28.758Z</lastmod>
+    <lastmod>2025-01-17T18:41:28.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/computing-r-resources.html</loc>
-    <lastmod>2024-08-20T01:36:16.567Z</lastmod>
+    <lastmod>2024-08-20T01:36:16.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/computing-access.html</loc>
-    <lastmod>2024-12-25T15:28:55.664Z</lastmod>
+    <lastmod>2024-12-25T15:28:55.000Z</lastmod>
   </url>
   <url>
-    <loc>https://mat212wi25.netlify.app/ae/ae-14-comparison.html</loc>
-    <lastmod>2025-01-14T16:26:38.040Z</lastmod>
+    <loc>https://mat212wi25.netlify.app/ae/ae-12-comparison.html</loc>
+    <lastmod>2025-01-20T20:41:46.700Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-10-logistic-inference.html</loc>
-    <lastmod>2025-01-19T21:24:17.080Z</lastmod>
+    <lastmod>2025-01-19T21:24:17.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-08-mlr-inference.html</loc>
-    <lastmod>2025-01-14T18:43:30.567Z</lastmod>
+    <lastmod>2025-01-14T18:43:30.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-06-transformations.html</loc>
-    <lastmod>2025-01-11T17:30:02.000Z</lastmod>
+    <lastmod>2025-01-11T17:30:02.449Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-04-math-models.html</loc>
-    <lastmod>2025-01-08T17:43:17.844Z</lastmod>
+    <lastmod>2025-01-08T17:43:17.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-02-bikeshare.html</loc>
-    <lastmod>2025-01-03T19:17:40.417Z</lastmod>
+    <lastmod>2025-01-04T23:42:06.281Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-01-multivariate-relationships.html</loc>
-    <lastmod>2025-01-06T18:07:33.133Z</lastmod>
+    <lastmod>2025-01-05T00:46:25.718Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-03-sbi.html</loc>
-    <lastmod>2025-01-08T17:43:18.658Z</lastmod>
+    <lastmod>2025-01-08T17:43:18.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-05-conditions.html</loc>
-    <lastmod>2025-01-10T02:47:16.481Z</lastmod>
+    <lastmod>2025-01-10T02:47:16.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-07-mlr.html</loc>
-    <lastmod>2025-01-14T16:23:30.558Z</lastmod>
+    <lastmod>2025-01-14T16:23:30.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/ae/ae-09-logistic-intro.html</loc>
-    <lastmod>2025-01-17T02:37:07.028Z</lastmod>
+    <lastmod>2025-01-17T02:37:07.000Z</lastmod>
   </url>
   <url>
-    <loc>https://mat212wi25.netlify.app/ae/ae-12-multicollinearity.html</loc>
-    <lastmod>2025-01-16T15:49:15.397Z</lastmod>
+    <loc>https://mat212wi25.netlify.app/ae/ae-11-multiple-logistic.html</loc>
+    <lastmod>2025-01-20T18:57:41.650Z</lastmod>
   </url>
   <url>
-    <loc>https://mat212wi25.netlify.app/ae/ae-15-comparison2.html</loc>
-    <lastmod>2025-01-14T16:26:46.222Z</lastmod>
+    <loc>https://mat212wi25.netlify.app/ae/ae-13-multicollinearity.html</loc>
+    <lastmod>2025-01-16T01:37:35.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/computing-inferencesummary.html</loc>
-    <lastmod>2024-12-25T16:11:18.817Z</lastmod>
+    <lastmod>2024-12-25T16:11:18.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/exam/exam-01-practice.html</loc>
-    <lastmod>2025-01-17T18:39:35.098Z</lastmod>
+    <lastmod>2025-01-17T18:39:35.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/exam/exam-02-practice.html</loc>
-    <lastmod>2025-01-17T18:38:26.348Z</lastmod>
+    <lastmod>2025-01-17T18:38:26.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/exam/exam-rubric.html</loc>
-    <lastmod>2025-01-10T18:56:58.979Z</lastmod>
+    <lastmod>2025-01-10T18:56:58.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/hw/hw-02.html</loc>
-    <lastmod>2025-01-11T15:28:11.000Z</lastmod>
+    <lastmod>2025-01-11T15:28:11.169Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/hw/hw-04.html</loc>
-    <lastmod>2025-01-11T17:42:43.000Z</lastmod>
+    <lastmod>2025-01-11T17:42:43.578Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/hw/hw-06.html</loc>
-    <lastmod>2025-01-19T19:58:46.356Z</lastmod>
+    <lastmod>2025-01-19T19:58:46.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/index.html</loc>
@@ -186,35 +190,39 @@
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-02.html</loc>
-    <lastmod>2025-01-03T18:54:46.744Z</lastmod>
+    <lastmod>2025-01-03T18:54:46.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-04.html</loc>
-    <lastmod>2025-01-07T15:58:22.568Z</lastmod>
+    <lastmod>2025-01-07T15:58:22.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-06.html</loc>
-    <lastmod>2025-01-10T02:55:18.457Z</lastmod>
+    <lastmod>2025-01-10T02:55:18.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-08.html</loc>
-    <lastmod>2025-01-12T00:52:45.000Z</lastmod>
+    <lastmod>2025-01-12T00:52:45.825Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-10.html</loc>
-    <lastmod>2025-01-16T15:53:30.156Z</lastmod>
+    <lastmod>2025-01-17T18:45:55.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/prepare/prep-12.html</loc>
     <lastmod>2025-01-20T18:40:28.021Z</lastmod>
   </url>
   <url>
+    <loc>https://mat212wi25.netlify.app/prepare/prep-14.html</loc>
+    <lastmod>2025-01-20T18:43:06.221Z</lastmod>
+  </url>
+  <url>
     <loc>https://mat212wi25.netlify.app/project/project-instructions.html</loc>
-    <lastmod>2025-01-19T22:35:48.732Z</lastmod>
+    <lastmod>2025-01-19T22:35:48.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/project/project-rubric.html</loc>
-    <lastmod>2025-01-19T22:30:36.663Z</lastmod>
+    <lastmod>2025-01-19T22:30:36.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/schedule.html</loc>
@@ -222,62 +230,30 @@
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/02-slr-intro.html</loc>
-    <lastmod>2025-01-04T23:48:31.000Z</lastmod>
+    <lastmod>2025-01-04T23:48:31.067Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/04-slr-math-models.html</loc>
-    <lastmod>2025-01-08T02:00:37.000Z</lastmod>
+    <lastmod>2025-01-08T02:00:37.858Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/06-slr-transformations.html</loc>
-    <lastmod>2025-01-11T17:48:38.000Z</lastmod>
+    <lastmod>2025-01-11T17:48:38.814Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/08-mlr-inference.html</loc>
-    <lastmod>2025-01-16T15:49:25.885Z</lastmod>
+    <lastmod>2025-01-14T18:41:16.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/10-logistic-estimation-inference.html</loc>
-    <lastmod>2025-01-19T21:32:43.401Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/slides/20-comparison.html</loc>
-    <lastmod>2025-01-14T16:28:27.986Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/support.html</loc>
-    <lastmod>2025-01-04T23:17:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/slides/11-logistic-multiple.html</loc>
-    <lastmod>2025-01-20T18:57:00.393Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-13.html</loc>
-    <lastmod>2025-01-20T18:40:17.714Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/ae/ae-11-multiple-logistic.html</loc>
-    <lastmod>2025-01-20T18:57:41.650Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/prepare/prep-14.html</loc>
-    <lastmod>2025-01-20T18:43:06.221Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/slides/13-multicollinearity.html</loc>
-    <lastmod>2025-01-16T01:35:57.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/ae/ae-12-comparison.html</loc>
-    <lastmod>2025-01-20T20:41:46.700Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mat212wi25.netlify.app/ae/ae-13-multicollinearity.html</loc>
-    <lastmod>2025-01-16T01:37:35.000Z</lastmod>
+    <lastmod>2025-01-19T21:32:43.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212wi25.netlify.app/slides/12-comparison.html</loc>
     <lastmod>2025-01-20T20:41:57.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212wi25.netlify.app/support.html</loc>
+    <lastmod>2025-01-04T23:17:41.748Z</lastmod>
   </url>
 </urlset>
