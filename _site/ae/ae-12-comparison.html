@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 05: County Health – MAT 212 - Winter 2025</title>
+<title>AE 12: Model Comparison – MAT 212 - Winter 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4890,7 +4890,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 05: County Health</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 12: Model Comparison</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -5052,11 +5052,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a>
-  <ul class="collapse">
-  <li><a href="#data-county-health" id="toc-data-county-health" class="nav-link" data-scroll-target="#data-county-health">Data: County Health</a></li>
+  <li><a href="#packages-data" id="toc-packages-data" class="nav-link active" data-scroll-target="#packages-data">Packages + data</a></li>
+  <li><a href="#analysis-goal" id="toc-analysis-goal" class="nav-link" data-scroll-target="#analysis-goal">Analysis goal</a></li>
+  <li><a href="#exercise-0" id="toc-exercise-0" class="nav-link" data-scroll-target="#exercise-0">Exercise 0</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
@@ -5067,18 +5065,18 @@ window.Quarto = {
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  </ul></li>
+  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
+  <li><a href="#exercise-12-time-permitting" id="toc-exercise-12-time-permitting" class="nav-link" data-scroll-target="#exercise-12-time-permitting">Exercise 12 (Time Permitting)</a></li>
+  <li><a href="#to-submit-the-ae" id="toc-to-submit-the-ae" class="nav-link" data-scroll-target="#to-submit-the-ae">To submit the AE</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/hw/hw-05.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/ae/ae-12-comparison.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 05: County Health</h1>
-<p class="subtitle lead">Model Comparison/Evaluation + Outliers</p>
+<h1 class="title">AE 12: Model Comparison</h1>
 </div>
 
 
@@ -5095,165 +5093,174 @@ window.Quarto = {
 </header>
 
 
-<p>In this homework, you’ll use simple and multiple linear regression to analyze the relationship between the number of doctors in a county, the number of beds, and the number of hospitals.</p>
-<section id="learning-goals" class="level1">
-<h1>Learning goals</h1>
-<p>By the end of the homework you will be able to…</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>compare models using <span class="math inline">\(R^2\)</span> and RMSE</li>
-<li>transform observations to improve model fit</li>
-<li>talk about outliers</li>
-<li>fit a model with two predictors</li>
+<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-12”.</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/183786">Canvas</a> and locate your <code>AE-12</code> assignment to get started.</p></li>
+<li><p>Upload the <code>ae-12.qmd</code> and <code>tip-data.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
 </ul>
-</section>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<ul>
-<li><p>Go to <a href="https://rstudio.collegeofidaho.edu">RStudio</a> and login with your College of Idaho Email and Password.</p></li>
-<li><p>Make a subfolder in your <code>hw</code> directory to store this homework.</p></li>
-<li><p>Log into <a href="https://cofi.instructure.com/courses/17093/assignments/202863">Canvas</a>, navigate to Homework 5 and upload the <code>hw-05.qmd</code> file into the folder your just made.</p></li>
-</ul>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>We’ll use the following packages in this homework.</p>
+</div>
+</div>
+<section id="packages-data" class="level2">
+<h2 class="anchored" data-anchor-id="packages-data">Packages + data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yardstick)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Stat2Data)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># add more packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;../data/tip-data.csv&quot;</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data-county-health" class="level2">
-<h2 class="anchored" data-anchor-id="data-county-health">Data: County Health</h2>
-<p>The data set for this homework is from the <code>Stat2Data</code> R package which is the companion package for this course’s textbook. It is the same data set that we used in AE-08. The data was originally generated by the American Medical Association and concerns the availability of health care in counties in the United States. You can find information <a href="https://cran.r-project.org/web/packages/Stat2Data/Stat2Data.pdf">here</a> by searching for the County Health Resources dataset.</p>
+<p>What factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>The variables we’ll focus on for this analysis are</p>
+<ul>
+<li><code>Tip</code>: amount of the tip</li>
+<li><code>Meal</code>: which meal this was (<code>Lunch</code>, <code>Dinner</code>, <code>Late Night</code>)</li>
+<li><code>Party</code>: number of people in the party</li>
+<li><code>Age</code>: Age category of person paying the bill (<code>Yadult</code>, <code>Middle</code>, <code>SenCit</code>)</li>
+<li><code>Day</code>: Day of the week (<code>Tuesday</code> through <code>Sunday</code>)</li>
+</ul>
+</section>
+<section id="analysis-goal" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-goal">Analysis goal</h2>
+<p>The goals of this activity are to:</p>
+<ul>
+<li>Use ANOVA to determine whether our model is useful as a whole</li>
+<li>Begin thinking about <span class="math inline">\(R^2\)</span> in a multivariate setting</li>
+</ul>
+</section>
+<section id="exercise-0" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-0">Exercise 0</h2>
+<p>Complete the following to clean and then observe your data:</p>
+<ol type="1">
+<li>Use <code>drop_na</code> to remove any rows where <code>Party</code> is missing.</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;CountyHealth&quot;</span>) <span class="co"># Loads the data from the package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> tips <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  _______   <span class="co"># drop missing values from party</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>It is relatively easy to count the number of hospitals a county has, whereas counting the number of doctors is much more difficult. We’d like to build a linear model to predict the number of doctors, contained in the variable <code>MDs</code>, from the number of hospitals, <code>Hospitals</code> and the number of beds, <code>Beds</code>.</p>
+<ol start="2" type="1">
+<li>Generate a bar chart of the variable <code>Meal</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># insert code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Run the following code and generate the same bar chart as above. You can even copy and paste your code. What’s the difference between the two plots? What do you think <code>fct_relevel</code> does?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> tips <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Meal =</span> <span class="fu">fct_relevel</span>(Meal, <span class="st">&quot;Lunch&quot;</span>, <span class="st">&quot;Dinner&quot;</span>, <span class="st">&quot;Late Night&quot;</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age  =</span> <span class="fu">fct_relevel</span>(Age, <span class="st">&quot;Yadult&quot;</span>, <span class="st">&quot;Middle&quot;</span>, <span class="st">&quot;SenCit&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate plot here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Describe what an observational unit represents for this data set. How many are there?</p>
+<p>Fit a linear model to predict <code>Tips</code> from <code>Party</code> and <code>Age</code>.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>In Example 1.7 of Stat2, they consider a simple linear model to predict the number of doctors (<code>MDs</code>) from the number of hospitals (<code>Hospitals</code>) in a metropolitan area. In that example, they found that a square root transformation on the response variable produced a more linear relationship. Create a new variable in the <code>CountyHealth</code> data frame called <code>sqrtMDs</code>. Hint: use the <code>sqrt</code> function inside the <code>mutate</code> function.</p>
+<p>Pipe the model you generated in the previous Exercise into the function <code>anova</code>.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Use the function <code>ggpairs</code> from the package <code>GGally</code> to generate a grid scatter plots and correlations. Note that you will need to select the variables you want to use. Which explanatory variable (<code>Hospitals</code> or <code>Beds</code>) has the highest correlation with <code>SqrtMDs</code>? Is this consistent with your visual assessment?</p>
+<p>Based on the output above, compute <span class="math inline">\(SSTotal\)</span>, <span class="math inline">\(SSError\)</span>, and <span class="math inline">\(SSModel\)</span>. You should only need to use addition and/or subtraction.</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Fit a simple linear model using <code>SqrtMDs</code> as the response variable and <code>Hospitals</code> as the predictor. You may use <code>sqrt(MDs)</code> in your <code>lm</code> call instead of <code>SqrtMDs</code> if you like. How much of the variability in the <code>SqrtMDs</code> values is explained by <code>Hospitals</code>? How much of the variability in <code>MDs</code> is explained by the model you just fit. To figure this out:</p>
-<ol type="1">
-<li>Augment your model.</li>
-<li>Convert the fitted and observed response variables back to number of MDs rather than square-root of the number of MDs.</li>
-<li>Compute the <span class="math inline">\(R^2\)</span>.</li>
-</ol>
-<p>Why are these two numbers different?</p>
+<p>Pipe your model into the <code>glance</code> function. Identify, the F-statistic and p-value for an F-test of this model. Interpret the outcome of your test in the context of the problem. Be prepared to discuss the difference between this p-value and the p-values from the individual model coefficients.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Do you think taking the square root of <code>Beds</code> would improve this model? Support your argument with plots and/or numbers.</p>
+<p>What is the <span class="math inline">\(R^2\)</span> value for this model?</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Repeat exercise 4 above with <code>Beds</code> as the predictor instead of <code>Hospitals</code>.</p>
+<p>Fit the full model. What is it’s <span class="math inline">\(R^2\)</span>? Does this model have a higher or lower <span class="math inline">\(R^2\)</span> than the previous model? Does this mean it is a better model? Be prepared to discuss.</p>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>For the model you just fit, are there any high-influence outliers? Justify your answer using something from the lecture on outliers. There appear to be at least two high-leverage points. Which observations are these?</p>
+<p>The following code converts the numerical variable <code>Bill</code> into a new categorical variable <code>Bill_factor</code>. Essentially, each different number in <code>Bill</code> is treated as it’s own category. Fit a model predicting <code>Tip</code> from <code>Bill_factor</code>. What is your <code>R^2</code>? Think about the implications of this and what it means for the usefullness of <span class="math inline">\(R^2\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> tips <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Bill_factor =</span> <span class="fu">factor</span>(Bill))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Fit a multiple linear model using <code>SqrtMDs</code> as the response variable and both <code>Hospitals</code> and <code>Beds</code> as the predictors. Interpret both slopes and the intercept in the context of the problem.</p>
+<p>Fit two models:</p>
+<ol type="1">
+<li><code>tip_fit_1</code>: predict <code>Tip</code> from <code>Party</code>, <code>Age</code>, and <code>Meal</code></li>
+<li><code>tip_fit_2</code>: predict <code>Tip</code> from <code>Party</code>, <code>Age</code>, <code>Meal</code>, and <code>Day</code>.</li>
+</ol>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>How much of the variation in <code>MDs</code> is explained by the model you just fit? Which model would you say is the “best”, given what we’ve learned through the first lecture on multiple linear regression.</p>
+<p>Apply <code>glance</code> to both models above to find the <span class="math inline">\(R^2\)</span> and <span class="math inline">\(R^2_{adj}\)</span> values?</p>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>Using the “best” model, predict the average number of doctors in a metro area with 1,000 beds and 4 hospitals. Report a 95% prediction interval and interpret your results in context.</p>
+<ol type="1">
+<li>Which model would we choose based on <span class="math inline">\(R^2\)</span>?</li>
+<li>Which model would we choose based on Adjusted <span class="math inline">\(R^2\)</span>?</li>
+<li>Which statistic should we use to choose the final model - <span class="math inline">\(R^2\)</span> or Adjusted <span class="math inline">\(R^2\)</span>? Why?</li>
+</ol>
 </section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<p>Total points available: 20 points.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ex 1</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Ex 2</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>Ex 3</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Ex 4</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Ex 5</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Ex 6</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Ex 7</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Ex 8</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Ex 9</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Ex 10</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Grammar &amp; Writing</td>
-<td>1<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
-</tr>
-<tr class="even">
-<td>Workflow &amp; formatting</td>
-<td>1<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
-</tr>
-</tbody>
-</table>
+<section id="exercise-11" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
+<p>Reference the output from Exercise 9.</p>
+<ol type="1">
+<li><p>Which model would we choose based on AIC?</p></li>
+<li><p>Which model would we choose based on BIC?</p></li>
+</ol>
+</section>
+<section id="exercise-12-time-permitting" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-12-time-permitting">Exercise 12 (Time Permitting)</h2>
+<p>What might be the problem if we are comparing models with different transformation of the reponse variable.</p>
+</section>
+<section id="to-submit-the-ae" class="level2">
+<h2 class="anchored" data-anchor-id="to-submit-the-ae">To submit the AE</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Render the document to produce the PDF with all of your work from today’s class.</li>
+<li>Upload your QMD and PDF files to the Canvas assignment.</li>
+</ul>
+</div>
+</div>
 
 
-</section>
 </section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>The “Grammar &amp; Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Dahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St. Olaf College.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -5684,7 +5691,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
        
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/hw/hw-05.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MAT212WI25/edit/main/ae/ae-12-comparison.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MAT212WI25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

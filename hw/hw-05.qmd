@@ -60,7 +60,7 @@ It is relatively easy to count the number of hospitals a county has, whereas cou
 
 ## Exercise 1
 
-Describe was an observational unit represents for this data set. How many are there?
+Describe what an observational unit represents for this data set. How many are there?
 
 ## Exercise 2
 

@@ -1,16 +1,17 @@
 ---
-title: "AE 14: Model Comparison"
-author: "Driver: ____, Reporter: _____, Gopher: _____"
-subtitle: "Tips Data"
+title: "AE 12: Model Comparison"
 editor: visual
+format:
+  html:
+    embed-resources: true
 ---
 
 ::: callout-important
--   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-14".
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-12".
 
--   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/183786) and locate your `AE-14` assignment to get started.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/183786) and locate your `AE-12` assignment to get started.
 
--   Upload the `ae-14.qmd` and `tip-data.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
+-   Upload the `ae-12.qmd` and `tip-data.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
 :::
 
 ## Packages + data
@@ -38,6 +39,7 @@ The variables we'll focus on for this analysis are
 -   `Meal`: which meal this was (`Lunch`, `Dinner`, `Late Night`)
 -   `Party`: number of people in the party
 -   `Age`: Age category of person paying the bill (`Yadult`, `Middle`, `SenCit`)
+-   `Day`: Day of the week (`Tuesday` through `Sunday`)
 
 ## Analysis goal
 
@@ -109,6 +111,35 @@ The following code converts the numerical variable `Bill` into a new categorical
 tips <- tips |> 
   mutate(Bill_factor = factor(Bill))
 ```
+
+## Exercise 8
+
+Fit two models:
+
+1.  `tip_fit_1`: predict `Tip` from `Party`, `Age`, and `Meal`
+2.  `tip_fit_2`: predict `Tip` from `Party`, `Age`, `Meal`, and `Day`.
+
+## Exercise 9
+
+Apply `glance` to both models above to find the $R^2$ and $R^2_{adj}$ values?
+
+## Exercise 10
+
+1.  Which model would we choose based on $R^2$?
+2.  Which model would we choose based on Adjusted $R^2$?
+3.  Which statistic should we use to choose the final model - $R^2$ or Adjusted $R^2$? Why?
+
+## Exercise 11
+
+Reference the output from Exercise 9.
+
+1.  Which model would we choose based on AIC?
+
+2.  Which model would we choose based on BIC?
+
+## Exercise 12 (Time Permitting)
+
+What might be the problem if we are comparing models with different transformation of the reponse variable.
 
 ## To submit the AE
 

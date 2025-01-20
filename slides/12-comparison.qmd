@@ -1,9 +1,7 @@
 ---
-title: "Model comparison continued"
+title: "Model comparison"
 author: "Prof. Eric Friedlander"
-date: "2024-10-25"
-date-format: "MMM DD, YYYY"
-footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -24,7 +22,7 @@ knitr:
   opts_chunk: 
     R.options:      
     width: 200
-bibliography: references.bib
+bibliography: references.bib  
 ---
 
 ```{r}
@@ -39,20 +37,18 @@ knitr::opts_chunk$set(
 
 ## Announcements
 
--   Project: EDA Due Wednesday, October 30th
--   Oral R Quiz
-
 ::: appex
-📋 [AE 15 - Model Comparison 2](https://mat212fa24.netlify.app/ae/ae-15-comparison2)
+📋 [AE 12 - Model Comparison](/ae/ae-12-comparison.qmd)
 
-- Open up AE 15
+- Open up AE 12 and complete Exercises 0-2
 :::
 
 
 ## Topics
 
 ::: nonincremental
--   Comparing models with $R^2$ vs. $R^2_{adj}$
+-   ANOVA for multiple linear regression and sum of squares
+-   Comparing models with $R^2$ vs. $R^2_{ajd}$ 
 -   Comparing models with AIC and BIC
 -   Occam's razor and parsimony
 :::
@@ -127,6 +123,37 @@ p1 <- ggplot(tips, aes(x = Party)) +
   geom_histogram(binwidth = 1) +
   labs(title = "Number of people in party")
 
+p2 <- ggplot(tips, aes(x = Meal)) +
+  geom_bar() +
+  labs(title = "Meal type")
+
+p3 <- ggplot(tips, aes(x = Age)) +
+  geom_bar() +
+  labs(title = "Age of payer")
+
+p1 + (p2 / p3)
+```
+
+## Relevel categorical predictors
+
+```{r}
+#| echo: true
+
+tips <- tips |>
+  mutate(
+    Meal = fct_relevel(Meal, "Lunch", "Dinner", "Late Night"),
+    Age  = fct_relevel(Age, "Yadult", "Middle", "SenCit")
+  )
+```
+
+## Predictors, again
+
+```{r}
+#| echo: false
+p1 <- ggplot(tips, aes(x = Party)) +
+  geom_histogram(binwidth = 1) +
+  labs(title = "Number of people in party")
+
 p2 <- ggplot(tips, aes(x = Meal, fill = Meal)) +
   geom_bar() +
   labs(title = "Meal type") +
@@ -181,6 +208,208 @@ tidy(tip_fit) |>
 Is this model good?
 :::
 
+## Another model summary
+
+```{r}
+anova(tip_fit) |>
+  tidy() |>
+  kable(digits = 2)
+```
+
+# Analysis of variance (ANOVA)
+
+## Analysis of variance (ANOVA)
+
+<br>
+
+![](images/12/model-anova.png){fig-align="center"}
+
+## ANOVA {.smaller}
+
+-   **Main Idea:** Decompose the total variation of the outcome into:
+    -   the variation that can be explained by the each of the variables in the model
+    -   the variation that **can't** be explained by the model (left in the residuals)
+-   $SS_{Total}$: Total sum of squares, variability of outcome, $\sum_{i = 1}^n (y_i - \bar{y})^2$
+-   $SS_{Error}$: Residual sum of squares, variability of residuals, $\sum_{i = 1}^n (y_i - \hat{y}_i)^2$
+-   $SS_{Model} = SS_{Total} - SS_{Error}$: Variability explained by the model, $\sum_{i = 1}^n (\hat{y}_i - \bar{y})^2$
+
+ . . .
+ 
+ Complete Exercise 3.
+
+## ANOVA output in R[^1]
+
+[^1]: [Click here](anova-table.html) for explanation about the way R calculates sum of squares for each variable.
+
+```{r}
+#| echo: false
+anova(tip_fit) |>
+  tidy() |>
+  kable()
+```
+
+## ANOVA output, with totals
+
+```{r}
+#| echo: FALSE
+anova(tip_fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  mutate(
+    statistic = if_else(is.na(statistic), "", statistic),
+    p.value = if_else(is.na(p.value), "", p.value)
+    ) |>
+  kable()
+```
+
+## Sum of squares {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+anova(tip_fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  column_spec(3, background = "#D9E3E4")
+```
+:::
+
+::: {.column width="50%"}
+-   $SS_{Total}$: Total sum of squares, variability of outcome, $\sum_{i = 1}^n (y_i - \bar{y})^2$
+-   $SS_{Error}$: Residual sum of squares, variability of residuals, $\sum_{i = 1}^n (y_i - \hat{y}_i)^2$
+-   $SS_{Model} = SS_{Total} - SS_{Error}$: Variability explained by the model, $\sum_{i = 1}^n (\hat{y}_i - \bar{y})^2$
+:::
+:::
+
+
+## Sum of squares: $SS_{Total}$
+
+```{r}
+#| echo: false
+anova_df <- anova(tip_fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) 
+
+anova_df |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  row_spec(4, background = "#D9E3E4")
+```
+
+<br>
+
+<center>
+
+$SS_{Total}$: Total sum of squares, variability of outcome
+
+<br>
+
+$\sum_{i = 1}^n (y_i - \bar{y})^2$ = `r sum(anova_df$sumsq[1:3])`
+
+</center>
+
+## Sum of squares: $SS_{Error}$
+
+```{r}
+#| echo: false
+anova_df <- anova(tip_fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) 
+
+anova_df |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  row_spec(3, background = "#D9E3E4")
+```
+
+<br>
+
+<center>
+
+$SS_{Error}$: Residual sum of squares, variability of residuals
+
+<br>
+
+$\sum_{i = 1}^n (y_i - \hat{y}_i)^2$ = `r anova_df$sumsq[3]`
+
+</center>
+
+## Sum of squares: $SS_{Model}$
+
+```{r}
+#| echo: false
+anova_df <- anova(tip_fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) 
+
+anova_df |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  row_spec(c(1,2), background = "#D9E3E4")
+```
+
+<br>
+
+<center>
+
+$SS_{Model}$: Variability explained by the model
+
+<br>
+
+$\sum_{i = 1}^n (\hat{y}_i - \bar{y})^2 = SS_{Model} = SS_{Total} - SS_{Error} =$ `r sum(anova_df$sumsq[1:2])`
+
+</center>
+
+## F-Test: Testing the whole model at once {.smaller}
+
+**Hypotheses:** 
+
+$H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ 
+
+. . .
+
+**Test statistic:** F-statistics
+
+$$
+F = \frac{MSModel}{MSE} = \frac{SSModel/k}{SSE/(n-k-1)} \\
+$$
+
+. . .
+
+**p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
+
+$$
+\text{p-value} = P(F > \text{test statistic}),
+$$
+
+calculated from an $F$ distribution with $k$ and $n - k - 1$ degrees of freedom.
+
+## F-test in R
+
+- Use `glance` function from `broom` package
+  - `statistic`: F-statistic
+  - `p.value`: p-value from F-test
+
+## R-squared, $R^2$
+
+**Recall**: $R^2$ is the proportion of the variation in the response variable explained by the regression model.
+
+. . .
+
+$$
+R^2 = \frac{SS_{Model}}{SS_{Total}} = 1 - \frac{SS_{Error}}{SS_{Total}}
+$$
+
+Complete Exercises 4-7.
+
 # Model comparison
 
 ## R-squared, $R^2$, Overfitting
@@ -217,7 +446,7 @@ where
 -   $R^2_{adj}$ can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!
 -   Use $R^2$ when describing the relationship between the response and predictor variables
 
-Complete Exercises 1-3.
+Complete Exercises 8-10.
 
 ## Comparing models with $R^2_{adj}$ {.smaller}
 
@@ -321,7 +550,7 @@ $$
 
 -   If $n \geq 8$, the **penalty** for BIC is larger than that of AIC, so BIC tends to favor *more parsimonious* models (i.e. models with fewer terms)
 
-Complete Exercise 4.
+Complete Exercise 11 and 12.
 
 ## Comparing models with AIC and BIC
 
@@ -418,13 +647,11 @@ glance(tip_fit_2) |>
 -   All criteria we considered for model comparison require making predictions for our data and then uses the prediction error ($SS_{Error}$) somewhere in the formula
 -   But we're making prediction for the data we used to build the model (estimate the coefficients), which can lead to **overfitting**
 
-
 ## Recap
 
+-   ANOVA for multiple linear regression and sum of squares
+-   $R^2$ for multiple linear regression
 -   Comparing models with
     -   $R^2$ vs. $R^2_{Adj}$
     -   AIC and BIC
 -   Occam's razor and parsimony
-
--   Complete Exercise 5.
-
