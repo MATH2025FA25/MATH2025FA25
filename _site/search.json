@@ -264,7 +264,7 @@
     "href": "slides/13-multicollinearity.html#selected-model-for-now",
     "title": "Multicollinearity",
     "section": "Selected model (for now)",
-    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
   },
   {
     "objectID": "slides/11-comparison.html#announcements",
@@ -628,7 +628,7 @@
     "href": "slides/11-comparison.html#recap",
     "title": "Model comparison",
     "section": "Recap",
-    "text": "Recap\n\nANOVA for multiple linear regression and sum of squares\n\\(R^2\\) for multiple linear regression\nComparing models with\n\n\\(R^2\\) vs. \\(R^2_{Adj}\\)\nAIC and BIC\n\nOccam’s razor and parsimony\nChoosing models using:\n\nExhaustive search\nForward/Backward/Stepwise selection\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nANOVA for multiple linear regression and sum of squares\n\\(R^2\\) for multiple linear regression\nComparing models with\n\n\\(R^2\\) vs. \\(R^2_{Adj}\\)\nAIC and BIC\n\nOccam’s razor and parsimony\nChoosing models using:\n\nExhaustive search\nForward/Backward/Stepwise selection"
   },
   {
     "objectID": "slides/09-logistic-intro.html#application-exercise",
@@ -873,7 +873,7 @@
     "href": "slides/09-logistic-intro.html#recap",
     "title": "Logistic regression",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced logistic regression for binary response variable\nDescribed relationship between odds and probabilities\nFit logistic regression models using glm\nInterpreted coefficients in logistic regression models\nUsed logistic regression model to calculate predicted odds and probabilities\nUse predict to make predictions using glm\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nIntroduced logistic regression for binary response variable\nDescribed relationship between odds and probabilities\nFit logistic regression models using glm\nInterpreted coefficients in logistic regression models\nUsed logistic regression model to calculate predicted odds and probabilities\nUse predict to make predictions using glm"
   },
   {
     "objectID": "slides/07-mlr.html#application-exercise",
@@ -1167,7 +1167,7 @@
     "href": "slides/07-mlr.html#recap",
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms"
   },
   {
     "objectID": "slides/05-slr-conditions.html#computational-set-up",
@@ -1433,7 +1433,7 @@
     "href": "slides/05-slr-conditions.html#recap",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Recap",
-    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity (residuals vs fitted vals)\nConstant variance (residuals vs fitted vals)\n\n\n\n\n\nNormality (histogram/QQ-plot of residuals)\nIndependence (knowledge of data collection)\n\n\n\n\nNote: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three\n\n\n\nCan decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)\nTwo metrics for evaluating and comparing models:\n\n\\(R^2\\): What proportion of the variation in the response variable is explained by the model?\n\\(RMSE\\): How far is does my model miss by on average?\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity (residuals vs fitted vals)\nConstant variance (residuals vs fitted vals)\n\n\n\n\n\nNormality (histogram/QQ-plot of residuals)\nIndependence (knowledge of data collection)\n\n\n\n\nNote: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three\n\n\n\nCan decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)\nTwo metrics for evaluating and comparing models:\n\n\\(R^2\\): What proportion of the variation in the response variable is explained by the model?\n\\(RMSE\\): How far is does my model miss by on average?"
   },
   {
     "objectID": "slides/03-slr-sbi.html#application-exercise",
@@ -1790,7 +1790,7 @@
     "href": "slides/03-slr-sbi.html#recap-continued",
     "title": "SLR: Simulation-based inference",
     "section": "Recap Continued",
-    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution"
   },
   {
     "objectID": "slides/01-welcome.html#meet-prof.-friedlander",
@@ -2203,7 +2203,7 @@
     "href": "slides/01-welcome.html#references",
     "title": "Welcome to MAT 212!",
     "section": "References",
-    "text": "References\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+    "text": "References\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
   },
   {
     "objectID": "project/project-tips.html",
@@ -2764,7 +2764,7 @@
     "href": "exam/exam-02-review.html#practice",
     "title": "Exam 02 Overview",
     "section": "Practice",
-    "text": "Practice\n\n📋 Exam 2 Review\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule",
+    "text": "Practice\n\n📋 Exam 2 Review",
     "crumbs": [
       "Exams",
       "Exam 2 Overview"
@@ -4205,7 +4205,7 @@
     "href": "exam/exam-02-practice.html#exercise-2",
     "title": "Exam 02 Review",
     "section": "Exercise 2",
-    "text": "Exercise 2\nWhat is the p-value assocociated with the slope of age? Describe what conclusions you can draw from it. What is this p-value the probability of and why can we use it in hypothesis testing? Would you necessarily draw the same conclusion to a hypothesis test for the slope of age if income were not in the model.",
+    "text": "Exercise 2\nWhat is the p-value associated with the slope of age? Describe what conclusions you can draw from it. What is this p-value the probability of and why can we use it in hypothesis testing? Would you necessarily draw the same conclusion to a hypothesis test for the slope of age if income were not in the model.",
     "crumbs": [
       "Exams",
       "Exam 2 Practice"
@@ -4271,7 +4271,7 @@
     "href": "exam/exam-02-practice.html#exercise-8",
     "title": "Exam 02 Review",
     "section": "Exercise 8",
-    "text": "Exercise 8\nList the four conditions for conducting mulitple linear regression. For each one, discuss how you assess them, and what, if anything, you do differently than for simple linear regression.",
+    "text": "Exercise 8\nList the four conditions for conducting multiple linear regression. For each one, discuss how you assess them, and what, if anything, you do differently than for simple linear regression.",
     "crumbs": [
       "Exams",
       "Exam 2 Practice"
@@ -5214,7 +5214,7 @@
     "href": "slides/02-slr-intro.html#recap",
     "title": "Simple Linear Regression",
     "section": "Recap",
-    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R.\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R."
   },
   {
     "objectID": "slides/04-slr-math-models.html#topics",
@@ -5431,7 +5431,7 @@
     "href": "slides/04-slr-math-models.html#recap",
     "title": "SLR: Mathematical models for inference",
     "section": "Recap",
-    "text": "Recap\n\nLearned how to use mathematical models to\n\ncalculate confidence interval for the slope\nconduct a hypothesis test for the slope\ncalculate confidence intervals for predictions\n\npredictions of averages: “confidence intervals”\npredictions for single observations: “prediction intervals”\n\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nLearned how to use mathematical models to\n\ncalculate confidence interval for the slope\nconduct a hypothesis test for the slope\ncalculate confidence intervals for predictions\n\npredictions of averages: “confidence intervals”\npredictions for single observations: “prediction intervals”"
   },
   {
     "objectID": "slides/06-slr-transformations.html#application-exercise",
@@ -5725,7 +5725,7 @@
     "href": "slides/06-slr-transformations.html#recap",
     "title": "SLR: Transformations",
     "section": "Recap",
-    "text": "Recap\n\nTransformations\n\nTransform \\(Y\\) to fix non-constant variance (and non-normality)\nTransform \\(X\\) to fix non-linearity\nPower transformations are powerful (concave up/drown \\(\\Rightarrow\\) power up/down)\nlogs allow us to model a lot of non-linear relationships with a linear model\n\nOutliers\n\nLeverage\nInfluence\nUsed plots of residuals, standardized residuals, and studentized residuals to diagnose outliers\n\nSpend the rest of class working on Exercise 6.\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nTransformations\n\nTransform \\(Y\\) to fix non-constant variance (and non-normality)\nTransform \\(X\\) to fix non-linearity\nPower transformations are powerful (concave up/drown \\(\\Rightarrow\\) power up/down)\nlogs allow us to model a lot of non-linear relationships with a linear model\n\nOutliers\n\nLeverage\nInfluence\nUsed plots of residuals, standardized residuals, and studentized residuals to diagnose outliers\n\nSpend the rest of class working on Exercise 6."
   },
   {
     "objectID": "slides/08-mlr-inference.html#application-exercise",
@@ -5921,7 +5921,7 @@
     "href": "slides/08-mlr-inference.html#recap",
     "title": "MLR: Inference and Conditions",
     "section": "Recap",
-    "text": "Recap\n\nInference for individual predictors\n\nHypothesis testing: same as SLR but add if all other terms are in the model\nConfidence intervals: same as SLR but add holding all other variables in the model constant\n\nConditions: Same as for SLR\n\nFor linearity, also check fitter values vs. each predictor\n\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nInference for individual predictors\n\nHypothesis testing: same as SLR but add if all other terms are in the model\nConfidence intervals: same as SLR but add holding all other variables in the model constant\n\nConditions: Same as for SLR\n\nFor linearity, also check fitter values vs. each predictor"
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#application-exercise",
@@ -6250,7 +6250,7 @@
     "href": "slides/10-logistic-estimation-inference.html#inference-for-beta_1",
     "title": "Logistic Regression Estimation and Inference",
     "section": "Inference for \\(\\beta_1\\)",
-    "text": "Inference for \\(\\beta_1\\)\n\nWald Test\nLikelihood Ratio Test\n\nMore reliable than Wald\nMore computationally taxing\nDeviance: think of like SSE\n\nNext time: Multiple predictors!\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Inference for \\(\\beta_1\\)\n\nWald Test\nLikelihood Ratio Test\n\nMore reliable than Wald\nMore computationally taxing\nDeviance: think of like SSE\n\nNext time: Multiple predictors!"
   },
   {
     "objectID": "slides/12-logistic-multiple.html#topics",
@@ -6411,7 +6411,7 @@
     "href": "slides/12-logistic-multiple.html#recap",
     "title": "Multiple Logistic Regression",
     "section": "Recap",
-    "text": "Recap\n\nToday: Simple logistic to Multiple logistic\n\nCoefficient interpretations\nWald test interpretations\nLRTs and Drop-in-Deviance tests\n\nBasic idea add “holding all else constant”\nLRT allows you to compare nested models and requires a degree of free for each extra parameter in the full model\n\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nToday: Simple logistic to Multiple logistic\n\nCoefficient interpretations\nWald test interpretations\nLRTs and Drop-in-Deviance tests\n\nBasic idea add “holding all else constant”\nLRT allows you to compare nested models and requires a degree of free for each extra parameter in the full model"
   },
   {
     "objectID": "support.html",

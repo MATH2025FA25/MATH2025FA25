@@ -52,15 +52,13 @@ The data for this analysis is about credit card customers. The following variabl
 
 Fit a model using `limit` and `age` to predict `balance`. Write the regression equation corresponding to this model on the board. Interpret all coefficients in the output. Draw of picture of the resulting model.
 
-
 ## Exercise 2
 
-What is the p-value assocociated with the slope of `age`? Describe what conclusions you can draw from it. What is this p-value the probability of and why can we use it in hypothesis testing? Would you necessarily draw the same conclusion to a hypothesis test for the slope of `age` if `income` were not in the model.
+What is the p-value associated with the slope of `age`? Describe what conclusions you can draw from it. What is this p-value the probability of and why can we use it in hypothesis testing? Would you necessarily draw the same conclusion to a hypothesis test for the slope of `age` if `income` were not in the model.
 
-## Exercise 3 
+## Exercise 3
 
 Compute, describe, and interpret the confidence interval associated with the slope of `age`? Does it make sense when compared to p-value for `age`?
-
 
 ## Exercise 4
 
@@ -82,9 +80,8 @@ Why is it more difficult to visualize an interaction between two quantitative va
 
 ## Exercise 8
 
-List the four conditions for conducting mulitple linear regression. For each one, discuss how you assess them, and what, if anything, you do differently than for simple linear regression.
+List the four conditions for conducting multiple linear regression. For each one, discuss how you assess them, and what, if anything, you do differently than for simple linear regression.
 
 ## Exercise 9
 
 Be ready to talk about transformations. Specifically, be ready to talk about $\log$ transformations and power transformations. Know what they are good for and when you would use them. Also be ready to explain why $\log$ transformations are so powerful.
-
