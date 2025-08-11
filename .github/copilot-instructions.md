@@ -23,15 +23,47 @@ This workspace contains course content for MATH 2025 Fall 2025. The project is a
 - **Modify Schedule**: Edit `schedule.qmd` and `schedule.xlsx`
 
 ## Workspace Setup Complete
-- [x] Repository cloned and configured
+- [x] Repository forked and configured
 - [x] Course information updated (MATH 2025, Fall 2025)
+- [x] Class schedule updated (MW 1:35-2:50pm, CML 208)
 - [x] Quarto website building successfully
 - [x] VS Code task created for development
+- [x] Netlify deployment working (https://math2025fa25.netlify.app/)
+- [x] Git workflow configured with Personal Access Token
 - [x] Documentation complete (README.md)
 
-## Next Steps
-Ready for course content development. Key areas needing updates:
-1. Schedule adaptation for semester format
-2. Syllabus updates for new course number
-3. Assignment timeline adjustments
-4. Lecture content pacing modifications
+## Next Steps - Content Development Priority
+Ready for course content development. Focus areas in order of importance:
+
+### 🔥 Immediate (Course Basics)
+1. **Update Syllabus** (`syllabus.qmd`)
+   - Change course number: MAT-212 → MATH-2025
+   - Update meeting times: MW 1:35-2:50pm
+   - Adjust course calendar for semester length
+   - Update assignment due dates for new timeline
+
+2. **Fix Index Page** (`index.qmd`)
+   - Remove reference to "MAT-212 rather than MAT-125" in catalog description
+   - Update to reference MATH-2025 appropriately
+
+3. **Adapt Schedule** (`schedule.qmd` and `schedule.xlsx`)
+   - Transform from 3-week intensive (15 days) to semester format (~30 classes)
+   - Redistribute content across 15 weeks
+   - Adjust pacing for 75-minute classes vs 2-hour classes
+
+### 📚 Secondary (Content Adjustment)
+4. **Review Assignment Timeline** (`hw/` directory)
+   - Spread assignments across semester timeline
+   - Adjust difficulty progression for longer timeframe
+
+5. **Modify Lecture Slides** (`slides/` directory)
+   - Adapt content for 75-minute format
+   - Consider breaking longer sessions into multiple days
+
+6. **Update Application Exercises** (`ae/` directory)
+   - Adjust pacing for new schedule format
+
+## Development Commands
+- **Preview site**: Use VS Code task "Quarto Preview" or `quarto preview`
+- **Build site**: `quarto render`
+- **Deploy**: Automatic on git push to main branch

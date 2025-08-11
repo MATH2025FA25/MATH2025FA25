@@ -908,7 +908,7 @@
     "href": "slides/07-mlr.html#outcome-limit",
     "title": "Multiple linear regression (MLR)",
     "section": "Outcome: Limit",
-    "text": "Outcome: Limit\n\n\nCode\nCredit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n855\n3088\n4622.5\n5872.75\n13913\n4735.6\n2308.199\n400\n0"
+    "text": "Outcome: Limit\n\n\nCode\nCredit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()))\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n855\n3088\n4622.5\n5872.75\n13913\n4735.6\n2308.199\n400\n0"
   },
   {
     "objectID": "slides/07-mlr.html#predictors",
@@ -1027,7 +1027,7 @@
     "href": "slides/07-mlr.html#interpreting-categorical-predictors",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting Categorical Predictors",
-    "text": "Interpreting Categorical Predictors\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2152.722\n194.211\n11.084\n0\n\n\nHas_BalanceYes\n3332.746\n220.609\n15.107\n0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhere do we see each of the estimates in the plot?\nWhere do we see the values we’d predict in the plot?\nAre Has_Balance and Limit correlated?\n\n\n\n\n\n−+\n03:00\n\n\n\n\nComplete Exercises 8-10."
+    "text": "Interpreting Categorical Predictors\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2152.722\n194.211\n11.084\n0\n\n\nHas_BalanceYes\n3332.746\n220.609\n15.107\n0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhere do we see each of the estimates in the plot?\nWhere do we see the values we’d predict in the plot?\nAre Has_Balance and Limit correlated?\n\n\n\n\n\n−+\n03:00\n\n\n\n\nComplete Exercises 8-10."
   },
   {
     "objectID": "slides/07-mlr.html#model-equation-1",
@@ -1167,7 +1167,7 @@
     "href": "slides/07-mlr.html#recap",
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms\n\n\nMultiple linear regression (MLR) – MATH 2025 - Fall 2025 Multiple linear regression (MLR) – MATH 2025 - Fall 2025 Multiple linear regression (MLR) – MATH 2025 - Fall 2025 MATH 2025 - Fall 2025 Homepage for MATH 2025 - Multiple Regression Analysis at the College of Idaho, Fall 2025 Homepage for MATH 2025 - Multiple Regression Analysis at the College of Idaho, Fall 2025\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
+    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms"
   },
   {
     "objectID": "slides/05-slr-conditions.html#computational-set-up",
