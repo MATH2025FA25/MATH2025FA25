@@ -6,11 +6,11 @@ execute:
 
 website:
   page-navigation: true
-  title: "MAT 212 - Winter 2025"
-  description: "Homepage for MAT 212 - Multiple Regression Analysis at the College of Idaho, Winter 2025"
-  site-url: https://mat212wi25.netlify.app/
+  title: "MATH 2025 - Fall 2025"
+  description: "Homepage for MATH 2025 - Multiple Regression Analysis at the College of Idaho, Fall 2025"
+  site-url: https://math2025fa25.netlify.app/
   
-  repo-url: https://github.com/EricFriedlander/MAT212WI25
+  repo-url: https://github.com/MATH2025FA25/MATH2025FA25
   repo-actions: [edit, issue]
   
   page-footer:

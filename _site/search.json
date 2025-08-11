@@ -138,7 +138,7 @@
     "href": "slides/13-multicollinearity.html#topics",
     "title": "Multicollinearity",
     "section": "Topics",
-    "text": "Topics\n\n\nDefining Multicollinearity\nDetecting Multicollinearity\nVariance Inflation Factors"
+    "text": "Topics\n\nDefining Multicollinearity\nDetecting Multicollinearity\nVariance Inflation Factors"
   },
   {
     "objectID": "slides/13-multicollinearity.html#computational-setup",
@@ -152,7 +152,7 @@
     "href": "slides/13-multicollinearity.html#data-rail_trail",
     "title": "Multicollinearity",
     "section": "Data: rail_trail",
-    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\n# A tibble: 90 × 7\n   volume hightemp avgtemp season cloudcover precip day_type\n    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   \n 1    501       83    66.5 Summer       7.60 0      Weekday \n 2    419       73    61   Summer       6.30 0.290  Weekday \n 3    397       74    63   Spring       7.5  0.320  Weekday \n 4    385       95    78   Summer       2.60 0      Weekend \n 5    200       44    48   Spring      10    0.140  Weekday \n 6    375       69    61.5 Spring       6.60 0.0200 Weekday \n 7    417       66    52.5 Spring       2.40 0      Weekday \n 8    629       66    52   Spring       0    0      Weekend \n 9    533       80    67.5 Summer       3.80 0      Weekend \n10    547       79    62   Summer       4.10 0      Weekday \n# ℹ 80 more rows\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+    "text": "Data: rail_trail\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n# A tibble: 90 × 7\n   volume hightemp avgtemp season cloudcover precip day_type\n    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   \n 1    501       83    66.5 Summer       7.60 0      Weekday \n 2    419       73    61   Summer       6.30 0.290  Weekday \n 3    397       74    63   Spring       7.5  0.320  Weekday \n 4    385       95    78   Summer       2.60 0      Weekend \n 5    200       44    48   Spring      10    0.140  Weekday \n 6    375       69    61.5 Spring       6.60 0.0200 Weekday \n 7    417       66    52.5 Spring       2.40 0      Weekday \n 8    629       66    52   Spring       0    0      Weekend \n 9    533       80    67.5 Summer       3.80 0      Weekend \n10    547       79    62   Summer       4.10 0      Weekday \n# ℹ 80 more rows\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
   },
   {
     "objectID": "slides/13-multicollinearity.html#full-model",
@@ -278,7 +278,7 @@
     "href": "slides/11-comparison.html#topics",
     "title": "Model comparison",
     "section": "Topics",
-    "text": "Topics\n\n\nANOVA for multiple linear regression and sum of squares\nComparing models with \\(R^2\\) vs. \\(R^2_{ajd}\\)\nComparing models with AIC and BIC\nOccam’s razor and parsimony"
+    "text": "Topics\n\nANOVA for multiple linear regression and sum of squares\nComparing models with \\(R^2\\) vs. \\(R^2_{ajd}\\)\nComparing models with AIC and BIC\nOccam’s razor and parsimony"
   },
   {
     "objectID": "slides/11-comparison.html#computational-setup",
@@ -299,7 +299,7 @@
     "href": "slides/11-comparison.html#variables",
     "title": "Model comparison",
     "section": "Variables",
-    "text": "Variables\nPredictors:\n\n\nParty: Number of people in the party\nMeal: Time of day (Lunch, Dinner, Late Night)\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\n\n\nOutcome: Tip: Amount of tip"
+    "text": "Variables\nPredictors:\n\nParty: Number of people in the party\nMeal: Time of day (Lunch, Dinner, Late Night)\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\n\nOutcome: Tip: Amount of tip"
   },
   {
     "objectID": "slides/11-comparison.html#outcome-tip",
@@ -383,28 +383,28 @@
     "href": "slides/11-comparison.html#sum-of-squares",
     "title": "Model comparison",
     "section": "Sum of squares",
-    "text": "Sum of squares\n\n\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Total}\\): Total sum of squares, variability of outcome, \\(\\sum_{i = 1}^n (y_i - \\bar{y})^2\\)\n\\(SS_{Error}\\): Residual sum of squares, variability of residuals, \\(\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2\\)\n\\(SS_{Model} = SS_{Total} - SS_{Error}\\): Variability explained by the model, \\(\\sum_{i = 1}^n (\\hat{y}_i - \\bar{y})^2\\)"
+    "text": "Sum of squares\n\n\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\\(SS_{Total}\\): Total sum of squares, variability of outcome, \\(\\sum_{i = 1}^n (y_i - \\bar{y})^2\\)\n\\(SS_{Error}\\): Residual sum of squares, variability of residuals, \\(\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2\\)\n\\(SS_{Model} = SS_{Total} - SS_{Error}\\): Variability explained by the model, \\(\\sum_{i = 1}^n (\\hat{y}_i - \\bar{y})^2\\)"
   },
   {
     "objectID": "slides/11-comparison.html#sum-of-squares-ss_total",
     "href": "slides/11-comparison.html#sum-of-squares-ss_total",
     "title": "Model comparison",
     "section": "Sum of squares: \\(SS_{Total}\\)",
-    "text": "Sum of squares: \\(SS_{Total}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Total}\\): Total sum of squares, variability of outcome\n\n\\(\\sum_{i = 1}^n (y_i - \\bar{y})^2\\) = 1913.11"
+    "text": "Sum of squares: \\(SS_{Total}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\\(SS_{Total}\\): Total sum of squares, variability of outcome\n\n\\(\\sum_{i = 1}^n (y_i - \\bar{y})^2\\) = 1913.11"
   },
   {
     "objectID": "slides/11-comparison.html#sum-of-squares-ss_error",
     "href": "slides/11-comparison.html#sum-of-squares-ss_error",
     "title": "Model comparison",
     "section": "Sum of squares: \\(SS_{Error}\\)",
-    "text": "Sum of squares: \\(SS_{Error}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Error}\\): Residual sum of squares, variability of residuals\n\n\\(\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2\\) = 686.44"
+    "text": "Sum of squares: \\(SS_{Error}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\\(SS_{Error}\\): Residual sum of squares, variability of residuals\n\n\\(\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2\\) = 686.44"
   },
   {
     "objectID": "slides/11-comparison.html#sum-of-squares-ss_model",
     "href": "slides/11-comparison.html#sum-of-squares-ss_model",
     "title": "Model comparison",
     "section": "Sum of squares: \\(SS_{Model}\\)",
-    "text": "Sum of squares: \\(SS_{Model}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\n\n\\(SS_{Model}\\): Variability explained by the model\n\n\\(\\sum_{i = 1}^n (\\hat{y}_i - \\bar{y})^2 = SS_{Model} = SS_{Total} - SS_{Error} =\\) 1226.67"
+    "text": "Sum of squares: \\(SS_{Model}\\)\n\n\n\n\n\nterm\ndf\nsumsq\n\n\n\n\nParty\n1\n1188.64\n\n\nAge\n2\n38.03\n\n\nResiduals\n165\n686.44\n\n\nTotal\n168\n1913.11\n\n\n\n\n\n\n\n\\(SS_{Model}\\): Variability explained by the model\n\n\\(\\sum_{i = 1}^n (\\hat{y}_i - \\bar{y})^2 = SS_{Model} = SS_{Total} - SS_{Error} =\\) 1226.67"
   },
   {
     "objectID": "slides/11-comparison.html#f-test-testing-the-whole-model-at-once",
@@ -544,7 +544,7 @@
     "href": "slides/11-comparison.html#parsimony-and-occams-razor",
     "title": "Model comparison",
     "section": "Parsimony and Occam’s razor",
-    "text": "Parsimony and Occam’s razor\n\nThe principle of parsimony is attributed to William of Occam (early 14th-century English nominalist philosopher), who insisted that, given a set of equally good explanations for a given phenomenon, the correct explanation is the simplest explanation1\nCalled Occam’s razor because he “shaved” his explanations down to the bare minimum\nParsimony in modeling:\n\n\nmodels should have as few parameters as possible\nlinear models should be preferred to non-linear models\nexperiments relying on few assumptions should be preferred to those relying on many\nmodels should be pared down until they are minimal adequate (i.e. contain the minimum number of predictors required to meet some critereon)\nsimple explanations should be preferred to complex explanations\n\n\n\nSource: The R Book by Michael J. Crawley."
+    "text": "Parsimony and Occam’s razor\n\nThe principle of parsimony is attributed to William of Occam (early 14th-century English nominalist philosopher), who insisted that, given a set of equally good explanations for a given phenomenon, the correct explanation is the simplest explanation1\nCalled Occam’s razor because he “shaved” his explanations down to the bare minimum\nParsimony in modeling:\n\nmodels should have as few parameters as possible\nlinear models should be preferred to non-linear models\nexperiments relying on few assumptions should be preferred to those relying on many\nmodels should be pared down until they are minimal adequate (i.e. contain the minimum number of predictors required to meet some critereon)\nsimple explanations should be preferred to complex explanations\n\n\nSource: The R Book by Michael J. Crawley."
   },
   {
     "objectID": "slides/11-comparison.html#in-pursuit-of-occams-razor",
@@ -754,14 +754,14 @@
     "href": "slides/09-logistic-intro.html#binary-response-variable",
     "title": "Logistic regression",
     "section": "Binary response variable",
-    "text": "Binary response variable\n\n\n\\(Y\\):\n\n1: “success” (not necessarily a good thing)\n0: “failure”\n\n\\(\\pi\\): probability that \\(Y=1\\), i.e., \\(P(Y = 1)\\)\n\\(\\frac{\\pi}{1-\\pi}\\): odds that \\(Y = 1\\)\n\\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\): log-odds\nGo from \\(\\pi\\) to \\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\) using the logit transformation"
+    "text": "Binary response variable\n\n\\(Y\\):\n\n1: “success” (not necessarily a good thing)\n0: “failure”\n\n\\(\\pi\\): probability that \\(Y=1\\), i.e., \\(P(Y = 1)\\)\n\\(\\frac{\\pi}{1-\\pi}\\): odds that \\(Y = 1\\)\n\\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\): log-odds\nGo from \\(\\pi\\) to \\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\) using the logit transformation"
   },
   {
     "objectID": "slides/09-logistic-intro.html#odds",
     "href": "slides/09-logistic-intro.html#odds",
     "title": "Logistic regression",
     "section": "Odds",
-    "text": "Odds\n\nSuppose there is a 70% chance it will rain tomorrow\n\nProbability it will rain is \\(\\mathbf{p = 0.7}\\)\nProbability it won’t rain is \\(\\mathbf{1 - p = 0.3}\\)\nOdds it will rain are 7 to 3, 7:3, \\(\\mathbf{\\frac{0.7}{0.3} \\approx 2.33}\\)\n\nFor every 3 times it doesn’t rain, it will rain 7 times\nFor every time it doesn’t rain, it will rain 2.33 times\n\nLog-Odds it will rain is \\(\\log\\mathbf{\\frac{0.7}{0.3} \\approx \\log(2.33) \\approx 0.847}\\)\n\nNegative \\(\\Rightarrow\\) probability of success less than 50-50 (0.5)\nPositive \\(\\Rightarrow\\) probability of success greater than 50-50 (0.5)\nWhat are the log-odds of of a probability of 0? What about 1?"
+    "text": "Odds\nSuppose there is a 70% chance it will rain tomorrow\n\nProbability it will rain is \\(\\mathbf{p = 0.7}\\)\nProbability it won’t rain is \\(\\mathbf{1 - p = 0.3}\\)\nOdds it will rain are 7 to 3, 7:3, \\(\\mathbf{\\frac{0.7}{0.3} \\approx 2.33}\\)\n\nFor every 3 times it doesn’t rain, it will rain 7 times\nFor every time it doesn’t rain, it will rain 2.33 times\n\nLog-Odds it will rain is \\(\\log\\mathbf{\\frac{0.7}{0.3} \\approx \\log(2.33) \\approx 0.847}\\)\n\nNegative \\(\\Rightarrow\\) probability of success less than 50-50 (0.5)\nPositive \\(\\Rightarrow\\) probability of success greater than 50-50 (0.5)\nWhat are the log-odds of of a probability of 0? What about 1?"
   },
   {
     "objectID": "slides/09-logistic-intro.html#from-log-odds-to-probabilities",
@@ -908,7 +908,7 @@
     "href": "slides/07-mlr.html#outcome-limit",
     "title": "Multiple linear regression (MLR)",
     "section": "Outcome: Limit",
-    "text": "Outcome: Limit\n\n\nCode\nCredit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()))\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n855\n3088\n4622.5\n5872.75\n13913\n4735.6\n2308.199\n400\n0"
+    "text": "Outcome: Limit\n\n\nCode\nCredit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n855\n3088\n4622.5\n5872.75\n13913\n4735.6\n2308.199\n400\n0"
   },
   {
     "objectID": "slides/07-mlr.html#predictors",
@@ -1027,7 +1027,7 @@
     "href": "slides/07-mlr.html#interpreting-categorical-predictors",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting Categorical Predictors",
-    "text": "Interpreting Categorical Predictors\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2152.722\n194.211\n11.084\n0\n\n\nHas_BalanceYes\n3332.746\n220.609\n15.107\n0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhere do we see each of the estimates in the plot?\nWhere do we see the values we’d predict in the plot?\nAre Has_Balance and Limit correlated?\n\n\n\n\n\n−+\n03:00\n\n\n\n\nComplete Exercises 8-10."
+    "text": "Interpreting Categorical Predictors\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2152.722\n194.211\n11.084\n0\n\n\nHas_BalanceYes\n3332.746\n220.609\n15.107\n0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhere do we see each of the estimates in the plot?\nWhere do we see the values we’d predict in the plot?\nAre Has_Balance and Limit correlated?\n\n\n\n\n\n−+\n03:00\n\n\n\n\nComplete Exercises 8-10."
   },
   {
     "objectID": "slides/07-mlr.html#model-equation-1",
@@ -1167,7 +1167,7 @@
     "href": "slides/07-mlr.html#recap",
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms"
+    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms\n\n\nMultiple linear regression (MLR) – MATH 2025 - Fall 2025 Multiple linear regression (MLR) – MATH 2025 - Fall 2025 Multiple linear regression (MLR) – MATH 2025 - Fall 2025 MATH 2025 - Fall 2025 Homepage for MATH 2025 - Multiple Regression Analysis at the College of Idaho, Fall 2025 Homepage for MATH 2025 - Multiple Regression Analysis at the College of Idaho, Fall 2025\n\n\n\n\n🔗 MAT 212 - Winter 2025 - Schedule"
   },
   {
     "objectID": "slides/05-slr-conditions.html#computational-set-up",
@@ -1356,14 +1356,14 @@
     "href": "slides/05-slr-conditions.html#partitioning-variability",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Partitioning Variability",
-    "text": "Partitioning Variability\nLet’s think about variation:\n\n\nDATA = MODEL + ERROR\n\\(\\substack{\\text{Variation} \\\\ \\text{in Y}} = \\substack{\\text{Variation explained} \\\\ \\text{by model}} + \\substack{\\text{Variation not explained} \\\\ \\text{by model}}\\)"
+    "text": "Partitioning Variability\nLet’s think about variation:\n\nDATA = MODEL + ERROR\n\\(\\substack{\\text{Variation} \\\\ \\text{in Y}} = \\substack{\\text{Variation explained} \\\\ \\text{by model}} + \\substack{\\text{Variation not explained} \\\\ \\text{by model}}\\)"
   },
   {
     "objectID": "slides/05-slr-conditions.html#partitioning-variability-anova",
     "href": "slides/05-slr-conditions.html#partitioning-variability-anova",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Partitioning Variability (ANOVA)",
-    "text": "Partitioning Variability (ANOVA)\n\n\n\\(y_i - \\bar{y} = (\\hat{y}_i - \\bar{y}) + (y_i-\\hat{y}_i)\\)\nSquare and sum: \\(\\sum(y_i-\\bar{y})^2 = \\sum(\\hat{y} - \\bar{y})^2 + \\sum(y-\\hat{y})^2\\)\n\\(\\substack{\\text{Sum of squares} \\\\ \\text{Total}} = \\substack{\\text{Sum of squares} \\\\ \\text{model}} + \\substack{\\text{Sum of squares} \\\\ \\text{error}}\\)\n\\(SSTotal = SSModel + SSE\\)\n\\(SST = SSM + SSE\\)"
+    "text": "Partitioning Variability (ANOVA)\n\n\\(y_i - \\bar{y} = (\\hat{y}_i - \\bar{y}) + (y_i-\\hat{y}_i)\\)\nSquare and sum: \\(\\sum(y_i-\\bar{y})^2 = \\sum(\\hat{y} - \\bar{y})^2 + \\sum(y-\\hat{y})^2\\)\n\\(\\substack{\\text{Sum of squares} \\\\ \\text{Total}} = \\substack{\\text{Sum of squares} \\\\ \\text{model}} + \\substack{\\text{Sum of squares} \\\\ \\text{error}}\\)\n\\(SSTotal = SSModel + SSE\\)\n\\(SST = SSM + SSE\\)"
   },
   {
     "objectID": "slides/05-slr-conditions.html#anova-in-r",
@@ -1384,7 +1384,7 @@
     "href": "slides/05-slr-conditions.html#two-statistics-r2",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Two statistics: \\(R^2\\)",
-    "text": "Two statistics: \\(R^2\\)\n\n\nR-squared, \\(R^2\\), Coefficient of Determination : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor) \\[\nR^2 = Cor(y, \\hat{y})^2\n\\]\n\nAlso called PRE (Percent Reduction in Error) because: \\[\nR^2 = \\frac{SSModel}{SSTotal}\n\\]"
+    "text": "Two statistics: \\(R^2\\)\n\nR-squared, \\(R^2\\), Coefficient of Determination : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor) \\[\nR^2 = Cor(y, \\hat{y})^2\n\\]\n\nAlso called PRE (Percent Reduction in Error) because: \\[\nR^2 = \\frac{SSModel}{SSTotal}\n\\]"
   },
   {
     "objectID": "slides/05-slr-conditions.html#two-statistics-rmse",
@@ -1398,7 +1398,7 @@
     "href": "slides/05-slr-conditions.html#r2",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "\\(R^2\\)",
-    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nlibrary(yardstick)\nspotify_aug &lt;- augment(spotify_fit)\n\nrsq(spotify_aug, truth = danceability, estimate = .fitted) |&gt; kable()\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nrsq\nstandard\n0.019244"
+    "text": "\\(R^2\\)\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nlibrary(yardstick)\nspotify_aug &lt;- augment(spotify_fit)\n\nrsq(spotify_aug, truth = danceability, estimate = .fitted) |&gt; kable()\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nrsq\nstandard\n0.019244"
   },
   {
     "objectID": "slides/05-slr-conditions.html#interpreting-r2",
@@ -1419,7 +1419,7 @@
     "href": "slides/05-slr-conditions.html#rmse",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "RMSE",
-    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nInterpretation (kind of): how much does my model miss by, on average.\nCalculate with rmse() from yardstick package using the augmented data:\n\n\nrmse(spotify_aug, truth = danceability, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.130\n\n\n\n\nComplete Exercise 10."
+    "text": "RMSE\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nInterpretation (kind of): how much does my model miss by, on average.\nCalculate with rmse() from yardstick package using the augmented data:\n\n\nrmse(spotify_aug, truth = danceability, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.130\n\n\n\nComplete Exercise 10."
   },
   {
     "objectID": "slides/05-slr-conditions.html#using-the-word-good",
@@ -1433,7 +1433,7 @@
     "href": "slides/05-slr-conditions.html#recap",
     "title": "SLR: Conditions + Model Evaluation",
     "section": "Recap",
-    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity (residuals vs fitted vals)\nConstant variance (residuals vs fitted vals)\n\n\n\n\n\nNormality (histogram/QQ-plot of residuals)\nIndependence (knowledge of data collection)\n\n\n\n\nNote: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three\n\n\n\nCan decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)\nTwo metrics for evaluating and comparing models:\n\n\\(R^2\\): What proportion of the variation in the response variable is explained by the model?\n\\(RMSE\\): How far is does my model miss by on average?"
+    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\nLinearity (residuals vs fitted vals)\nConstant variance (residuals vs fitted vals)\n\n\n\nNormality (histogram/QQ-plot of residuals)\nIndependence (knowledge of data collection)\n\n\n\nNote: Predictions are still valid as long as linearity is met but p-values and CIs are not without other three\n\n\n\nCan decompose total variation (SST) into variation explained by the model (SSM) and leftover variation (SSE)\nTwo metrics for evaluating and comparing models:\n\n\\(R^2\\): What proportion of the variation in the response variable is explained by the model?\n\\(RMSE\\): How far is does my model miss by on average?"
   },
   {
     "objectID": "slides/03-slr-sbi.html#application-exercise",
@@ -1503,14 +1503,14 @@
     "href": "slides/03-slr-sbi.html#inference-for-simple-linear-regression",
     "title": "SLR: Simulation-based inference",
     "section": "Inference for simple linear regression",
-    "text": "Inference for simple linear regression\n\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope, \\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
+    "text": "Inference for simple linear regression\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope, \\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
   },
   {
     "objectID": "slides/03-slr-sbi.html#confidence-interval",
     "href": "slides/03-slr-sbi.html#confidence-interval",
     "title": "SLR: Simulation-based inference",
     "section": "Confidence interval",
-    "text": "Confidence interval\n\n\nConfidence interval: plausible range of values for a population parameter\nsingle point estimate \\(\\implies\\) fishing in a murky lake with a spear\nconfidence interval \\(\\implies\\) fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nIf we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter\nHigh confidence \\(\\implies\\) wider interval (larger net)\n\nRemember: single CI \\(\\implies\\) either you hit parameter or you don’t\n\nFavorite Visualization"
+    "text": "Confidence interval\n\nConfidence interval: plausible range of values for a population parameter\nsingle point estimate \\(\\implies\\) fishing in a murky lake with a spear\nconfidence interval \\(\\implies\\) fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nIf we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter\nHigh confidence \\(\\implies\\) wider interval (larger net)\n\nRemember: single CI \\(\\implies\\) either you hit parameter or you don’t\n\nFavorite Visualization"
   },
   {
     "objectID": "slides/03-slr-sbi.html#confidence-interval-for-the-slope-1",
@@ -1524,7 +1524,7 @@
     "href": "slides/03-slr-sbi.html#quantify-the-variability-of-the-slope",
     "title": "SLR: Simulation-based inference",
     "section": "Quantify the variability of the slope",
-    "text": "Quantify the variability of the slope\nfor estimation\n\n\nTwo approaches:\n\nVia simulation (what we’ll do today)\nVia mathematical models (what we’ll do soon)\n\nBootstrapping to quantify the variability of the slope for the purpose of estimation:\n\nGenerate new samples by sampling with replacement from the original sample\nFit models to each of the new samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+    "text": "Quantify the variability of the slope\nfor estimation\n\nTwo approaches:\n\nVia simulation (what we’ll do today)\nVia mathematical models (what we’ll do soon)\n\nBootstrapping to quantify the variability of the slope for the purpose of estimation:\n\nGenerate new samples by sampling with replacement from the original sample\nFit models to each of the new samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
   },
   {
     "objectID": "slides/03-slr-sbi.html#original-sample",
@@ -1608,7 +1608,7 @@
     "href": "slides/03-slr-sbi.html#confidence-interval-1",
     "title": "SLR: Simulation-based inference",
     "section": "95% confidence interval",
-    "text": "95% confidence interval\n\n\n\n95% bootstrapped confidence interval: bounded by the middle 95% of the bootstrap distribution\nWe are 95% confident that for each additional $1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by 0.81 to 1.31."
+    "text": "95% confidence interval\n\n\n95% bootstrapped confidence interval: bounded by the middle 95% of the bootstrap distribution\nWe are 95% confident that for each additional $1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by 0.81 to 1.31."
   },
   {
     "objectID": "slides/03-slr-sbi.html#computing-the-ci-for-the-slope-i",
@@ -1678,21 +1678,21 @@
     "href": "slides/03-slr-sbi.html#hypothesis-testing-as-a-court-trial",
     "title": "SLR: Simulation-based inference",
     "section": "Hypothesis testing as a court trial",
-    "text": "Hypothesis testing as a court trial\n\n\nNull hypothesis, \\(H_0\\): Defendant is innocent\nAlternative hypothesis, \\(H_A\\): Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)\n\nNot guilty \\(\\neq\\) innocent \\(\\implies\\) why we say “fail to reject the null” rather than “accept the null”"
+    "text": "Hypothesis testing as a court trial\n\nNull hypothesis, \\(H_0\\): Defendant is innocent\nAlternative hypothesis, \\(H_A\\): Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)\n\nNot guilty \\(\\neq\\) innocent \\(\\implies\\) why we say “fail to reject the null” rather than “accept the null”"
   },
   {
     "objectID": "slides/03-slr-sbi.html#hypothesis-testing-framework",
     "href": "slides/03-slr-sbi.html#hypothesis-testing-framework",
     "title": "SLR: Simulation-based inference",
     "section": "Hypothesis testing framework",
-    "text": "Hypothesis testing framework\n\n\nStart with a null hypothesis, \\(H_0\\) that represents the status quo\nSet an alternative hypothesis, \\(H_A\\) that represents the research question, i.e. claim we’re testing\nUnder the assumption that the null hypothesis is true, calculate a p-value (probability of getting outcome or outcome even more favorable to the alternative)\n\nif the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis\nif they do, then reject the null hypothesis in favor of the alternative\n\n\n\nComplete Exercise 12"
+    "text": "Hypothesis testing framework\n\nStart with a null hypothesis, \\(H_0\\) that represents the status quo\nSet an alternative hypothesis, \\(H_A\\) that represents the research question, i.e. claim we’re testing\nUnder the assumption that the null hypothesis is true, calculate a p-value (probability of getting outcome or outcome even more favorable to the alternative)\n\nif the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis\nif they do, then reject the null hypothesis in favor of the alternative\n\n\nComplete Exercise 12"
   },
   {
     "objectID": "slides/03-slr-sbi.html#quantify-the-variability-of-the-slope-1",
     "href": "slides/03-slr-sbi.html#quantify-the-variability-of-the-slope-1",
     "title": "SLR: Simulation-based inference",
     "section": "Quantify the variability of the slope",
-    "text": "Quantify the variability of the slope\nfor testing\n\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nUse Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
+    "text": "Quantify the variability of the slope\nfor testing\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nUse Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
   },
   {
     "objectID": "slides/03-slr-sbi.html#permutation-described",
@@ -1797,7 +1797,7 @@
     "href": "slides/01-welcome.html#meet-prof.-friedlander",
     "title": "Welcome to MAT 212!",
     "section": "Meet Prof. Friedlander!",
-    "text": "Meet Prof. Friedlander!\n\n\nEducation and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
+    "text": "Meet Prof. Friedlander!\n\nEducation and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
   },
   {
     "objectID": "slides/01-welcome.html#meet-prof.-friedlander-1",
@@ -1818,7 +1818,7 @@
     "href": "slides/01-welcome.html#what-is-a-model",
     "title": "Welcome to MAT 212!",
     "section": "What is a model?",
-    "text": "What is a model?\n\n\nDATA = MODEL + ERROR\nDATA = PATTERN + DEPARTURES FROM PATTERN\n\nHow do we identify the actual pattern?\n\nGOAL: Find a model for a relationship between a response/outcome/target variable \\(Y\\) and one (or more) explanatory/predictor variables (\\(X_1,\\ldots,X_k\\))\nModels are a simplified but tractable version of reality\n\n\n\nWhat are response and explanatory variables?"
+    "text": "What is a model?\n\nDATA = MODEL + ERROR\nDATA = PATTERN + DEPARTURES FROM PATTERN\n\nHow do we identify the actual pattern?\n\nGOAL: Find a model for a relationship between a response/outcome/target variable \\(Y\\) and one (or more) explanatory/predictor variables (\\(X_1,\\ldots,X_k\\))\nModels are a simplified but tractable version of reality\n\n\nWhat are response and explanatory variables?"
   },
   {
     "objectID": "slides/01-welcome.html#geoge-e.-p.-box",
@@ -1888,7 +1888,7 @@
     "href": "slides/01-welcome.html#prepare-participate-practice-perform",
     "title": "Welcome to MAT 212!",
     "section": "Prepare, Participate, Practice, Perform",
-    "text": "Prepare, Participate, Practice, Perform\n\n\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching videos)\nParticipate: Attend and actively participate in lectures, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\nHomework assignments (individual)\nTwo oral exams\nFinal group projects"
+    "text": "Prepare, Participate, Practice, Perform\n\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching videos)\nParticipate: Attend and actively participate in lectures, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\nHomework assignments (individual)\nTwo oral exams\nFinal group projects"
   },
   {
     "objectID": "slides/01-welcome.html#grading",
@@ -4666,28 +4666,28 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "MAT 212: Multiple Regression Analysis",
+    "title": "MATH 2025: Multiple Regression Analysis",
     "section": "",
     "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125.\n\n\n\nWe will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
   },
   {
     "objectID": "index.html#catalog-description",
     "href": "index.html#catalog-description",
-    "title": "MAT 212: Multiple Regression Analysis",
+    "title": "MATH 2025: Multiple Regression Analysis",
     "section": "",
     "text": "An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125."
   },
   {
     "objectID": "index.html#erics-addition",
     "href": "index.html#erics-addition",
-    "title": "MAT 212: Multiple Regression Analysis",
+    "title": "MATH 2025: Multiple Regression Analysis",
     "section": "",
     "text": "We will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory."
   },
   {
     "objectID": "index.html#instructor",
     "href": "index.html#instructor",
-    "title": "MAT 212: Multiple Regression Analysis",
+    "title": "MATH 2025: Multiple Regression Analysis",
     "section": "Instructor",
     "text": "Instructor\nEric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics.\nOutside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.\n\n\n\nOffice hours (Boone 126B)\n\n\n\n\n\nMTWRF\n11:00am-12:00pm\n\n\nor by appointment."
   },
@@ -5116,7 +5116,7 @@
     "href": "slides/02-slr-intro.html#properties-of-least-squares-regression",
     "title": "Simple Linear Regression",
     "section": "Properties of least squares regression",
-    "text": "Properties of least squares regression\n\n\nPasses through center of mass point, the coordinates corresponding to average \\(X\\) and average \\(Y\\): \\(\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}\\)\nSlope has same sign as the correlation coefficient: \\(\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}\\)\n\n\\(r\\): correlation coefficient\n\\(s_Y, s_X\\): sample standard deviations of \\(X\\) and \\(Y\\)\n\nSum of the residuals is zero: \\(\\sum_{i = 1}^n e_i \\approx 0\\)\n\nIntuition: Residuals are “balanced”\n\nThe residuals and \\(X\\) values are uncorrelated"
+    "text": "Properties of least squares regression\n\nPasses through center of mass point, the coordinates corresponding to average \\(X\\) and average \\(Y\\): \\(\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}\\)\nSlope has same sign as the correlation coefficient: \\(\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}\\)\n\n\\(r\\): correlation coefficient\n\\(s_Y, s_X\\): sample standard deviations of \\(X\\) and \\(Y\\)\n\nSum of the residuals is zero: \\(\\sum_{i = 1}^n e_i \\approx 0\\)\n\nIntuition: Residuals are “balanced”\n\nThe residuals and \\(X\\) values are uncorrelated"
   },
   {
     "objectID": "slides/02-slr-intro.html#estimating-the-slope",
@@ -5242,7 +5242,7 @@
     "href": "slides/04-slr-math-models.html#inference-revisited",
     "title": "SLR: Mathematical models for inference",
     "section": "Inference, revisited",
-    "text": "Inference, revisited\n\n\nEarlier we computed a confidence interval and conducted a hypothesis test via simulation:\n\nCI: Bootstrap the observed sample to simulate the distribution of the slope\nHT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true\n\nNow we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test"
+    "text": "Inference, revisited\n\nEarlier we computed a confidence interval and conducted a hypothesis test via simulation:\n\nCI: Bootstrap the observed sample to simulate the distribution of the slope\nHT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true\n\nNow we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test"
   },
   {
     "objectID": "slides/04-slr-math-models.html#mathematical-representation-of-the-model",
@@ -5284,7 +5284,7 @@
     "href": "slides/04-slr-math-models.html#hypothesis-test-test-statistic",
     "title": "SLR: Mathematical models for inference",
     "section": "Hypothesis test: Test statistic",
-    "text": "Hypothesis test: Test statistic\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\n\n\\[\nT = \\frac{\\hat{\\beta}_1 - 0}{SE_{\\hat{\\beta}_1}} = \\frac{-4.04\\times 10^{-7} - 0}{1.28\\times 10^{-7}} \\approx -3.15\n\\]\nOur observed slope, \\(\\hat{\\beta_1} = -4.04\\times 10^{-7}\\), is \\(3.15\\) standard errors below what we would expect if there were no linear relationship between duration_ms and danceability.\n\nComplete Exercise 2 and 3."
+    "text": "Hypothesis test: Test statistic\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\\[\nT = \\frac{\\hat{\\beta}_1 - 0}{SE_{\\hat{\\beta}_1}} = \\frac{-4.04\\times 10^{-7} - 0}{1.28\\times 10^{-7}} \\approx -3.15\n\\]\nOur observed slope, \\(\\hat{\\beta_1} = -4.04\\times 10^{-7}\\), is \\(3.15\\) standard errors below what we would expect if there were no linear relationship between duration_ms and danceability.\n\nComplete Exercise 2 and 3."
   },
   {
     "objectID": "slides/04-slr-math-models.html#hypothesis-test-p-value",
@@ -5298,7 +5298,7 @@
     "href": "slides/04-slr-math-models.html#hypothesis-test-p-value-1",
     "title": "SLR: Mathematical models for inference",
     "section": "Hypothesis test: p-value",
-    "text": "Hypothesis test: p-value\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\n\n\nThe probability of obtaining an observed slope providing stronger evidence for the alternative hypothesis, if we assume that the null hypothesis is true, is \\(1.72\\times 10^{-3}\\)."
+    "text": "Hypothesis test: p-value\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\nThe probability of obtaining an observed slope providing stronger evidence for the alternative hypothesis, if we assume that the null hypothesis is true, is \\(1.72\\times 10^{-3}\\)."
   },
   {
     "objectID": "slides/04-slr-math-models.html#understanding-the-p-value",
@@ -5312,7 +5312,7 @@
     "href": "slides/04-slr-math-models.html#hypothesis-test-conclusion-in-context",
     "title": "SLR: Mathematical models for inference",
     "section": "Hypothesis test: Conclusion, in context",
-    "text": "Hypothesis test: Conclusion, in context\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\n\n\nThe data provide convincing evidence that the population slope \\(\\beta_1\\) is different from 0.\nThe data provide convincing evidence of a linear relationship between the duration of a song and it’s danceability.\n\n\nComplete Exercises 4-7."
+    "text": "Hypothesis test: Conclusion, in context\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\nThe data provide convincing evidence that the population slope \\(\\beta_1\\) is different from 0.\nThe data provide convincing evidence of a linear relationship between the duration of a song and it’s danceability.\n\n\nComplete Exercises 4-7."
   },
   {
     "objectID": "slides/04-slr-math-models.html#confidence-interval-for-the-slope",
@@ -5333,14 +5333,14 @@
     "href": "slides/04-slr-math-models.html#ci-for-the-slope-calculation",
     "title": "SLR: Mathematical models for inference",
     "section": "95% CI for the slope: Calculation",
-    "text": "95% CI for the slope: Calculation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\n\n\\[\\hat{\\beta}_1 = -4.04\\times 10^{-7} \\hspace{15mm} t^* = 1.96  \\hspace{15mm} SE_{\\hat{\\beta}_1} = 1.28\\times 10^{-7}\\]\n\n\\[\n-4.04\\times 10^{-7} \\pm 1.96 \\times 1.28\\times 10^{-7} = (-6.55\\times 10^{-7}, -1.53\\times 10^{-7})\n\\]"
+    "text": "95% CI for the slope: Calculation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n\n\n\n\n\n\\[\\hat{\\beta}_1 = -4.04\\times 10^{-7} \\hspace{15mm} t^* = 1.96  \\hspace{15mm} SE_{\\hat{\\beta}_1} = 1.28\\times 10^{-7}\\]\n\n\\[\n-4.04\\times 10^{-7} \\pm 1.96 \\times 1.28\\times 10^{-7} = (-6.55\\times 10^{-7}, -1.53\\times 10^{-7})\n\\]"
   },
   {
     "objectID": "slides/04-slr-math-models.html#ci-for-the-slope-computation",
     "href": "slides/04-slr-math-models.html#ci-for-the-slope-computation",
     "title": "SLR: Mathematical models for inference",
     "section": "95% CI for the slope: Computation",
-    "text": "95% CI for the slope: Computation\n\ntidy(spotify_fit, conf.int = TRUE, conf.level = 0.95) |&gt;\n   kable(digits = 10, format.args = list(scientifi = TRUE))|&gt;\n  row_spec(2, background = \"#D9E3E4\")\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n7.268029e-01\n8.350365e-01\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n-6.557000e-07\n-1.520000e-07\n\n\n\n\n\n\n\nWe are 95% confident that, as the duration of a song increases by 1 millisecond, the danceability of that song will decrease by \\(1.53\\times 10^{-7}\\) to \\(6.56\\times 10^{-7}\\) units.\n\nComplete Exercises 7-10."
+    "text": "95% CI for the slope: Computation\n\ntidy(spotify_fit, conf.int = TRUE, conf.level = 0.95) |&gt;\n   kable(digits = 10, format.args = list(scientifi = TRUE))|&gt;\n  row_spec(2, background = \"#D9E3E4\")\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n7.809197e-01\n2.754508e-02\n2.835061e+01\n0.000000e+00\n7.268029e-01\n8.350365e-01\n\n\nduration_ms\n-4.039000e-07\n1.282000e-07\n-3.150955e+00\n1.723739e-03\n-6.557000e-07\n-1.520000e-07\n\n\n\n\n\nWe are 95% confident that, as the duration of a song increases by 1 millisecond, the danceability of that song will decrease by \\(1.53\\times 10^{-7}\\) to \\(6.56\\times 10^{-7}\\) units.\n\nComplete Exercises 7-10."
   },
   {
     "objectID": "slides/04-slr-math-models.html#intervals-for-predictions-1",
@@ -5452,7 +5452,7 @@
     "href": "slides/06-slr-transformations.html#data-house_prices",
     "title": "SLR: Transformations",
     "section": "Data: house_prices",
-    "text": "Data: house_prices\n\n\nContains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015\nObtained from Kaggle.com\nImported from the moderndive package\n\n\n\nglimpse(house_prices)\n\nRows: 21,613\nColumns: 21\n$ id            &lt;chr&gt; \"7129300520\", \"6414100192\", \"5631500400\", \"2487200875\", …\n$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…\n$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…\n$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…\n$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…\n$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…\n$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…\n$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…\n$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…\n$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…\n$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…\n$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…\n$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …\n$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…\n$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …\n$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…\n$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…\n$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…\n$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …"
+    "text": "Data: house_prices\n\nContains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015\nObtained from Kaggle.com\nImported from the moderndive package\n\n\nglimpse(house_prices)\n\nRows: 21,613\nColumns: 21\n$ id            &lt;chr&gt; \"7129300520\", \"6414100192\", \"5631500400\", \"2487200875\", …\n$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…\n$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…\n$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…\n$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…\n$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…\n$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…\n$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…\n$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…\n$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…\n$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…\n$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…\n$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …\n$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…\n$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …\n$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…\n$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…\n$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…\n$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …"
   },
   {
     "objectID": "slides/06-slr-transformations.html#variables",
@@ -5466,7 +5466,7 @@
     "href": "slides/06-slr-transformations.html#recap-fit-the-model",
     "title": "SLR: Transformations",
     "section": "Recap: Fit the model",
-    "text": "Recap: Fit the model\n\nhp_fit &lt;- lm(price ~ sqft_living, data = house_prices)\ntidy(hp_fit) |&gt;  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-43580.74\n4402.69\n-9.90\n0\n\n\nsqft_living\n280.62\n1.94\n144.92\n0\n\n\n\n\n\n\n\nWrite down the model:\n\nModel: \\(\\hat{\\text{price}} = -43580.74 + 280.62\\times\\text{sqft_living}\\)\n\nInterpret the slope and intercept in the context of this problem:\n\nInterpretation: If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost -$43,580.74."
+    "text": "Recap: Fit the model\n\nhp_fit &lt;- lm(price ~ sqft_living, data = house_prices)\ntidy(hp_fit) |&gt;  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-43580.74\n4402.69\n-9.90\n0\n\n\nsqft_living\n280.62\n1.94\n144.92\n0\n\n\n\n\n\n\nWrite down the model:\n\nModel: \\(\\hat{\\text{price}} = -43580.74 + 280.62\\times\\text{sqft_living}\\)\n\nInterpret the slope and intercept in the context of this problem:\n\nInterpretation: If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost -$43,580.74."
   },
   {
     "objectID": "slides/06-slr-transformations.html#recap-fit-the-model-1",
@@ -5641,7 +5641,7 @@
     "href": "slides/06-slr-transformations.html#standardized-residuals",
     "title": "SLR: Transformations",
     "section": "Standardized Residuals",
-    "text": "Standardized Residuals\n\n\nRecall: Z-scores\nFact: If \\(X\\) has mean \\(\\mu\\) and standard deviation \\(\\sigma\\), then \\((X-\\mu)/\\sigma\\) has mean 0 and standard deviation 1\nFor residuals: mean 0 and standard deviation \\(\\hat{\\sigma}_\\epsilon\\)\nStandardized residuals: \\(\\frac{y_i-\\hat{y}_i}{\\hat{\\sigma}_\\epsilon}\\)\n\nLook for values beyond \\(\\pm 2\\) or \\(\\pm 3\\)"
+    "text": "Standardized Residuals\n\nRecall: Z-scores\nFact: If \\(X\\) has mean \\(\\mu\\) and standard deviation \\(\\sigma\\), then \\((X-\\mu)/\\sigma\\) has mean 0 and standard deviation 1\nFor residuals: mean 0 and standard deviation \\(\\hat{\\sigma}_\\epsilon\\)\nStandardized residuals: \\(\\frac{y_i-\\hat{y}_i}{\\hat{\\sigma}_\\epsilon}\\)\n\nLook for values beyond \\(\\pm 2\\) or \\(\\pm 3\\)"
   },
   {
     "objectID": "slides/06-slr-transformations.html#recap-augment-function",
@@ -5739,7 +5739,7 @@
     "href": "slides/08-mlr-inference.html#topics",
     "title": "MLR: Inference and Conditions",
     "section": "Topics",
-    "text": "Topics\n\n\nInference for multiple linear regression\nChecking model conditions"
+    "text": "Topics\n\nInference for multiple linear regression\nChecking model conditions"
   },
   {
     "objectID": "slides/08-mlr-inference.html#computational-setup",
@@ -5753,7 +5753,7 @@
     "href": "slides/08-mlr-inference.html#data-rail_trail",
     "title": "MLR: Inference and Conditions",
     "section": "Data: rail_trail",
-    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\nRows: 90\nColumns: 7\n$ volume     &lt;dbl&gt; 501, 419, 397, 385, 200, 375, 417, 629, 533, 547, 432, 418,…\n$ hightemp   &lt;dbl&gt; 83, 73, 74, 95, 44, 69, 66, 66, 80, 79, 78, 65, 41, 59, 50,…\n$ avgtemp    &lt;dbl&gt; 66.5, 61.0, 63.0, 78.0, 48.0, 61.5, 52.5, 52.0, 67.5, 62.0,…\n$ season     &lt;chr&gt; \"Summer\", \"Summer\", \"Spring\", \"Summer\", \"Spring\", \"Spring\",…\n$ cloudcover &lt;dbl&gt; 7.6, 6.3, 7.5, 2.6, 10.0, 6.6, 2.4, 0.0, 3.8, 4.1, 8.5, 7.2…\n$ precip     &lt;dbl&gt; 0.00, 0.29, 0.32, 0.00, 0.14, 0.02, 0.00, 0.00, 0.00, 0.00,…\n$ day_type   &lt;chr&gt; \"Weekday\", \"Weekday\", \"Weekday\", \"Weekend\", \"Weekday\", \"Wee…\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+    "text": "Data: rail_trail\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\nRows: 90\nColumns: 7\n$ volume     &lt;dbl&gt; 501, 419, 397, 385, 200, 375, 417, 629, 533, 547, 432, 418,…\n$ hightemp   &lt;dbl&gt; 83, 73, 74, 95, 44, 69, 66, 66, 80, 79, 78, 65, 41, 59, 50,…\n$ avgtemp    &lt;dbl&gt; 66.5, 61.0, 63.0, 78.0, 48.0, 61.5, 52.5, 52.0, 67.5, 62.0,…\n$ season     &lt;chr&gt; \"Summer\", \"Summer\", \"Spring\", \"Summer\", \"Spring\", \"Spring\",…\n$ cloudcover &lt;dbl&gt; 7.6, 6.3, 7.5, 2.6, 10.0, 6.6, 2.4, 0.0, 3.8, 4.1, 8.5, 7.2…\n$ precip     &lt;dbl&gt; 0.00, 0.29, 0.32, 0.00, 0.14, 0.02, 0.00, 0.00, 0.00, 0.00,…\n$ day_type   &lt;chr&gt; \"Weekday\", \"Weekday\", \"Weekday\", \"Weekend\", \"Weekday\", \"Wee…\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
   },
   {
     "objectID": "slides/08-mlr-inference.html#visualizing-the-data",
@@ -5837,14 +5837,14 @@
     "href": "slides/08-mlr-inference.html#large-sample-sizes",
     "title": "MLR: Inference and Conditions",
     "section": "Large sample sizes",
-    "text": "Large sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\n\nConsider the practical significance of the result not just the statistical significance.\nInstead of saying statistically significant say statistically detectable\nUse confidence intervals to draw conclusions instead of relying only on p-values."
+    "text": "Large sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\nConsider the practical significance of the result not just the statistical significance.\nInstead of saying statistically significant say statistically detectable\nUse confidence intervals to draw conclusions instead of relying only on p-values."
   },
   {
     "objectID": "slides/08-mlr-inference.html#small-sample-sizes",
     "href": "slides/08-mlr-inference.html#small-sample-sizes",
     "title": "MLR: Inference and Conditions",
     "section": "Small sample sizes",
-    "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association."
+    "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association."
   },
   {
     "objectID": "slides/08-mlr-inference.html#effect-size-and-power",
@@ -5935,7 +5935,7 @@
     "href": "slides/10-logistic-estimation-inference.html#topics",
     "title": "Logistic Regression Estimation and Inference",
     "section": "Topics",
-    "text": "Topics\n\n\nEstimating coefficients in logistic regression\nChecking model conditions for logistic regression\nInference for coefficients in logistic regression"
+    "text": "Topics\n\nEstimating coefficients in logistic regression\nChecking model conditions for logistic regression\nInference for coefficients in logistic regression"
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#computational-setup",
@@ -6110,35 +6110,35 @@
     "href": "slides/10-logistic-estimation-inference.html#coefficient-for-age",
     "title": "Logistic Regression Estimation and Inference",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\]"
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\]"
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#coefficient-for-age-1",
     "href": "slides/10-logistic-estimation-inference.html#coefficient-for-age-1",
     "title": "Logistic Regression Estimation and Inference",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{0.0747 - 0}{0.00527} \\approx 14.178\\]\nNote: rounding errors!"
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{0.0747 - 0}{0.00527} \\approx 14.178\\]\nNote: rounding errors!"
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#coefficient-for-age-2",
     "href": "slides/10-logistic-estimation-inference.html#coefficient-for-age-2",
     "title": "Logistic Regression Estimation and Inference",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\n\n\nP-value:\n\\[\nP(|Z| &gt; |14.178|) \\approx 0\n\\]\n\n\n2 * pnorm(14.178,lower.tail = FALSE)\n\n[1] 1.253689e-45"
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\nP-value:\n\\[\nP(|Z| &gt; |14.178|) \\approx 0\n\\]\n\n\n2 * pnorm(14.178,lower.tail = FALSE)\n\n[1] 1.253689e-45"
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#coefficient-for-age-3",
     "href": "slides/10-logistic-estimation-inference.html#coefficient-for-age-3",
     "title": "Logistic Regression Estimation and Inference",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone will develop heart disease in the next 10 years."
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone will develop heart disease in the next 10 years."
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#ci-for-age",
     "href": "slides/10-logistic-estimation-inference.html#ci-for-age",
     "title": "Logistic Regression Estimation and Inference",
     "section": "CI for age",
-    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\n\n\nWe are 95% confident that for each additional year of age, the change in the log-odds of someone developing heart disease in the next 10 years is between 0.064 and 0.085.\n\nWe are 95% confident that for each additional year of age, the odds of someone developing heart disease in the next 10 years will increase by a factor of \\(\\exp(0.064) \\approx 1.077\\) to \\(\\exp(0.085)\\approx 1.089\\).\n\n\nComplete Exercises 4-7."
+    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n-6.124\n-5.011\n\n\nage\n0.075\n0.005\n14.178\n0\n0.064\n0.085\n\n\n\n\n\nWe are 95% confident that for each additional year of age, the change in the log-odds of someone developing heart disease in the next 10 years is between 0.064 and 0.085.\n\nWe are 95% confident that for each additional year of age, the odds of someone developing heart disease in the next 10 years will increase by a factor of \\(\\exp(0.064) \\approx 1.077\\) to \\(\\exp(0.085)\\approx 1.089\\).\n\n\nComplete Exercises 4-7."
   },
   {
     "objectID": "slides/10-logistic-estimation-inference.html#recall-inference-for-linear-regression-1",
@@ -6327,28 +6327,28 @@
     "href": "slides/12-logistic-multiple.html#coefficient-for-age",
     "title": "Multiple Logistic Regression",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\] given education is in the model"
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\] given education is in the model"
   },
   {
     "objectID": "slides/12-logistic-multiple.html#coefficient-for-age-1",
     "href": "slides/12-logistic-multiple.html#coefficient-for-age-1",
     "title": "Multiple Logistic Regression",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{0.07328 - 0}{0.00547} = 13.39\\]"
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{0.07328 - 0}{0.00547} = 13.39\\]"
   },
   {
     "objectID": "slides/12-logistic-multiple.html#coefficient-for-age-2",
     "href": "slides/12-logistic-multiple.html#coefficient-for-age-2",
     "title": "Multiple Logistic Regression",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nP-value:\n\\[\nP(|Z| &gt; |13.39|) \\approx 0\n\\]\n\n\n2 * pnorm(13.64,lower.tail = FALSE)\n\n[1] 2.315606e-42"
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\nP-value:\n\\[\nP(|Z| &gt; |13.39|) \\approx 0\n\\]\n\n\n2 * pnorm(13.64,lower.tail = FALSE)\n\n[1] 2.315606e-42"
   },
   {
     "objectID": "slides/12-logistic-multiple.html#coefficient-for-age-3",
     "href": "slides/12-logistic-multiple.html#coefficient-for-age-3",
     "title": "Multiple Logistic Regression",
     "section": "Coefficient for age",
-    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is will develop heart disease in the next year, after accounting for education."
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.385\n0.308\n-17.507\n0.000\n-5.995\n-4.788\n\n\nage\n0.073\n0.005\n13.385\n0.000\n0.063\n0.084\n\n\neducation2\n-0.242\n0.112\n-2.162\n0.031\n-0.463\n-0.024\n\n\neducation3\n-0.235\n0.134\n-1.761\n0.078\n-0.501\n0.023\n\n\neducation4\n-0.020\n0.148\n-0.136\n0.892\n-0.317\n0.266\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is will develop heart disease in the next year, after accounting for education."
   },
   {
     "objectID": "slides/12-logistic-multiple.html#comparing-nested-models-1",

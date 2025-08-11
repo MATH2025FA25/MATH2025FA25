@@ -1,6 +1,6 @@
 ---
-title: "MAT 212: Multiple Regression Analysis"
-subtitle: "Winter 2025 - Dr. Eric Friedlander"
+title: "MATH 2025: Multiple Regression Analysis"
+subtitle: "Fall 2025 - Dr. Eric Friedlander"
 navbar: false
 ---
 
@@ -16,7 +16,7 @@ We will cover approaches for analyzing multivariate data sets, emphasizing linea
 
 |             |                             |                     |
 |-------------|-----------------------------|---------------------|
-| **Lecture** | MTWRF 1:00 - 3:30pm | Cruzen-Murray Library (CML) 105            |
+| **Lecture** | MW 1:35 - 2:50pm | Cruzen-Murray Library (CML) 208            |
 
 ## Instructor
 
