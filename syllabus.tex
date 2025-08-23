@@ -1,0 +1,669 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Syllabus},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Syllabus}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\subsection{Course info}\label{course-info}
+
+\subsubsection{Class meetings}\label{class-meetings}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2131}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4426}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3443}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Lecture} & Mon \& Wed 1:35 - 2:50pm & Cruzen-Murray Library
+(CML) 208 \\
+\textbf{Office Hours} & Mon 3:30 - 4:30pm & Boone 126B \\
+\textbf{Office Hours} & Tue 10:20 - 11:20am & Boone 126B \\
+\textbf{Office Hours} & Thu 1:30 - 3:30pm & Boone 126B \\
+\end{longtable}
+
+Office hours are also available by appointment, just email me!
+
+\subsubsection{Instructor Information}\label{instructor-information}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Instructor}: Professor Eric Friedlander
+\item
+  \textbf{Office}: Boone 126B
+\item
+  \textbf{Email}:
+  \href{mailto:efriedlander@collegeofidaho.edu}{\nolinkurl{efriedlander@collegeofidaho.edu}}
+\end{itemize}
+
+\subsection{Course Learning
+Objectives}\label{course-learning-objectives}
+
+By the end of the semester, you will be able to\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  analyze real-world data to answer questions about multivariable
+  relationships.
+\item
+  use R to fit and evaluate linear and logistic regression models.
+\item
+  assess whether a proposed model is appropriate and describe its
+  limitations.
+\item
+  use Quarto to write reproducible reports.
+\item
+  effectively communicate statistical results through writing and oral
+  presentations.
+\end{itemize}
+
+\subsection{Course community}\label{course-community}
+
+\subsubsection{College of Idaho Honor
+Code}\label{college-of-idaho-honor-code}
+
+\begin{quote}
+The College of Idaho maintains that academic honesty and integrity are
+essential values in the educational process. Operating under an Honor
+Code philosophy, the College expects conduct rooted in honesty,
+integrity, and understanding, allowing members of a diverse student body
+to live together and interact and learn from one another in ways that
+protect both personal freedom and community standards. Violations of
+academic honesty are addressed primarily by the instructor and may be
+referred to the
+\href{https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct}{Student
+Judicial Board}.
+\end{quote}
+
+By participating in this course, you are agreeing that all your work and
+conduct will be in accordance with the College of Idaho Honor Code.
+
+\subsubsection{Disability Accommodation
+Statement}\label{disability-accommodation-statement}
+
+The College of Idaho seeks to provide an educational environment that is
+accessible to the needs of students with disabilities. The College
+provides reasonable services to enrolled students who have a documented
+permanent or temporary physical, psychological, learning, intellectual,
+or sensory disability that qualifies the student for accommodations
+under the Americans with Disabilities Act or section 504 of the
+Rehabilitation Act of 1973. If you have, or think you may have, a
+disability that impacts your performance as a student in this class, you
+are encouraged to arrange support services and/or accommodations through
+the Department of Accessibility and Learning Excellence located in
+McCain 201B and available via email at
+\href{mailto:accessibility@collegeofidaho.edu}{\nolinkurl{accessibility@collegeofidaho.edu}}.
+Reasonable academic accommodations may be provided to students who
+submit appropriate and current documentation of their disability.
+Accommodations can be arranged only through this process and are not
+retroactively applied. More information can be found on the DALE webpage
+(\url{https://www.collegeofidaho.edu/accessibility}).
+
+\subsubsection{Communication}\label{communication}
+
+All lecture notes, assignment instructions, an up-to-date schedule, and
+other course materials may be found on the course website,
+\href{https://math2025fa25.netlify.app}{math2025fa25.netlify.app}.
+
+Periodic announcements will be sent via email and will also be available
+through Canvas and grades will be stored in the Canvas gradebook. Please
+check your email regularly to ensure you have the latest announcements
+for the course.
+
+\subsubsection{In class agreements}\label{in-class-agreements}
+
+If we discuss/agree to something in class or office hours which requires
+action from me (e.g.~``you may turn in your homework late due to a
+sporting event''), you MUST send me a follow-up message. If you don't, I
+will almost certainly forget, and our agreement will be considered null
+and void.
+
+\subsubsection{Getting help in the
+course}\label{getting-help-in-the-course}
+
+\begin{itemize}
+\tightlist
+\item
+  If you have a question during lecture or lab, feel free to ask it!
+  There are likely other students with the same question, so by asking
+  you will create a learning opportunity for everyone.
+\item
+  I am here to help you be successful in the course. You are encouraged
+  to attend \emph{office hours} to ask questions about the course
+  content and assignments. Many questions are most effectively answered
+  as you discuss them with others, so office hours are a valuable
+  resource. You are encouraged to use them!
+\item
+  Outside of class and office hours, any general questions about course
+  content or assignments should be posted on the class discussion forum
+  on the
+  \href{https://teams.microsoft.com/l/channel/19\%3AvBRIeFRpxyUJfvl-0Ur9bQWxhR_Wzkpr6iM6V_OBVKA1\%40thread.tacv2/?groupId=ffcfc61b-032c-4fe3-883b-fe9fd969ea51}{Teams
+  Discussion Forum}. There is a chance another student has already asked
+  a similar question, so please check the other posts before adding a
+  new question. If you know the answer to a question posted in the
+  discussion forum, you are encouraged to respond!
+\end{itemize}
+
+\subsubsection{Email}\label{email}
+
+If you have questions about assignment extensions or accommodations,
+please email
+\href{mailto:efriedlander@collegeofidaho.edu}{\nolinkurl{efriedlander@collegeofidaho.edu}}.
+Please see \hyperref[late-work-policy]{Late work policy} for more
+information. \textbf{If you email me, please include ``MATH 2025'' in
+the subject line.} Barring extenuating circumstances, I will respond to
+MATH 2025 emails within 48 hours Monday - Friday. Response time may be
+slower for emails sent Friday evening - Sunday.
+
+Check out the \href{support.qmd}{Support} page for more resources.
+
+\subsection{Textbook}\label{textbook}
+
+The official textbook for this course is:
+
+\begin{itemize}
+\tightlist
+\item
+  Stat2: Modeling with Regression and ANOVA, 2nd ed.~by Cannon et al.
+\end{itemize}
+
+In addition, readings may be assigned from the following texts (all
+freely available online).
+
+\begin{itemize}
+\item
+  \href{https://r4ds.had.co.nz/}{R for Data Science} by Garret Grolemund
+  and Hadley Wickham
+\item
+  \href{https://openintro-ims.netlify.app/}{Introduction to Modern
+  Statistics} by Mine Çetinkaya-Rundel and Johanna Hardin
+\item
+  \href{https://www.tmwr.org/}{Tidy modeling with R} by Max Kuhn and
+  Julia Silge
+\item
+  \href{https://bookdown.org/roback/bookdown-BeyondMLR/}{Beyond Multiple
+  Linear Regression} by Paul Roback and Julie Legler
+\end{itemize}
+
+\subsection{Lectures}\label{lectures}
+
+Lectures are designed to be interactive, so you gain experience applying
+new concepts and learning from each other. My role as instructor is to
+introduce you to new methods, tools, and techniques, but it is up to you
+to take them and make use of them. A lot of what you do in this course
+will involve writing code, and coding is a skill that is best learned by
+doing. Therefore, as much as possible, you will be working on a variety
+of tasks and activities throughout each lecture and lab. You are
+expected to prepare for class by completing assigned readings, attend
+all lecture sessions, and meaningfully contribute to in-class exercises
+and discussion. Additionally, some lectures will feature application
+exercises that will be graded based on completing what we do in class.
+
+You are expected to bring a laptop, tablet, or Chromebook to each class
+so that you can participate in the in-class exercises. Please make sure
+your device is fully charged before you come to class, as the number of
+outlets in the classroom may not be sufficient to accommodate everyone.
+
+\subsection{Activities \& Assessment}\label{activities-assessment}
+
+You will be assessed based on four components: application exercises,
+homework, project, and oral exams.
+
+\subsubsection{Application Exercises}\label{application-exercises}
+
+Most lectures will have Application Exercises (AEs) that go along with
+them. These exercises will give you an opportunity to practice applying
+the statistical concepts and code introduced in the readings and
+lectures. Typically, students who are present will receive full credit
+on AEs and do not need to turn anything in. However, there will be times
+where you must complete an AE outside of class and submit it. Students
+who are late to class or miss class entirely must turn in a .qmd and
+.pdf file for their AE before the start of the next lecture.
+Specifically, AEs from Monday lectures are due Tuesday by 1:00pm MT.
+Students with an excused absence will be graded for completion, students
+without an excused absence will be graded for correctness.
+
+\subsubsection{Homework}\label{homework}
+
+In homework, you will apply what you've learned during lecture to
+complete data analysis tasks. You may discuss homework assignments with
+other students; however, homework should be completed and submitted
+individually. Similar to lab assignments, homework must be typed up
+using Quarto and submitted as .qmd and .pdf files in Canvas.
+
+\subsubsection{Oral Exams}\label{oral-exams}
+
+There will be two oral exams in this course. Each exam will include a
+closed-notes component and an applied component which uses R. Through
+these exams you have the opportunity to demonstrate what you've learned
+in the course thus far. The exams will focus on both conceptual
+understanding of the content and application through analysis and
+computational tasks. The content of the exam will be related to the
+content in reading assignments, lectures, application exercises, and
+homework assignments. More detail about the exams will be given during
+the semester. Please note the following course policies:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  You MUST receive at least an average of 60\% on your exams to pass the
+  class.
+\item
+  Students will an average lower than 70\% may retake one of their oral
+  exams but will be capped at 70\% for their exam grade.
+\item
+  \textbf{ANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN
+  CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAM.}
+\item
+  The R used on the exams will be basic. The purpose of including R is
+  to ensure you know the basic R functions we use regularly, R syntax,
+  and your R ``workflow''. Do you know the basic functions? If you run
+  into a (common) error, can you debug it yourself? Can you interpret
+  the R Help menu? Do you understand common terminology
+  (e.g.~``argument'', ``function'', ``output'')?
+\item
+  The specific questions asked during the Oral Exams will be different
+  for every student and for every attempt, although similar in style and
+  difficulty.
+\end{enumerate}
+
+\subsubsection{Project}\label{project}
+
+The purpose of the \href{./project/project-instructions.qmd}{final
+project} is to apply what you've learned throughout the semester to
+analyze an interesting data-driven research question. The project will
+be completed with your in pairs, and each team will present their work
+through a written report and poster presentation taking place during the
+last day of class. More information about the project will be provided
+during the semester.
+
+\subsection{Grading}\label{grading}
+
+The final course grade will be calculated as follows:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Category & Percentage \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Homework & 25\% \\
+Final Project & 25\% \\
+Exam 01 & 20\% \\
+Exam 02 & 20\% \\
+Application Exercises & 10\% \\
+\end{longtable}
+
+\emph{Note: You must receive at least a 60\% on your two exams to pass
+the course.}
+
+The final letter grade will be determined based on the following
+thresholds:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Letter Grade & Final Course Grade \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A & \textgreater= 93 \\
+A- & 90 - 92.99 \\
+B+ & 87 - 89.99 \\
+B & 83 - 86.99 \\
+B- & 80 - 82.99 \\
+C+ & 77 - 79.99 \\
+C & 73 - 76.99 \\
+C- & 70 - 72.99 \\
+D+ & 67 - 69.99 \\
+D & 63 - 66.99 \\
+D- & 60 - 62.99 \\
+F & \textless{} 60 \\
+\end{longtable}
+
+\subsection{Five tips for success}\label{five-tips-for-success}
+
+Your success in this course depends very much on you and the effort you
+put into it. The course has been organized so that the burden of
+learning is on you. I will help you by providing you with materials and
+answering questions and setting a pace, but for this to work you must do
+the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Complete all the preparation work before class.
+\item
+  Ask questions. As often as you can. In class, out of class. Ask me,
+  ask your friends, ask the person sitting next to you. This will help
+  you more than anything else. If you get a question wrong on an
+  assessment, ask why. If you're not sure about the homework, ask. If
+  you hear something on the news that sounds related to what we
+  discussed, ask. If the reading is confusing, ask.
+\item
+  Do the readings.
+\item
+  Do the homework. The earlier you start, the better. It's not enough to
+  just mechanically plow through the exercises. You should ask yourself
+  how these exercises relate to earlier material, and imagine how they
+  might be changed (to make questions for an exam, for example.)
+\item
+  Don't procrastinate. The content builds upon what was taught in
+  previous weeks, so if something is confusing to you on Day 2, Day 3
+  will become more confusing, Day 4 even worse, etc. Don't let the week
+  end with unanswered questions. But if you find yourself falling behind
+  and not knowing where to begin asking, come to office hours and I can
+  help you identify a good (re)starting point.
+\end{enumerate}
+
+\subsection{Course policies}\label{course-policies}
+
+\subsubsection{Academic honesty}\label{academic-honesty}
+
+\textbf{TL;DR: Don't cheat!}
+
+\begin{itemize}
+\item
+  The homework assignments must be completed individually but you are
+  welcome to discuss the assignment with classmates (e.g., discuss
+  what's the best way for approaching a problem, what functions are
+  useful for accomplishing a particular task, etc.). However you may not
+  directly share (i.e.~via copy/paste or copying) answers to homework
+  questions (including and especially any code) with anyone other than
+  myself.
+\item
+  For the projects, collaboration within teams is not only allowed, but
+  expected. Communication between teams at a high level is also allowed
+  however you may not share code or components of the project across
+  teams.
+\item
+  \textbf{Reusing code}: Unless explicitly stated otherwise, you may
+  make use of online resources (e.g.~StackOverflow) for coding examples
+  on assignments. If you directly use code from an outside source (or
+  use it as inspiration), you must explicitly cite where you obtained
+  the code. Any recycled code that is discovered and is not explicitly
+  cited will be treated as plagiarism. Furthermore, \textbf{ANY UNCITED
+  CODE OR CONTENT ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS
+  ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAMS.}
+\item
+  \textbf{Use of artificial intelligence (AI)}: You should treat AI
+  tools, such as ChatGPT, the same as other online resources. There are
+  two guiding principles that govern how you can use AI in this
+  course:\footnote{These guiding principles are based on
+    \href{https://docs.google.com/document/d/1WpCeTyiWCPQ9MNCsFeKMDQLSTsg1oKfNIH6MzoSFXqQ/preview}{\emph{Course
+    Policies related to ChatGPT and other AI Tools}} developed by Joel
+    Gladd,
+    Ph.D.\href{https://sta101-f23.github.io/course-syllabus.html\#fnref1}{↩︎}}
+  (1) \emph{Cognitive dimension:} Working with AI should not reduce your
+  ability to think clearly. We will practice using AI to
+  facilitate---rather than hinder---learning. (2) \emph{Ethical
+  dimension}\textbf{:} Students using AI should be transparent about
+  their use and make sure it aligns with academic integrity.
+
+  \begin{itemize}
+  \item
+    \textbf{AI tools for code:} You may make use of the technology for
+    coding examples on assignments; if you do so, you must explicitly
+    cite where you obtained the code. Any recycled code that is
+    discovered and is not explicitly cited will be treated as
+    plagiarism. You may use
+    \href{https://guides.lib.monash.edu/c.php?g=219786&p=6972087}{these
+    guidelines} for citing AI-generated content.
+  \item
+    \textbf{No AI tools for narrative:} Unless instructed otherwise, AI
+    is \ul{\textbf{not}} permitted for writing narrative on assignments.
+    In general, you may use AI as a resource as you complete assignments
+    but not to answer the exercises for you. You are ultimately
+    responsible for the work you turn in; it should reflect your
+    understanding of the course content.
+  \end{itemize}
+\end{itemize}
+
+If you are unsure if the use of a particular resource complies with the
+academic honesty policy, please ask.
+
+Regardless of course delivery format, it is the responsibility of all
+students to understand and follow all College of Idaho policies,
+including academic integrity (e.g., completing one's own work, following
+proper citation of sources, adhering to guidance around group work
+projects, and more). Ignoring these requirements is a violation of the
+Honor Code.
+
+\subsubsection{Late work policy}\label{late-work-policy}
+
+The due dates for assignments are there to help you keep up with the
+course material and to ensure the teaching team can provide feedback
+within a timely manner. I understand that things come up periodically
+that could make it difficult to submit an assignment by the deadline.
+
+\begin{itemize}
+\item
+  \textbf{Late Homework:} There will be a 5\% deduction for each 24-hour
+  period the assignment is late for the first two days. After 2 days,
+  students will receive a 30\% reduction. No homework will be accepted
+  after it is returned to the class
+\item
+  \textbf{Late Application Exercises:} AEs are due the day after the
+  class they are assigned. No late work is accepted for application
+  exercises, since these are designed as in-class activities to help you
+  prepare for homework.
+\item
+  \textbf{School-Sponsored Events/Illness:} If an application exercise,
+  exam, or project must be missed due to a school-sponsored event, you
+  must let me know at least a week ahead of time so that we can schedule
+  a time for you to make up the work before you leave. If you must miss
+  a exam or a project presentation due to illness, you must let me know
+  before class that day so that we can schedule a time for you to take a
+  make-up quiz or exam. Failure to adhere to this policy will result in
+  a 35\% penalty on the corresponding assignment.
+\end{itemize}
+
+\subsubsection{Regrade Requests}\label{regrade-requests}
+
+Regrade requests must be submitted via email within a week of when an
+assignment is returned. Regrade requests will be considered if there was
+an error in the grade calculation or if you feel a correct answer was
+mistakenly marked as incorrect. Requests to dispute the number of points
+deducted for an incorrect response will not be considered. Note that by
+submitting a regrade request, the entire question will be graded which
+could potentially result in losing points.
+
+\emph{No grades will be changed after the final project presentations.}
+
+\subsection{Important dates}\label{important-dates}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Aug 27:} Classes begin
+\item
+  \textbf{Sep 1:} Labor Day - NO CLASS
+\item
+  \textbf{Sep 10:} Last day to drop
+\item
+  \textbf{Nov 20:} Last day to withdraw with W or elect Pass/Fail
+\item
+  \textbf{Nov 24-28:} Thanksgiving Holiday - NO CLASSES
+\item
+  \textbf{Dec 4:} Last Day of Classes
+\end{itemize}
+
+
+
+
+\end{document}

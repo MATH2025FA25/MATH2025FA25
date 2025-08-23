@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://math2025fa25.netlify.app/syllabus.html</loc>
-    <lastmod>2025-08-11T21:10:22.172Z</lastmod>
+    <lastmod>2025-08-23T23:39:08.760Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/13-multicollinearity.html</loc>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/01-welcome.html</loc>
-    <lastmod>2025-08-22T01:20:08.583Z</lastmod>
+    <lastmod>2025-08-23T21:59:26.083Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/project/project-tips.html</loc>
@@ -263,5 +263,9 @@
   <url>
     <loc>https://math2025fa25.netlify.app/support.html</loc>
     <lastmod>2025-08-11T21:10:22.172Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math2025fa25.netlify.app/STATUS.html</loc>
+    <lastmod>2025-08-11T21:57:23.964Z</lastmod>
   </url>
 </urlset>

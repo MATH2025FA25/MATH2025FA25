@@ -5,16 +5,20 @@ format:
   pdf: default
 ---
 
-## Course info
+## Course Information
+
+- **Course Name**: Multiple Regression Analysis
+- **Course Code**: MATH-2025
 
 ### Class meetings
 
 |             |                           |                     |
 |-------------|---------------------------|---------------------|
-| **Lecture** | Mon-Fri 1:00 - 3:30pm | Cruzen-Murray Library (CML) 105      |
-| **Office Hours** | Mon-Fri 11:00am-12:00pm | Boone 126B     |
+| **Lecture** | Mon & Wed 1:35 - 2:50pm   | Cruzen-Murray Library (CML) 208 |
+| **Office Hours** | Mon 3:30 - 4:30pm <br> Tue 10:20 - 11:20am <br>  Thu 1:30 - 3:30pm  | Boone 126B  |
 
 Office hours are also available by appointment, just email me!
+
 
 
 ### Instructor Information
@@ -22,6 +26,13 @@ Office hours are also available by appointment, just email me!
 -   **Instructor**: Professor Eric Friedlander
 -   **Office**: Boone 126B
 -   **Email**: <efriedlander@collegeofidaho.edu>
+
+### Catalog Description
+An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-2025 rather than MAT-1025.
+
+### Pre-requisites
+
+MATH-2025, grade of C- or better; or CSCI-1040, grade of C- or better; or qualifying placement score.
 
 ## Course Learning Objectives
 
@@ -35,20 +46,10 @@ By the end of the semester, you will be able to...
 
 ## Course community
 
-### College of Idaho Honor Code
-
-> The College of Idaho maintains that academic honesty and integrity are essential values in the educational process. Operating under an Honor Code philosophy, the College expects conduct rooted in honesty, integrity, and understanding, allowing members of a diverse student body to live together and interact and learn from one another in ways that protect both personal freedom and community standards. Violations of academic honesty are addressed primarily by the instructor and may be referred to the [Student Judicial Board](https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct).
-
-By participating in this course, you are agreeing that all your work and conduct will be in accordance with the College of Idaho Honor Code.
-
-### Disability Accommodation Statement
-
-The College of Idaho seeks to provide an educational environment that is accessible to the needs of students with disabilities. The College provides reasonable services to enrolled students who have a documented permanent or temporary physical, psychological, learning, intellectual, or sensory disability that qualifies the student for accommodations under the Americans with Disabilities Act or section 504 of the Rehabilitation Act of 1973. If you have, or think you may have, a disability that impacts your performance as a student in this class, you are encouraged to arrange support services and/or accommodations through the Department of Accessibility and Learning Excellence located in McCain 201B and available via email at <accessibility@collegeofidaho.edu>. Reasonable academic accommodations may be provided to students who submit appropriate and current documentation of their disability. Accommodations can be arranged only through this process and are not retroactively applied. More information can be found on the DALE webpage (<https://www.collegeofidaho.edu/accessibility>).
-
 
 ### Communication
 
-All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, [mat212wi25.netlify.app](https://mat212wi25.netlify.app).
+All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, [math2025fa25.netlify.app](https://math2025fa25.netlify.app).
 
 Periodic announcements will be sent via email and will also be available through Canvas and grades will be stored in the Canvas gradebook. Please check your email regularly to ensure you have the latest announcements for the course.
 
@@ -60,21 +61,16 @@ If we discuss/agree to something in class or office hours which requires action 
 
 -   If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.
 -   I am here to help you be successful in the course. You are encouraged to attend *office hours* to ask questions about the course content and assignments. Many questions are most effectively answered as you discuss them with others, so office hours are a valuable resource. You are encouraged to use them!
--   Outside of class and office hours, any general questions about course content or assignments should be posted on the class discussion forum on the [Teams Discussion Forum](https://teams.microsoft.com/l/channel/19%3AvBRIeFRpxyUJfvl-0Ur9bQWxhR_Wzkpr6iM6V_OBVKA1%40thread.tacv2/?groupId=ffcfc61b-032c-4fe3-883b-fe9fd969ea51). There is a chance another student has already asked a similar question, so please check the other posts before adding a new question. If you know the answer to a question posted in the discussion forum, you are encouraged to respond!
 
 ### Email
 
-If you have questions about assignment extensions or accommodations, please email <efriedlander@collegeofidaho.edu>. Please see [Late work policy] for more information. **If you email me, please include "MAT 212" in the subject line.** Barring extenuating circumstances, I will respond to MAT 212 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.
+If you have questions about assignment extensions or accommodations, please email <efriedlander@collegeofidaho.edu>. Please see [Late work policy] for more information. Barring extenuating circumstances, I will respond to MATH 2025 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.
 
 Check out the [Support](support.qmd) page for more resources.
 
 ## Textbook
 
-The official textbook for this course is:
-
--   Stat2: Modeling with Regression and ANOVA, 2nd ed. by Cannon et al.
-
-In addition, readings may be assigned from the following texts (all freely available online).
+There is no official textbook for this course. However, readings may be assigned from the following texts (all freely available online).
 
 -   [R for Data Science](https://r4ds.had.co.nz/) by Garret Grolemund and Hadley Wickham
 
@@ -83,6 +79,8 @@ In addition, readings may be assigned from the following texts (all freely avail
 -   [Tidy modeling with R](https://www.tmwr.org/) by Max Kuhn and Julia Silge
 
 -   [Beyond Multiple Linear Regression](https://bookdown.org/roback/bookdown-BeyondMLR/) by Paul Roback and Julie Legler
+
+-   [Introduction to Regression Analysis: A Data Science Approach](https://introregression.netlify.app/) by Maria Tackett
 
 ## Lectures
 
@@ -96,26 +94,19 @@ You will be assessed based on four components: application exercises, homework, 
 
 ### Application Exercises
 
-Most lectures will have Application Exercises (AEs) that go along with them. These exercises will give you an opportunity to practice applying the statistical concepts and code introduced in the readings and lectures. Typically, students who are present will receive full credit on AEs and do not need to turn anything in. However, there will be times where you must complete an AE outside of class and submit it. Students who are late to class or miss class entirely must turn in a .qmd and .pdf file for their AE before the start of the next lecture. Specifically, AEs from Monday lectures are due Tuesday by 1:00pm MT. Students with an excused absence will be graded for completion, students without an excused absence will be graded for correctness.
+Most lectures will have Application Exercises (AEs) that go along with them. These exercises will give you an opportunity to practice applying the statistical concepts and code introduced in the readings and lectures. Typically, students who are present will receive full credit on AEs and do not need to turn anything in. However, there will be times where you must complete an AE outside of class and submit it. Students who are late to class or miss class entirely must turn in a .qmd and .pdf file for their AE before the start of the next lecture. Students with an excused absence will be graded for completion, students without an excused absence will be graded for correctness.
 
 ### Homework
 
 In homework, you will apply what you've learned during lecture to complete data analysis tasks. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. Similar to lab assignments, homework must be typed up using Quarto and submitted as .qmd and .pdf files in Canvas.
 
-### Oral Exams
+### Exams
 
-There will be two oral exams in this course. Each exam will include a closed-notes component and an applied component which uses R. Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. The exams will focus on both conceptual understanding of the content and application through analysis and computational tasks. The content of the exam will be related to the content in reading assignments, lectures, application exercises, and homework assignments. More detail about the exams will be given during the semester. Please note the following course policies:
-
-1. You MUST receive at least an average of 60% on your exams to pass the class.
-2. Students will an average lower than 70% may retake one of their oral exams but will be capped at 70% for their exam grade.
-3. **ANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAM.**
-4. The R used on the exams will be basic. The purpose of including R is to ensure you know the basic R functions we use regularly, R syntax, and your R "workflow". Do you know the basic functions? If you run into a (common) error, can you debug it yourself? Can you interpret the R Help menu? Do you understand common terminology (e.g. "argument", "function", "output")?
-5. The specific questions asked during the Oral Exams will be different for every student and for every attempt, although similar in style and difficulty.
-
+There will be two in-class exams in this course. Each exam will be completed without a computer and will be closed notes. Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. The exams will focus on conceptual understanding of the content. The content of the exam will be related to the content in reading assignments, lectures, application exercises, and homework assignments. More detail about the exams will be given during the semester. Please note the following course policy: You MUST receive at least an average of 60% on your exams to pass the class.
 
 ### Project
 
-The purpose of the [final project](/project/project-instructions.qmd) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question. The project will be completed with your in pairs, and each team will present their work through a written report and poster presentation taking place during the last day of class. More information about the project will be provided during the semester.
+The purpose of the [final project](/project/project-instructions.qmd) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question. The project will be completed in groups of two, and each group will present their work through a written report and poster presentation taking place during the final exam. More information about the project will be provided during the semester.
 
 ## Grading
 
@@ -182,17 +173,34 @@ Your success in this course depends very much on you and the effort you put into
 
 -   For the projects, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components of the project across teams.
 
--   **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. Furthermore, **ANY UNCITED CODE OR CONTENT ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAMS.**
+-   **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. Furthermore, **you are responsible for understanding the code you submit**.
 
--   **Use of artificial intelligence (AI)**: You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:[^1] (1) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning. (2) *Ethical dimension***:** Students using AI should be transparent about their use and make sure it aligns with academic integrity.
+-   **Coding conventions**: Unless explicitly stated otherwise, you are expected to complete all assignments using only function and packages introduced in class. If you would like to use a different set of tools, you must email Dr. Friedlander for permission. Any code that deviates from the conventions of the course will receive zero credit.
 
-    -   **AI tools for code:** You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use [these guidelines](https://guides.lib.monash.edu/c.php?g=219786&p=6972087) for citing AI-generated content.
+-   **Use of artificial intelligence (AI)**: I will be honest, AI can correctly complete many, of the problems that I assign you in class, and frankly, I believe that using LLMs to generate code will be an important skill for the workplace. However, I also believe that we are a long way away from a world in which you will be using AI to write a lot of code that you could not generate and understand yourself. Here are a few questions to consider:
 
-    -   **No AI tools for narrative:** Unless instructed otherwise, AI is [**not**]{.underline} permitted for writing narrative on assignments. In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.
+1. Can you achieve **Task X** *faster* with an LLM, compared to your peers? If you take an hour to do **Task X**, but your peers take a few minutes to do **Task X**, why should someone slower be hired?
+2. Can you achieve **Task X** *correctly* with an LLM, compared to your peers? If **Task X** is done incorrectly with an LLM, but your peers do **Task X** correctly with an LLM, why should someone who gives wrong answers be hired? Moreover, if you *can't evaluate* whether an answer that an LLM gives is correct, why should you be hired?
+3. Can you achieve **Task X** using less energy output with an LLM, compared to your peers? If you use 10 million tokens to do **Task X**, but your peers only need 1 million tokens to do **Task X** with an LLM, why should someone wasting energy and money be hired?
+4. Can you accurately describe how you used LLMs to achieve **Task X**, so someone else knows what to check (in case an LLM screws up)? If you cannot describe how you used an LLM, or if you claim you did not use one when you did, why would someone unreliable be hired?
+
+This is a 2000-level class, meaning we are still providing you with the foundational knowledge necessary to succeed in more advanced courses. I will frequently be asking you to complete exercises without the use of AI, even though AI can complete them. The reason is that the skills and knowledge you gain from this course will (a) be built on in future courses and (b) be instrumental to items 1–4 above. Understanding how to write and structure code is instrumental to effectively prompting AI to do the things you want it to do, more accurately, more quickly, and with less effort. [Here is a short video](https://www.youtube.com/watch?v=A_YE9dC7YdE) that I think provides an interesting take from someone who isn't one of your professors.
+
+:::{.callout-important}
+Discuss and agree as a class.
+:::
+
+<!-- For this reason, you should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:[^1] (1) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning. (2) *Ethical dimension*: Students using AI should be transparent about their use and make sure it aligns with academic integrity.
+
+  -   **AI tools for code:** You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use [these guidelines](https://guides.lib.monash.edu/c.php?g=219786&p=6972087) for citing AI-generated content.
+
+  -   **No AI tools for narrative:** Unless instructed otherwise, AI is [**not**]{.underline} permitted for writing narrative on assignments. In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.
 
 [^1]: These guiding principles are based on [*Course Policies related to ChatGPT and other AI Tools*](https://docs.google.com/document/d/1WpCeTyiWCPQ9MNCsFeKMDQLSTsg1oKfNIH6MzoSFXqQ/preview) developed by Joel Gladd, Ph.D.[↩︎](https://sta101-f23.github.io/course-syllabus.html#fnref1)
 
-If you are unsure if the use of a particular resource complies with the academic honesty policy, please ask.
+Note, for any of these models having the correct "prompt" is necessary. So you may have varying levels of success using these models to gain conceptual understanding, and in many cases just talking to your instructors/course assistant/peers or even doing straight up googling is likely to yield better results. If you do decide to use these models, it is your responsibility to also fact check the insights that you gain and explicitly describe how you used AI and provide a link to your chat history. You are always invited to meet with me for clarification on my policy surrounding the use of AI. *If any uncited AI use is suspected, Dr. Friedlander reserves the right to invite you to a meeting in which you are asked to explain your answer. If you are unable to do so, you will receive a zero for the assignment, regardless of whether you used AI or not.*
+
+If you are unsure if the use of a particular resource complies with the academic honesty policy, please ask. -->
 
 Regardless of course delivery format, it is the responsibility of all students to understand and follow all College of Idaho policies, including academic integrity (e.g., completing one's own work, following proper citation of sources, adhering to guidance around group work projects, and more). Ignoring these requirements is a violation of the Honor Code.
 
@@ -214,9 +222,21 @@ Regrade requests must be submitted via email within a week of when an assignment
 
 ## Important dates
 
--   **Jan 3:** Classes begin
--   **Jan 7:** Last day to drop
--   **Jan 17**: Last day to withdraw with W or elect Pass/Fail
--   **Jan 20:** Martin Luther King Day - NO CLASSES
--   **Jan 24**: Classes end
+-   **Aug 27:** Classes begin
+-   **Sep 1:** Labor Day - NO CLASS
+-   **Sep 10:** Last day to drop
+-   **Nov 20:** Last day to withdraw with W or elect Pass/Fail
+-   **Nov 24-28:** Thanksgiving Holiday - NO CLASSES
+-   **Dec 4:**  Last Day of Classes
+
+
+### College of Idaho Honor Code
+
+> The College of Idaho maintains that academic honesty and integrity are essential values in the educational process. Operating under an Honor Code philosophy, the College expects conduct rooted in honesty, integrity, and understanding, allowing members of a diverse student body to live together and interact and learn from one another in ways that protect both personal freedom and community standards. Violations of academic honesty are addressed primarily by the instructor and may be referred to the [Student Judicial Board](https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct).
+
+By participating in this course, you are agreeing that all your work and conduct will be in accordance with the College of Idaho Honor Code.
+
+### Disability Accommodation Statement
+
+The College of Idaho seeks to provide an educational environment that is accessible to the needs of students with disabilities. The College provides reasonable services to enrolled students who have a documented permanent or temporary physical, psychological, learning, intellectual, or sensory disability that qualifies the student for accommodations under the Americans with Disabilities Act or section 504 of the Rehabilitation Act of 1973. If you have, or think you may have, a disability that impacts your performance as a student in this class, you are encouraged to arrange support services and/or accommodations through the Department of Accessibility and Learning Excellence located in McCain 201B and available via email at <accessibility@collegeofidaho.edu>. Reasonable academic accommodations may be provided to students who submit appropriate and current documentation of their disability. Accommodations can be arranged only through this process and are not retroactively applied. More information can be found on the DALE webpage (<https://www.collegeofidaho.edu/accessibility>).
 
