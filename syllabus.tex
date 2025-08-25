@@ -92,12 +92,6 @@
 \def\fps@figure{htbp}
 \makeatother
 
-\ifLuaTeX
-  \usepackage{luacolor}
-  \usepackage[soul]{lua-ul}
-\else
-  \usepackage{soul}
-\fi
 
 
 
@@ -113,6 +107,22 @@
 
 
 \KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -174,7 +184,15 @@
 \maketitle
 
 
-\subsection{Course info}\label{course-info}
+\subsection{Course Information}\label{course-information}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Course Name}: Multiple Regression Analysis
+\item
+  \textbf{Course Code}: MATH-2025
+\end{itemize}
 
 \subsubsection{Class meetings}\label{class-meetings}
 
@@ -188,9 +206,8 @@
 \endlastfoot
 \textbf{Lecture} & Mon \& Wed 1:35 - 2:50pm & Cruzen-Murray Library
 (CML) 208 \\
-\textbf{Office Hours} & Mon 3:30 - 4:30pm & Boone 126B \\
-\textbf{Office Hours} & Tue 10:20 - 11:20am & Boone 126B \\
-\textbf{Office Hours} & Thu 1:30 - 3:30pm & Boone 126B \\
+\textbf{Office Hours} & Mon 3:30 - 4:30pm Tue 10:20 - 11:20am Thu 1:30 -
+3:30pm & Boone 126B \\
 \end{longtable}
 
 Office hours are also available by appointment, just email me!
@@ -207,6 +224,20 @@ Office hours are also available by appointment, just email me!
   \textbf{Email}:
   \href{mailto:efriedlander@collegeofidaho.edu}{\nolinkurl{efriedlander@collegeofidaho.edu}}
 \end{itemize}
+
+\subsubsection{Catalog Description}\label{catalog-description}
+
+An introduction to statistical modeling and methods. Topics may include
+model construction and analysis using multiple linear regression,
+analysis of variance, and logistic regression. The course makes
+substantial use of statistical software. Students who have taken more
+than one calculus course should generally take MAT-2025 rather than
+MAT-1025.
+
+\subsubsection{Pre-requisites}\label{pre-requisites}
+
+MATH-2025, grade of C- or better; or CSCI-1040, grade of C- or better;
+or qualifying placement score.
 
 \subsection{Course Learning
 Objectives}\label{course-learning-objectives}
@@ -231,46 +262,6 @@ By the end of the semester, you will be able to\ldots{}
 \end{itemize}
 
 \subsection{Course community}\label{course-community}
-
-\subsubsection{College of Idaho Honor
-Code}\label{college-of-idaho-honor-code}
-
-\begin{quote}
-The College of Idaho maintains that academic honesty and integrity are
-essential values in the educational process. Operating under an Honor
-Code philosophy, the College expects conduct rooted in honesty,
-integrity, and understanding, allowing members of a diverse student body
-to live together and interact and learn from one another in ways that
-protect both personal freedom and community standards. Violations of
-academic honesty are addressed primarily by the instructor and may be
-referred to the
-\href{https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct}{Student
-Judicial Board}.
-\end{quote}
-
-By participating in this course, you are agreeing that all your work and
-conduct will be in accordance with the College of Idaho Honor Code.
-
-\subsubsection{Disability Accommodation
-Statement}\label{disability-accommodation-statement}
-
-The College of Idaho seeks to provide an educational environment that is
-accessible to the needs of students with disabilities. The College
-provides reasonable services to enrolled students who have a documented
-permanent or temporary physical, psychological, learning, intellectual,
-or sensory disability that qualifies the student for accommodations
-under the Americans with Disabilities Act or section 504 of the
-Rehabilitation Act of 1973. If you have, or think you may have, a
-disability that impacts your performance as a student in this class, you
-are encouraged to arrange support services and/or accommodations through
-the Department of Accessibility and Learning Excellence located in
-McCain 201B and available via email at
-\href{mailto:accessibility@collegeofidaho.edu}{\nolinkurl{accessibility@collegeofidaho.edu}}.
-Reasonable academic accommodations may be provided to students who
-submit appropriate and current documentation of their disability.
-Accommodations can be arranged only through this process and are not
-retroactively applied. More information can be found on the DALE webpage
-(\url{https://www.collegeofidaho.edu/accessibility}).
 
 \subsubsection{Communication}\label{communication}
 
@@ -306,15 +297,6 @@ course}\label{getting-help-in-the-course}
   content and assignments. Many questions are most effectively answered
   as you discuss them with others, so office hours are a valuable
   resource. You are encouraged to use them!
-\item
-  Outside of class and office hours, any general questions about course
-  content or assignments should be posted on the class discussion forum
-  on the
-  \href{https://teams.microsoft.com/l/channel/19\%3AvBRIeFRpxyUJfvl-0Ur9bQWxhR_Wzkpr6iM6V_OBVKA1\%40thread.tacv2/?groupId=ffcfc61b-032c-4fe3-883b-fe9fd969ea51}{Teams
-  Discussion Forum}. There is a chance another student has already asked
-  a similar question, so please check the other posts before adding a
-  new question. If you know the answer to a question posted in the
-  discussion forum, you are encouraged to respond!
 \end{itemize}
 
 \subsubsection{Email}\label{email}
@@ -323,25 +305,16 @@ If you have questions about assignment extensions or accommodations,
 please email
 \href{mailto:efriedlander@collegeofidaho.edu}{\nolinkurl{efriedlander@collegeofidaho.edu}}.
 Please see \hyperref[late-work-policy]{Late work policy} for more
-information. \textbf{If you email me, please include ``MATH 2025'' in
-the subject line.} Barring extenuating circumstances, I will respond to
-MATH 2025 emails within 48 hours Monday - Friday. Response time may be
-slower for emails sent Friday evening - Sunday.
+information. Barring extenuating circumstances, I will respond to MATH
+2025 emails within 48 hours Monday - Friday. Response time may be slower
+for emails sent Friday evening - Sunday.
 
 Check out the \href{support.qmd}{Support} page for more resources.
 
 \subsection{Textbook}\label{textbook}
 
-The official textbook for this course is:
-
-\begin{itemize}
-\tightlist
-\item
-  Stat2: Modeling with Regression and ANOVA, 2nd ed.~by Cannon et al.
-\end{itemize}
-
-In addition, readings may be assigned from the following texts (all
-freely available online).
+There is no official textbook for this course. However, readings may be
+assigned from the following texts (all freely available online).
 
 \begin{itemize}
 \item
@@ -356,6 +329,9 @@ freely available online).
 \item
   \href{https://bookdown.org/roback/bookdown-BeyondMLR/}{Beyond Multiple
   Linear Regression} by Paul Roback and Julie Legler
+\item
+  \href{https://introregression.netlify.app/}{Introduction to Regression
+  Analysis: A Data Science Approach} by Maria Tackett
 \end{itemize}
 
 \subsection{Lectures}\label{lectures}
@@ -391,10 +367,9 @@ lectures. Typically, students who are present will receive full credit
 on AEs and do not need to turn anything in. However, there will be times
 where you must complete an AE outside of class and submit it. Students
 who are late to class or miss class entirely must turn in a .qmd and
-.pdf file for their AE before the start of the next lecture.
-Specifically, AEs from Monday lectures are due Tuesday by 1:00pm MT.
-Students with an excused absence will be graded for completion, students
-without an excused absence will be graded for correctness.
+.pdf file for their AE before the start of the next lecture. Students
+with an excused absence will be graded for completion, students without
+an excused absence will be graded for correctness.
 
 \subsubsection{Homework}\label{homework}
 
@@ -404,52 +379,27 @@ other students; however, homework should be completed and submitted
 individually. Similar to lab assignments, homework must be typed up
 using Quarto and submitted as .qmd and .pdf files in Canvas.
 
-\subsubsection{Oral Exams}\label{oral-exams}
+\subsubsection{Exams}\label{exams}
 
-There will be two oral exams in this course. Each exam will include a
-closed-notes component and an applied component which uses R. Through
-these exams you have the opportunity to demonstrate what you've learned
-in the course thus far. The exams will focus on both conceptual
-understanding of the content and application through analysis and
-computational tasks. The content of the exam will be related to the
-content in reading assignments, lectures, application exercises, and
-homework assignments. More detail about the exams will be given during
-the semester. Please note the following course policies:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  You MUST receive at least an average of 60\% on your exams to pass the
-  class.
-\item
-  Students will an average lower than 70\% may retake one of their oral
-  exams but will be capped at 70\% for their exam grade.
-\item
-  \textbf{ANY UNCITED CODE ON YOUR HOMEWORK WHICH IS NOT COVERED IN
-  CLASS IS ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAM.}
-\item
-  The R used on the exams will be basic. The purpose of including R is
-  to ensure you know the basic R functions we use regularly, R syntax,
-  and your R ``workflow''. Do you know the basic functions? If you run
-  into a (common) error, can you debug it yourself? Can you interpret
-  the R Help menu? Do you understand common terminology
-  (e.g.~``argument'', ``function'', ``output'')?
-\item
-  The specific questions asked during the Oral Exams will be different
-  for every student and for every attempt, although similar in style and
-  difficulty.
-\end{enumerate}
+There will be two in-class exams in this course. Each exam will be
+completed without a computer and will be closed notes. Through these
+exams you have the opportunity to demonstrate what you've learned in the
+course thus far. The exams will focus on conceptual understanding of the
+content. The content of the exam will be related to the content in
+reading assignments, lectures, application exercises, and homework
+assignments. More detail about the exams will be given during the
+semester. Please note the following course policy: You MUST receive at
+least an average of 60\% on your exams to pass the class.
 
 \subsubsection{Project}\label{project}
 
 The purpose of the \href{./project/project-instructions.qmd}{final
 project} is to apply what you've learned throughout the semester to
 analyze an interesting data-driven research question. The project will
-be completed with your in pairs, and each team will present their work
+be completed in groups of two, and each group will present their work
 through a written report and poster presentation taking place during the
-last day of class. More information about the project will be provided
-during the semester.
+final exam. More information about the project will be provided during
+the semester.
 
 \subsection{Grading}\label{grading}
 
@@ -557,45 +507,70 @@ the following:
   on assignments. If you directly use code from an outside source (or
   use it as inspiration), you must explicitly cite where you obtained
   the code. Any recycled code that is discovered and is not explicitly
-  cited will be treated as plagiarism. Furthermore, \textbf{ANY UNCITED
-  CODE OR CONTENT ON YOUR HOMEWORK WHICH IS NOT COVERED IN CLASS IS
-  ELIGIBLE FOR INCLUSION IN YOUR ORAL EXAMS.}
+  cited will be treated as plagiarism. Furthermore, \textbf{you are
+  responsible for understanding the code you submit}.
 \item
-  \textbf{Use of artificial intelligence (AI)}: You should treat AI
-  tools, such as ChatGPT, the same as other online resources. There are
-  two guiding principles that govern how you can use AI in this
-  course:\footnote{These guiding principles are based on
-    \href{https://docs.google.com/document/d/1WpCeTyiWCPQ9MNCsFeKMDQLSTsg1oKfNIH6MzoSFXqQ/preview}{\emph{Course
-    Policies related to ChatGPT and other AI Tools}} developed by Joel
-    Gladd,
-    Ph.D.\href{https://sta101-f23.github.io/course-syllabus.html\#fnref1}{↩︎}}
-  (1) \emph{Cognitive dimension:} Working with AI should not reduce your
-  ability to think clearly. We will practice using AI to
-  facilitate---rather than hinder---learning. (2) \emph{Ethical
-  dimension}\textbf{:} Students using AI should be transparent about
-  their use and make sure it aligns with academic integrity.
-
-  \begin{itemize}
-  \item
-    \textbf{AI tools for code:} You may make use of the technology for
-    coding examples on assignments; if you do so, you must explicitly
-    cite where you obtained the code. Any recycled code that is
-    discovered and is not explicitly cited will be treated as
-    plagiarism. You may use
-    \href{https://guides.lib.monash.edu/c.php?g=219786&p=6972087}{these
-    guidelines} for citing AI-generated content.
-  \item
-    \textbf{No AI tools for narrative:} Unless instructed otherwise, AI
-    is \ul{\textbf{not}} permitted for writing narrative on assignments.
-    In general, you may use AI as a resource as you complete assignments
-    but not to answer the exercises for you. You are ultimately
-    responsible for the work you turn in; it should reflect your
-    understanding of the course content.
-  \end{itemize}
+  \textbf{Coding conventions}: Unless explicitly stated otherwise, you
+  are expected to complete all assignments using only function and
+  packages introduced in class. If you would like to use a different set
+  of tools, you must email Dr.~Friedlander for permission. Any code that
+  deviates from the conventions of the course will receive zero credit.
+\item
+  \textbf{Use of artificial intelligence (AI)}: I will be honest, AI can
+  correctly complete many, of the problems that I assign you in class,
+  and frankly, I believe that using LLMs to generate code will be an
+  important skill for the workplace. However, I also believe that we are
+  a long way away from a world in which you will be using AI to write a
+  lot of code that you could not generate and understand yourself. Here
+  are a few questions to consider:
 \end{itemize}
 
-If you are unsure if the use of a particular resource complies with the
-academic honesty policy, please ask.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Can you achieve \textbf{Task X} \emph{faster} with an LLM, compared to
+  your peers? If you take an hour to do \textbf{Task X}, but your peers
+  take a few minutes to do \textbf{Task X}, why should someone slower be
+  hired?
+\item
+  Can you achieve \textbf{Task X} \emph{correctly} with an LLM, compared
+  to your peers? If \textbf{Task X} is done incorrectly with an LLM, but
+  your peers do \textbf{Task X} correctly with an LLM, why should
+  someone who gives wrong answers be hired? Moreover, if you \emph{can't
+  evaluate} whether an answer that an LLM gives is correct, why should
+  you be hired?
+\item
+  Can you achieve \textbf{Task X} using less energy output with an LLM,
+  compared to your peers? If you use 10 million tokens to do
+  \textbf{Task X}, but your peers only need 1 million tokens to do
+  \textbf{Task X} with an LLM, why should someone wasting energy and
+  money be hired?
+\item
+  Can you accurately describe how you used LLMs to achieve \textbf{Task
+  X}, so someone else knows what to check (in case an LLM screws up)? If
+  you cannot describe how you used an LLM, or if you claim you did not
+  use one when you did, why would someone unreliable be hired?
+\end{enumerate}
+
+This is a 2000-level class, meaning we are still providing you with the
+foundational knowledge necessary to succeed in more advanced courses. I
+will frequently be asking you to complete exercises without the use of
+AI, even though AI can complete them. The reason is that the skills and
+knowledge you gain from this course will (a) be built on in future
+courses and (b) be instrumental to items 1--4 above. Understanding how
+to write and structure code is instrumental to effectively prompting AI
+to do the things you want it to do, more accurately, more quickly, and
+with less effort.
+\href{https://www.youtube.com/watch?v=A_YE9dC7YdE}{Here is a short
+video} that I think provides an interesting take from someone who isn't
+one of your professors.
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, toprule=.15mm, coltitle=black, arc=.35mm, leftrule=.75mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm, breakable, bottomtitle=1mm, titlerule=0mm, left=2mm, bottomrule=.15mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, opacitybacktitle=0.6, opacityback=0, colback=white]
+
+Discuss and agree as a class.
+
+\end{tcolorbox}
 
 Regardless of course delivery format, it is the responsibility of all
 students to understand and follow all College of Idaho policies,
@@ -662,6 +637,46 @@ could potentially result in losing points.
 \item
   \textbf{Dec 4:} Last Day of Classes
 \end{itemize}
+
+\subsubsection{College of Idaho Honor
+Code}\label{college-of-idaho-honor-code}
+
+\begin{quote}
+The College of Idaho maintains that academic honesty and integrity are
+essential values in the educational process. Operating under an Honor
+Code philosophy, the College expects conduct rooted in honesty,
+integrity, and understanding, allowing members of a diverse student body
+to live together and interact and learn from one another in ways that
+protect both personal freedom and community standards. Violations of
+academic honesty are addressed primarily by the instructor and may be
+referred to the
+\href{https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct}{Student
+Judicial Board}.
+\end{quote}
+
+By participating in this course, you are agreeing that all your work and
+conduct will be in accordance with the College of Idaho Honor Code.
+
+\subsubsection{Disability Accommodation
+Statement}\label{disability-accommodation-statement}
+
+The College of Idaho seeks to provide an educational environment that is
+accessible to the needs of students with disabilities. The College
+provides reasonable services to enrolled students who have a documented
+permanent or temporary physical, psychological, learning, intellectual,
+or sensory disability that qualifies the student for accommodations
+under the Americans with Disabilities Act or section 504 of the
+Rehabilitation Act of 1973. If you have, or think you may have, a
+disability that impacts your performance as a student in this class, you
+are encouraged to arrange support services and/or accommodations through
+the Department of Accessibility and Learning Excellence located in
+McCain 201B and available via email at
+\href{mailto:accessibility@collegeofidaho.edu}{\nolinkurl{accessibility@collegeofidaho.edu}}.
+Reasonable academic accommodations may be provided to students who
+submit appropriate and current documentation of their disability.
+Accommodations can be arranged only through this process and are not
+retroactively applied. More information can be found on the DALE webpage
+(\url{https://www.collegeofidaho.edu/accessibility}).
 
 
 

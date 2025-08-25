@@ -7,7 +7,7 @@ navbar: false
 # Overview
 
 ## Catalog Description
-An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125.
+An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MATH-2025 rather than MATH-1025.
 
 ## Eric's Addition
 We will cover approaches for analyzing multivariate data sets, emphasizing linear and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses, and techniques for selecting models. You will gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory.
@@ -25,7 +25,9 @@ Eric is an Assistant Professor in the Department of Mathematics and Physical Sci
 Outside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.
 
 | Office hours (Boone 126B) | |
-|----------------------|---------------|
-| MTWRF | 11:00am-12:00pm |
-| *or by appointment.* |               |
+|---------------------------|------------------|
+| Mon | 3:30pm - 4:30pm |
+| Tue | 10:20am - 11:20am |
+| Thu | 1:30pm - 3:30pm |
+| *or by appointment.* |
 
