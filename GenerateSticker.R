@@ -9,5 +9,5 @@ p <- p + theme_void() + theme_transparent()
 sticker(p, package="MATH 2025", p_size=20, s_x=1, s_y=0.90, s_width=1.3, s_height=0.9,
         h_fill="#412d5e", h_color = "#a49363",
         p_color="#bbbbbb",
-        filename="images/sticker212.png")
+        filename="images/sticker2025.png")
 
