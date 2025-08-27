@@ -29,7 +29,7 @@ website:
         href: https://rstudio.collegeofidaho.edu/
         text: "RStudio"
       - icon: person
-        href: https://cofi.instructure.com/courses/17093
+        href: https://cofi.instructure.com/courses/17833
         text: "Canvas"
     style: "docked"
     search: true

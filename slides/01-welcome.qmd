@@ -1,7 +1,7 @@
 ---
-title: "Welcome to MAT 212!"
+title: "Welcome to MATH 2025!"
 author: "Prof. Eric Friedlander"
-footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -66,18 +66,14 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 
 ## Tell me about yourself {.smaller}
 
-Navigate to [Teams](https://teams.microsoft.com/l/channel/19%3AvBRIeFRpxyUJfvl-0Ur9bQWxhR_Wzkpr6iM6V_OBVKA1%40thread.tacv2/?groupId=ffcfc61b-032c-4fe3-883b-fe9fd969ea51). 
-
-In a private chat to me answer the following questions:
+Send me an email with answers to the following questions following questions:
 
 1. What would you like me to call you?
 2. Why are you taking this class?
 3. How are you feeling about taking this class? Be honest... you won't hurt my feelings.
 4. How much experience with R, if any, do you have?
 5. Is there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc...
-
-In the class discussion forum, please recommend at least one song for the class playlist... Feel free to suggest as many songs as you like.
-
+6. What are some song recommendations for the class playlist (nothing that will get me in trouble)?
 
 ```{r}
 #| echo: FALSE
@@ -141,7 +137,7 @@ Note:  I don't really like the terms "independent" and "dependent" variables
 
 -   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/) (from March 2020)
 
-# MAT 212
+# MATH 2025
 
 ## Course FAQ {.smaller}
 
@@ -171,7 +167,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
 **Q - How much time should I be spending on this class?**
 
-A - This is a 3-credit class taught over 15 days which meets for 2.5 hours per day. That means that you should be spending approximately 9 hours *per day* working on this course (i.e. 6.5 hours outside of class)
+A - This is a 4-credit class 75 minutes twice a week. That means that you should be spending approximately 9 hours *per week* working on this course (i.e. 6.5 hours outside of class)
 
 ## Course learning objectives {.midi}
 
@@ -183,40 +179,17 @@ By the end of the semester, you will be able to...
 -   use Quarto to write reproducible reports.
 -   effectively communicate statistical results through writing and oral presentations.
 
-## Course Topics
-
-:::{.question}
-What is a quantitative and what is a categorical variable?
-:::
-
-. . .
-
-|**Chapter** | **Response** | **Predictor/Explanatory** |
-|:------------:|--------------|------------------|
-|1-2      | Quantitative | Single Quantitative|
-|3-4      | Quantitative | Multiple Quantitative|
-|5      | Quantitative | Single Categorical|
-|6-8      | Quantitative | Multiple Categorical|
-|9     | Categorical | Single Quant/Cat|
-|10     | Categorical | Multiple Quant/Cat|
-|11     | Both | Both|
-
-
 # Course overview
 
 ## Course toolkit {.midi}
 
--   **Course website**: [mat212wi25.netlify.app](https://mat212wi25.netlify.app/)
+-   **Course website**: [math2025fa25.netlify.app](https://math2025fa25.netlify.app)
     -   Central hub for the course!
     -   **Tour of the website**
 -   **Canvas**: [cofi.instructure.com](https://cofi.instructure.com/)
     -   Gradebook
     -   Assignment submissions
     -   Announcements
--   [**Teams**](https://teams.microsoft.com/l/channel/19%3AvBRIeFRpxyUJfvl-0Ur9bQWxhR_Wzkpr6iM6V_OBVKA1%40thread.tacv2/?groupId=ffcfc61b-032c-4fe3-883b-fe9fd969ea51)
-    -   Activities
-    -   Discussions
-    -   Homework Help
 
 
 ## Computing toolkit
@@ -261,9 +234,9 @@ countdown::countdown(minutes = 3L)
 
     -   Homework assignments (individual)
 
-    -   Two oral exams
+    -   Two exams
 
-    -   Final group projects
+    -   Final group project
 :::
 :::
 
@@ -281,15 +254,16 @@ countdown::countdown(minutes = 3L)
 
 *Note: You must receive at least a 60% on your two exams to pass the course.*
 
-See the [syllabus](https://mat212wi25.netlify.app/syllabus) for details on how the final letter grade will be calculated.
+See the [syllabus](https://math2025fa25.netlify.app/syllabus) for details on how the final letter grade will be calculated.
 
 ## Support
 
 -   Attend office hours to meet with Prof. Friedlander (Boone 126B)
-    -   MTWRF : 11:00am-12:00pm
--   Ask and answer questions on course discussion forum
+    -   Mon 3:30 - 4:30pm 
+    -   Tue 10:20 - 11:20am 
+    -   Thu 1:30 - 3:30pm
 -   Use email for questions regarding personal matters and/or grades
--   See the [Course Support](https://mat212wi25.netlify.app/support) page for more details
+-   See the [Course Support](https://math2025fa25.netlify.app/support) page for more details
 
 # Course policies
 
@@ -299,11 +273,11 @@ See the [syllabus](https://mat212wi25.netlify.app/syllabus) for details on how t
 
 ## Late Application Exercises
 
-AEs are due the day after the class they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework. 
+AEs are due the class after they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework. 
 
 ## School-Sponsored Events
 
-If an application exercise or project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to make it up. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment.  
+-   If an application exercise, exam, or project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss an exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment.
 
 ## Academic integrity {.smaller}
 
@@ -319,26 +293,16 @@ By participating in this course, you are agreeing that all your work and conduct
 
 ## Use of artificial intelligence (AI) {.midi}
 
--   You should treat AI tools, such as ChatGPT, the same as other online resources.
--   There are two guiding principles that govern how you can use AI in this course:[^1]
-    -   \(1\) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning.
-    -   \(2\) *Ethical dimension***:** Students using AI should be transparent about their use and make sure it aligns with academic integrity.
-
-[^1]: These guiding principles are based on [*Course Policies related to ChatGPT and other AI Tools*](https://docs.google.com/document/d/1WpCeTyiWCPQ9MNCsFeKMDQLSTsg1oKfNIH6MzoSFXqQ/preview) developed by Joel Gladd, Ph.D.[↩︎](https://sta101-f23.github.io/course-syllabus.html#fnref1)
-
-## Use of artificial intelligence (AI) {.midi}
-
-✅ **AI tools for code:** You may make use of the technology for coding examples on assignments or to fix bugs in your code. However, if you do so, you must explicitly cite where you obtained the code and AI should serve as a learning aid, not a replacement for thinking.
-
-❌ **No AI tools for narrative:** Unless instructed otherwise, AI is [**not**]{.underline} permitted for writing narrative on assignments.
-
-::: callout-important
-In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content. **Any code or content from your homework which was not covered in class or cited, is eligible to be on your exams.**
-:::
+-   Class discussion
+-   Break into groups of three and find a space on the board
+-   Discuss the following questions:
+    -   How well do you understand what generative AI is and what it is doing?
+    -   What skills do you think will be less important in the future due to AI?
+    -   What skills do you think are enduring?
+    -   What do you think the course policy should be around AI use?
 
 
-
-# Having a successful semester in MAT 212
+# Having a successful semester in MATH 2025
 
 ## Five tips for success
 
@@ -362,21 +326,13 @@ In general, you may use AI as a resource as you complete assignments but not to 
 
 -   In statistics, there is rarely one RIGHT answer... it's all about extracting information from data to make arguments
 
-## Dr. F's Pet Peeves
+## Dr. F's Biggest Pet Peeve
 
 -   Showing up late to class
 
--   Using Generative AI to do your thinking for you
-
-## Bug Bounty
-
--   If you find a typo on the website, slides, homework, activities, etc (e.g. broken link, typo, etc...) and you are the first person to point it out, you will receive a bonus point toward your HW grade. However, you may not exceed 100%.
-
--   If you message me about this during class, you will not receive your extra credit.
-
 # Questions?
 
-Raise your hand or post on Teams
+What questions do we have?
 
 # The Big Picture
 
@@ -498,16 +454,16 @@ Source: @ostblom2022
 
 Any time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:
 
-- **Driver:** 
-    +   Writes code and fills out Quarto template
-    +   Connects to TV
-    +   Responsible for submitting final work
-- **Reporter:**  
-    +   Shares thoughts from group during class discussions
-    +   Should have computer closed
-- **Facilitator:** 
-    +   Responsible for looking stuff up (e.g. code, cheatsheets, etc.)
-
+- **Coder:** 
+    +   Shares screen and is the only person to type.
+    +   Runs code, saves work, and makes the submission.
+    +   Reads back comments when asked and asks for clarification when unsure.
+- **Developer:**  
+    +   Directs the next steps: explains intent, outlines logic, and points out likely errors.
+    +   Watches output, reads error messages aloud, and suggests targeted fixes.
+- **Communicator:** 
+    +   Looks up help when needed.
+    +   Reports on group answers to the class.
 
 # Multivariable relationships
 
@@ -613,7 +569,7 @@ $$\text{carb} = f(\text{calories}, \text{bakery}) + \epsilon$$
 
 ## Determine $f$
 
-1)  Choose the functional form of $f$, i.e., **choose the appropriate model given the response variable**
+1.  Choose the functional form of $f$, i.e., **choose the appropriate model given the response variable**
 
 -   Suppose $f$ takes the form of a linear model\
     $$y = f(\mathbf{X}) = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p + \epsilon$$
@@ -770,13 +726,10 @@ $${\small \hat{\text{carb}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{calories} + \
 -   The two main objectives for fitting a linear regression model are (1) prediction and (2) inference
 
 
-## For Monday
+## For Wednesday
 
 - Read the [syllabus](/syllabus.qmd)
-- Complete and submit today's AE
-- [Find you partner for the project](/project/project-instructions.qmd#partner)
-
-
+- Complete and submit AE 01
 ## References
 
 

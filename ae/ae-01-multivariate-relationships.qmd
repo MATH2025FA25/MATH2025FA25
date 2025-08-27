@@ -13,7 +13,7 @@ format:
 
 -   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202857) and locate your `AE 01` assignment to get started.
 
--   Upload the `ae-01.qmd` files into the folder you just created. The `.qmd` and `.html` responses are due in Canvas no later than Monday, January 6th at 1:00pm.
+-   Upload the `ae-01.qmd` files into the folder you just created. To submit this Activity, upload the `.qmd` and `.html` responses in the corresponding Canvas assignment.
 :::
 
 ```{r}
