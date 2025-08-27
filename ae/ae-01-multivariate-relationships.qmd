@@ -1,5 +1,6 @@
 ---
 title: "AE 01: Multivariate Relationships"
+author: "Your name here"
 editor: visual
 format:
   html:
@@ -11,7 +12,7 @@ format:
 
 -   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-01"
 
--   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202857) and locate your `AE 01` assignment to get started.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17833/assignments/220569) and locate your `AE 01` assignment to get started.
 
 -   Upload the `ae-01.qmd` files into the folder you just created. To submit this Activity, upload the `.qmd` and `.html` responses in the corresponding Canvas assignment.
 :::
