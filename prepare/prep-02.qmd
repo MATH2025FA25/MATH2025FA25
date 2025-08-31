@@ -1,9 +1,7 @@
 ---
-title: "Preparation for Simple Linear Regression"
+title: "Preparation for Multivariate Relationships"
 ---
 
 ## Assigned reading
 
-- Review Syllabus
-- Introduction to Regression Analysis: A Data Science Approach: [Ch 4: Simple linear regression](https://introregression.netlify.app/04-slr)
-- Introduction to Modern Statistics (IMS) [Ch 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
+- None
