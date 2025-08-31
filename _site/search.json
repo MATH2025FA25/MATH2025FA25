@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression",
     "crumbs": [
       "Schedule"
     ]
@@ -6588,8 +6588,8 @@
     "objectID": "slides/01-big-picture.html#topics",
     "href": "slides/01-big-picture.html#topics",
     "title": "The Big Picture",
-    "section": "Topics",
-    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis"
+    "section": "",
+    "text": "Data analysis life cycle\nReproducible data analysis"
   },
   {
     "objectID": "slides/01-big-picture.html#section",
@@ -6610,7 +6610,7 @@
     "href": "slides/01-big-picture.html#reproducibility-checklist",
     "title": "The Big Picture",
     "section": "Reproducibility checklist",
-    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n. . .\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n. . .\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
   },
   {
     "objectID": "slides/01-big-picture.html#why-is-reproducibility-important",
@@ -6638,7 +6638,7 @@
     "href": "slides/01-big-picture.html#r-and-rstudio",
     "title": "The Big Picture",
     "section": "R and RStudio",
-    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\n\n\nSource: Statistical Inference via Data Science"
   },
   {
     "objectID": "slides/01-big-picture.html#rstudio-ide",
@@ -6833,15 +6833,15 @@
     "objectID": "slides/00-welcome.html#meet-prof.-friedlander",
     "href": "slides/00-welcome.html#meet-prof.-friedlander",
     "title": "Welcome to MATH 2025!",
-    "section": "Meet Prof. Friedlander!",
-    "text": "Meet Prof. Friedlander!\n\n\nEducation and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
+    "section": "",
+    "text": "Education and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
   },
   {
     "objectID": "slides/00-welcome.html#tell-me-about-yourself",
     "href": "slides/00-welcome.html#tell-me-about-yourself",
     "title": "Welcome to MATH 2025!",
-    "section": "Tell me about yourself",
-    "text": "Tell me about yourself\nSend me an email with answers to the following questions following questions:\n\nWhat would you like me to call you?\nWhy are you taking this class?\nHow are you feeling about taking this class? Be honest… you won’t hurt my feelings.\nHow much experience with R, if any, do you have?\nIs there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc…\nWhat are some song recommendations for the class playlist (nothing that will get me in trouble)?\n\n\n\n\n−+\n05:00"
+    "section": "",
+    "text": "Send me an email with answers to the following questions following questions:\n\nWhat would you like me to call you?\nWhy are you taking this class?\nHow are you feeling about taking this class? Be honest… you won’t hurt my feelings.\nHow much experience with R, if any, do you have?\nIs there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc…\nWhat are some song recommendations for the class playlist (nothing that will get me in trouble)?\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/00-welcome.html#what-is-a-model",
@@ -6883,7 +6883,7 @@
     "href": "slides/00-welcome.html#course-faq",
     "title": "Welcome to MATH 2025!",
     "section": "Course FAQ",
-    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n\n\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n\n\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.\n\n\nQ - How much time should I be spending on this class?\nA - This is a 4-credit class 75 minutes twice a week. That means that you should be spending approximately 9 hours per week working on this course (i.e. 6.5 hours outside of class)"
+    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n. . .\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n. . .\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n. . .\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.\n. . .\nQ - How much time should I be spending on this class?\nA - This is a 4-credit class 75 minutes twice a week. That means that you should be spending approximately 9 hours per week working on this course (i.e. 6.5 hours outside of class)"
   },
   {
     "objectID": "slides/00-welcome.html#course-learning-objectives",
