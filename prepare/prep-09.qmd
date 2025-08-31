@@ -1,7 +1,0 @@
----
-title: "Preparation for Logistic Regression"
----
-
-## Assigned reading
-
-Stat2 Textbook: Chapters 9 (Intro), 9.1, 9.2

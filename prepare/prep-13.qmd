@@ -1,7 +1,0 @@
----
-title: "Preparation for Model Comparison"
----
-
-## Assigned reading
-
-Stat2 Textbook: Chapter 3.2

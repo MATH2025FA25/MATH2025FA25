@@ -1,7 +1,0 @@
----
-title: "Preparation for Multiple Linear Regression Inference and Comparison"
----
-
-## Assigned reading
-
-Stat2 Textbook: Chapter 3.2

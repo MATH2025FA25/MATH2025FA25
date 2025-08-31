@@ -1,7 +1,0 @@
----
-title: "Preparation for Multicollinearity"
----
-
-## Assigned reading
-
-Stat2 Textbook: Chapter 3.5

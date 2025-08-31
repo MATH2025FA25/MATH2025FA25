@@ -1,7 +1,0 @@
----
-title: "Preparation for Mathematical Models for Inference"
----
-
-## Assigned reading
-
-Stat2 Textbook: Chapter 2.1, 2.3, 2.3

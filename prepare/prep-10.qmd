@@ -1,7 +1,0 @@
----
-title: "Preparation for Inference and Conditions for Logistic Regression"
----
-
-## Assigned reading
-
-Stat2 Textbook: Chapters 9.3, 9.4
