@@ -6588,8 +6588,8 @@
     "objectID": "slides/01-big-picture.html#topics",
     "href": "slides/01-big-picture.html#topics",
     "title": "The Big Picture",
-    "section": "",
-    "text": "Data analysis life cycle\nReproducible data analysis"
+    "section": "Topics",
+    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis"
   },
   {
     "objectID": "slides/01-big-picture.html#section",
@@ -6610,7 +6610,7 @@
     "href": "slides/01-big-picture.html#reproducibility-checklist",
     "title": "The Big Picture",
     "section": "Reproducibility checklist",
-    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n. . .\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n. . .\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
   },
   {
     "objectID": "slides/01-big-picture.html#why-is-reproducibility-important",
@@ -6638,7 +6638,7 @@
     "href": "slides/01-big-picture.html#r-and-rstudio",
     "title": "The Big Picture",
     "section": "R and RStudio",
-    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\n\n\nSource: Statistical Inference via Data Science"
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
   },
   {
     "objectID": "slides/01-big-picture.html#rstudio-ide",
