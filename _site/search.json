@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n2\nW\nSep 3\nMultivariate Relationsihps",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression",
     "crumbs": [
       "Schedule"
     ]
@@ -1922,15 +1922,15 @@
     "objectID": "slides/01-welcome.html#meet-prof.-friedlander",
     "href": "slides/01-welcome.html#meet-prof.-friedlander",
     "title": "Welcome to MATH 2025!",
-    "section": "",
-    "text": "Education and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
+    "section": "Meet Prof. Friedlander!",
+    "text": "Meet Prof. Friedlander!\n\n\nEducation and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
   },
   {
     "objectID": "slides/01-welcome.html#tell-me-about-yourself",
     "href": "slides/01-welcome.html#tell-me-about-yourself",
     "title": "Welcome to MATH 2025!",
-    "section": "",
-    "text": "Send me an email with answers to the following questions following questions:\n\nWhat would you like me to call you?\nWhy are you taking this class?\nHow are you feeling about taking this class? Be honest… you won’t hurt my feelings.\nHow much experience with R, if any, do you have?\nIs there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc…\nWhat are some song recommendations for the class playlist (nothing that will get me in trouble)?\n\n\n\n\n−+\n05:00"
+    "section": "Tell me about yourself",
+    "text": "Tell me about yourself\nSend me an email with answers to the following questions following questions:\n\nWhat would you like me to call you?\nWhy are you taking this class?\nHow are you feeling about taking this class? Be honest… you won’t hurt my feelings.\nHow much experience with R, if any, do you have?\nIs there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc…\nWhat are some song recommendations for the class playlist (nothing that will get me in trouble)?\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/01-welcome.html#what-is-a-model",
@@ -1972,7 +1972,7 @@
     "href": "slides/01-welcome.html#course-faq",
     "title": "Welcome to MATH 2025!",
     "section": "Course FAQ",
-    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n. . .\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n. . .\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n. . .\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.\n. . .\nQ - How much time should I be spending on this class?\nA - This is a 4-credit class 75 minutes twice a week. That means that you should be spending approximately 9 hours per week working on this course (i.e. 6.5 hours outside of class)"
+    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n\n\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n\n\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.\n\n\nQ - How much time should I be spending on this class?\nA - This is a 4-credit class 75 minutes twice a week. That means that you should be spending approximately 9 hours per week working on this course (i.e. 6.5 hours outside of class)"
   },
   {
     "objectID": "slides/01-welcome.html#course-learning-objectives",
@@ -2495,16 +2495,16 @@
   {
     "objectID": "prepare/prep-02.html",
     "href": "prepare/prep-02.html",
-    "title": "Preparation for Simple Linear Regression",
+    "title": "Preparation for Multivariate Relationships",
     "section": "",
-    "text": "Review Syllabus\nIntroduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\nIntroduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
+    "text": "None"
   },
   {
     "objectID": "prepare/prep-02.html#assigned-reading",
     "href": "prepare/prep-02.html#assigned-reading",
-    "title": "Preparation for Simple Linear Regression",
+    "title": "Preparation for Multivariate Relationships",
     "section": "",
-    "text": "Review Syllabus\nIntroduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\nIntroduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
+    "text": "None"
   },
   {
     "objectID": "hw/hw-08.html",
@@ -4661,16 +4661,16 @@
   {
     "objectID": "prepare/prep-03.html",
     "href": "prepare/prep-03.html",
-    "title": "Preparation for Simulation Based Inference",
+    "title": "Preparation for Simple Linear Regression",
     "section": "",
-    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+    "text": "Introduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\nIntroduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
   },
   {
     "objectID": "prepare/prep-03.html#assigned-reading",
     "href": "prepare/prep-03.html#assigned-reading",
-    "title": "Preparation for Simulation Based Inference",
+    "title": "Preparation for Simple Linear Regression",
     "section": "",
-    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+    "text": "Introduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\nIntroduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
   },
   {
     "objectID": "prepare/prep-03.html#additional-resources-optional",
@@ -6345,5 +6345,992 @@
     "crumbs": [
       "Course support"
     ]
+  },
+  {
+    "objectID": "slides/01-welcome.html#meet-prof.-friedlander-1",
+    "href": "slides/01-welcome.html#meet-prof.-friedlander-1",
+    "title": "Welcome to MATH 2025!",
+    "section": "Meet Prof. Friedlander!",
+    "text": "Meet Prof. Friedlander!"
+  },
+  {
+    "objectID": "slides/01-welcome.html#references",
+    "href": "slides/01-welcome.html#references",
+    "title": "Welcome to MATH 2025!",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#topics",
+    "href": "slides/02-big-picture.html#topics",
+    "title": "The Big Picture",
+    "section": "Topics",
+    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#section",
+    "href": "slides/02-big-picture.html#section",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data."
+  },
+  {
+    "objectID": "slides/02-big-picture.html#section-1",
+    "href": "slides/02-big-picture.html#section-1",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Source: R for Data Science"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#reproducibility-checklist",
+    "href": "slides/02-big-picture.html#reproducibility-checklist",
+    "title": "The Big Picture",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#why-is-reproducibility-important",
+    "href": "slides/02-big-picture.html#why-is-reproducibility-important",
+    "title": "The Big Picture",
+    "section": "Why is reproducibility important?",
+    "text": "Why is reproducibility important?\n\nResults produced are more reliable and trustworthy (Ostblom and Timbers 2022)\nFacilitates more effective collaboration (Ostblom and Timbers 2022)\nContributing to science, which builds and organizes knowledge in terms of testable hypotheses (Alexander 2023)\nPossible to identify and correct errors or biases in the analysis process (Alexander 2023)"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#when-things-go-wrong",
+    "href": "slides/02-big-picture.html#when-things-go-wrong",
+    "title": "The Big Picture",
+    "section": "When things go wrong",
+    "text": "When things go wrong\n\n\n\nReproducibility error\nConsequence\nSource(s)\n\n\n\n\nLimitations in Excel data formats\nLoss of 16,000 COVID case records in the UK\n(Kelion 2020)\n\n\nAutomatic formatting in Excel\nImportant genes disregarded in scientific studies\n(Ziemann, Eren, and El-Osta 2016)\n\n\nDeletion of a cell caused rows to shift\nMix-up of which patient group received the treatment\n(Wallensteen et al. 2018)\n\n\nUsing binary instead of explanatory labels\nMix-up of the intervention with the control group\n(Aboumatar and Wise 2019)\n\n\nUsing the same notation for missing data and zero values\nPaper retraction\n(Whitehouse et al. 2021)\n\n\nIncorrectly copying data in a spreadsheet\nDelay in the opening of a hospital\n(Picken 2020)\n\n\n\nSource: Ostblom and Timbers (2022)"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#toolkit",
+    "href": "slides/02-big-picture.html#toolkit",
+    "title": "The Big Picture",
+    "section": "Toolkit",
+    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub (Beyond the scope of this course)"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#r-and-rstudio",
+    "href": "slides/02-big-picture.html#r-and-rstudio",
+    "title": "The Big Picture",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#rstudio-ide",
+    "href": "slides/02-big-picture.html#rstudio-ide",
+    "title": "The Big Picture",
+    "section": "RStudio IDE",
+    "text": "RStudio IDE"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#quarto",
+    "href": "slides/02-big-picture.html#quarto",
+    "title": "The Big Picture",
+    "section": "Quarto",
+    "text": "Quarto\n\nFully reproducible reports – the analysis is run from the beginning each time you render\nCode goes in chunks and narrative goes outside of chunks\nVisual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#quarto-1",
+    "href": "slides/02-big-picture.html#quarto-1",
+    "title": "The Big Picture",
+    "section": "Quarto",
+    "text": "Quarto"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#how-will-we-use-quarto",
+    "href": "slides/02-big-picture.html#how-will-we-use-quarto",
+    "title": "The Big Picture",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery application exercise and assignment is written in a Quarto document\nYou’ll have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#group-work-roles",
+    "href": "slides/02-big-picture.html#group-work-roles",
+    "title": "The Big Picture",
+    "section": "Group Work Roles",
+    "text": "Group Work Roles\nAny time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:\n\nCoder:\n\nShares screen and is the only person to type.\nRuns code, saves work, and makes the submission.\nReads back comments when asked and asks for clarification when unsure.\n\nDeveloper:\n\nDirects the next steps: explains intent, outlines logic, and points out likely errors.\nWatches output, reads error messages aloud, and suggests targeted fixes.\n\nCommunicator:\n\nLooks up help when needed.\nReports on group answers to the class."
+  },
+  {
+    "objectID": "slides/02-big-picture.html#carbohydrates-in-starbucks-food",
+    "href": "slides/02-big-picture.html#carbohydrates-in-starbucks-food",
+    "title": "The Big Picture",
+    "section": "Carbohydrates in Starbucks food",
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nSource: Mayo Clinic"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#starbucks-data",
+    "href": "slides/02-big-picture.html#starbucks-data",
+    "title": "The Big Picture",
+    "section": "Starbucks data",
+    "text": "Starbucks data\n\nlibrary(openintro)\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nglimpse(starbucks)\n\nRows: 77\nColumns: 8\n$ item     &lt;chr&gt; \"8-Grain Roll\", \"Apple Bran Muffin\", \"Apple Fritter\", \"Banana…\n$ calories &lt;int&gt; 350, 350, 420, 490, 130, 370, 460, 370, 310, 420, 380, 320, 3…\n$ fat      &lt;dbl&gt; 8, 9, 20, 19, 6, 14, 22, 14, 18, 25, 17, 12, 17, 21, 5, 18, 1…\n$ carb     &lt;int&gt; 67, 64, 59, 75, 17, 47, 61, 55, 32, 39, 51, 53, 34, 57, 52, 7…\n$ fiber    &lt;int&gt; 5, 7, 0, 4, 0, 5, 2, 0, 0, 0, 2, 3, 2, 2, 3, 3, 2, 3, 0, 2, 0…\n$ protein  &lt;int&gt; 10, 6, 5, 7, 0, 6, 7, 6, 5, 7, 4, 6, 5, 5, 12, 7, 8, 6, 0, 10…\n$ type     &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n$ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n\n\n\nObservations: 77 Starbucks food items\nVariables:\n\ncarb: Total carbohydrates (in grams)\ncalories: Total calories\nbakery: bakery: bakery food item, non-bakery: other food type"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#terminology",
+    "href": "slides/02-big-picture.html#terminology",
+    "title": "The Big Picture",
+    "section": "Terminology",
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#univariate-exploratory-data-analysis",
+    "href": "slides/02-big-picture.html#univariate-exploratory-data-analysis",
+    "title": "The Big Picture",
+    "section": "Univariate exploratory data analysis",
+    "text": "Univariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#bivariate-exploratory-data-analysis",
+    "href": "slides/02-big-picture.html#bivariate-exploratory-data-analysis",
+    "title": "The Big Picture",
+    "section": "Bivariate exploratory data analysis",
+    "text": "Bivariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#function-between-response-and-predictors",
+    "href": "slides/02-big-picture.html#function-between-response-and-predictors",
+    "title": "The Big Picture",
+    "section": "Function between response and predictors",
+    "text": "Function between response and predictors\n\n\\[\\text{carb} = f(\\text{calories}, \\text{bakery}) + \\epsilon\\]\n\n\nGoal: Determine \\(f\\)\nHow do we determine \\(f\\)?\n\nMake an assumption about the functional form \\(f\\) (parametric model)\nUse the data to fit a model based on that form"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#determine-f",
+    "href": "slides/02-big-picture.html#determine-f",
+    "title": "The Big Picture",
+    "section": "Determine \\(f\\)",
+    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#carb-vs.-calories",
+    "href": "slides/02-big-picture.html#carb-vs.-calories",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories",
+    "text": "Carb vs. Calories\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#carb-vs.-calories-bakery",
+    "href": "slides/02-big-picture.html#carb-vs.-calories-bakery",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories + Bakery",
+    "text": "Carb vs. Calories + Bakery\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#carb-vs.-calories-bakery-with-interaction",
+    "href": "slides/02-big-picture.html#carb-vs.-calories-bakery-with-interaction",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories + Bakery (with interaction)",
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#example-palmers-penguins",
+    "href": "slides/02-big-picture.html#example-palmers-penguins",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\nSize measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica."
+  },
+  {
+    "objectID": "slides/02-big-picture.html#example-palmers-penguins-1",
+    "href": "slides/02-big-picture.html#example-palmers-penguins-1",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like?"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#example-palmers-penguins-2",
+    "href": "slides/02-big-picture.html#example-palmers-penguins-2",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like now?"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#simpsons-paradox-1",
+    "href": "slides/02-big-picture.html#simpsons-paradox-1",
+    "title": "The Big Picture",
+    "section": "Simpson’s Paradox",
+    "text": "Simpson’s Paradox\nSimpson’s Paradox is when there is a clear relationship between two variables but when you introduce a third variable that relationship disappears of reverses."
+  },
+  {
+    "objectID": "slides/02-big-picture.html#statistical-model-vs.-regression-equation",
+    "href": "slides/02-big-picture.html#statistical-model-vs.-regression-equation",
+    "title": "The Big Picture",
+    "section": "Statistical model vs. regression equation",
+    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#why-fit-a-model",
+    "href": "slides/02-big-picture.html#why-fit-a-model",
+    "title": "The Big Picture",
+    "section": "Why fit a model?",
+    "text": "Why fit a model?\n\nPrediction: Expected value of the response variable for given values of the predictor variables\nInference: Conclusion about the relationship between the response and predictor variables\n\n\n\nWhat is an example of a prediction question that can be answered using the model of carb vs. calories and bakery?\nWhat is an example of an inference question that can be answered using the model of carb vs. calories and bakery?"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#recap",
+    "href": "slides/02-big-picture.html#recap",
+    "title": "The Big Picture",
+    "section": "Recap",
+    "text": "Recap\n\nWe can use exploratory data analysis to describe the relationship between two variables\nWe make an assumption about the relationship between variables when doing linear regression\nThe two main objectives for fitting a linear regression model are (1) prediction and (2) inference"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#for-wednesday",
+    "href": "slides/02-big-picture.html#for-wednesday",
+    "title": "The Big Picture",
+    "section": "For Wednesday",
+    "text": "For Wednesday\n\nRead the syllabus\nComplete and submit AE 01 ## References\n\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+  },
+  {
+    "objectID": "slides/01-big-picture.html",
+    "href": "slides/01-big-picture.html",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Data analysis life cycle\nReproducible data analysis"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#topics",
+    "href": "slides/01-big-picture.html#topics",
+    "title": "The Big Picture",
+    "section": "Topics",
+    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#section",
+    "href": "slides/01-big-picture.html#section",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data."
+  },
+  {
+    "objectID": "slides/01-big-picture.html#section-1",
+    "href": "slides/01-big-picture.html#section-1",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Source: R for Data Science"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#reproducibility-checklist",
+    "href": "slides/01-big-picture.html#reproducibility-checklist",
+    "title": "The Big Picture",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#why-is-reproducibility-important",
+    "href": "slides/01-big-picture.html#why-is-reproducibility-important",
+    "title": "The Big Picture",
+    "section": "Why is reproducibility important?",
+    "text": "Why is reproducibility important?\n\nResults produced are more reliable and trustworthy (Ostblom and Timbers 2022)\nFacilitates more effective collaboration (Ostblom and Timbers 2022)\nContributing to science, which builds and organizes knowledge in terms of testable hypotheses (Alexander 2023)\nPossible to identify and correct errors or biases in the analysis process (Alexander 2023)"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#when-things-go-wrong",
+    "href": "slides/01-big-picture.html#when-things-go-wrong",
+    "title": "The Big Picture",
+    "section": "When things go wrong",
+    "text": "When things go wrong\n\n\n\nReproducibility error\nConsequence\nSource(s)\n\n\n\n\nLimitations in Excel data formats\nLoss of 16,000 COVID case records in the UK\n(Kelion 2020)\n\n\nAutomatic formatting in Excel\nImportant genes disregarded in scientific studies\n(Ziemann, Eren, and El-Osta 2016)\n\n\nDeletion of a cell caused rows to shift\nMix-up of which patient group received the treatment\n(Wallensteen et al. 2018)\n\n\nUsing binary instead of explanatory labels\nMix-up of the intervention with the control group\n(Aboumatar and Wise 2019)\n\n\nUsing the same notation for missing data and zero values\nPaper retraction\n(Whitehouse et al. 2021)\n\n\nIncorrectly copying data in a spreadsheet\nDelay in the opening of a hospital\n(Picken 2020)\n\n\n\nSource: Ostblom and Timbers (2022)"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#toolkit",
+    "href": "slides/01-big-picture.html#toolkit",
+    "title": "The Big Picture",
+    "section": "Toolkit",
+    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub (Beyond the scope of this course)"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#r-and-rstudio",
+    "href": "slides/01-big-picture.html#r-and-rstudio",
+    "title": "The Big Picture",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#rstudio-ide",
+    "href": "slides/01-big-picture.html#rstudio-ide",
+    "title": "The Big Picture",
+    "section": "RStudio IDE",
+    "text": "RStudio IDE"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#quarto",
+    "href": "slides/01-big-picture.html#quarto",
+    "title": "The Big Picture",
+    "section": "Quarto",
+    "text": "Quarto\n\nFully reproducible reports – the analysis is run from the beginning each time you render\nCode goes in chunks and narrative goes outside of chunks\nVisual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#quarto-1",
+    "href": "slides/01-big-picture.html#quarto-1",
+    "title": "The Big Picture",
+    "section": "Quarto",
+    "text": "Quarto"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#how-will-we-use-quarto",
+    "href": "slides/01-big-picture.html#how-will-we-use-quarto",
+    "title": "The Big Picture",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery application exercise and assignment is written in a Quarto document\nYou’ll have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#group-work-roles",
+    "href": "slides/01-big-picture.html#group-work-roles",
+    "title": "The Big Picture",
+    "section": "Group Work Roles",
+    "text": "Group Work Roles\nAny time we are working on AEs, I will randomly assign you to groups of two or three. Each person will have a role:\n\nCoder:\n\nShares screen and is the only person to type.\nRuns code, saves work, and makes the submission.\nReads comments back when asked and asks for clarification when unsure.\n\nDeveloper:\n\nDirects the next steps: explains intent, outlines logic, and points out likely errors.\nWatches output, reads error messages aloud, and suggests targeted fixes.\n\nCommunicator:\n\nLooks up help when needed.\nReports group answers to the class."
+  },
+  {
+    "objectID": "slides/01-big-picture.html#carbohydrates-in-starbucks-food",
+    "href": "slides/01-big-picture.html#carbohydrates-in-starbucks-food",
+    "title": "The Big Picture",
+    "section": "Carbohydrates in Starbucks food",
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nSource: Mayo Clinic"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#starbucks-data",
+    "href": "slides/01-big-picture.html#starbucks-data",
+    "title": "The Big Picture",
+    "section": "Starbucks data",
+    "text": "Starbucks data\n\nlibrary(openintro)\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nglimpse(starbucks)\n\nRows: 77\nColumns: 8\n$ item     &lt;chr&gt; \"8-Grain Roll\", \"Apple Bran Muffin\", \"Apple Fritter\", \"Banana…\n$ calories &lt;int&gt; 350, 350, 420, 490, 130, 370, 460, 370, 310, 420, 380, 320, 3…\n$ fat      &lt;dbl&gt; 8, 9, 20, 19, 6, 14, 22, 14, 18, 25, 17, 12, 17, 21, 5, 18, 1…\n$ carb     &lt;int&gt; 67, 64, 59, 75, 17, 47, 61, 55, 32, 39, 51, 53, 34, 57, 52, 7…\n$ fiber    &lt;int&gt; 5, 7, 0, 4, 0, 5, 2, 0, 0, 0, 2, 3, 2, 2, 3, 3, 2, 3, 0, 2, 0…\n$ protein  &lt;int&gt; 10, 6, 5, 7, 0, 6, 7, 6, 5, 7, 4, 6, 5, 5, 12, 7, 8, 6, 0, 10…\n$ type     &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n$ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n\n\n\nObservations: 77 Starbucks food items\nVariables:\n\ncarb: Total carbohydrates (in grams)\ncalories: Total calories\nbakery: bakery: bakery food item, non-bakery: other food type"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#terminology",
+    "href": "slides/01-big-picture.html#terminology",
+    "title": "The Big Picture",
+    "section": "Terminology",
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#univariate-exploratory-data-analysis",
+    "href": "slides/01-big-picture.html#univariate-exploratory-data-analysis",
+    "title": "The Big Picture",
+    "section": "Univariate exploratory data analysis",
+    "text": "Univariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#bivariate-exploratory-data-analysis",
+    "href": "slides/01-big-picture.html#bivariate-exploratory-data-analysis",
+    "title": "The Big Picture",
+    "section": "Bivariate exploratory data analysis",
+    "text": "Bivariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#function-between-response-and-predictors",
+    "href": "slides/01-big-picture.html#function-between-response-and-predictors",
+    "title": "The Big Picture",
+    "section": "Function between response and predictors",
+    "text": "Function between response and predictors\n\n\\[\\text{carb} = f(\\text{calories}, \\text{bakery}) + \\epsilon\\]\n\n\nGoal: Determine \\(f\\)\nHow do we determine \\(f\\)?\n\nMake an assumption about the functional form \\(f\\) (parametric model)\nUse the data to fit a model based on that form"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#determine-f",
+    "href": "slides/01-big-picture.html#determine-f",
+    "title": "The Big Picture",
+    "section": "Determine \\(f\\)",
+    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#carb-vs.-calories",
+    "href": "slides/01-big-picture.html#carb-vs.-calories",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories",
+    "text": "Carb vs. Calories\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#carb-vs.-calories-bakery",
+    "href": "slides/01-big-picture.html#carb-vs.-calories-bakery",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories + Bakery",
+    "text": "Carb vs. Calories + Bakery\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#carb-vs.-calories-bakery-with-interaction",
+    "href": "slides/01-big-picture.html#carb-vs.-calories-bakery-with-interaction",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories + Bakery (with interaction)",
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#example-palmers-penguins",
+    "href": "slides/01-big-picture.html#example-palmers-penguins",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\nSize measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica."
+  },
+  {
+    "objectID": "slides/01-big-picture.html#example-palmers-penguins-1",
+    "href": "slides/01-big-picture.html#example-palmers-penguins-1",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like?"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#example-palmers-penguins-2",
+    "href": "slides/01-big-picture.html#example-palmers-penguins-2",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like now?"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#simpsons-paradox-1",
+    "href": "slides/01-big-picture.html#simpsons-paradox-1",
+    "title": "The Big Picture",
+    "section": "Simpson’s Paradox",
+    "text": "Simpson’s Paradox\nSimpson’s Paradox is when there is a clear relationship between two variables but when you introduce a third variable that relationship disappears of reverses."
+  },
+  {
+    "objectID": "slides/01-big-picture.html#statistical-model-vs.-regression-equation",
+    "href": "slides/01-big-picture.html#statistical-model-vs.-regression-equation",
+    "title": "The Big Picture",
+    "section": "Statistical model vs. regression equation",
+    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#why-fit-a-model",
+    "href": "slides/01-big-picture.html#why-fit-a-model",
+    "title": "The Big Picture",
+    "section": "Why fit a model?",
+    "text": "Why fit a model?\n\nPrediction: Expected value of the response variable for given values of the predictor variables\nInference: Conclusion about the relationship between the response and predictor variables\n\n\n\nWhat is an example of a prediction question that can be answered using the model of carb vs. calories and bakery?\nWhat is an example of an inference question that can be answered using the model of carb vs. calories and bakery?"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#recap",
+    "href": "slides/01-big-picture.html#recap",
+    "title": "The Big Picture",
+    "section": "Recap",
+    "text": "Recap\n\nThe data analysis life cycle involves collecting, cleaning, exploring, modeling, and communicating data.\nReproducibility ensures that results can be trusted and analyses can be repeated or extended.\nCommon errors in data handling can have serious consequences—using reproducible tools helps avoid these problems.\nR is the language we use for analysis; RStudio is the IDE; Quarto is for creating reproducible documents.\nGroup work in class uses defined roles to help everyone participate and learn."
+  },
+  {
+    "objectID": "slides/01-big-picture.html#for-wednesday",
+    "href": "slides/01-big-picture.html#for-wednesday",
+    "title": "The Big Picture",
+    "section": "For Wednesday",
+    "text": "For Wednesday\n\nRead the syllabus\nComplete and submit AE 01 ## References\n\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+  },
+  {
+    "objectID": "slides/01-big-picture.html#footnotes",
+    "href": "slides/01-big-picture.html#footnotes",
+    "title": "The Big Picture",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSource: Mayo Clinic↩︎"
+  },
+  {
+    "objectID": "prepare/prep-01.html",
+    "href": "prepare/prep-01.html",
+    "title": "Preparation for the Big Picture",
+    "section": "",
+    "text": "Review Syllabus"
+  },
+  {
+    "objectID": "prepare/prep-01.html#assigned-reading",
+    "href": "prepare/prep-01.html#assigned-reading",
+    "title": "Preparation for the Big Picture",
+    "section": "",
+    "text": "Review Syllabus"
+  },
+  {
+    "objectID": "slides/00-welcome.html",
+    "href": "slides/00-welcome.html",
+    "title": "Welcome to MATH 2025!",
+    "section": "",
+    "text": "Education and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony\n\n\n\n\n\n\n\n\n\nSend me an email with answers to the following questions following questions:\n\nWhat would you like me to call you?\nWhy are you taking this class?\nHow are you feeling about taking this class? Be honest… you won’t hurt my feelings.\nHow much experience with R, if any, do you have?\nIs there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc…\nWhat are some song recommendations for the class playlist (nothing that will get me in trouble)?\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/00-welcome.html#meet-prof.-friedlander",
+    "href": "slides/00-welcome.html#meet-prof.-friedlander",
+    "title": "Welcome to MATH 2025!",
+    "section": "Meet Prof. Friedlander!",
+    "text": "Meet Prof. Friedlander!\n\n\nEducation and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queuing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankees, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
+  },
+  {
+    "objectID": "slides/00-welcome.html#tell-me-about-yourself",
+    "href": "slides/00-welcome.html#tell-me-about-yourself",
+    "title": "Welcome to MATH 2025!",
+    "section": "Tell me about yourself",
+    "text": "Tell me about yourself\nSend me an email with answers to the following questions following questions:\n\nWhat would you like me to call you?\nWhy are you taking this class?\nHow are you feeling about taking this class? Be honest… you won’t hurt my feelings.\nHow much experience with R, if any, do you have?\nIs there anything else you would like me to know about you? E.g. athlete, preferred pronouns, accommodations, etc…\nWhat are some song recommendations for the class playlist (nothing that will get me in trouble)?\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/00-welcome.html#what-is-a-model",
+    "href": "slides/00-welcome.html#what-is-a-model",
+    "title": "Welcome to MATH 2025!",
+    "section": "What is a model?",
+    "text": "What is a model?\n\n\nDATA = MODEL + ERROR\nDATA = PATTERN + DEPARTURES FROM PATTERN\n\nHow do we identify the actual pattern?\n\nGOAL: Find a model for a relationship between a response/outcome/target variable \\(Y\\) and one (or more) explanatory/predictor variables (\\(X_1,\\ldots,X_k\\))\nModels are a simplified but tractable version of reality\n\n\n\nWhat are response and explanatory variables?"
+  },
+  {
+    "objectID": "slides/00-welcome.html#geoge-e.-p.-box",
+    "href": "slides/00-welcome.html#geoge-e.-p.-box",
+    "title": "Welcome to MATH 2025!",
+    "section": "Geoge E. P. Box",
+    "text": "Geoge E. P. Box\n\n\n\nFrom Wikipedia: British statistician, who worked in the areas of quality control, time-series analysis, design of experiments, and Bayesian inference. He has been called “one of the great statistical minds of the 20th century”.\n“all models are wrong, but some are useful”"
+  },
+  {
+    "objectID": "slides/00-welcome.html#why-build-a-model",
+    "href": "slides/00-welcome.html#why-build-a-model",
+    "title": "Welcome to MATH 2025!",
+    "section": "Why build a model?",
+    "text": "Why build a model?\n\nMaking predictions\nUnderstanding relationships\nAssessing differences"
+  },
+  {
+    "objectID": "slides/00-welcome.html#what-is-regression-analysis",
+    "href": "slides/00-welcome.html#what-is-regression-analysis",
+    "title": "Welcome to MATH 2025!",
+    "section": "What is regression analysis?",
+    "text": "What is regression analysis?\n\n\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n\nSource: Wikipedia (previous definition)\n\nNote: I don’t really like the terms “independent” and “dependent” variables"
+  },
+  {
+    "objectID": "slides/00-welcome.html#examples-of-regression-in-practice",
+    "href": "slides/00-welcome.html#examples-of-regression-in-practice",
+    "title": "Welcome to MATH 2025!",
+    "section": "Examples of regression in practice",
+    "text": "Examples of regression in practice\n\nNew Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute\nHow FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19\nEffect of Forensic Evidence on Criminal Justice Case Processing\nWhy it’s so freaking hard to make a good COVID-19 model (from March 2020)"
+  },
+  {
+    "objectID": "slides/00-welcome.html#course-faq",
+    "href": "slides/00-welcome.html#course-faq",
+    "title": "Welcome to MATH 2025!",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n\n\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n\n\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.\n\n\nQ - How much time should I be spending on this class?\nA - This is a 4-credit class 75 minutes twice a week. That means that you should be spending approximately 9 hours per week working on this course (i.e. 6.5 hours outside of class)"
+  },
+  {
+    "objectID": "slides/00-welcome.html#course-learning-objectives",
+    "href": "slides/00-welcome.html#course-learning-objectives",
+    "title": "Welcome to MATH 2025!",
+    "section": "Course learning objectives",
+    "text": "Course learning objectives\nBy the end of the semester, you will be able to…\n\nanalyze real-world data to answer questions about multivariable relationships.\nuse R to fit and evaluate linear and logistic regression models.\nassess whether a proposed model is appropriate and describe its limitations.\nuse Quarto to write reproducible reports.\neffectively communicate statistical results through writing and oral presentations."
+  },
+  {
+    "objectID": "slides/00-welcome.html#course-toolkit",
+    "href": "slides/00-welcome.html#course-toolkit",
+    "title": "Welcome to MATH 2025!",
+    "section": "Course toolkit",
+    "text": "Course toolkit\n\nCourse website: math2025fa25.netlify.app\n\nCentral hub for the course!\nTour of the website\n\nCanvas: cofi.instructure.com\n\nGradebook\nAssignment submissions\nAnnouncements"
+  },
+  {
+    "objectID": "slides/00-welcome.html#computing-toolkit",
+    "href": "slides/00-welcome.html#computing-toolkit",
+    "title": "Welcome to MATH 2025!",
+    "section": "Computing toolkit",
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nWrite reproducible reports in Quarto\nAccess RStudio through College of Idaho posit Workbench\n\nUse your College of Idaho email and password\n\n\n\n\n\nSign into RStudio!\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/00-welcome.html#prepare-participate-practice-perform",
+    "href": "slides/00-welcome.html#prepare-participate-practice-perform",
+    "title": "Welcome to MATH 2025!",
+    "section": "Prepare, Participate, Practice, Perform",
+    "text": "Prepare, Participate, Practice, Perform\n\n\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching videos)\nParticipate: Attend and actively participate in lectures, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\nHomework assignments (individual)\nTwo exams\nFinal group project"
+  },
+  {
+    "objectID": "slides/00-welcome.html#grading",
+    "href": "slides/00-welcome.html#grading",
+    "title": "Welcome to MATH 2025!",
+    "section": "Grading",
+    "text": "Grading\n\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n25%\n\n\nFinal Project\n25%\n\n\nExam 01\n20%\n\n\nExam 02\n20%\n\n\nApplication Exercises\n10%\n\n\n\nNote: You must receive at least a 60% on your two exams to pass the course.\nSee the syllabus for details on how the final letter grade will be calculated."
+  },
+  {
+    "objectID": "slides/00-welcome.html#support",
+    "href": "slides/00-welcome.html#support",
+    "title": "Welcome to MATH 2025!",
+    "section": "Support",
+    "text": "Support\n\nAttend office hours to meet with Prof. Friedlander (Boone 126B)\n\nMon 3:30 - 4:30pm\nTue 10:20 - 11:20am\nThu 1:30 - 3:30pm\n\nUse email for questions regarding personal matters and/or grades\nSee the Course Support page for more details"
+  },
+  {
+    "objectID": "slides/00-welcome.html#late-homework",
+    "href": "slides/00-welcome.html#late-homework",
+    "title": "Welcome to MATH 2025!",
+    "section": "Late Homework",
+    "text": "Late Homework\n\nThere will be a 5% deduction for each 24-hour period the assignment is late for the first two days. After 2 days, students will receive a 30% reduction. No homework will be accepted after it is returned to the class."
+  },
+  {
+    "objectID": "slides/00-welcome.html#late-application-exercises",
+    "href": "slides/00-welcome.html#late-application-exercises",
+    "title": "Welcome to MATH 2025!",
+    "section": "Late Application Exercises",
+    "text": "Late Application Exercises\nAEs are due the class after they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework."
+  },
+  {
+    "objectID": "slides/00-welcome.html#school-sponsored-events",
+    "href": "slides/00-welcome.html#school-sponsored-events",
+    "title": "Welcome to MATH 2025!",
+    "section": "School-Sponsored Events",
+    "text": "School-Sponsored Events\n\nIf an application exercise, exam, or project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss an exam or a project presentation due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up. Failure to adhere to this policy will result in a 35% penalty on the corresponding assignment."
+  },
+  {
+    "objectID": "slides/00-welcome.html#academic-integrity",
+    "href": "slides/00-welcome.html#academic-integrity",
+    "title": "Welcome to MATH 2025!",
+    "section": "Academic integrity",
+    "text": "Academic integrity\n\nThe College of Idaho maintains that academic honesty and integrity are essential values in the educational process. Operating under an Honor Code philosophy, the College expects conduct rooted in honesty, integrity, and understanding, allowing members of a diverse student body to live together and interact and learn from one another in ways that protect both personal freedom and community standards. Violations of academic honesty are addressed primarily by the instructor and may be referred to the Student Judicial Board.\n\nBy participating in this course, you are agreeing that all your work and conduct will be in accordance with the College of Idaho Honor Code."
+  },
+  {
+    "objectID": "slides/00-welcome.html#collaboration-sharing-code",
+    "href": "slides/00-welcome.html#collaboration-sharing-code",
+    "title": "Welcome to MATH 2025!",
+    "section": "Collaboration & sharing code",
+    "text": "Collaboration & sharing code\n\nI have policies!\nLet’s read about them in the Academic honesty section of the syllabus"
+  },
+  {
+    "objectID": "slides/00-welcome.html#use-of-artificial-intelligence-ai",
+    "href": "slides/00-welcome.html#use-of-artificial-intelligence-ai",
+    "title": "Welcome to MATH 2025!",
+    "section": "Use of artificial intelligence (AI)",
+    "text": "Use of artificial intelligence (AI)\n\nClass discussion\nBreak into groups of three and find a space on the board\nDiscuss the following questions:\n\nHow well do you understand what generative AI is and what it is doing?\nWhat skills do you think will be less important in the future due to AI?\nWhat skills do you think are enduring?\nWhat do you think the course policy should be around AI use?"
+  },
+  {
+    "objectID": "slides/00-welcome.html#five-tips-for-success",
+    "href": "slides/00-welcome.html#five-tips-for-success",
+    "title": "Welcome to MATH 2025!",
+    "section": "Five tips for success",
+    "text": "Five tips for success\n\nComplete all the preparation work (readings and videos) before class.\nAsk questions.\nStart your work (homework and projects) early!\nDon’t procrastinate and don’t let a day pass by with lingering questions.\nStay up-to-date on announcements on Canvas and sent via email."
+  },
+  {
+    "objectID": "slides/00-welcome.html#what-should-i-know-about-this-class",
+    "href": "slides/00-welcome.html#what-should-i-know-about-this-class",
+    "title": "Welcome to MATH 2025!",
+    "section": "What should I know about this class",
+    "text": "What should I know about this class\n\nThis class is a lot of work\nSteep learning curve in the beginning… stick with it! I promise you can do it!\nMore writing than you probably expected… it is not enough for Dr. F to know what you mean to say… you must say that! Dr F. always asks: “If this student said this in a job interview, would they get hired?”\nIn statistics, there is rarely one RIGHT answer… it’s all about extracting information from data to make arguments"
+  },
+  {
+    "objectID": "slides/00-welcome.html#dr.-fs-biggest-pet-peeve",
+    "href": "slides/00-welcome.html#dr.-fs-biggest-pet-peeve",
+    "title": "Welcome to MATH 2025!",
+    "section": "Dr. F’s Biggest Pet Peeve",
+    "text": "Dr. F’s Biggest Pet Peeve\n\nShowing up late to class"
+  },
+  {
+    "objectID": "slides/00-welcome.html#references",
+    "href": "slides/00-welcome.html#references",
+    "title": "Welcome to MATH 2025!",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#for-monday",
+    "href": "slides/01-big-picture.html#for-monday",
+    "title": "The Big Picture",
+    "section": "For Monday",
+    "text": "For Monday\n\nComplete and submit AE 01\nComplete readings"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#references",
+    "href": "slides/01-big-picture.html#references",
+    "title": "The Big Picture",
+    "section": "References",
+    "text": "References\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+  },
+  {
+    "objectID": "ae/ae-01-getting-started.html",
+    "href": "ae/ae-01-getting-started.html",
+    "title": "AE 01: Getting Started",
+    "section": "",
+    "text": "Important\n\n\n\n\nFor this exercise, you will work in groups, but everyone will work through the document and submit their solution.\nOpen RStudio and create a subfolder in your AE folder called “AE-01”\nGo to the Canvas and locate your AE 01 assignment to get started.\nUpload the ae-01.qmd files into the folder you just created. To submit this Activity, upload the .qmd and .html responses in the corresponding Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-01-getting-started.html#quarto",
+    "href": "ae/ae-01-getting-started.html#quarto",
+    "title": "AE 01: Getting Started",
+    "section": "Quarto",
+    "text": "Quarto\nThe thing you are reading right now is a Quarto document (very similar to R Markdown if you’ve ever used that). Quarto runs inside RStudio. Quarto is a simple formatting syntax for authoring web pages, Word documents, PDFs, and many more file types. You can find the link to a useful Quarto guide here.\nWhen you click the Render button at the top of this window an html file will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R code, you can embed the output produced by the R code. In this way, your analysis is fully reproducible and updatable. All of your homework assignments must be prepared using Quarto.\nThe nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like \\(y_i = a + b x_i\\)), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)\nIn the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!\n\nExercise 1\nClick Render at the top of this document. Show Dr. Friedlander before moving on."
+  },
+  {
+    "objectID": "ae/ae-01-getting-started.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "href": "ae/ae-01-getting-started.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "title": "AE 01: Getting Started",
+    "section": "Using R as a Calculator and Running Code within a Quarto Document",
+    "text": "Using R as a Calculator and Running Code within a Quarto Document\nWith R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by clicking the Run button, the sideways green arrow in the top right of the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.\nAs you work through this document, you should Run each chunk as you come to it.\n\nExercise 2\nRun the code chunk below.\n\n5 + 3\n\n[1] 8\n\n5.3 * 23.4\n\n[1] 124.02\n\nsqrt(16) # this is a comment.  R will not 'see' anything past a #, but you can use it to explain your code\n\n[1] 4\n\n\nLook closely at how Quarto denotes the R code and the output. Also note in the .qmd file how I include R code as separate from prose. These are called “chunks”. The easiest way to add a new chunk is to click on the green “c” icon with a plus in the corner above, then choose “R”. R code that is not inside of a chunk will not be run by Quarto!\n\n\nExercise 3\nCreate an R code chunk and compute the log of 10 using the function log. Why do you think the answer isn’t 1?\n\n\nExercise 4\nYou can also save values to named variables, to be used later:\n\nproduct &lt;- 15.3 * 23.4 #save result\n\nIf you save something like this, R will not show the output unless you expressly ask for it:\n\nproduct #show result\n\n[1] 358.02\n\n\nThe symbol “&lt;-” is the assignment operator. Imagine that R maintains a warehouse filled with boxes containing all kinds of stuff. When you use “&lt;-”, R will create a new box, write whatever name you put to the left of “&lt;-”, and put whatever is to the right of “&lt;-” in the box. Then whenever you want to go get the box, you can just use whatever name you gave it. In the example above, the box is called “product” and it contains the number 358.02 (the result of 15.3 times 23.4). When you just write “product”, R will go grab the box called “product” and dump it onto the screen. In the future, we will be giving names to entire datasets and using “functions” in R to analyze them.\nIf you’ve ever programmed before, “=” is the most common assignment operator. In R, you can use “=” as the assignment operator but there are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.\nOnce variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing Ctrl+Enter (Cmd +Enter for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)\n\n.5 * product # half of the product\n\n[1] 179.01\n\nproduct^(1/4) # fourth root of the product\n\n[1] 4.349875\n\n\n\n\nExercise 5\nYou can also use inline R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?\n\n\nExercise 6\nOnly R code (and comments) should be inside chunks. Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code and they’ll run the code (resulting in the output and/or graphs).\nIf you want to run something in R but don’t want it to appear in the Quarto document, simply run it in the Console in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens.\n\n\nExercise 7\nRun the cell below three times and note what the output is. Then, Render the document and note what the output is. Are they the same?\n\nproduct &lt;- product *2\nproduct\n\n[1] 716.04\n\n\n\n\n\n\n\n\nImportant\n\n\n\nWhen you click the run button for a chunk, it simply runs the code in the console below. When you Render your Quarto document, it wipes your environment and re-runs the entire document from the beginning. For this reason, if you run your cells multiple times or out of order, you may get unexpected results when you Render your document. Before you submit your documents, always Render and then double check your answers to make sure that your answers match your explanations."
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html",
+    "href": "slides/01-multivariate-relationships.html",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Data analysis life cycle\nReproducible data analysis\n\n\n\n\n\nSource: R for Data Science with additions from The Art of Statistics: How to Learn from Data.\n\n\n\n\nSource: R for Data Science"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#topics",
+    "href": "slides/01-multivariate-relationships.html#topics",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Data analysis life cycle\nReproducible data analysis"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#section",
+    "href": "slides/01-multivariate-relationships.html#section",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data."
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#section-1",
+    "href": "slides/01-multivariate-relationships.html#section-1",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Source: R for Data Science"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#reproducibility-checklist",
+    "href": "slides/01-multivariate-relationships.html#reproducibility-checklist",
+    "title": "The Big Picture",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n. . .\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n. . .\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#why-is-reproducibility-important",
+    "href": "slides/01-multivariate-relationships.html#why-is-reproducibility-important",
+    "title": "The Big Picture",
+    "section": "Why is reproducibility important?",
+    "text": "Why is reproducibility important?\n\nResults produced are more reliable and trustworthy (Ostblom and Timbers 2022)\nFacilitates more effective collaboration (Ostblom and Timbers 2022)\nContributing to science, which builds and organizes knowledge in terms of testable hypotheses (Alexander 2023)\nPossible to identify and correct errors or biases in the analysis process (Alexander 2023)"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#when-things-go-wrong",
+    "href": "slides/01-multivariate-relationships.html#when-things-go-wrong",
+    "title": "The Big Picture",
+    "section": "When things go wrong",
+    "text": "When things go wrong\n\n\n\nReproducibility error\nConsequence\nSource(s)\n\n\n\n\nLimitations in Excel data formats\nLoss of 16,000 COVID case records in the UK\n(Kelion 2020)\n\n\nAutomatic formatting in Excel\nImportant genes disregarded in scientific studies\n(Ziemann, Eren, and El-Osta 2016)\n\n\nDeletion of a cell caused rows to shift\nMix-up of which patient group received the treatment\n(Wallensteen et al. 2018)\n\n\nUsing binary instead of explanatory labels\nMix-up of the intervention with the control group\n(Aboumatar and Wise 2019)\n\n\nUsing the same notation for missing data and zero values\nPaper retraction\n(Whitehouse et al. 2021)\n\n\nIncorrectly copying data in a spreadsheet\nDelay in the opening of a hospital\n(Picken 2020)\n\n\n\nSource: Ostblom and Timbers (2022)"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#toolkit",
+    "href": "slides/01-multivariate-relationships.html#toolkit",
+    "title": "The Big Picture",
+    "section": "Toolkit",
+    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub (Beyond the scope of this course)"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#r-and-rstudio",
+    "href": "slides/01-multivariate-relationships.html#r-and-rstudio",
+    "title": "The Big Picture",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\n\n\nSource: Statistical Inference via Data Science"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#rstudio-ide",
+    "href": "slides/01-multivariate-relationships.html#rstudio-ide",
+    "title": "The Big Picture",
+    "section": "RStudio IDE",
+    "text": "RStudio IDE"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#quarto",
+    "href": "slides/01-multivariate-relationships.html#quarto",
+    "title": "The Big Picture",
+    "section": "Quarto",
+    "text": "Quarto\n\nFully reproducible reports – the analysis is run from the beginning each time you render\nCode goes in chunks and narrative goes outside of chunks\nVisual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#quarto-1",
+    "href": "slides/01-multivariate-relationships.html#quarto-1",
+    "title": "The Big Picture",
+    "section": "Quarto",
+    "text": "Quarto"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#how-will-we-use-quarto",
+    "href": "slides/01-multivariate-relationships.html#how-will-we-use-quarto",
+    "title": "The Big Picture",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery application exercise and assignment is written in a Quarto document\nYou’ll have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#group-work-roles",
+    "href": "slides/01-multivariate-relationships.html#group-work-roles",
+    "title": "The Big Picture",
+    "section": "Group Work Roles",
+    "text": "Group Work Roles\nAny time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:\n\nCoder:\n\nShares screen and is the only person to type.\nRuns code, saves work, and makes the submission.\nReads back comments when asked and asks for clarification when unsure.\n\nDeveloper:\n\nDirects the next steps: explains intent, outlines logic, and points out likely errors.\nWatches output, reads error messages aloud, and suggests targeted fixes.\n\nCommunicator:\n\nLooks up help when needed.\nReports on group answers to the class."
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#carbohydrates-in-starbucks-food",
+    "href": "slides/01-multivariate-relationships.html#carbohydrates-in-starbucks-food",
+    "title": "The Big Picture",
+    "section": "Carbohydrates in Starbucks food",
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#starbucks-data",
+    "href": "slides/01-multivariate-relationships.html#starbucks-data",
+    "title": "The Big Picture",
+    "section": "Starbucks data",
+    "text": "Starbucks data\n\nlibrary(openintro)\n\nLoading required package: airports\n\n\nLoading required package: cherryblossom\n\n\nLoading required package: usdata\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nglimpse(starbucks)\n\nRows: 77\nColumns: 8\n$ item     &lt;chr&gt; \"8-Grain Roll\", \"Apple Bran Muffin\", \"Apple Fritter\", \"Banana…\n$ calories &lt;int&gt; 350, 350, 420, 490, 130, 370, 460, 370, 310, 420, 380, 320, 3…\n$ fat      &lt;dbl&gt; 8, 9, 20, 19, 6, 14, 22, 14, 18, 25, 17, 12, 17, 21, 5, 18, 1…\n$ carb     &lt;int&gt; 67, 64, 59, 75, 17, 47, 61, 55, 32, 39, 51, 53, 34, 57, 52, 7…\n$ fiber    &lt;int&gt; 5, 7, 0, 4, 0, 5, 2, 0, 0, 0, 2, 3, 2, 2, 3, 3, 2, 3, 0, 2, 0…\n$ protein  &lt;int&gt; 10, 6, 5, 7, 0, 6, 7, 6, 5, 7, 4, 6, 5, 5, 12, 7, 8, 6, 0, 10…\n$ type     &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n$ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n\n\n\nObservations: 77 Starbucks food items\nVariables:\n\ncarb: Total carbohydrates (in grams)\ncalories: Total calories\nbakery: bakery: bakery food item, non-bakery: other food type"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#terminology",
+    "href": "slides/01-multivariate-relationships.html#terminology",
+    "title": "The Big Picture",
+    "section": "Terminology",
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n. . .\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#univariate-exploratory-data-analysis",
+    "href": "slides/01-multivariate-relationships.html#univariate-exploratory-data-analysis",
+    "title": "The Big Picture",
+    "section": "Univariate exploratory data analysis",
+    "text": "Univariate exploratory data analysis\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#bivariate-exploratory-data-analysis",
+    "href": "slides/01-multivariate-relationships.html#bivariate-exploratory-data-analysis",
+    "title": "The Big Picture",
+    "section": "Bivariate exploratory data analysis",
+    "text": "Bivariate exploratory data analysis\n\n\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#function-between-response-and-predictors",
+    "href": "slides/01-multivariate-relationships.html#function-between-response-and-predictors",
+    "title": "The Big Picture",
+    "section": "Function between response and predictors",
+    "text": "Function between response and predictors\n\n\\[\\text{carb} = f(\\text{calories}, \\text{bakery}) + \\epsilon\\]\n\n\nGoal: Determine \\(f\\)\nHow do we determine \\(f\\)?\n\nMake an assumption about the functional form \\(f\\) (parametric model)\nUse the data to fit a model based on that form"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#determine-f",
+    "href": "slides/01-multivariate-relationships.html#determine-f",
+    "title": "The Big Picture",
+    "section": "Determine \\(f\\)",
+    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n. . .\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#carb-vs.-calories",
+    "href": "slides/01-multivariate-relationships.html#carb-vs.-calories",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories",
+    "text": "Carb vs. Calories\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#carb-vs.-calories-bakery",
+    "href": "slides/01-multivariate-relationships.html#carb-vs.-calories-bakery",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories + Bakery",
+    "text": "Carb vs. Calories + Bakery\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
+    "href": "slides/01-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
+    "title": "The Big Picture",
+    "section": "Carb vs. Calories + Bakery (with interaction)",
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#example-palmers-penguins",
+    "href": "slides/01-multivariate-relationships.html#example-palmers-penguins",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\nSize measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica."
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#example-palmers-penguins-1",
+    "href": "slides/01-multivariate-relationships.html#example-palmers-penguins-1",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_lm()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.\nℹ Please use the `linewidth` aesthetic instead.\n\n\n\n\n\n\n\n\n\n\nWhat does the relationship between Length and Depth look like?"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#example-palmers-penguins-2",
+    "href": "slides/01-multivariate-relationships.html#example-palmers-penguins-2",
+    "title": "The Big Picture",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nWhat does the relationship between Length and Depth look like now?"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#simpsons-paradox-1",
+    "href": "slides/01-multivariate-relationships.html#simpsons-paradox-1",
+    "title": "The Big Picture",
+    "section": "Simpson’s Paradox",
+    "text": "Simpson’s Paradox\nSimpson’s Paradox is when there is a clear relationship between two variables but when you introduce a third variable that relationship disappears of reverses."
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#statistical-model-vs.-regression-equation",
+    "href": "slides/01-multivariate-relationships.html#statistical-model-vs.-regression-equation",
+    "title": "The Big Picture",
+    "section": "Statistical model vs. regression equation",
+    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n. . .\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#why-fit-a-model",
+    "href": "slides/01-multivariate-relationships.html#why-fit-a-model",
+    "title": "The Big Picture",
+    "section": "Why fit a model?",
+    "text": "Why fit a model?\n\nPrediction: Expected value of the response variable for given values of the predictor variables\nInference: Conclusion about the relationship between the response and predictor variables\n\n\n\nWhat is an example of a prediction question that can be answered using the model of carb vs. calories and bakery?\nWhat is an example of an inference question that can be answered using the model of carb vs. calories and bakery?"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#recap",
+    "href": "slides/01-multivariate-relationships.html#recap",
+    "title": "The Big Picture",
+    "section": "Recap",
+    "text": "Recap\n\nWe can use exploratory data analysis to describe the relationship between two variables\nWe make an assumption about the relationship between variables when doing linear regression\nThe two main objectives for fitting a linear regression model are (1) prediction and (2) inference"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#for-wednesday",
+    "href": "slides/01-multivariate-relationships.html#for-wednesday",
+    "title": "The Big Picture",
+    "section": "For Wednesday",
+    "text": "For Wednesday\n\nRead the syllabus\nComplete and submit AE 01 ## References"
+  },
+  {
+    "objectID": "slides/01-multivariate-relationships.html#footnotes",
+    "href": "slides/01-multivariate-relationships.html#footnotes",
+    "title": "The Big Picture",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSource: Mayo Clinic↩︎"
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships copy.html",
+    "href": "ae/ae-02-multivariate-relationships copy.html",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "",
+    "text": "Important\n\n\n\n\nFor this exercise, you will work in groups, but everyone will work through the document and submit their solution.\nOpen RStudio and create a subfolder in your AE folder called “AE-01”\nGo to the Canvas and locate your AE 01 assignment to get started.\nUpload the ae-01.qmd files into the folder you just created. To submit this Activity, upload the .qmd and .html responses in the corresponding Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships copy.html#quarto",
+    "href": "ae/ae-02-multivariate-relationships copy.html#quarto",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Quarto",
+    "text": "Quarto\nThe thing you are reading right now is an Quarto document (very similar to R Markdown if you’ve ever used that). Quarto runs inside R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. You can find the link to a useful Quarto guide here.\nWhen you click the Render button at the top of this window an html file will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R code, you can embed the output produced by the R code. In this way, your analysis is fully reproducible and updatable. All of your homework assignments must be prepared using Quarto.\nThe nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like \\(y_i = a + b x_i\\)), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)\nIn the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!\n\nExercise 1\nClick Render at the top of this document. Show Dr. Friedlander before moving on."
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships copy.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "href": "ae/ae-02-multivariate-relationships copy.html#using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Using R as a Calculator and Running Code within a Quarto Document",
+    "text": "Using R as a Calculator and Running Code within a Quarto Document\nWith R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by clicking the Run button, the sideways green arrow in the top right of the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.\nAs you work through this document, you should Run each chunk as you come to it.\n\nExercise 2\nRun the code chunk below.\n\n5 + 3\n\n[1] 8\n\n5.3 * 23.4\n\n[1] 124.02\n\nsqrt(16) # this is a comment.  R will not 'see' anything past a #, but you can use it to explain your code\n\n[1] 4\n\n\nLook closely at how Quarto denotes the R code and the output. Also note in the .qmd file how I include R code as separate from prose. These are called “chunks”. The easiest way to add a new chunk is to click on the green “c” icon with a plus in the corner above, then choose “R”. R code that is not inside of a chunk will not be run by Quarto!\n\n\nExercise 3\nCreate an R code chunk and compute the log of 10 using the function log. Why do you think the answer isn’t 1?\n\n\nExercise 4\nYou can also save values to named variables, to be used later:\n\nproduct &lt;- 15.3 * 23.4 #save result\n\nIf you save something like this, R will not show the output unless you expressly ask for it:\n\nproduct #show result\n\n[1] 358.02\n\n\nThe symbol “&lt;-” is the assignment operator. If you’ve ever programmed before, it’s essentially the same as “=” in this instance. There are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.\nOnce variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing Ctrl+Enter (Cmd +Enter for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)\n\n.5 * product # half of the product\n\n[1] 179.01\n\nproduct^(1/4) # fourth root of the product\n\n[1] 4.349875\n\n\n\n\nExercise 5\nYou can also use in-line R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?\n\n\nExercise 6\nOnly R code (and comments) should be inside chunks. Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code and they’ll run the code (resulting in the output and/or graphs).\nIf you want to run something in R but don’t want it to appear in the Quarto document, simply run it in the Console in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens."
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships copy.html#carbohydrates-and-starbucks",
+    "href": "ae/ae-02-multivariate-relationships copy.html#carbohydrates-and-starbucks",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Carbohydrates and Starbucks",
+    "text": "Carbohydrates and Starbucks\nStarbucks often displays the total calories in their food items but not the other nutritional information. Carbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories. Our goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\nYou will now be introduced to the functions we will use most frequently for exploratory data analysis (EDA) in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. However, you should be prepared to answer questions about any uncited code which is not covered in this class on your oral exams. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\n\n\n\n\nImportant\n\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\n\n\nExercise 7\nThe code below loads the package called tidyverse which provides many functions that will be useful for manipulating data and the package called mosaic which is useful for teaching statistics. Add another line that loads a package called ggformula which we will use to plot our data and a third that loads the package openintro which will contain our data for this activity. Note that #| warning: FALSE causes the code to run without displaying any associated warnings when you render. You will often see #| eval: FALSE which prevents the code chunk from running when you render the document. Throughout this course, make sure you remove these lines or change them to #| eval: TRUE whenever you reach them. The reason that are included in the first place is so I can write scaffolded and fill-in-the-blank type exercises for you. These will cause errors (since they are incomplete code) until you finish writing them.\n\n# load packages we typically use for this class.\nlibrary(tidyverse)\nlibrary(mosaic)\nlibrary(_________) # load ggformula\n# load openintro"
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships copy.html#loading-data",
+    "href": "ae/ae-02-multivariate-relationships copy.html#loading-data",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Loading data",
+    "text": "Loading data\nDoing statistics requires data. Sometimes we will have to load data from a file and sometimes we can get our data from an R package. Today’s dataset, called starbucks is from the openintro package. To load a this data from within R you can use the data command.\n\nExercise 8\nUse the code below to load the dataset starbucks, which is part of the openintro package. Don’t forget to change eval: FALSE to eval: TRUE… Why do you think we need eval: FALSE if you aren’t actually rewriting any code?\n\ndata(\"starbucks\")\n\nThis is a great chance to remind you that R cares about letter case. This means that data(\"starbucks\") works but data(\"Starbucks\") doesn’t!\n\n\nInspecting the data source\nNow you’re ready to learn a little bit about the starbucks data set.\n\n\nExercise 9\nRun the code below and then edit the bulleted list below to add a short description in your own words describing what each function does. Hint: if it isn’t clear based on the output you can use ? before the function name in the console to bring up the documentation on that function. Notify Dr. Friedlander when you’re finished.\n\n# Inspecting the data source\nglimpse(starbucks)\nhead(starbucks)\nnames(starbucks)\n\n\nglimpse() : this function…\nhead() : this function…\nnames() : this function…\n\n\n\nExercise 10\nBased on the output above, how many observations and how many variables does this data set have?\n\n\nExercise 11\nLet’s do a little bit of a data prep. In the console type ?starbucks and look at the definition of type.\nThe following is a little bit of data wrangling to get the source data in shape for our purposes. What do you think this code is doing? Make sure you change eval: FALSE to eval: TRUE.\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nStatisticians should always know something about the data domain in order to be useful. Why do you think we are changing our data like this?"
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships copy.html#exploratory-data-analysis",
+    "href": "ae/ae-02-multivariate-relationships copy.html#exploratory-data-analysis",
+    "title": "AE 01: Multivariate Relationships",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The pseudo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do the number of carbs compare for bakery and non-bakery items?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nExercise 12\nUse the R code chunk below to calculate the mean carbs by for bakery and non-bakery items. Summarize your observations below the code chunk.\n\nmean(carb ~ bakery, data = starbucks)\n\n\n\nExercise 13\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for bakery and non-bakery items using the function favstats. Summarize your observations below the code chunk.\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section! Also, you can always find details and examples by searching the Help menu in the lower-right quadrant.)\n\n\nExercise 14\nLet’s generate some univariate (i.e. one-variable) EDA plots for our three variables. In general, can use histograms or boxplots (gf_histogram or gf_boxplot) for quantitative variables and bar charts gf_bar for categorical variables. Fill in the blanks in the code below to generate the corresponding plots. Then create a boxplot of carb. Finally, share your observations below the code:\n\n# make a histogram of carb\ngf_histogram(~ carb, data = starbucks)\n\n# make a histogram of calories\ngf_histgoram(~ _____, data = ______)\n\n# make a bar chart of bakery\ngf_bar(~ _____, data = _____)\n\n# make a boxplot of carb\n\n\n\nExercise 15\nLet’s not generate some bivariate (i.e. two-variable) EDA plots for our three variables. For two-quantitative variables we typically use a scatter plot gf_point. If we are comparing a quantitative and a categorical variable will use side-by-side boxplots gf_boxplot. Generate and plot to visualize carb and calories and one to visualize carb and bakery. Comment on your observations."
+  },
+  {
+    "objectID": "prepare/prep-03-01.html",
+    "href": "prepare/prep-03-01.html",
+    "title": "Preparation for Simulation Based Inference",
+    "section": "",
+    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+  },
+  {
+    "objectID": "prepare/prep-03-01.html#assigned-reading",
+    "href": "prepare/prep-03-01.html#assigned-reading",
+    "title": "Preparation for Simulation Based Inference",
+    "section": "",
+    "text": "Stat2: Topic 4.6 Randomization Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+  },
+  {
+    "objectID": "prepare/prep-03-01.html#additional-resources-optional",
+    "href": "prepare/prep-03-01.html#additional-resources-optional",
+    "title": "Preparation for Simulation Based Inference",
+    "section": "Additional resources (optional)",
+    "text": "Additional resources (optional)\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
+  },
+  {
+    "objectID": "slides/00-welcome.html#meet-prof.-friedlander-1",
+    "href": "slides/00-welcome.html#meet-prof.-friedlander-1",
+    "title": "Welcome to MATH 2025!",
+    "section": "Meet Prof. Friedlander!",
+    "text": "Meet Prof. Friedlander!"
   }
 ]

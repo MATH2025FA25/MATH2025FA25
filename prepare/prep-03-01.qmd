@@ -1,0 +1,14 @@
+---
+title: "Preparation for Simulation Based Inference"
+---
+
+## Assigned reading
+
+- Stat2: Topic 4.6 Randomization Test for  Relationship
+- Stat2: Topic 4.7 Bootstrap for Regression
+
+## Additional resources (optional)
+
+📖 IMS, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)
+
+📖 IMS, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)
