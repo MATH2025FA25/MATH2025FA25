@@ -186,11 +186,8 @@ Your success in this course depends very much on you and the effort you put into
 
 This is a 2000-level class, meaning we are still providing you with the foundational knowledge necessary to succeed in more advanced courses. I will frequently be asking you to complete exercises without the use of AI, even though AI can complete them. The reason is that the skills and knowledge you gain from this course will (a) be built on in future courses and (b) be instrumental to items 1–4 above. Understanding how to write and structure code is instrumental to effectively prompting AI to do the things you want it to do, more accurately, more quickly, and with less effort. [Here is a short video](https://www.youtube.com/watch?v=A_YE9dC7YdE) that I think provides an interesting take from someone who isn't one of your professors.
 
-:::{.callout-important}
-Discuss and agree as a class.
-:::
 
-<!-- For this reason, you should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:[^1] (1) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning. (2) *Ethical dimension*: Students using AI should be transparent about their use and make sure it aligns with academic integrity.
+For this reason, you should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:[^1] (1) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning. (2) *Ethical dimension*: Students using AI should be transparent about their use and make sure it aligns with academic integrity.
 
   -   **AI tools for code:** You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use [these guidelines](https://guides.lib.monash.edu/c.php?g=219786&p=6972087) for citing AI-generated content.
 
@@ -200,7 +197,7 @@ Discuss and agree as a class.
 
 Note, for any of these models having the correct "prompt" is necessary. So you may have varying levels of success using these models to gain conceptual understanding, and in many cases just talking to your instructors/course assistant/peers or even doing straight up googling is likely to yield better results. If you do decide to use these models, it is your responsibility to also fact check the insights that you gain and explicitly describe how you used AI and provide a link to your chat history. You are always invited to meet with me for clarification on my policy surrounding the use of AI. *If any uncited AI use is suspected, Dr. Friedlander reserves the right to invite you to a meeting in which you are asked to explain your answer. If you are unable to do so, you will receive a zero for the assignment, regardless of whether you used AI or not.*
 
-If you are unsure if the use of a particular resource complies with the academic honesty policy, please ask. -->
+If you are unsure if the use of a particular resource complies with the academic honesty policy, please ask.
 
 Regardless of course delivery format, it is the responsibility of all students to understand and follow all College of Idaho policies, including academic integrity (e.g., completing one's own work, following proper citation of sources, adhering to guidance around group work projects, and more). Ignoring these requirements is a violation of the Honor Code.
 
