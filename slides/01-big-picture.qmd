@@ -114,7 +114,7 @@ Source: @ostblom2022
 
 -   **Scriptability** $\rightarrow$ R
 
--   **Literate programming** (code, narrative, output in one place) $\rightarrow$ Quarto
+-   **Literate programming** (code, narrative, output in one place) Jupyter-notebooks and Deepnote
 
 -   **Version control** $\rightarrow$ Git / GitHub (Beyond the scope of this course)
 
@@ -123,35 +123,31 @@ Source: @ostblom2022
 
 -   R is a statistical programming language
 
--   RStudio is a convenient interface for R (an integrated development environment, IDE)
+-   Jupyter notebooks are a convenient interface for R
 
 ![Source: [Statistical Inference via Data Science](https://moderndive.com/1-getting-started.html)](images/01/r_vs_rstudio_1.png){fig-align="center"}
 
 ------------------------------------------------------------------------
 
-## RStudio IDE
+## Deepnote
 
-![](images/01/rstudio-panes.png){fig-align="center"}
+Let's all create a Deepnote account using our CofI email addresses.
 
 ------------------------------------------------------------------------
 
-## Quarto
+## Deepnote
 
--   Fully reproducible reports -- the analysis is run from the beginning each time you render
+-   Fully reproducible reports -- the analysis is run from the beginning each time you Run the full notebook
 
--   Code goes in chunks and narrative goes outside of chunks
+-   Code blocks for writing code and markdown blocks for writing prose
 
 -   Visual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)
 
-## Quarto
+## How will we use Deepnote?
 
-![](images/01/quarto.png){fig-align="center"}
+-   Every application exercise and assignment is written in a Jupyter notebook
 
-## How will we use Quarto?
-
--   Every application exercise and assignment is written in a Quarto document
-
--   You'll have a template Quarto document to start with
+-   You'll have a template notebook to start with
 
 -   The amount of scaffolding in the template will decrease over the semester
 
@@ -175,10 +171,10 @@ Any time we are working on AEs, I will randomly assign you to groups of two or t
 # Getting Started
 
 ::: appex
-📋 [AE 01 - Getting Started](/ae/ae-01-getting-started.qmd)
+📋 [AE 01 - Getting Started](https://deepnote.com/workspace/CofI-MATH-269748c4-4966-4cc3-b064-2a31b9db85a4/project/AE-01-Getting-Started-f838426f-b7b7-45f4-87a9-5b7c929aa823/notebook/ae-01-getting-started-626fe75c7a02400584058fd9dc0e23ad?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=f838426f-b7b7-45f4-87a9-5b7c929aa823)
 :::
 
-Complete through Exercise 7.
+Complete the activity.
 
 
 ## Recap {.midi}

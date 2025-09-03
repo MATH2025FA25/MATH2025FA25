@@ -454,14 +454,14 @@
     "href": "slides/01-big-picture.html#toolkit",
     "title": "The Big Picture",
     "section": "Toolkit",
-    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub (Beyond the scope of this course)"
+    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) Jupyter-notebooks and Deepnote\nVersion control \\(\\rightarrow\\) Git / GitHub (Beyond the scope of this course)"
   },
   {
     "objectID": "slides/01-big-picture.html#r-and-rstudio",
     "href": "slides/01-big-picture.html#r-and-rstudio",
     "title": "The Big Picture",
     "section": "R and RStudio",
-    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
+    "text": "R and RStudio\n\nR is a statistical programming language\nJupyter notebooks are a convenient interface for R\n\n\nSource: Statistical Inference via Data Science"
   },
   {
     "objectID": "slides/01-big-picture.html#rstudio-ide",
@@ -965,5 +965,26 @@
       "Computing",
       "R Cheatsheet"
     ]
+  },
+  {
+    "objectID": "slides/01-big-picture.html#deepnote",
+    "href": "slides/01-big-picture.html#deepnote",
+    "title": "The Big Picture",
+    "section": "Deepnote",
+    "text": "Deepnote\nLet’s all create a Deepnote account using our CofI email addresses."
+  },
+  {
+    "objectID": "slides/01-big-picture.html#deepnote-1",
+    "href": "slides/01-big-picture.html#deepnote-1",
+    "title": "The Big Picture",
+    "section": "Deepnote",
+    "text": "Deepnote\n\nFully reproducible reports – the analysis is run from the beginning each time you Run the full notebook\nCode blocks for writing code and markdown blocks for writing prose\nVisual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)"
+  },
+  {
+    "objectID": "slides/01-big-picture.html#how-will-we-use-deepnote",
+    "href": "slides/01-big-picture.html#how-will-we-use-deepnote",
+    "title": "The Big Picture",
+    "section": "How will we use Deepnote?",
+    "text": "How will we use Deepnote?\n\nEvery application exercise and assignment is written in a Jupyter notebook\nYou’ll have a template notebook to start with\nThe amount of scaffolding in the template will decrease over the semester"
   }
 ]
