@@ -33,7 +33,7 @@ When you click the **Render** button at the top of this window an html file will
 
 The nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like $y_i = a + b x_i$), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side to get an idea of how Quarto works. (Since you're going to have to use Quarto this semester, you might as well start learning it now!)
 
-In the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click "File > New File > Quarto Document..." Put yourself as author, and make sure to give it a descriptive title!
+In the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click "File \> New File \> Quarto Document..." Put yourself as author, and make sure to give it a descriptive title!
 
 ### Exercise 1
 
@@ -77,9 +77,9 @@ If you save something like this, R will not show the output unless you expressly
 product #show result
 ```
 
-The symbol "<-" is the *assignment operator*. Imagine that R maintains a warehouse filled with boxes containing all kinds of stuff. When you use "<-", R will create a new box, write whatever name you put to the left of "<-", and put whatever is to the right of "<-" in the box. Then whenever you want to go get the box, you can just use whatever name you gave it. In the example above, the box is called "product" and it contains the number 358.02 (the result of 15.3 times 23.4). When you just write "product", R will go grab the box called "product" and dump it onto the screen. In the future, we will be giving names to entire datasets and using "functions" in R to analyze them.
+The symbol "\<-" is the *assignment operator*. Imagine that R maintains a warehouse filled with boxes containing all kinds of stuff. When you use "\<-", R will create a new box, write whatever name you put to the left of "\<-", and put whatever is to the right of "\<-" in the box. Then whenever you want to go get the box, you can just use whatever name you gave it. In the example above, the box is called "product" and it contains the number 358.02 (the result of 15.3 times 23.4). When you just write "product", R will go grab the box called "product" and dump it onto the screen. In the future, we will be giving names to entire datasets and using "functions" in R to analyze them.
 
-If you've ever programmed before, "=" is the most common assignment operator. In R, you can use "=" as the assignment operator but there are cases where "<-" works and "=" doesn't, so it's good to get into the habit of using "<-" now.
+If you've ever programmed before, "=" is the most common assignment operator. In R, you can use "=" as the assignment operator but there are cases where "\<-" works and "=" doesn't, so it's good to get into the habit of using "\<-" now.
 
 Once variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing *Ctrl+Enter* (*Cmd +Enter* for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)
 
