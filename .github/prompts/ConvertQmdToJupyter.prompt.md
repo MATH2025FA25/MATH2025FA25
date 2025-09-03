@@ -10,7 +10,12 @@ The purpose of this prompt is to provide precise, implementable directions for c
 - You will be provided with a Quarto markdown (.qmd) file that contains a homework assignment or activity. This may include prose, R code blocks, images, links, LaTeX math, and citations.
 - Convert the .qmd file into a Jupyter notebook (.ipynb) in a way that is loadable by standard Jupyter tools (nbformat >= 4).
 - Transfer text, code blocks, images, and links accurately. Preserve layout (headings, lists, blockquotes) in markdown cells.
+- For callout blocks (e.g., notes, warnings), convert to markdown a markdown cell highlighted in red with a title corresponding to the callout block. E.g. a "Note" callout becomes a markdown cell with a red background and a title "Note". Ensure that the text is not transparent.
 - For elements without a direct equivalent in notebooks (custom filters, callouts, certain fenced divs), preserve the original source in a clearly labeled "Conversion notes" cell and suggest alternatives.
+- Transfer all text as is, preserving formatting (bold, italics, links), unless it references Quarto, in which case, rephrase to remove Quarto-specific mentions (e.g., change "In this Quarto document..." to "In this document...").
+- Refer to chunks and cells as blocks.
+- Always ask clarifying questions when you are unsure about how to handle specific content or formatting, but ask your questions one at a time.
+- Always remove the knitr options.
 
 ## Kernel & language selection (R-only policy + user confirmation)
 
@@ -18,10 +23,18 @@ The purpose of this prompt is to provide precise, implementable directions for c
 - Before conversion begins, ask the user which kernel to use. The user will typically specify a conda environment that provides an R kernel. Request the kernelspec name (for example, `ir` or the conda environment's kernel name). If the user provides no preference, default to the commonly used R kernel name `ir` but still note this choice in the notebook's top cell.
 - After the user confirms the kernel, set `metadata.kernelspec` and `metadata.language_info` accordingly in the notebook metadata.
 
-## Frontmatter handling and title cell
+## Frontmatter handling, title cell, and instructions cell
 
-- Convert the top YAML frontmatter into a title markdown cell. Create the first cell with a rendered title (e.g., `# <title>`) and include common metadata fields (author, date, course) as a short bullet list beneath the title.
+- Convert the top YAML frontmatter into a title markdown cell. Create the first cell with a rendered title (e.g., `# <title>`) and include common metadata fields (author) as a short bullet list beneath the title. For all activities ensure there is a space for the for a Coder, Developer, and a Communicator to write their names instead of author.
+- Don't include a date field even if it's in the qmd file.
 - If the YAML contains additional fields that may be relevant, include the full raw YAML in a separate markdown cell titled "Original frontmatter (raw)" so nothing is lost.
+- Under the title cell add the following a markdown cell with the following text:
+
+	```
+	- Make a duplicate copy of this project in your own Deepnote workspace and share it with your teammates.
+
+	- To submit this Activity, click the **Share** button in the top right hand corner of the screen, select "Edit" under "Anyone with a link to this project", and then copy the link into the corresponding Canvas assignment. Remember that only the **Coder** role should submit the assignment in Canvas.
+	```
 
 ## Chunk options
 
@@ -45,6 +58,7 @@ The purpose of this prompt is to provide precise, implementable directions for c
  2. If the exercise requires code: a code cell immediately after with the first line containing `# Insert code here` and `metadata.language` set to "r". Do not include qmd chunk options unless the user asked for them.
  3. If the exercise requires a written answer: add a markdown cell with `Insert interpretation here`.
 - For multipart exercises, repeat the pattern for each subpart.
+4. If a code cell is used to as an example do not add the `# Insert code here` line. If you are unsure if a code cell is an example or part of an exercise, ask the user what to do.
 
 ## Cell metadata rules
 
@@ -89,7 +103,7 @@ The purpose of this prompt is to provide precise, implementable directions for c
 	```
 
 - Expected notebook cells (conceptual):
-	- Cell 1 (markdown): Title cell generated from YAML: `# HW 1` with a short bullet list including author.
+	- Cell 1 (markdown): Title cell generated from YAML: `# HW 1` with a short bullet list including Coder, Develop, and Communicator.
 	- Cell 2 (markdown): "## Exercise 1" + instruction text. (metadata.language: "markdown")
 	- Cell 3 (code, language: "r"): first line `# Insert code here` then `mean(x)`; do not include qmd chunk options by default.
 

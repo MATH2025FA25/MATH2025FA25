@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Prof.&nbsp;Eric Friedlander">
-  <title>MATH 2025 - Fall 2025 – The Big Picture</title>
+  <title>MATH 2025 - Fall 2025 – Multivariate Relationships</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -94,27 +94,7 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af3217caf516aabd64a4420f2530df19.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -215,7 +195,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">The Big Picture</h1>
+  <h1 class="title">Multivariate Relationships</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -226,178 +206,14 @@ Prof.&nbsp;Eric Friedlander
 </div>
 
 </section>
-<section>
-<section id="the-big-picture" class="title-slide slide level1 center">
-<h1>The Big Picture</h1>
-
-</section>
-<section id="topics" class="slide level2">
-<h2>Topics</h2>
-<ul>
-<li>Data analysis life cycle</li>
-<li>Reproducible data analysis</li>
-</ul>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-
-<img data-src="images/01/data-analysis-life-cycle.png" class="r-stretch"><p>Source: <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> with additions from <em>The Art of Statistics: How to Learn from Data</em>.</p>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-
-<img data-src="images/01/whole-game.png" class="r-stretch"><p>Source: <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a></p>
-</section></section>
-<section>
-<section id="reproducibility" class="title-slide slide level1 center">
-<h1>Reproducibility</h1>
-
-</section>
-<section id="reproducibility-checklist" class="slide level2">
-<h2>Reproducibility checklist</h2>
-<div class="question">
-<p>What does it mean for an analysis to be reproducible?</p>
-</div>
-<div class="fragment">
-<p><strong>Near term goals</strong>:</p>
-<p>✔️ Can the tables and figures be exactly reproduced from the code and data?</p>
-<p>✔️ Does the code actually do what you think it does?</p>
-<p>✔️ In addition to what was done, is it clear <em>why</em> it was done?</p>
-</div>
-<div class="fragment">
-<p><strong>Long term goals</strong>:</p>
-<p>✔️ Can the code be used for other data?</p>
-<p>✔️ Can you extend the code to do other things?</p>
-</div>
-</section>
-<section id="why-is-reproducibility-important" class="slide level2">
-<h2>Why is reproducibility important?</h2>
-<ul>
-<li><p>Results produced are more reliable and trustworthy <span class="citation" data-cites="ostblom2022">(<a href="#/for-wednesday" role="doc-biblioref" onclick="">Ostblom and Timbers 2022</a>)</span></p></li>
-<li><p>Facilitates more effective collaboration <span class="citation" data-cites="ostblom2022">(<a href="#/for-wednesday" role="doc-biblioref" onclick="">Ostblom and Timbers 2022</a>)</span></p></li>
-<li><p>Contributing to science, which builds and organizes knowledge in terms of testable hypotheses <span class="citation" data-cites="alexander2023">(<a href="#/for-wednesday" role="doc-biblioref" onclick="">Alexander 2023</a>)</span></p></li>
-<li><p>Possible to identify and correct errors or biases in the analysis process <span class="citation" data-cites="alexander2023">(<a href="#/for-wednesday" role="doc-biblioref" onclick="">Alexander 2023</a>)</span></p></li>
-</ul>
-</section>
-<section id="when-things-go-wrong" class="slide level2 smallest">
-<h2>When things go wrong</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Reproducibility error</th>
-<th>Consequence</th>
-<th>Source(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Limitations in Excel data formats</td>
-<td>Loss of 16,000 COVID case records in the UK</td>
-<td>(<a href="https://www.bbc.com/news/technology-54423988">Kelion 2020</a>)</td>
-</tr>
-<tr class="even">
-<td>Automatic formatting in Excel</td>
-<td>Important genes disregarded in scientific studies</td>
-<td>(<a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7">Ziemann, Eren, and El-Osta 2016</a>)</td>
-</tr>
-<tr class="odd">
-<td>Deletion of a cell caused rows to shift</td>
-<td>Mix-up of which patient group received the treatment</td>
-<td>(<a href="https://pubmed.ncbi.nlm.nih.gov/27373757/">Wallensteen et al.&nbsp;2018</a>)</td>
-</tr>
-<tr class="even">
-<td>Using binary instead of explanatory labels</td>
-<td>Mix-up of the intervention with the control group</td>
-<td>(<a href="https://jamanetwork.com/journals/jama/fullarticle/2752474">Aboumatar and Wise 2019</a>)</td>
-</tr>
-<tr class="odd">
-<td>Using the same notation for missing data and zero values</td>
-<td>Paper retraction</td>
-<td>(<a href="https://www.nature.com/articles/s41586-021-03656-3">Whitehouse et al.&nbsp;2021</a>)</td>
-</tr>
-<tr class="even">
-<td>Incorrectly copying data in a spreadsheet</td>
-<td>Delay in the opening of a hospital</td>
-<td>(<a href="https://www.bbc.com/news/uk-scotland-edinburgh-east-fife-53893101">Picken 2020</a>)</td>
-</tr>
-</tbody>
-</table>
-<p>Source: <span class="citation" data-cites="ostblom2022">Ostblom and Timbers (<a href="#/for-wednesday" role="doc-biblioref" onclick="">2022</a>)</span></p>
-</section>
-<section id="toolkit" class="slide level2">
-<h2>Toolkit</h2>
-<ul>
-<li><p><strong>Scriptability</strong> <span class="math inline">\(\rightarrow\)</span> R</p></li>
-<li><p><strong>Literate programming</strong> (code, narrative, output in one place) <span class="math inline">\(\rightarrow\)</span> Quarto</p></li>
-<li><p><strong>Version control</strong> <span class="math inline">\(\rightarrow\)</span> Git / GitHub (Beyond the scope of this course)</p></li>
-</ul>
-</section>
-<section id="r-and-rstudio" class="slide level2">
-<h2>R and RStudio</h2>
-<ul>
-<li><p>R is a statistical programming language</p></li>
-<li><p>RStudio is a convenient interface for R (an integrated development environment, IDE)</p></li>
-</ul>
-
-<img data-src="images/01/r_vs_rstudio_1.png" class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://moderndive.com/1-getting-started.html">Statistical Inference via Data Science</a></p></section>
-<section id="rstudio-ide" class="slide level2">
-<h2>RStudio IDE</h2>
-
-<img data-src="images/01/rstudio-panes.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<ul>
-<li><p>Fully reproducible reports – the analysis is run from the beginning each time you render</p></li>
-<li><p>Code goes in chunks and narrative goes outside of chunks</p></li>
-<li><p>Visual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)</p></li>
-</ul>
-</section>
-<section id="quarto-1" class="slide level2">
-<h2>Quarto</h2>
-
-<img data-src="images/01/quarto.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="how-will-we-use-quarto" class="slide level2">
-<h2>How will we use Quarto?</h2>
-<ul>
-<li><p>Every application exercise and assignment is written in a Quarto document</p></li>
-<li><p>You’ll have a template Quarto document to start with</p></li>
-<li><p>The amount of scaffolding in the template will decrease over the semester</p></li>
-</ul>
-</section></section>
-<section>
-<section id="our-first-ae" class="title-slide slide level1 center">
-<h1>Our first AE!</h1>
-
-</section>
-<section id="group-work-roles" class="slide level2 smaller">
-<h2>Group Work Roles</h2>
-<p>Any time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:</p>
-<ul>
-<li><strong>Coder:</strong>
-<ul>
-<li>Shares screen and is the only person to type.</li>
-<li>Runs code, saves work, and makes the submission.</li>
-<li>Reads back comments when asked and asks for clarification when unsure.</li>
-</ul></li>
-<li><strong>Developer:</strong>
-<ul>
-<li>Directs the next steps: explains intent, outlines logic, and points out likely errors.</li>
-<li>Watches output, reads error messages aloud, and suggests targeted fixes.</li>
-</ul></li>
-<li><strong>Communicator:</strong>
-<ul>
-<li>Looks up help when needed.</li>
-<li>Reports on group answers to the class.</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="multivariable-relationships" class="title-slide slide level1 center">
-<h1>Multivariable relationships</h1>
+<section id="multivariate-relationships" class="slide level2">
+<h2>Multivariate Relationships</h2>
 <div class="appex">
-<p>📋 <a href="../ae/ae-01-multivariate-relationships.qmd">AE 01 - Multivariate Relationships</a></p>
+<p>📋 <a href="https://deepnote.com/workspace/CofI-MATH-269748c4-4966-4cc3-b064-2a31b9db85a4/project/AE-02-Multivariate-Relationships-ebce91c8-0f2f-47fd-a6ef-c4d663f9235b/notebook/ae-02-multivariate-relationships-11ff27b42b2c4545b0f393095f59683b?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=ebce91c8-0f2f-47fd-a6ef-c4d663f9235b">AE 02 - Multivariate Relationships</a></p>
 </div>
-<p>Complete through Exercise 15.</p>
+<ul>
+<li>Complete Exercises 1-5</li>
+</ul>
 </section>
 <section id="carbohydrates-in-starbucks-food" class="slide level2">
 <h2>Carbohydrates in Starbucks food</h2>
@@ -406,24 +222,17 @@ Prof.&nbsp;Eric Friedlander
 <li><p>Carbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.<sup>1</sup></p></li>
 <li><p>Our goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)</p></li>
 </ul>
+<p>Complete the activity.</p>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>Source: <a href="https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/carbohydrates/art-20045705#:~:text=How%20many%20carbohydrates%20do%20you,grams%20of%20carbs%20a%20day.">Mayo Clinic</a></p></li></ol></aside></section>
 <section id="starbucks-data" class="slide level2 smaller">
 <h2>Starbucks data</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: airports</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: cherryblossom</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: usdata</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>starbucks <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a></a>  <span class="fu">mutate</span>(<span class="at">bakery =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(type <span class="sc">==</span> <span class="st">"bakery"</span>, <span class="st">"bakery"</span>, <span class="st">"non-bakery"</span>)))</span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="fu">glimpse</span>(starbucks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>starbucks <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a></a>  <span class="fu">mutate</span>(<span class="at">bakery =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(type <span class="sc">==</span> <span class="st">"bakery"</span>, <span class="st">"bakery"</span>, <span class="st">"non-bakery"</span>)))</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a><span class="fu">glimpse</span>(starbucks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 77
 Columns: 8
@@ -465,26 +274,18 @@ $ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, b
 </ul></li>
 </ul>
 </div>
+<div class="fragment">
+<p>Complete the remainder of the Exercises.</p>
+</div>
 </section>
 <section id="univariate-exploratory-data-analysis" class="slide level2">
 <h2>Univariate exploratory data analysis</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
 
-</div>
-<img data-src="02-multivariate-relationships_files/figure-html/univariate-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="02-multivariate-relationships_files/figure-revealjs/univariate-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="bivariate-exploratory-data-analysis" class="slide level2">
 <h2>Bivariate exploratory data analysis</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 
-</div>
-<img data-src="02-multivariate-relationships_files/figure-html/bivariate-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="02-multivariate-relationships_files/figure-revealjs/bivariate-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="function-between-response-and-predictors" class="slide level2">
 <h2>Function between response and predictors</h2>
 <div class="goal">
@@ -516,29 +317,19 @@ $ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, b
 </section>
 <section id="carb-vs.-calories" class="slide level2">
 <h2>Carb vs.&nbsp;Calories</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 
-</div>
-<img data-src="02-multivariate-relationships_files/figure-html/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p><span class="math display">\[\text{carb} = \beta_0 + \beta_1 ~\text{calories} + \epsilon\]</span></p>
+<img data-src="02-multivariate-relationships_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p><span class="math display">\[\text{carb} = \beta_0 + \beta_1 ~\text{calories} + \epsilon\]</span></p>
 </section>
 <section id="carb-vs.-calories-bakery" class="slide level2">
 <h2>Carb vs.&nbsp;Calories + Bakery</h2>
 
-<img data-src="02-multivariate-relationships_files/figure-html/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p><span class="math display">\[\text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \epsilon\]</span></p>
+<img data-src="02-multivariate-relationships_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p><span class="math display">\[\text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \epsilon\]</span></p>
 </section>
 <section id="carb-vs.-calories-bakery-with-interaction" class="slide level2">
 <h2>Carb vs.&nbsp;Calories + Bakery (with interaction)</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 
-</div>
-<img data-src="02-multivariate-relationships_files/figure-html/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p><span class="math display">\[{\small \text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \beta_3 ~ \text{calories} \times \text{bakery}  + \epsilon}\]</span></p>
-</section></section>
+<img data-src="02-multivariate-relationships_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p><span class="math display">\[{\small \text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \beta_3 ~ \text{calories} \times \text{bakery}  + \epsilon}\]</span></p>
+</section>
 <section>
 <section id="simpsons-paradox" class="title-slide slide level1 center">
 <h1>Simpson’s Paradox</h1>
@@ -551,35 +342,15 @@ $ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, b
 <img data-src="images/01/culmen_depth.png" class="r-stretch"></section>
 <section id="example-palmers-penguins-1" class="slide level2">
 <h2>Example: Palmer’s Penguins</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
-(`stat_lm()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.
-ℹ Please use the `linewidth` aesthetic instead.</code></pre>
-</div>
 
-</div>
-<img data-src="02-multivariate-relationships_files/figure-html/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><div class="question">
+<img data-src="02-multivariate-relationships_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><div class="question">
 <p>What does the relationship between Length and Depth look like?</p>
 </div>
 </section>
 <section id="example-palmers-penguins-2" class="slide level2">
 <h2>Example: Palmer’s Penguins</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
 
-</div>
-<img data-src="02-multivariate-relationships_files/figure-html/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><div class="question">
+<img data-src="02-multivariate-relationships_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><div class="question">
 <p>What does the relationship between Length and Depth look like now?</p>
 </div>
 </section>
@@ -620,7 +391,7 @@ $ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, b
 <li><p>The two main objectives for fitting a linear regression model are (1) prediction and (2) inference</p></li>
 </ul>
 </section>
-<section id="for-wednesday" class="slide level2 smaller scrollable">
+<section id="for-wednesday" class="slide level2">
 <h2>For Wednesday</h2>
 <ul>
 <li>Read the <a href="../syllabus.html">syllabus</a></li>
@@ -628,14 +399,6 @@ $ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, b
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-alexander2023" class="csl-entry" role="listitem">
-Alexander, Rohan. 2023. <span>“Telling Stories with Data,”</span> June. <a href="https://doi.org/10.1201/9781003229407">https://doi.org/10.1201/9781003229407</a>.
-</div>
-<div id="ref-ostblom2022" class="csl-entry" role="listitem">
-Ostblom, Joel, and Tiffany Timbers. 2022. <span>“Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.”</span> <em>Journal of Statistics and Data Science Education</em> 30 (3): 241–50. <a href="https://doi.org/10.1080/26939169.2022.2074922">https://doi.org/10.1080/26939169.2022.2074922</a>.
-</div>
-</div>
 </section></section>
 
     </div>
@@ -856,6 +619,44 @@ Ostblom, Joel, and Tiffany Timbers. 2022. <span>“Opinionated Practices for Tea
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

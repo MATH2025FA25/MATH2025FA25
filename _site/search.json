@@ -284,128 +284,128 @@
   {
     "objectID": "slides/02-multivariate-relationships.html#carbohydrates-in-starbucks-food",
     "href": "slides/02-multivariate-relationships.html#carbohydrates-in-starbucks-food",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Carbohydrates in Starbucks food",
-    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nSource: Mayo Clinic"
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nComplete the activity.\nSource: Mayo Clinic"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#starbucks-data",
     "href": "slides/02-multivariate-relationships.html#starbucks-data",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Starbucks data",
-    "text": "Starbucks data\n\nlibrary(openintro)\n\nLoading required package: airports\n\n\nLoading required package: cherryblossom\n\n\nLoading required package: usdata\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nglimpse(starbucks)\n\nRows: 77\nColumns: 8\n$ item     &lt;chr&gt; \"8-Grain Roll\", \"Apple Bran Muffin\", \"Apple Fritter\", \"Banana…\n$ calories &lt;int&gt; 350, 350, 420, 490, 130, 370, 460, 370, 310, 420, 380, 320, 3…\n$ fat      &lt;dbl&gt; 8, 9, 20, 19, 6, 14, 22, 14, 18, 25, 17, 12, 17, 21, 5, 18, 1…\n$ carb     &lt;int&gt; 67, 64, 59, 75, 17, 47, 61, 55, 32, 39, 51, 53, 34, 57, 52, 7…\n$ fiber    &lt;int&gt; 5, 7, 0, 4, 0, 5, 2, 0, 0, 0, 2, 3, 2, 2, 3, 3, 2, 3, 0, 2, 0…\n$ protein  &lt;int&gt; 10, 6, 5, 7, 0, 6, 7, 6, 5, 7, 4, 6, 5, 5, 12, 7, 8, 6, 0, 10…\n$ type     &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n$ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n\n\n\nObservations: 77 Starbucks food items\nVariables:\n\ncarb: Total carbohydrates (in grams)\ncalories: Total calories\nbakery: bakery: bakery food item, non-bakery: other food type"
+    "text": "Starbucks data\n\nlibrary(openintro)\n\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nglimpse(starbucks)\n\nRows: 77\nColumns: 8\n$ item     &lt;chr&gt; \"8-Grain Roll\", \"Apple Bran Muffin\", \"Apple Fritter\", \"Banana…\n$ calories &lt;int&gt; 350, 350, 420, 490, 130, 370, 460, 370, 310, 420, 380, 320, 3…\n$ fat      &lt;dbl&gt; 8, 9, 20, 19, 6, 14, 22, 14, 18, 25, 17, 12, 17, 21, 5, 18, 1…\n$ carb     &lt;int&gt; 67, 64, 59, 75, 17, 47, 61, 55, 32, 39, 51, 53, 34, 57, 52, 7…\n$ fiber    &lt;int&gt; 5, 7, 0, 4, 0, 5, 2, 0, 0, 0, 2, 3, 2, 2, 3, 3, 2, 3, 0, 2, 0…\n$ protein  &lt;int&gt; 10, 6, 5, 7, 0, 6, 7, 6, 5, 7, 4, 6, 5, 5, 12, 7, 8, 6, 0, 10…\n$ type     &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n$ bakery   &lt;fct&gt; bakery, bakery, bakery, bakery, bakery, bakery, bakery, baker…\n\n\n\nObservations: 77 Starbucks food items\nVariables:\n\ncarb: Total carbohydrates (in grams)\ncalories: Total calories\nbakery: bakery: bakery food item, non-bakery: other food type"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#terminology",
     "href": "slides/02-multivariate-relationships.html#terminology",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Terminology",
-    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables"
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables\n\n\n\n\nComplete the remainder of the Exercises."
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#univariate-exploratory-data-analysis",
     "href": "slides/02-multivariate-relationships.html#univariate-exploratory-data-analysis",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Univariate exploratory data analysis",
-    "text": "Univariate exploratory data analysis\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Univariate exploratory data analysis"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#bivariate-exploratory-data-analysis",
     "href": "slides/02-multivariate-relationships.html#bivariate-exploratory-data-analysis",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Bivariate exploratory data analysis",
-    "text": "Bivariate exploratory data analysis\n\n\n`geom_smooth()` using formula = 'y ~ x'"
+    "text": "Bivariate exploratory data analysis"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#function-between-response-and-predictors",
     "href": "slides/02-multivariate-relationships.html#function-between-response-and-predictors",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Function between response and predictors",
     "text": "Function between response and predictors\n\n\\[\\text{carb} = f(\\text{calories}, \\text{bakery}) + \\epsilon\\]\n\n\nGoal: Determine \\(f\\)\nHow do we determine \\(f\\)?\n\nMake an assumption about the functional form \\(f\\) (parametric model)\nUse the data to fit a model based on that form"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#determine-f",
     "href": "slides/02-multivariate-relationships.html#determine-f",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Determine \\(f\\)",
     "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Carb vs. Calories",
-    "text": "Carb vs. Calories\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+    "text": "Carb vs. Calories\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Carb vs. Calories + Bakery",
     "text": "Carb vs. Calories + Bakery\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Carb vs. Calories + Bakery (with interaction)",
-    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#example-palmers-penguins",
     "href": "slides/02-multivariate-relationships.html#example-palmers-penguins",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Example: Palmer’s Penguins",
     "text": "Example: Palmer’s Penguins\nSize measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica."
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#example-palmers-penguins-1",
     "href": "slides/02-multivariate-relationships.html#example-palmers-penguins-1",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Example: Palmer’s Penguins",
-    "text": "Example: Palmer’s Penguins\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_lm()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\nWarning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.\nℹ Please use the `linewidth` aesthetic instead.\n\n\n\n\nWhat does the relationship between Length and Depth look like?"
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like?"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#example-palmers-penguins-2",
     "href": "slides/02-multivariate-relationships.html#example-palmers-penguins-2",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Example: Palmer’s Penguins",
-    "text": "Example: Palmer’s Penguins\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\nWhat does the relationship between Length and Depth look like now?"
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like now?"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#simpsons-paradox-1",
     "href": "slides/02-multivariate-relationships.html#simpsons-paradox-1",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Simpson’s Paradox",
     "text": "Simpson’s Paradox\nSimpson’s Paradox is when there is a clear relationship between two variables but when you introduce a third variable that relationship disappears of reverses."
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#statistical-model-vs.-regression-equation",
     "href": "slides/02-multivariate-relationships.html#statistical-model-vs.-regression-equation",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Statistical model vs. regression equation",
     "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#why-fit-a-model",
     "href": "slides/02-multivariate-relationships.html#why-fit-a-model",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Why fit a model?",
     "text": "Why fit a model?\n\nPrediction: Expected value of the response variable for given values of the predictor variables\nInference: Conclusion about the relationship between the response and predictor variables\n\n\n\nWhat is an example of a prediction question that can be answered using the model of carb vs. calories and bakery?\nWhat is an example of an inference question that can be answered using the model of carb vs. calories and bakery?"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#recap",
     "href": "slides/02-multivariate-relationships.html#recap",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "Recap",
     "text": "Recap\n\nWe can use exploratory data analysis to describe the relationship between two variables\nWe make an assumption about the relationship between variables when doing linear regression\nThe two main objectives for fitting a linear regression model are (1) prediction and (2) inference"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#for-wednesday",
     "href": "slides/02-multivariate-relationships.html#for-wednesday",
-    "title": "The Big Picture",
+    "title": "Multivariate Relationships",
     "section": "For Wednesday",
-    "text": "For Wednesday\n\nRead the syllabus\nComplete and submit AE 01 ## References\n\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+    "text": "For Wednesday\n\nRead the syllabus\nComplete and submit AE 01 ## References"
   },
   {
     "objectID": "slides/01-big-picture.html#topics",
@@ -769,7 +769,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression",
     "crumbs": [
       "Schedule"
     ]
@@ -986,5 +986,47 @@
     "title": "The Big Picture",
     "section": "How will we use Deepnote?",
     "text": "How will we use Deepnote?\n\nEvery application exercise and assignment is written in a Jupyter notebook\nYou’ll have a template notebook to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/02-multivariate-relationships.html#multivariate-relationships",
+    "href": "slides/02-multivariate-relationships.html#multivariate-relationships",
+    "title": "Multivariate Relationships",
+    "section": "Multivariate Relationships",
+    "text": "Multivariate Relationships\n\n📋 AE 02 - Multivariate Relationships\n\n\nComplete Exercises 1-5"
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships.html",
+    "href": "ae/ae-02-multivariate-relationships.html",
+    "title": "AE 02: Multivariate Relationships",
+    "section": "",
+    "text": "Author: Your name here\nCoder: ____________________\nDeveloper: ____________________\nCommunicator: ____________________"
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships.html#important",
+    "href": "ae/ae-02-multivariate-relationships.html#important",
+    "title": "AE 02: Multivariate Relationships",
+    "section": "Important",
+    "text": "Important\n\nMake a duplicate copy of this project in your own Deepnote workspace and share it with your teammates.\nTo submit this Activity, click the Share button in the top right hand corner of the screen, select “Edit” under “Anyone with a link to this project”, and then copy the link into the corresponding Canvas assignment. Remember that only the Coder role should submit the assignment in Canvas."
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships.html#carbohydrates-and-starbucks",
+    "href": "ae/ae-02-multivariate-relationships.html#carbohydrates-and-starbucks",
+    "title": "AE 02: Multivariate Relationships",
+    "section": "Carbohydrates and Starbucks",
+    "text": "Carbohydrates and Starbucks\nStarbucks often displays the total calories in their food items but not the other nutritional information. Carbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories. Our goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\nYou will now be introduced to the functions we will use most frequently for exploratory data analysis (EDA) in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. However, you should be prepared to answer questions about any uncited code which is not covered in this class on your oral exams. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\nExercise 1\nThe code below loads the package called tidyverse which provides many functions that will be useful for manipulating data and the package called mosaic which is useful for teaching statistics. Add another line that loads a package called ggformula which we will use to plot our data and a third that loads the package openintro which will contain our data for this activity.\n# load packages we typically use for this class.\nlibrary(tidyverse)\nlibrary(mosaic)\nlibrary(_________) # load ggformula\n# load openintro\n\n# Insert code here: load the packages used in class"
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships.html#loading-data",
+    "href": "ae/ae-02-multivariate-relationships.html#loading-data",
+    "title": "AE 02: Multivariate Relationships",
+    "section": "Loading data",
+    "text": "Loading data\nDoing statistics requires data. Sometimes we will have to load data from a file and sometimes we can get our data from an R package. Today’s dataset, called starbucks is from the openintro package. To load a this data from within R you can use the data command.\n\nExercise 2\nUse the code below to load the dataset starbucks, which is part of the openintro package.\n\n# Insert code here\n# data(\"starbucks\")\n# If you have openintro installed, uncomment the line above to load the data\n\nThis is a great chance to remind you that R cares about letter case. This means that data(\"starbucks\") works but data(\"Starbucks\") doesn’t!\n\n\nInspecting the data source\nNow you’re ready to learn a little bit about the starbucks data set.\n\n\nExercise 3\nRun the code below and then edit the bulleted list below to add a short description in your own words describing what each function does. Hint: if it isn’t clear based on the output you can use ? before the function name in the console to bring up the documentation on that function. Notify Dr. Friedlander when you’re finished.\n\n# Insert code here - example inspection commands\nglimpse(starbucks)\nhead(starbucks)\nnames(starbucks)\n\n\nglimpse() : this function…\nhead() : this function…\nnames() : this function…\n\n\n\nExercise 4\nBased on the output above, how many observations and how many variables does this data set have?\nInsert interpretation here.\n\n\nExercise 5\nLet’s do a little bit of a data prep. In the console type ?starbucks and look at the definition of type.\nThe following is a little bit of data wrangling to get the source data in shape for our purposes. What do you think this code is doing?\n\n# Insert code here\nstarbucks &lt;- starbucks |&gt; \n  mutate(bakery = factor(if_else(type == \"bakery\", \"bakery\", \"non-bakery\")))\n\nStatisticians should always know something about the data domain in order to be useful. Why do you think we are changing our data like this?\nInsert interpretation here."
+  },
+  {
+    "objectID": "ae/ae-02-multivariate-relationships.html#exploratory-data-analysis",
+    "href": "ae/ae-02-multivariate-relationships.html#exploratory-data-analysis",
+    "title": "AE 02: Multivariate Relationships",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The pseudo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do the number of carbs compare for bakery and non-bakery items?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nExercise 6\nUse the R code chunk below to calculate the mean carbs by for bakery and non-bakery items. Summarize your observations below the code chunk.\n\nmean(carb ~ bakery, data = starbucks)\n\n\n\nExercise 7\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for bakery and non-bakery items using the function favstats. Summarize your observations below the code chunk.\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section!)\n\nfavstats(carb ~ bakery, data = starbucks)\n\n\n\nExercise 8\nLet’s generate some univariate (i.e. one-variable) EDA plots for our three variables. In general, can use histograms or boxplots (gf_histogram or gf_boxplot) for quantitative variables and bar charts gf_bar for categorical variables. Fill in the blanks in the code below to generate the corresponding plots. Then create a boxplot of carb. Finally, share your observations below the code:\n\n# make a histogram of carb\ngf_histogram(~ carb, data = starbucks)\n\n# make a histogram of calories\ngf_histgoram(~ _____, data = ______)\n\n# make a bar chart of bakery\ngf_bar(~ _____, data = _____)\n\n# make a boxplot of carb\n\n# Insert code here: example plots\n\n\n\nExercise 9\nLet’s not generate some bivariate (i.e. two-variable) EDA plots for our three variables. For two-quantitative variables we typically use a scatter plot gf_point. If we are comparing a quantitative and a categorical variable will use side-by-side boxplots gf_boxplot. Generate and plot to visualize carb and calories and one to visualize carb and bakery. Comment on your observations.\n\n# Insert code here\n\nComment on your observations.\nInsert interpretation here."
   }
 ]
