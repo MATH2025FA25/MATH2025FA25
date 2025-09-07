@@ -286,7 +286,7 @@
     "href": "slides/02-multivariate-relationships.html#carbohydrates-in-starbucks-food",
     "title": "Multivariate Relationships",
     "section": "Carbohydrates in Starbucks food",
-    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nComplete the activity.\nSource: Mayo Clinic"
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nComplete the activity."
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#starbucks-data",
@@ -300,7 +300,7 @@
     "href": "slides/02-multivariate-relationships.html#terminology",
     "title": "Multivariate Relationships",
     "section": "Terminology",
-    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables\n\n\n\n\nComplete the remainder of the Exercises."
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n. . .\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables\n\n\n. . .\nComplete the remainder of the Exercises."
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#univariate-exploratory-data-analysis",
@@ -328,28 +328,28 @@
     "href": "slides/02-multivariate-relationships.html#determine-f",
     "title": "Multivariate Relationships",
     "section": "Determine \\(f\\)",
-    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
+    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n. . .\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories",
     "title": "Multivariate Relationships",
     "section": "Carb vs. Calories",
-    "text": "Carb vs. Calories\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+    "text": "Carb vs. Calories\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery",
     "title": "Multivariate Relationships",
     "section": "Carb vs. Calories + Bakery",
-    "text": "Carb vs. Calories + Bakery\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
+    "text": "Carb vs. Calories + Bakery\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
     "title": "Multivariate Relationships",
     "section": "Carb vs. Calories + Bakery (with interaction)",
-    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\n\n\n\n\n\n\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#example-palmers-penguins",
@@ -363,14 +363,14 @@
     "href": "slides/02-multivariate-relationships.html#example-palmers-penguins-1",
     "title": "Multivariate Relationships",
     "section": "Example: Palmer’s Penguins",
-    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like?"
+    "text": "Example: Palmer’s Penguins\n\n\n\n\n\n\n\n\n\n\nWhat does the relationship between Length and Depth look like?"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#example-palmers-penguins-2",
     "href": "slides/02-multivariate-relationships.html#example-palmers-penguins-2",
     "title": "Multivariate Relationships",
     "section": "Example: Palmer’s Penguins",
-    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like now?"
+    "text": "Example: Palmer’s Penguins\n\n\n\n\n\n\n\n\n\n\nWhat does the relationship between Length and Depth look like now?"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#simpsons-paradox-1",
@@ -384,7 +384,7 @@
     "href": "slides/02-multivariate-relationships.html#statistical-model-vs.-regression-equation",
     "title": "Multivariate Relationships",
     "section": "Statistical model vs. regression equation",
-    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
+    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n. . .\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#why-fit-a-model",
@@ -411,8 +411,8 @@
     "objectID": "slides/01-big-picture.html#topics",
     "href": "slides/01-big-picture.html#topics",
     "title": "The Big Picture",
-    "section": "Topics",
-    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis"
+    "section": "",
+    "text": "Data analysis life cycle\nReproducible data analysis"
   },
   {
     "objectID": "slides/01-big-picture.html#section",
@@ -433,7 +433,7 @@
     "href": "slides/01-big-picture.html#reproducibility-checklist",
     "title": "The Big Picture",
     "section": "Reproducibility checklist",
-    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n. . .\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n. . .\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
   },
   {
     "objectID": "slides/01-big-picture.html#why-is-reproducibility-important",
@@ -461,7 +461,7 @@
     "href": "slides/01-big-picture.html#r-and-rstudio",
     "title": "The Big Picture",
     "section": "R and RStudio",
-    "text": "R and RStudio\n\nR is a statistical programming language\nJupyter notebooks are a convenient interface for R\n\n\nSource: Statistical Inference via Data Science"
+    "text": "R and RStudio\n\nR is a statistical programming language\nJupyter notebooks are a convenient interface for R\n\n\n\n\nSource: Statistical Inference via Data Science"
   },
   {
     "objectID": "slides/01-big-picture.html#rstudio-ide",
@@ -769,7 +769,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nM\nSep 15\nHomework 1 Due",
     "crumbs": [
       "Schedule"
     ]
@@ -991,8 +991,8 @@
     "objectID": "slides/02-multivariate-relationships.html#multivariate-relationships",
     "href": "slides/02-multivariate-relationships.html#multivariate-relationships",
     "title": "Multivariate Relationships",
-    "section": "Multivariate Relationships",
-    "text": "Multivariate Relationships\n\n📋 AE 02 - Multivariate Relationships\n\n\nComplete Exercises 1-5"
+    "section": "",
+    "text": "📋 AE 02 - Multivariate Relationships\n\n\nComplete Exercises 1-5"
   },
   {
     "objectID": "ae/ae-02-multivariate-relationships.html",
@@ -1028,5 +1028,54 @@
     "title": "AE 02: Multivariate Relationships",
     "section": "Exploratory Data Analysis",
     "text": "Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The pseudo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do the number of carbs compare for bakery and non-bakery items?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nExercise 6\nUse the R code chunk below to calculate the mean carbs by for bakery and non-bakery items. Summarize your observations below the code chunk.\n\nmean(carb ~ bakery, data = starbucks)\n\n\n\nExercise 7\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the number of carbs for bakery and non-bakery items using the function favstats. Summarize your observations below the code chunk.\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section!)\n\nfavstats(carb ~ bakery, data = starbucks)\n\n\n\nExercise 8\nLet’s generate some univariate (i.e. one-variable) EDA plots for our three variables. In general, can use histograms or boxplots (gf_histogram or gf_boxplot) for quantitative variables and bar charts gf_bar for categorical variables. Fill in the blanks in the code below to generate the corresponding plots. Then create a boxplot of carb. Finally, share your observations below the code:\n\n# make a histogram of carb\ngf_histogram(~ carb, data = starbucks)\n\n# make a histogram of calories\ngf_histgoram(~ _____, data = ______)\n\n# make a bar chart of bakery\ngf_bar(~ _____, data = _____)\n\n# make a boxplot of carb\n\n# Insert code here: example plots\n\n\n\nExercise 9\nLet’s not generate some bivariate (i.e. two-variable) EDA plots for our three variables. For two-quantitative variables we typically use a scatter plot gf_point. If we are comparing a quantitative and a categorical variable will use side-by-side boxplots gf_boxplot. Generate and plot to visualize carb and calories and one to visualize carb and bakery. Comment on your observations.\n\n# Insert code here\n\nComment on your observations.\nInsert interpretation here."
+  },
+  {
+    "objectID": "slides/01-big-picture.html",
+    "href": "slides/01-big-picture.html",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Data analysis life cycle\nReproducible data analysis"
+  },
+  {
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "HW 01: Park access",
+    "section": "",
+    "text": "This HW will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts and to analyze real data and come to informed conclusions.\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\n\nBy the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
+  },
+  {
+    "objectID": "hw/hw-01.html#learning-goals",
+    "href": "hw/hw-01.html#learning-goals",
+    "title": "HW 01: Park access",
+    "section": "",
+    "text": "By the end of this homework, you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
+  },
+  {
+    "objectID": "hw/hw-01.html#r-and-r-studio",
+    "href": "hw/hw-01.html#r-and-r-studio",
+    "title": "HW 01: Park access",
+    "section": "R and R Studio",
+    "text": "R and R Studio\nHere are the components of the RStudio IDE and here are the components of an Quarto (.qmd) file.\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for ““Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file."
+  },
+  {
+    "objectID": "hw/hw-01.html#footnotes",
+    "href": "hw/hw-01.html#footnotes",
+    "title": "HW 01: Park access",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+  },
+  {
+    "objectID": "slides/02-multivariate-relationships.html",
+    "href": "slides/02-multivariate-relationships.html",
+    "title": "Multivariate Relationships",
+    "section": "",
+    "text": "📋 AE 02 - Multivariate Relationships\n\n\nComplete Exercises 1-5"
+  },
+  {
+    "objectID": "slides/02-multivariate-relationships.html#footnotes",
+    "href": "slides/02-multivariate-relationships.html#footnotes",
+    "title": "Multivariate Relationships",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSource: Mayo Clinic↩︎"
   }
 ]

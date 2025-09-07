@@ -11,6 +11,11 @@ The purpose of this prompt is to provide precise, implementable directions for c
 - Convert the .qmd file into a Jupyter notebook (.ipynb) in a way that is loadable by standard Jupyter tools (nbformat >= 4).
 - Transfer text, code blocks, images, and links accurately. Preserve layout (headings, lists, blockquotes) in markdown cells.
 - For callout blocks (e.g., notes, warnings), convert to markdown a markdown cell highlighted in red with a title corresponding to the callout block. E.g. a "Note" callout becomes a markdown cell with a red background and a title "Note". Ensure that the text is not transparent.
+	- Here is an example of a callout block in the Jupyter notbook: <div style="border:2px solid #b71c1c; background-color:#ffebee; padding:1em; border-radius:6px; color:#212121;">
+<strong>Important</strong>
+
+When you click the run button for a block, it simply runs the code in the current session. I.e. as you make changes to R's warehouse, the code block you run will reference the current state of the warehouse. When you Run the whole notebook runs from the top it cleans out that warehouse and starts from the top. For this reason, if you run blocks multiple times or out of order, you may get unexpected results when you Run the whole document. Before you submit your documents, <strong>always restart your session and Run All and then double check your answers to make sure that your answers match your explanations.</strong>
+</div>s
 - For elements without a direct equivalent in notebooks (custom filters, callouts, certain fenced divs), preserve the original source in a clearly labeled "Conversion notes" cell and suggest alternatives.
 - Transfer all text as is, preserving formatting (bold, italics, links), unless it references Quarto, in which case, rephrase to remove Quarto-specific mentions (e.g., change "In this Quarto document..." to "In this document...").
 - Refer to chunks and cells as blocks.

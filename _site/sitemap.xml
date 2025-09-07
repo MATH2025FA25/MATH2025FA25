@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://math2025fa25.netlify.app/index.html</loc>
-    <lastmod>2025-08-26T14:34:38.500Z</lastmod>
+    <lastmod>2025-08-31T22:13:17.130Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/computing-access.html</loc>
@@ -26,19 +26,19 @@
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/prepare/prep-03.html</loc>
-    <lastmod>2025-09-02T15:50:10.292Z</lastmod>
+    <lastmod>2025-09-07T22:43:39.420Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/ae/ae-01-getting-started.html</loc>
-    <lastmod>2025-09-03T13:29:20.958Z</lastmod>
+    <lastmod>2025-09-07T22:43:39.397Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/02-multivariate-relationships.html</loc>
-    <lastmod>2025-09-03T19:24:27.476Z</lastmod>
+    <lastmod>2025-09-07T22:43:39.629Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/01-big-picture.html</loc>
-    <lastmod>2025-09-03T17:27:09.894Z</lastmod>
+    <lastmod>2025-09-07T22:43:39.444Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/00-welcome.html</loc>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/schedule.html</loc>
-    <lastmod>2025-09-03T19:25:11.621Z</lastmod>
+    <lastmod>2025-09-07T23:11:18.147Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/support.html</loc>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/syllabus.html</loc>
-    <lastmod>2025-09-02T15:52:27.503Z</lastmod>
+    <lastmod>2025-09-07T22:43:39.642Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/computing-inferencesummary.html</loc>
@@ -74,6 +74,10 @@
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/ae/ae-02-multivariate-relationships.html</loc>
-    <lastmod>2025-09-03T18:20:59.677Z</lastmod>
+    <lastmod>2025-09-07T22:43:39.406Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math2025fa25.netlify.app/hw/hw-01.html</loc>
+    <lastmod>2025-09-07T22:47:18.502Z</lastmod>
   </url>
 </urlset>
