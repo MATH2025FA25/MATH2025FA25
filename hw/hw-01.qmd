@@ -1,0 +1,277 @@
+---
+title: "HW 01: Park access"
+author: "Insert Name Here"
+subtitle: "Exploratory Data Analysis + Simple Linear Regression" 
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+# Introduction
+
+This HW will go through much of the same workflow we've demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts and to analyze real data and come to informed conclusions.
+
+::: callout-note
+R is the name of the programming language itself and RStudio is a convenient interface.
+:::
+
+## Learning goals
+
+By the end of this homework, you will...
+
+-   Be familiar with the workflow using RStudio
+-   Gain practice writing a reproducible report using Quarto
+-   Be able to create data visualizations using `ggformula` and use those visualizations to describe distributions
+-   Be able to fit, interpret, and evaluate simple linear regression models
+
+# Getting Started
+
+### Log in to RStudio
+
+-   Go to <https://rstudio.collegeofidaho.edu> and login with your College of Idaho Email and Password.
+
+-   Make a folder called `hw`to store all of your homework for the semester. Create a subfolder called `hw01` to store this homework.
+
+-   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202858), navigate to HW-01 and upload the `hw-01.qmd` and `parks.csv` file into the folder your just made. The previous link should take you right to the assignment.
+
+## R and R Studio
+
+[Here](https://mat212wi25.netlify.app/slides/01-welcome#/rstudio-ide) are the components of the RStudio IDE and [here](https://mat212wi25.netlify.app/slides/01-welcome#/quarto-1) are the components of an Quarto (.qmd) file.
+
+### YAML
+
+The top portion of your Quarto file (between the three dashed lines) is called **YAML**. It stands for ""Yet Another Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+
+::: callout-important
+Open the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file.
+:::
+
+# Packages
+
+We will use the following packages in today's HW. The line `eval: FALSE` prevents R from running the corresponding chunk. As you work through this HW please delete these lines as you go.
+
+```{r load-packages}
+#| eval: FALSE
+library(tidyverse)
+library(mosaic)
+library(ggformula)
+library(broom)
+```
+
+# Data
+
+Today's data is about access to parks and other public amenities in the 100 most populated cities in the United States. The data were collected by the [Trust for Public Land](https://www.tpl.org/parks-and-an-equitable-recovery-parkscore-report), a non-profit organization that advocates for equitable access to outdoor spaces. The data set we'll use in this HW includes part of the data used for analysis in the 2021 special report [*Parks and Equitable Recovery*](https://www.tpl.org/parks-and-an-equitable-recovery-parkscore-report); it was obtained from [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-06-22/readme.md).
+
+This homework will focus on the following variables:
+
+-   `pct_near_park_points`: Points in the Trust for Public Land ParkScore index for the percent of residents within a 10 minute walk to park. [Click here](https://www.tpl.org/parkscore) to learn more about the ParkScore. **Note that this variable represents the number of points, not the percentage.**
+
+-   `spend_per_resident_data`: Spending per resident in US dollars.
+
+[Click here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-06-22/readme.md) for the full data dictionary.
+
+# Exercises
+
+**Goal**: One way to improve access to public parks is for cities to spend more money creating and maintaining parks for their residents. It's unclear, however, how much spending impacts residents' access to parks. The goal of this analysis is to examine the relationship between spending per resident and points in the ParkScore index for the percent of residents within a 10 minute walk to a park.
+
+------------------------------------------------------------------------
+
+Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically **render** your Quarto document to produce the updated HTML file.
+
+::: callout-tip
+Make sure we can read all of your code in your HTML file. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (`|>`).
+:::
+
+### Exercise 0
+
+Use the code below to load the data into R. Remember that you may need to change the PATH which you can accomplish by deleting the existing path, pressing the TAB button while your cursor is in between the quotes, and then selecting the file you want to load.
+
+```{r read-data}
+#| eval: FALSE
+parks <- read_csv("../data/parks.csv")
+```
+
+### Exercise 1
+
+Viewing a summary of the data is a useful starting point for data analysis, especially if there are a large number of observations or variables. Run the code below to use the `glimpse` function to see a summary of the `parks` data frame.
+
+How many observations (rows) are in `parks`? How many variables (columns)?
+
+```{r glimpse-data}
+#| eval: FALSE
+glimpse(parks)
+```
+
+::: callout-note
+In your `hw-01.qmd` document you'll see that we already added the code required for the exercise as well as a sentence where you can fill in the blanks to report the answer. Use this format for the remaining exercises.
+
+Also note that the code chunk has a label: `glimpse-data`. It's not required, but good practice and highly encouraged to label your code chunks using short meaningful names. (*Hint: Do not uses spaces in code chunk labels. Use `-` to separate multiple words and do not repeat labels.)*
+:::
+
+\_\_\_\_\_\_
+
+### Exercise 2
+
+The predictor variable for this analysis `spend_per_resident_data` is quantitative; however, from the glimpse of the data in Exercise 1, we see its data type is `chr` (character) in R. We would expect it to be `dbl` (double), the data type for numeric data.
+
+-   Why did `spend_per_resident_data` get read by R as a character data type instead of a double? Be specific. Hint: Click on the parks data frame in the upper right hand panel to look at the data. Is there something about the data that might make R think it's not a number?
+-   Why do we need to convert `spend_per_resident_data` to a data type suitable for quantitative data? How might leaving it as a character variable hinder the analysis?
+
+\_\_\_\_\_\_
+
+### Exercise 3
+
+The code below to mutates `spend_per_resident_data` so that it is correctly treated as quantitative data in R. Each line of code is numbered. Write a brief explanation of what each line of code does. You may want to use the internet here to figure out the answer. If you do, don't forget to cite your source.
+
+```{r}
+#| eval: false
+parks <- parks |>  # <1>
+  mutate(spend_per_resident_data = 
+           str_replace(spend_per_resident_data,"\\$", "")) |> # <2>
+  mutate(spend_per_resident_data = 
+           as.numeric(spend_per_resident_data)) # <3>
+```
+
+1.  \_\_\_\_\_\_
+2.  \_\_\_\_\_\_
+3.  \_\_\_\_\_\_
+
+::: callout-tip
+This is a good place to render your hw-01 document.
+:::
+
+### Exercise 4
+
+Exploratory data analysis (EDA) helps us "get to know" the data and examine the variable distributions and relationships between variables. We do so using visualizations and summary statistics.
+
+When we make visualizations, we want them to be clear and suitable for a professional audience. This means that, at a minimum, each visualization should have **an informative title** and **informative axis labels**.
+
+Fill in the code below to visualize the distribution of `spend_per_resident_data` using a histogram.
+
+```{r}
+#| eval: false
+gf_histogram(~____, data = ____) |> 
+  gf_labs(x = "_____",
+       y = "_____", 
+       title = "_____")
+```
+
+Then, fill in the code to calculate summary statistics for the variable using the `favstats` function from the mosaic R package.
+
+```{r}
+#| eval: false
+favstats(~____, data = _____)
+```
+
+### Exercise 5
+
+Use the visualization and summary statistics from the previous exercise to describe the distribution of `spend_per_resident_data`. In your narrative, include a description of the shape, center, spread, and the presence of apparent outliers or other interesting features.
+
+\_\_\_\_\_\_
+
+### Exercise 6
+
+Now let's look at the distribution of the response variable `pct_near_park_points`.
+
+-   Visualize this distribution and calculate the summary statistics. The visualization should have an informative title and informative axis labels.
+
+```{r}
+# Answer here
+```
+
+-   Use the visualization and summary statistics to describe the distribution of `pct_near_park_points`. Recall from the previous exercise the components to include in the description.
+
+\_\_\_\_\_\_
+
+::: callout-tip
+This is another good place to render your document. Make sure you've been removing the `#| eval: FALSE` lines as you go.
+:::
+
+### Exercise 7
+
+The `parks` data set ranges from the year 2012 to 2020, so each row contains information about funding and public amenities for each city in a given year. Thus, there are multiple rows in `parks` for each city. We are going to summarize the data, so there is just one row per city. Fill in the code below to create a new data frame called `parks_summary` that contains the mean spending per resident and mean points in the ParkScore index for the percent of residents within a 10-minute walk to a park.
+
+```{r}
+#| eval: false
+parks_summary <- ____ |> # insert data set
+  group_by(____) |> # insert name of variable you want to group by
+  summarise(mean_spend = mean(____), # insert name of variable you want to compute the mean of
+            mean_pts_near = ____) # use the previous line to do the same with the second variable
+```
+
+How many rows are in `parks_summary`? How many columns? Hint: You may have to write some code to answer this question.
+
+\_\_\_\_\_\_
+
+::: callout-important
+Use `parks_summary` for exercises 8 - 9.
+:::
+
+### Exercise 8
+
+-   Create a visualization of the relationship between `mean_spend` and `mean_pts_near`, and calculate the correlation between the two variables. Include an informative title and informative axis labels on the visualization.
+
+```{r}
+# Answer here
+```
+
+-   Use the visualization and correlation to describe the relationship between the two variables. Include the shape, direction, strength, presence of potential outliers, and any other interesting features in the description.
+
+\_\_\_\_\_\_
+
+::: callout-tip
+This is a good place to render your document.
+:::
+
+### Exercise 9
+
+-   Fit and display a linear regression model of the relationship between `mean_spend` and `mean_pts_near`.  Think carefully about which one should be the response variable. Use the `lm` function and display the model in a tidy format.
+
+```{r}
+# Answer here
+```
+
+-   Interpret the slope in the context of the data.
+
+\_\_\_\_\_\_
+
+-   Interpret the intercept in the context of the data. Is the interpretation useful in practice for this data? Briefly explain.
+
+\_\_\_\_\_\_
+
+### Exercise 10
+
+[*Parks and an Equitable Recovery*](https://www.tpl.org/parks-and-an-equitable-recovery-parkscore-report), a special report by Trust for Public Land, begins with the following conclusion from their analysis:
+
+> *Our data shows major disparities in access to the outdoors. In the 100 most populated cities, neighborhoods where most residents identify as Black, Hispanic and Latinx, American Indian/Alaska Native or Asian American and Pacific Islander have access to an average of 44 percent less park acreage than predominantly white neighborhoods, and similar park space inequities exist in low-income neighborhoods across cities, highlighting the urgent need to center equity in park investment and planning.*
+
+Would it be possible to reproduce the analysis results that led to this conclusion given the data we have in `parks.csv`? If so, briefly describe the steps we might take to reproduce the analysis. If not, briefly describe the additional data we need in order to reproduce the analysis.
+
+\_\_\_\_\_\_
+
+::: callout-tip
+You're done and ready to submit your work! Render your document and upload the .qmd and .html files to Canvas.
+:::
+
+# Grading (17 pts)
+
+<br>
+
+| Component             | Points |
+|:----------------------|:-------|
+| Ex 1                  | 1      |
+| Ex 2                  | 1      |
+| Ex 3                  | 1      |
+| Ex 4                  | 1      |
+| Ex 5                  | 1      |
+| Ex 6                  | 2      |
+| Ex 7                  | 2      |
+| Ex 8                  | 2      |
+| Ex 9                  | 3      |
+| Ex 10                 | 1      |
+| Grammar & Writing     | 1[^1]  |
+| Workflow & formatting | 1[^2]  |
+
+[^1]: The "Grammar & Writing" grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.
