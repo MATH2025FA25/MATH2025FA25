@@ -311,10 +311,14 @@ $${\small \hat{\text{carb}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{calories} + \
 -   The two main objectives for fitting a linear regression model are (1) prediction and (2) inference
 
 
-## For Wednesday
+## To-Do
 
-- Read the [syllabus](/syllabus.qmd)
-- Complete and submit AE 01
+- For Wednesday
+  - Complete and submit AE 02
+  - Completed readings
+- For Monday
+  - HW 01
+  
 ## References
 
 
