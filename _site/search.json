@@ -951,5 +951,250 @@
     "title": "Multivariate Relationships",
     "section": "References",
     "text": "References"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#application-exercise",
+    "href": "slides/03-slr-intro.html#application-exercise",
+    "title": "Simple Linear Regression",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 03 - DC Bikeshare\n\nComplete Exercises 0 and 1."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#topics",
+    "href": "slides/03-slr-intro.html#topics",
+    "title": "Simple Linear Regression",
+    "section": "Topics",
+    "text": "Topics\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line.\nUse R to fit and summarize regression models."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#computation-set-up",
+    "href": "slides/03-slr-intro.html#computation-set-up",
+    "title": "Simple Linear Regression",
+    "section": "Computation set up",
+    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#dc-bikeshare",
+    "href": "slides/03-slr-intro.html#dc-bikeshare",
+    "title": "Simple Linear Regression",
+    "section": "DC Bikeshare",
+    "text": "DC Bikeshare\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions.\nLet’s complete Exercises 2-6 together"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#data-prep",
+    "href": "slides/03-slr-intro.html#data-prep",
+    "title": "Simple Linear Regression",
+    "section": "Data prep",
+    "text": "Data prep\n\nExercise 2: Recode season as a factor with names instead of numbers (livecode)\nRemember:\n\nThink of |&gt; as “and then”\nmutate creates new columns and changes (mutates) existing columns\nR calls categorical data “factors”\n\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#exploratory-data-analysis-exercise-3",
+    "href": "slides/03-slr-intro.html#exploratory-data-analysis-exercise-3",
+    "title": "Simple Linear Regression",
+    "section": "Exploratory data analysis (Exercise 3)",
+    "text": "Exploratory data analysis (Exercise 3)\n\ngf_point(count ~ temp_orig | season, data = bikeshare) |&gt; \n  gf_labs(x = \"Temperature (Celsius)\",\n          y = \"Daily bike rentals\")"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#exploratory-data-analysis-exercise-3-1",
+    "href": "slides/03-slr-intro.html#exploratory-data-analysis-exercise-3-1",
+    "title": "Simple Linear Regression",
+    "section": "Exploratory data analysis (Exercise 3)",
+    "text": "Exploratory data analysis (Exercise 3)\n\ngf_point(count ~ temp_orig | season, data = bikeshare) |&gt; \n  gf_labs(x = \"Temperature (Celsius)\",\n          y = \"Daily bike rentals\")"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#more-data-prep",
+    "href": "slides/03-slr-intro.html#more-data-prep",
+    "title": "Simple Linear Regression",
+    "section": "More data prep",
+    "text": "More data prep\n\n(Exercise 5) Filter your data for the season with the strongest relationship and give the resulting data set a new name\n\n\nwinter &lt;- bikeshare |&gt; \n  filter(season == \"winter\")"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#rentals-vs-temperature",
+    "href": "slides/03-slr-intro.html#rentals-vs-temperature",
+    "title": "Simple Linear Regression",
+    "section": "Rentals vs Temperature",
+    "text": "Rentals vs Temperature\nGoal: Fit a line to describe the relationship between the temperature and the number of rentals in winter."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#why-fit-a-line",
+    "href": "slides/03-slr-intro.html#why-fit-a-line",
+    "title": "Simple Linear Regression",
+    "section": "Why fit a line?",
+    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n\n\nPrediction\n\nHow many rentals are expected when it’s 10 degrees out?\n\n\n\nInference\n\nIs temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#population-vs.-sample",
+    "href": "slides/03-slr-intro.html#population-vs.-sample",
+    "title": "Simple Linear Regression",
+    "section": "Population vs. Sample",
+    "text": "Population vs. Sample\nPopulation: The set of items or events that you’re interested in and hoping (able) to generalize the results of your analysis to.\nSample: The set of items that you have data for.\nRepresentative Sample: A sample that looks like a small version of your population.\nGoal: Build a model from your sample which generalizes to your population."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#terminology",
+    "href": "slides/03-slr-intro.html#terminology",
+    "title": "Simple Linear Regression",
+    "section": "Terminology",
+    "text": "Terminology\n\n\n\nResponse, Y: variable describing the outcome of interest\nPredictor, X: variable we use to help understand the variability in the response"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#regression-model",
+    "href": "slides/03-slr-intro.html#regression-model",
+    "title": "Simple Linear Regression",
+    "section": "Regression model",
+    "text": "Regression model\nRegression model: a function that describes the relationship between a quantitative response, \\(Y\\), and the predictor, \\(X\\) (or many predictors).\n\\[\\begin{aligned} Y &= \\color{black}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{black}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{black}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#regression-model-1",
+    "href": "slides/03-slr-intro.html#regression-model-1",
+    "title": "Simple Linear Regression",
+    "section": "Regression model",
+    "text": "Regression model\n\n\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]\n\n\n\n\n\n\n\n\n\n\n\n\\(\\mu_{Y|X}\\) is the mean value of \\(Y\\) given a particular value of \\(X\\)."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#regression-model-2",
+    "href": "slides/03-slr-intro.html#regression-model-2",
+    "title": "Simple Linear Regression",
+    "section": "Regression model",
+    "text": "Regression model\n\n\n\\[\n\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[5pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#slr-statistical-model",
+    "href": "slides/03-slr-intro.html#slr-statistical-model",
+    "title": "Simple Linear Regression",
+    "section": "SLR: Statistical model",
+    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical response\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#slr-regression-equation",
+    "href": "slides/03-slr-intro.html#slr-regression-equation",
+    "title": "Simple Linear Regression",
+    "section": "SLR: Regression equation",
+    "text": "SLR: Regression equation\n\\[\\Large{\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X}\\]\n\n\\(\\hat{\\beta}_1\\): Estimated slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\hat{\\beta}_0\\): Estimated intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\hat{Y}\\): Predicted value of \\(Y\\) for a given \\(X\\)\nNo error term!"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#choosing-values-for-hatbeta_1-and-hatbeta_0",
+    "href": "slides/03-slr-intro.html#choosing-values-for-hatbeta_1-and-hatbeta_0",
+    "title": "Simple Linear Regression",
+    "section": "Choosing values for \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\)",
+    "text": "Choosing values for \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\)"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#residuals",
+    "href": "slides/03-slr-intro.html#residuals",
+    "title": "Simple Linear Regression",
+    "section": "Residuals",
+    "text": "Residuals\n\n\\[\\text{residual} = \\text{observed} - \\text{predicted} = y_i - \\hat{y}_i\\]"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#least-squares-line",
+    "href": "slides/03-slr-intro.html#least-squares-line",
+    "title": "Simple Linear Regression",
+    "section": "Least squares line",
+    "text": "Least squares line\n\nResidual for the \\(i^{th}\\) observation:\n\n\\[e_i = \\text{observed} - \\text{predicted}\n= y_i - \\hat{y}_i\\]\n\nSum of squared residuals:\n\n\\[e^2_1 + e^2_2 + \\dots + e^2_n\\]\n\nLeast squares line is the one that minimizes the sum of squared residuals"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#properties-of-least-squares-regression",
+    "href": "slides/03-slr-intro.html#properties-of-least-squares-regression",
+    "title": "Simple Linear Regression",
+    "section": "Properties of least squares regression",
+    "text": "Properties of least squares regression\n\nPasses through center of mass point, the coordinates corresponding to average \\(X\\) and average \\(Y\\): \\(\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}\\)\nSlope has same sign as the correlation coefficient: \\(\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}\\)\n\n\\(r\\): correlation coefficient\n\\(s_Y, s_X\\): sample standard deviations of \\(X\\) and \\(Y\\)\n\nSum of the residuals is zero: \\(\\sum_{i = 1}^n e_i \\approx 0\\)\n\nIntuition: Residuals are “balanced”\n\nThe residuals and \\(X\\) values are uncorrelated"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#estimating-the-slope",
+    "href": "slides/03-slr-intro.html#estimating-the-slope",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the slope",
+    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 4.2121 \\\\\ns_Y &= 1399.942 \\\\\nr &= 0.6692\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.6692 \\times \\frac{1399.942}{4.2121} \\\\\n&= 222.417\\end{aligned}\\]\n\n\n\nClick here for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#estimating-the-intercept",
+    "href": "slides/03-slr-intro.html#estimating-the-intercept",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the intercept",
+    "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n\\[\\begin{aligned}\n&\\bar{x} = 12.2076 \\\\\n&\\bar{y} = 2604.133 \\\\\n&\\hat{\\beta}_1 = 222.4167\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 2604.133 - 222.4167 \\times 12.2076 \\\\\n&= -111.0411\n\\end{aligned}\\]\n\n\n\nClick here for details on deriving the equations for slope and intercept."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#interpretation",
+    "href": "slides/03-slr-intro.html#interpretation",
+    "title": "Simple Linear Regression",
+    "section": "Interpretation",
+    "text": "Interpretation\n\nSlope: For each additional unit of \\(X\\) we expect the \\(Y\\) to increase by \\(\\hat{\\beta}_1\\), on average.\nIntercept: If \\(X\\) were 0, we predict \\(Y\\) to be \\(\\hat{\\beta}_0\\)"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#does-it-make-sense-to-interpret-the-intercept",
+    "href": "slides/03-slr-intro.html#does-it-make-sense-to-interpret-the-intercept",
+    "title": "Simple Linear Regression",
+    "section": "Does it make sense to interpret the intercept?",
+    "text": "Does it make sense to interpret the intercept?\n✅ The intercept is meaningful in the context of the data if\n\nthe predictor can feasibly take values equal to or near zero, or\nthere are values near zero in the observed data.\n\n\n🛑 Otherwise, the intercept may not be meaningful!"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#estimating-the-regression-line-in-r",
+    "href": "slides/03-slr-intro.html#estimating-the-regression-line-in-r",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the regression line in R",
+    "text": "Estimating the regression line in R\n\nLet’s complete Exercises 7-11"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#fit-model-estimate-parameters",
+    "href": "slides/03-slr-intro.html#fit-model-estimate-parameters",
+    "title": "Simple Linear Regression",
+    "section": "Fit model & estimate parameters",
+    "text": "Fit model & estimate parameters\n\nwinter_fit &lt;- lm(count ~ temp_orig, data = winter)\nwinter_fit\n\n\nCall:\nlm(formula = count ~ temp_orig, data = winter)\n\nCoefficients:\n(Intercept)    temp_orig  \n     -111.0        222.4"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#look-at-the-regression-output",
+    "href": "slides/03-slr-intro.html#look-at-the-regression-output",
+    "title": "Simple Linear Regression",
+    "section": "Look at the regression output",
+    "text": "Look at the regression output\n\nwinter_fit &lt;- lm(count ~ temp_orig, data = winter)\nwinter_fit\n\n\nCall:\nlm(formula = count ~ temp_orig, data = winter)\n\nCoefficients:\n(Intercept)    temp_orig  \n     -111.0        222.4  \n\n\n\\[\\widehat{\\text{count}} = -111.0 + 222.4 \\times \\text{temp_orig}\\]\n\n\nNote: The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#the-regression-output",
+    "href": "slides/03-slr-intro.html#the-regression-output",
+    "title": "Simple Linear Regression",
+    "section": "The regression output",
+    "text": "The regression output\nWe’ll focus on the first column for now…\n\nwinter_fit |&gt; \n  tidy() \n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    -111.     238.     -0.466 6.42e- 1\n2 temp_orig       222.      18.5    12.0   7.28e-25"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#format-output-with-kable",
+    "href": "slides/03-slr-intro.html#format-output-with-kable",
+    "title": "Simple Linear Regression",
+    "section": "Format output with kable",
+    "text": "Format output with kable\nUse the kable function from the knitr package to produce a table and specify number of significant digits\n\nwinter_fit |&gt; \n  tidy() |&gt;\n  kable(digits = 4)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-111.0380\n238.3124\n-0.4659\n0.6418\n\n\ntemp_orig\n222.4155\n18.4594\n12.0489\n0.0000"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#visualize-model",
+    "href": "slides/03-slr-intro.html#visualize-model",
+    "title": "Simple Linear Regression",
+    "section": "Visualize Model",
+    "text": "Visualize Model\n\nwinter |&gt; \n  gf_point(count ~ temp_orig) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#our-model",
+    "href": "slides/03-slr-intro.html#our-model",
+    "title": "Simple Linear Regression",
+    "section": "Our Model",
+    "text": "Our Model\n\\[\\begin{aligned}\n\\widehat{Y} &=  -111.0 + 222.4 \\times X\\\\\n\n\\widehat{\\text{count}} &=  -111.0 + 222.4 \\times \\text{temp_orig}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#making-a-prediction",
+    "href": "slides/03-slr-intro.html#making-a-prediction",
+    "title": "Simple Linear Regression",
+    "section": "Making a prediction",
+    "text": "Making a prediction\nSuppose that it’s 15 degrees Celsius outside. According to this model, how many bike rentals should we expect if it’s winter?\n\\[\\begin{aligned}\n\\widehat{\\text{count}} &= -111.0 + 222.4 \\times \\text{temp_orig} \\\\\n&= -111.0 + 222.4 \\times 15 \\\\\n&= 3225\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#prediction-in-r",
+    "href": "slides/03-slr-intro.html#prediction-in-r",
+    "title": "Simple Linear Regression",
+    "section": "Prediction in R",
+    "text": "Prediction in R\n\n# create a data frame for a new temperature\nnew_day &lt;- tibble(temp_orig = 15)\n\n# predict the outcome for a new day\npredict(winter_fit, new_day)\n\n       1 \n3225.195 \n\n\nComplete Exercises 12-13."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html#recap",
+    "href": "slides/03-slr-intro.html#recap",
+    "title": "Simple Linear Regression",
+    "section": "Recap",
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R."
   }
 ]
