@@ -24,7 +24,7 @@ bibliography: references.bib
 ## Application exercise
 
 ::: appex
-📋 [AE 03 - DC Bikeshare](/ae/ae-03-bikeshare.qmd)
+📋 [AE 03 - DC Bikeshare](https://deepnote.com/workspace/CofI-MATH-269748c4-4966-4cc3-b064-2a31b9db85a4/project/AE-03-Bikeshare-e02ff833-6768-42e4-8b5d-a62f201324b2/Dockerfile?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=e02ff833-6768-42e4-8b5d-a62f201324b2)
 :::
 
 Complete Exercises 0 and 1.
