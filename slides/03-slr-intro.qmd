@@ -474,19 +474,6 @@ winter_fit |>
   tidy() 
 ```
 
-## Format output with `kable`
-
-Use the `kable` function from the [knitr](https://yihui.org/knitr/) package to produce a table and specify number of significant digits
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|3"
-
-winter_fit |> 
-  tidy() |>
-  kable(digits = 4)
-```
-
 ## Visualize Model
 
 ```{r}

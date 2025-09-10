@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Prof.&nbsp;Eric Friedlander">
   <title>MATH 2025 - Fall 2025 – Simple Linear Regression</title>
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af3217caf516aabd64a4420f2530df19.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e8ec87b35a1ea6f579e340293a251dc6.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -599,53 +599,15 @@ Coefficients:
 </div>
 </div>
 </section>
-<section id="format-output-with-kable" class="slide level2">
-<h2>Format output with <code>kable</code></h2>
-<p>Use the <code>kable</code> function from the <a href="https://yihui.org/knitr/">knitr</a> package to produce a table and specify number of significant digits</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>winter_fit <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-111.0380</td>
-<td style="text-align: right;">238.3124</td>
-<td style="text-align: right;">-0.4659</td>
-<td style="text-align: right;">0.6418</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">temp_orig</td>
-<td style="text-align: right;">222.4155</td>
-<td style="text-align: right;">18.4594</td>
-<td style="text-align: right;">12.0489</td>
-<td style="text-align: right;">0.0000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
 <section id="visualize-model" class="slide level2">
 <h2>Visualize Model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>winter <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a></a>  <span class="fu">gf_point</span>(count <span class="sc">~</span> temp_orig) <span class="sc">|&gt;</span> </span>
-<span id="cb12-3"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>winter <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">gf_point</span>(count <span class="sc">~</span> temp_orig) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="03-slr-intro_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:80.0%" class="r-stretch"></section>
+<img data-src="03-slr-intro_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:80.0%" class="r-stretch"></section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <div style="font-size: 0.85em">
