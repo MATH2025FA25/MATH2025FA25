@@ -113,7 +113,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nM\nSep 15\nHomework 1 Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nW\nSep 17\nTesting and Confidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 19\nHomework 1 Due",
     "crumbs": [
       "Schedule"
     ]
@@ -213,15 +213,15 @@
     "objectID": "slides/02-multivariate-relationships.html#multivariate-relationships",
     "href": "slides/02-multivariate-relationships.html#multivariate-relationships",
     "title": "Multivariate Relationships",
-    "section": "Multivariate Relationships",
-    "text": "Multivariate Relationships\n\n📋 AE 02 - Multivariate Relationships\n\n\nComplete Exercises 1-5"
+    "section": "",
+    "text": "📋 AE 02 - Multivariate Relationships\n\n\nComplete Exercises 1-5"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carbohydrates-in-starbucks-food",
     "href": "slides/02-multivariate-relationships.html#carbohydrates-in-starbucks-food",
     "title": "Multivariate Relationships",
     "section": "Carbohydrates in Starbucks food",
-    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nComplete the activity.\nSource: Mayo Clinic"
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nComplete the activity."
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#starbucks-data",
@@ -235,7 +235,7 @@
     "href": "slides/02-multivariate-relationships.html#terminology",
     "title": "Multivariate Relationships",
     "section": "Terminology",
-    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables\n\n\n\n\nComplete the remainder of the Exercises."
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n. . .\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables\n\n\n. . .\nComplete the remainder of the Exercises."
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#univariate-exploratory-data-analysis",
@@ -263,28 +263,28 @@
     "href": "slides/02-multivariate-relationships.html#determine-f",
     "title": "Multivariate Relationships",
     "section": "Determine \\(f\\)",
-    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
+    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n. . .\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories",
     "title": "Multivariate Relationships",
     "section": "Carb vs. Calories",
-    "text": "Carb vs. Calories\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+    "text": "Carb vs. Calories\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery",
     "title": "Multivariate Relationships",
     "section": "Carb vs. Calories + Bakery",
-    "text": "Carb vs. Calories + Bakery\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
+    "text": "Carb vs. Calories + Bakery\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
     "href": "slides/02-multivariate-relationships.html#carb-vs.-calories-bakery-with-interaction",
     "title": "Multivariate Relationships",
     "section": "Carb vs. Calories + Bakery (with interaction)",
-    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\n\n\n\n\n\n\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#example-palmers-penguins",
@@ -298,14 +298,14 @@
     "href": "slides/02-multivariate-relationships.html#example-palmers-penguins-1",
     "title": "Multivariate Relationships",
     "section": "Example: Palmer’s Penguins",
-    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like?"
+    "text": "Example: Palmer’s Penguins\n\n\n\n\n\n\n\n\n\n\nWhat does the relationship between Length and Depth look like?"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#example-palmers-penguins-2",
     "href": "slides/02-multivariate-relationships.html#example-palmers-penguins-2",
     "title": "Multivariate Relationships",
     "section": "Example: Palmer’s Penguins",
-    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like now?"
+    "text": "Example: Palmer’s Penguins\n\n\n\n\n\n\n\n\n\n\nWhat does the relationship between Length and Depth look like now?"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#simpsons-paradox-1",
@@ -319,7 +319,7 @@
     "href": "slides/02-multivariate-relationships.html#statistical-model-vs.-regression-equation",
     "title": "Multivariate Relationships",
     "section": "Statistical model vs. regression equation",
-    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
+    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n. . .\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
   },
   {
     "objectID": "slides/02-multivariate-relationships.html#why-fit-a-model",
@@ -956,15 +956,15 @@
     "objectID": "slides/03-slr-intro.html#application-exercise",
     "href": "slides/03-slr-intro.html#application-exercise",
     "title": "Simple Linear Regression",
-    "section": "Application exercise",
-    "text": "Application exercise\n\n📋 AE 03 - DC Bikeshare\n\nComplete Exercises 0 and 1."
+    "section": "",
+    "text": "📋 AE 03 - DC Bikeshare\n\nComplete Exercises 0 and 1."
   },
   {
     "objectID": "slides/03-slr-intro.html#topics",
     "href": "slides/03-slr-intro.html#topics",
     "title": "Simple Linear Regression",
     "section": "Topics",
-    "text": "Topics\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line.\nUse R to fit and summarize regression models."
+    "text": "Topics\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method."
   },
   {
     "objectID": "slides/03-slr-intro.html#computation-set-up",
@@ -985,7 +985,7 @@
     "href": "slides/03-slr-intro.html#data-prep",
     "title": "Simple Linear Regression",
     "section": "Data prep",
-    "text": "Data prep\n\nExercise 2: Recode season as a factor with names instead of numbers (livecode)\nRemember:\n\nThink of |&gt; as “and then”\nmutate creates new columns and changes (mutates) existing columns\nR calls categorical data “factors”\n\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))"
+    "text": "Data prep\n\nExercise 2: Recode season as a factor with names instead of numbers (livecode)\nRemember:\n\nThink of |&gt; as “and then”\nmutate creates new columns and changes (mutates) existing columns\nR calls categorical data “factors”\n\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season))\n\nRows: 731 Columns: 17\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...\ndate  (1): dteday\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
     "objectID": "slides/03-slr-intro.html#exploratory-data-analysis-exercise-3",
@@ -1013,14 +1013,14 @@
     "href": "slides/03-slr-intro.html#rentals-vs-temperature",
     "title": "Simple Linear Regression",
     "section": "Rentals vs Temperature",
-    "text": "Rentals vs Temperature\nGoal: Fit a line to describe the relationship between the temperature and the number of rentals in winter."
+    "text": "Rentals vs Temperature\nGoal: Fit a line to describe the relationship between the temperature and the number of rentals in winter.\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "slides/03-slr-intro.html#why-fit-a-line",
     "href": "slides/03-slr-intro.html#why-fit-a-line",
     "title": "Simple Linear Regression",
     "section": "Why fit a line?",
-    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n\n\nPrediction\n\nHow many rentals are expected when it’s 10 degrees out?\n\n\n\nInference\n\nIs temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?"
+    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n. . .\n\nPrediction\n\nHow many rentals are expected when it’s 10 degrees out?\n. . .\n\nInference\n\nIs temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?"
   },
   {
     "objectID": "slides/03-slr-intro.html#population-vs.-sample",
@@ -1034,7 +1034,7 @@
     "href": "slides/03-slr-intro.html#terminology",
     "title": "Simple Linear Regression",
     "section": "Terminology",
-    "text": "Terminology\n\n\n\nResponse, Y: variable describing the outcome of interest\nPredictor, X: variable we use to help understand the variability in the response"
+    "text": "Terminology\n\n\n\nResponse, Y: variable describing the outcome of interest\nPredictor, X: variable we use to help understand the variability in the response\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "slides/03-slr-intro.html#regression-model",
@@ -1048,21 +1048,21 @@
     "href": "slides/03-slr-intro.html#regression-model-1",
     "title": "Simple Linear Regression",
     "section": "Regression model",
-    "text": "Regression model\n\n\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]\n\n\n\n\n\n\n\n\n\n\n\n\\(\\mu_{Y|X}\\) is the mean value of \\(Y\\) given a particular value of \\(X\\)."
+    "text": "Regression model\n\n\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\\(\\mu_{Y|X}\\) is the mean value of \\(Y\\) given a particular value of \\(X\\)."
   },
   {
     "objectID": "slides/03-slr-intro.html#regression-model-2",
     "href": "slides/03-slr-intro.html#regression-model-2",
     "title": "Simple Linear Regression",
     "section": "Regression model",
-    "text": "Regression model\n\n\n\\[\n\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[5pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n\\end{aligned}\n\\]"
+    "text": "Regression model\n\n\n\\[\n\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[5pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n\\end{aligned}\n\\]\n\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "slides/03-slr-intro.html#slr-statistical-model",
     "href": "slides/03-slr-intro.html#slr-statistical-model",
     "title": "Simple Linear Regression",
     "section": "SLR: Statistical model",
-    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical response\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
+    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical response\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n. . .\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
   },
   {
     "objectID": "slides/03-slr-intro.html#slr-regression-equation",
@@ -1083,7 +1083,7 @@
     "href": "slides/03-slr-intro.html#residuals",
     "title": "Simple Linear Regression",
     "section": "Residuals",
-    "text": "Residuals\n\n\\[\\text{residual} = \\text{observed} - \\text{predicted} = y_i - \\hat{y}_i\\]"
+    "text": "Residuals\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{residual} = \\text{observed} - \\text{predicted} = y_i - \\hat{y}_i\\]"
   },
   {
     "objectID": "slides/03-slr-intro.html#least-squares-line",
@@ -1195,7 +1195,7 @@
     "href": "slides/03-slr-intro.html#recap",
     "title": "Simple Linear Regression",
     "section": "Recap",
-    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R."
+    "text": "Recap\n\n\nSimple linear regression (SLR) describes the relationship between a quantitative predictor (\\(X\\)) and response (\\(Y\\)).\nThe regression equation: \\(\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X\\)\n\\(\\hat{\\beta}_1\\) (slope): estimated change in \\(Y\\) for each unit increase in \\(X\\)\n\\(\\hat{\\beta}_0\\) (intercept): estimated value of \\(Y\\) when \\(X = 0\\)\nResiduals: difference between observed and predicted values (\\(e_i = y_i - \\hat{y}_i\\))\nLeast squares method chooses coefficients to minimize the sum of squared residuals\nSLR can be used for prediction and inference"
   },
   {
     "objectID": "prepare/prep-04.html",
@@ -1525,5 +1525,194 @@
     "title": "Preparation for Simulation Based Inference",
     "section": "",
     "text": "📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#topics",
+    "href": "slides/04-slr-fit-prediction.html#topics",
+    "title": "Simple Linear Regression",
+    "section": "Topics",
+    "text": "Topics\n\nInterpret the slope and intercept of the regression line.\nUse R to fit and summarize regression models."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#computation-set-up",
+    "href": "slides/04-slr-fit-prediction.html#computation-set-up",
+    "title": "Simple Linear Regression",
+    "section": "Computation set up",
+    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#dc-bikeshare",
+    "href": "slides/04-slr-fit-prediction.html#dc-bikeshare",
+    "title": "Simple Linear Regression",
+    "section": "DC Bikeshare",
+    "text": "DC Bikeshare\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#data-prep",
+    "href": "slides/04-slr-fit-prediction.html#data-prep",
+    "title": "Simple Linear Regression",
+    "section": "Data prep",
+    "text": "Data prep\n\nConverted season from 1, 2, 3, 5 into “winter”, “spring”, “summer”, “fall” and convered it into a factor\nCreated a new dataset called winter that contains only the winter months\n\n\nbikeshare &lt;- read_csv(\"../data/dcbikeshare.csv\") |&gt; \n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season)) \n\nwinter &lt;- bikeshare |&gt;\n  filter(season == \"winter\")"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#rentals-vs-temperature",
+    "href": "slides/04-slr-fit-prediction.html#rentals-vs-temperature",
+    "title": "Simple Linear Regression",
+    "section": "Rentals vs Temperature",
+    "text": "Rentals vs Temperature\nGoal: Fit a line to describe the relationship between the temperature and the number of rentals in winter."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#residuals",
+    "href": "slides/04-slr-fit-prediction.html#residuals",
+    "title": "Simple Linear Regression",
+    "section": "Residuals",
+    "text": "Residuals\n\n\\[\\text{residual} = \\text{observed} - \\text{predicted} = y_i - \\hat{y}_i\\]"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#last-time",
+    "href": "slides/04-slr-fit-prediction.html#last-time",
+    "title": "Simple Linear Regression",
+    "section": "Last Time",
+    "text": "Last Time\n\n\nSample: data that you have\nPopulation: group you trying to generalize to\nRepresentative sample: when your sample looks like small version of your population, if not, we say it’s a biased sample\nSimple linear regression (SLR): assume relationship betweenquantitative predictor (\\(X\\)) and response (\\(Y\\)) is a line:\n\nStatistical model: \\(Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon\\)\n\nThe regression equation: \\(\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X\\)\n\n\\(\\hat{\\beta}_1\\) (slope): estimated change in \\(Y\\) for each unit increase in \\(X\\)\n\\(\\hat{\\beta}_0\\) (intercept): estimated value of \\(Y\\) when \\(X = 0\\)\n\nResiduals: difference between observed and predicted values (\\(e_i = y_i - \\hat{y}_i\\))\nLeast squares method chooses coefficients to minimize the sum of squared residuals\nSLR can be used for prediction and inference"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#properties-of-least-squares-regression",
+    "href": "slides/04-slr-fit-prediction.html#properties-of-least-squares-regression",
+    "title": "Simple Linear Regression",
+    "section": "Properties of least squares regression",
+    "text": "Properties of least squares regression\n\nPasses through center of mass point, the coordinates corresponding to average \\(X\\) and average \\(Y\\): \\(\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}\\)\nSlope has same sign as the correlation coefficient: \\(\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}\\)\n\n\\(r\\): correlation coefficient\n\\(s_Y, s_X\\): sample standard deviations of \\(X\\) and \\(Y\\)\n\nSum of the residuals is zero: \\(\\sum_{i = 1}^n e_i \\approx 0\\)\n\nIntuition: Residuals are “balanced”\n\nThe residuals and \\(X\\) values are uncorrelated"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#estimating-the-slope",
+    "href": "slides/04-slr-fit-prediction.html#estimating-the-slope",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the slope",
+    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 4.2121 \\\\\ns_Y &= 1399.942 \\\\\nr &= 0.6692\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.6692 \\times \\frac{1399.942}{4.2121} \\\\\n&= 222.417\\end{aligned}\\]\n\n\n\nClick here for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#estimating-the-intercept",
+    "href": "slides/04-slr-fit-prediction.html#estimating-the-intercept",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the intercept",
+    "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n\\[\\begin{aligned}\n&\\bar{x} = 12.2076 \\\\\n&\\bar{y} = 2604.133 \\\\\n&\\hat{\\beta}_1 = 222.4167\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 2604.133 - 222.4167 \\times 12.2076 \\\\\n&= -111.0411\n\\end{aligned}\\]\n\n\n\nClick here for details on deriving the equations for slope and intercept."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#interpretation",
+    "href": "slides/04-slr-fit-prediction.html#interpretation",
+    "title": "Simple Linear Regression",
+    "section": "Interpretation",
+    "text": "Interpretation\n\nSlope: For each additional unit of \\(X\\) we expect \\(Y\\) to increase by \\(\\hat{\\beta}_1\\), on average.\nIntercept: If \\(X\\) were 0, we predict \\(Y\\) to be \\(\\hat{\\beta}_0\\)"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#does-it-make-sense-to-interpret-the-intercept",
+    "href": "slides/04-slr-fit-prediction.html#does-it-make-sense-to-interpret-the-intercept",
+    "title": "Simple Linear Regression",
+    "section": "Does it make sense to interpret the intercept?",
+    "text": "Does it make sense to interpret the intercept?\n✅ The intercept is meaningful in the context of the data if\n\nthe predictor can feasibly take values equal to or near zero, or\nthere are values near zero in the observed data.\n\n\n🛑 Otherwise, the intercept may not be meaningful!\n\nNote meaningful doesn’t mean wrong"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#estimating-the-regression-line-in-r",
+    "href": "slides/04-slr-fit-prediction.html#estimating-the-regression-line-in-r",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the regression line in R",
+    "text": "Estimating the regression line in R\n\nLet’s complete Exercises 7-11"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#fit-model-estimate-parameters",
+    "href": "slides/04-slr-fit-prediction.html#fit-model-estimate-parameters",
+    "title": "Simple Linear Regression",
+    "section": "Fit model & estimate parameters",
+    "text": "Fit model & estimate parameters\n\nwinter_fit &lt;- lm(count ~ temp_orig, data = winter)\nwinter_fit\n\n\nCall:\nlm(formula = count ~ temp_orig, data = winter)\n\nCoefficients:\n(Intercept)    temp_orig  \n     -111.0        222.4"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#look-at-the-regression-output",
+    "href": "slides/04-slr-fit-prediction.html#look-at-the-regression-output",
+    "title": "Simple Linear Regression",
+    "section": "Look at the regression output",
+    "text": "Look at the regression output\n\nwinter_fit &lt;- lm(count ~ temp_orig, data = winter)\nwinter_fit\n\n\nCall:\nlm(formula = count ~ temp_orig, data = winter)\n\nCoefficients:\n(Intercept)    temp_orig  \n     -111.0        222.4  \n\n\n\\[\\widehat{\\text{count}} = -111.0 + 222.4 \\times \\text{temp_orig}\\]\n\n\nNote: The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#the-regression-output",
+    "href": "slides/04-slr-fit-prediction.html#the-regression-output",
+    "title": "Simple Linear Regression",
+    "section": "The regression output",
+    "text": "The regression output\nWe’ll focus on the first column for now…\n\nwinter_fit |&gt; \n  tidy() \n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    -111.     238.     -0.466 6.42e- 1\n2 temp_orig       222.      18.5    12.0   7.28e-25"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#format-output-with-kable",
+    "href": "slides/04-slr-fit-prediction.html#format-output-with-kable",
+    "title": "Simple Linear Regression",
+    "section": "Format output with kable",
+    "text": "Format output with kable\nUse the kable function from the knitr package to produce a table and specify number of significant digits\n\nwinter_fit |&gt; \n  tidy() |&gt;\n  kable(digits = 4)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-111.0380\n238.3124\n-0.4659\n0.6418\n\n\ntemp_orig\n222.4155\n18.4594\n12.0489\n0.0000"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#visualize-model",
+    "href": "slides/04-slr-fit-prediction.html#visualize-model",
+    "title": "Simple Linear Regression",
+    "section": "Visualize Model",
+    "text": "Visualize Model\n\nwinter |&gt; \n  gf_point(count ~ temp_orig) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#our-model",
+    "href": "slides/04-slr-fit-prediction.html#our-model",
+    "title": "Simple Linear Regression",
+    "section": "Our Model",
+    "text": "Our Model\n\\[\\begin{aligned}\n\\widehat{Y} &=  -111.0 + 222.4 \\times X\\\\\n\n\\widehat{\\text{count}} &=  -111.0 + 222.4 \\times \\text{temp_orig}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#making-a-prediction",
+    "href": "slides/04-slr-fit-prediction.html#making-a-prediction",
+    "title": "Simple Linear Regression",
+    "section": "Making a prediction",
+    "text": "Making a prediction\nSuppose that it’s 15 degrees Celsius outside. According to this model, how many bike rentals should we expect if it’s winter?\n\\[\\begin{aligned}\n\\widehat{\\text{count}} &= -111.0 + 222.4 \\times \\text{temp_orig} \\\\\n&= -111.0 + 222.4 \\times 15 \\\\\n&= 3225\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#prediction-in-r",
+    "href": "slides/04-slr-fit-prediction.html#prediction-in-r",
+    "title": "Simple Linear Regression",
+    "section": "Prediction in R",
+    "text": "Prediction in R\n\n# create a data frame for a new temperature\nnew_day &lt;- tibble(temp_orig = 15)\n\n# predict the outcome for a new day\npredict(winter_fit, new_day)\n\n       1 \n3225.195"
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#recap-1",
+    "href": "slides/04-slr-fit-prediction.html#recap-1",
+    "title": "Simple Linear Regression",
+    "section": "Recap",
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#exercise-12",
+    "href": "slides/04-slr-fit-prediction.html#exercise-12",
+    "title": "Simple Linear Regression",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nIn your Deepnote project answer the following question (you’ll need to create a new markdown block):\n\nUsing only addition, subtraction, multiplication, and division. Compute the number of rentals our model would predict if it were 10 degrees Celcius outside."
+  },
+  {
+    "objectID": "slides/04-slr-fit-prediction.html#exercise-13",
+    "href": "slides/04-slr-fit-prediction.html#exercise-13",
+    "title": "Simple Linear Regression",
+    "section": "Exercise 13",
+    "text": "Exercise 13\n\nVerify your answer using the predict function."
+  },
+  {
+    "objectID": "slides/03-slr-intro.html",
+    "href": "slides/03-slr-intro.html",
+    "title": "Simple Linear Regression",
+    "section": "",
+    "text": "📋 AE 03 - DC Bikeshare\n\nComplete Exercises 0 and 1."
+  },
+  {
+    "objectID": "slides/02-multivariate-relationships.html",
+    "href": "slides/02-multivariate-relationships.html",
+    "title": "Multivariate Relationships",
+    "section": "",
+    "text": "📋 AE 02 - Multivariate Relationships\n\n\nComplete Exercises 1-5"
+  },
+  {
+    "objectID": "slides/02-multivariate-relationships.html#footnotes",
+    "href": "slides/02-multivariate-relationships.html#footnotes",
+    "title": "Multivariate Relationships",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSource: Mayo Clinic↩︎"
   }
 ]

@@ -21,21 +21,11 @@ knitr:
 bibliography: references.bib  
 ---
 
-## Application exercise
 
-::: appex
-📋 [AE 03 - DC Bikeshare](/ae/ae-03-bikeshare.qmd)
-:::
-
-Complete Exercises 0 and 1.
 
 # Introduction to Simple Linear Regression
 
 ## Topics
-
--   Use simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.
-
--   Estimate the slope and intercept of the regression line using the least squares method.
 
 -   Interpret the slope and intercept of the regression line.
 
@@ -67,7 +57,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# Data
+# Recap
 
 ## DC Bikeshare
 
@@ -81,15 +71,10 @@ We will focus on the following variables in the analysis:
 
 Click [here](https://tidyverse.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
 
-Let's complete Exercises 2-6 together
-
 ## Data prep {.smaller}
 
--   Exercise 2: Recode `season` as a factor with names instead of numbers (livecode)
--   Remember:
-    +   Think of `|>` as "and then"
-    +   `mutate` creates new columns and changes (mutates) existing columns
-    +   R calls categorical data "factors"
+- Converted `season` from 1, 2, 3, 5 into "winter", "spring", "summer", "fall" and convered it into a `factor`
+- Created a new dataset called `winter` that contains only the `winter` months
     
 ```{r}
 bikeshare <- read_csv("../data/dcbikeshare.csv") |> 
@@ -99,25 +84,9 @@ bikeshare <- read_csv("../data/dcbikeshare.csv") |>
     season == 3 ~ "summer",
     season == 4 ~ "fall"
   ),
-  season = factor(season))
-```
+  season = factor(season)) 
 
-## Exploratory data analysis (Exercise 3)
-
-```{r}
-#| echo: TRUE
-
-gf_point(count ~ temp_orig | season, data = bikeshare) |> 
-  gf_labs(x = "Temperature (Celsius)",
-          y = "Daily bike rentals")
-```
-
-## More data prep
-
--   (Exercise 5) Filter your data for the season with the strongest relationship and give the resulting data set a new name
-
-```{r}
-winter <- bikeshare |> 
+winter <- bikeshare |>
   filter(season == "winter")
 ```
 
@@ -137,168 +106,13 @@ p <- ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
 p
 ```
 
-## Why fit a line?
-
-We fit a line to accomplish one or both of the following:
-
-. . .
-
-::: {style="color: #799100"}
-**Prediction**
-:::
-
-How many rentals are expected when it's 10 degrees out?
-
-. . .
-
-::: {style="color : #799100"}
-**Inference**
-:::
-
-Is temperature a useful predictor of the number of rentals? By how much is the number of rentals expected to change for each degree Celsius?
-
-## Population vs. Sample
-
-**Population:** The set of items or events that you're interested in and hoping (able) to generalize the results of your analysis to.
-
-**Sample:** The set of items that you have data for.
-
-**Representative Sample:** A sample that looks like a small version of your population.
-
-**Goal:** Build a model from your sample which generalizes to your population.
-
-
-## Terminology
-
-::: columns
-::: {.column width="30%"}
--   **Response, *Y***: variable describing the outcome of interest
-
--   **Predictor, *X***: variable we use to help understand the variability in the response
-:::
-
-::: {.column width="70%"}
-```{r}
-#| echo: false
-#| fig-align: center
-p
-```
-:::
-:::
-
-## Regression model
-
-**Regression model:** a function that describes the relationship between a quantitative response, $Y$, and the predictor, $X$ (or many predictors).
-
-```{=tex}
-\begin{aligned} Y &= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
-&= \color{black}{\mathbf{f(X)}} + \epsilon \\[8pt]
-&= \color{black}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
-```
-
-## Regression model
-
-::: columns
-::: {.column width="30%"}
-```{=tex}
-\begin{aligned} Y &= \color{purple}{\textbf{Model}} + \text{Error} \\[8pt]
-&= \color{purple}{\mathbf{f(X)}} + \epsilon \\[8pt]
-&= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
-```
-:::
-
-::: {.column width="70%"}
-```{r}
-#| echo: false
-#| fig-align: center
-ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", color = "purple", se = FALSE) +
-  labs(x = "X" ,
-       y = "Y") +
-  theme(axis.text = element_blank(),
-  axis.ticks.x = element_blank(),
-  axis.ticks.y = element_blank())
-```
-:::
-:::
-
-$\mu_{Y|X}$ is the mean value of $Y$ given a particular value of $X$.
-
-## Regression model
-
-::: columns
-::: {.column width="30%"}
-$$
-\begin{aligned} Y &= \color{purple}{\textbf{Model}} + \color{blue}{\textbf{Error}} \\[5pt]
-&= \color{purple}{\mathbf{f(X)}} + \color{blue}{\boldsymbol{\epsilon}} \\[5pt]
-&= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \color{blue}{\boldsymbol{\epsilon}} \\[5pt]
- \end{aligned}
-$$
-:::
-
-::: {.column width="70%"}
-```{r}
-#| echo: false
-#| fig-align: center
-m <- lm(count ~ temp_orig, data = winter)
-ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", color = "purple", se = FALSE) +
-  geom_segment(aes(x=temp_orig, xend=temp_orig, y=count, yend=predict(m, winter)), color = "blue", linetype = "dotted") +
-  labs(x = "X" ,
-       y = "Y") +
-  theme_bw() +
-  theme(axis.text = element_blank(),
-  axis.ticks.x = element_blank(),
-  axis.ticks.y = element_blank())
-```
-:::
-:::
-
-# Simple linear regression (SLR)
-
-## SLR: Statistical model
-
-- **Simple linear regression:** model to describe the relationship between $Y$ and $X$ where:
-  + $Y$ is a quantitative/numerical response
-  + $X$ is a *single* quantitative predictor
-  + $$\Large{Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon}$$
-
-. . .
-
--   $\beta_1$: True slope of the relationship between $X$ and $Y$
--   $\beta_0$: True intercept of the relationship between $X$ and $Y$
--   $\epsilon$: Error
-
-## SLR: Regression equation
-
-$$\Large{\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X}$$
-
--   $\hat{\beta}_1$: Estimated slope of the relationship between $X$ and $Y$
--   $\hat{\beta}_0$: Estimated intercept of the relationship between $X$ and $Y$
--   $\hat{Y}$: Predicted value of $Y$ for a given $X$
--   No error term!
-
-## Choosing values for $\hat{\beta}_1$ and $\hat{\beta}_0$
-
-```{r}
-#| echo: false
-#| fig-align: center
-ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
-  geom_point(alpha = 0.4) +
-  geom_abline(intercept = -111.0, slope = 222.4, color = "red") +
-  geom_abline(intercept = 1000, slope = 100, color = "green") +
-  geom_abline(intercept = -1000, slope = 300, color = "blue") +
-  labs(x = "Temperature (Celsius)",
-       y = "Daily bike rentals")
-```
-
 ## Residuals
 
 ```{r}
 #| echo: false
 #| fig-align: center
+
+m <- lm(count ~ temp_orig, data = winter)
 ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method ="lm", color = "red", se = FALSE) +
@@ -310,27 +124,21 @@ ggplot(data = winter, mapping = aes(x = temp_orig, y = count)) +
 
 $$\text{residual} = \text{observed} - \text{predicted} = y_i - \hat{y}_i$$
 
-## Least squares line
+## Last Time {.smaller}
 
--  **Residual** for the $i^{th}$ observation:
-
-$$e_i = \text{observed} - \text{predicted}
-= y_i - \hat{y}_i$$
-
--   **Sum of squared residuals**:
-
-$$e^2_1 + e^2_2 + \dots + e^2_n$$
-
--   **Least squares line** is the one that minimizes the sum of squared residuals
-
-```{r}
-#| echo: false
-sx <- round(sqrt(var(winter$temp_orig)),4)
-sy <- round(sqrt(var(winter$count)),4)
-r <- round(cor(winter$temp_orig, winter$count),4)
-xbar <- round(mean(winter$temp_orig),4)
-ybar <- round(mean(winter$count),4)
-```
+::: {.incremental style="font-size: 0.85em"}
+- Sample: data that you have
+- Population: group you trying to generalize to
+- Representative sample: when your sample looks like small version of your population, if not, we say it's a **biased** sample
+- Simple linear regression (SLR): assume relationship betweenquantitative predictor ($X$) and response ($Y$) is a line:
+  - Statistical model: $Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon$
+- The regression equation: $\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X$
+  - $\hat{\beta}_1$ (slope): estimated change in $Y$ for each unit increase in $X$
+  - $\hat{\beta}_0$ (intercept): estimated value of $Y$ when $X = 0$
+- Residuals: difference between observed and predicted values ($e_i = y_i - \hat{y}_i$)
+- Least squares method chooses coefficients to minimize the sum of squared residuals
+- SLR can be used for prediction and inference
+:::
 
 # Slope and intercept
 
@@ -413,7 +221,7 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 
 ## Interpretation
 
--  Slope: For each additional unit of $X$ we expect the $Y$ to increase by $\hat{\beta}_1$, on average.
+-  Slope: For each additional unit of $X$ we expect $Y$ to increase by $\hat{\beta}_1$, on average.
 -  Intercept: If $X$ were 0, we predict $Y$ to be $\hat{\beta}_0$
 
 
@@ -428,6 +236,8 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 . . .
 
 `r emo::ji("stop_sign")` Otherwise, the intercept may not be meaningful!
+
+-   Note meaningful doesn't mean wrong
 
 ## Estimating the regression line in R
 
@@ -472,19 +282,6 @@ We'll focus on the first column for now...
 
 winter_fit |> 
   tidy() 
-```
-
-## Format output with `kable`
-
-Use the `kable` function from the [knitr](https://yihui.org/knitr/) package to produce a table and specify number of significant digits
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|3"
-
-winter_fit |> 
-  tidy() |>
-  kable(digits = 4)
 ```
 
 ## Visualize Model
@@ -534,7 +331,17 @@ new_day <- tibble(temp_orig = 15)
 predict(winter_fit, new_day)
 ```
 
-Complete Exercises 12-13.
+## Exercise 12
+
+In your Deepnote project answer the following question (you'll need to create a new markdown block):
+
+> Using only addition, subtraction, multiplication, and division. Compute the number of rentals our model would predict if it were 10 degrees Celcius outside.
+
+
+## Exercise 13
+
+> Verify your answer using the `predict` function.
+
 
 ## Recap
 

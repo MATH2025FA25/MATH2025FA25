@@ -37,10 +37,6 @@ Complete Exercises 0 and 1.
 
 -   Estimate the slope and intercept of the regression line using the least squares method.
 
--   Interpret the slope and intercept of the regression line.
-
--   Use R to fit and summarize regression models.
-
 ## Computation set up {.smaller}
 
 ```{r}
@@ -332,173 +328,17 @@ xbar <- round(mean(winter$temp_orig),4)
 ybar <- round(mean(winter$count),4)
 ```
 
-# Slope and intercept
-
-## Properties of least squares regression {.smaller}
-
-::: incremental
--   Passes through center of mass point, the coordinates corresponding to average $X$ and average $Y$: $\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}$
-
--   Slope has same sign as the correlation coefficient: $\hat{\beta}_1 = r \frac{s_Y}{s_X}$
-
-    + $r$: correlation coefficient
-    + $s_Y, s_X$: sample standard deviations of $X$ and $Y$
-
--   Sum of the residuals is zero: $\sum_{i = 1}^n e_i \approx 0$
-
-    +   Intuition: Residuals are "balanced"
-
--   The residuals and $X$ values are uncorrelated
-:::
-
-## Estimating the slope
-
-$$\large{\hat{\beta}_1 = r \frac{s_Y}{s_X}}$$
-
-::: columns
-::: {.column width="50%"}
-```{=tex}
-\begin{aligned}
-s_X &= 4.2121 \\
-s_Y &= 1399.942 \\
-r &= 0.6692
-\end{aligned}
-```
-:::
-
-::: {.column width="50%"}
-```{=tex}
-\begin{aligned}
-\hat{\beta}_1 &= 0.6692 \times \frac{1399.942}{4.2121} \\
-&= 222.417\end{aligned}
-```
-:::
-:::
-
-<br>
-
-::: small
-[Click here](https://introregression.netlify.app/98-appendix) for details on deriving the equations for slope and intercept which is easy if you know multivariate calculus.
-:::
-
-## Estimating the intercept
-
-$$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
-
-::: columns
-::: {.column width="40%"}
-```{=tex}
-\begin{aligned}
-&\bar{x} = 12.2076 \\
-&\bar{y} = 2604.133 \\
-&\hat{\beta}_1 = 222.4167
-\end{aligned}
-```
-:::
-
-::: {.column width="60%"}
-```{=tex}
-\begin{aligned}\hat{\beta}_0 &= 2604.133 - 222.4167 \times 12.2076 \\
-&= -111.0411
-\end{aligned}
-```
-:::
-:::
-
-<br>
-
-::: small
-[Click here](https://introregression.netlify.app/98-appendix) for details on deriving the equations for slope and intercept.
-:::
-
-## Interpretation
-
--  Slope: For each additional unit of $X$ we expect the $Y$ to increase by $\hat{\beta}_1$, on average.
--  Intercept: If $X$ were 0, we predict $Y$ to be $\hat{\beta}_0$
-
-
-## Does it make sense to interpret the intercept?
-
-`r emo::ji("white_check_mark")` **The intercept is meaningful in the context of the data if**
-
--   the predictor can feasibly take values equal to or near zero, or
-
--   there are values near zero in the observed data.
-
-. . .
-
-`r emo::ji("stop_sign")` Otherwise, the intercept may not be meaningful!
-
-## Estimating the regression line in R
-
--   Let's complete Exercises 7-11
-
-## Fit model & estimate parameters
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|1"
-
-winter_fit <- lm(count ~ temp_orig, data = winter)
-winter_fit
-```
-
-## Look at the regression output
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-
-winter_fit <- lm(count ~ temp_orig, data = winter)
-winter_fit
-```
-
-
-$$\widehat{\text{count}} = -111.0 + 222.4 \times \text{temp_orig}$$
-
-. . .
-
-::: smallest
-**Note:** The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation.
-:::
-
-## The regression output
-
-We'll focus on the first column for now...
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-
-winter_fit |> 
-  tidy() 
-```
-
-## Visualize Model
-
-```{r}
-#| echo: true
-
-winter |> 
-  gf_point(count ~ temp_orig) |> 
-  gf_lm()
-```
-
 
 ## Recap
 
 ::: {.incremental style="font-size: 0.85em"}
--   Used simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.
 
--   Used the least squares method to estimate the slope and intercept.
-
--   Interpreted the slope and intercept.
-
-    -   **Slope**: For every one unit increase in $x$, we expect y to change by $\hat{\beta}_1$ units, on average.
-    -   **Intercept**: If $x$ is 0, then we expect $y$ to be $\hat{\beta}_0$ units
-
--   Predicted the response given a value of the predictor variable.
-
--   Used `lm` and the `broom` package to fit and summarize regression models in R.
+- Simple linear regression (SLR) describes the relationship between a quantitative predictor ($X$) and response ($Y$).
+- The regression equation: $\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X$
+- $\hat{\beta}_1$ (slope): estimated change in $Y$ for each unit increase in $X$
+- $\hat{\beta}_0$ (intercept): estimated value of $Y$ when $X = 0$
+- Residuals: difference between observed and predicted values ($e_i = y_i - \hat{y}_i$)
+- Least squares method chooses coefficients to minimize the sum of squared residuals
+- SLR can be used for prediction and inference
 :::
 
