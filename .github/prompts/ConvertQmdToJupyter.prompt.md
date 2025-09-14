@@ -15,9 +15,11 @@ The purpose of this prompt is to provide precise, implementable directions for c
 <strong>Important</strong>
 
 When you click the run button for a block, it simply runs the code in the current session. I.e. as you make changes to R's warehouse, the code block you run will reference the current state of the warehouse. When you Run the whole notebook runs from the top it cleans out that warehouse and starts from the top. For this reason, if you run blocks multiple times or out of order, you may get unexpected results when you Run the whole document. Before you submit your documents, <strong>always restart your session and Run All and then double check your answers to make sure that your answers match your explanations.</strong>
-</div>s
+</div>
 - For elements without a direct equivalent in notebooks (custom filters, callouts, certain fenced divs), preserve the original source in a clearly labeled "Conversion notes" cell and suggest alternatives.
-- Transfer all text as is, preserving formatting (bold, italics, links), unless it references Quarto, in which case, rephrase to remove Quarto-specific mentions (e.g., change "In this Quarto document..." to "In this document...").
+- Transfer all text as is, preserving formatting (bold, italics, links), unless it references Quarto, in which case, change the directions to remove Quarto-specific mentions. Examples:
+	- If it says "In this Quarto document..." change it to "In this document...").
+	- If it says "Render this Quarto document..." change it to "Run all cells in this notebook..."
 - Refer to chunks and cells as blocks.
 - Always ask clarifying questions when you are unsure about how to handle specific content or formatting, but ask your questions one at a time.
 - Always remove the knitr options.
@@ -25,8 +27,6 @@ When you click the run button for a block, it simply runs the code in the curren
 ## Kernel & language selection (R-only policy + user confirmation)
 
 - All converted notebooks must contain R code cells only.
-- Before conversion begins, ask the user which kernel to use. The user will typically specify a conda environment that provides an R kernel. Request the kernelspec name (for example, `ir` or the conda environment's kernel name). If the user provides no preference, default to the commonly used R kernel name `ir` but still note this choice in the notebook's top cell.
-- After the user confirms the kernel, set `metadata.kernelspec` and `metadata.language_info` accordingly in the notebook metadata.
 
 ## Frontmatter handling, title cell, and instructions cell
 
@@ -60,19 +60,15 @@ When you click the run button for a block, it simply runs the code in the curren
 
 - For every Exercise block in the QMD, convert using this template:
 	1. Markdown cell: exercise header and instructions (include original text). (metadata.language: "markdown")
- 2. If the exercise requires code: a code cell immediately after with the first line containing `# Insert code here` and `metadata.language` set to "r". Do not include qmd chunk options unless the user asked for them.
- 3. If the exercise requires a written answer: add a markdown cell with `Insert interpretation here`.
-- For multipart exercises, repeat the pattern for each subpart.
-4. If a code cell is used to as an example do not add the `# Insert code here` line. If you are unsure if a code cell is an example or part of an exercise, ask the user what to do.
+	2. If the exercise requires code and no code template is proved, add a code cell immediately after with the first line containing `# Insert code here` and `metadata.language` set to "r". Do not include qmd chunk options unless the user asked for them. If the exercise provides starter code, include that code in the cell instead of the `# Insert code here` line.
+	3. If the exercise requires a written answer: add a markdown cell with `Insert interpretation here`.
+		- For multipart exercises, repeat the pattern for each subpart.
+	4. If a code cell is used to as an example do not add the `# Insert code here` line. If you are unsure if a code cell is an example or part of an exercise, ask the user what to do.
 
 ## Cell metadata rules
 
 - Each cell must include `metadata.language` indicating the cell's language ("markdown" or "r").
 - For existing notebooks being edited, preserve `metadata.id`. For generated notebooks, include stable UUIDs for `metadata.id` where possible (implementers can generate these programmatically).
-
-## Execution policy
-
-- Add an optional `execute: true|false` flag to the conversion process (default: false). If `execute: true`, run the notebook with nbclient/nbconvert using the confirmed R kernel, capture outputs, and embed them in the notebook. If execution fails, collect the error output and attach it to the "Conversion notes" cell.
 
 ## Validation & acceptance criteria
 
@@ -83,6 +79,7 @@ When you click the run button for a block, it simply runs the code in the curren
 	- All Exercise headers are present and followed by the required placeholder cells.
 	- Images referenced exist or are embedded; otherwise they are listed in "Required files".
 	- YAML frontmatter has been converted into a title cell (and raw YAML is included if required).
+	- There is no reference to Quarto either explicitly or implicitly in the text.
 
 ## Conversion notes policy
 
@@ -103,20 +100,29 @@ When you click the run button for a block, it simply runs the code in the curren
 	Write R code to compute mean of x.
 
 	```{r}
-	mean(x)
+	
+	```
+
+	## Exercise 2
+
+	Fill in the blanks in the code to create a histogram of x and then interpret it.
+
+	```{r}
+	gf_histogram(~____, data = ____)
 	```
 	```
 
 - Expected notebook cells (conceptual):
-	- Cell 1 (markdown): Title cell generated from YAML: `# HW 1` with a short bullet list including Coder, Develop, and Communicator.
+	- Cell 1 (markdown): Title cell generated from YAML: `# HW 1` with a short bullet list including Coder, Developer, and Communicator.
 	- Cell 2 (markdown): "## Exercise 1" + instruction text. (metadata.language: "markdown")
-	- Cell 3 (code, language: "r"): first line `# Insert code here` then `mean(x)`; do not include qmd chunk options by default.
+	- Cell 3 (code, language: "r"): first line `# Insert code here`; do not include qmd chunk options by default.
+	- Cell 4 (markdown): "## Exercise 2" + instruction text. (metadata.language: "markdown")
+	- Cell 5 (code, language: "r"): first line `gf_histogram(~____, data = ____)` with not insert code message; do not include qmd chunk options by default.
+	- Cell 5 (markdown): first line `Insert interpretation here`. (metadata.language: "markdown")
+	
 
 ## Output
 
 - The instructions for every Exercise should be represented as described in the "Exercise conversion pattern" section: a markdown cell for instructions, a code cell with `Insert code here` if coding is required, and a markdown cell with `Insert interpretation here` if a written answer is required.
 
 - After conversion, produce a short report listing which acceptance criteria passed and any items placed in "Conversion notes".
-
----
-If you want, I can apply this updated prompt file directly (it is applied already if you asked) and optionally convert a sample `.qmd` from this repo to a notebook using the new rules; tell me which `.qmd` to convert and the kernelspec name to use (or I will use `ir` by default).

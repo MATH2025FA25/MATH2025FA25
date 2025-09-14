@@ -1714,5 +1714,936 @@
     "title": "Multivariate Relationships",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nSource: Mayo Clinic↩︎"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#application-exercise",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#application-exercise",
+    "title": "Hypothesis testing for slope”",
+    "section": "Application exercise",
+    "text": "Application exercise\n\nComplete Exercises 0-2."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#data-san-antonio-income-organic-food-access",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#data-san-antonio-income-organic-food-access",
+    "title": "Hypothesis testing for slope”",
+    "section": "Data: San Antonio Income & Organic Food Access",
+    "text": "Data: San Antonio Income & Organic Food Access\n\n\n\nAverage household income (per zip code) and number of organic vegetable offerings in San Antonio, TX\nData from HEB website, compile by high school student Linda Saucedo, Fall 2019\nSource: Skew The Script\n\n\n\n\nGoal: Use the average household income to understand variation in access to organic foods."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#computational-setup",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#computational-setup",
+    "title": "Hypothesis testing for slope”",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tables\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#exploratory-data-analysis",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#exploratory-data-analysis",
+    "title": "Hypothesis testing for slope”",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\n\nCode\nheb &lt;- read_csv(\"../data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\ngf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Average Household Income (in thousands)\",\n    y = \"Number of Organic Vegetables\",\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = label_dollar()))"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#modeling",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#modeling",
+    "title": "Hypothesis testing for slope”",
+    "section": "Modeling",
+    "text": "Modeling\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits=2) #neatly format table to 2 digits\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\nIntercept: HEBs in Zip Codes with an average household income of $0 are expected to have -14.72 organic vegetable options, on average.\n\nIs this interpretation useful?\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#from-sample-to-population",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#from-sample-to-population",
+    "title": "Hypothesis testing for slope”",
+    "section": "From sample to population",
+    "text": "From sample to population\n\nFor each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average.\n\n\n\nEstimate is valid for the single sample of 37 HEBs\nWhat if we’re not interested quantifying the relationship between the household income and access to organic vegetables in this single sample?\nWhat if we want to say something about the relationship between these variables for all supermarkets in America?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#statistical-inference",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#statistical-inference",
+    "title": "Hypothesis testing for slope”",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nStatistical inference refers to ideas, methods, and tools for to generalizing the single observed sample to make statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be random and representative of the population we’re interested in"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#sampling-is-natural",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#sampling-is-natural",
+    "title": "Hypothesis testing for slope”",
+    "section": "Sampling is natural",
+    "text": "Sampling is natural\n\n\nWhen you taste a spoonful of soup and decide the spoonful you tasted isn’t salty enough, that’s exploratory analysis\nIf you generalize and conclude that your entire soup needs salt, that’s an inference\nFor your inference to be valid, the spoonful you tasted (the sample) needs to be representative of the entire pot (the population)"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval-via-bootstrapping",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval-via-bootstrapping",
+    "title": "Hypothesis testing for slope”",
+    "section": "Confidence interval via bootstrapping",
+    "text": "Confidence interval via bootstrapping\n\nBootstrap new samples from the original sample\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#inference-for-simple-linear-regression",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#inference-for-simple-linear-regression",
+    "title": "Hypothesis testing for slope”",
+    "section": "Inference for simple linear regression",
+    "text": "Inference for simple linear regression\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope, \\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval",
+    "title": "Hypothesis testing for slope”",
+    "section": "Confidence interval",
+    "text": "Confidence interval\n\nConfidence interval: plausible range of values for a population parameter\nsingle point estimate \\(\\implies\\) fishing in a murky lake with a spear\nconfidence interval \\(\\implies\\) fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nIf we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter\nHigh confidence \\(\\implies\\) wider interval (larger net)\n\nRemember: single CI \\(\\implies\\) either you hit parameter or you don’t\n\nFavorite Visualization"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval-for-the-slope-1",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval-for-the-slope-1",
+    "title": "Hypothesis testing for slope”",
+    "section": "Confidence interval for the slope",
+    "text": "Confidence interval for the slope\nA confidence interval will allow us to make a statement like “For each $1K in average income, the model predicts the number of organic vegetables available at local supermarkets to be higher, on average, by 0.96, plus or minus X options.”\n\n\nShould X be 1? 2? 3?\nIf we were to take another sample of 37 would we expect the slope calculated based on that sample to be exactly 0.96? Off by 1? 2? 3?\nThe answer depends on how variable (from one sample to another sample) the sample statistic (the slope) is\nWe need a way to quantify the variability of the sample statistic"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#quantify-the-variability-of-the-slope",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#quantify-the-variability-of-the-slope",
+    "title": "Hypothesis testing for slope”",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor estimation\n\nTwo approaches:\n\nVia simulation (what we’ll do today)\nVia mathematical models (what we’ll do soon)\n\nBootstrapping to quantify the variability of the slope for the purpose of estimation:\n\nGenerate new samples by sampling with replacement from the original sample\nFit models to each of the new samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#original-sample",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#original-sample",
+    "title": "Hypothesis testing for slope”",
+    "section": "Original Sample",
+    "text": "Original Sample"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-1",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-1",
+    "title": "Hypothesis testing for slope”",
+    "section": "Bootstrap sample 1",
+    "text": "Bootstrap sample 1"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-2",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-2",
+    "title": "Hypothesis testing for slope”",
+    "section": "Bootstrap sample 2",
+    "text": "Bootstrap sample 2"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-3",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-3",
+    "title": "Hypothesis testing for slope”",
+    "section": "Bootstrap sample 3",
+    "text": "Bootstrap sample 3"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-4",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-4",
+    "title": "Hypothesis testing for slope”",
+    "section": "Bootstrap sample 4",
+    "text": "Bootstrap sample 4"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-5",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-sample-5",
+    "title": "Hypothesis testing for slope”",
+    "section": "Bootstrap sample 5",
+    "text": "Bootstrap sample 5"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-samples-1---5",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-samples-1---5",
+    "title": "Hypothesis testing for slope”",
+    "section": "Bootstrap samples 1 - 5",
+    "text": "Bootstrap samples 1 - 5"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-samples-1---100",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#bootstrap-samples-1---100",
+    "title": "Hypothesis testing for slope”",
+    "section": "Bootstrap samples 1 - 100",
+    "text": "Bootstrap samples 1 - 100"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#slopes-of-bootstrap-samples",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#slopes-of-bootstrap-samples",
+    "title": "Hypothesis testing for slope”",
+    "section": "Slopes of bootstrap samples",
+    "text": "Slopes of bootstrap samples\n\nFill in the blank: For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#slopes-of-bootstrap-samples-1",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#slopes-of-bootstrap-samples-1",
+    "title": "Hypothesis testing for slope”",
+    "section": "Slopes of bootstrap samples",
+    "text": "Slopes of bootstrap samples\n\nFill in the blank: For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#confidence-level",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#confidence-level",
+    "title": "Hypothesis testing for slope”",
+    "section": "Confidence level",
+    "text": "Confidence level\n\nHow confident are you that the true slope is between 0.8 and 1.2? How about 0.9 and 1.0? How about 1.0 and 1.4?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval-1",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#confidence-interval-1",
+    "title": "Hypothesis testing for slope”",
+    "section": "95% confidence interval",
+    "text": "95% confidence interval\n\n\n95% bootstrapped confidence interval: bounded by the middle 95% of the bootstrap distribution\nWe are 95% confident that for each additional $1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by 0.81 to 1.31."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#computing-the-ci-for-the-slope-i",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#computing-the-ci-for-the-slope-i",
+    "title": "Hypothesis testing for slope”",
+    "section": "Computing the CI for the slope I",
+    "text": "Computing the CI for the slope I\nCalculate the observed slope:\n\n# package that does Simulation-Based Inference\n\nobserved_fit &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  fit()\n\nobserved_fit\n\n# A tibble: 2 × 2\n  term         estimate\n  &lt;chr&gt;           &lt;dbl&gt;\n1 intercept     -14.7  \n2 Avg_Income_K    0.959"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#computing-the-ci-for-the-slope-ii",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#computing-the-ci-for-the-slope-ii",
+    "title": "Hypothesis testing for slope”",
+    "section": "Computing the CI for the slope II",
+    "text": "Computing the CI for the slope II\nTake 100 bootstrap samples and fit models to each one:\n\nset.seed(1120)\n\nboot_fits &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  generate(reps = 100, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n# A tibble: 200 × 3\n# Groups:   replicate [100]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     -40.9  \n 2         1 Avg_Income_K    1.25 \n 3         2 intercept     -23.9  \n 4         2 Avg_Income_K    1.09 \n 5         3 intercept     -18.6  \n 6         3 Avg_Income_K    1.02 \n 7         4 intercept      -1.96 \n 8         4 Avg_Income_K    0.828\n 9         5 intercept     -15.1  \n10         5 Avg_Income_K    0.951\n# ℹ 190 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#computing-the-ci-for-the-slope-iii",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#computing-the-ci-for-the-slope-iii",
+    "title": "Hypothesis testing for slope”",
+    "section": "Computing the CI for the slope III",
+    "text": "Computing the CI for the slope III\nPercentile method: Compute the 95% CI as the middle 95% of the bootstrap distribution:\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = observed_fit, \n  level = 0.95,\n  type = \"percentile\" #default method\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.822     1.27\n2 intercept     -34.5      -2.56\n\n\nComplete Exercises 3-6"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#precision-vs.-accuracy",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#precision-vs.-accuracy",
+    "title": "Hypothesis testing for slope”",
+    "section": "Precision vs. accuracy",
+    "text": "Precision vs. accuracy\n\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#precision-vs.-accuracy-1",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#precision-vs.-accuracy-1",
+    "title": "Hypothesis testing for slope”",
+    "section": "Precision vs. accuracy",
+    "text": "Precision vs. accuracy\n\nHow can we get best of both worlds – high precision and high accuracy?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#changing-confidence-level",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#changing-confidence-level",
+    "title": "Hypothesis testing for slope”",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\nHow would you modify the following code to calculate a 90% confidence interval? How would you modify it for a 99% confidence interval?\n\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = observed_fit, \n  level = 0.95,\n  type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.822     1.27\n2 intercept     -34.5      -2.56"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#changing-confidence-level-1",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#changing-confidence-level-1",
+    "title": "Hypothesis testing for slope”",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\n## confidence level: 90%\nget_confidence_interval(\n  boot_fits, point_estimate = observed_fit, \n  level = 0.90, type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.829     1.23\n2 intercept     -31.7      -3.76\n\n## confidence level: 99%\nget_confidence_interval(\n  boot_fits, point_estimate = observed_fit, \n  level = 0.99, type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.795    1.36 \n2 intercept     -43.3     -0.535\n\n\nComplete Exercises 7-11."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#the-regression-model",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#the-regression-model",
+    "title": "Hypothesis testing for slope”",
+    "section": "The regression model",
+    "text": "The regression model\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#research-question-and-hypotheses",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#research-question-and-hypotheses",
+    "title": "Hypothesis testing for slope”",
+    "section": "Research question and hypotheses",
+    "text": "Research question and hypotheses\n“Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\n\nNull hypothesis: there is no linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_0: \\beta_1 = 0\n\\]\n\n\nAlternative hypothesis: there is a linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_A: \\beta_1 \\ne 0\n\\]"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#hypothesis-testing-as-a-court-trial",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#hypothesis-testing-as-a-court-trial",
+    "title": "Hypothesis testing for slope”",
+    "section": "Hypothesis testing as a court trial",
+    "text": "Hypothesis testing as a court trial\n\nNull hypothesis, \\(H_0\\): Defendant is innocent\nAlternative hypothesis, \\(H_A\\): Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)\n\nNot guilty \\(\\neq\\) innocent \\(\\implies\\) why we say “fail to reject the null” rather than “accept the null”"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#hypothesis-testing-framework",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#hypothesis-testing-framework",
+    "title": "Hypothesis testing for slope”",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\nStart with a null hypothesis, \\(H_0\\) that represents the status quo\nSet an alternative hypothesis, \\(H_A\\) that represents the research question, i.e. claim we’re testing\nUnder the assumption that the null hypothesis is true, calculate a p-value (probability of getting outcome or outcome even more favorable to the alternative)\n\nif the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis\nif they do, then reject the null hypothesis in favor of the alternative\n\n\nComplete Exercise 12"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#quantify-the-variability-of-the-slope-1",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#quantify-the-variability-of-the-slope-1",
+    "title": "Hypothesis testing for slope”",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor testing\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nUse Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-described",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-described",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation, described",
+    "text": "Permutation, described\n\n\n\nUse permuting to simulate data under the assumption the null hypothesis is true and measure the natural variability in the data due to sampling, not due to variables being correlated\n\nPermute/shuffle response variable to eliminate any existing relationship with explanatory variable\n\nEach Number_Organic value is randomly assigned to the Avg_Household_K, i.e. Number_Organic and Avg_Household_K are no longer matched for a given store\n\n\n\n\n# A tibble: 37 × 3\n   Number_Organic_Original Number_Organic_Permuted Avg_Income_K\n                     &lt;dbl&gt;                   &lt;dbl&gt;        &lt;dbl&gt;\n 1                      36                      73         71.2\n 2                       4                      29         34.2\n 3                      28                      35         71.2\n 4                      31                      38         48.8\n 5                      78                      78         78.1\n 6                      14                      14         40.5\n 7                      12                      82         38.2\n 8                      18                      31         50.4\n 9                      38                       4         49.4\n10                      84                      12         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-visualized",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-visualized",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation, visualized",
+    "text": "Permutation, visualized\n\n\n\nEach of the observed values for area (and for price) exist in both the observed data plot as well as the permuted price plot\nPermuting removes the relationship between area and price"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-repeated",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-repeated",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation, repeated",
+    "text": "Permutation, repeated\nRepeated permutations allow for quantifying the variability in the slope under the condition that there is no linear relationship (i.e., that the null hypothesis is true)"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#concluding-the-hypothesis-test",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#concluding-the-hypothesis-test",
+    "title": "Hypothesis testing for slope”",
+    "section": "Concluding the hypothesis test",
+    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 0.96\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-i",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-i",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation pipeline I",
+    "text": "Permutation pipeline I\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K)\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-ii",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-ii",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation pipeline II",
+    "text": "Permutation pipeline II\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\")\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\nNull H...\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-iii",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-iii",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation pipeline III",
+    "text": "Permutation pipeline III\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\")\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\nNull H...\n# A tibble: 37,000 × 3\n# Groups:   replicate [1,000]\n   Number_Organic Avg_Income_K replicate\n            &lt;dbl&gt;        &lt;dbl&gt;     &lt;int&gt;\n 1             38         71.2         1\n 2             56         34.2         1\n 3             28         71.2         1\n 4             14         48.8         1\n 5             29         78.1         1\n 6             36         40.5         1\n 7             84         38.2         1\n 8             18         50.4         1\n 9             96         49.4         1\n10             26         66.1         1\n# ℹ 36,990 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-iv",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-iv",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation pipeline IV",
+    "text": "Permutation pipeline IV\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     47.8   \n 2         1 Avg_Income_K   0.0555\n 3         2 intercept     58.0   \n 4         2 Avg_Income_K  -0.0914\n 5         3 intercept     57.3   \n 6         3 Avg_Income_K  -0.0817\n 7         4 intercept     78.9   \n 8         4 Avg_Income_K  -0.394 \n 9         5 intercept     34.8   \n10         5 Avg_Income_K   0.244 \n# ℹ 1,990 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-v",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#permutation-pipeline-v",
+    "title": "Hypothesis testing for slope”",
+    "section": "Permutation pipeline V",
+    "text": "Permutation pipeline V\n\nset.seed(1218)\n\nnull_dist &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#visualize-the-null-distribution",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#visualize-the-null-distribution",
+    "title": "Hypothesis testing for slope”",
+    "section": "Visualize the null distribution",
+    "text": "Visualize the null distribution\n\nnull_dist |&gt;\n  filter(term == \"Avg_Income_K\") |&gt;\n  gf_histogram(~estimate, color = \"white\")\n\n\nComplete Exercises 13 and 14."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#reason-around-the-p-value",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#reason-around-the-p-value",
+    "title": "Hypothesis testing for slope”",
+    "section": "Reason around the p-value",
+    "text": "Reason around the p-value\n\nIn a world where the there is no relationship between the the number of organic food options and the nearby average household income (\\(\\beta_1 = 0\\)), what is the probability that we observe a sample of 37 stores where the slope fo the model predicting the number of organic options from average household income is 0.96 or even more extreme?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#compute-the-p-value",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#compute-the-p-value",
+    "title": "Hypothesis testing for slope”",
+    "section": "Compute the p-value",
+    "text": "Compute the p-value\n\nWhat does this warning mean?\n\n\nget_p_value(\n  null_dist,\n  obs_stat = observed_fit, # Same as from confidence intervals\n  direction = \"two-sided\"\n)\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\nPlease be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\n\n\n# A tibble: 2 × 2\n  term         p_value\n  &lt;chr&gt;          &lt;dbl&gt;\n1 Avg_Income_K       0\n2 intercept          0\n\n\nComplete Exercises 15 and 16."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#recap",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#recap",
+    "title": "Hypothesis testing for slope”",
+    "section": "Recap",
+    "text": "Recap\n\nPopulation: Complete set of observations of whatever we are studying, e.g., people, tweets, photographs, etc. (population size = \\(N\\))\nSample: Subset of the population, ideally random and representative (sample size = \\(n\\))\nSample statistic \\(\\ne\\) population parameter, but if the sample is good, it can be a good estimate\nStatistical inference: Discipline that concerns itself with the development of procedures, methods, and theorems that allow us to extract meaning and information from data that has been generated by stochastic (random) process"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing-slides.html#recap-continued",
+    "href": "slides/05-slr-hypothesis-testing-slides.html#recap-continued",
+    "title": "Hypothesis testing for slope”",
+    "section": "Recap Continued",
+    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#application-exercise",
+    "href": "slides/05-slr-sbit.html#application-exercise",
+    "title": "SLR: Simulation-based inference",
+    "section": "Application exercise",
+    "text": "Application exercise\n\nComplete Exercises 0-2."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#data-san-antonio-income-organic-food-access",
+    "href": "slides/05-slr-sbit.html#data-san-antonio-income-organic-food-access",
+    "title": "SLR: Simulation-based inference",
+    "section": "Data: San Antonio Income & Organic Food Access",
+    "text": "Data: San Antonio Income & Organic Food Access\n\n\n\nAverage household income (per zip code) and number of organic vegetable offerings in San Antonio, TX\nData from HEB website, compile by high school student Linda Saucedo, Fall 2019\nSource: Skew The Script\n\n\n\n\nGoal: Use the average household income to understand variation in access to organic foods."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#computational-setup",
+    "href": "slides/05-slr-sbit.html#computational-setup",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tables\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#exploratory-data-analysis",
+    "href": "slides/05-slr-sbit.html#exploratory-data-analysis",
+    "title": "SLR: Simulation-based inference",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\n\nCode\nheb &lt;- read_csv(\"../data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\ngf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Average Household Income (in thousands)\",\n    y = \"Number of Organic Vegetables\",\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = label_dollar()))"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#modeling",
+    "href": "slides/05-slr-sbit.html#modeling",
+    "title": "SLR: Simulation-based inference",
+    "section": "Modeling",
+    "text": "Modeling\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits=2) #neatly format table to 2 digits\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\nIntercept: HEBs in Zip Codes with an average household income of $0 are expected to have -14.72 organic vegetable options, on average.\n\nIs this interpretation useful?\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#from-sample-to-population",
+    "href": "slides/05-slr-sbit.html#from-sample-to-population",
+    "title": "SLR: Simulation-based inference",
+    "section": "From sample to population",
+    "text": "From sample to population\n\nFor each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average.\n\n\n\nEstimate is valid for the single sample of 37 HEBs\nWhat if we’re not interested quantifying the relationship between the household income and access to organic vegetables in this single sample?\nWhat if we want to say something about the relationship between these variables for all supermarkets in America?"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#statistical-inference",
+    "href": "slides/05-slr-sbit.html#statistical-inference",
+    "title": "SLR: Simulation-based inference",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nStatistical inference refers to ideas, methods, and tools for to generalizing the single observed sample to make statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be random and representative of the population we’re interested in"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#sampling-is-natural",
+    "href": "slides/05-slr-sbit.html#sampling-is-natural",
+    "title": "SLR: Simulation-based inference",
+    "section": "Sampling is natural",
+    "text": "Sampling is natural\n\n\nWhen you taste a spoonful of soup and decide the spoonful you tasted isn’t salty enough, that’s exploratory analysis\nIf you generalize and conclude that your entire soup needs salt, that’s an inference\nFor your inference to be valid, the spoonful you tasted (the sample) needs to be representative of the entire pot (the population)"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#confidence-interval-via-bootstrapping",
+    "href": "slides/05-slr-sbit.html#confidence-interval-via-bootstrapping",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence interval via bootstrapping",
+    "text": "Confidence interval via bootstrapping\n\nBootstrap new samples from the original sample\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#inference-for-simple-linear-regression",
+    "href": "slides/05-slr-sbit.html#inference-for-simple-linear-regression",
+    "title": "SLR: Simulation-based inference",
+    "section": "Inference for simple linear regression",
+    "text": "Inference for simple linear regression\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope, \\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#confidence-interval",
+    "href": "slides/05-slr-sbit.html#confidence-interval",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence interval",
+    "text": "Confidence interval\n\nConfidence interval: plausible range of values for a population parameter\nsingle point estimate \\(\\implies\\) fishing in a murky lake with a spear\nconfidence interval \\(\\implies\\) fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nIf we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter\nHigh confidence \\(\\implies\\) wider interval (larger net)\n\nRemember: single CI \\(\\implies\\) either you hit parameter or you don’t\n\nFavorite Visualization"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#confidence-interval-for-the-slope-1",
+    "href": "slides/05-slr-sbit.html#confidence-interval-for-the-slope-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence interval for the slope",
+    "text": "Confidence interval for the slope\nA confidence interval will allow us to make a statement like “For each $1K in average income, the model predicts the number of organic vegetables available at local supermarkets to be higher, on average, by 0.96, plus or minus X options.”\n\n\nShould X be 1? 2? 3?\nIf we were to take another sample of 37 would we expect the slope calculated based on that sample to be exactly 0.96? Off by 1? 2? 3?\nThe answer depends on how variable (from one sample to another sample) the sample statistic (the slope) is\nWe need a way to quantify the variability of the sample statistic"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#quantify-the-variability-of-the-slope",
+    "href": "slides/05-slr-sbit.html#quantify-the-variability-of-the-slope",
+    "title": "SLR: Simulation-based inference",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor estimation\n\nTwo approaches:\n\nVia simulation (what we’ll do today)\nVia mathematical models (what we’ll do soon)\n\nBootstrapping to quantify the variability of the slope for the purpose of estimation:\n\nGenerate new samples by sampling with replacement from the original sample\nFit models to each of the new samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#original-sample",
+    "href": "slides/05-slr-sbit.html#original-sample",
+    "title": "SLR: Simulation-based inference",
+    "section": "Original Sample",
+    "text": "Original Sample"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#bootstrap-sample-1",
+    "href": "slides/05-slr-sbit.html#bootstrap-sample-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 1",
+    "text": "Bootstrap sample 1"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#bootstrap-sample-2",
+    "href": "slides/05-slr-sbit.html#bootstrap-sample-2",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 2",
+    "text": "Bootstrap sample 2"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#bootstrap-sample-3",
+    "href": "slides/05-slr-sbit.html#bootstrap-sample-3",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 3",
+    "text": "Bootstrap sample 3"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#bootstrap-sample-4",
+    "href": "slides/05-slr-sbit.html#bootstrap-sample-4",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 4",
+    "text": "Bootstrap sample 4"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#bootstrap-sample-5",
+    "href": "slides/05-slr-sbit.html#bootstrap-sample-5",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 5",
+    "text": "Bootstrap sample 5"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#bootstrap-samples-1---5",
+    "href": "slides/05-slr-sbit.html#bootstrap-samples-1---5",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap samples 1 - 5",
+    "text": "Bootstrap samples 1 - 5"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#bootstrap-samples-1---100",
+    "href": "slides/05-slr-sbit.html#bootstrap-samples-1---100",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap samples 1 - 100",
+    "text": "Bootstrap samples 1 - 100"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#slopes-of-bootstrap-samples",
+    "href": "slides/05-slr-sbit.html#slopes-of-bootstrap-samples",
+    "title": "SLR: Simulation-based inference",
+    "section": "Slopes of bootstrap samples",
+    "text": "Slopes of bootstrap samples\n\nFill in the blank: For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#slopes-of-bootstrap-samples-1",
+    "href": "slides/05-slr-sbit.html#slopes-of-bootstrap-samples-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Slopes of bootstrap samples",
+    "text": "Slopes of bootstrap samples\n\nFill in the blank: For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#confidence-level",
+    "href": "slides/05-slr-sbit.html#confidence-level",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence level",
+    "text": "Confidence level\n\nHow confident are you that the true slope is between 0.8 and 1.2? How about 0.9 and 1.0? How about 1.0 and 1.4?"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#confidence-interval-1",
+    "href": "slides/05-slr-sbit.html#confidence-interval-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "95% confidence interval",
+    "text": "95% confidence interval\n\n\n95% bootstrapped confidence interval: bounded by the middle 95% of the bootstrap distribution\nWe are 95% confident that for each additional $1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by 0.81 to 1.31."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#computing-the-ci-for-the-slope-i",
+    "href": "slides/05-slr-sbit.html#computing-the-ci-for-the-slope-i",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computing the CI for the slope I",
+    "text": "Computing the CI for the slope I\nCalculate the observed slope:\n\nlibrary(infer) # package that does Simulation-Based Inference\n\nobserved_fit &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  fit()\n\nobserved_fit\n\n# A tibble: 2 × 2\n  term         estimate\n  &lt;chr&gt;           &lt;dbl&gt;\n1 intercept     -14.7  \n2 Avg_Income_K    0.959"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#computing-the-ci-for-the-slope-ii",
+    "href": "slides/05-slr-sbit.html#computing-the-ci-for-the-slope-ii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computing the CI for the slope II",
+    "text": "Computing the CI for the slope II\nTake 100 bootstrap samples and fit models to each one:\n\nset.seed(1120)\n\nboot_fits &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  generate(reps = 100, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n# A tibble: 200 × 3\n# Groups:   replicate [100]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     -40.9  \n 2         1 Avg_Income_K    1.25 \n 3         2 intercept     -23.9  \n 4         2 Avg_Income_K    1.09 \n 5         3 intercept     -18.6  \n 6         3 Avg_Income_K    1.02 \n 7         4 intercept      -1.96 \n 8         4 Avg_Income_K    0.828\n 9         5 intercept     -15.1  \n10         5 Avg_Income_K    0.951\n# ℹ 190 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#computing-the-ci-for-the-slope-iii",
+    "href": "slides/05-slr-sbit.html#computing-the-ci-for-the-slope-iii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computing the CI for the slope III",
+    "text": "Computing the CI for the slope III\nPercentile method: Compute the 95% CI as the middle 95% of the bootstrap distribution:\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = observed_fit, \n  level = 0.95,\n  type = \"percentile\" #default method\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.822     1.27\n2 intercept     -34.5      -2.56\n\n\nComplete Exercises 3-6"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#precision-vs.-accuracy",
+    "href": "slides/05-slr-sbit.html#precision-vs.-accuracy",
+    "title": "SLR: Simulation-based inference",
+    "section": "Precision vs. accuracy",
+    "text": "Precision vs. accuracy\n\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#precision-vs.-accuracy-1",
+    "href": "slides/05-slr-sbit.html#precision-vs.-accuracy-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Precision vs. accuracy",
+    "text": "Precision vs. accuracy\n\nHow can we get best of both worlds – high precision and high accuracy?"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#changing-confidence-level",
+    "href": "slides/05-slr-sbit.html#changing-confidence-level",
+    "title": "SLR: Simulation-based inference",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\nHow would you modify the following code to calculate a 90% confidence interval? How would you modify it for a 99% confidence interval?\n\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = observed_fit, \n  level = 0.95,\n  type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.822     1.27\n2 intercept     -34.5      -2.56"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#changing-confidence-level-1",
+    "href": "slides/05-slr-sbit.html#changing-confidence-level-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\n## confidence level: 90%\nget_confidence_interval(\n  boot_fits, point_estimate = observed_fit, \n  level = 0.90, type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.829     1.23\n2 intercept     -31.7      -3.76\n\n## confidence level: 99%\nget_confidence_interval(\n  boot_fits, point_estimate = observed_fit, \n  level = 0.99, type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.795    1.36 \n2 intercept     -43.3     -0.535\n\n\nComplete Exercises 7-11."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#the-regression-model",
+    "href": "slides/05-slr-sbit.html#the-regression-model",
+    "title": "SLR: Simulation-based inference",
+    "section": "The regression model",
+    "text": "The regression model\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#research-question-and-hypotheses",
+    "href": "slides/05-slr-sbit.html#research-question-and-hypotheses",
+    "title": "SLR: Simulation-based inference",
+    "section": "Research question and hypotheses",
+    "text": "Research question and hypotheses\n“Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\n\nNull hypothesis: there is no linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_0: \\beta_1 = 0\n\\]\n\n\nAlternative hypothesis: there is a linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_A: \\beta_1 \\ne 0\n\\]"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#hypothesis-testing-as-a-court-trial",
+    "href": "slides/05-slr-sbit.html#hypothesis-testing-as-a-court-trial",
+    "title": "SLR: Simulation-based inference",
+    "section": "Hypothesis testing as a court trial",
+    "text": "Hypothesis testing as a court trial\n\nNull hypothesis, \\(H_0\\): Defendant is innocent\nAlternative hypothesis, \\(H_A\\): Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)\n\nNot guilty \\(\\neq\\) innocent \\(\\implies\\) why we say “fail to reject the null” rather than “accept the null”"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#hypothesis-testing-framework",
+    "href": "slides/05-slr-sbit.html#hypothesis-testing-framework",
+    "title": "SLR: Simulation-based inference",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\nStart with a null hypothesis, \\(H_0\\) that represents the status quo\nSet an alternative hypothesis, \\(H_A\\) that represents the research question, i.e. claim we’re testing\nUnder the assumption that the null hypothesis is true, calculate a p-value (probability of getting outcome or outcome even more favorable to the alternative)\n\nif the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis\nif they do, then reject the null hypothesis in favor of the alternative\n\n\nComplete Exercise 12"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#quantify-the-variability-of-the-slope-1",
+    "href": "slides/05-slr-sbit.html#quantify-the-variability-of-the-slope-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor testing\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nUse Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-described",
+    "href": "slides/05-slr-sbit.html#permutation-described",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation, described",
+    "text": "Permutation, described\n\n\n\nUse permuting to simulate data under the assumption the null hypothesis is true and measure the natural variability in the data due to sampling, not due to variables being correlated\n\nPermute/shuffle response variable to eliminate any existing relationship with explanatory variable\n\nEach Number_Organic value is randomly assigned to the Avg_Household_K, i.e. Number_Organic and Avg_Household_K are no longer matched for a given store\n\n\n\n\n# A tibble: 37 × 3\n   Number_Organic_Original Number_Organic_Permuted Avg_Income_K\n                     &lt;dbl&gt;                   &lt;dbl&gt;        &lt;dbl&gt;\n 1                      36                      73         71.2\n 2                       4                      29         34.2\n 3                      28                      35         71.2\n 4                      31                      38         48.8\n 5                      78                      78         78.1\n 6                      14                      14         40.5\n 7                      12                      82         38.2\n 8                      18                      31         50.4\n 9                      38                       4         49.4\n10                      84                      12         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-visualized",
+    "href": "slides/05-slr-sbit.html#permutation-visualized",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation, visualized",
+    "text": "Permutation, visualized\n\n\n\nEach of the observed values for area (and for price) exist in both the observed data plot as well as the permuted price plot\nPermuting removes the relationship between area and price"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-repeated",
+    "href": "slides/05-slr-sbit.html#permutation-repeated",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation, repeated",
+    "text": "Permutation, repeated\nRepeated permutations allow for quantifying the variability in the slope under the condition that there is no linear relationship (i.e., that the null hypothesis is true)"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#concluding-the-hypothesis-test",
+    "href": "slides/05-slr-sbit.html#concluding-the-hypothesis-test",
+    "title": "SLR: Simulation-based inference",
+    "section": "Concluding the hypothesis test",
+    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 0.96\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-pipeline-i",
+    "href": "slides/05-slr-sbit.html#permutation-pipeline-i",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline I",
+    "text": "Permutation pipeline I\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K)\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-pipeline-ii",
+    "href": "slides/05-slr-sbit.html#permutation-pipeline-ii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline II",
+    "text": "Permutation pipeline II\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\")\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\nNull H...\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-pipeline-iii",
+    "href": "slides/05-slr-sbit.html#permutation-pipeline-iii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline III",
+    "text": "Permutation pipeline III\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\")\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\nNull H...\n# A tibble: 37,000 × 3\n# Groups:   replicate [1,000]\n   Number_Organic Avg_Income_K replicate\n            &lt;dbl&gt;        &lt;dbl&gt;     &lt;int&gt;\n 1             38         71.2         1\n 2             56         34.2         1\n 3             28         71.2         1\n 4             14         48.8         1\n 5             29         78.1         1\n 6             36         40.5         1\n 7             84         38.2         1\n 8             18         50.4         1\n 9             96         49.4         1\n10             26         66.1         1\n# ℹ 36,990 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-pipeline-iv",
+    "href": "slides/05-slr-sbit.html#permutation-pipeline-iv",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline IV",
+    "text": "Permutation pipeline IV\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     47.8   \n 2         1 Avg_Income_K   0.0555\n 3         2 intercept     58.0   \n 4         2 Avg_Income_K  -0.0914\n 5         3 intercept     57.3   \n 6         3 Avg_Income_K  -0.0817\n 7         4 intercept     78.9   \n 8         4 Avg_Income_K  -0.394 \n 9         5 intercept     34.8   \n10         5 Avg_Income_K   0.244 \n# ℹ 1,990 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#permutation-pipeline-v",
+    "href": "slides/05-slr-sbit.html#permutation-pipeline-v",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline V",
+    "text": "Permutation pipeline V\n\nset.seed(1218)\n\nnull_dist &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#visualize-the-null-distribution",
+    "href": "slides/05-slr-sbit.html#visualize-the-null-distribution",
+    "title": "SLR: Simulation-based inference",
+    "section": "Visualize the null distribution",
+    "text": "Visualize the null distribution\n\nnull_dist |&gt;\n  filter(term == \"Avg_Income_K\") |&gt;\n  gf_histogram(~estimate, color = \"white\")\n\n\nComplete Exercises 13 and 14."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#reason-around-the-p-value",
+    "href": "slides/05-slr-sbit.html#reason-around-the-p-value",
+    "title": "SLR: Simulation-based inference",
+    "section": "Reason around the p-value",
+    "text": "Reason around the p-value\n\nIn a world where the there is no relationship between the the number of organic food options and the nearby average household income (\\(\\beta_1 = 0\\)), what is the probability that we observe a sample of 37 stores where the slope fo the model predicting the number of organic options from average household income is 0.96 or even more extreme?"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#compute-the-p-value",
+    "href": "slides/05-slr-sbit.html#compute-the-p-value",
+    "title": "SLR: Simulation-based inference",
+    "section": "Compute the p-value",
+    "text": "Compute the p-value\n\nWhat does this warning mean?\n\n\nget_p_value(\n  null_dist,\n  obs_stat = observed_fit, # Same as from confidence intervals\n  direction = \"two-sided\"\n)\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\nPlease be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\n\n\n# A tibble: 2 × 2\n  term         p_value\n  &lt;chr&gt;          &lt;dbl&gt;\n1 Avg_Income_K       0\n2 intercept          0\n\n\nComplete Exercises 15 and 16."
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#recap",
+    "href": "slides/05-slr-sbit.html#recap",
+    "title": "SLR: Simulation-based inference",
+    "section": "Recap",
+    "text": "Recap\n\nPopulation: Complete set of observations of whatever we are studying, e.g., people, tweets, photographs, etc. (population size = \\(N\\))\nSample: Subset of the population, ideally random and representative (sample size = \\(n\\))\nSample statistic \\(\\ne\\) population parameter, but if the sample is good, it can be a good estimate\nStatistical inference: Discipline that concerns itself with the development of procedures, methods, and theorems that allow us to extract meaning and information from data that has been generated by stochastic (random) process"
+  },
+  {
+    "objectID": "slides/05-slr-sbit.html#recap-continued",
+    "href": "slides/05-slr-sbit.html#recap-continued",
+    "title": "SLR: Simulation-based inference",
+    "section": "Recap Continued",
+    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obstained from null distribution"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#data-san-antonio-income-organic-food-access",
+    "href": "slides/05-slr-hypothesis-testing.html#data-san-antonio-income-organic-food-access",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Data: San Antonio Income & Organic Food Access",
+    "text": "Data: San Antonio Income & Organic Food Access\n\n\n\nAverage household income (per zip code) and number of organic vegetable offerings in San Antonio, TX\nData from HEB website, compiled by high school student Linda Saucedo, Fall 2019\nSource: Skew The Script\n\n\n\n\nGoal: Use the average household income to understand variation in access to organic foods."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#computational-setup",
+    "href": "slides/05-slr-hypothesis-testing.html#computational-setup",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(mosaic)      # for shuffling\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#exploratory-data-analysis",
+    "href": "slides/05-slr-hypothesis-testing.html#exploratory-data-analysis",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\n\nCode\nheb &lt;- read_csv(\"../data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\ngf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Average Household Income (in thousands)\",\n    y = \"Number of Organic Vegetables\",\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = label_dollar()))"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#modeling",
+    "href": "slides/05-slr-hypothesis-testing.html#modeling",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Modeling",
+    "text": "Modeling\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit)\n\n# A tibble: 2 × 5\n  term         estimate std.error statistic       p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   -14.7       9.30      -1.58 0.122        \n2 Avg_Income_K    0.959     0.128      7.50 0.00000000863\n\n\n\n\nIntercept: HEBs in Zip Codes with an average household income of $0 are expected to have -14.72 organic vegetable options, on average.\n\nIs this interpretation useful?\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#the-regression-model",
+    "href": "slides/05-slr-hypothesis-testing.html#the-regression-model",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "The regression model",
+    "text": "The regression model\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#research-question-and-hypotheses",
+    "href": "slides/05-slr-hypothesis-testing.html#research-question-and-hypotheses",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Research question and hypotheses",
+    "text": "Research question and hypotheses\n\n“Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\n\nNull hypothesis: there is no linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_0: \\beta_1 = 0\n\\]\nAlternative hypothesis: there is a linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_A: \\beta_1 \\ne 0\n\\]"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#hypothesis-testing-as-a-court-trial",
+    "href": "slides/05-slr-hypothesis-testing.html#hypothesis-testing-as-a-court-trial",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Hypothesis testing as a court trial",
+    "text": "Hypothesis testing as a court trial\n\nNull hypothesis, \\(H_0\\): Defendant is innocent\nAlternative hypothesis, \\(H_A\\): Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)\n\nNot guilty \\(\\neq\\) innocent \\(\\implies\\) why we say “fail to reject the null” rather than “accept the null”"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#hypothesis-testing-framework",
+    "href": "slides/05-slr-hypothesis-testing.html#hypothesis-testing-framework",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\nStart with a null hypothesis, \\(H_0\\) that represents the status quo\nSet an alternative hypothesis, \\(H_A\\) that represents the research question, i.e. claim we’re testing\nUnder the assumption that the null hypothesis is true, calculate a p-value (probability of getting outcome or outcome even more favorable to the alternative)\n\nif the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis\nif they do, then reject the null hypothesis in favor of the alternative"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#quantify-the-variability-of-the-slope",
+    "href": "slides/05-slr-hypothesis-testing.html#quantify-the-variability-of-the-slope",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor testing\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nUse Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-described",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-described",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation, described",
+    "text": "Permutation, described\n\n\n\nUse permuting to simulate data under the assumption the null hypothesis is true and measure the natural variability in the data due to sampling, not due to variables being correlated\n\nPermute/shuffle response variable to eliminate any existing relationship with explanatory variable\n\nEach Number_Organic value is randomly assigned to the Avg_Household_K, i.e. Number_Organic and Avg_Household_K are no longer matched for a given store\n\n\n\n\n# A tibble: 37 × 3\n   Number_Organic_Original Number_Organic_Permuted Avg_Income_K\n                     &lt;dbl&gt;                   &lt;dbl&gt;        &lt;dbl&gt;\n 1                      36                      73         71.2\n 2                       4                      29         34.2\n 3                      28                      35         71.2\n 4                      31                      38         48.8\n 5                      78                      78         78.1\n 6                      14                      14         40.5\n 7                      12                      82         38.2\n 8                      18                      31         50.4\n 9                      38                       4         49.4\n10                      84                      12         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-visualized",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-visualized",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation, visualized",
+    "text": "Permutation, visualized\n\n\n\nEach of the observed values for Number_Organic (and for Avg_Income_K) exist in both the observed data plot as well as the permuted Number_Organic plot\nPermuting removes the relationship between Number_Organic and Avg_Income_K"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-repeated",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-repeated",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation, repeated",
+    "text": "Permutation, repeated\nRepeated permutations allow for quantifying the variability in the slope under the condition that there is no linear relationship (i.e., that the null hypothesis is true)"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#concluding-the-hypothesis-test",
+    "href": "slides/05-slr-hypothesis-testing.html#concluding-the-hypothesis-test",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Concluding the hypothesis test",
+    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 0.96\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-i",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-i",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation pipeline I",
+    "text": "Permutation pipeline I\n\nset.seed(1218)\n\nheb %&gt;%\n  select(Number_Organic, Avg_Income_K)\n\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-ii",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-ii",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation pipeline II",
+    "text": "Permutation pipeline II\n\nset.seed(1218)\n\nheb %&gt;%\n  mutate(Number_Organic = shuffle(Number_Organic)) %&gt;%\n  select(Number_Organic, Avg_Income_K)\n\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             38         71.2\n 2             56         34.2\n 3             28         71.2\n 4             14         48.8\n 5             29         78.1\n 6             36         40.5\n 7             84         38.2\n 8             18         50.4\n 9             96         49.4\n10             26         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-iii",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-iii",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation pipeline III",
+    "text": "Permutation pipeline III\n\nset.seed(1218)\n\ndo(1000) *\n  heb %&gt;%\n    mutate(Number_Organic = shuffle(Number_Organic)) %&gt;%\n    lm(Number_Organic ~ Avg_Income_K, data = .) %&gt;%\n    tidy() %&gt;%\n    filter(term == \"Avg_Income_K\") %&gt;%\n    select(estimate)\n\n          estimate\n1    -0.0913548141\n2    -0.0817494263\n3    -0.3935814660\n4     0.2438462637\n5    -0.1782290867\n6    -0.0349217484\n7    -0.0636989753\n8     0.0563735401\n9    -0.0413527260\n10   -0.2534352020\n11    0.0220210247\n12    0.0515717300\n13    0.2459573420\n14    0.1997344896\n15    0.1540723848\n16    0.4091453539\n17    0.3089768094\n18   -0.1446006695\n19   -0.1616659291\n20    0.2972179257\n21   -0.0984481916\n22   -0.2917720786\n23    0.1358426766\n24   -0.1279992718\n25   -0.1823012287\n26    0.2027190382\n27    0.1007802557\n28   -0.0620274974\n29    0.1245238754\n30   -0.0261615524\n31    0.3800079523\n32    0.0377534509\n33   -0.0950275238\n34   -0.3140481140\n35   -0.2053266415\n36    0.0180561585\n37    0.0477799082\n38   -0.2341930418\n39    0.0618376431\n40    0.3035273812\n41   -0.0476501310\n42    0.2201824983\n43   -0.3423328257\n44   -0.5996221137\n45   -0.2901071883\n46    0.2019153534\n47    0.2257878326\n48   -0.1320682539\n49    0.0724571969\n50    0.1517263494\n51   -0.2119812219\n52    0.1566859937\n53   -0.3470546744\n54   -0.1247487028\n55   -0.0090636227\n56    0.4501540565\n57   -0.1295914845\n58    0.2590086768\n59    0.0355242782\n60    0.0908969042\n61   -0.1003414514\n62    0.1011492138\n63    0.0067510680\n64    0.0570226042\n65    0.3800684188\n66   -0.1415033822\n67   -0.1207087489\n68   -0.0693933223\n69   -0.0295894505\n70    0.4170713908\n71    0.2728726404\n72    0.3045680046\n73    0.2861716789\n74   -0.2689872464\n75   -0.0727818020\n76    0.3011802212\n77   -0.2690396793\n78    0.2878422463\n79    0.0498104360\n80   -0.0536676443\n81   -0.3538274029\n82   -0.1665008379\n83    0.3291298767\n84    0.0811714939\n85    0.0405546720\n86   -0.1483350239\n87    0.1342694769\n88    0.2700364998\n89   -0.4450764712\n90    0.1733825096\n91   -0.4388597238\n92    0.1307380520\n93    0.0153960080\n94    0.0510382431\n95    0.0892824651\n96    0.0298453558\n97   -0.0178337803\n98   -0.0171748616\n99   -0.1694199927\n100   0.1694979798\n101   0.0611924352\n102  -0.2769250124\n103   0.1311513021\n104   0.4111981081\n105  -0.1816969923\n106   0.2226827795\n107  -0.0174858704\n108   0.0614523500\n109  -0.0416929236\n110   0.2041026978\n111   0.2848926708\n112   0.1284493232\n113  -0.1769888543\n114  -0.1392189916\n115   0.5263017138\n116  -0.4543442857\n117   0.1910414549\n118  -0.0892461994\n119   0.0860514982\n120  -0.1150132237\n121  -0.1963544647\n122   0.0056383026\n123  -0.5687262568\n124   0.1299409548\n125   0.1383480458\n126  -0.2188674923\n127   0.2922462845\n128  -0.0075065973\n129  -0.0338808572\n130   0.3187759149\n131   0.1052015930\n132   0.3026889912\n133  -0.1123571436\n134   0.0601247652\n135  -0.3008257164\n136   0.1801798209\n137   0.2129136127\n138   0.0799465790\n139  -0.1388393220\n140   0.0576538336\n141   0.0327282522\n142  -0.4860863521\n143   0.0853131536\n144  -0.1139580862\n145   0.0873462522\n146   0.3521666437\n147   0.0944717642\n148   0.1254715229\n149  -0.2818005178\n150   0.3054138392\n151   0.1443298361\n152  -0.2689112482\n153  -0.1243061567\n154   0.0695988834\n155   0.3285787694\n156  -0.3523141875\n157   0.0893745841\n158  -0.1597906647\n159   0.0517085695\n160  -0.1176119972\n161   0.4493717948\n162   0.2985925876\n163  -0.1220137324\n164  -0.0219139023\n165  -0.0500961048\n166  -0.0734647144\n167   0.3298011136\n168   0.2043406540\n169  -0.0795088458\n170   0.1147572794\n171  -0.0172737824\n172   0.2351345374\n173  -0.2276483615\n174   0.0693495730\n175  -0.3111911395\n176   0.1166493609\n177   0.1563259263\n178  -0.0527147482\n179   0.1360611915\n180   0.0699878720\n181   0.1534108954\n182  -0.0241044601\n183  -0.1651119832\n184   0.2104904544\n185   0.0822800819\n186   0.3789697390\n187   0.2396348185\n188   0.1001999596\n189  -0.4343875604\n190   0.2201425444\n191   0.0786778539\n192  -0.1112668724\n193   0.1568701782\n194   0.1385821458\n195   0.0003509395\n196  -0.1473700773\n197   0.0359427234\n198  -0.3283111886\n199   0.2366601780\n200  -0.2255002213\n201   0.0961445811\n202  -0.0035461763\n203   0.3517147250\n204   0.1335678193\n205   0.1921391171\n206  -0.0965609303\n207   0.0179151414\n208  -0.1316650726\n209   0.1359797304\n210  -0.1228911659\n211   0.2084241502\n212  -0.1325412207\n213   0.1783003255\n214   0.2024272566\n215  -0.3617772193\n216   0.1590010728\n217   0.0718313768\n218  -0.1310949523\n219   0.1245705776\n220  -0.0648611208\n221  -0.0236645919\n222  -0.0966087037\n223  -0.0570540353\n224   0.2188664284\n225  -0.5152388569\n226   0.1718995543\n227   0.1958351243\n228  -0.2986333377\n229   0.1416108259\n230  -0.0069506698\n231   0.1091877215\n232  -0.1654868862\n233  -0.2598402042\n234  -0.0273318387\n235  -0.0225119261\n236  -0.2185021226\n237   0.0879542912\n238  -0.1568804004\n239   0.2912991191\n240  -0.0265344737\n241   0.1372110723\n242   0.2586660691\n243  -0.2611308879\n244  -0.1471813941\n245  -0.2869547368\n246  -0.1397846130\n247   0.1901473649\n248  -0.5078422900\n249  -0.0408169897\n250  -0.1272209198\n251  -0.2198136937\n252  -0.1780679855\n253  -0.1558483463\n254  -0.2117165404\n255   0.2192840703\n256   0.3195998444\n257   0.0743603112\n258   0.2639306166\n259  -0.1185066227\n260  -0.2116748191\n261   0.0425734171\n262  -0.0127052690\n263  -0.1324067377\n264   0.1280255222\n265  -0.1751976752\n266  -0.0771794133\n267   0.1683417256\n268  -0.0334148528\n269  -0.2882131252\n270  -0.0660756992\n271  -0.2478505946\n272   0.2203391542\n273  -0.0868044567\n274   0.1377811925\n275   0.3688714610\n276  -0.0783455756\n277  -0.0957806502\n278   0.0911443937\n279  -0.2473194642\n280   0.1803040745\n281   0.4193338764\n282  -0.2799806855\n283  -0.0351814490\n284  -0.1321498221\n285   0.1105523682\n286   0.0514853416\n287  -0.0869952823\n288   0.1068814259\n289   0.1215126016\n290   0.2220401959\n291   0.1034313550\n292   0.0093061385\n293  -0.1264155212\n294  -0.1033933754\n295  -0.2816513065\n296  -0.4254955058\n297   0.0596473531\n298  -0.3611331361\n299  -0.3425947757\n300  -0.2015621341\n301   0.3431863262\n302   0.1612791972\n303  -0.1221883836\n304   0.3600592071\n305  -0.3647234207\n306  -0.0349901414\n307   0.4479365057\n308   0.4366184543\n309   0.1203073958\n310  -0.1164712212\n311  -0.3065649982\n312   0.4593020627\n313  -0.0332423975\n314   0.2539900121\n315   0.2206751208\n316   0.2035860280\n317  -0.3466289454\n318  -0.0379828307\n319   0.3087355862\n320   0.1368916550\n321   0.0642303807\n322   0.3784883636\n323  -0.1773422270\n324  -0.3372998611\n325  -0.1539700826\n326   0.1915759057\n327   0.0326684819\n328   0.1977432195\n329  -0.0120402983\n330   0.1826218850\n331   0.0735776746\n332  -0.1097944144\n333   0.2763591305\n334   0.3733217729\n335  -0.5533926201\n336  -0.2284147166\n337  -0.1077519968\n338  -0.1900007171\n339  -0.0404226454\n340   0.1348024817\n341   0.3253318423\n342  -0.5834944327\n343  -0.0183878868\n344   0.1842211138\n345  -0.1801256670\n346  -0.0801694248\n347  -0.1850890068\n348  -0.0077803835\n349  -0.5880352569\n350  -0.3889988670\n351   0.3270087831\n352   0.1668098187\n353  -0.0445810686\n354   0.0618243073\n355  -0.2637714363\n356  -0.1809682346\n357  -0.1606725971\n358   0.1692964962\n359   0.0910146773\n360   0.1619051244\n361   0.2073543915\n362   0.0202063874\n363   0.2377883680\n364   0.1252422965\n365   0.3276037540\n366  -0.1606329645\n367   0.0526990095\n368  -0.0284109164\n369   0.2706752808\n370  -0.0657705282\n371  -0.1608024206\n372   0.1345208760\n373   0.0542221329\n374  -0.0995265731\n375   0.3185721820\n376   0.0451278450\n377   0.4261409887\n378  -0.0573004536\n379   0.2112908186\n380  -0.2058745889\n381  -0.2616356143\n382   0.1696448882\n383   0.2590453102\n384   0.0469557109\n385  -0.2420514890\n386  -0.2443779223\n387  -0.0763847798\n388  -0.0696081416\n389  -0.2838415429\n390   0.0746689634\n391   0.1853284699\n392   0.2733032432\n393   0.1974768242\n394  -0.1615111478\n395   0.1161297990\n396  -0.3693639155\n397  -0.2471753408\n398  -0.0099502145\n399  -0.0209263545\n400   0.0469233622\n401  -0.0738618973\n402   0.0240053323\n403  -0.1044561716\n404   0.2240426595\n405  -0.0367484896\n406   0.1259626457\n407  -0.0081058528\n408  -0.5847583376\n409  -0.0064552624\n410   0.1559983682\n411   0.4557733157\n412  -0.1189686638\n413   0.1841153376\n414  -0.2838861028\n415  -0.0100217139\n416   0.0489267898\n417  -0.0905628049\n418   0.0576378735\n419   0.3550156917\n420   0.0927272338\n421  -0.1182674346\n422  -0.2347315095\n423   0.0948075166\n424  -0.0514190301\n425   0.1478962341\n426  -0.1675399081\n427  -0.2107038741\n428   0.0171332546\n429  -0.0797087226\n430  -0.1082026837\n431   0.1495571611\n432  -0.4226369781\n433   0.0220810092\n434   0.1407106840\n435  -0.0432711042\n436  -0.0666130958\n437  -0.1177852024\n438   0.1772610410\n439   0.2944454115\n440   0.0844649090\n441   0.2053027085\n442  -0.1528159707\n443   0.0808026430\n444   0.2745300862\n445  -0.0451624359\n446   0.1919923693\n447   0.1944677462\n448   0.0675196718\n449  -0.0116475607\n450   0.0775977051\n451  -0.0621945970\n452  -0.1744658647\n453   0.0010998349\n454  -0.0327449013\n455   0.0175390067\n456  -0.0225804262\n457   0.0695660526\n458  -0.0100369242\n459  -0.2841570505\n460  -0.0099523568\n461   0.2451473911\n462   0.2812267094\n463   0.2196019879\n464   0.6079837415\n465  -0.1946195211\n466  -0.1466881289\n467  -0.3181085269\n468  -0.0521270611\n469  -0.1983402719\n470   0.0848361700\n471  -0.2683302558\n472   0.1676007032\n473  -0.0829961392\n474  -0.2050034751\n475   0.2069122738\n476   0.0939163188\n477  -0.0441122793\n478   0.1569060082\n479   0.0721602737\n480  -0.0001604816\n481   0.4276786798\n482  -0.2087272787\n483   0.4236434926\n484  -0.0290772260\n485  -0.1507614492\n486   0.0596624028\n487  -0.0285515586\n488  -0.2879764543\n489  -0.1421653536\n490   0.0027514965\n491  -0.3632218810\n492  -0.2454332205\n493  -0.0817374294\n494  -0.2690072769\n495  -0.1400985674\n496   0.1643047174\n497   0.0360084385\n498  -0.0457807044\n499  -0.2090387160\n500  -0.2881695293\n501  -0.1063246878\n502   0.0058758303\n503   0.2404902934\n504  -0.2980500959\n505   0.0396621353\n506  -0.0549895520\n507  -0.1956162273\n508  -0.0519573907\n509   0.0103403886\n510  -0.2720826056\n511   0.3242097579\n512   0.0570764296\n513   0.3477687646\n514  -0.1182424768\n515   0.0217503448\n516   0.1243822692\n517   0.2158348027\n518  -0.1085550924\n519   0.3798790393\n520  -0.1384034170\n521  -0.5164705736\n522   0.1940449628\n523   0.2357213675\n524  -0.0675746682\n525  -0.3038756053\n526   0.1424047632\n527   0.1664940433\n528  -0.0580901598\n529  -0.0358031451\n530  -0.0212521451\n531   0.1830585398\n532  -0.0419525707\n533  -0.0898329225\n534   0.2091238262\n535   0.1603740745\n536  -0.1295394801\n537   0.1403271047\n538  -0.0338891050\n539   0.2876256060\n540  -0.0156943700\n541   0.4639483953\n542  -0.0517445530\n543  -0.1551291218\n544  -0.1250656564\n545   0.1234878579\n546   0.1425856270\n547  -0.0191776466\n548   0.0482742981\n549  -0.0124551016\n550   0.3309401223\n551   0.1666724971\n552   0.0706984737\n553  -0.0431750755\n554  -0.1499561577\n555   0.0504509309\n556   0.0631777604\n557  -0.1903650692\n558  -0.2032850808\n559  -0.2939255746\n560  -0.0836376517\n561  -0.2707730697\n562   0.0480506417\n563  -0.4299873248\n564  -0.1063300436\n565  -0.1768415710\n566   0.0065000437\n567   0.0019749119\n568  -0.3078271892\n569  -0.3352147046\n570   0.1525314267\n571  -0.2385192608\n572   0.2300165769\n573  -0.0097968257\n574  -0.1178599687\n575   0.1624423068\n576   0.0228579687\n577  -0.2414859748\n578  -0.0054673396\n579  -0.0389753594\n580  -0.1886031861\n581  -0.2352307195\n582   0.3742750439\n583  -0.0873989992\n584   0.1832420816\n585  -0.0666559954\n586  -0.0294515934\n587   0.0308451683\n588  -0.0778733586\n589  -0.0890481435\n590  -0.4440007676\n591   0.2954499907\n592  -0.2200064474\n593  -0.2257185754\n594   0.0447712052\n595   0.2879673568\n596  -0.2562919623\n597  -0.1915140395\n598  -0.0612982577\n599  -0.1635935193\n600  -0.2120091254\n601  -0.2596983303\n602  -0.1830552656\n603   0.0334385861\n604   0.2631623334\n605  -0.0806031874\n606  -0.1132492519\n607  -0.0433732921\n608  -0.0985525753\n609  -0.0772099411\n610   0.0115612867\n611   0.2641364919\n612   0.1300113295\n613   0.3041181211\n614   0.0222960428\n615  -0.2210440716\n616   0.3013905953\n617   0.1518927528\n618   0.4116278539\n619   0.1155014617\n620   0.0535303299\n621   0.0548582896\n622  -0.1251761992\n623  -0.0711616322\n624  -0.3443778676\n625  -0.0589111437\n626  -0.1883690860\n627   0.0773973462\n628  -0.3397605632\n629   0.3806701915\n630   0.0898724552\n631  -0.0019206508\n632   0.1679233875\n633  -0.0177414470\n634   0.3662863982\n635  -0.1175026862\n636   0.0724443430\n637  -0.0125988501\n638   0.2276183765\n639  -0.2929902989\n640  -0.3250953249\n641  -0.0682450482\n642  -0.0009650768\n643  -0.0850362003\n644  -0.0331522066\n645  -0.3545721743\n646  -0.0198833746\n647  -0.1629728943\n648  -0.0254432384\n649  -0.1160266934\n650   0.1266623217\n651  -0.0483819415\n652   0.1791786159\n653   0.0088404020\n654  -0.1550133839\n655   0.1381864090\n656  -0.3029129617\n657  -0.3154034417\n658   0.0834067187\n659   0.1038713303\n660  -0.0953919295\n661   0.1879973502\n662  -0.0186928435\n663   0.0294509044\n664   0.1415278652\n665   0.2479359725\n666  -0.2621043501\n667   0.3516017721\n668   0.0936148968\n669   0.0836739710\n670   0.4539374161\n671   0.0393959006\n672  -0.0747547554\n673  -0.0134737128\n674  -0.1476147818\n675  -0.1070182047\n676   0.1018867014\n677  -0.1866136834\n678  -0.0745407929\n679   0.2576115743\n680  -0.4111467391\n681   0.1513263816\n682  -0.2576355073\n683   0.3272697691\n684  -0.0729062698\n685  -0.5844542377\n686   0.1136265721\n687  -0.0499156694\n688  -0.1101537856\n689   0.1711056706\n690   0.0493292213\n691   0.0297750883\n692  -0.1004530118\n693  -0.3408931985\n694   0.1156945902\n695  -0.2108432308\n696   0.0160917743\n697  -0.2514078877\n698  -0.0874980271\n699  -0.0578382786\n700  -0.0154229403\n701  -0.1978444360\n702   0.0660688511\n703  -0.0493650977\n704  -0.1545229038\n705  -0.1026564769\n706  -0.3108508884\n707  -0.1750033684\n708  -0.2861064921\n709  -0.2812142768\n710  -0.4303545154\n711  -0.1436834427\n712  -0.2010253267\n713   0.2809146830\n714  -0.1124154678\n715  -0.1969575764\n716   0.3862159698\n717   0.1071741715\n718   0.0213577679\n719   0.2653376808\n720  -0.0432343102\n721   0.2056895012\n722  -0.1921800278\n723  -0.0553529400\n724   0.2386780127\n725   0.1322232032\n726   0.3461134076\n727   0.1783862318\n728  -0.0140175899\n729  -0.0417133826\n730  -0.0920615597\n731   0.1758623853\n732   0.3343863906\n733  -0.0326994310\n734  -0.2423689783\n735   0.1772506509\n736  -0.0581490731\n737   0.1093050662\n738  -0.0623991869\n739  -0.1842875179\n740  -0.1367409368\n741   0.1959204950\n742  -0.0514142635\n743   0.0070463844\n744  -0.3197180923\n745   0.4051539767\n746  -0.1767478452\n747   0.1497940462\n748   0.0964995070\n749   0.3368914384\n750   0.0734969098\n751   0.1140528903\n752  -0.0016176757\n753   0.1362122774\n754  -0.0096683411\n755   0.0275279737\n756  -0.0874184941\n757  -0.3801847386\n758   0.4783985464\n759   0.0979826766\n760   0.0723391024\n761  -0.2027732312\n762   0.1584564996\n763  -0.2597826834\n764  -0.1137749729\n765   0.0186123002\n766  -0.1478105347\n767  -0.0019760293\n768   0.1606413802\n769  -0.1365472727\n770  -0.0558907651\n771   0.0658948961\n772  -0.1248590849\n773   0.1189072405\n774  -0.2441925596\n775  -0.1171167504\n776   0.0227211291\n777  -0.0684882531\n778   0.2896341216\n779  -0.2497597609\n780  -0.1179540693\n781  -0.2058575040\n782   0.0511306834\n783   0.0655798705\n784  -0.1641749402\n785  -0.0854747296\n786  -0.1764115038\n787  -0.1994019970\n788  -0.0306584059\n789  -0.1080131435\n790   0.3344448754\n791   0.0140977192\n792   0.2840399809\n793  -0.1303478244\n794   0.2676953382\n795   0.1870979046\n796   0.1564328807\n797  -0.1957521028\n798   0.2417844047\n799  -0.0141753169\n800   0.0474153419\n801  -0.1219488207\n802   0.2894518117\n803  -0.1077246289\n804   0.2421153904\n805   0.0693114400\n806  -0.1031575615\n807   0.1160454994\n808  -0.1703826899\n809   0.1782104559\n810  -0.0383957060\n811   0.3266655327\n812  -0.0281192955\n813  -0.4453352078\n814   0.0936228234\n815  -0.1031991757\n816   0.1292441174\n817   0.1014272846\n818  -0.3425897949\n819   0.1802259340\n820  -0.5011648405\n821  -0.2097876113\n822   0.3289152716\n823   0.0133571253\n824   0.1566952592\n825  -0.2569498634\n826  -0.1101086901\n827  -0.1081546961\n828  -0.0582383000\n829  -0.1292080659\n830  -0.3191794639\n831  -0.1570995580\n832  -0.0199501608\n833   0.1118537098\n834   0.3319366142\n835   0.1393139564\n836  -0.1254814238\n837   0.0706063011\n838  -0.0883240453\n839  -0.1446671879\n840  -0.2273609180\n841  -0.3085957402\n842   0.0402714596\n843  -0.0957901299\n844  -0.1837898075\n845   0.1389383572\n846  -0.2228297342\n847   0.1978797913\n848   0.0559598615\n849  -0.0008693695\n850   0.3773496228\n851  -0.1838317966\n852  -0.0080196251\n853   0.1530098028\n854   0.2368383105\n855  -0.4862905135\n856   0.0367218788\n857  -0.1845112278\n858   0.2032548280\n859  -0.0033868426\n860   0.0833490372\n861   0.0278932898\n862   0.0606610371\n863   0.2408347221\n864   0.0971013333\n865   0.1024354521\n866  -0.0331850909\n867  -0.0710831704\n868  -0.1867246011\n869   0.0421532581\n870   0.1191575150\n871  -0.1616149423\n872  -0.1107217635\n873  -0.0023459514\n874   0.0366036237\n875  -0.1613573305\n876   0.1507971793\n877  -0.0963155831\n878   0.1244139753\n879  -0.0654692134\n880  -0.2596718728\n881  -0.3190255930\n882  -0.3954664244\n883  -0.1092255795\n884   0.1918226454\n885  -0.2786842712\n886  -0.0567778925\n887   0.3064253273\n888   0.0310257644\n889   0.0810472940\n890   0.0752968187\n891  -0.4584683249\n892   0.4057851525\n893   0.1023592397\n894   0.2646529474\n895   0.1464148855\n896   0.1672508116\n897   0.1573971310\n898  -0.0732678904\n899  -0.1967957790\n900  -0.3234738698\n901  -0.1471149827\n902   0.2716990872\n903   0.0241442606\n904   0.3773743664\n905   0.1030927641\n906   0.2835747799\n907   0.3417631947\n908   0.1420595311\n909   0.0628824976\n910  -0.1831312637\n911   0.1001765549\n912  -0.3976458957\n913   0.2153871151\n914  -0.1301143670\n915   0.2135571603\n916   0.1396446207\n917  -0.1174846373\n918   0.2897476637\n919   0.1029633690\n920  -0.0389512585\n921  -0.0348233631\n922  -0.2960708762\n923  -0.3359608685\n924  -0.2038721788\n925   0.3919406839\n926   0.0591291302\n927   0.0317136577\n928  -0.1037706884\n929  -0.3630213079\n930   0.0544656592\n931   0.1220267006\n932   0.0190542572\n933  -0.0886138453\n934   0.3792780163\n935   0.2564247387\n936   0.1997053007\n937  -0.1510751358\n938  -0.0796200849\n939  -0.1978447574\n940   0.3476826441\n941  -0.0080000766\n942  -0.0291220002\n943  -0.2279460879\n944  -0.2583832244\n945  -0.0364070602\n946   0.2360712591\n947   0.1346534846\n948   0.0458379647\n949  -0.0015151665\n950  -0.0099076898\n951   0.0373661762\n952  -0.4256014962\n953  -0.2262986574\n954   0.2776645960\n955  -0.0629463845\n956   0.1795176353\n957  -0.2313105203\n958  -0.1488009747\n959   0.4604781332\n960  -0.0099357004\n961   0.0107587802\n962   0.2438140220\n963  -0.0501160818\n964  -0.1071205532\n965  -0.3747337036\n966  -0.2878336163\n967   0.2891069010\n968   0.1978924309\n969  -0.3144091991\n970   0.1563513661\n971   0.2615497688\n972   0.2045473862\n973  -0.0630077079\n974  -0.1845761396\n975  -0.1319709934\n976   0.4335706542\n977  -0.0078526327\n978   0.3511382850\n979   0.1653055475\n980   0.3478577237\n981  -0.0629426890\n982  -0.3763034222\n983   0.2417604109\n984   0.1177130676\n985   0.0901369760\n986   0.1502415732\n987  -0.1755580105\n988   0.0599789280\n989  -0.1986861467\n990  -0.0490958638\n991  -0.3128401768\n992  -0.3629181560\n993  -0.4441974845\n994  -0.1372713173\n995  -0.2487417924\n996   0.1057588059\n997  -0.2831309947\n998   0.4419777451\n999  -0.3795081995\n1000  0.0118477126"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-iv",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-iv",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation pipeline IV",
+    "text": "Permutation pipeline IV\n\nset.seed(1218)\n\nnull_dist &lt;- do(1000) *\n  heb %&gt;%\n    mutate(Number_Organic = shuffle(Number_Organic)) %&gt;%\n    lm(Number_Organic ~ Avg_Income_K, data = .) %&gt;%\n    tidy() %&gt;%\n    filter(term == \"Avg_Income_K\") %&gt;%\n    select(estimate)"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-v",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-v",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation pipeline V",
+    "text": "Permutation pipeline V\n\nset.seed(1218)\n\ndo(10) * lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)\n\n   Intercept Avg_Income_K    sigma    r.squared          F numdf dendf .row\n1   57.97025  -0.09135481 28.12859 0.0055955314 0.19694561     1    35    1\n2   57.30557  -0.08174943 28.14435 0.0044807208 0.15753108     1    35    1\n3   78.88384  -0.39358147 26.70265 0.1038598613 4.05639139     1    35    1\n4   34.77489   0.24384626 27.63962 0.0398667352 1.45327298     1    35    1\n5   63.98181  -0.17822909 27.90562 0.0212978431 0.76164592     1    35    1\n6   54.06518  -0.03492175 28.19608 0.0008176556 0.02864136     1    35    1\n7   56.05651  -0.06369898 28.16922 0.0027204663 0.09547606     1    35    1\n8   47.74769   0.05637354 28.17755 0.0021307332 0.07473490     1    35    1\n9   54.51019  -0.04135273 28.19144 0.0011465335 0.04017473     1    35    1\n10  69.18595  -0.25343520 27.59357 0.0430637987 1.57506107     1    35    1\n   .index\n1       1\n2       2\n3       3\n4       4\n5       5\n6       6\n7       7\n8       8\n9       9\n10     10"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#visualize-the-null-distribution",
+    "href": "slides/05-slr-hypothesis-testing.html#visualize-the-null-distribution",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Visualize the null distribution",
+    "text": "Visualize the null distribution\n\nnull_dist |&gt;\n  gf_histogram(~estimate, color = \"white\") |&gt;\n  gf_labs(\n    x = \"Slope\",\n    y = \"Count\",\n    title = \"Slopes of 1000 permuted samples\"\n  )"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#reason-around-the-p-value",
+    "href": "slides/05-slr-hypothesis-testing.html#reason-around-the-p-value",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Reason around the p-value",
+    "text": "Reason around the p-value\n\nIn a world where there is no relationship between the number of organic food options and the nearby average household income (\\(\\beta_1 = 0\\)), what is the probability that we observe a sample of 37 stores where the slope of the model predicting the number of organic options from average household income is 0.96 or even more extreme?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#compute-the-p-value",
+    "href": "slides/05-slr-hypothesis-testing.html#compute-the-p-value",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Compute the p-value",
+    "text": "Compute the p-value\n\nobserved_fit &lt;- coef(lm(Number_Organic ~ Avg_Income_K, data = heb))[\"Avg_Income_K\"]\n\nnull_slopes &lt;- null_dist$estimate\np_value &lt;- mean(abs(null_slopes) &gt;= abs(observed_fit))\np_value\n\n[1] 0.5"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#recap",
+    "href": "slides/05-slr-hypothesis-testing.html#recap",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Recap",
+    "text": "Recap\n\nPopulation: Complete set of observations of whatever we are studying, e.g., people, tweets, photographs, etc. (population size = \\(N\\))\nSample: Subset of the population, ideally random and representative (sample size = \\(n\\))\nSample statistic \\(\\ne\\) population parameter, but if the sample is good, it can be a good estimate\nPermutation and refitting (using mosaic): Use repeated shuffling and model fitting to understand how sample statistics vary due to random chance, helping us extract meaning and information from data generated by random processes."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#recap-continued",
+    "href": "slides/05-slr-hypothesis-testing.html#recap-continued",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Recap Continued",
+    "text": "Recap Continued\n\nEstimation: Use data to compute point estimate\n\nReport the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\n\nTesting: Conduct a hypothesis test\n\nAssume research question isn’t true (Null hypothesis)\nAsk what distribution of test statistic is if null is true\nAsk if your data would be unusual if under this null distribution\nP-value: Probability your data (or even stronger evidence) was obtained from null distribution ## Application Exercise: Permutation and Refitting with mosaic\n\n\n\n\n\n\n\n\nImportant\n\n\n\nComplete AE 03a: Permutation and Refitting (HT Focus) in your group.\nWork through Exercises 0–7 in the AE document, focusing on using permutation and refitting techniques with mosaic.\nFollow the submission instructions at the end of the AE."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#exploratory-data-analysis-1",
+    "href": "slides/05-slr-hypothesis-testing.html#exploratory-data-analysis-1",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\n\nCode\nheb &lt;- read_csv(\"../data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\ngf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Average Household Income (in thousands)\",\n    y = \"Number of Organic Vegetables\",\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = label_dollar()))"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#modeling-1",
+    "href": "slides/05-slr-hypothesis-testing.html#modeling-1",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Modeling",
+    "text": "Modeling\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits=2) #neatly format table to 2 digits\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\nIntercept: HEBs in Zip Codes with an average household income of $0 are expected to have -14.72 organic vegetable options, on average.\n\nIs this interpretation useful?\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#from-sample-to-population",
+    "href": "slides/05-slr-hypothesis-testing.html#from-sample-to-population",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "From sample to population",
+    "text": "From sample to population\n\nFor each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average.\n\n\n\nEstimate is valid for the single sample of 37 HEBs\nWhat if we’re not interested quantifying the relationship between the household income and access to organic vegetables in this single sample?\nWhat if we want to say something about the relationship between these variables for all supermarkets in America?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#statistical-inference",
+    "href": "slides/05-slr-hypothesis-testing.html#statistical-inference",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nStatistical inference refers to ideas, methods, and tools for generalizing the single observed sample to make statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be random and representative of the population we’re interested in"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#sampling-is-natural",
+    "href": "slides/05-slr-hypothesis-testing.html#sampling-is-natural",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Sampling is natural",
+    "text": "Sampling is natural\n\n\nWhen you taste a spoonful of soup and decide the spoonful you tasted isn’t salty enough, that’s exploratory analysis\nIf you generalize and conclude that your entire soup needs salt, that’s an inference\nFor your inference to be valid, the spoonful you tasted (the sample) needs to be representative of the entire pot (the population)"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#inference-for-simple-linear-regression",
+    "href": "slides/05-slr-hypothesis-testing.html#inference-for-simple-linear-regression",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Inference for simple linear regression",
+    "text": "Inference for simple linear regression\n\nConduct a hypothesis test for the slope, \\(\\beta_1\\)\n\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#regular-model",
+    "href": "slides/05-slr-hypothesis-testing.html#regular-model",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Regular Model",
+    "text": "Regular Model\n\nset.seed(1218)\n\nlm(Number_Organic ~ Avg_Income_K, data = heb)\n\n\nCall:\nlm(formula = Number_Organic ~ Avg_Income_K, data = heb)\n\nCoefficients:\n (Intercept)  Avg_Income_K  \n    -14.7188        0.9591"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#shuffled-model",
+    "href": "slides/05-slr-hypothesis-testing.html#shuffled-model",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Shuffled Model",
+    "text": "Shuffled Model\n\nset.seed(1218)\n\nlm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)\n\n\nCall:\nlm(formula = shuffle(Number_Organic) ~ Avg_Income_K, data = heb)\n\nCoefficients:\n (Intercept)  Avg_Income_K  \n    47.81030       0.05547"
   }
 ]

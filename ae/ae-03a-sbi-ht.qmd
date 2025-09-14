@@ -1,0 +1,149 @@
+---
+title: "AE 03a: Simulation-Based Inference (HT Focus)"
+subtitle: "Bikeshare"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-03a"
+-   Upload the `ae-03a-sbi-ht.qmd` and `dcbikeshare.csv` files into the folder you just created.
+:::
+
+```{r load-packages}
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(broom)
+library(openintro)
+library(kableExtra)
+```
+
+## Data
+
+Our dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
+
+We will focus on the following variables in the analysis:
+
+-   `count`: total bike rentals
+-   `temp_orig`: Temperature in degrees Celsius
+
+```{r glimpse-data}
+bikeshare <- read_csv("../data/dcbikeshare.csv") |>
+  mutate(season = case_when(
+    season == 1 ~ "winter",
+    season == 2 ~ "spring",
+    season == 3 ~ "summer",
+    season == 4 ~ "fall"
+  ),
+  season = factor(season))
+glimpse(bikeshare)
+```
+
+## Exercises
+
+In this activity, each group will be assigned a season to use:
+
+-   Groups 1 and 5: `winter`
+-   Groups 2 and 6: `spring`
+-   Groups 3 and 7: `summer`
+-   Groups 4 and 8: `fall`
+
+### Exercise 0
+
+Filter the `bikeshare` data set so that it only contains observations from your assigned season. Make sure to give the new data set a different name.
+
+### Exercise 1
+
+Conduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think `alpha` does?
+
+```{r scatterplot}
+#| eval: FALSE
+
+gf______(______, data = ______, alpha = 0.7) |> 
+  gf_labs(
+    x = "Temperature (C)",
+    y = "Number of Bike Rentals",
+  )
+```
+
+### Exercise 2
+
+Fit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.
+
+```{r fit-model}
+#| eval: FALSE
+
+model_fit <- lm(_____ ~ ______, data = _____)
+
+tidy(_____)
+```
+
+### Exercise 3
+
+Write down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage "math mode".
+
+$$
+H_0: 
+$$
+
+### Exercise 4
+
+Generate null distribution using permutation
+
+Fill in the code, then set `eval: true` .
+
+```{r permutation}
+#| eval: false
+
+n = 100
+set.seed(212)
+
+null_dist <- _____ |>
+  specify(______) |>
+  hypothesize(null = "independence") |>
+  generate(reps = _____, type = "permute") |>
+  fit()
+```
+
+### Exercise 5
+
+Visualize the null distribution. Does your slope seem unusual if we assume the null hypothesis is the truth?
+
+```{r null-dist}
+# Code for histogram of null distribution
+```
+
+### Exercise 6
+
+Fill in the code below to compute the p-value. Have your reporter write the value on the board.
+
+```{r calc-pvalue}
+#| eval: false 
+
+# get observed fit 
+observed_fit <- _____ |>
+  specify(____) |>
+  fit()
+
+# calculate p-value
+get_p_value(
+  ____,
+  obs_stat = ____,
+  direction = "two-sided"
+)
+```
+
+### Exercise 7
+
+-   Do larger or smaller p-values provide evidence for the alternative hypothesis?
+-   Do larger or smaller p-values provide evidence for your research question?
+-   Interpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?
+
+::: callout-important
+To submit the AE:
+- Render the document to produce the HTML with all of your work from today's class.
+- The driver for your group should upload your .qmd and .html files to the Canvas assignment.
+:::
