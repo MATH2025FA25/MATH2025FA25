@@ -1,0 +1,7 @@
+---
+title: "Preparation for Simulation Based Inference"
+---
+
+## Assigned reading
+
+📖 IMS, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)

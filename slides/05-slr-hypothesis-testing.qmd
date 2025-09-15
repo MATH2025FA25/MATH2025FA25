@@ -27,8 +27,6 @@ bibliography: references.bib
 #| include: false
 
 library(countdown)
-library(tidyverse)
-library(tidymodels)
 library(knitr)
 library(priceR)
 library(ggformula)
@@ -70,6 +68,7 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 # load packages
 library(tidyverse)   # for data wrangling and visualization
 library(ggformula)  # for modeling
+library(broom)       # for nicely displaying models
 library(mosaic)      # for shuffling
 library(scales)      # for pretty axis labels
 library(knitr)       # for neatly formatted tables
