@@ -1,5 +1,5 @@
 ---
-title: "AE 03a: Simulation-Based Inference (HT Focus)"
+title: "AE 05: Simulation-Based Inference (HT Focus)"
 subtitle: "Bikeshare"
 editor: visual
 format:
@@ -17,7 +17,6 @@ format:
 library(tidyverse)
 library(ggformula)
 library(broom)
-library(openintro)
 library(kableExtra)
 ```
 
@@ -91,52 +90,37 @@ $$
 
 ### Exercise 4
 
-Generate null distribution using permutation
-
-Fill in the code, then set `eval: true` .
-
-```{r permutation}
-#| eval: false
-
-n = 100
-set.seed(212)
-
-null_dist <- _____ |>
-  specify(______) |>
-  hypothesize(null = "independence") |>
-  generate(reps = _____, type = "permute") |>
-  fit()
-```
+Fit a simple linear regression model, but use `shuffle` to randomize your response variable. Run the code below a few times and comment on how your answer changes.
 
 ### Exercise 5
 
-Visualize the null distribution. Does your slope seem unusual if we assume the null hypothesis is the truth?
+Generate the **null distribution**:
 
-```{r null-dist}
-# Code for histogram of null distribution
-```
+1. Fit a SLR using `shuffle` to randomize your response variable.
+2. Use `do` to repeat the process 1000 times.
+3. Save the result back into a data frame called `null_dist`.
 
 ### Exercise 6
 
-Fill in the code below to compute the p-value. Have your reporter write the value on the board.
-
-```{r calc-pvalue}
-#| eval: false 
-
-# get observed fit 
-observed_fit <- _____ |>
-  specify(____) |>
-  fit()
-
-# calculate p-value
-get_p_value(
-  ____,
-  obs_stat = ____,
-  direction = "two-sided"
-)
-```
+Plot the null distribution. Visually, does your observed slope look unusual? What does this imply about your research question?
 
 ### Exercise 7
+
+Answer the following questions about the null distribution:
+
+1. What does each row in `null_dist` represent?
+2. What does each row in `bakeshare` or your data set (e.g. `winter`, `summer`, etc.) represent?
+3. How are these different?
+4. How is the number of rows in `null_dist` different than the sample size?
+5. If I were to increase the number of shuffles, how would you expact the plot in the previous exercise to change?
+6. If I were to increase the sample size, (i.e. the number of days), how would you expect the null distribution to change?
+
+### Exercise 8
+
+Fill in the code below to compute the p-value. Have your reporter write the value on the board.
+
+
+### Exercise 9
 
 -   Do larger or smaller p-values provide evidence for the alternative hypothesis?
 -   Do larger or smaller p-values provide evidence for your research question?

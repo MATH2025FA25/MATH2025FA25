@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Prof.&nbsp;Eric Friedlander">
   <title>MATH 2025 - Fall 2025 – SLR: Hypothesis Testing for Slope</title>
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e8ec87b35a1ea6f579e340293a251dc6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af3217caf516aabd64a4420f2530df19.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -207,6 +207,13 @@ Prof.&nbsp;Eric Friedlander
 </div>
 
 </section>
+<section id="application-exercise" class="slide level2">
+<h2>Application exercise</h2>
+<div class="appex">
+<p>📋 <a href="https://deepnote.com/workspace/CofI-MATH-269748c4-4966-4cc3-b064-2a31b9db85a4/project/Eric-Friedlanders-Untitled-project-a50d53f1-7c77-4add-8c8b-898d3ea049d6/notebook/Init-f04e0c5b989743a1b76aea279b0c034a?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=a50d53f1-7c77-4add-8c8b-898d3ea049d6">AE 05 - Simulation Based Inference</a></p>
+</div>
+<p>Complete Exercises 0-2.</p>
+</section>
 <section id="data-san-antonio-income-organic-food-access" class="slide level2">
 <h2><span class="r-fit-text">Data: San Antonio Income &amp; Organic Food Access</span></h2>
 <div class="columns">
@@ -227,13 +234,14 @@ Prof.&nbsp;Eric Friedlander
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)  <span class="co"># for modeling</span></span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(mosaic)      <span class="co"># for shuffling</span></span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for neatly formatted tables</span></span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for neatly formatted tables</span></span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-10"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a></a><span class="fu">library</span>(broom)       <span class="co"># for nicely displaying models</span></span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(mosaic)      <span class="co"># for shuffling</span></span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
+<span id="cb1-7"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for neatly formatted tables</span></span>
+<span id="cb1-8"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for neatly formatted tables</span></span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-11"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exploratory-data-analysis" class="slide level2">
@@ -241,7 +249,7 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/HEBIncome.csv"</span>) <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/HEBIncome.csv"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Avg_Income_K =</span> Avg_Household_Income<span class="sc">/</span><span class="dv">1000</span>)</span>
 <span id="cb2-3"><a></a></span>
 <span id="cb2-4"><a></a><span class="fu">gf_point</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">|&gt;</span> </span>
@@ -512,36 +520,51 @@ Coefficients:
 </div>
 </div>
 </section>
+<section id="permutation-pipeline-v-1" class="slide level2">
+<h2>Permutation pipeline V</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a>null_dist <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> <span class="fu">lm</span>(<span class="fu">shuffle</span>(Number_Organic) <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="visualize-the-null-distribution" class="slide level2">
 <h2>Visualize the null distribution</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>null_dist <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>estimate, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb12-4"><a></a>    <span class="at">x =</span> <span class="st">"Slope"</span>,</span>
-<span id="cb12-5"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb12-6"><a></a>    <span class="at">title =</span> <span class="st">"Slopes of 1000 permuted samples"</span></span>
-<span id="cb12-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Avg_Income_K, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb13-4"><a></a>    <span class="at">x =</span> <span class="st">"Slope"</span>,</span>
+<span id="cb13-5"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb13-6"><a></a>    <span class="at">title =</span> <span class="st">"Slopes of 1000 permuted samples"</span></span>
+<span id="cb13-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="05-slr-hypothesis-testing_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="05-slr-hypothesis-testing_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="reason-around-the-p-value" class="slide level2 smaller">
 <h2>Reason around the p-value</h2>
 <div class="question">
 <p>In a world where there is no relationship between the number of organic food options and the nearby average household income (<span class="math inline">\(\beta_1 = 0\)</span>), what is the probability that we observe a sample of 37 stores where the slope of the model predicting the number of organic options from average household income is 0.96 or even more extreme?</p>
 </div>
 
-<img data-src="05-slr-hypothesis-testing_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="05-slr-hypothesis-testing_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="compute-the-p-value" class="slide level2">
 <h2>Compute the p-value</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>observed_fit <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb))[<span class="st">"Avg_Income_K"</span>]</span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a>null_slopes <span class="ot">&lt;-</span> null_dist<span class="sc">$</span>estimate</span>
-<span id="cb13-4"><a></a>p_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(null_slopes) <span class="sc">&gt;=</span> <span class="fu">abs</span>(observed_fit))</span>
-<span id="cb13-5"><a></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb) <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5</code></pre>
+<pre><code># A tibble: 2 × 5
+  term         estimate std.error statistic       p.value
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+1 (Intercept)   -14.7       9.30      -1.58 0.122        
+2 Avg_Income_K    0.959     0.128      7.50 0.00000000863</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>null_slopes <span class="ot">&lt;-</span> null_dist<span class="sc">$</span>Avg_Income_K</span>
+<span id="cb16-2"><a></a>p_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(null_slopes) <span class="sc">&gt;=</span> <span class="fu">abs</span>(<span class="fl">0.9591</span>))</span>
+<span id="cb16-3"><a></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
 </section>
@@ -579,7 +602,7 @@ Coefficients:
 </div>
 <div class="callout-content">
 <ul>
-<li>Complete <a href="../ae/ae-03a-sbi-ht.html">AE 03a: Permutation and Refitting (HT Focus)</a> in your group.</li>
+<li>Complete <a href="../ae/ae-03a-sbi-ht.qmd">AE 03a: Permutation and Refitting (HT Focus)</a> in your group.</li>
 <li>Work through Exercises 0–7 in the AE document, focusing on using permutation and refitting techniques with mosaic.</li>
 <li>Follow the submission instructions at the end of the AE.</li>
 </ul>

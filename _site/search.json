@@ -113,7 +113,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nW\nSep 17\nTesting and Confidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 19\nHomework 1 Due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nW\nSep 17\nTesting and Confidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 19\nHomework 1 Due",
     "crumbs": [
       "Schedule"
     ]
@@ -2441,14 +2441,14 @@
     "href": "slides/05-slr-hypothesis-testing.html#computational-setup",
     "title": "SLR: Hypothesis Testing for Slope",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(mosaic)      # for shuffling\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(broom)       # for nicely displaying models\nlibrary(mosaic)      # for shuffling\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
   },
   {
     "objectID": "slides/05-slr-hypothesis-testing.html#exploratory-data-analysis",
     "href": "slides/05-slr-hypothesis-testing.html#exploratory-data-analysis",
     "title": "SLR: Hypothesis Testing for Slope",
     "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n\n\nCode\nheb &lt;- read_csv(\"../data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\ngf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Average Household Income (in thousands)\",\n    y = \"Number of Organic Vegetables\",\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = label_dollar()))"
+    "text": "Exploratory data analysis\n\n\nCode\nheb &lt;- read_csv(here::here(\"data/HEBIncome.csv\")) |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\ngf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Average Household Income (in thousands)\",\n    y = \"Number of Organic Vegetables\",\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = label_dollar()))"
   },
   {
     "objectID": "slides/05-slr-hypothesis-testing.html#modeling",
@@ -2560,7 +2560,7 @@
     "href": "slides/05-slr-hypothesis-testing.html#visualize-the-null-distribution",
     "title": "SLR: Hypothesis Testing for Slope",
     "section": "Visualize the null distribution",
-    "text": "Visualize the null distribution\n\nnull_dist |&gt;\n  gf_histogram(~estimate, color = \"white\") |&gt;\n  gf_labs(\n    x = \"Slope\",\n    y = \"Count\",\n    title = \"Slopes of 1000 permuted samples\"\n  )"
+    "text": "Visualize the null distribution\n\nnull_dist |&gt;\n  gf_histogram(~Avg_Income_K, color = \"white\") |&gt;\n  gf_labs(\n    x = \"Slope\",\n    y = \"Count\",\n    title = \"Slopes of 1000 permuted samples\"\n  )"
   },
   {
     "objectID": "slides/05-slr-hypothesis-testing.html#reason-around-the-p-value",
@@ -2574,7 +2574,7 @@
     "href": "slides/05-slr-hypothesis-testing.html#compute-the-p-value",
     "title": "SLR: Hypothesis Testing for Slope",
     "section": "Compute the p-value",
-    "text": "Compute the p-value\n\nobserved_fit &lt;- coef(lm(Number_Organic ~ Avg_Income_K, data = heb))[\"Avg_Income_K\"]\n\nnull_slopes &lt;- null_dist$estimate\np_value &lt;- mean(abs(null_slopes) &gt;= abs(observed_fit))\np_value\n\n[1] 0.5"
+    "text": "Compute the p-value\n\nlm(Number_Organic ~ Avg_Income_K, data = heb) |&gt;\n  tidy()\n\n# A tibble: 2 × 5\n  term         estimate std.error statistic       p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   -14.7       9.30      -1.58 0.122        \n2 Avg_Income_K    0.959     0.128      7.50 0.00000000863\n\nnull_slopes &lt;- null_dist$Avg_Income_K\np_value &lt;- mean(abs(null_slopes) &gt;= abs(0.9591))\np_value\n\n[1] 0"
   },
   {
     "objectID": "slides/05-slr-hypothesis-testing.html#recap",
@@ -2645,5 +2645,19 @@
     "title": "SLR: Hypothesis Testing for Slope",
     "section": "Shuffled Model",
     "text": "Shuffled Model\n\nset.seed(1218)\n\nlm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)\n\n\nCall:\nlm(formula = shuffle(Number_Organic) ~ Avg_Income_K, data = heb)\n\nCoefficients:\n (Intercept)  Avg_Income_K  \n    47.81030       0.05547"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-v-1",
+    "href": "slides/05-slr-hypothesis-testing.html#permutation-pipeline-v-1",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Permutation pipeline V",
+    "text": "Permutation pipeline V\n\nset.seed(1218)\n\nnull_dist &lt;- do(1000) * lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)"
+  },
+  {
+    "objectID": "slides/05-slr-hypothesis-testing.html#application-exercise",
+    "href": "slides/05-slr-hypothesis-testing.html#application-exercise",
+    "title": "SLR: Hypothesis Testing for Slope",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 05 - Simulation Based Inference\n\nComplete Exercises 0-2."
   }
 ]

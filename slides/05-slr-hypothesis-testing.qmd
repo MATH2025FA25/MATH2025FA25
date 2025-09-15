@@ -43,6 +43,15 @@ knitr::opts_chunk$set(
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 ```
 
+## Application exercise
+
+::: appex
+📋 [AE 05 - Simulation Based Inference](https://deepnote.com/workspace/CofI-MATH-269748c4-4966-4cc3-b064-2a31b9db85a4/project/Eric-Friedlanders-Untitled-project-a50d53f1-7c77-4add-8c8b-898d3ea049d6/notebook/Init-f04e0c5b989743a1b76aea279b0c034a?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=a50d53f1-7c77-4add-8c8b-898d3ea049d6)
+:::
+
+Complete Exercises 0-2.
+
+
 ## [Data: San Antonio Income & Organic Food Access]{.r-fit-text}
 
 ::: columns
@@ -83,7 +92,7 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 ```{r}
 #| code-fold: true
 
-heb <- read_csv("../data/HEBIncome.csv") |> 
+heb <- read_csv(here::here("data/HEBIncome.csv")) |> 
   mutate(Avg_Income_K = Avg_Household_Income/1000)
 
 gf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |> 
@@ -200,6 +209,8 @@ $$
     -   if the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis
     -   if they do, then reject the null hypothesis in favor of the alternative
 :::
+
+Complete Exercise 3.
 
 ## Quantify the variability of the slope {.midi}
 
@@ -359,8 +370,7 @@ do(10) * lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)
 
 set.seed(1218)
 
-do(10) * lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb) |>
-  select(Avg_Income_K)
+null_dist <- do(1000) * lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)
 ```
 
 ## Visualize the null distribution
@@ -370,7 +380,7 @@ do(10) * lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb) |>
 #| code-line-numbers: "|2"
 
 null_dist |>
-  gf_histogram(~estimate, color = "white") |>
+  gf_histogram(~Avg_Income_K, color = "white") |>
   gf_labs(
     x = "Slope",
     y = "Count",
@@ -388,7 +398,7 @@ In a world where there is no relationship between the number of organic food opt
 #| echo: false
 
 null_dist |>
-  ggplot(aes(x = estimate)) +
+  ggplot(aes(x = Avg_Income_K)) +
   geom_histogram(color = "white") +
   geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
   geom_vline(xintercept = -1*slope, color = "#8F2D56", size = 1, linetype = "dashed") +
@@ -401,10 +411,11 @@ null_dist |>
 #| echo: true
 #| warning: true
 
-observed_fit <- coef(lm(Number_Organic ~ Avg_Income_K, data = heb))["Avg_Income_K"]
+lm(Number_Organic ~ Avg_Income_K, data = heb) |>
+  tidy()
 
-null_slopes <- null_dist$estimate
-p_value <- mean(abs(null_slopes) >= abs(observed_fit))
+null_slopes <- null_dist$Avg_Income_K
+p_value <- mean(abs(null_slopes) >= abs(0.9591))
 p_value
 ```
 
