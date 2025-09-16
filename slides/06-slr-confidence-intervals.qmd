@@ -36,6 +36,7 @@ bibliography: references.bib
 library(countdown)
 library(tidyverse)
 library(tidymodels)
+library(ggformula)
 library(knitr)
 library(priceR)
 

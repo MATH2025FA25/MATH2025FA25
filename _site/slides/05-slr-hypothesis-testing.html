@@ -232,8 +232,8 @@ Prof.&nbsp;Eric Friedlander
 <h2>Computational setup</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)  <span class="co"># for modeling</span></span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling </span></span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)  <span class="co"># for visualizing data</span></span>
 <span id="cb1-4"><a></a><span class="fu">library</span>(broom)       <span class="co"># for nicely displaying models</span></span>
 <span id="cb1-5"><a></a><span class="fu">library</span>(mosaic)      <span class="co"># for shuffling</span></span>
 <span id="cb1-6"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
@@ -371,6 +371,7 @@ H_A: \beta_1 \ne 0
 <li class="fragment">if the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis</li>
 <li class="fragment">if they do, then reject the null hypothesis in favor of the alternative</li>
 </ul></li>
+<li class="fragment">Complete Exercise 3.</li>
 </ul>
 </section>
 <section id="quantify-the-variability-of-the-slope" class="slide level2 midi">
@@ -487,9 +488,10 @@ Coefficients:
     47.81030       0.05547  </code></pre>
 </div>
 </div>
+<p>Complete Exercise 4.</p>
 </section>
-<section id="permutation-pipeline-v" class="slide level2">
-<h2>Permutation pipeline V</h2>
+<section id="shuffling-multiple-times" class="slide level2">
+<h2>Shuffling Multiple Times</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
 <span id="cb10-2"><a></a></span>
@@ -520,8 +522,8 @@ Coefficients:
 </div>
 </div>
 </section>
-<section id="permutation-pipeline-v-1" class="slide level2">
-<h2>Permutation pipeline V</h2>
+<section id="generating-the-null-distribution" class="slide level2">
+<h2>Generating the null distribution</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
 <span id="cb12-2"><a></a></span>
@@ -540,7 +542,8 @@ Coefficients:
 <span id="cb13-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="05-slr-hypothesis-testing_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="05-slr-hypothesis-testing_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>Complete Exercises 5-7.</p>
+</section>
 <section id="reason-around-the-p-value" class="slide level2 smaller">
 <h2>Reason around the p-value</h2>
 <div class="question">
@@ -551,8 +554,9 @@ Coefficients:
 <section id="compute-the-p-value" class="slide level2">
 <h2>Compute the p-value</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb) <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># fit model to get observed slope</span></span>
+<span id="cb14-2"><a></a><span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term         estimate std.error statistic       p.value
@@ -560,13 +564,20 @@ Coefficients:
 1 (Intercept)   -14.7       9.30      -1.58 0.122        
 2 Avg_Income_K    0.959     0.128      7.50 0.00000000863</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>null_slopes <span class="ot">&lt;-</span> null_dist<span class="sc">$</span>Avg_Income_K</span>
-<span id="cb16-2"><a></a>p_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(null_slopes) <span class="sc">&gt;=</span> <span class="fu">abs</span>(<span class="fl">0.9591</span>))</span>
-<span id="cb16-3"><a></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># tally how many times simulated slopes are more extreme</span></span>
+<span id="cb16-2"><a></a><span class="fu">tally</span>(<span class="sc">~</span> <span class="fu">abs</span>(null_dist<span class="sc">$</span>Avg_Income_K) <span class="sc">&gt;=</span> <span class="fu">abs</span>(<span class="fl">0.9591</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abs(null_dist$Avg_Income_K) &gt;= abs(0.9591)
+ TRUE FALSE 
+    0  1000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># mean treats trues and falses like 1's and zeros (this is our p-value)</span></span>
+<span id="cb18-2"><a></a><span class="fu">mean</span>(<span class="fu">abs</span>(null_dist<span class="sc">$</span>Avg_Income_K) <span class="sc">&gt;=</span> <span class="fu">abs</span>(<span class="fl">0.9591</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
+<p>Complete Exercises 8 and 9.</p>
 </section>
 <section id="recap" class="slide level2 smaller">
 <h2>Recap</h2>
@@ -580,35 +591,14 @@ Coefficients:
 <section id="recap-continued" class="slide level2 smaller">
 <h2>Recap Continued</h2>
 <ul>
-<li><strong>Estimation:</strong> Use data to compute point estimate
-<ul>
-<li>Report the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population</li>
-</ul></li>
 <li><strong>Testing:</strong> Conduct a <em>hypothesis test</em>
 <ul>
 <li>Assume research question isn’t true (Null hypothesis)</li>
 <li>Ask what distribution of test statistic is if null is true</li>
 <li>Ask if your data would be unusual if under this null distribution</li>
-<li>P-value: Probability your data (or even stronger evidence) was obtained from null distribution ## Application Exercise: Permutation and Refitting with mosaic</li>
+<li>P-value: Probability your data (or even stronger evidence) was obtained from null distribution</li>
 </ul></li>
 </ul>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>Complete <a href="../ae/ae-03a-sbi-ht.qmd">AE 03a: Permutation and Refitting (HT Focus)</a> in your group.</li>
-<li>Work through Exercises 0–7 in the AE document, focusing on using permutation and refitting techniques with mosaic.</li>
-<li>Follow the submission instructions at the end of the AE.</li>
-</ul>
-</div>
-</div>
-</div>
 
 
 </section>

@@ -75,8 +75,8 @@ Complete Exercises 0-2.
 #| message: false
 
 # load packages
-library(tidyverse)   # for data wrangling and visualization
-library(ggformula)  # for modeling
+library(tidyverse)   # for data wrangling 
+library(ggformula)  # for visualizing data
 library(broom)       # for nicely displaying models
 library(mosaic)      # for shuffling
 library(scales)      # for pretty axis labels
@@ -208,9 +208,9 @@ $$
 -   Under the assumption that the null hypothesis is true, calculate a **p-value** (probability of getting outcome or outcome even more favorable to the alternative)
     -   if the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis
     -   if they do, then reject the null hypothesis in favor of the alternative
+-   Complete Exercise 3.
 :::
 
-Complete Exercise 3.
 
 ## Quantify the variability of the slope {.midi}
 
@@ -351,7 +351,9 @@ set.seed(1218)
 lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)
 ```
 
-## Permutation pipeline V
+Complete Exercise 4.
+
+## Shuffling Multiple Times
 
 ```{r}
 #| echo: true
@@ -362,7 +364,7 @@ set.seed(1218)
 do(10) * lm(shuffle(Number_Organic) ~ Avg_Income_K, data = heb)
 ```
 
-## Permutation pipeline V
+## Generating the null distribution
 
 ```{r}
 #| echo: true
@@ -388,6 +390,8 @@ null_dist |>
   )
 ```
 
+Complete Exercises 5-7.
+
 ## Reason around the p-value {.smaller}
 
 ::: question
@@ -411,13 +415,18 @@ null_dist |>
 #| echo: true
 #| warning: true
 
+# fit model to get observed slope
 lm(Number_Organic ~ Avg_Income_K, data = heb) |>
   tidy()
 
-null_slopes <- null_dist$Avg_Income_K
-p_value <- mean(abs(null_slopes) >= abs(0.9591))
-p_value
+# tally how many times simulated slopes are more extreme
+tally(~ abs(null_dist$Avg_Income_K) >= abs(0.9591))
+
+# mean treats trues and falses like 1's and zeros (this is our p-value)
+mean(abs(null_dist$Avg_Income_K) >= abs(0.9591))
 ```
+
+Complete Exercises 8 and 9.
 
 ## Recap {.smaller}
 
@@ -428,17 +437,8 @@ p_value
 
 ## Recap Continued {.smaller}
 
--   **Estimation:** Use data to compute point estimate
-    +   Report the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population
 -   **Testing:** Conduct a *hypothesis test*
     +   Assume research question isn't true (Null hypothesis)
     +   Ask what distribution of test statistic is if null is true
     +   Ask if your data would be unusual if under this null distribution
     +   P-value: Probability your data (or even stronger evidence) was obtained from null distribution
-## Application Exercise: Permutation and Refitting with mosaic
-
-::: callout-important
-- Complete [AE 03a: Permutation and Refitting (HT Focus)](../ae/ae-03a-sbi-ht.qmd) in your group.
-- Work through Exercises 0–7 in the AE document, focusing on using permutation and refitting techniques with mosaic.
-- Follow the submission instructions at the end of the AE.
-:::
