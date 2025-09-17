@@ -113,7 +113,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nW\nSep 17\nTesting and Confidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 19\nHomework 1 Due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nW\nSep 17\nTesting and Confidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 19\nHomework 1 Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nSep 22\nConfidence Intervals",
     "crumbs": [
       "Schedule"
     ]
@@ -2449,5 +2449,61 @@
       "Computing",
       "R Cheatsheet"
     ]
+  },
+  {
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "",
+    "text": "In this homework, you will use simple linear regression to examine the association between the percent of adults with a bachelor’s degree and the median household income for counties in the United States.\n\n\nIn this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02.html#learning-goals",
+    "href": "hw/hw-02.html#learning-goals",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "",
+    "text": "In this assignment, you will…\n\nFit and interpret simple linear regression models.\nConduct simulation-based statistical inference for the population slope, \\(\\beta_1\\)\nContinue developing a workflow for reproducible data analysis."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-1-exploratory-data-analysis",
+    "href": "hw/hw-02.html#part-1-exploratory-data-analysis",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 1: Exploratory data analysis",
+    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the predictor variable bachelorsand calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\nExercise 2\nCreate a visualization of the relationship between bachelors and median_household_income and use the cor function to calculate the correlation. You will likely want to load the mosaic package. It is considered good form to load your packages at the beginning of the document so scroll up to the top and load mosaic there. Use the visualization and correlation to describe the relationship between the two variables.\n\n\n\n\n\n\nTip\n\n\n\nRecall the analysis objective stated at the beginning of the Exercises section.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIf you haven’t yet done so, now is a good time to render your document."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-2-modeling",
+    "href": "hw/hw-02.html#part-2-modeling",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 2: Modeling",
+    "text": "Part 2: Modeling\n\nExercise 3\nWe will use a linear regression model to better quantify the relationship between bachelors and median_household_income.\nWrite the form of the statistical model the researchers would like to estimate using the template below. Use mathematical notation (i.e. with Greek letters) and variable names (bachelors and median_household_income) in the equation. Note, I’m not asking you to fit the model yet. Replace each word in the equation below with either the name of a variable or a Greek letter.\n\\[Response = intercept + slope\\times predictor + error\\]\n\n\n\n\n\n\nTip\n\n\n\nClick here for a guide on writing mathematical symbols using LaTeX. You will need to use a backslash (\\) before each underscore in the LaTeX code. For example, avg_air_temp will be written as avg\\_air\\_temp.\n\n\n\n\nExercise 4\n\nFit the regression line corresponding to the statistical model in the previous exercise. Use tidy and kable to neatly display the model output using 3 digits. Note you will need to load the broom package before you can use the tidy function.\nWrite the equation of the fitted model using mathematical notation. Use variable names (bachelors and median_household_income) in the equation. Hint: Copy and paste your answer from the previous exercise, fill in the \\(\\beta\\)’s with numbers, and remove the error term.\n\n\n\nExercise 5\n\nInterpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.\nIs it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
+  },
+  {
+    "objectID": "hw/hw-02.html#part-3-inference-for-the-u.s.",
+    "href": "hw/hw-02.html#part-3-inference-for-the-u.s.",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Part 3: Inference for the U.S.",
+    "text": "Part 3: Inference for the U.S.\nWe want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor’s degree and median household income for the over 3,000 counties in the United States.\n\nExercise 6\n\nWhat is the population of interest? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not. If you have never taken a statistics course before, I encourage you to read subsections 2.1.4 and 2.1.5 from Introduction to Modern Statistics. Don’t worry, they’re very short.\n\n\n\nExercise 7\nConduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor’s degree and the median household income in a county. Use a randomization (permutation) test. Remember that you’ll need to load the infer package. In your response:\n\nState the null and alternative hypotheses in words and mathematical notation\nShow all relevant code and output used to conduct the test. Use set.seed(2025) and 1000 iterations to construct the appropriate distribution.\nState the conclusion in the context of the data.\n\n\n\nExercise 8\nNext, construct a 95% confidence interval for the slope using bootstrapping with set.seed(2025) and 1000 iterations.\n\nShow all relevant code and output used to calculate the interval.\nInterpret the confidence interval in the context of the data.\nIs the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again if you haven’t done so recently."
+  },
+  {
+    "objectID": "hw/hw-02.html#conceptual-questions",
+    "href": "hw/hw-02.html#conceptual-questions",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Conceptual Questions",
+    "text": "Conceptual Questions\nPlease try to answer these concisely and adhere to the sentence maximum.\n\nExercise 9\nShould all of your classmates get the same 95% confidence interval as you? Max one sentence.\n\n\nExercise 10\nWhy was it necessary to set a seed in the previous two exercises and how does it relate to the concept of reproducibility? Max two sentences.\n\n\nExercise 11\nWould taking a larger sample of counties most likely result in a more or less precise confidence interval? What about a wider or narrower confidence interval? Max one sentence each but you should be able to answer with a single sentence.\n\n\nExercise 12\nWhy would taking a larger sample of counties not impact the accuracy of the 95% confidence interval? How can we increase the accuracy? Max two sentences.\n\n\nExercise 13\nExplain why the following statement doesn’t make sense: “There is a 95% probability that the population slope is between the two numbers I stated in Exercise 8. Max three sentences."
+  },
+  {
+    "objectID": "hw/hw-02.html#reproducibility-conceptual-questions",
+    "href": "hw/hw-02.html#reproducibility-conceptual-questions",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Reproducibility & Conceptual Questions",
+    "text": "Reproducibility & Conceptual Questions\n\nExercise 14 (Extra Credit)\nYou are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. Here are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.\nChoose one of the scenarios from the table and read the linked article discussing what went wrong. Then,\n\nBriefly describe what went wrong, i.e., what part of the process was not reproducible and what error or impact that had.\nThen, describe how the researchers could make the process reproducible.\n\n\n\n\n\n\n\nTip\n\n\n\nNow is a good time to render your document again. Make sure that everything is formatted the way you want it to be."
+  },
+  {
+    "objectID": "hw/hw-02.html#footnotes",
+    "href": "hw/hw-02.html#footnotes",
+    "title": "HW 02: Education & median income in US Counties",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Grammar & Writing” grade is decided based on your grammar and writing. This is typically decided by choosing one of the questions and assessing the writing.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   }
 ]
