@@ -1,5 +1,5 @@
 ---
-title: "AE 03b: Simulation-Based Inference (Bootstrap CI)"
+title: "AE 06: Simulation-Based Inference (Bootstrap CI)"
 subtitle: "Bikeshare"
 editor: visual
 format:
@@ -18,8 +18,6 @@ format:
 library(tidyverse)
 library(ggformula)
 library(broom)
-library(openintro)
-library(kableExtra)
 ```
 
 ## Data
@@ -58,102 +56,47 @@ Filter the `bikeshare` data set so that it only contains observations from your 
 
 ### Exercise 1
 
-Conduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think `alpha` does?
-
-```{r scatterplot}
-#| eval: FALSE
-
-gf______(______, data = ______, alpha = 0.7) |> 
-  gf_labs(
-    x = "Temperature (C)",
-    y = "Number of Bike Rentals",
-  )
-```
+Conduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature.
 
 ### Exercise 2
 
-Fit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.
+Fit a simple linear regression model, display the results. What is your "observed slope".
 
-```{r fit-model}
-#| eval: FALSE
-
-model_fit <- lm(_____ ~ ______, data = _____)
-
-tidy(_____)
-```
 
 ### Exercise 3
 
-Load the `infer` package and calculate the observed fit (slope)
+Load the `mosaic` package at the beginning of this document where the other packages are loaded. In general, it is good practice to keep all your packages at the beginning of your analyses.
 
-```{r observed-fit}
-#| eval: FALSE
-
-observed_fit <- ____ |>
-  specify(count ~ temp_orig) |>
-  fit()
-
-observed_fit
-```
-
-### Exercise 4
-
-Take *n* bootstrap samples and fit models to each one.
-
-Fill in the code, then set `eval: true` .
-
-```{r bootstrap}
-#| eval: false
-
-n <- 100
-set.seed(212)
-
-boot_fits <- ______ |>
-  specify(______) |>
-  generate(reps = ____, type = "bootstrap") |>
-  fit()
-
-boot_fits
-```
+Set a seed, take *1000* bootstrap samples using `resample`, and fit linear models to each one. This is called the *sampling distribution*. Where do you think the center of this distribution will be? How will it be different than the center of the null distribution?
 
 -   Why do we set a seed before taking the bootstrap samples?
 
-### Exercise 5 (Challenging)
-
-Make a histogram of the bootstrap samples to visualize the bootstrap distribution.
+### Exercise 4
+Make a histogram of the bootstrap samples to visualize the bootstrap distribution. Optionally, highlight there area of the histogram corresponding to a 95% confidence interval. To do so, please load the `coursekata` packages.
 
 ```{r boot-hist}
 # Code for histogram
 ```
 
+### Exercise 5
+Discuss the following with your group and be prepared to share your thoughts with the class:
+
+- How is this process of resampling different than the process of shuffling we did for hypothesis testing?
+- Thinking about the goals of a hypothesis test vs the goals of a confidence interval, why are we using these two different techniques?
+
 ### Exercise 6
 
 Compute *and interpret* the 95% confidence interval as the middle 95% of the bootstrap distribution.
 
-Fill in the code, then set `eval: true` .
-
-```{r calc-ci}
-#| eval: false
-
-get_confidence_interval(
-  boot_fits,
-  point_estimate = _____,
-  level = ____,
-  type = "percentile"
-)
-```
 
 ### Exercise 7
 
-Modify the code from Exercise 6 to create a 90% confidence interval.
+Modify the code from Exercise 6 to create a 90% confidence interval. Before you run your code, do you expect the interval to get narrower or wider?
 
-```{r 90-ci}
-# Paste code for 90% confidence interval
-```
 
 ### Exercise 8
 
-Modify the code from Exercise 6 to create a 90% confidence interval.
+Modify the code from Exercise 6 to create a 99% confidence interval. Before you run your code, do you expect the interval to get narrower or wider?
 
 ```{r 99-ci}
 # Paste code for 90% confidence interval
