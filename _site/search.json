@@ -2540,5 +2540,19 @@
     "title": "SLR: Confidence Intervals",
     "section": "Recap: Bootstrapped Confidence Intervals",
     "text": "Recap: Bootstrapped Confidence Intervals\n\nBootstrapping allows us to estimate the variability of a statistic (like the slope) by resampling from our observed data.\nA confidence interval provides a plausible range for the population parameter, not a guarantee.\nThe width of the interval depends on the variability in the data and the chosen confidence level.\nHigher confidence levels yield wider intervals; lower confidence levels yield narrower intervals.\nSimulation-based (bootstrap) and mathematical (theoretical) approaches both have value—understand when to use each.\n\nKey takeaway: Bootstrapped confidence intervals help us quantify uncertainty in our estimates, making our conclusions more robust and transparent."
+  },
+  {
+    "objectID": "prepare/prep-07.html",
+    "href": "prepare/prep-07.html",
+    "title": "Preparation for Mathematical Inference",
+    "section": "",
+    "text": "Introduction to Regression Analysis: A Data Science Approach: Ch 5: Inference for simple linear regression 5.1-5.6 (optional)\nIntroduction to Regression Analysis: A Data Science Approach: Ch 5: Inference for simple linear regression 5.8 (required)"
+  },
+  {
+    "objectID": "prepare/prep-07.html#assigned-reading",
+    "href": "prepare/prep-07.html#assigned-reading",
+    "title": "Preparation for Mathematical Inference",
+    "section": "",
+    "text": "Introduction to Regression Analysis: A Data Science Approach: Ch 5: Inference for simple linear regression 5.1-5.6 (optional)\nIntroduction to Regression Analysis: A Data Science Approach: Ch 5: Inference for simple linear regression 5.8 (required)"
   }
 ]
