@@ -35,7 +35,6 @@ bibliography: references.bib
 
 library(countdown)
 library(tidyverse)
-library(tidymodels)
 library(ggformula)
 library(infer)
 library(knitr)
@@ -55,7 +54,7 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 ## Application exercise
 
 ::: appex
-📋 [AE 03b - Simulation-Based Inference (Bootstrap CI)](/ae/ae-03b-sbi-ci.qmd)
+📋 [AE 06 - Simulation-Based Inference (Bootstrap CI)](https://deepnote.com/workspace/cofi-269748c4-4966-4cc3-b064-2a31b9db85a4/project/AE-05-Hypothesis-Testing-Duplicate-Duplicate-f1252cbb-0fe5-4c0d-ada5-1a9c498a6834/%2Fae-06-sbi-ci.qmd?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=f1252cbb-0fe5-4c0d-ada5-1a9c498a6834)
 :::
 
 Complete Exercises 0–2.
@@ -474,3 +473,13 @@ confint(sampling_dist, level = 0.99, method = "percentile")
 ```
 
 Finish Activity.
+
+## Recap: Bootstrapped Confidence Intervals
+
+- Bootstrapping allows us to estimate the variability of a statistic (like the slope) by resampling from our observed data.
+- A confidence interval provides a plausible range for the population parameter, not a guarantee.
+- The width of the interval depends on the variability in the data and the chosen confidence level.
+- Higher confidence levels yield wider intervals; lower confidence levels yield narrower intervals.
+- Simulation-based (bootstrap) and mathematical (theoretical) approaches both have value—understand when to use each.
+
+**Key takeaway:** Bootstrapped confidence intervals help us quantify uncertainty in our estimates, making our conclusions more robust and transparent.

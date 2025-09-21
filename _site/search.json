@@ -113,7 +113,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nW\nSep 17\nTesting and Confidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 19\nHomework 1 Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nSep 22\nConfidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nW\nSep 24\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 25\nHomework 2 Due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlecture\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n0\nW\nAug 27\nWelcome to MATH 2025!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n1\nW\nSep 3\nThe Big Picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur first AE!\n\n\n2\nM\nSep 8\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nW\nSep 10\nIntroduction to Simple Linear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nSep 15\nPrediction and Testing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nW\nSep 17\nTesting and Confidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 19\nHomework 1 Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nM\nSep 22\nConfidence Intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nW\nSep 24\nMathematical Models for Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 25\nHomework 2 Due",
     "crumbs": [
       "Schedule"
     ]
@@ -459,7 +459,7 @@
     "href": "slides/06-slr-confidence-intervals.html#application-exercise",
     "title": "SLR: Confidence Intervals",
     "section": "Application exercise",
-    "text": "Application exercise\n\n📋 AE 03b - Simulation-Based Inference (Bootstrap CI)\n\nComplete Exercises 0–2."
+    "text": "Application exercise\n\n📋 AE 06 - Simulation-Based Inference (Bootstrap CI)\n\nComplete Exercises 0–2."
   },
   {
     "objectID": "slides/06-slr-confidence-intervals.html#exploratory-data-analysis",
@@ -2533,5 +2533,12 @@
     "title": "SLR: Confidence Intervals",
     "section": "Computing the CI for the slope IV",
     "text": "Computing the CI for the slope IV\nPercentile method: Compute the 95% CI as the middle 95% of the bootstrap distribution:\n\nconfint(sampling_dist, level = 0.95, method = \"percentile\")\n\n          name       lower        upper level     method    estimate\n1    Intercept -32.2579851   0.05931893  0.95 percentile -14.7188219\n2 Avg_Income_K   0.7848576   1.23204508  0.95 percentile   0.9590903\n3        sigma  13.4093720  20.34317313  0.95 percentile  17.4629182\n4    r.squared   0.4229805   0.77245910  0.95 percentile   0.6167334\n5            F  25.6565300 118.81850829  0.95 percentile  56.3202550\n\n\nComplete Exercises 3-6."
+  },
+  {
+    "objectID": "slides/06-slr-confidence-intervals.html#recap-bootstrapped-confidence-intervals",
+    "href": "slides/06-slr-confidence-intervals.html#recap-bootstrapped-confidence-intervals",
+    "title": "SLR: Confidence Intervals",
+    "section": "Recap: Bootstrapped Confidence Intervals",
+    "text": "Recap: Bootstrapped Confidence Intervals\n\nBootstrapping allows us to estimate the variability of a statistic (like the slope) by resampling from our observed data.\nA confidence interval provides a plausible range for the population parameter, not a guarantee.\nThe width of the interval depends on the variability in the data and the chosen confidence level.\nHigher confidence levels yield wider intervals; lower confidence levels yield narrower intervals.\nSimulation-based (bootstrap) and mathematical (theoretical) approaches both have value—understand when to use each.\n\nKey takeaway: Bootstrapped confidence intervals help us quantify uncertainty in our estimates, making our conclusions more robust and transparent."
   }
 ]

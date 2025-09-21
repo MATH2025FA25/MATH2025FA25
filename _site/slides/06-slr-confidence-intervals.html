@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e8ec87b35a1ea6f579e340293a251dc6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af3217caf516aabd64a4420f2530df19.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -220,7 +220,7 @@ Prof.&nbsp;Eric Friedlander
 <section id="application-exercise" class="slide level2">
 <h2>Application exercise</h2>
 <div class="appex">
-<p>📋 <a href="../ae/ae-03b-sbi-ci.qmd">AE 03b - Simulation-Based Inference (Bootstrap CI)</a></p>
+<p>📋 <a href="https://deepnote.com/workspace/cofi-269748c4-4966-4cc3-b064-2a31b9db85a4/project/AE-05-Hypothesis-Testing-Duplicate-Duplicate-f1252cbb-0fe5-4c0d-ada5-1a9c498a6834/%2Fae-06-sbi-ci.qmd?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=f1252cbb-0fe5-4c0d-ada5-1a9c498a6834">AE 06 - Simulation-Based Inference (Bootstrap CI)</a></p>
 </div>
 <p>Complete Exercises 0–2.</p>
 </section>
@@ -430,7 +430,7 @@ Coefficients:
 <section id="computing-the-ci-for-the-slope-ii" class="slide level2 smaller">
 <h2>Computing the CI for the slope II</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|1,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1120</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1120</span>)</span>
 <span id="cb7-2"><a></a></span>
 <span id="cb7-3"><a></a>boot_fits <span class="ot">&lt;-</span> <span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> <span class="fu">resample</span>(heb))</span>
 <span id="cb7-4"><a></a></span>
@@ -450,7 +450,7 @@ Coefficients:
 <h2>Computing the CI for the slope III</h2>
 <p>Take <code>1000</code> bootstrap samples and fit models to each one:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|1,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1120</span>)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1120</span>)</span>
 <span id="cb9-2"><a></a></span>
 <span id="cb9-3"><a></a>sampling_dist <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>)<span class="sc">*</span><span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> <span class="fu">resample</span>(heb))</span>
 <span id="cb9-4"><a></a></span>
@@ -2465,7 +2465,7 @@ Coefficients:
 <h2>Computing the CI for the slope IV</h2>
 <p>Take <code>1000</code> bootstrap samples and fit models to each one:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|1,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>sampling_dist <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>sampling_dist <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>Avg_Income_K, <span class="at">fill =</span> <span class="sc">~</span><span class="fu">middle</span>(Avg_Income_K, .<span class="dv">95</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -2474,7 +2474,7 @@ Coefficients:
 <h2>Computing the CI for the slope IV</h2>
 <p><strong>Percentile method:</strong> Compute the 95% CI as the middle 95% of the bootstrap distribution:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          name       lower        upper level     method    estimate
 1    Intercept -32.2579851   0.05931893  0.95 percentile -14.7188219
@@ -2507,7 +2507,7 @@ Coefficients:
 <p>How would you modify the following code to calculate a 90% confidence interval? How would you modify it for a 99% confidence interval?</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          name       lower        upper level     method    estimate
 1    Intercept -32.2579851   0.05931893  0.95 percentile -14.7188219
@@ -2521,7 +2521,7 @@ Coefficients:
 <section id="changing-confidence-level-1" class="slide level2 midi">
 <h2>Changing confidence level</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.9</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.9</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          name       lower      upper level     method    estimate
 1    Intercept -29.8859878  -2.405684   0.9 percentile -14.7188219
@@ -2530,7 +2530,7 @@ Coefficients:
 4    r.squared   0.4712049   0.748848   0.9 percentile   0.6167334
 5            F  31.1882126 104.357979   0.9 percentile  56.3202550</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.99</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">confint</span>(sampling_dist, <span class="at">level =</span> <span class="fl">0.99</span>, <span class="at">method =</span> <span class="st">"percentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          name       lower       upper level     method    estimate
 1    Intercept -36.0560144   6.7885121  0.99 percentile -14.7188219
@@ -2541,6 +2541,17 @@ Coefficients:
 </div>
 </div>
 <p>Finish Activity.</p>
+</section>
+<section id="recap-bootstrapped-confidence-intervals" class="slide level2">
+<h2>Recap: Bootstrapped Confidence Intervals</h2>
+<ul>
+<li>Bootstrapping allows us to estimate the variability of a statistic (like the slope) by resampling from our observed data.</li>
+<li>A confidence interval provides a plausible range for the population parameter, not a guarantee.</li>
+<li>The width of the interval depends on the variability in the data and the chosen confidence level.</li>
+<li>Higher confidence levels yield wider intervals; lower confidence levels yield narrower intervals.</li>
+<li>Simulation-based (bootstrap) and mathematical (theoretical) approaches both have value—understand when to use each.</li>
+</ul>
+<p><strong>Key takeaway:</strong> Bootstrapped confidence intervals help us quantify uncertainty in our estimates, making our conclusions more robust and transparent.</p>
 
 
 </section></section>
