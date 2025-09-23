@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AE 05: Simulation-Based Inference (HT Focus) – MATH 2025 - Fall 2025</title>
+<title>AE 06: Simulation-Based Inference (Bootstrap CI) – MATH 2025 - Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3984,7 +3984,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 05: Simulation-Based Inference (HT Focus)</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 06: Simulation-Based Inference (Bootstrap CI)</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4089,16 +4089,18 @@ window.Quarto = {
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/ae/ae-05-sbi-ht.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/ae/ae-06-sbi-ci.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 05: Simulation-Based Inference (HT Focus)</h1>
+<h1 class="title">AE 06: Simulation-Based Inference (Bootstrap CI)</h1>
 <p class="subtitle lead">Bikeshare</p>
 </div>
 
@@ -4127,16 +4129,16 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-03a”</li>
-<li>Upload the <code>ae-03a-sbi-ht.qmd</code> and <code>dcbikeshare.csv</code> files into the folder you just created.</li>
+<li>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-03”</li>
+<li>Go to the <a href="https://cofi.instructure.com/courses/17093/assignments/202831">Canvas</a> and locate your <code>AE 03</code> assignment to get started.</li>
+<li>Upload the <code>ae-03-sbi.qmd</code> and <code>dcbikeshare.csv</code> files into the folder you just created.</li>
 </ul>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
@@ -4204,84 +4206,72 @@ $ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.3
 </section>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Conduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature for your season by filling in the blanks in the code below. What do you think <code>alpha</code> does?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf______</span>(______, <span class="at">data =</span> ______, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Temperature (C)&quot;</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Number of Bike Rentals&quot;</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Conduct a little EDA. Generate a scatter plot of the number of bike rentals vs the temperature.</p>
 </section>
 <section id="exercise-2" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Fit a simple linear regression model, display the results to two decimal places, and be prepared to discuss the interpretation of the resulting slope and intercept.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(_____ <span class="sc">~</span> ______, <span class="at">data =</span> _____)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(_____)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Fit a simple linear regression model, display the results. What is your “observed slope”.</p>
 </section>
 <section id="exercise-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Write down your research question in words then state the null and alternative hypotheses in both words and mathematical notation. You can use dollar signs to engage “math mode”.</p>
-<p><span class="math display">\[
-H_0:
-\]</span></p>
+<p>Load the <code>mosaic</code> package at the beginning of this document where the other packages are loaded. In general, it is good practice to keep all your packages at the beginning of your analyses.</p>
+<p>Set a seed, take <em>1000</em> bootstrap samples using <code>resample</code>, and fit linear models to each one. This is called the <em>sampling distribution</em>. Where do you think the center of this distribution will be? How will it be different than the center of the null distribution?</p>
+<ul>
+<li>Why do we set a seed before taking the bootstrap samples?</li>
+</ul>
 </section>
 <section id="exercise-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Fit a simple linear regression model, but use <code>shuffle</code> to randomize your response variable. Run the code below a few times and comment on how your answer changes.</p>
+<p>Make a histogram of the bootstrap samples to visualize the bootstrap distribution. Optionally, highlight there area of the histogram corresponding to a 95% confidence interval. To do so, please load the <code>coursekata</code> packages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for histogram</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Generate the <strong>null distribution</strong>:</p>
-<ol type="1">
-<li>Fit a SLR using <code>shuffle</code> to randomize your response variable.</li>
-<li>Use <code>do</code> to repeat the process 1000 times.</li>
-<li>Save the result back into a data frame called <code>null_dist</code>.</li>
-</ol>
+<p>Discuss the following with your group and be prepared to share your thoughts with the class:</p>
+<ul>
+<li>How is this process of resampling different than the process of shuffling we did for hypothesis testing?</li>
+<li>Thinking about the goals of a hypothesis test vs the goals of a confidence interval, why are we using these two different techniques?</li>
+</ul>
 </section>
 <section id="exercise-6" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<p>Plot the null distribution. Visually, does your observed slope look unusual? What does this imply about your research question?</p>
+<p>Compute <em>and interpret</em> the 95% confidence interval as the middle 95% of the bootstrap distribution.</p>
 </section>
 <section id="exercise-7" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>Answer the following questions about the null distribution:</p>
-<ol type="1">
-<li>What does each row in <code>null_dist</code> represent?</li>
-<li>What does each row in <code>bakeshare</code> or your data set (e.g. <code>winter</code>, <code>summer</code>, etc.) represent?</li>
-<li>How are these different?</li>
-<li>How is the number of rows in <code>null_dist</code> different than the sample size?</li>
-<li>If I were to increase the number of shuffles, how would you expact the plot in the previous exercise to change?</li>
-<li>If I were to increase the sample size, (i.e. the number of days), how would you expect the null distribution to change?</li>
-</ol>
+<p>Modify the code from Exercise 6 to create a 90% confidence interval. Before you run your code, do you expect the interval to get narrower or wider?</p>
 </section>
 <section id="exercise-8" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
-<p>Fill in the code below to compute the p-value. Have your reporter write the value on the board.</p>
+<p>Modify the code from Exercise 6 to create a 99% confidence interval. Before you run your code, do you expect the interval to get narrower or wider?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste code for 90% confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-9" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
 <ul>
-<li>Do larger or smaller p-values provide evidence for the alternative hypothesis?</li>
-<li>Do larger or smaller p-values provide evidence for your research question?</li>
-<li>Interpret your p-value in the context of the problem. Do you think your data provides strong evidence for your research question?</li>
+<li><p>Which confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain</p></li>
+<li><p>Which confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain</p></li>
+<li><p>If we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?</p></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To submit the AE: - Render the document to produce the HTML with all of your work from today’s class. - The driver for your group should upload your .qmd and .html files to the Canvas assignment.</p>
-</div>
-</div>
+</section>
+<section id="exercise-10" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
+<ul>
+<li><p>If your sample size <span class="math inline">\(n\)</span> is increased, what impact do you think this will have on accuracy and precision?</p></li>
+<li><p>What about if you increase the number of bootstrapped replicates?</p></li>
+</ul>
+</section>
+<section id="exercise-11" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-11">Exercise 11</h3>
+<p>Your professor is interested in calculating the average amount of time CofI students spend doing homework.</p>
+<ul>
+<li><p>If he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?</p></li>
+<li><p>If, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?</p></li>
+</ul>
 
 
 </section>
@@ -4695,7 +4685,7 @@ Important
 </div>   
     <div class="nav-footer-center">
        
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/ae/ae-05-sbi-ht.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/ae/ae-06-sbi-ci.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
