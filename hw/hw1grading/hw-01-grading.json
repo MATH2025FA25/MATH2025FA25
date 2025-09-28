@@ -1,0 +1,41 @@
+{
+  "overall_score": 13,
+  "items": [
+    {"id": "Ex1", "max_points": 1, "points_awarded": 1, "status": "CORRECT", "notes": "Reported 713 rows and 28 columns with code evidence (glimpse)."},
+    {"id": "Ex2", "max_points": 1, "points_awarded": 1, "status": "CORRECT", "notes": "Explained $ caused character type and why numeric conversion is needed."},
+    {"id": "Ex3", "max_points": 1, "points_awarded": 1, "status": "CORRECT", "notes": "Mutate chain removes '$' and converts to numeric; brief explanation provided."},
+    {"id": "Ex4", "max_points": 1, "points_awarded": 1, "status": "CORRECT", "notes": "gf_histogram of spend_per_resident_data with informative labels."},
+    {"id": "Ex5", "max_points": 1, "points_awarded": 0, "status": "INCORRECT", "notes": "Narrative says left-skew; distribution is right-skewed; did not fully describe spread/outliers."},
+    {"id": "Ex6", "max_points": 2, "points_awarded": 1, "status": "INCORRECT", "notes": "Histogram + favstats provided (1 pt). Narrative mischaracterizes shape; should note mean≈32, median≈28 and range to 100 (0 pt)."},
+    {"id": "Ex7", "max_points": 2, "points_awarded": 2, "status": "CORRECT", "notes": "Summarised by city using tidyverse; correctly identified 102 rows, 3 columns."},
+    {"id": "Ex8", "max_points": 2, "points_awarded": 1, "status": "INCORRECT", "notes": "gf_point with labels present (1 pt). Correlation not computed or interpreted (0 pt)."},
+    {"id": "Ex9", "max_points": 3, "points_awarded": 3, "status": "CORRECT", "notes": "Model fitted, slope interpreted; acceptable. Consider modeling mean_pts_near as response (availability ~ spending) depending on question focus; note intercept context."},
+    {"id": "Ex10", "max_points": 1, "points_awarded": 1, "status": "CORRECT", "notes": "Identified need for neighborhood-level race/income, park acreage, and linkage."},
+    {"id": "GrammarWriting", "max_points": 1, "points_awarded": 0, "status": "INCORRECT", "notes": "Multiple grammar/spelling issues (e.g., 'resedent', 'accessability'); some incomplete/unclear sentences."},
+    {"id": "WorkflowFormatting", "max_points": 1, "points_awarded": 1, "status": "CORRECT", "notes": "Notebook runs; tidyverse and ggformula used; code generally readable."}
+  ],
+  "instructor_notifications": [
+  ],
+  "feedback_cells": [
+    {
+      "exercise_id": "Ex5",
+      "markdown": "**Feedback — Exercise 5**  \nWhat I saw: Narrative states the distribution is left-skewed and mentions mean≈104, median≈84, and high values near 399.  \nWhat’s missing or off: Shape is misidentified — the histogram and favstats indicate right-skew (long right tail). Spread (IQR≈72) and comment on high-end outliers need explicit mention.  \nHow to improve: Describe shape as right-skewed; report center (mean≈104, median≈84) and spread (IQR≈131−59≈72), and note possible high-end outliers near 399.  \nWhy it matters: Accurate descriptions connect visuals/statistics to clear, professional communication."
+    },
+    {
+      "exercise_id": "Ex6",
+      "markdown": "**Feedback — Exercise 6**  \nWhat I saw: You computed favstats and plotted a histogram for `pct_near_park_points` with labels. Narrative says the distribution is left-skewed.  \nWhat’s missing or off: Shape is mischaracterized; summary shows mean≈32, median≈28 with values up to 100, which is consistent with right-skew or long right tail.  \nHow to improve: Describe shape as right-skewed; include center (mean≈32, median≈28), spread, and range (min≈1 to max=100).  \nWhy it matters: Clear, correct EDA supports valid modeling choices and interpretations."
+    },
+    {
+      "exercise_id": "Ex8",
+      "markdown": "**Feedback — Exercise 8**  \nWhat I saw: A `ggformula` scatterplot with informative labels and a qualitative description.  \nWhat’s missing or off: The numeric correlation was not computed or briefly interpreted.  \nHow to improve: Compute correlation and add a one-sentence interpretation. Example code:  \n`cor(parks_summary$mean_spend, parks_summary$mean_pts_near, use = \"complete.obs\")`  \nThen write something like: \"Correlation is positive and of moderate strength, indicating higher near-park points tend to align with higher spending.\"  \nWhy it matters: Quantifying association complements the visual and strengthens your conclusion."
+    },
+    {
+      "exercise_id": "Ex9",
+      "markdown": "**Feedback — Exercise 9**  \nWhat I saw: You fit `lm(mean_spend ~ mean_pts_near)` and reported tidy output. Slope interpretation (~$1.96 per 1‑point increase) is correct; overall work meets expectations.  \nSuggestion: For this question, it may be more natural to model availability as the response, e.g., `lm(mean_pts_near ~ mean_spend)` — “How does spending predict park access?”. Consider stating the modeling direction explicitly.  \nAlso consider: Briefly noting that the intercept at zero points has limited practical meaning (0 is unusual in these data).  \nWhy it matters: Aligning model direction with the research question and contextualizing parameters strengthens interpretation."
+    },
+    {
+      "exercise_id": "GrammarWriting",
+      "markdown": "**Feedback — Grammar & Writing**  \nWhat I saw: Several typos and grammar issues (e.g., \"resedent\", \"accessability\"), and a few incomplete/unclear sentences.  \nWhat’s missing or off: Polished, complete sentences that integrate evidence (numbers/plots) right after each question.  \nHow to improve: Proofread, use a spell-check, and revise for clarity. After code/output, add 2–3 complete sentences that reference the actual numbers and the plot.  \nWhy it matters: Clear scientific writing is part of reproducible, professional analysis."
+    }
+  ]
+}
