@@ -1,5 +1,9 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!*.ipynb"
+
   
 execute:
   freeze: auto

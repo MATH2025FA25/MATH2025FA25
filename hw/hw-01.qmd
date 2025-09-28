@@ -75,8 +75,6 @@ This homework will focus on the following variables:
 
 **Goal**: One way to improve access to public parks is for cities to spend more money creating and maintaining parks for their residents. It's unclear, however, how much spending impacts residents' access to parks. The goal of this analysis is to examine the relationship between spending per resident and points in the ParkScore index for the percent of residents within a 10 minute walk to a park.
 
-------------------------------------------------------------------------
-
 Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically **render** your Quarto document to produce the updated HTML file.
 
 ::: callout-tip

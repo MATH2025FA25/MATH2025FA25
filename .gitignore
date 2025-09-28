@@ -5,3 +5,5 @@
 /project/Rotation.xlsx
 
 /.quarto/
+
+**/*.quarto_ipynb
