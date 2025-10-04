@@ -1,0 +1,665 @@
+---
+title: "SLR: Mathematical models for inference"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+
+# Application exercise
+
+::: appex
+📋 AE 08: Predicion and Conditions - Open in Deepnote
+:::
+
+Complete Exercises 0-1.
+
+# Mathematical models for inference
+
+## Topics
+
+-   Define mathematical models to conduct inference for the slope
+
+-   Use mathematical models to
+
+    -   calculate confidence interval for the slope
+
+    -   conduct a hypothesis test for the slope
+    
+    -   calculate confidence intervals for predictions
+
+## Computational setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)   # for data wrangling and visualization
+library(broom)       # for formatting model output
+library(ggformula)   # for making plots using formulas
+library(scales)      # for pretty axis labels
+library(knitr)       # for pretty tables
+library(kableExtra)  # also for pretty tables
+library(patchwork)   # arrange plots
+
+# Spotify Dataset
+spotify <- read_csv("../data/spotify-popular.csv")
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+## The regression model, revisited
+
+```{r}
+#| echo: true
+spotify_fit <- lm(danceability ~ duration_ms, data = spotify) 
+
+tidy(spotify_fit) |>
+  kable(digits = 10, format.args = list(scientifi = TRUE))
+```
+
+# Intervals for predictions
+
+## Intervals for predictions {.smaller}
+
+-   Question: *"What is the predicted danceability for a 3 minute (180,000 ms) song?"*
+-   We said reporting a single estimate for the slope is not wise, and we should report a plausible range instead
+-   Similarly, reporting a single prediction for a new value is not wise, and we should report a plausible range instead
+
+```{r}
+#| fig.width: 10
+#| fig.align: "center"
+#| echo: false
+
+x_new <- 180000
+y_hat_x_new <- predict(spotify_fit, newdata = tibble(duration_ms = x_new))
+
+ggplot(spotify, aes(x = duration_ms, y = danceability)) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-3, yend = y_hat_x_new+3,
+    color = "#CDDBDC", size = 4
+  ) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-2, yend = y_hat_x_new+2,
+    color = "#ADC3C5", size = 4
+  ) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-1, yend = y_hat_x_new+1,
+    color = "#7B9FA3", size = 4
+  ) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  geom_segment(
+    x = x_new, xend = x_new, y = 0, yend = y_hat_x_new,
+    linetype = "dashed", color = "#5B888C"
+  ) +
+  geom_segment(
+    x = 0, xend = x_new, y = y_hat_x_new, yend = y_hat_x_new,
+    linetype = "dashed", color = "#5B888C"
+  ) +
+  annotate("point", x = x_new, y = y_hat_x_new, size = 2, color = "magenta") +
+  annotate("point", x = x_new, y = y_hat_x_new, size = 5, shape = "circle open", color = "#5B888C", stroke = 2) +
+  labs(
+    x = "Song Duration (ms)",
+    y = "Danceability",
+  )
+```
+
+## Two types of predictions
+
+1.  Prediction for the mean: "What is the average predicted danceability for three minute songs?"
+
+2.  Prediction for an individual observation: "What is the predicted danceability for the new Magdala Bay song which is exactly three minutes long?"
+
+. . .
+
+::: question
+Which would you expect to be more variable? The average prediction or the prediction for an individual observation? Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare?
+:::
+
+## Uncertainty in predictions
+
+**Confidence interval for the mean outcome:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE}_{\hat{\boldsymbol{\mu}}}}}$$
+
+. . .
+
+**Prediction interval for an individual observation:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE_{\hat{y}}}}}$$
+
+## Standard errors
+
+**Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+. . .
+
+**Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{1 + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+## Standard errors
+
+**Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+**Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{\mathbf{\color{purple}{\Large{1}}} + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+## Confidence interval
+
+The 95% **confidence interval** for the *mean* outcome:
+
+```{r}
+#| echo: true
+new_songs <- tibble(duration_ms = 180000)
+
+predict(spotify_fit, newdata = new_songs, interval = "confidence", 
+        level = 0.95) |>
+  kable()
+```
+
+```{r}
+#| echo: false
+new_songs_ci <- as.tibble(predict(spotify_fit, newdata = new_songs, interval = "confidence", level = 0.95) )
+```
+
+. . .
+
+We are 95% confident that the *mean* danceability for new popular three minute songs on Spotify will be between `r new_songs_ci$lwr |> round(digits=2)` and `r new_songs_ci$upr |>  round(digits=2)`. 
+
+## Prediction interval
+
+The 95% **prediction interval** for an *individual* outcome:
+
+```{r}
+#| echo: true
+new_song <- tibble(duration_ms = 180000)
+
+predict(spotify_fit, newdata = new_song, interval = "prediction", 
+        level = 0.95) |>
+  kable()
+```
+
+```{r}
+#| echo: false
+new_song_pi <- as.tibble(predict(spotify_fit, newdata = new_song, interval = "prediction", level = 0.95))
+```
+
+. . .
+
+We are 95% confident that the new Magdala Bay song that is exactly three minutes long will have a danceability between `r new_song_pi$lwr |> round(digits=2)` and `r new_song_pi$upr |>  round(digits=2)`.
+
+## Comparing intervals
+
+```{r}
+#| out.width: "100%"
+#| fig.width: 10
+#| echo: false
+
+new_songs <- tibble(duration_ms = seq(min(spotify$duration_ms), max(spotify$duration_ms), diff(range(spotify$duration_ms))/30))
+new_songs_ci <- as.tibble(predict(spotify_fit, newdata = new_songs, interval = "confidence", level = 0.95)) |>
+  mutate(
+    duration_ms = new_songs$duration_ms,
+    type = "Confidence interval"
+    )
+new_song_pi <- as.tibble(predict(spotify_fit, newdata = new_songs, interval = "prediction", level = 0.95)) |>
+  mutate(
+    duration_ms = new_songs$duration_ms,
+    type = "Prediction interval"
+    )
+new_songs_int <- bind_rows(new_songs_ci, new_song_pi)
+
+ggplot(spotify, aes(x = duration_ms, y = danceability)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  geom_line(data = new_songs_int,
+            aes(x = duration_ms, y = lwr, linetype = type, color = type),
+            size = 1) +
+  geom_line(data = new_songs_int,
+            aes(x = duration_ms, y = upr, linetype = type, color = type),
+            size = 1) +
+  labs(
+    x = "Song Duration (ms)",
+    y = "Danceability",
+  ) +
+  scale_x_continuous(labels = label_number())
+```
+
+. . .
+
+Complete Exercises 2 and 3.
+
+## Extrapolation
+
+Using the model to predict for values outside the range of the original data is **extrapolation**.
+
+. . .
+
+::: columns
+::: {.column width="55%"}
+::: question
+Calculate the prediction interval for the danceability of a song which is 20 minutes (1.2 Million milliseconds) song.
+:::
+
+[*No, thanks!*]{.fragment}
+:::
+
+::: {.column width="45%"}
+![AI Generated Image of "Funny people dancing. Add in silly dance moves and make them look tired."](images/04/dancing.png){fig-align="center"}
+:::
+:::
+
+
+
+## Extrapolation
+
+::: question
+Why do we want to avoid extrapolation?
+:::
+
+## 2005 be like: OMG HOUSING PRICES ARE GOING TO INCREASE FOREVER, YOUR CREDIT DOESN'T MATTER
+
+![](images/04/case-shiller1.png){fig-align="center"}
+
+## 2007 be like: LOL NO
+
+![](images/04/case-shiller2.png){fig-align="center"}
+
+# Model conditions
+
+## Model conditions
+
+1.  **Linearity:** There is a linear relationship between the outcome and predictor variables
+2.  **Constant variance:** The variability of the errors is equal for all values of the predictor variable
+3.  **Normality:** The errors follow a normal distribution
+4.  **Independence:** The errors are independent from each other
+
+## WARNING {.smaller}
+
+- Many of these assumptions are for the population
+- We want to determine whether they are met from your data
+- In real life, these conditions are *almost always* violated in one way or another
+- Questions you should ask yourself:
+    + Are my conditions close enough to being satisfied that I can trust the results of my inference
+    + Do I have reason to believe that my conditions are *GROSSLY* violated?
+    + Based on what I see, how trustworthy do I think the results of my inference are.
+    
+## ENGAGE: SOAP BOX {.smaller}
+
+Statistics and numbers are often used to make arguments seem more "rigorous" or infallible. I'm sure you've heard the phrase "the numbers are the numbers" or "you can't argue with the numbers". More often than not, this is **BULLSHIT**. Most data analyses involve making decision which are subjective. The interpretability of any form of statistical inference is heavily influenced by whether the assumptions and conditions of that inference is met, which they almost never are. It is up to the practitioner to determine whether those conditions are met and what impact those conditions have on the results of those analyses. In my work, I rarely encounter practitioners who even know what the conditions are, let alone understand why they are important. **FURTHERMORE!!!** the quality of your analysis is only as good as the quality of your data. Remember a crap study design will yield crap data which will yield crappy analysis. Statistical analyses yield one important form of evidence which should be combined with other forms of evidence when making an argument.
+
+## Linearity
+
+-   If the linear model, $\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1X$, adequately describes the relationship between $X$ and $Y$, then the residuals should reflect random (chance) error
+
+-   To assess this, we can look at a plot of the residuals ($e_i$'s) vs. the fitted values ($\hat{y}_i$'s) or predictors(or $x_i$'s)
+
+-   There should be no distinguishable pattern in the residuals plot, i.e. the residuals should be randomly scattered
+
+-   A non-random pattern (e.g. a parabola) suggests a linear model that does not adequately describe the relationship between $X$ and $Y$
+
+## Linearity
+
+✅ The residuals vs. fitted values plot should show a random scatter of residuals (no distinguishable pattern or structure)
+
+```{r res-vs-fit}
+#| echo: false
+spotify_aug <- augment(spotify_fit)
+
+gf_point(.resid ~ .fitted, data = spotify_aug) |>
+  gf_hline(yintercept = 0, linetype = "dashed") |>
+  gf_labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  )
+```
+
+## The augment function {.smaller}
+
+`augment` is from the `broom` package:
+
+```{r}
+spotify_aug <- augment(spotify_fit)
+
+head(spotify_aug) |> kable()
+```
+
+## Residuals vs. fitted values (code)
+
+```{r}
+#| echo: true
+#| ref.label: "res-vs-fit"
+#| fig.show: "hide"
+```
+
+## Non-linear relationships
+
+```{r}
+#| echo: false
+set.seed(1234)
+
+n = 100
+
+df <- tibble(
+  x = -49:50,
+  e_curved = rnorm(n, 0, 150),
+  y_curved = x^2 + e_curved,
+  e_slight_curve = sort(rbeta(n, 5, 1) * 200) + rnorm(n, 0, 5),
+  y_slight_curve = x + e_slight_curve,
+  x_fan = seq(0, 3.99, 4 / n),
+  y_fan = c(rnorm(n / 8, 3, 1), rnorm(n / 8, 3.5, 2), rnorm(n / 8, 4, 2.5), rnorm(n / 8, 4.5, 3), rnorm(n / 4, 5, 4), rnorm((n / 4) + 2, 6, 5))
+)
+```
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| fig.asp: 1.2
+#| echo: false
+
+p1 <- ggplot(df, aes(x = x, y = y_curved)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  labs(
+    x = "X", y = "Y",
+    title = "Observed data + model"
+    )
+
+curved_fit <- lm(y_curved ~ x, data = df)
+
+curved_aug <- augment(curved_fit)
+
+p2 <- ggplot(curved_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  ) +
+  ylim(-2000, 2000)
+
+p1 / p2 +
+  plot_annotation(title = "Obviously curved")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| fig.asp: 1.2
+#| echo: false
+
+p1 <- ggplot(df, aes(x = x, y = y_slight_curve)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  labs(
+    x = "X", y = "Y",
+    title = "Observed data + model"
+    )
+
+slight_curve_fit <- lm(y_slight_curve ~ x, data = df)
+
+slight_curve_aug <- augment(slight_curve_fit)
+
+p2 <- ggplot(slight_curve_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  )
+
+p1 / p2 +
+  plot_annotation(title = "Not so obviously curved")
+```
+:::
+:::
+
+## Violations of Linearity
+
+- Impact: inference relies on estimates of $\sigma_\epsilon$ computed from residuals:
+  + Residuals will be larger in certain places so estimates will be inaccurate
+  + Therefore, inference (i.e. CIs and p-values) will be inaccurate
+  + Most importantly... your predictions will be wrong most of the time
+- Remedy: transform your data (to come)
+
+. . .
+
+Complete Exercises 4-6
+
+## Constant variance {.midi}
+
+-   If the spread of the distribution of $Y$ is equal for all values of $X$ then the spread of the residuals should be approximately equal for each value of $X$
+
+-   To assess this, we can look at a plot of the residuals vs. the fitted values
+
+-   The vertical spread of the residuals should be approximately equal as you move from left to right
+
+-   **CAREFUL**: Inconsistent distribution of $X$s can make it seem as if there is non-constant variance
+
+## Constant variance
+
+✅ The vertical spread of the residuals is relatively constant across the plot
+
+```{r}
+#| ref.label: "res-vs-fit"
+#| echo: false
+```
+
+## Non-constant variance: Fan-Pattern {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| echo: false
+ggplot(df, aes(x = x_fan, y = y_fan)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  labs(
+    x = "X", y = "Y",
+    title = "Observed data + model"
+    )
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: "100%"
+#| echo: false
+
+fan_fit <- lm(y_fan ~ x_fan, data = df)
+
+fan_aug <- augment(fan_fit)
+
+ggplot(fan_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    x = "Fitted value", y = "Residual",
+    title = "Residuals vs. fitted values"
+  ) +
+  ylim(-15, 15)
+```
+:::
+:::
+
+- Constant variance is frequently violated when the error/variance is proportional to the response variable
+- Whose wealth fluctuates more per day... Dr. Friedlander's or Elon Musk's?
+
+## Violations of Constant Variance
+
+- Impact: inference relies on estimates of $\sigma_\epsilon$ computed from residuals:
+  + Residuals will be larger in certain places so estimates will be inaccurate
+  + Therefore, inference (i.e. CIs and p-values) will be inaccurate
+- Remedy: transform your data (to come)
+
+. . .
+
+Complete Exercises 7
+
+## Normality {.smaller}
+
+-   The linear model assumes that the distribution of $Y$ is Normal for every value of $X$
+
+-   This is impossible to check in practice, so we will look at the overall distribution of the residuals to assess if the normality assumption is satisfied
+
+-   A histogram of the residuals should look approximately normal, symmetric, without any huge outliers
+
+-   A normal QQ-plot falls along a diagonal line
+
+-   Most inferential methods for regression are robust to some departures from normality, so we can proceed with inference if the sample size is sufficiently large, roughly $n > 30$ depending on how non-normal your residuals look
+
+    +   **Notable exception:** predictions intervals!
+
+## Check normality using a histogram
+
+```{r}
+#| echo: false
+
+ggplot(spotify_aug, aes(x = .resid)) +
+  geom_histogram(bins = 7, color = "white") +
+  labs(
+    x = "Residual",
+    y = "Count",
+    title = "Histogram of residuals"
+  )
+```
+
+## Check normality using a QQ-plot {.smaller}
+
+```{r}
+#| code-fold: true
+gf_qq(~.resid, data = spotify_aug) |>
+  gf_qqline() |>
+  gf_labs(x = "Theoretical quantile",
+       y = "Observed quantile",
+       title = "Normal QQ-plot of residuals")
+```
+
+-   $x$-axis: quantile we would expect from a true normal distribution
+
+-   $y$-axis: quantile we observe in the data
+
+-   Bell-shaped does not necessarily equal normal... QQ-plot can detect distributions with heavier (i.e. more spread out) tails than a normal distribution
+
+## Check normality using a QQ-plot {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| code-fold: true
+gf_histogram(~.resid, data = spotify_aug,
+             bins=7, color = "white") |>
+  gf_labs(
+    x = "Residual",
+    y = "Count",
+    title = "Histogram of residuals"
+  )
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| code-fold: true
+gf_qq(~.resid, data = spotify_aug) |>
+  gf_qqline() |>
+  gf_labs(x = "Theoretical quantile",
+       y = "Observed quantile",
+       title = "Normal QQ-plot of residuals")
+```
+:::
+:::
+
+-   Assess whether residuals lie along the diagonal line of the Quantile-quantile plot (QQ-plot).
+
+-   If so, the residuals are normally distributed.
+
+-   Note: QQ-Plots are pretty sensitive so it doesn't take too much departure to conclude non-normality
+
+## Normality {.smaller}
+
+❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.
+
+✅ The sample size  $n =  508>  30$, so the sample size is large enough to relax this condition and proceed with inference (mostly).
+
+## Violations of Normality
+
+- Impact: depends what you want to do and how large your sample size is
+    + Your predictions intervals will be wrong... they will be symmetric when they shouldn't be...
+    + If you have a large sample size not a big deal for anything else
+- Remedy... depends on what you want to do
+    + If sample size is large enough and don't care about prediction intervals... do nothing
+    + Otherwise, transform data... (hard for small sample sizes)
+    
+. . .
+
+Complete Exercises 8 and 9.
+
+
+## Independence {.midi}
+
+-   We can often check the independence assumption based on the context of the data and how the observations were collected
+
+-   Two common violations of the independence assumption:
+
+    -   **Temporal Correlation**: If the data were collected over time, plot the residuals in time order to see if there is a pattern (serial correlation)
+
+    -   **Cluster Effect**: If there are subgroups represented in the data that are not accounted for in the model, you can color the points in the residual plots by group to see if the model systematically over or under predicts for a particular subgroup
+    
+    -   **Spatial Correlation**: If observations that were close to one another are more correlated than ones which are far apart then independent is violated
+
+## Independence 
+
+Complete Exercise 10
+
+. . .
+
+❌ Based on the information we have,  it's  unlikely the data are independent. 
+
+## Violations of Independence 
+
+- Impact: depends on how it's violated
+    + In some cases you'll underestimate p-values (too many false positives) and make CIs which are too narrow
+    + In other cases you'll do the opposite
+- Remedy... depends on the source and type of dependence
+    + Add variable accounting for dependence to model
+    + Otherwise, beyond the scope of this class
+      + Time-Series Analysis
+      + Mixed-Effects Models
+      + Spacial Statistics
+
+## Recap
+
+-   calculate confidence intervals for predictions
+
+    -   predictions of averages: "confidence intervals"
+    
+    -   predictions for single observations: "prediction intervals"
+
+-   Conditions for inference
+
+    -   Linearity
+
+    -   Constant Variance
+
+    -   Normality
+
+    -   Independence

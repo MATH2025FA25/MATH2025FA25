@@ -1,0 +1,10 @@
+---
+title: "Preparation for Mathematical Inference"
+---
+
+## Assigned reading
+
+- Introduction to Regression Analysis: A Data Science Approach: [Ch 5: Inference for simple linear regression 5.1-5.6 (optional)](https://introregression.netlify.app/05-slr-inference)
+- Introduction to Regression Analysis: A Data Science Approach: [Ch 5: Inference for simple linear regression 5.8 (required)](https://introregression.netlify.app/05-slr-inference#sec-slr-inf-clt)
+
+https://introregression.netlify.app/05-5-conditions
