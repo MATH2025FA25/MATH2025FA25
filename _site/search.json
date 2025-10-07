@@ -2918,5 +2918,26 @@
     "title": "SLR: Mathematical models for inference",
     "section": "Violations of Independence",
     "text": "Violations of Independence\n\nImpact: depends on how it’s violated\n\nIn some cases you’ll underestimate p-values (too many false positives) and make CIs which are too narrow\nIn other cases you’ll do the opposite\n\nRemedy… depends on the source and type of dependence\n\nAdd variable accounting for dependence to model\nOtherwise, beyond the scope of this class\n\nTime-Series Analysis\nMixed-Effects Models\nSpacial Statistics"
+  },
+  {
+    "objectID": "slides/09-exam-01-review.html#exam-01",
+    "href": "slides/09-exam-01-review.html#exam-01",
+    "title": "Exam 01 Review",
+    "section": "Exam 01",
+    "text": "Exam 01\n\nIn-class, 75 minutes\nNon-programmable calculator permitted; one sheet of handwritten notes.\nNo other aids (notes, textbooks, computers, phones)\nShow work when requested; clearly label answers"
+  },
+  {
+    "objectID": "slides/09-exam-01-review.html#content-weeks-15",
+    "href": "slides/09-exam-01-review.html#content-weeks-15",
+    "title": "Exam 01 Review",
+    "section": "Content: Weeks 1–5",
+    "text": "Content: Weeks 1–5\n\n\n\nExploratory data analysis (EDA)\nFitting and interpreting simple linear regression (SLR)\nRegression equations and interpretation (slope/intercept)\nSimulation-based inference (randomization test for slope)\nMathematical models for inference (t-based CIs/tests)\n\n\n\nPrediction vs. confidence intervals\nModel conditions and residual diagnostics\nModel evaluation and assumptions in context"
+  },
+  {
+    "objectID": "slides/09-exam-01-review.html#format",
+    "href": "slides/09-exam-01-review.html#format",
+    "title": "Exam 01 Review",
+    "section": "Format",
+    "text": "Format\n\nFour sections\n\nMultiple choice (concepts, interpretation)\nShort answer (concise reasoning, set up calculations)\nTrue/False with justification (1–2 sentences)\nEvaluate a response (diagnose a student’s statement)\n\nEmphasis on interpretation and understanding\nYou will not write code; you may be asked to interpret provided output"
   }
 ]
