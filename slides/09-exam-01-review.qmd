@@ -1,9 +1,9 @@
 ---
-title: "Exam 01 review"
-author: "Prof. Maria Tackett"
-date: "2023-10-02"
+title: "Exam 01 Review"
+author: "MATH 2025 — Dr. Eric Friedlander"
+date: last-modified
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[MATH 2025 — Schedule](../schedule.qmd)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -26,88 +26,44 @@ knitr:
 bibliography: references.bib
 ---
 
-## Announcements {.midi}
-
--   HW 02 due TODAY at 11:59pm.
--   All lecture recordings available until Wed, Oct 4 at 9am.
-    -   [Click here](https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing) for link to videos. You can also find the link in the navigation bar of the course website.
--   No labs this week
--   No office hours Wednesday - Friday
--   Ed Discussion archived (no new posts) Wednesday - Friday
 
 ## Exam 01 {.midi}
 
--   15% of final course grade
+-   In-class, 75 minutes
+-   Non-programmable calculator permitted; one sheet of handwritten notes.
+-   No other aids (notes, textbooks, computers, phones)
+-   Show work when requested; clearly label answers
 
--   50 points total
-
-    -   in-class: 40 points
-    -   take-home: 10 points
-
--   In-class: 75 minutes during Wed, Oct 4 lecture
-
--   Take-home:
-
-    -   Released: Wed, Oct 4 \~ 3pm
-    -   Due: Fri, Oct 6 at 11:59pm
-    -   Similar in format to a lab/ HW
-
--   If you miss any part of the exam for an excused absence (with academic dean's note), then Exam 02 score will be counted twice
-
-## Content: Weeks 1 - 5
+## Content: Weeks 1–5
 
 ::: columns
 ::: {.column width="50%"}
--   Exploratory data analysis
-
--   Fitting and interpreting simple linear regression models
-
--   Statistical models and regression equations
-
--   Simulation-based inference
-
--   Mathematical models for inference
+-   Exploratory data analysis (EDA)
+-   Fitting and interpreting simple linear regression (SLR)
+-   Regression equations and interpretation (slope/intercept)
+-   Simulation-based inference (randomization test for slope)
+-   Mathematical models for inference (t-based CIs/tests)
 :::
 
 ::: {.column width="50%"}
--   Prediction
-
--   Model conditions
-
--   Model evaluation
-
--   Basics of multiple linear regression
+-   Prediction vs. confidence intervals
+-   Model conditions and residual diagnostics
+-   Model evaluation and assumptions in context
 :::
 :::
 
-## Outline of in-class portion {.midi}
+## Format {.midi}
 
--   Closed-book, closed-note.
+-   Four sections
+    -   Multiple choice (concepts, interpretation)
+    -   Short answer (concise reasoning, set up calculations)
+    -   True/False with justification (1–2 sentences)
+    -   Evaluate a response (diagnose a student’s statement)
+-   Emphasis on interpretation and understanding
+-   You will not write code; you may be asked to interpret provided output
 
--   10 questions, some with multiple parts
-
--   Question types:
-
-    -   Multiple choice
-    -   Short answer (no more than 3 sentences)
-    -   True/ False.
-        -   If false, write 1 - 2 sentence justification about why it is false.
-    -   Evaluate a response.
-
--   Last page (front and back) will have analysis output.
-
--   Just need a pencil. No calculator permitted on exam.
-
-# Application exercise
+# Practice
 
 ::: appex
-📋 [sta210-fa23.netlify.app/ae/ae-08-exam-01-review](https://sta210-fa23.netlify.app/ae/ae-08-exam-01-review.html)
+📋 Exam 1 Practice: [ae-09-exam01-handwritten](../ae/ae-09-exam01-handwritten.qmd)
 :::
-
--   Sit with your lab group.
-
--   Put your group's response to your assigned exercise on Ed Discussion.
-
-    -   Section 001: [edstem.org/us/courses/44523/discussion/3542094](https://edstem.org/us/courses/44523/discussion/3542094)
-
-    -   Section 002: [edstem.org/us/courses/44523/discussion/3542095](https://edstem.org/us/courses/44523/discussion/3542095)
