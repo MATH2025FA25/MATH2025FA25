@@ -1,0 +1,210 @@
+---
+title: "Exam 1"
+author: "MATH 2025"
+format: pdf
+---
+
+```{r setup}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(broom)
+rail_trail <- read_csv(here::here("data/rail_trail.csv")) |>
+  mutate(season = factor(season, levels = c("Spring", "Summer", "Fall", "Winter")))
+
+mod_volume_temp <- lm(volume ~ hightemp, data = rail_trail)
+model_summary <- tidy(mod_volume_temp, conf.int = TRUE)
+model_glance <- glance(mod_volume_temp)
+
+set.seed(2025)
+shuffle_slopes <- replicate(1000, {
+  shuffled <- rail_trail |> mutate(volume = sample(volume))
+  coef(lm(volume ~ hightemp, data = shuffled))[2]
+})
+shuffle_df <- tibble(slope = shuffle_slopes)
+
+pred_df <- tibble(
+  hightemp = c(55, 70, 85),
+  predicted_volume = predict(mod_volume_temp, newdata = tibble(hightemp = c(55, 70, 85)))
+)
+
+resid_df <- augment(mod_volume_temp)
+```
+
+# Instructions
+
+- Exam length: 75 minutes. Complete the exam in class using handwritten work only. Show supporting reasoning where appropriate.
+- You may use a non-programmable calculator and the provided formula sheet. No other aids (notes, textbooks, computers, phones) are permitted.
+- Read each prompt carefully. If you believe a question is ambiguous, state your interpretation and proceed.
+- Unless a computation is explicitly requested, focus on conceptual explanations. Exact expressions or clearly organized set-ups earn full credit.
+- Do **not** write any code from scratch. When code or output is supplied, interpret it as directed.
+- Clearly label each answer. Partial credit may be awarded for well-communicated reasoning.
+- One sheet of handwritten notes (front and back) is allowed.
+
+The exam centers on data collected from a community rail trail. For each day, `volume` records the number of users counted on the trail, and `hightemp` is the day's high temperature (°F). Additional weather variables are included in the dataset but may not be used in every question.
+
+Summary information from the data and model is provided below. Use these summaries as needed; you do not need to reproduce them.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Selected summaries for the rail trail dataset."
+rail_trail |>
+  summarise(
+    n = n(),
+    mean_volume = mean(volume),
+    sd_volume = sd(volume),
+    mean_hightemp = mean(hightemp),
+    sd_hightemp = sd(hightemp)
+  ) |>
+  mutate(across(where(is.numeric), round, 2))
+```
+
+```{r}
+#| echo: false
+#| tbl-cap: "Regression output for predicting trail volume from daily high temperature."
+model_summary |>
+  mutate(across(where(is.numeric), round, 3))
+```
+
+```{r}
+#| echo: false
+#| tbl-cap: "Model-level summaries for the rail trail regression."
+model_glance |>
+  transmute(
+    r_squared = round(r.squared, 3),
+    sigma = round(sigma, 2),
+    df_residual = df.residual
+  )
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Trail volume vs. high temperature with fitted regression line."
+rail_trail |>
+  ggplot(aes(x = hightemp, y = volume)) +
+  geom_point(alpha = 0.6, color = "#1f78b4") +
+  geom_smooth(method = "lm", se = FALSE, color = "#33a02c") +
+  labs(x = "High temperature (°F)", y = "Trail volume") +
+  theme_minimal(base_size = 11)
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Residuals versus fitted values for the regression of volume on high temperature."
+resid_df |>
+  ggplot(aes(x = .fitted, y = .resid)) +
+  geom_hline(yintercept = 0, color = "grey50", linewidth = 0.3) +
+  geom_point(alpha = 0.6, color = "#ff7f00") +
+  labs(x = "Fitted trail volume", y = "Residuals") +
+  theme_minimal(base_size = 11)
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Randomization distribution of slope estimates assuming no relationship between temperature and trail volume."
+shuffle_df |>
+  ggplot(aes(x = slope)) +
+  geom_histogram(binwidth = 0.02, fill = "#a6cee3", color = "white") +
+  geom_vline(xintercept = coef(mod_volume_temp)[2], color = "#1b9e77", linewidth = 0.9) +
+  labs(x = "Slope under shuffled response", y = "Count") +
+  theme_minimal(base_size = 11)
+```
+
+```{r}
+#| echo: false
+#| tbl-cap: "Predicted trail volumes at selected temperatures."
+pred_df |>
+  mutate(across(everything(), round, 1))
+```
+
+---
+
+# Section A. Multiple Choice (Suggested time: 20 minutes)
+
+Circle the single best answer for each question. Each question is worth 4 points.
+
+1. Which step of the data analysis cycle is most closely associated with evaluating whether the simple linear regression conditions appear reasonable for this rail trail model?
+   - (A) Pose a question
+   - (B) Obtain data
+   - (C) Understand the data
+   - (D) Communicate findings
+
+2. The scatterplot and regression line above suggest what about the association between `volume` and `hightemp`?
+   - (A) A strong negative linear relationship
+   - (B) A moderate positive linear relationship
+   - (C) No apparent relationship
+   - (D) A nonlinear relationship with a clear curve
+
+3. Which code segment would create a scatterplot of trail volume versus high temperature using `gf_point()` from the `ggformula` package?
+   - (A) `gf_point(volume ~ hightemp, data = rail_trail)`
+   - (B) `gf_point(hightemp, volume, data = rail_trail)`
+   - (C) `gf_point(rail_trail, volume, hightemp)`
+   - (D) `gf_point(~ volume + hightemp, data = rail_trail)`
+
+4. The randomization distribution for the slope was created by repeatedly shuffling which variable?
+   - (A) `hightemp`, to mimic the effect of measurement error in the predictor
+   - (B) `volume`, to simulate the null hypothesis of no relationship
+   - (C) The residuals from the fitted model, to approximate the sampling distribution of the slope
+   - (D) Both variables simultaneously, to preserve the correlation structure
+
+5. Compared with a 95% confidence interval for the mean trail volume when `hightemp = 80°F`, a 95% prediction interval for a single day at 80°F will be:
+   - (A) Narrower, because individual days are less variable than the regression line
+   - (B) Wider, because it must account for both model uncertainty and day-to-day variability
+   - (C) The same width, because they are based on the same fitted regression line
+   - (D) Uninterpretable without a theoretical $t$ distribution assumption
+
+---
+
+# Section B. Short Answer (Suggested time: 20 minutes)
+
+Show all reasoning. Each question is worth 8 points.
+
+1. **Checking conditions**: Use the residual plot and your knowledge of regression assumptions to evaluate the four simple linear regression conditions (linearity, independence, equal variance, normality of residuals) for this context. For each condition, briefly note what you observe from the provided information and whether additional information would help.
+
+2. **Using model output**: Based on the regression table, write the fitted regression equation (using rounded coefficients) and state the predicted trail volume on a day with a high temperature of 75°F. Explain what the slope means in context.
+
+3. **Assessing explanatory power**: The `R^2` value for the model is reported in the regression output (see `model_glance`). What does this value tell you about trail volume variability? Describe at least one other variable from the data set that, if added carefully, could help account for additional variation, and justify why.
+
+4. **Confidence interval reasoning**: Without performing new calculations, explain how you could construct a 95% confidence interval for the slope using the randomization distribution. Describe the steps conceptually, including how the observed slope would be incorporated.
+
+---
+
+# Section C. True/False with Justification (Suggested time: 15 minutes)
+
+For each statement, circle True or False and justify your answer in 1–2 sentences. Each question is worth 5 points.
+
+1. **True / False**: If we swapped the roles of `volume` and `hightemp` in the regression, the value of the correlation between the two variables would stay the same.
+
+2. **True / False**: A small p-value from the randomization test proves that high temperatures cause increased trail usage.
+
+3. **True / False**: If more observations are added that follow the same linear trend, we would expect the standard error of the slope to decrease.
+
+4. **True / False**: Even when the equal variance condition is satisfied, prediction intervals get wider as you move further from the mean of `hightemp`.
+
+5. **True / False**: When the slope confidence interval contains zero, the corresponding hypothesis test at the same confidence level will not reject the null hypothesis.
+
+---
+
+# Section D. Evaluate a Response (Suggested time: 20 minutes)
+
+Each item shows a student’s written response. For each, decide whether it is *correct*, *partially correct*, or *incorrect*, and explain your reasoning in 2–3 sentences. Each question is worth 10 points.
+
+1. **Simulation conclusion**: Student A states, "Because the observed slope (shown as the vertical line) falls far into the tail of the randomization distribution, the p-value must be close to 1, so there is no evidence of a relationship." Evaluate Student A’s conclusion.
+
+2. **Intercept interpretation**: Student B writes, "The intercept of about 36 means that when the temperature is 0°F, we expect roughly 36 people to use the rail trail, so below-freezing days still draw many visitors." Evaluate this interpretation using information from the dataset.
+
+3. **Prediction statement**: Student C uses the prediction table to claim, "On any day with a high temperature of 85°F, trail managers can guarantee at least 640 people will use the trail." Assess this claim.
+
+---
+
+# Point Summary
+
+| Section | Points |
+|:--------|-------:|
+| A       | 20     |
+| B       | 32     |
+| C       | 25     |
+| D       | 30     |
+| **Total** | **107** |
+
