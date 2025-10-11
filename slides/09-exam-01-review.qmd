@@ -1,0 +1,69 @@
+---
+title: "Exam 01 Review"
+author: "MATH 2025 — Dr. Eric Friedlander"
+date: last-modified
+date-format: "MMM DD, YYYY"
+footer: "[MATH 2025 — Schedule](../schedule.qmd)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+
+## Exam 01 {.midi}
+
+-   In-class, 75 minutes
+-   Non-programmable calculator permitted; one sheet of handwritten notes.
+-   No other aids (notes, textbooks, computers, phones)
+-   Show work when requested; clearly label answers
+
+## Content: Weeks 1–5
+
+::: columns
+::: {.column width="50%"}
+-   Exploratory data analysis (EDA)
+-   Fitting and interpreting simple linear regression (SLR)
+-   Regression equations and interpretation (slope/intercept)
+-   Simulation-based inference (randomization test for slope)
+-   Mathematical models for inference (t-based CIs/tests)
+:::
+
+::: {.column width="50%"}
+-   Prediction vs. confidence intervals
+-   Model conditions and residual diagnostics
+-   Model evaluation and assumptions in context
+:::
+:::
+
+## Format {.midi}
+
+-   Four sections
+    -   Multiple choice (concepts, interpretation)
+    -   Short answer (concise reasoning, set up calculations)
+    -   True/False with justification (1–2 sentences)
+    -   Evaluate a response (diagnose a student’s statement)
+-   Emphasis on interpretation and understanding
+-   You will not write code; you may be asked to interpret provided output
+
+# Practice
+
+::: appex
+📋 Exam 1 Practice: [ae-09-exam01-handwritten](../ae/ae-09-exam01-handwritten.qmd)
+:::
