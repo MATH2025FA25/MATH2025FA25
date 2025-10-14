@@ -98,11 +98,11 @@ Show all reasoning. Each question is worth 8 points.
 
 {{< pagebreak >}}
 
-2. **Using model output**: Based on @tbl-reg, write the fitted regression equation (using rounded coefficients) and explain what the slope means in context. Then state the predicted trail volume on a day with a high temperature of 75°F (you will need to do a little math here). 
+2. **Using model output**: Based on @tbl-reg, write the fitted regression equation and explain what the slope means in context. Then state the predicted trail volume on a day with a high temperature of 75°F (you will need to do a little math here). 
 
 \vfill
 
-3. **Confidence interval and hypothesis test reasoning**: What is the difference between the null distribution (e.g. @fig-shuffle), used while performing a hypothesis test, and the sampling distribution, used to create a confidence interval? How are they similar?
+3. **Confidence interval and hypothesis test reasoning**: Compare the differences and similarities of the null distribution (e.g. @fig-shuffle), used while performing a hypothesis test, and the sampling distribution, used to create a confidence interval?
 
 \vfill
 
@@ -114,7 +114,7 @@ Show all reasoning. Each question is worth 8 points.
 
 For each statement, circle True or False and give a *brief* explanation. Each question is worth 5 points.
 
-1. **True / False**: If we swapped the roles of `volume` and `hightemp` in the regression, the value of the correlation between the two variables would stay the same. \vfill
+1. **True / False**: If we swapped the roles of `volume` and `hightemp` in the regression, the value of the correlation between the two variables would stay the same but the slope would change. \vfill
 
 2. **True / False**: A small p-value from the randomization test proves that high temperatures cause increased trail usage. \vfill
 
@@ -136,9 +136,11 @@ Each item shows a student’s written response. For each, decide whether it is *
 
 1. Student A states, "Because the observed slope (shown as the vertical line) falls far into the tail of the randomization distribution in Figure @fig-shuffle, the p-value must be close to 1, so there is no evidence of a relationship." Evaluate Student A’s conclusion.\vfill
 
+{{< pagebreak >}}
+
 2. Student B writes, "We must have made a mistake in our analysis because the intercept is negative and we can't have negative volume." Evaluate this interpretation using information from the dataset.\vfill
 
-3. Student C creates a different model with the data. The fit a line showing that there is a positive correlation between the high-temperature and the number of accidents and make the following claim. "Bikers are more likely to crash on days when it is hot." Assess this claim.\vfill
+3. Student C creates a different model with the data. They fit a line showing that there is a positive correlation between the high-temperature and the number of accidents and make the following claim. "Bikers are more likely to crash on days when it is hot." Assess this claim.\vfill
 
 {{< pagebreak >}}
 
