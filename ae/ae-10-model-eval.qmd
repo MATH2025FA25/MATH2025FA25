@@ -1,5 +1,5 @@
 ---
-title: "AE 05: Model Conditions and Evaluation"
+title: "AE 10: Model Evaluation"
 subtitle: "Songs on Spotify"
 editor: visual
 format:
@@ -37,7 +37,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable | class | description |
-|:-----------------|:-----------------|:-----------------------------------|
+|:------------------|:------------------|:---------------------------------|
 | track_id | character | Song unique ID |
 | track_name | character | Song Name |
 | track_artist | character | Song Artist |
