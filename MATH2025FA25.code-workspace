@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../MATH25025FA25-Exams"
 		}
 	]
 }
