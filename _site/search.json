@@ -3051,5 +3051,12 @@
     "title": "SLR: Mathematical models for inference",
     "section": "Recap",
     "text": "Recap\n\ncalculate confidence intervals for predictions\n\npredictions of averages: “confidence intervals”\npredictions for single observations: “prediction intervals”\n\nConditions for inference\n\nLinearity\nConstant Variance\nNormality\nIndependence"
+  },
+  {
+    "objectID": "slides/10-model-eval.html",
+    "href": "slides/10-model-eval.html",
+    "title": "Model Evaluation",
+    "section": "",
+    "text": "📋 AE 10 - Model Evaluation: Open in Deepnote\n\nComplete Exercise 0.\n\n\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)   # for plotting using formulas\nlibrary(broom)       # for formatting model output\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# Spotify Dataset\nspotify &lt;- read_csv(\"../data/spotify-popular.csv\")\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))\n\n\n\n\n\nspotify &lt;- spotify |&gt; \n  mutate(duration_min = duration_ms / 60000)\n\n\n\nWhat is this code doing?\nWhy might I be doing it?\n\n\n\n\n\n\nspotify_fit &lt;- lm(danceability ~ duration_min, data = spotify)\n\ntidy(spotify_fit, conf.int = TRUE, conf.level = 0.95) |&gt;\n   kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n0.781\n0.028\n28.351\n0.000\n0.727\n0.835\n\n\nduration_min\n-0.024\n0.008\n-3.151\n0.002\n-0.039\n-0.009\n\n\n\n\n\n\nThere is strong statistical evidence that there is a linear relationship between the duration of a song and it’s danceability.\nWe are 95% confidence that as the length of a song increases by one minute the danceability will decrease by between 0.009 and 0.039 units."
   }
 ]
