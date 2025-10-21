@@ -1,5 +1,5 @@
 ---
-title: "SLR: Transformations"
+title: "SLR: Outliers"
 author: "Prof. Eric Friedlander"
 footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
 logo: "../images/logo.png"

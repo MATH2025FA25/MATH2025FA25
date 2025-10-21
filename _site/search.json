@@ -2953,5 +2953,145 @@
     "title": "SLR: Transformations",
     "section": "Recap",
     "text": "Recap\n\nTransformations\n\nTransform \\(Y\\) to fix non-constant variance (and non-normality)\nTransform \\(X\\) to fix non-linearity\nPower transformations are powerful (concave up/drown \\(\\Rightarrow\\) power up/down)\nlogs allow us to model a lot of non-linear relationships with a linear model"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#computational-set-up",
+    "href": "slides/12-slr-outliers.html#computational-set-up",
+    "title": "SLR: Outliers",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for formatting model output\nlibrary(ggformula)   # for creating plots using formulas\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(moderndive)  # for house_price dataset\nlibrary(fivethirtyeight)   # for fandango dataset\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#types-of-unusual-points-in-slr",
+    "href": "slides/12-slr-outliers.html#types-of-unusual-points-in-slr",
+    "title": "SLR: Outliers",
+    "section": "Types of “Unusual” Points in SLR",
+    "text": "Types of “Unusual” Points in SLR\n\nOutlier: a data point that is far from the regression line\nInfluential point: a data point that has a large effect on the regression fit\n\n\n\n\nHow do we measure “far”?\nHow do we measure “effect on the fit”?"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#detecting-unusual-cases-overview",
+    "href": "slides/12-slr-outliers.html#detecting-unusual-cases-overview",
+    "title": "SLR: Outliers",
+    "section": "Detecting Unusual Cases: Overview",
+    "text": "Detecting Unusual Cases: Overview\n\nCompute residuals\n\n“raw”, standardized, studentized\n\nPlots of residuals\n\nboxplot, scatterplot, normal plot\n\nLeverage\n\nunusual values for the predictors"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#example-movie-scores",
+    "href": "slides/12-slr-outliers.html#example-movie-scores",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie scores",
+    "text": "Example: Movie scores\n\n\n\nData behind the FiveThirtyEight story Be Suspicious Of Online Movie Ratings, Especially Fandango’s\nIn the fivethirtyeight package: fandango\nContains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#data-prep",
+    "href": "slides/12-slr-outliers.html#data-prep",
+    "title": "SLR: Outliers",
+    "section": "Data prep",
+    "text": "Data prep\n\nRename Rotten Tomatoes columns as critics and audience\nRename the dataset as movie_scores\n\n\ndata(\"fandango\")\n\nmovie_scores &lt;- fandango |&gt;\n  rename(critics = rottentomatoes, \n         audience = rottentomatoes_user)"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#example-movie-scores-1",
+    "href": "slides/12-slr-outliers.html#example-movie-scores-1",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\n\nCode\nmovie_scores |&gt; \n  gf_point(audience ~ critics) |&gt; \n  gf_lm() |&gt; \n  gf_labs(x = \"Critics Score\", \n       y = \"Audience Score\")"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#boxplot-of-residuals",
+    "href": "slides/12-slr-outliers.html#boxplot-of-residuals",
+    "title": "SLR: Outliers",
+    "section": "Boxplot of Residuals",
+    "text": "Boxplot of Residuals\n\n\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit_aug &lt;- augment(movie_fit)\n\ngf_boxplot(.resid ~ \"\", data = movie_fit_aug, \n           fill = \"salmon\", ylab = \"Residuals\", xlab = \"\")\n\n\n\n\n\n\n\n\n\n\n\nDots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#standardized-residuals",
+    "href": "slides/12-slr-outliers.html#standardized-residuals",
+    "title": "SLR: Outliers",
+    "section": "Standardized Residuals",
+    "text": "Standardized Residuals\n\nRecall: Z-scores\nFact: If \\(X\\) has mean \\(\\mu\\) and standard deviation \\(\\sigma\\), then \\((X-\\mu)/\\sigma\\) has mean 0 and standard deviation 1\nFor residuals: mean 0 and standard deviation \\(\\hat{\\sigma}_\\epsilon\\)\nStandardized residuals: \\(\\frac{y_i-\\hat{y}_i}{\\hat{\\sigma}_\\epsilon}\\)\n\nLook for values beyond \\(\\pm 2\\) or \\(\\pm 3\\)"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#recap-augment-function",
+    "href": "slides/12-slr-outliers.html#recap-augment-function",
+    "title": "SLR: Outliers",
+    "section": "Recap: Augment function",
+    "text": "Recap: Augment function\n\nmovie_fit_aug |&gt; \n  head() |&gt; \n  kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naudience\ncritics\n.fitted\n.resid\n.hat\n.sigma\n.cooksd\n.std.resid\n\n\n\n\n86\n74\n70.69768\n15.302321\n0.0081597\n12.51615\n0.0061774\n1.2254688\n\n\n80\n85\n76.40313\n3.596866\n0.0112688\n12.57830\n0.0004743\n0.2885034\n\n\n90\n80\n73.80975\n16.190255\n0.0096283\n12.50817\n0.0081839\n1.2975389\n\n\n84\n18\n41.65173\n42.348272\n0.0207618\n12.06226\n0.1234982\n3.4131653\n\n\n28\n14\n39.57702\n-11.577018\n0.0234805\n12.54373\n0.0104964\n-0.9343768\n\n\n62\n63\n64.99222\n-2.992225\n0.0068844\n12.57943\n0.0001988\n-0.2394750"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#example-movie-scores-2",
+    "href": "slides/12-slr-outliers.html#example-movie-scores-2",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\n\nCode\np1 &lt;- movie_fit_aug |&gt;  # Augmented data\n  gf_boxplot(\"\" ~ .std.resid, \n           xlab = \"Standardized Residual\")\n\np2 &lt;- movie_fit_aug |&gt;  # Augmented data\n  gf_point(.std.resid ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Standardized Residual\")\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#externally-studentized-residuals",
+    "href": "slides/12-slr-outliers.html#externally-studentized-residuals",
+    "title": "SLR: Outliers",
+    "section": "(Externally) Studentized Residuals",
+    "text": "(Externally) Studentized Residuals\n\nConcern: An unusual value may exert great influence on the fit\n\nIts residual might be underestimated because the model “moves” a lot to fit it\nThe standard error may also be inflated due to the outlier error\n\nStudentize: Fit the model without that case, then find new \\(\\hat{\\sigma}_\\epsilon\\)"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#example-movie-scores-3",
+    "href": "slides/12-slr-outliers.html#example-movie-scores-3",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\nmovie_fit_aug |&gt;  # Augmented data\n  mutate(studentized_residual = rstudent(movie_fit)) |&gt; \n  gf_point(studentized_residual ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Studentized Residual\")"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#what-to-do-with-an-outlier",
+    "href": "slides/12-slr-outliers.html#what-to-do-with-an-outlier",
+    "title": "SLR: Outliers",
+    "section": "What to do with an outlier?",
+    "text": "What to do with an outlier?\n\nLook into it\nIf something is unusual about it and you can make a case that it is not a good representation of the population you can throw it out\nIf not and the value is just unusual, keep it"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#influence-vs.-leverage",
+    "href": "slides/12-slr-outliers.html#influence-vs.-leverage",
+    "title": "SLR: Outliers",
+    "section": "Influence vs. Leverage",
+    "text": "Influence vs. Leverage\n\nHigh Influence Point: point that DOES impact the regression line\nHigh Leverage Point: point with “potential” to impact regression line because \\(X\\)-value is unusual"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#high-leverage-low-influence",
+    "href": "slides/12-slr-outliers.html#high-leverage-low-influence",
+    "title": "SLR: Outliers",
+    "section": "High Leverage, Low Influence",
+    "text": "High Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#high-leverage-high-influence",
+    "href": "slides/12-slr-outliers.html#high-leverage-high-influence",
+    "title": "SLR: Outliers",
+    "section": "High Leverage, High Influence",
+    "text": "High Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#low-leverage-low-influence",
+    "href": "slides/12-slr-outliers.html#low-leverage-low-influence",
+    "title": "SLR: Outliers",
+    "section": "Low Leverage, Low Influence",
+    "text": "Low Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#low-leverage-high-influence",
+    "href": "slides/12-slr-outliers.html#low-leverage-high-influence",
+    "title": "SLR: Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#low-leverage-high-influence-1",
+    "href": "slides/12-slr-outliers.html#low-leverage-high-influence-1",
+    "title": "SLR: Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/12-slr-outliers.html#recap",
+    "href": "slides/12-slr-outliers.html#recap",
+    "title": "SLR: Outliers",
+    "section": "Recap",
+    "text": "Recap\n\nOutliers\n\nLeverage\nInfluence\nUsed plots of residuals, standardized residuals, and studentized residuals to diagnose outliers\n\nSpend the rest of class working on Exercise 6."
   }
 ]
