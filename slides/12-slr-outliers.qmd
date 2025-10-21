@@ -1,0 +1,293 @@
+---
+title: "SLR: Transformations"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+```
+
+
+
+## Computational set up
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)   # for data wrangling and visualization
+library(broom)       # for formatting model output
+library(ggformula)   # for creating plots using formulas
+library(scales)      # for pretty axis labels
+library(knitr)       # for pretty tables
+library(moderndive)  # for house_price dataset
+library(fivethirtyeight)   # for fandango dataset
+library(kableExtra)  # also for pretty tables
+library(patchwork)   # arrange plots
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+
+# Outliers
+
+## Types of "Unusual" Points in SLR
+
+- **Outlier**: a data point that is far from the regression line
+- **Influential point**: a data point that has a large effect on the regression fit
+
+. . .
+
+:::{.question}
+- How do we measure "far"?
+- How do we measure "effect on the fit"?
+:::
+
+## Detecting Unusual Cases: Overview
+
+1. Compute residuals
+    + "raw", standardized, studentized
+2. Plots of residuals
+    + boxplot, scatterplot, normal plot
+3. Leverage
+    + unusual values for the predictors
+  
+## Example: Movie scores
+
+::: columns
+::: {.column width="70%"}
+-   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings*](https://fivethirtyeight.com/features/fandango-movies-ratings/)[*, Especially Fandango's*](%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22)
+-   In the **fivethirtyeight** package: [`fandango`](https://fivethirtyeight-r.netlify.app/reference/fandango.html)
+-   Contains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores
+:::
+
+::: {.column width="30%"}
+![](images/06/fandango.png){fig-alt="Fandango logo" width="200"}
+
+![](images/06/imdb.png){fig-alt="IMDB logo" width="200"}
+
+![](images/06/rotten-tomatoes.png){fig-alt="Rotten Tomatoes logo" width="200"}
+
+![](images/06/metacritic.png){fig-alt="Metacritic logo" width="200"}
+:::
+:::
+
+## Data prep
+
+-   Rename Rotten Tomatoes columns as `critics` and `audience`
+-   Rename the dataset as `movie_scores`
+
+```{r data-prep}
+#| echo: true
+
+data("fandango")
+
+movie_scores <- fandango |>
+  rename(critics = rottentomatoes, 
+         audience = rottentomatoes_user)
+```
+
+## Example: Movie Scores
+
+```{r}
+#| code-fold: true
+#| 
+movie_scores |> 
+  gf_point(audience ~ critics) |> 
+  gf_lm() |> 
+  gf_labs(x = "Critics Score", 
+       y = "Audience Score")
+```
+
+## Boxplot of Residuals
+
+:::{.smaller}
+```{r}
+#| output-location: column
+movie_fit <- lm(audience ~ critics, data = movie_scores)
+movie_fit_aug <- augment(movie_fit)
+
+gf_boxplot(.resid ~ "", data = movie_fit_aug, 
+           fill = "salmon", ylab = "Residuals", xlab = "")
+```
+:::
+
+- Dots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles
+
+## Standardized Residuals
+
+:::{.incremental}
+- Recall: Z-scores
+- Fact: If $X$ has mean $\mu$ and standard deviation $\sigma$, then $(X-\mu)/\sigma$ has mean 0 and standard deviation 1
+- For residuals: mean 0 and standard deviation $\hat{\sigma}_\epsilon$
+- **Standardized residuals:** $\frac{y_i-\hat{y}_i}{\hat{\sigma}_\epsilon}$
+  + Look for values beyond $\pm 2$ or $\pm 3$
+:::
+
+## Recap: `Augment` function
+
+```{r}
+movie_fit_aug |> 
+  head() |> 
+  kable()
+```
+
+## Example: Movie Scores
+
+```{r}
+#| code-fold: true
+p1 <- movie_fit_aug |>  # Augmented data
+  gf_boxplot("" ~ .std.resid, 
+           xlab = "Standardized Residual")
+
+p2 <- movie_fit_aug |>  # Augmented data
+  gf_point(.std.resid ~ .fitted, 
+           xlab = "Predicted", ylab = "Standardized Residual")
+
+p1 + p2
+```
+
+## (Externally) Studentized Residuals
+
+- Concern: An unusual value may exert great influence on the fit
+  + Its residual might be underestimated because the model "moves" a lot to fit it
+  + The standard error may also be inflated due to the outlier error
+- **Studentize:** Fit the model *without* that case, then find new $\hat{\sigma}_\epsilon$
+
+## Example: Movie Scores
+
+```{r}
+#| code-line-numbers: |2
+movie_fit_aug |>  # Augmented data
+  mutate(studentized_residual = rstudent(movie_fit)) |> 
+  gf_point(studentized_residual ~ .fitted, 
+           xlab = "Predicted", ylab = "Studentized Residual")
+```
+
+## What to do with an outlier?
+
+- Look into it
+- If something is unusual about it and you can make a case that it is not a good representation of the population you can throw it out
+- If not and the value is just unusual, keep it
+
+## Influence vs. Leverage
+
+- **High Influence Point**: point that DOES impact the regression line
+- **High Leverage Point**: point with "potential" to impact regression line because $X$-value is unusual
+
+## High Leverage, Low Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=-2.93, -4.95, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(x > -2), fullrange=TRUE)
+```
+
+## High Leverage, High Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = -2.93, y = 10))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=-2.93, y = 10, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(x > -2), fullrange=TRUE)
+```
+
+## Low Leverage, Low Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = 0, y = -20))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=0, y = -20, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(y > -10), fullrange=TRUE)
+```
+
+
+## Low Leverage, High Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = 0, y = -100))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red") +
+  annotate("point", x=0, y = -100, color = "red", shape = "O", size = 6) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(y > -10), fullrange=TRUE)
+```
+
+## Low Leverage, High Influence
+
+```{r}
+#| echo: false
+set.seed(1988)
+simulated_data <- tibble(x = rnorm(50, 0, 1), y = 3*x+5 + rnorm(50, 0, 1)) |> 
+  filter(x > -2) |>  
+  rbind(tibble(x = 0, y = -100))
+ggplot(aes(x = x, y = y), data = simulated_data) +
+  geom_point() +
+  geom_smooth( method = lm, se = FALSE, linetype="dotted", color = "red", fullrange=TRUE) +
+  geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(y > -10), fullrange=TRUE) +
+  coord_cartesian(ylim = c(-1, 12))
+```
+
+## Recap {.smaller}
+
+- Outliers
+  + Leverage
+  + Influence
+  + Used plots of residuals, standardized residuals, and studentized residuals to diagnose outliers
+- Spend the rest of class working on Exercise 6.

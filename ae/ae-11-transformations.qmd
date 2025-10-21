@@ -1,0 +1,76 @@
+---
+title: "AE 06: Transformations"
+subtitle: "House Prices"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-06".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/17093/assignments/202836) and locate your `AE 06` assignment to get started.
+
+-   Upload the `ae-06.qmd` files into the folder you just created. The `.qmd` and HTML responses are due in Canvas. You can check the due date on the Canvas assignment.
+:::
+
+```{r}
+#| label: load-packages
+#| warning: false
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(yardstick)
+library(mosaic)
+library(broom)
+library(knitr)
+library(patchwork) #arrange plots in a grid
+```
+
+## Data
+
+The data set for this assignment contains house sale prices for King County, which includes Seattle, from homes
+sold between May 2014 and May 2015. It was originally Obtained from [Kaggle.com](https://www.kaggle.com/harlfoxem/housesalesprediction/data). Our goal will be to try and predict the sale price of a house from the houses square footage.
+
+## Variables
+
+- Outcome
+  + `price`: the sale price in dollars
+- Predictor 
+  + `sqft_living`: the square footage of the home
+  
+## Exercise 0
+
+The dataset that we'll be using today is called `house_prices` and is contained in the `moderndive` package. Load the `moderndive` package.
+
+## Exercise 1
+
+Generate a scatter plot of the data. If you finish before other groups, visualize what a linear model would look like if fitted to this data. Based on what you see, do you think the conditions required of linear regression will be met?
+
+## Exercise 2
+
+Generate a scatter plot of the data but take the `log` of `price`. You can do this by putting `log(price) ~ sqft_living` instead of `price ~ sqft_living` in your call to `gf_point`. Do you think the data is ready for a linear regression model?
+
+## Exercise 3
+
+Generate a scatter plot of the data but take the `log` of `price` and a power transformation of `sqrt_living`. You can do this by putting `log(price) ~ sqft_living^(power)` instead of `price ~ sqft_living` in your call to `gf_point`. Once you're done, your data should be ready for modeling.
+
+## Exercise 4
+
+Fit the model above by using the `lm` function. Output the coefficients of your model. Can do this by using the formula (the thing with the `~`), just put `I()` around any power. For example `I(sqrt_living^(1/2))` instead of `sqrt_living^(1/2)`.
+
+## Exercise 5 (Difficult)
+
+Write your final model in the board in two ways. One with $\log(Y)$ and one with $Y$ is on the right side of the equal sign. You will want to use the properties of logs.
+
+## Exercise 6 (Time Permitting)
+
+Analyze the residuals for the model you created model.
+
+## To submit the AE:
+
+::: callout-important
+-   Render the document to produce the HTML file with all of your work from today's class.
+-   Upload your QMD and HTM files to the Canvas assignment.
+:::
