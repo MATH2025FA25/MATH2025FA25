@@ -2664,8 +2664,8 @@
     "objectID": "slides/11-slr-transformations.html#application-exercise",
     "href": "slides/11-slr-transformations.html#application-exercise",
     "title": "SLR: Transformations",
-    "section": "Application exercise",
-    "text": "Application exercise\n\n📋 AE 10/11 - Transformations + Outliers: Complete in Deepnote\n\nComplete Exercises 0-3."
+    "section": "",
+    "text": "📋 AE 10/11 - Transformations + Outliers: Complete in Deepnote\n\nComplete Exercises 0-3."
   },
   {
     "objectID": "slides/11-slr-transformations.html#computational-set-up",
@@ -2679,7 +2679,7 @@
     "href": "slides/11-slr-transformations.html#data-house_prices",
     "title": "SLR: Transformations",
     "section": "Data: house_prices",
-    "text": "Data: house_prices\n\nContains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015\nObtained from Kaggle.com\nImported from the moderndive package\n\n\nglimpse(house_prices)\n\nRows: 21,613\nColumns: 21\n$ id            &lt;chr&gt; \"7129300520\", \"6414100192\", \"5631500400\", \"2487200875\", …\n$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…\n$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…\n$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…\n$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…\n$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…\n$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…\n$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…\n$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…\n$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…\n$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…\n$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…\n$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …\n$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…\n$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …\n$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…\n$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…\n$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…\n$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …"
+    "text": "Data: house_prices\n\n\nContains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015\nObtained from Kaggle.com\nImported from the moderndive package\n\n\n\nglimpse(house_prices)\n\nRows: 21,613\nColumns: 21\n$ id            &lt;chr&gt; \"7129300520\", \"6414100192\", \"5631500400\", \"2487200875\", …\n$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…\n$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…\n$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…\n$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…\n$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…\n$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…\n$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…\n$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…\n$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…\n$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…\n$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…\n$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …\n$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…\n$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …\n$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…\n$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…\n$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…\n$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …"
   },
   {
     "objectID": "slides/11-slr-transformations.html#variables",
@@ -2693,7 +2693,7 @@
     "href": "slides/11-slr-transformations.html#recap-fit-the-model",
     "title": "SLR: Transformations",
     "section": "Recap: Fit the model",
-    "text": "Recap: Fit the model\n\nhp_fit &lt;- lm(price ~ sqft_living, data = house_prices)\ntidy(hp_fit) |&gt;  kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-43580.7431\n4402.689690\n-9.898663\n0\n\n\nsqft_living\n280.6236\n1.936399\n144.920356\n0\n\n\n\n\n\n\nWrite down the model:\n\nModel: \\(\\hat{\\text{price}} = -43580.74 + 280.62\\times\\text{sqft_living}\\)\n\nInterpret the slope and intercept in the context of this problem:\n\nInterpretation: If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost -$43,580.74."
+    "text": "Recap: Fit the model\n\nhp_fit &lt;- lm(price ~ sqft_living, data = house_prices)\ntidy(hp_fit) |&gt;  kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-43580.7431\n4402.689690\n-9.898663\n0\n\n\nsqft_living\n280.6236\n1.936399\n144.920356\n0\n\n\n\n\n\n\n\nWrite down the model:\n\nModel: \\(\\hat{\\text{price}} = -43580.74 + 280.62\\times\\text{sqft_living}\\)\n\nInterpret the slope and intercept in the context of this problem:\n\nInterpretation: If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost -$43,580.74."
   },
   {
     "objectID": "slides/11-slr-transformations.html#recap-fit-the-model-1",
@@ -2707,7 +2707,7 @@
     "href": "slides/11-slr-transformations.html#recap-model-conditions",
     "title": "SLR: Transformations",
     "section": "Recap: Model conditions",
-    "text": "Recap: Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other\n\n\n\nHow should we check these assumptions?"
+    "text": "Recap: Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other\n\n. . .\n\nHow should we check these assumptions?"
   },
   {
     "objectID": "slides/11-slr-transformations.html#recap-residual-histogram",
@@ -3093,5 +3093,278 @@
     "title": "SLR: Outliers",
     "section": "Recap",
     "text": "Recap\n\nOutliers\n\nLeverage\nInfluence\nUsed plots of residuals, standardized residuals, and studentized residuals to diagnose outliers\n\nSpend the rest of class analyzing the outliers with your housing data."
+  },
+  {
+    "objectID": "project/project-overview.html",
+    "href": "project/project-overview.html",
+    "title": "Project Overview",
+    "section": "",
+    "text": "Important dates\n\n\n\n\n11/5/25 (Wednesday) Project 1: Pilot\n11/12/25 (Wednesday) Project 2: Power\n11/19/25 (Wednesday) Project 3: Analysis\n12/1/25 (Monday) Project 4: Full draft\n12/10/25 (Wednesday) Project 5: Final (edited) Project and Poster Presentation"
+  },
+  {
+    "objectID": "project/project-overview.html#pilot",
+    "href": "project/project-overview.html#pilot",
+    "title": "Project Overview",
+    "section": "Pilot",
+    "text": "Pilot\nThe pilot project will be based on a preliminary data collection. Details about the structure of the data are given in the assignment, note that the response variable must be numerical. You will have an opportunity to collect more data as we go, but the better the original data are, the better the follow-up data collection will be. The goal of the pilot study assignment is to develop a preliminary research question and to collect some initial data, both in preparation for your group Island project."
+  },
+  {
+    "objectID": "project/project-overview.html#power",
+    "href": "project/project-overview.html#power",
+    "title": "Project Overview",
+    "section": "Power",
+    "text": "Power\nThe power analysis will use the pilot data to estimate the sample size which will be needed to see the effect of interest. Most of the code will be written by the professor, but you will need to understand both why the power analysis is important and how the power analysis is implemented. The goal of the power analysis assignment is to estimate how many observations are needed for an Islands project to reach significance."
+  },
+  {
+    "objectID": "project/project-overview.html#preliminary-analysis",
+    "href": "project/project-overview.html#preliminary-analysis",
+    "title": "Project Overview",
+    "section": "Preliminary Analysis",
+    "text": "Preliminary Analysis\nThe preliminary analysis will contain numerical and graphical summaries. Additionally, one regression model should be run. The goal of the preliminary data analysis assignment is to start working with the variables including visualizations, numerical summaries, and modeling."
+  },
+  {
+    "objectID": "project/project-overview.html#full-draft",
+    "href": "project/project-overview.html#full-draft",
+    "title": "Project Overview",
+    "section": "Full Draft",
+    "text": "Full Draft\nThe complete draft of the project will contain a full set of analyses designed to answer the research question (and practice with multiple regression). The paper will continue to have sections which communicate the study background and methods to the reader. All plots and tables should be well labelled. The goal of the assignment is to provide a complete analysis of the data collected on the Islands as a research project."
+  },
+  {
+    "objectID": "project/project-overview.html#presentation",
+    "href": "project/project-overview.html#presentation",
+    "title": "Project Overview",
+    "section": "Presentation",
+    "text": "Presentation\nThe presentation will bring together your work and showcase your ideas. You will have 5 minutes to report on your study, using slides (visualizations from your analyses). Each group member will be expected to talk. The goal of this assignment is to synthesize your study and your results into a clear and succinct presentation to your peers.\nYour group may choose whether to present during reading days (May 6, 2022) or during the time allocated to our course for the final exam (May 13, 2022)."
+  },
+  {
+    "objectID": "project/project-overview.html#final-project",
+    "href": "project/project-overview.html#final-project",
+    "title": "Project Overview",
+    "section": "Final Project",
+    "text": "Final Project\nThe final project will compile all of the project pieces together into a beautiful and clear report. The paper will have sections which communicate the study background and methods to the reader as well a conclusions of the experiment. All plots and tables should be well labelled. The goal of the assignment is to provide a complete analysis of the data collected on the Islands as a research project.\nAlong with the final project report, each student will fill out an individual reflection piece and a group dynamic report.\nA detailed grading rubric is provided to assist you in putting the entire project together."
+  },
+  {
+    "objectID": "project/project-overview.html#acknowledgements",
+    "href": "project/project-overview.html#acknowledgements",
+    "title": "Project Overview",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThis project is adapted from Dr. Jo Hardin’s Semester Project for her Introduction to Biostatistics course at Pomona College."
+  },
+  {
+    "objectID": "slides/11-slr-transformations.html",
+    "href": "slides/11-slr-transformations.html",
+    "title": "SLR: Transformations",
+    "section": "",
+    "text": "📋 AE 10/11 - Transformations + Outliers: Complete in Deepnote\n\nComplete Exercises 0-3."
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html",
+    "href": "ae/ae-11-transformations.html",
+    "title": "AE 06: Transformations",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-06”.\nGo to the Canvas and locate your AE 06 assignment to get started.\nUpload the ae-06.qmd files into the folder you just created. The .qmd and HTML responses are due in Canvas. You can check the due date on the Canvas assignment.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(yardstick)\nlibrary(mosaic)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#data",
+    "href": "ae/ae-11-transformations.html#data",
+    "title": "AE 06: Transformations",
+    "section": "Data",
+    "text": "Data\nThe data set for this assignment contains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015. It was originally Obtained from Kaggle.com. Our goal will be to try and predict the sale price of a house from the houses square footage."
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#variables",
+    "href": "ae/ae-11-transformations.html#variables",
+    "title": "AE 06: Transformations",
+    "section": "Variables",
+    "text": "Variables\n\nOutcome\n\nprice: the sale price in dollars\n\nPredictor\n\nsqft_living: the square footage of the home"
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#exercise-0",
+    "href": "ae/ae-11-transformations.html#exercise-0",
+    "title": "AE 06: Transformations",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nThe dataset that we’ll be using today is called house_prices and is contained in the moderndive package. Load the moderndive package."
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#exercise-1",
+    "href": "ae/ae-11-transformations.html#exercise-1",
+    "title": "AE 06: Transformations",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nGenerate a scatter plot of the data. If you finish before other groups, visualize what a linear model would look like if fitted to this data. Based on what you see, do you think the conditions required of linear regression will be met?"
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#exercise-2",
+    "href": "ae/ae-11-transformations.html#exercise-2",
+    "title": "AE 06: Transformations",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nGenerate a scatter plot of the data but take the log of price. You can do this by putting log(price) ~ sqft_living instead of price ~ sqft_living in your call to gf_point. Do you think the data is ready for a linear regression model?"
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#exercise-3",
+    "href": "ae/ae-11-transformations.html#exercise-3",
+    "title": "AE 06: Transformations",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nGenerate a scatter plot of the data but take the log of price and a power transformation of sqrt_living. You can do this by putting log(price) ~ sqft_living^(power) instead of price ~ sqft_living in your call to gf_point. Once you’re done, your data should be ready for modeling."
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#exercise-4",
+    "href": "ae/ae-11-transformations.html#exercise-4",
+    "title": "AE 06: Transformations",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFit the model above by using the lm function. Output the coefficients of your model. Can do this by using the formula (the thing with the ~), just put I() around any power. For example I(sqrt_living^(1/2)) instead of sqrt_living^(1/2)."
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#exercise-5-difficult",
+    "href": "ae/ae-11-transformations.html#exercise-5-difficult",
+    "title": "AE 06: Transformations",
+    "section": "Exercise 5 (Difficult)",
+    "text": "Exercise 5 (Difficult)\nWrite your final model in the board in two ways. One with \\(\\log(Y)\\) and one with \\(Y\\) is on the right side of the equal sign. You will want to use the properties of logs."
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#exercise-6-time-permitting",
+    "href": "ae/ae-11-transformations.html#exercise-6-time-permitting",
+    "title": "AE 06: Transformations",
+    "section": "Exercise 6 (Time Permitting)",
+    "text": "Exercise 6 (Time Permitting)\nAnalyze the residuals for the model you created model."
+  },
+  {
+    "objectID": "ae/ae-11-transformations.html#to-submit-the-ae",
+    "href": "ae/ae-11-transformations.html#to-submit-the-ae",
+    "title": "AE 06: Transformations",
+    "section": "To submit the AE:",
+    "text": "To submit the AE:\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your QMD and HTM files to the Canvas assignment."
+  },
+  {
+    "objectID": "project/project-overview.html#roles",
+    "href": "project/project-overview.html#roles",
+    "title": "Project Overview",
+    "section": "Roles",
+    "text": "Roles\nEach person has two roles which may change across stages but must be clearly designated for each submission.\n\nOrganizational role (group dynamics)\n\nProject Manager: Keeps the group organized, schedules meetings, and maintains workflow plans.\n\nTask Manager: Tracks individual progress and follows up between meetings. Calls meetings as needed.\n\nFacilitator: Ensures all voices are heard. Encourages participation and prevents dominance.\n\nTechnical role (project facilitation)\n\nDirector of Research: Oversees literature/background research, manages citations, coordinates searches.\n\nDirector of Computation: Designs and integrates code. Ensures all scripts and analyses align.\nReporter: Maintains documentation and compiles written materials. Edits and unifies final report."
+  },
+  {
+    "objectID": "project/project-overview.html#group-accountability",
+    "href": "project/project-overview.html#group-accountability",
+    "title": "Project Overview",
+    "section": "Group Accountability",
+    "text": "Group Accountability\n\nAddress workload imbalances with the instructor if necessary.\n\nAll group members typically receive the same project grade."
+  },
+  {
+    "objectID": "project/project-overview.html#grading-criteria",
+    "href": "project/project-overview.html#grading-criteria",
+    "title": "Project Overview",
+    "section": "Grading Criteria",
+    "text": "Grading Criteria\n\nTechnical depth and sophistication\n\nQuality of written report (organization, clarity, correctness, appropriate visuals)\n\nQuality of oral presentation (organization, visuals, ability to answer questions)\n\nGroup collaboration and equitable workload distribution"
+  },
+  {
+    "objectID": "project/project-pilot.html",
+    "href": "project/project-pilot.html",
+    "title": "Project 1: Pilot Study",
+    "section": "",
+    "text": "Quick Facts\n\n\n\n\n\nWednesday, November 5, 2025\n\n\n\nThe goal of the pilot study assignment is to develop a preliminary research question and to collect some initial data, both in preparation for your group Island project.\n\n\n\nIn assigned Deepnote project:\n\nNames of investigators and their roles\n\nResearch question (1–2 sentences)\n\nDraft of methods section\n\nIn Canvas:\n\nLink to Google Sheet with data"
+  },
+  {
+    "objectID": "project/project-pilot.html#due-date",
+    "href": "project/project-pilot.html#due-date",
+    "title": "Project 1: Pilot Study",
+    "section": "",
+    "text": "Wednesday, November 5, 2025\nThe goal of the pilot study assignment is to develop a preliminary research question and to collect some initial data, both in preparation for your group Island project."
+  },
+  {
+    "objectID": "project/project-pilot.html#group-formation",
+    "href": "project/project-pilot.html#group-formation",
+    "title": "Project 1: Pilot Study",
+    "section": "Group Formation",
+    "text": "Group Formation\nYou have been assigned a group of three people. All assignments must be completed with the same group."
+  },
+  {
+    "objectID": "project/project-pilot.html#accessing-the-islands",
+    "href": "project/project-pilot.html#accessing-the-islands",
+    "title": "Project 1: Pilot Study",
+    "section": "Accessing the Islands",
+    "text": "Accessing the Islands\nVisit: https://theislands.umn.edu/login.php\nIf you have forgotten your password, click “Need to set or reset your password?”, enter your College of Idaho email, and a reset link will be sent.\nContact the instructor if you cannot access the Islands.\nTip: The Visitor Center (square south of Arcadia) provides useful information.\nTip: Multiple islanders can complete tasks simultaneously, but each islander can only complete one task at a time."
+  },
+  {
+    "objectID": "project/project-pilot.html#explore-the-academy",
+    "href": "project/project-pilot.html#explore-the-academy",
+    "title": "Project 1: Pilot Study",
+    "section": "Explore the Academy",
+    "text": "Explore the Academy\nQuestions to guide exploration:\n\nWhat studies are interesting?\n\nIs the response variable quantitative or categorical?\n\nHow many explanatory variables exist, and what types are they?\n\nHow many observational units were collected?"
+  },
+  {
+    "objectID": "project/project-pilot.html#preliminaries",
+    "href": "project/project-pilot.html#preliminaries",
+    "title": "Project 1: Pilot Study",
+    "section": "Preliminaries",
+    "text": "Preliminaries\n\nWork through one shared login to the Islands.\n\nUse a shared Google Sheet for data (tidy format: one row per person, one column per variable).\n\nUse your assigned Deepnote project for writing.\n\nResponse variable must be quantitative.\n\nCollect at least four demographic information that you think may confound your results (at least two must be numeric)."
+  },
+  {
+    "objectID": "project/project-pilot.html#research-question",
+    "href": "project/project-pilot.html#research-question",
+    "title": "Project 1: Pilot Study",
+    "section": "Research Question",
+    "text": "Research Question\n\nDevelop a question that is interesting and feasible.\n\nYou may use the PICO structure (Population, Intervention, Comparison, Outcome).\n\nDescription: https://guides.mclibrary.duke.edu/ebm/pico\nSample PICO questions: https://libraryguides.nau.edu/c.php?g=665927&p=4682772\n\nQuestions can be experimental or observational.\n\nFinal form: 1–2 sentences describing the population, treatment/exposure, comparison, and outcome."
+  },
+  {
+    "objectID": "project/project-pilot.html#methods-section",
+    "href": "project/project-pilot.html#methods-section",
+    "title": "Project 1: Pilot Study",
+    "section": "Methods Section",
+    "text": "Methods Section\nClearly describe the following in your methods section:\n\nStudy design (e.g., experimental, case-control, cohort)\n\nTarget population\n\nInclusion/exclusion criteria\n\nSampling methods\n\nExplanatory variable(s)\nOutcome (numeric response variable)\n\nDemographic variables (≥4 total, ≥2 numeric)\n\nRandomization and blinding methods (if applicable)\n\nStudy implementation and timing\n\nPlanned statistical methods (to appear in final project)\n\nWrite clearly and concisely without repetition."
+  },
+  {
+    "objectID": "project/project-pilot.html#preliminary-data-collection",
+    "href": "project/project-pilot.html#preliminary-data-collection",
+    "title": "Project 1: Pilot Study",
+    "section": "Preliminary Data Collection",
+    "text": "Preliminary Data Collection\n\nDescribe how subjects were selected.\n\nRandom sampling is not required, but justify representativeness.\n\nMeasure at least 20 islanders.\n\nOnly one group member submits for the group."
+  },
+  {
+    "objectID": "project/project-pilot.html#group-project-roles",
+    "href": "project/project-pilot.html#group-project-roles",
+    "title": "Project 1: Pilot Study",
+    "section": "Group Project Roles",
+    "text": "Group Project Roles\n\nClass Norms\n\nNo one is as smart as the entire group.\n\nEveryone contributes and helps others.\n\nEveryone is responsible for understanding the full project.\n\n\n\nGroup Dynamic Roles\nProject Manager:\nKeeps the group organized, schedules meetings, and maintains workflow plans.\nTask Manager:\nTracks individual progress and follows up between meetings. Calls meetings as needed.\nFacilitator:\nEnsures all voices are heard. Encourages participation and prevents dominance.\n\n\nProject Roles\nDirector of Research:\nOversees literature/background research, manages citations, coordinates searches.\nDirector of Computation:\nDesigns and integrates code. Ensures all scripts and analyses align.\nReporter:\nMaintains documentation and compiles written materials. Edits and unifies final report."
+  },
+  {
+    "objectID": "project/project-pilot.html#group-accountability",
+    "href": "project/project-pilot.html#group-accountability",
+    "title": "Project 1: Pilot Study",
+    "section": "Group Accountability",
+    "text": "Group Accountability\n\nAddress workload imbalances with the instructor if necessary.\n\nAll group members typically receive the same project grade.\n\n\nGrading Criteria\n\nTechnical depth and sophistication\n\nQuality of written report (organization, clarity, correctness, appropriate visuals)\n\nQuality of oral presentation (organization, visuals, ability to answer questions)\n\nGroup collaboration and equitable workload distribution\n\n\n\nAttendance\nTrack attendance at meetings and record individual contributions.\nWorkload should be approximately equal among members."
+  },
+  {
+    "objectID": "project/project-group-dynamics.html",
+    "href": "project/project-group-dynamics.html",
+    "title": "Group Dynamics",
+    "section": "",
+    "text": "No one is as smart as the entire group.\n\nEveryone contributes and helps others.\n\nEveryone is responsible for understanding the full project."
+  },
+  {
+    "objectID": "project/project-group-dynamics.html#roles",
+    "href": "project/project-group-dynamics.html#roles",
+    "title": "Group Dynamics",
+    "section": "Roles",
+    "text": "Roles\nEach person has two roles which may change across stages but must be clearly designated for each submission.\n\nOrganizational role (group dynamics)\n\nProject Manager: Keeps the group organized, schedules meetings, and maintains workflow plans.\n\nTask Manager: Tracks individual progress and follows up between meetings. Calls meetings as needed.\n\nFacilitator: Ensures all voices are heard. Encourages participation and prevents dominance.\n\nTechnical role (project facilitation)\n\nDirector of Research: Oversees literature/background research, manages citations, coordinates searches.\n\nDirector of Computation: Designs and integrates code. Ensures all scripts and analyses align.\nReporter: Maintains documentation and compiles written materials. Edits and unifies final report."
+  },
+  {
+    "objectID": "project/project-group-dynamics.html#group-accountability",
+    "href": "project/project-group-dynamics.html#group-accountability",
+    "title": "Group Dynamics",
+    "section": "Group Accountability",
+    "text": "Group Accountability\n\nAddress workload imbalances with the instructor if necessary.\n\nAll group members typically receive the same project grade."
+  },
+  {
+    "objectID": "project/project-group-dynamics.html#acknowledgements",
+    "href": "project/project-group-dynamics.html#acknowledgements",
+    "title": "Group Dynamics",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThis project is adapted from Dr. Jo Hardin’s Semester Project for her Introduction to Biostatistics course at Pomona College."
+  },
+  {
+    "objectID": "project/project-group-dynamics.html#class-norms",
+    "href": "project/project-group-dynamics.html#class-norms",
+    "title": "Group Dynamics",
+    "section": "",
+    "text": "No one is as smart as the entire group.\n\nEveryone contributes and helps others.\n\nEveryone is responsible for understanding the full project."
   }
 ]

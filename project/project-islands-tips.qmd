@@ -1,0 +1,24 @@
+---
+title: "Working with the Islands"
+---
+
+## Accessing the Islands
+
+Visit: [https://theislands.umn.edu/login.php](https://theislands.umn.edu/login.php)
+
+If you have forgotten your password, click **“Need to set or reset your password?”**, enter your College of Idaho email, and a reset link will be sent.  
+Contact the instructor if you cannot access the Islands.
+
+**Tip:** The Visitor Center (square south of Arcadia) provides useful information.
+
+
+**Tip:** Multiple islanders can complete tasks simultaneously, but each islander can only complete **one task at a time**.
+
+## Explore the Academy
+
+Questions to guide exploration:
+
+- What studies are interesting?  
+- Is the response variable quantitative or categorical?  
+- How many explanatory variables exist, and what types are they?  
+- How many observational units were collected?

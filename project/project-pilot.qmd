@@ -1,0 +1,77 @@
+---
+title: "Project 1: Pilot Study"
+---
+
+:::{.callout-important icon=false}
+
+#### Quick Facts
+
+#### Due Date
+
+**Wednesday, November 5, 2025**
+
+#### Goal
+
+The goal of the pilot study assignment is to develop a preliminary research question and to collect some initial data, both in preparation for your group Island project.
+
+#### To Turn In
+
+In assigned Deepnote project:
+
+- Names of investigators and their roles  
+- Research question (1–2 sentences)  
+- Draft of methods section
+
+In Canvas:
+
+- Link to Google Sheet with data  
+:::
+
+## Preliminaries
+
+- Review [the Islands tips](project-islands-tips.qmd) document.
+- Work through **one shared login** to the Islands.  
+- Use a **shared Google Sheet** for data (tidy format: one row per person, one column per variable).  
+- Use your **assigned Deepnote project** for writing.  
+- Response variable must be **quantitative**.  
+- Collect at least **four** **demographic information** that you think may confound your results (at least two must be numeric).  
+
+
+## Research Question
+
+-   Develop a question that is **interesting** and **feasible**.  
+-   You may use the **PICO** structure (Population, Intervention, Comparison, Outcome).
+    -   Description:  https://guides.mclibrary.duke.edu/ebm/pico
+    -   Sample PICO questions: https://libraryguides.nau.edu/c.php?g=665927&p=4682772
+-   Questions can be **experimental** or **observational**.
+
+**Final form:** 1–2 sentences describing the population, treatment/exposure, comparison, and outcome.
+
+## Methods Section
+
+Clearly describe the following in your methods section:
+
+- Study design (e.g., experimental, case-control, cohort)  
+- Target population  
+- Inclusion/exclusion criteria  
+- Sampling methods  
+- Explanatory variable(s)
+- Outcome (numeric response variable)  
+- Demographic variables (≥4 total, ≥2 numeric)  
+- Randomization and blinding methods (if applicable)  
+- Study implementation and timing  
+- Planned statistical methods (to appear in final project)
+
+Write clearly and concisely without repetition.
+
+
+## Preliminary Data Collection
+
+- Describe how subjects were selected.  
+- Random sampling is not required, but justify representativeness.  
+- Measure **at least 20 islanders**.  
+
+
+
+Only one group member submits for the group.
+

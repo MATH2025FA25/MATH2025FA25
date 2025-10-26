@@ -1,0 +1,31 @@
+---
+title: "Group Dynamics"
+---
+
+## Class Norms
+
+- No one is as smart as the entire group.  
+- Everyone contributes and helps others.  
+- Everyone is responsible for understanding the full project.
+
+## Roles
+
+Each person has two roles which may change across stages but must be clearly designated for each submission.
+
+- **Organizational role** (group dynamics)
+    -   **Project Manager:**  Keeps the group organized, schedules meetings, and maintains workflow plans.  
+    -   **Task Manager:**  Tracks individual progress and follows up between meetings. Calls meetings as needed.  
+    -   **Facilitator:**  Ensures all voices are heard. Encourages participation and prevents dominance.
+-   **Technical role** (project facilitation)
+    -   **Director of Research:**  Oversees literature/background research, manages citations, coordinates searches.  
+    -   **Director of Computation:**  Designs and integrates code. Ensures all scripts and analyses align.
+    -   **Reporter:**  Maintains documentation and compiles written materials. Edits and unifies final report.
+
+## Group Accountability
+
+- Address workload imbalances with the instructor if necessary.  
+- All group members typically receive the same project grade.
+
+## Acknowledgements
+
+This project is adapted from Dr. Jo Hardin's Semester Project for her Introduction to Biostatistics course at Pomona College.
