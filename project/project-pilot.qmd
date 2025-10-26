@@ -33,9 +33,6 @@ In Canvas:
 - Work through **one shared login** to the Islands.  
 - Use a **shared Google Sheet** for data (tidy format: one row per person, one column per variable).  
 - Use your **assigned Deepnote project** for writing.  
-- Response variable must be **quantitative**.  
-- Collect at least **four** **demographic information** that you think may confound your results (at least two must be numeric).  
-
 
 ## Research Question
 
@@ -46,6 +43,21 @@ In Canvas:
 -   Questions can be **experimental** or **observational**.
 
 **Final form:** 1–2 sentences describing the population, treatment/exposure, comparison, and outcome.
+
+## Design a Study
+
+- Read [this Chapter](https://openintrostat.github.io/ims/data-design.html) on study design.
+- Design a study to answer your research question.
+    - Describe how subjects were selected.  
+    - Random sampling is not required, but justify representativeness.  
+    - Response variable must be **quantitative**.  
+    - Collect at least **four** **demographic information** that you think may confound your results (at least two must be numeric).  
+
+
+### Preliminary Data Collection
+
+Using your study design, measure **at least 20 islanders** for a pilot study.
+
 
 ## Methods Section
 
@@ -63,15 +75,3 @@ Clearly describe the following in your methods section:
 - Planned statistical methods (to appear in final project)
 
 Write clearly and concisely without repetition.
-
-
-## Preliminary Data Collection
-
-- Describe how subjects were selected.  
-- Random sampling is not required, but justify representativeness.  
-- Measure **at least 20 islanders**.  
-
-
-
-Only one group member submits for the group.
-

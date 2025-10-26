@@ -1,0 +1,48 @@
+---
+title: "Project 3: Preliminary Analysis"
+---
+
+:::{.callout-important icon=false}
+
+#### Quick Facts
+
+#### Due Date
+
+**Wednesday, November 19, 2025**
+
+#### Goal
+
+The goal of this assignment is to begin analyzing your collected data, producing visualizations, summaries, and your first regression model.
+
+#### To Turn In
+
+In existing Deepnote project create a **new notebook** called **Preliminary Analysis** and including your preliminary analysis. All members contribute to **both** writing and computation.
+ 
+:::
+
+
+## Assignment Deliverables
+
+Your preliminary analysis should include the following components:
+
+1. **Research Question**  
+   Restate your question and provide sufficient background so that all variables are clearly defined.
+
+2. **Sampling Reflection**  
+   Discuss whether aspects of your sampling may limit generalization to all Islanders.
+
+3. **Visualizations (3–4 minimum)**  
+   - Each plot must have accurate and descriptive labels.  
+   - Include at least one plot assessing randomization effectiveness (e.g., demographic balance across treatments).  
+   - Each visualization must be followed by at least one interpretive sentence—no “naked plots.” That is, each visualization must have a *purpose*.
+
+4. **Numerical Summaries**  
+   - Provide descriptive statistics for relevant variables.  
+   - Each table or summary must be followed by explanatory text—no “naked tables.”
+
+5. **Regression Model**  
+   - Include output from at least one regression predicting the response variable.  
+   - Provide a short interpretation (one or more sentences).
+
+6. **Reproducibility**  
+   - All analysis must be in a single notebook with code integrated into the narrative. **DO NOT** write all your code at the top and then the text below. 

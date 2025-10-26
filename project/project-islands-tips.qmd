@@ -4,15 +4,19 @@ title: "Working with the Islands"
 
 ## Accessing the Islands
 
-Visit: [https://theislands.umn.edu/login.php](https://theislands.umn.edu/login.php)
+Visit: [https://islands.smp.uq.edu.au/index.php](https://islands.smp.uq.edu.au/index.php)
 
 If you have forgotten your password, click **“Need to set or reset your password?”**, enter your College of Idaho email, and a reset link will be sent.  
 Contact the instructor if you cannot access the Islands.
 
-**Tip:** The Visitor Center (square south of Arcadia) provides useful information.
+## Explore the Visitor Center
 
+The Visitor Center contains information about the islands and the islanders. A good place to start is by looking through the "Guides Tab" in this page. I've linked some videos below that will help you get started:
 
-**Tip:** Multiple islanders can complete tasks simultaneously, but each islander can only complete **one task at a time**.
+- [Island Overview](https://youtu.be/iJPgXuq6yFg)
+- [Working with the Islanders](https://youtu.be/J00KIC0y-E8)
+- [Finding Groups on the Islands](https://youtu.be/NFSWwxKiFZs)
+- [Time on the Islands](https://youtu.be/R9T0PS8hV6w)
 
 ## Explore the Academy
 
@@ -22,3 +26,7 @@ Questions to guide exploration:
 - Is the response variable quantitative or categorical?  
 - How many explanatory variables exist, and what types are they?  
 - How many observational units were collected?
+
+## Islanders Tips
+
+-   Multiple islanders can complete tasks simultaneously, but each islander can only complete **one task at a time**.

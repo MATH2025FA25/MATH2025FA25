@@ -1,0 +1,49 @@
+---
+title: "Project 5: Final Submission + Reflection"
+---
+
+:::{.callout-important icon=false}
+
+#### Quick Facts
+
+#### Due Date
+
+**Wednesday, December 10, 2025**
+
+#### Goal
+
+The goal of the complete draft and final edited project is to synthesize all prior work into a cohesive research paper analyzing your collected Islands data.
+
+#### To Turn In
+
+- As a group:
+   -  In existing Deepnote project go back to the notebook you used for the draft and make any changes or additions based on feedback you received. All members contribute to **both** writing and computation.
+- Individually:
+   - Personal reflection as a PDF file submitted individually to Canvas.
+   - Group dynamic report submitted as a PDF file individually to Canvas.
+:::
+
+
+## Assignment Deliverables
+
+See [project-draft.qmd](project-draft.qmd) for details on the group submission of the complete draft of your Islands research project combining all prior components into a unified, publication-style report.
+
+## Reflection and Group Dynamics
+
+Each student must individually submit:
+
+- **Personal Reflection (1–2 pages):**  
+  Describe what you learned from the Islands Project.  
+  Address questions such as:
+  - Which parts were most enjoyable or most challenging?  
+  - Which parts connected most to class material?  
+  - Which skills transfer to other contexts?  
+  - What statistical ideas do you want to explore further?
+
+- **Group Dynamic Report:**  
+  Reflect on collaboration quality and role distribution.  
+  Discuss:
+  - Whether all members contributed equally.  
+  - How well task division and assigned roles worked.  
+  - Any concerns or commendations regarding group performance.  
+  - Anything you wish to share confidentially about teamwork.

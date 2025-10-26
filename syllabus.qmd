@@ -106,7 +106,7 @@ There will be two in-class exams in this course. Each exam will be completed wit
 
 ### Project
 
-The purpose of the [final project](/project/project-instructions.qmd) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question. The project will be completed in groups of two, and each group will present their work through a written report and poster presentation taking place during the final exam. More information about the project will be provided during the semester.
+The purpose of the [final project](/project/project-overview.qmd) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question. The project will be completed in groups of two, and each group will present their work through a written report and poster presentation taking place during the final exam. More information about the project will be provided during the semester.
 
 ## Grading
 

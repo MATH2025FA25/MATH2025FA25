@@ -1,0 +1,52 @@
+---
+title: "Project 4: Final Draft"
+---
+
+:::{.callout-important icon=false}
+
+#### Quick Facts
+
+#### Due Date
+
+**Monday, December 1, 2025**
+
+#### Goal
+
+The goal of the complete draft and final edited project is to synthesize all prior work into a cohesive research paper analyzing your collected Islands data.
+
+#### To Turn In
+
+In existing Deepnote project go back to the notebook you used for the pilot (the one including your methods section) and complete this part of the assignment there. All members contribute to **both** writing and computation.
+ 
+:::
+
+
+## Assignment Deliverables
+
+Submit a **complete draft** of your Islands research project that combines all previous components into a unified, publication-style report.  
+The report must include the following sections:
+
+1. **Motivation and Research Question**  
+   - Explain the motivation and background of your study.  
+   - Clearly state the research question.
+
+2. **Methods Section**  
+   - Fully describe the design, sampling, intervention/exposure, response, demographics, and statistical approach. You should build upon and refine the methods section from your pilot submission.  
+   - Keep this concise and non-redundant.
+
+3. **Power Analysis Summary**  
+   - Include a brief recap of your power analysis and sample size determination.  
+   - Show key calculations but omit full output.
+
+4. **Visual and Numerical Summaries**  
+   - Present descriptive analyses of all key variables.
+
+5. **Multiple Regression Model**  
+   - Fit and describe a multiple regression model addressing your main research question.  
+   - Discuss rationale for variable inclusion and model structure.
+
+6. **Discussion of Significance**  
+   - Interpret which variables are significant and how they relate to your hypotheses.
+
+7. **Conclusion**  
+   - Summarize the findings, implications, and potential extensions.

@@ -1,0 +1,92 @@
+---
+title: "Project Rubric"
+---
+
+## Overview
+
+This rubric outlines the evaluation criteria for the **Islands Research Project**.  
+
+## Evaluation Structure
+
+| Component | Weight |
+|------------|---------|
+| Final Project | **40%** |
+| Interim Assignments (Complete/Detailed) | **30%** |
+| Poster Presentation | **10%** |
+| Individual Reflection | **15%** |
+| Group Assessment | **5%** |
+
+## Rubric for Grading the Final Project
+
+### Introduction — *10 Points Total*
+
+| Criteria | Points |
+|-----------|---------|
+| Background and significance are clear, logically organized, and move from general to specific. | 0–4 |
+| Objective or research question is stated clearly; final paragraph defines hypothesis/goals. | 0–4 |
+| Consideration of ethical or practical implications (e.g., usefulness, harm). | 0–2 |
+
+### Methods — *20 Points Total*
+
+| Criteria | Points |
+|-----------|---------|
+| Study design: provides enough information for replication. | 0–4 |
+| Sampling and eligibility: well described and justified. | 0–4 |
+| Variable descriptions: includes definitions, levels, and any transformations. | 0–1 |
+| Sample size justification and power analysis are clearly explained. | 0–6 |
+| Statistical methods are appropriate, logical, and motivated by the research question. | 0–5 |
+
+### Results — *25 Points Total*
+
+| Criteria | Points |
+|-----------|---------|
+| Baseline variables summarized and demographic balance addressed. | 0–5 |
+| Results of interest explained, summarized, and visualized appropriately. | 0–10 |
+| Each table is described (no “naked” tables). | 0–3 |
+| Each figure is described (no “naked” figures). | 0–3 |
+| Technical assumptions assessed and documented. | 0–4 |
+
+### Discussion and Conclusions — *10 Points Total*
+
+| Criteria | Points |
+|-----------|---------|
+| Restates objectives and key results clearly. | 0–2 |
+| States whether results support or reject the hypothesis. | 0–3 |
+| Cites specific analyses and results to support interpretations; discusses limitations. | 0–3 |
+| Suggests ideas for future work based on current findings. | 0–2 |
+
+
+### Limitations — *10 Points Total*
+
+| Criteria | Points |
+|-----------|---------|
+| Sampling limitations and generalizability described and evaluated. | 0–4 |
+| Randomization limitations and causal inference discussed. | 0–4 |
+| Other study constraints (sample size, missing variables, etc.) acknowledged. | 0–2 |
+
+### Coverage and Clarity — *25 Points Total*
+
+| Criteria | Points |
+|-----------|---------|
+| Descriptive and appropriate title. | 0–1 |
+| Names of all group members included. | 0–1 |
+| Dataset complete, tidy (rows = observations, columns = variables). | 0–2 |
+| Organization and labeled sections clear and professional. | 0–4 |
+| Edited and proofread (minimal grammar/spelling issues). | 0–4 |
+| Tables and figures labeled, with captions and readable axes. | 0–5 |
+| Work reproducible; instructor can run notebook with no edits. | 0–4 |
+| Code interspersed with text for clarity. | 0–4 |
+
+### Total Points
+
+**100 Possible Points**
+
+| Category | Points |
+|-----------|---------|
+| Introduction | 10 |
+| Methods | 20 |
+| Results | 25 |
+| Discussion / Conclusions | 10 |
+| Limitations | 10 |
+| Coverage / Clarity | 25 |
+| **Total** | **100** |

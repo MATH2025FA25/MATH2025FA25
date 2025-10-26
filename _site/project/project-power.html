@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Group Dynamics – MATH 2025 - Fall 2025</title>
+<title>Project 2: Power Analysis – MATH 2025 - Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +65,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../project/project-islands-tips.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/project-overview.html">Project</a></li><li class="breadcrumb-item"><a href="../project/project-group-dynamics.html">Group Dynamics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Project 2: Power Analysis</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,13 +199,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/project-overview.html" class="sidebar-item-text sidebar-link">
@@ -192,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/project-group-dynamics.html" class="sidebar-item-text sidebar-link active">
+  <a href="../project/project-group-dynamics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Group Dynamics</span></a>
   </div>
 </li>
@@ -208,19 +242,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#class-norms" id="toc-class-norms" class="nav-link active" data-scroll-target="#class-norms">Class Norms</a></li>
-  <li><a href="#roles" id="toc-roles" class="nav-link" data-scroll-target="#roles">Roles</a></li>
-  <li><a href="#group-accountability" id="toc-group-accountability" class="nav-link" data-scroll-target="#group-accountability">Group Accountability</a></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#explanation-of-power-analysis" id="toc-explanation-of-power-analysis" class="nav-link active" data-scroll-target="#explanation-of-power-analysis">Explanation of Power Analysis</a></li>
+  <li><a href="#assignment-deliverables" id="toc-assignment-deliverables" class="nav-link" data-scroll-target="#assignment-deliverables">Assignment Deliverables</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/project/project-group-dynamics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/project/project-power.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/project-overview.html">Project</a></li><li class="breadcrumb-item"><a href="../project/project-group-dynamics.html">Group Dynamics</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Group Dynamics</h1>
+<h1 class="title">Project 2: Power Analysis</h1>
 </div>
 
 
@@ -237,48 +269,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="class-norms" class="level2">
-<h2 class="anchored" data-anchor-id="class-norms">Class Norms</h2>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Facts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<section id="due-date" class="level4">
+<h4 class="anchored" data-anchor-id="due-date">Due Date</h4>
+<p><strong>Wednesday, November 12th, 2025</strong></p>
+</section>
+<section id="goal" class="level4">
+<h4 class="anchored" data-anchor-id="goal">Goal</h4>
+<p>The goal of this assignment is to estimate how many observations are required for an Islands project to achieve statistical significance.</p>
+</section>
+<section id="to-turn-in" class="level4">
+<h4 class="anchored" data-anchor-id="to-turn-in">To Turn In</h4>
+<p>In existing Deepnote project create a <strong>new notebook</strong> called <strong>Power Analysis</strong> and including your power analysis. All members contribute to <strong>both</strong> writing and computation.</p>
+</section>
+</div>
+</div>
+<section id="explanation-of-power-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="explanation-of-power-analysis">Explanation of Power Analysis</h2>
+<p>A power analysis estimates the sample size required to detect an effect of a given size with a given degree of confidence. In this assignment, you will use the pilot data collected in Part 1 to estimate the sample size needed to detect the effect you are interested in studying.</p>
+<p>The <strong>power</strong> of a statistical test is the probability of rejecting the null hypothesis when the alternative hypothesis is true. To calculate this number, we need to assume something called an <strong>effect size</strong>. The effect size is a measure of the magnitude of the effect of the treatment or intervention being studied. Larger effect sizes are easier to detect, while smaller effect sizes require larger sample sizes to achieve the same level of power.</p>
+<p>Power is affected by several factors, including:</p>
 <ul>
-<li>No one is as smart as the entire group.<br>
-</li>
-<li>Everyone contributes and helps others.<br>
-</li>
-<li>Everyone is responsible for understanding the full project.</li>
+<li>Effect size: Larger effects are easier to detect, requiring smaller sample sizes.</li>
+<li>Sample size: Larger samples provide more information and increase power.</li>
+<li>Significance level (()): Lowering () (e.g., from 0.05 to 0.01) reduces power.</li>
+<li>Variability: More variable data requires larger samples to detect effects.</li>
 </ul>
 </section>
-<section id="roles" class="level2">
-<h2 class="anchored" data-anchor-id="roles">Roles</h2>
-<p>Each person has two roles which may change across stages but must be clearly designated for each submission.</p>
+<section id="assignment-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-deliverables">Assignment Deliverables</h2>
+<p>Using your pilot study data:</p>
+<ol type="1">
+<li><strong>Compute the sample size necessary to achieve a power = 0.7</strong> You can repurpose the code below to perform a simulation-based power analysis. Modify the <code>sample_size</code> variable until you achieve the desired power.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># modify this value until you get a power of 0.7</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sampling_distribution <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> <span class="fu">lm</span>(response <span class="sc">~</span> explanatory, <span class="at">data =</span> <span class="fu">resample</span>(pilot_data, <span class="at">n =</span> sample_size)) <span class="sc">|&gt;</span> <span class="fu">tidy</span>() <span class="sc">|&gt;</span> <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"explanatory"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>power <span class="ot">&lt;-</span> <span class="fu">mean</span>(sampling_distribution<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>power</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><p><strong>Reflect</strong> on whether the required sample size is realistic given the context of your study and decide on how many samples you will collect for your full study.</p></li>
+<li><p><strong>Estimate actual power</strong> given your planned sample size (if smaller than ideal).</p></li>
+<li><p><strong>Justify</strong> your chosen number of observations.</p>
 <ul>
-<li><strong>Organizational role</strong> (group dynamics)
-<ul>
-<li><strong>Project Manager:</strong> Keeps the group organized, schedules meetings, and maintains workflow plans.<br>
-</li>
-<li><strong>Task Manager:</strong> Tracks individual progress and follows up between meetings. Calls meetings as needed.<br>
-</li>
-<li><strong>Facilitator:</strong> Ensures all voices are heard. Encourages participation and prevents dominance.</li>
+<li>Include both statistical reasoning (from power analysis) and logistical or research-based constraints.</li>
 </ul></li>
-<li><strong>Technical role</strong> (project facilitation)
+<li><p><strong>State whether the pilot data</strong> will be included in your full dataset, and justify the decision.</p></li>
+<li><p><strong>Ensure reproducibility</strong>:</p>
 <ul>
-<li><strong>Director of Research:</strong> Oversees literature/background research, manages citations, coordinates searches.<br>
-</li>
-<li><strong>Director of Computation:</strong> Designs and integrates code. Ensures all scripts and analyses align.</li>
-<li><strong>Reporter:</strong> Maintains documentation and compiles written materials. Edits and unifies final report.</li>
+<li>Analysis must run from your in your Deepnote project.</li>
 </ul></li>
-</ul>
-</section>
-<section id="group-accountability" class="level2">
-<h2 class="anchored" data-anchor-id="group-accountability">Group Accountability</h2>
-<ul>
-<li>Address workload imbalances with the instructor if necessary.<br>
-</li>
-<li>All group members typically receive the same project grade.</li>
-</ul>
-</section>
-<section id="acknowledgements" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
-<p>This project is adapted from Dr.&nbsp;Jo Hardin’s Semester Project for her Introduction to Biostatistics course at Pomona College.</p>
+<li><p>The analysis and justification must be <strong>clear and readable</strong>.</p></li>
+</ol>
 
 
 </section>
@@ -683,15 +735,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../project/project-islands-tips.html" class="pagination-link" aria-label="Tips on Islands">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tips on Islands</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -700,7 +743,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/project/project-group-dynamics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/edit/main/project/project-power.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MATH2025FA25/MATH2025FA25/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

@@ -1,0 +1,64 @@
+---
+title: "Project 2: Power Analysis"
+---
+
+:::{.callout-important icon=false}
+
+#### Quick Facts
+
+#### Due Date
+
+**Wednesday, November 12th, 2025**
+
+#### Goal
+
+The goal of this assignment is to estimate how many observations are required for an Islands project to achieve statistical significance.
+
+#### To Turn In
+
+In existing Deepnote project create a **new notebook** called **Power Analysis** and including your power analysis. All members contribute to **both** writing and computation.
+ 
+:::
+
+## Explanation of Power Analysis
+
+A power analysis estimates the sample size required to detect an effect of a given size with a given degree of confidence.  In this assignment, you will use the pilot data collected in Part 1 to estimate the sample size needed to detect the effect you are interested in studying.
+
+The **power** of a statistical test is the probability of rejecting the null hypothesis when the alternative hypothesis is true. To calculate this number, we need to assume something called an **effect size**. The effect size is a measure of the magnitude of the effect of the treatment or intervention being studied. Larger effect sizes are easier to detect, while smaller effect sizes require larger sample sizes to achieve the same level of power.
+
+Power is affected by several factors, including:
+
+- Effect size: Larger effects are easier to detect, requiring smaller sample sizes.
+- Sample size: Larger samples provide more information and increase power.
+- Significance level (\(\alpha\)): Lowering \(\alpha\) (e.g., from 0.05 to 0.01) reduces power.
+- Variability: More variable data requires larger samples to detect effects.
+
+## Assignment Deliverables
+
+Using your pilot study data:
+
+1. **Compute the sample size necessary to achieve a power = 0.7** You can repurpose the code below to perform a simulation-based power analysis. Modify the `sample_size` variable until you achieve the desired power.
+
+```{r}
+#| echo: true
+#| eval: false
+
+sample_size <- 100 # modify this value until you get a power of 0.7
+sampling_distribution <- do(1000) * lm(response ~ explanatory, data = resample(pilot_data, n = sample_size)) |> tidy() |> filter(term == "explanatory")
+power <- mean(sampling_distribution$p.value < 0.05)
+power
+```
+
+2. **Reflect** on whether the required sample size is realistic given the context of your study and decide on how many samples you will collect for your full study.
+
+3. **Estimate actual power** given your planned sample size (if smaller than ideal).
+
+4. **Justify** your chosen number of observations.  
+   - Include both statistical reasoning (from power analysis) and logistical or research-based constraints.  
+
+5. **State whether the pilot data** will be included in your full dataset, and justify the decision.
+
+6. **Ensure reproducibility**:  
+   - Analysis must run from your in your Deepnote project.  
+
+7. The analysis and justification must be **clear and readable**.  
