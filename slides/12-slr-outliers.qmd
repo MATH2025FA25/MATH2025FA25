@@ -290,4 +290,4 @@ ggplot(aes(x = x, y = y), data = simulated_data) +
   + Leverage
   + Influence
   + Used plots of residuals, standardized residuals, and studentized residuals to diagnose outliers
-- Spend the rest of class working on Exercise 6.
+- Spend the rest of class analyzing the outliers with your housing data.

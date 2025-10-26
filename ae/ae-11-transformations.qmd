@@ -30,16 +30,15 @@ library(patchwork) #arrange plots in a grid
 
 ## Data
 
-The data set for this assignment contains house sale prices for King County, which includes Seattle, from homes
-sold between May 2014 and May 2015. It was originally Obtained from [Kaggle.com](https://www.kaggle.com/harlfoxem/housesalesprediction/data). Our goal will be to try and predict the sale price of a house from the houses square footage.
+The data set for this assignment contains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015. It was originally Obtained from [Kaggle.com](https://www.kaggle.com/harlfoxem/housesalesprediction/data). Our goal will be to try and predict the sale price of a house from the houses square footage.
 
 ## Variables
 
-- Outcome
-  + `price`: the sale price in dollars
-- Predictor 
-  + `sqft_living`: the square footage of the home
-  
+-   Outcome
+    -   `price`: the sale price in dollars
+-   Predictor
+    -   `sqft_living`: the square footage of the home
+
 ## Exercise 0
 
 The dataset that we'll be using today is called `house_prices` and is contained in the `moderndive` package. Load the `moderndive` package.
