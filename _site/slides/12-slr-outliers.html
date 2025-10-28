@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Prof.&nbsp;Eric Friedlander">
   <title>MATH 2025 - Fall 2025 – SLR: Outliers</title>
@@ -247,10 +247,7 @@ Prof.&nbsp;Eric Friedlander
 <section id="detecting-unusual-cases-overview" class="slide level2">
 <h2>Detecting Unusual Cases: Overview</h2>
 <ol type="1">
-<li>Compute residuals
-<ul>
-<li>“raw”, standardized, studentized</li>
-</ul></li>
+<li>Compute residuals</li>
 <li>Plots of residuals
 <ul>
 <li>boxplot, scatterplot, normal plot</li>
@@ -329,153 +326,6 @@ Prof.&nbsp;Eric Friedlander
 <li>Dots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles</li>
 </ul>
 </section>
-<section id="standardized-residuals" class="slide level2">
-<h2>Standardized Residuals</h2>
-<ul>
-<li class="fragment">Recall: Z-scores</li>
-<li class="fragment">Fact: If <span class="math inline">\(X\)</span> has mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, then <span class="math inline">\((X-\mu)/\sigma\)</span> has mean 0 and standard deviation 1</li>
-<li class="fragment">For residuals: mean 0 and standard deviation <span class="math inline">\(\hat{\sigma}_\epsilon\)</span></li>
-<li class="fragment"><strong>Standardized residuals:</strong> <span class="math inline">\(\frac{y_i-\hat{y}_i}{\hat{\sigma}_\epsilon}\)</span>
-<ul>
-<li class="fragment">Look for values beyond <span class="math inline">\(\pm 2\)</span> or <span class="math inline">\(\pm 3\)</span></li>
-</ul></li>
-</ul>
-</section>
-<section id="recap-augment-function" class="slide level2">
-<h2>Recap: <code>Augment</code> function</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>movie_fit_aug <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb5-3"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 14%">
-<col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">audience</th>
-<th style="text-align: right;">critics</th>
-<th style="text-align: right;">.fitted</th>
-<th style="text-align: right;">.resid</th>
-<th style="text-align: right;">.hat</th>
-<th style="text-align: right;">.sigma</th>
-<th style="text-align: right;">.cooksd</th>
-<th style="text-align: right;">.std.resid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">86</td>
-<td style="text-align: right;">74</td>
-<td style="text-align: right;">70.69768</td>
-<td style="text-align: right;">15.302321</td>
-<td style="text-align: right;">0.0081597</td>
-<td style="text-align: right;">12.51615</td>
-<td style="text-align: right;">0.0061774</td>
-<td style="text-align: right;">1.2254688</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">76.40313</td>
-<td style="text-align: right;">3.596866</td>
-<td style="text-align: right;">0.0112688</td>
-<td style="text-align: right;">12.57830</td>
-<td style="text-align: right;">0.0004743</td>
-<td style="text-align: right;">0.2885034</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">73.80975</td>
-<td style="text-align: right;">16.190255</td>
-<td style="text-align: right;">0.0096283</td>
-<td style="text-align: right;">12.50817</td>
-<td style="text-align: right;">0.0081839</td>
-<td style="text-align: right;">1.2975389</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">84</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">41.65173</td>
-<td style="text-align: right;">42.348272</td>
-<td style="text-align: right;">0.0207618</td>
-<td style="text-align: right;">12.06226</td>
-<td style="text-align: right;">0.1234982</td>
-<td style="text-align: right;">3.4131653</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">39.57702</td>
-<td style="text-align: right;">-11.577018</td>
-<td style="text-align: right;">0.0234805</td>
-<td style="text-align: right;">12.54373</td>
-<td style="text-align: right;">0.0104964</td>
-<td style="text-align: right;">-0.9343768</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">63</td>
-<td style="text-align: right;">64.99222</td>
-<td style="text-align: right;">-2.992225</td>
-<td style="text-align: right;">0.0068844</td>
-<td style="text-align: right;">12.57943</td>
-<td style="text-align: right;">0.0001988</td>
-<td style="text-align: right;">-0.2394750</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="example-movie-scores-2" class="slide level2">
-<h2>Example: Movie Scores</h2>
-<div class="cell" data-layout-align="center">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>p1 <span class="ot">&lt;-</span> movie_fit_aug <span class="sc">|&gt;</span>  <span class="co"># Augmented data</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">gf_boxplot</span>(<span class="st">""</span> <span class="sc">~</span> .std.resid, </span>
-<span id="cb6-3"><a></a>           <span class="at">xlab =</span> <span class="st">"Standardized Residual"</span>)</span>
-<span id="cb6-4"><a></a></span>
-<span id="cb6-5"><a></a>p2 <span class="ot">&lt;-</span> movie_fit_aug <span class="sc">|&gt;</span>  <span class="co"># Augmented data</span></span>
-<span id="cb6-6"><a></a>  <span class="fu">gf_point</span>(.std.resid <span class="sc">~</span> .fitted, </span>
-<span id="cb6-7"><a></a>           <span class="at">xlab =</span> <span class="st">"Predicted"</span>, <span class="at">ylab =</span> <span class="st">"Standardized Residual"</span>)</span>
-<span id="cb6-8"><a></a></span>
-<span id="cb6-9"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-
-</div>
-<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
-<section id="externally-studentized-residuals" class="slide level2">
-<h2>(Externally) Studentized Residuals</h2>
-<ul>
-<li>Concern: An unusual value may exert great influence on the fit
-<ul>
-<li>Its residual might be underestimated because the model “moves” a lot to fit it</li>
-<li>The standard error may also be inflated due to the outlier error</li>
-</ul></li>
-<li><strong>Studentize:</strong> Fit the model <em>without</em> that case, then find new <span class="math inline">\(\hat{\sigma}_\epsilon\)</span></li>
-</ul>
-</section>
-<section id="example-movie-scores-3" class="slide level2">
-<h2>Example: Movie Scores</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>movie_fit_aug <span class="sc">|&gt;</span>  <span class="co"># Augmented data</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">mutate</span>(<span class="at">studentized_residual =</span> <span class="fu">rstudent</span>(movie_fit)) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a></a>  <span class="fu">gf_point</span>(studentized_residual <span class="sc">~</span> .fitted, </span>
-<span id="cb7-4"><a></a>           <span class="at">xlab =</span> <span class="st">"Predicted"</span>, <span class="at">ylab =</span> <span class="st">"Studentized Residual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="what-to-do-with-an-outlier" class="slide level2">
 <h2>What to do with an outlier?</h2>
 <ul>
@@ -494,23 +344,23 @@ Prof.&nbsp;Eric Friedlander
 <section id="high-leverage-low-influence" class="slide level2">
 <h2>High Leverage, Low Influence</h2>
 
-<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="high-leverage-high-influence" class="slide level2">
 <h2>High Leverage, High Influence</h2>
 
-<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="low-leverage-low-influence" class="slide level2">
 <h2>Low Leverage, Low Influence</h2>
 
-<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="low-leverage-high-influence" class="slide level2">
 <h2>Low Leverage, High Influence</h2>
 
-<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="low-leverage-high-influence-1" class="slide level2">
 <h2>Low Leverage, High Influence</h2>
 
-<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="12-slr-outliers_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="recap" class="slide level2 smaller">
 <h2>Recap</h2>
 <ul>
@@ -518,7 +368,7 @@ Prof.&nbsp;Eric Friedlander
 <ul>
 <li>Leverage</li>
 <li>Influence</li>
-<li>Used plots of residuals, standardized residuals, and studentized residuals to diagnose outliers</li>
+<li>Used plots of residuals to diagnose outliers</li>
 </ul></li>
 <li>Spend the rest of class analyzing the outliers with your housing data.</li>
 </ul>

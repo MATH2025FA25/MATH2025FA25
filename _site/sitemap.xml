@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/12-slr-outliers.html</loc>
-    <lastmod>2025-10-26T15:16:45.041Z</lastmod>
+    <lastmod>2025-10-28T17:20:41.685Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/10-model-eval.html</loc>
@@ -178,7 +178,7 @@
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/schedule.html</loc>
-    <lastmod>2025-10-19T20:38:57.431Z</lastmod>
+    <lastmod>2025-10-20T13:47:05.382Z</lastmod>
   </url>
   <url>
     <loc>https://math2025fa25.netlify.app/slides/01-big-picture.html</loc>
@@ -207,5 +207,13 @@
   <url>
     <loc>https://math2025fa25.netlify.app/support.html</loc>
     <lastmod>2025-08-25T22:37:33.405Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math2025fa25.netlify.app/slides/13-mlr.html</loc>
+    <lastmod>2025-10-28T21:39:08.322Z</lastmod>
+  </url>
+  <url>
+    <loc>https://math2025fa25.netlify.app/slides/14-categorical-predictors.html</loc>
+    <lastmod>2025-10-28T21:33:05.904Z</lastmod>
   </url>
 </urlset>

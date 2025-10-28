@@ -81,7 +81,6 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 ## Detecting Unusual Cases: Overview
 
 1. Compute residuals
-    + "raw", standardized, studentized
 2. Plots of residuals
     + boxplot, scatterplot, normal plot
 3. Leverage
@@ -149,55 +148,6 @@ gf_boxplot(.resid ~ "", data = movie_fit_aug,
 
 - Dots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles
 
-## Standardized Residuals
-
-:::{.incremental}
-- Recall: Z-scores
-- Fact: If $X$ has mean $\mu$ and standard deviation $\sigma$, then $(X-\mu)/\sigma$ has mean 0 and standard deviation 1
-- For residuals: mean 0 and standard deviation $\hat{\sigma}_\epsilon$
-- **Standardized residuals:** $\frac{y_i-\hat{y}_i}{\hat{\sigma}_\epsilon}$
-  + Look for values beyond $\pm 2$ or $\pm 3$
-:::
-
-## Recap: `Augment` function
-
-```{r}
-movie_fit_aug |> 
-  head() |> 
-  kable()
-```
-
-## Example: Movie Scores
-
-```{r}
-#| code-fold: true
-p1 <- movie_fit_aug |>  # Augmented data
-  gf_boxplot("" ~ .std.resid, 
-           xlab = "Standardized Residual")
-
-p2 <- movie_fit_aug |>  # Augmented data
-  gf_point(.std.resid ~ .fitted, 
-           xlab = "Predicted", ylab = "Standardized Residual")
-
-p1 + p2
-```
-
-## (Externally) Studentized Residuals
-
-- Concern: An unusual value may exert great influence on the fit
-  + Its residual might be underestimated because the model "moves" a lot to fit it
-  + The standard error may also be inflated due to the outlier error
-- **Studentize:** Fit the model *without* that case, then find new $\hat{\sigma}_\epsilon$
-
-## Example: Movie Scores
-
-```{r}
-#| code-line-numbers: |2
-movie_fit_aug |>  # Augmented data
-  mutate(studentized_residual = rstudent(movie_fit)) |> 
-  gf_point(studentized_residual ~ .fitted, 
-           xlab = "Predicted", ylab = "Studentized Residual")
-```
 
 ## What to do with an outlier?
 
@@ -289,5 +239,4 @@ ggplot(aes(x = x, y = y), data = simulated_data) +
 - Outliers
   + Leverage
   + Influence
-  + Used plots of residuals, standardized residuals, and studentized residuals to diagnose outliers
-- Spend the rest of class analyzing the outliers with your housing data.
+  + Used plots of residuals to diagnose outliers

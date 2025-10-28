@@ -1,0 +1,306 @@
+---
+title: "Multiple linear regression (MLR)"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+## Application Exercise
+
+::: appex
+📋 AE 13 - Multiple Linear Regression and Categorical Predictors
+:::
+
+Complete Exercise 0-3.
+
+## Computational setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)
+library(broom)
+library(mosaic)
+library(ISLR2)
+library(patchwork)
+library(knitr)
+library(coursekata)
+library(kableExtra)
+library(scales)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+
+# Create new variable
+
+Credit <- Credit |> 
+  mutate(Has_Balance = factor(ifelse(Balance == 0, "No", "Yes")))
+```
+
+# Considering multiple variables
+
+## Data: Credit Cards
+
+The data is from the `Credit` data set in the **ISLR2** R package. It is a simulated data set of 400 credit card customers.
+
+```{r}
+#| echo: false
+Credit |>  glimpse()
+```
+
+## Variables
+
+**Features (another name for predictors)**
+
+-   `Cards`: Number of credit cards
+-   `Rating`: Credit Rating
+-   `Has_Balance`: Whether they have a credit card balance
+
+**Outcome**
+
+-   `Limit`: Credit limit
+
+## Outcome: `Limit`
+
+```{r}
+#| code-fold: true
+Credit |> 
+  gf_density(~Limit, fill = "steelblue") |> 
+  gf_labs(title = "Distribution of credit limit",
+          x = "Credit Limit")|> 
+  gf_refine(scale_x_continuous(labels = dollar_format()))
+```
+
+```{r}
+#| echo: false
+favstats(~Limit, data = Credit)|>
+  kable("html") |> 
+  kable_styling(font_size = 24)
+```
+
+## Predictors {.small}
+
+```{r}
+#| code-fold: true
+#| out.width: "100%"
+p1 <- Credit |> 
+  gf_density(~Limit, fill = "steelblue") |> 
+  gf_labs(title = "Distribution of credit limit",
+          x = "Credit Limit")|> 
+    gf_refine(scale_x_continuous(labels = dollar_format()))
+
+p2 <- Credit |> 
+  gf_histogram(~Rating, binwidth = 50) |> 
+  gf_labs(title = "",
+       x = "Credit Rating")
+
+p3 <- Credit |> 
+  gf_histogram(~Cards, binwidth = 1) |> 
+  gf_labs(title = "",
+       x = "Number of Credit Cards")
+
+p4 <- Credit |> 
+  gf_bar(~Has_Balance)|> 
+  gf_labs(title = "",
+       x = "Has a Credit Card Balance")
+
+(p1 + p2) / (p3 + p4)
+```
+
+## Outcome vs. predictors {.small}
+
+```{r}
+#| code-fold: true
+library(GGally)
+
+Credit |> 
+  select(Limit, Rating, Cards, Has_Balance) |> 
+  ggpairs()
+```
+
+## Single vs. multiple predictors
+
+So far we've used a *single predictor variable* to understand variation in a quantitative response variable
+
+. . .
+
+Now we want to use *multiple predictor variables* to understand variation in a quantitative response variable
+
+# Multiple linear regression
+
+## Multiple linear regression (MLR) {.smaller}
+
+Based on the analysis goals, we will use a **multiple linear regression** model of the following form
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Rating} + \hat{\beta}_2 \text{Cards}
+\end{aligned}
+$$
+
+Similar to simple linear regression, this model assumes that at each combination of the predictor variables, the values of `Limit` follow a Normal distribution.
+
+## Multiple linear regression
+
+**Recall:** The simple linear regression model assumes
+
+$$
+Y|X\sim N(\beta_0 + \beta_1 X, \sigma_{\epsilon}^2)
+$$
+
+. . .
+
+**Similarly:** The multiple linear regression model assumes
+
+$$
+Y|X_1, X_2, \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p, \sigma_{\epsilon}^2)
+$$
+
+## Multiple linear regression
+
+At any combination of the predictors, the mean value of the response $Y$, is
+
+$$
+\mu_{Y|X_1, \ldots, X_p} = \beta_0 + \beta_1 X_{1} + \beta_2 X_2 + \dots + \beta_p X_p
+$$
+
+. . .
+
+Using multiple linear regression, we can estimate the mean response for any combination of predictors
+
+$$
+\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X_{1} + \hat{\beta}_2 X_2 + \dots + \hat{\beta}_p X_{p}
+$$
+
+
+## Model fit
+
+```{r}
+#| echo: false
+lim_fit <- lm(Limit ~ Rating   + Cards,
+      data = Credit)
+
+tidy(lim_fit) |>
+  kable()
+```
+
+## Model equation
+
+$$
+\begin{align}\hat{\text{Limit}} =  -341.159 &+14.906 \times \text{Rating}\\
+& -72.318 \times \text{Cards}
+\end{align}
+$$
+
+## Interpreting $\hat{\beta}_j$
+
+-   The estimated coefficient $\hat{\beta}_j$ is the expected change in the mean of $y$ when $x_j$ increases by one unit, *holding the values of all other predictor variables constant*.
+
+. . .
+
+::: appex
+Complete Exercises 4-6.
+:::
+
+## Prediction
+
+::: question
+What is the predicted credit limit for a borrower with these characteristics?
+:::
+
+```{r}
+head(Credit, n = 1) |> kable()
+```
+
+
+
+<br>
+
+```{r}
+#| echo: true
+
+-341.159 +14.906 * 283 -72.318 * 2
+```
+
+. . .
+
+The predicted credit limit for an borrower with an credit rating of 700 and who has 2 credit cards is \$`r round(-341.159 +14.906 * 283 -72.318 * 2)`.
+
+## Prediction, revisited {.midi}
+
+Just like with simple linear regression, we can use the `predict` function in R to calculate the appropriate intervals for our predicted values:
+
+```{r}
+#| echo: false
+
+new_borrower <- tibble(
+  Rating = 283, 
+  Cards = 2
+)
+
+predict(lim_fit, new_borrower, interval="prediction")
+```
+
+::: callout-note
+Difference in predicted value due to rounding the coefficients on the previous slide.
+:::
+
+Complete Exercise 7.
+
+## Prediction interval for $\hat{y}$
+
+::: question
+Calculate a 90% confidence interval for the **predicted credit limit** for an individual borrower with a credit rating of 700, and who has 2 credit cards.
+:::
+
+<br>
+
+```{r}
+#| echo: true
+
+predict(lim_fit, new_borrower, interval = "prediction", level = 0.90)
+```
+
+::: question
+When would you use `"confidence"`? Would the interval be wider or narrower?
+:::
+
+## Cautions
+
+-   **Do not extrapolate!** Because there are multiple predictor variables, there is the potential to extrapolate in many directions
+-   The multiple regression model only shows **association, not causality**
+    -   To show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study
+   
+
+# Wrap up
+
+## Recap
+
+-   Introduced multiple linear regression
+
+-   Interpreted coefficients in the multiple linear regression model
+
+-   Calculated predictions and associated intervals for multiple linear regression models
+
