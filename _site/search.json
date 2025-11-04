@@ -4004,5 +4004,229 @@
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
     "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nIntroduced categorical variables\nUsed interaction terms"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#application-exercise",
+    "href": "slides/15-mlr-inference.html#application-exercise",
+    "title": "MLR: Inference and Conditions",
+    "section": "Application Exercise",
+    "text": "Application Exercise\n\n📋 AE 15 - Inference for MLR\n\nOpen up AE 08 and complete Exercises 0-2"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#topics",
+    "href": "slides/15-mlr-inference.html#topics",
+    "title": "MLR: Inference and Conditions",
+    "section": "Topics",
+    "text": "Topics\n\nInference for multiple linear regression\nChecking model conditions"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#computational-setup",
+    "href": "slides/15-mlr-inference.html#computational-setup",
+    "title": "MLR: Inference and Conditions",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(mosaicData)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\nlibrary(GGally)\nlibrary(countdown)\nlibrary(rms)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#data-rail_trail",
+    "href": "slides/15-mlr-inference.html#data-rail_trail",
+    "title": "MLR: Inference and Conditions",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\nRows: 90\nColumns: 7\n$ volume     &lt;dbl&gt; 501, 419, 397, 385, 200, 375, 417, 629, 533, 547, 432, 418,…\n$ hightemp   &lt;dbl&gt; 83, 73, 74, 95, 44, 69, 66, 66, 80, 79, 78, 65, 41, 59, 50,…\n$ avgtemp    &lt;dbl&gt; 66.5, 61.0, 63.0, 78.0, 48.0, 61.5, 52.5, 52.0, 67.5, 62.0,…\n$ season     &lt;chr&gt; \"Summer\", \"Summer\", \"Spring\", \"Summer\", \"Spring\", \"Spring\",…\n$ cloudcover &lt;dbl&gt; 7.6, 6.3, 7.5, 2.6, 10.0, 6.6, 2.4, 0.0, 3.8, 4.1, 8.5, 7.2…\n$ precip     &lt;dbl&gt; 0.00, 0.29, 0.32, 0.00, 0.14, 0.02, 0.00, 0.00, 0.00, 0.00,…\n$ day_type   &lt;chr&gt; \"Weekday\", \"Weekday\", \"Weekday\", \"Weekend\", \"Weekday\", \"Wee…\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#visualizing-the-data",
+    "href": "slides/15-mlr-inference.html#visualizing-the-data",
+    "title": "MLR: Inference and Conditions",
+    "section": "Visualizing the data",
+    "text": "Visualizing the data\n\nrail_trail |&gt; ggpairs()"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#review-simple-linear-regression-slr",
+    "href": "slides/15-mlr-inference.html#review-simple-linear-regression-slr",
+    "title": "MLR: Inference and Conditions",
+    "section": "Review: Simple linear regression (SLR)",
+    "text": "Review: Simple linear regression (SLR)\n\ngf_point(volume ~ avgtemp, data = rail_trail, alpha = 0.5) |&gt;\n  gf_lm()  |&gt;\n  gf_labs(x = \"Average Temperature (F)\", y = \"Volume\")"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#slr-model-summary",
+    "href": "slides/15-mlr-inference.html#slr-model-summary",
+    "title": "MLR: Inference and Conditions",
+    "section": "SLR model summary",
+    "text": "SLR model summary\n\navgtemp_slr_fit &lt;- lm(volume ~ avgtemp, data = rail_trail)\n\ntidy(avgtemp_slr_fit) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n99.60227\n63.473587\n1.569192\n0.1201920\n\n\navgtemp\n4.80205\n1.084499\n4.427899\n0.0000272"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#slr-hypothesis-test",
+    "href": "slides/15-mlr-inference.html#slr-hypothesis-test",
+    "title": "MLR: Inference and Conditions",
+    "section": "SLR hypothesis test",
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n99.60227\n63.473587\n1.569192\n0.1201920\n\n\navgtemp\n4.80205\n1.084499\n4.427899\n0.0000272\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t= 4.43\\) . The p-value is calculated using a \\(t\\) distribution with 88 degrees of freedom. The p-value is \\(2.72\\times 10^{-5}\\).\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that avgtemp is a helpful predictor for a rail_trail card holder’s rail_trail volume, i.e. there is a linear relationship between avgtemp and rail_trail volume."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#multiple-linear-regression",
+    "href": "slides/15-mlr-inference.html#multiple-linear-regression",
+    "title": "MLR: Inference and Conditions",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\n\nrail_trail_fit &lt;- lm(volume ~ avgtemp + hightemp, data = rail_trail)\n\ntidy(rail_trail_fit) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n1.667237\n56.424299\n0.0295482\n0.9764951\n\n\navgtemp\n-7.942489\n2.346235\n-3.3852060\n0.0010689\n\n\nhightemp\n12.056606\n2.041231\n5.9065368\n0.0000001"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#multiple-linear-regression-1",
+    "href": "slides/15-mlr-inference.html#multiple-linear-regression-1",
+    "title": "MLR: Inference and Conditions",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nThe multiple linear regression model assumes \\[Y|X_1, X_2,  \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_\\epsilon^2)\\]\n\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots, x_{ip}, y_i)\\), we can rewrite the previous statement as\n\\[y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_{i}, \\hspace{10mm} \\epsilon_i \\sim N(0,\\sigma_{\\epsilon}^2)\\]"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#estimating-sigma_epsilon",
+    "href": "slides/15-mlr-inference.html#estimating-sigma_epsilon",
+    "title": "MLR: Inference and Conditions",
+    "section": "Estimating \\(\\sigma_\\epsilon\\)",
+    "text": "Estimating \\(\\sigma_\\epsilon\\)\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots,x_{ip}, y_i)\\) the residual is \\[\n\\begin{aligned}\ne_i &= y_{i} - \\hat{y_i}\\\\\n&= y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 x_{i1} + \\hat{\\beta}_{2} x_{i2} + \\dots + \\hat{\\beta}_p x_{ip})\n\\end{aligned}\n\\]\n\nThe estimated value of the regression standard error , \\(\\sigma_{\\epsilon}\\), is\n\\[\\hat{\\sigma}_\\epsilon  = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n-p-1}}\\]\n\n\nAs with SLR, we use \\(\\hat{\\sigma}_{\\epsilon}\\) to calculate \\(SE_{\\hat{\\beta}_j}\\), the standard error of each coefficient. See Matrix Form of Linear Regression for more detail."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#mlr-hypothesis-test-avgtemp",
+    "href": "slides/15-mlr-inference.html#mlr-hypothesis-test-avgtemp",
+    "title": "MLR: Inference and Conditions",
+    "section": "MLR hypothesis test: avgtemp",
+    "text": "MLR hypothesis test: avgtemp\n\nSet hypotheses: \\(H_0: \\beta_{avgtemp} = 0\\) vs. \\(H_A: \\beta_{avgtemp} \\ne 0\\), given hightemp is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = -3.39\\). The p-value is calculated using a \\(t\\) distribution with \\[(n - p - 1) = 90 - 2 -1 = 87\\] degrees of freedom. The p-value is \\(\\approx 0.0011\\).\n\nNote that \\(p\\) counts all non-intercept \\(\\beta\\)’s\n\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provides convincing evidence that a avgtemp is a useful predictor in a model that already contains rail_trail hightemp as a predictor for the rail_trail volume."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#mlr-hypothesis-test-interaction-terms",
+    "href": "slides/15-mlr-inference.html#mlr-hypothesis-test-interaction-terms",
+    "title": "MLR: Inference and Conditions",
+    "section": "MLR hypothesis test: interaction terms",
+    "text": "MLR hypothesis test: interaction terms\n\nFramework: Same as previous slide except use \\(\\beta\\) of interaction term\n\\(p\\) (the number of predictors) should include the interaction term\nConclusion: tells you whether interaction term is a useful predictor\nWarning: if \\(X_1\\) and \\(X_2\\) have an interaction term, don’t try to interpret their individual p-values… if interaction term is significant, then both variables are important\n\n\nComplete Exercises 3 and 4."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "href": "slides/15-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "title": "MLR: Inference and Conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C\\%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically: We are \\(C\\%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).\nIn context: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, holding all else constant.\n\n\nComplete Exercise 5."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "href": "slides/15-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "title": "MLR: Inference and Conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n1.67\n56.42\n0.03\n0.98\n-110.48\n113.82\n\n\navgtemp\n-7.94\n2.35\n-3.39\n0.00\n-12.61\n-3.28\n\n\nhightemp\n12.06\n2.04\n5.91\n0.00\n8.00\n16.11"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#large-sample-sizes",
+    "href": "slides/15-mlr-inference.html#large-sample-sizes",
+    "title": "MLR: Inference and Conditions",
+    "section": "Large sample sizes",
+    "text": "Large sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\nConsider the practical significance of the result not just the statistical significance.\nInstead of saying statistically significant say statistically detectable\nUse confidence intervals to draw conclusions instead of relying only on p-values."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#small-sample-sizes",
+    "href": "slides/15-mlr-inference.html#small-sample-sizes",
+    "title": "MLR: Inference and Conditions",
+    "section": "Small sample sizes",
+    "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#effect-size-and-power",
+    "href": "slides/15-mlr-inference.html#effect-size-and-power",
+    "title": "MLR: Inference and Conditions",
+    "section": "Effect Size and Power",
+    "text": "Effect Size and Power\n\nEffect Size:\n\nGeneral Idea: how big is your parameter compared to the variability of your data\nWhy is it important: if parameter has small effect size, it may not be a useful parameter to include. However, what effect size is useful depends on your problem\nIn practice: many formal ways of determining effects size which we won’t talk about\n\nStatistical Power: the ability of a hypothesis test to detect a given effect size\n\nmore data = more power\ntons of data = tons of power\nIn practice: think about how what effect size you’d like to be able to detect and design your study to collect enough data to do so\n\n\n\nComplete Exercise 6"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#model-conditions",
+    "href": "slides/15-mlr-inference.html#model-conditions",
+    "title": "MLR: Inference and Conditions",
+    "section": "Model conditions",
+    "text": "Model conditions\nOur model conditions are the same as they were with SLR:\n\nLinearity: There is a linear relationship between the response and predictor variables.\nConstant Variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the residuals is approximately normal.\nIndependence: The residuals are independent from each other."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#checking-linearity",
+    "href": "slides/15-mlr-inference.html#checking-linearity",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking Linearity",
+    "text": "Checking Linearity\n\nLook at a plot of the residuals vs. predicted values\nLook at a plot of the residuals vs. each predictor\n\nUse scatter plots for quantitative and boxplots of categorical predictors\n\nLinearity is met if there is no discernible pattern in each of these plots\n\nComplete Exercises 7-10"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#fitting-the-full-model",
+    "href": "slides/15-mlr-inference.html#fitting-the-full-model",
+    "title": "MLR: Inference and Conditions",
+    "section": "Fitting the Full Model",
+    "text": "Fitting the Full Model\n\nfull_model &lt;- lm(volume ~ . , data = rail_trail)\nfull_model |&gt; tidy() |&gt;  kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n17.622161\n76.582860\n0.2301058\n0.8185826\n\n\nhightemp\n7.070528\n2.420523\n2.9210743\n0.0045045\n\n\navgtemp\n-2.036685\n3.142113\n-0.6481896\n0.5186733\n\n\nseasonSpring\n35.914983\n32.992762\n1.0885716\n0.2795319\n\n\nseasonSummer\n24.153571\n52.810486\n0.4573632\n0.6486195\n\n\ncloudcover\n-7.251776\n3.843071\n-1.8869743\n0.0627025\n\n\nprecip\n-95.696525\n42.573359\n-2.2478030\n0.0272735\n\n\nday_typeWeekend\n35.903750\n22.429056\n1.6007696\n0.1132738"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#residuals-vs.-predicted-values",
+    "href": "slides/15-mlr-inference.html#residuals-vs.-predicted-values",
+    "title": "MLR: Inference and Conditions",
+    "section": "Residuals vs. predicted values",
+    "text": "Residuals vs. predicted values\n\n\n\n\n\n\n\n\n\n\nDoes the constant variance condition appear to be satisfied?"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#checking-constant-variance",
+    "href": "slides/15-mlr-inference.html#checking-constant-variance",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nThe vertical spread of the residuals is not constant across the plot.\nThe constant variance condition is not satisfied.\n\n\n\nGiven this conclusion, what might be a next step in the analysis?"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#residuals-vs.-each-predictor",
+    "href": "slides/15-mlr-inference.html#residuals-vs.-each-predictor",
+    "title": "MLR: Inference and Conditions",
+    "section": "Residuals vs. each predictor",
+    "text": "Residuals vs. each predictor"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#checking-linearity-1",
+    "href": "slides/15-mlr-inference.html#checking-linearity-1",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking linearity",
+    "text": "Checking linearity\n\nThe plot of the residuals vs. predicted values looked OK\nThe plots of residuals vs. hightemp and avgtemp appear to have a parabolic pattern.\nThe linearity condition does not appear to be satisfied given these plots.\n\n\n\nGiven this conclusion, what might be a next step in the analysis?\n\nComplete Exercises 11-12."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#checking-normality",
+    "href": "slides/15-mlr-inference.html#checking-normality",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking normality",
+    "text": "Checking normality\n\nThe distribution of the residuals is approximately unimodal and symmetric but the qqplot shows that tails are too heavy, so the normality condition is likely not satisfied. The sample size 90 is sufficiently large to relax this condition."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#checking-independence",
+    "href": "slides/15-mlr-inference.html#checking-independence",
+    "title": "MLR: Inference and Conditions",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nWe can often check the independence condition based on the context of the data and how the observations were collected.\nIf the data were collected in a particular order, examine a scatter plot of the residuals versus order in which the data were collected.\nIf there is a grouping variable lurking in the background, check the residuals based on that grouping variable."
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#recap",
+    "href": "slides/15-mlr-inference.html#recap",
+    "title": "MLR: Inference and Conditions",
+    "section": "Recap",
+    "text": "Recap\n\nInference for individual predictors\n\nHypothesis testing: same as SLR but add if all other terms are in the model\nConfidence intervals: same as SLR but add holding all other variables in the model constant\n\nConditions: Same as for SLR\n\nFor linearity, also check fitter values vs. each predictor"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#effect-size-and-power-1",
+    "href": "slides/15-mlr-inference.html#effect-size-and-power-1",
+    "title": "MLR: Inference and Conditions",
+    "section": "Effect Size and Power",
+    "text": "Effect Size and Power\n\nEffect Size:\n\nGeneral Idea: how big is your parameter compared to the variability of your data\nWhy is it important: if parameter has small effect size, it may not be a useful parameter to include. However, what effect size is useful depends on your problem\nIn practice: many formal ways of determining effects size\n\nStatistical Power: the ability of a hypothesis test to detect a given effect size\n\nmore data = more power\ntons of data = tons of power\nIn practice: think about how what effect size you’d like to be able to detect and design your study to collect enough data to do so\n\n\n\nComplete Exercise 6"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#effect-size",
+    "href": "slides/15-mlr-inference.html#effect-size",
+    "title": "MLR: Inference and Conditions",
+    "section": "Effect Size:",
+    "text": "Effect Size:\n\nCohen’s-D (for a categorical variable with two levels like treatment/control): \\[d = \\frac{|\\text{difference in means}|}{\\text{standard deviation}} = \\frac{|\\beta_1|}{\\text{standard deviation (not standard error)}}\\]\nR-squared: proportion of variability in response explained by model"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#power",
+    "href": "slides/15-mlr-inference.html#power",
+    "title": "MLR: Inference and Conditions",
+    "section": "Power",
+    "text": "Power\n\nPower: probability of rejecting null hypothesis when it is false\nFactors affecting power:\n\nEffect size: larger effect size = more power\nSample size: larger sample size = more power\nSignificance level: larger alpha = more power\nVariability in data: less variability = more power"
+  },
+  {
+    "objectID": "slides/15-mlr-inference.html#using-simulation-to-think-about-power",
+    "href": "slides/15-mlr-inference.html#using-simulation-to-think-about-power",
+    "title": "MLR: Inference and Conditions",
+    "section": "Using Simulation to Think About Power",
+    "text": "Using Simulation to Think About Power\n\nlm(volume ~ season, data = rail_trail) |&gt; tidy()\n\n# A tibble: 3 × 5\n  term         estimate std.error statistic  p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)     295.       35.5      8.32 1.11e-12\n2 seasonSpring     76.6      39.3      1.95 5.45e- 2\n3 seasonSummer    127.       43.2      2.94 4.23e- 3"
   }
 ]

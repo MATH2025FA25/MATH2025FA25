@@ -1,7 +1,7 @@
 ---
 title: "Multiple linear regression (MLR)"
 author: "Prof. Eric Friedlander"
-footer: "[🔗 MAT 212 - Winter 2025 -  Schedule](https://mat212wi25.netlify.app/schedule)"
+footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -459,7 +459,7 @@ p1 <- plotModel(cards_hasbal_model) |>
 p2 <- plotModel(cards_hasbal_interaction_model) |>
   gf_labs(title = "Interaction Term")
 
-p1 + p2+ plot_layout(guides = "collect")
+p1 + p2 + plot_layout(guides = "collect")
 ```
 
 ## Bike Rentals vs. Temperature: interaction term
