@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "MLR: Inference and Conditions"
 author: "Prof. Eric Friedlander"
@@ -470,3 +471,349 @@ The distribution of the residuals is approximately unimodal and symmetric but th
     + Confidence intervals: same as SLR but add *holding all other variables in the model constant*
 - Conditions: Same as for SLR
     + For linearity, also check fitter values vs. each predictor
+=======
+---
+title: "MLR: Inference"
+author: "Prof. Eric Friedlander"
+footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib  
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618,
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+```
+
+## Application Exercise
+
+::: appex
+📋 AE 15 - Inference for MLR
+
+- Complete Exercises 0-1
+:::
+
+
+## Topics
+
+::: nonincremental
+-   Inference for multiple linear regression
+-   Effect Size and Power
+:::
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+
+# load packages
+library(tidyverse)
+library(broom)
+library(mosaic)
+library(Stat2Data)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(GGally)
+library(countdown)
+library(rms)
+library(coursekata)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+```
+
+
+## Data: `Tadpoles` {.smaller}
+
+::: nonincremental
+Biologists wondered whether tadpoles can adjust the relative length of their intestines if they are exposed to a fungus called Batrachochytrium dendrobatidis (Bd).
+:::
+
+```{r}
+#| echo: false
+data("Tadpoles")
+Tadpoles |> glimpse()
+```
+
+
+Source: [Stat2Data](https://cran.r-project.org/web/packages/Stat2Data/refman/Stat2Data.html#Tadpoles).
+
+
+
+# Conduct a hypothesis test for $\beta_j$
+
+## [Review: Simple linear regression (SLR)]{.r-fit-text}
+```{r}
+p1 <- gf_jitter(GutLength ~ Treatment, data = Tadpoles, alpha = 0.5, height = 0, width = 0.1) |>
+  gf_model(lm(GutLength ~ Treatment, data = Tadpoles), color = "red") |>
+  gf_labs(x = "Treatment", y = "Gut Length (mm)")
+p2 <- gf_point(GutLength ~ MouthpartDamage, data = Tadpoles, alpha = 0.5) |>
+  gf_model(lm(GutLength ~ MouthpartDamage, data = Tadpoles), color = "red") |>
+  gf_labs(x = "Mouthpart Damage", y = "Gut Length (mm)")
+p1 + p2
+```
+
+
+
+## SLR model summary
+
+```{r}
+#| code-fold: true
+treatment_model <- lm(GutLength ~ Treatment, data = Tadpoles)
+damage_model <- lm(GutLength ~ MouthpartDamage, data = Tadpoles)
+tidy(treatment_model) |> kable()
+tidy(damage_model) |> kable()
+```
+
+
+## SLR hypothesis test {.smaller}
+
+1.  **Set hypotheses:** $H_0: \beta_1 = 0$ vs. $H_A: \beta_1 \ne 0$
+
+. . .
+
+2.  **Calculate test statistic and p-value**
+. . .
+
+3.  **State the conclusion**
+
+## Multiple linear regression
+
+- Discussion: How should we handle our confounding variables?
+
+. . .
+
+Complete Exercise 2.
+
+## Multiple linear regression
+
+The multiple linear regression model assumes $$Y|X_1, X_2,  \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p, \sigma_\epsilon^2)$$
+
+. . .
+
+For a given observation $(x_{i1}, x_{i2}, \ldots, x_{ip}, y_i)$, we can rewrite the previous statement as
+
+$$y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsilon_{i}, \hspace{10mm} \epsilon_i \sim N(0,\sigma_{\epsilon}^2)$$
+
+
+## Estimating $\sigma_\epsilon$ {.smaller}
+
+For a given observation $(x_{i1}, x_{i2}, \ldots,x_{ip}, y_i)$ the residual is
+$$
+\begin{aligned}
+e_i &= y_{i} - \hat{y_i}\\
+&= y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_{2} x_{i2} + \dots + \hat{\beta}_p x_{ip})
+\end{aligned}
+$$
+
+. . .
+
+The estimated value of the regression standard error , $\sigma_{\epsilon}$, is
+
+$$\hat{\sigma}_\epsilon  = \sqrt{\frac{\sum_{i=1}^ne_i^2}{n-p-1}}$$
+
+. . .
+
+As with SLR, we use $\hat{\sigma}_{\epsilon}$ to calculate $SE_{\hat{\beta}_j}$, the standard error of each coefficient. See [Matrix Form of Linear Regression](https://github.com/STA210-Sp19/supplemental-notes/blob/master/regression-basics-matrix.pdf) for more detail.
+
+## MLR Model
+
+```{r}
+lm(GutLength ~ Treatment + Body, data = Tadpoles) |>
+  tidy()
+```
+
+## MLR hypothesis test: treatment {.smaller}
+
+1.  **Set hypotheses:** $H_0: \beta_{trmt} = 0$ vs. $H_A: \beta_{trmt} \ne 0$, given other `Body` is in the model
+
+. . .
+
+2.  **Calculate test statistic and p-value:** The test statistic is $t = 1.48$. The p-value is calculated using a $t$ distribution with $$(n - p - 1) = 27-2-1 = 24$$ degrees of freedom. The p-value is $\approx 0.153$.
+  
+    + Note that $p$ counts all non-intercept $\beta$'s
+
+. . .
+
+3.  **State the conclusion:** The p-value provides no evidence in favor of the alternative, so we fail to reject $H_0$. The data does not provide evidence that a exposure to the *Bd* fungus is a useful predictor *in a model that already contains body length as a predictor of gut length* (could also say *when controlling for body length*).
+
+
+## MLR hypothesis test: interaction terms {.smaller}
+
+- Framework: Same as previous slide except use $\beta$ of interaction term
+- $p$ (the number of predictors) should include the interaction term
+- Conclusion: tells you whether interaction term is a useful predictor
+- Warning: if $X_1$ and $X_2$ have an interaction term, don't try to interpret their individual p-values... if interaction term is significant, then both variables are important
+
+::: appex
+Complete Exercises 3.
+:::
+
+# Effect Size and Power
+
+## Overview {.smaller}
+
+-   **Effect Size:** 
+    +   General Idea: how big is your parameter compared to the variability of your data
+    +   Why is it important: if parameter has small effect size, it may not be a useful parameter to include. However, what effect size is useful depends on your problem
+    +   In practice: many formal ways of determining effects size which we won't talk about
+
+-   **Statistical Power:** the ability of a hypothesis test to detect a given **effect size**
+    +   more data = more power
+    +   tons of data = tons of power
+    +   In practice: think about how what effect size you'd like to be able to detect and design your study to collect enough data to do so
+
+## Effect Size
+
+-  A few measures of effect size
+  +  Cohen's $d$ (for when you have two groups: e.g. treament vs. control)
+  +  $R^2$ (for when you have continuous predictors)
+-  When evaluating effect size, consider practical significance not just statistical significance
+-  Effect size DOESN'T depend on sample size (other than sampling variability)
+-  Statistical significance DOES depend on sample size
+
+## Power
+
+-   Power: probability of correctly rejecting null hypothesis given a certain effect size
+-   Power depends on:
+    +   Effect size
+    +   Sample size
+    +   Significance level ($\alpha$)
+    +   Variability in the data
+-   In practice: decide on a minimum effect size you want to be able to detect, then design your study to have enough power to detect that effect size
+
+## Power Analysis using Simulation
+
+```{r}
+lm(GutLength ~ Treatment + Body, data = Tadpoles) |>
+  tidy()
+```
+
+## Power Analysis using Simulation I
+
+```{r}
+set.seed(2025)
+sample_size <- 50
+lm(GutLength ~ Treatment + Body, data = resample(Tadpoles, sample_size)) |>
+  tidy()
+```
+
+## Power Analysis using Simulation II
+
+```{r}
+sample_size <- 50
+lm(GutLength ~ Treatment + Body, data = resample(Tadpoles, sample_size)) |>
+  tidy()
+```
+
+## Power Analysis using Simulation III
+
+```{r}
+sample_size <- 50
+do(10) * lm(GutLength ~ Treatment + Body, data = resample(Tadpoles, sample_size)) |>
+  tidy()
+```
+
+## Power Analysis using Simulation IV
+
+```{r}
+sample_size <- 50
+do(10) * lm(GutLength ~ Treatment + Body, data = resample(Tadpoles, sample_size)) |>
+  tidy() |>
+  filter(term == "TreatmentControl")
+```
+
+## Power Analysis using Simulation IV
+
+```{r}
+sample_size <- 50
+samp_dist <- do(1000) * lm(GutLength ~ Treatment + Body, data = resample(Tadpoles, sample_size)) |>
+  tidy() |>
+  filter(term == "TreatmentControl")
+
+tally(samp_dist$p.value < 0.05, format = "proportion")
+```
+
+The power for a sample of size 50 if we assume the same effect size as in our data is approximately 0.56.
+
+Complete Exercise 4.
+
+# Confidence interval for $\beta_j$
+
+## Confidence interval for $\beta_j$ {.midi}
+
+-   The $C\%$ confidence interval for $\beta_j$ $$\hat{\beta}_j \pm t^* SE(\hat{\beta}_j)$$ where $t^*$ follows a $t$ distribution with $n - p - 1$ degrees of freedom.
+
+-   **Generically**: We are $C\%$ confident that the interval LB to UB contains the population coefficient of $x_j$.
+
+-   **In context:** We are $C\%$ confident that for every one unit increase in $x_j$, we expect $y$ to change by LB to UB units, *holding all else constant*.
+
+::: appex
+Complete Exercise 5.
+:::
+
+# Inference pitfalls
+
+## Large sample sizes
+
+::: callout-caution
+If the sample size is large enough, the test will likely result in rejecting $H_0: \beta_j = 0$ even $x_j$ has a very small effect on $y$.
+
+::: nonincremental
+-   Consider the **practical significance** of the result not just the statistical significance.
+
+-   Instead of saying **statistically significant** say **statistically detectable**
+
+-   Use confidence intervals to draw conclusions instead of relying only on p-values.
+:::
+:::
+
+## Small sample sizes
+
+::: callout-caution
+If the sample size is small, there may not be enough evidence to reject $H_0: \beta_j=0$.
+
+::: nonincremental
+-   When you fail to reject the null hypothesis, **DON'T** immediately conclude that the variable has no association with the response.
+
+-   There may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.
+:::
+:::
+
+
+## Recap
+
+- Inference for individual predictors
+    + Hypothesis testing: same as SLR but add *if all other terms are in the model*
+    + Confidence intervals: same as SLR but add *holding all other variables in the model constant*
+- Effect size and power
+    + Effect size: how big is your parameter compared to variability of data
+    + Power: ability to detect a given effect size
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a

@@ -10,7 +10,11 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Prof.&nbsp;Eric Friedlander">
+<<<<<<< HEAD
   <title>MATH 2025 - Fall 2025 – MLR: Inference and Conditions</title>
+=======
+  <title>MATH 2025 - Fall 2025 – MLR: Inference</title>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,7 +199,11 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
+<<<<<<< HEAD
   <h1 class="title">MLR: Inference and Conditions</h1>
+=======
+  <h1 class="title">MLR: Inference</h1>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -211,7 +219,11 @@ Prof.&nbsp;Eric Friedlander
 <div class="appex">
 <p>📋 AE 15 - Inference for MLR</p>
 <ul>
+<<<<<<< HEAD
 <li>Open up AE 08 and complete Exercises 0-2</li>
+=======
+<li>Complete Exercises 0-1</li>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </ul>
 </div>
 </section>
@@ -219,7 +231,11 @@ Prof.&nbsp;Eric Friedlander
 <h2>Topics</h2>
 <ul>
 <li>Inference for multiple linear regression</li>
+<<<<<<< HEAD
 <li>Checking model conditions</li>
+=======
+<li>Effect Size and Power</li>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </ul>
 </section>
 <section id="computational-setup" class="slide level2">
@@ -229,7 +245,11 @@ Prof.&nbsp;Eric Friedlander
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(broom)</span>
 <span id="cb1-4"><a></a><span class="fu">library</span>(mosaic)</span>
+<<<<<<< HEAD
 <span id="cb1-5"><a></a><span class="fu">library</span>(mosaicData)</span>
+=======
+<span id="cb1-5"><a></a><span class="fu">library</span>(Stat2Data)</span>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 <span id="cb1-6"><a></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb1-7"><a></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-8"><a></a><span class="fu">library</span>(kableExtra)</span>
@@ -237,6 +257,7 @@ Prof.&nbsp;Eric Friedlander
 <span id="cb1-10"><a></a><span class="fu">library</span>(GGally)</span>
 <span id="cb1-11"><a></a><span class="fu">library</span>(countdown)</span>
 <span id="cb1-12"><a></a><span class="fu">library</span>(rms)</span>
+<<<<<<< HEAD
 <span id="cb1-13"><a></a></span>
 <span id="cb1-14"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
 <span id="cb1-15"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -270,6 +291,29 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 
 </div>
 <img data-src="15-mlr-inference_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="3000"></section>
+=======
+<span id="cb1-13"><a></a><span class="fu">library</span>(coursekata)</span>
+<span id="cb1-14"><a></a></span>
+<span id="cb1-15"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-16"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-tadpoles" class="slide level2 smaller">
+<h2>Data: <code>Tadpoles</code></h2>
+<p>Biologists wondered whether tadpoles can adjust the relative length of their intestines if they are exposed to a fungus called Batrachochytrium dendrobatidis (Bd).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 27
+Columns: 4
+$ Treatment       &lt;fct&gt; Bd, Bd, Bd, Bd, Bd, Bd, Bd, Bd, Bd, Bd, Bd, Bd, Bd, Bd…
+$ Body            &lt;dbl&gt; 20.28, 19.75, 19.28, 17.81, 20.79, 16.99, 18.12, 16.95…
+$ GutLength       &lt;dbl&gt; 191.40, 142.92, 169.81, 152.18, 171.33, 153.92, 181.08…
+$ MouthpartDamage &lt;dbl&gt; 0.679, 0.607, 0.750, 0.821, 0.696, 0.571, 0.571, 0.571…</code></pre>
+</div>
+</div>
+<p>Source: <a href="https://cran.r-project.org/web/packages/Stat2Data/refman/Stat2Data.html#Tadpoles">Stat2Data</a>.</p>
+</section>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 <section>
 <section id="conduct-a-hypothesis-test-for-beta_j" class="title-slide slide level1 center">
 <h1>Conduct a hypothesis test for <span class="math inline">\(\beta_j\)</span></h1>
@@ -278,6 +322,7 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 <section id="review-simple-linear-regression-slr" class="slide level2">
 <h2><span class="r-fit-text">Review: Simple linear regression (SLR)</span></h2>
 <div class="cell" data-layout-align="center">
+<<<<<<< HEAD
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">gf_point</span>(volume <span class="sc">~</span> avgtemp, <span class="at">data =</span> rail_trail, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a></a>  <span class="fu">gf_lm</span>()  <span class="sc">|&gt;</span></span>
 <span id="cb4-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Average Temperature (F)"</span>, <span class="at">y =</span> <span class="st">"Volume"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -290,6 +335,27 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>avgtemp_slr_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> avgtemp, <span class="at">data =</span> rail_trail)</span>
 <span id="cb5-2"><a></a></span>
 <span id="cb5-3"><a></a><span class="fu">tidy</span>(avgtemp_slr_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_jitter</span>(GutLength <span class="sc">~</span> Treatment, <span class="at">data =</span> Tadpoles, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">gf_model</span>(<span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment, <span class="at">data =</span> Tadpoles), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Treatment"</span>, <span class="at">y =</span> <span class="st">"Gut Length (mm)"</span>)</span>
+<span id="cb3-4"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(GutLength <span class="sc">~</span> MouthpartDamage, <span class="at">data =</span> Tadpoles, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">gf_model</span>(<span class="fu">lm</span>(GutLength <span class="sc">~</span> MouthpartDamage, <span class="at">data =</span> Tadpoles), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Mouthpart Damage"</span>, <span class="at">y =</span> <span class="st">"Gut Length (mm)"</span>)</span>
+<span id="cb3-7"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-mlr-inference_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="3000"></section>
+<section id="slr-model-summary" class="slide level2">
+<h2>SLR model summary</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>treatment_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment, <span class="at">data =</span> Tadpoles)</span>
+<span id="cb4-2"><a></a>damage_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(GutLength <span class="sc">~</span> MouthpartDamage, <span class="at">data =</span> Tadpoles)</span>
+<span id="cb4-3"><a></a><span class="fu">tidy</span>(treatment_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -304,6 +370,7 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
+<<<<<<< HEAD
 <td style="text-align: right;">99.60227</td>
 <td style="text-align: right;">63.473587</td>
 <td style="text-align: right;">1.569192</td>
@@ -315,6 +382,52 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 <td style="text-align: right;">1.084499</td>
 <td style="text-align: right;">4.427899</td>
 <td style="text-align: right;">0.0000272</td>
+=======
+<td style="text-align: right;">168.34714</td>
+<td style="text-align: right;">7.357157</td>
+<td style="text-align: right;">22.882092</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TreatmentControl</td>
+<td style="text-align: right;">33.02824</td>
+<td style="text-align: right;">10.602792</td>
+<td style="text-align: right;">3.115051</td>
+<td style="text-align: right;">0.0045722</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">tidy</span>(damage_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">137.57782</td>
+<td style="text-align: right;">39.07066</td>
+<td style="text-align: right;">3.521256</td>
+<td style="text-align: right;">0.0016738</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MouthpartDamage</td>
+<td style="text-align: right;">70.85005</td>
+<td style="text-align: right;">58.59173</td>
+<td style="text-align: right;">1.209216</td>
+<td style="text-align: right;">0.2378918</td>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </tr>
 </tbody>
 </table>
@@ -323,6 +436,7 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 </section>
 <section id="slr-hypothesis-test" class="slide level2 smaller">
 <h2>SLR hypothesis test</h2>
+<<<<<<< HEAD
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -354,22 +468,30 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 </table>
 </div>
 </div>
+=======
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 <ol type="1">
 <li><strong>Set hypotheses:</strong> <span class="math inline">\(H_0: \beta_1 = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A: \beta_1 \ne 0\)</span></li>
 </ol>
 <div class="fragment">
 <ol start="2" type="1">
+<<<<<<< HEAD
 <li><strong>Calculate test statistic and p-value:</strong> The test statistic is <span class="math inline">\(t= 4.43\)</span> . The p-value is calculated using a <span class="math inline">\(t\)</span> distribution with 88 degrees of freedom. The p-value is <span class="math inline">\(2.72\times 10^{-5}\)</span>.</li>
 </ol>
 </div>
 <div class="fragment">
 <ol start="3" type="1">
 <li><strong>State the conclusion:</strong> The p-value is small, so we reject <span class="math inline">\(H_0\)</span>. The data provide strong evidence that avgtemp is a helpful predictor for a rail_trail card holder’s rail_trail volume, i.e.&nbsp;there is a linear relationship between avgtemp and rail_trail volume.</li>
+=======
+<li><p><strong>Calculate test statistic and p-value</strong> . . .</p></li>
+<li><p><strong>State the conclusion</strong></p></li>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </ol>
 </div>
 </section>
 <section id="multiple-linear-regression" class="slide level2">
 <h2>Multiple linear regression</h2>
+<<<<<<< HEAD
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>rail_trail_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> avgtemp <span class="sc">+</span> hightemp, <span class="at">data =</span> rail_trail)</span>
 <span id="cb6-2"><a></a></span>
@@ -410,6 +532,13 @@ $ day_type   &lt;chr&gt; "Weekday", "Weekday", "Weekday", "Weekend", "Weekday", 
 </tbody>
 </table>
 </div>
+=======
+<ul>
+<li>Discussion: How should we handle our confounding variables?</li>
+</ul>
+<div class="fragment">
+<p>Complete Exercise 2.</p>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </div>
 </section>
 <section id="multiple-linear-regression-1" class="slide level2">
@@ -436,6 +565,7 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <p>As with SLR, we use <span class="math inline">\(\hat{\sigma}_{\epsilon}\)</span> to calculate <span class="math inline">\(SE_{\hat{\beta}_j}\)</span>, the standard error of each coefficient. See <a href="https://github.com/STA210-Sp19/supplemental-notes/blob/master/regression-basics-matrix.pdf">Matrix Form of Linear Regression</a> for more detail.</p>
 </div>
 </section>
+<<<<<<< HEAD
 <section id="mlr-hypothesis-test-avgtemp" class="slide level2 smaller">
 <h2>MLR hypothesis test: avgtemp</h2>
 <ol type="1">
@@ -444,6 +574,31 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <div class="fragment">
 <ol start="2" type="1">
 <li><p><strong>Calculate test statistic and p-value:</strong> The test statistic is <span class="math inline">\(t = -3.39\)</span>. The p-value is calculated using a <span class="math inline">\(t\)</span> distribution with <span class="math display">\[(n - p - 1) = 90 - 2 -1 = 87\]</span> degrees of freedom. The p-value is <span class="math inline">\(\approx 0.0011\)</span>.</p>
+=======
+<section id="mlr-model" class="slide level2">
+<h2>MLR Model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment <span class="sc">+</span> Body, <span class="at">data =</span> Tadpoles) <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  term             estimate std.error statistic p.value
+  &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 (Intercept)         15.5      53.8      0.288 0.776  
+2 TreatmentControl    16.3      11.0      1.48  0.153  
+3 Body                 8.07      2.82     2.86  0.00859</code></pre>
+</div>
+</div>
+</section>
+<section id="mlr-hypothesis-test-treatment" class="slide level2 smaller">
+<h2>MLR hypothesis test: treatment</h2>
+<ol type="1">
+<li><strong>Set hypotheses:</strong> <span class="math inline">\(H_0: \beta_{trmt} = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A: \beta_{trmt} \ne 0\)</span>, given other <code>Body</code> is in the model</li>
+</ol>
+<div class="fragment">
+<ol start="2" type="1">
+<li><p><strong>Calculate test statistic and p-value:</strong> The test statistic is <span class="math inline">\(t = 1.48\)</span>. The p-value is calculated using a <span class="math inline">\(t\)</span> distribution with <span class="math display">\[(n - p - 1) = 27-2-1 = 24\]</span> degrees of freedom. The p-value is <span class="math inline">\(\approx 0.153\)</span>.</p>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 <ul>
 <li>Note that <span class="math inline">\(p\)</span> counts all non-intercept <span class="math inline">\(\beta\)</span>’s</li>
 </ul></li>
@@ -451,7 +606,11 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 </div>
 <div class="fragment">
 <ol start="3" type="1">
+<<<<<<< HEAD
 <li><strong>State the conclusion:</strong> The p-value is small, so we reject <span class="math inline">\(H_0\)</span>. The data provides convincing evidence that a avgtemp is a useful predictor <em>in a model that already contains rail_trail hightemp as a predictor for the rail_trail volume</em>.</li>
+=======
+<li><strong>State the conclusion:</strong> The p-value provides no evidence in favor of the alternative, so we fail to reject <span class="math inline">\(H_0\)</span>. The data does not provide evidence that a exposure to the <em>Bd</em> fungus is a useful predictor <em>in a model that already contains body length as a predictor of gut length</em> (could also say <em>when controlling for body length</em>).</li>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </ol>
 </div>
 </section>
@@ -464,7 +623,11 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <li>Warning: if <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> have an interaction term, don’t try to interpret their individual p-values… if interaction term is significant, then both variables are important</li>
 </ul>
 <div class="appex">
+<<<<<<< HEAD
 <p>Complete Exercises 3 and 4.</p>
+=======
+<p>Complete Exercises 3.</p>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </div>
 </section></section>
 <section>
@@ -472,14 +635,23 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <h1>Effect Size and Power</h1>
 
 </section>
+<<<<<<< HEAD
 <section id="effect-size-and-power-1" class="slide level2 smaller">
 <h2>Effect Size and Power</h2>
+=======
+<section id="overview" class="slide level2 smaller">
+<h2>Overview</h2>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 <ul>
 <li><strong>Effect Size:</strong>
 <ul>
 <li>General Idea: how big is your parameter compared to the variability of your data</li>
 <li>Why is it important: if parameter has small effect size, it may not be a useful parameter to include. However, what effect size is useful depends on your problem</li>
+<<<<<<< HEAD
 <li>In practice: many formal ways of determining effects size</li>
+=======
+<li>In practice: many formal ways of determining effects size which we won’t talk about</li>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </ul></li>
 <li><strong>Statistical Power:</strong> the ability of a hypothesis test to detect a given <strong>effect size</strong>
 <ul>
@@ -488,6 +660,7 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <li>In practice: think about how what effect size you’d like to be able to detect and design your study to collect enough data to do so</li>
 </ul></li>
 </ul>
+<<<<<<< HEAD
 <div class="appex">
 <p>Complete Exercise 6</p>
 </div>
@@ -497,11 +670,24 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <ul>
 <li>Cohen’s-D (for a categorical variable with two levels like treatment/control): <span class="math display">\[d = \frac{|\text{difference in means}|}{\text{standard deviation}} = \frac{|\beta_1|}{\text{standard deviation (not standard error)}}\]</span></li>
 <li>R-squared: proportion of variability in response explained by model</li>
+=======
+</section>
+<section id="effect-size" class="slide level2">
+<h2>Effect Size</h2>
+<ul>
+<li>A few measures of effect size</li>
+<li>Cohen’s <span class="math inline">\(d\)</span> (for when you have two groups: e.g.&nbsp;treament vs.&nbsp;control)</li>
+<li><span class="math inline">\(R^2\)</span> (for when you have continuous predictors)</li>
+<li>When evaluating effect size, consider practical significance not just statistical significance</li>
+<li>Effect size DOESN’T depend on sample size (other than sampling variability)</li>
+<li>Statistical significance DOES depend on sample size</li>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </ul>
 </section>
 <section id="power" class="slide level2">
 <h2>Power</h2>
 <ul>
+<<<<<<< HEAD
 <li>Power: probability of rejecting null hypothesis when it is false</li>
 <li>Factors affecting power:
 <ul>
@@ -525,6 +711,132 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 3 seasonSummer    127.       43.2      2.94 4.23e- 3</code></pre>
 </div>
 </div>
+=======
+<li>Power: probability of correctly rejecting null hypothesis given a certain effect size</li>
+<li>Power depends on:
+<ul>
+<li>Effect size</li>
+<li>Sample size</li>
+<li>Significance level (<span class="math inline">\(\alpha\)</span>)</li>
+<li>Variability in the data</li>
+</ul></li>
+<li>In practice: decide on a minimum effect size you want to be able to detect, then design your study to have enough power to detect that effect size</li>
+</ul>
+</section>
+<section id="power-analysis-using-simulation" class="slide level2">
+<h2>Power Analysis using Simulation</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment <span class="sc">+</span> Body, <span class="at">data =</span> Tadpoles) <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  term             estimate std.error statistic p.value
+  &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 (Intercept)         15.5      53.8      0.288 0.776  
+2 TreatmentControl    16.3      11.0      1.48  0.153  
+3 Body                 8.07      2.82     2.86  0.00859</code></pre>
+</div>
+</div>
+</section>
+<section id="power-analysis-using-simulation-i" class="slide level2">
+<h2>Power Analysis using Simulation I</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
+<span id="cb10-2"><a></a>sample_size <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb10-3"><a></a><span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment <span class="sc">+</span> Body, <span class="at">data =</span> <span class="fu">resample</span>(Tadpoles, sample_size)) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  term             estimate std.error statistic p.value
+  &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 (Intercept)         35.1      42.3      0.831 0.410  
+2 TreatmentControl    16.9       8.04     2.10  0.0407 
+3 Body                 7.24      2.18     3.32  0.00176</code></pre>
+</div>
+</div>
+</section>
+<section id="power-analysis-using-simulation-ii" class="slide level2">
+<h2>Power Analysis using Simulation II</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>sample_size <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb12-2"><a></a><span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment <span class="sc">+</span> Body, <span class="at">data =</span> <span class="fu">resample</span>(Tadpoles, sample_size)) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  term             estimate std.error statistic  p.value
+  &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)         11.1      34.2      0.326 0.746   
+2 TreatmentControl    27.0       8.14     3.32  0.00174 
+3 Body                 7.59      1.82     4.18  0.000125</code></pre>
+</div>
+</div>
+</section>
+<section id="power-analysis-using-simulation-iii" class="slide level2">
+<h2>Power Analysis using Simulation III</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>sample_size <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb14-2"><a></a><span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> <span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment <span class="sc">+</span> Body, <span class="at">data =</span> <span class="fu">resample</span>(Tadpoles, sample_size)) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 30 × 7
+   term             estimate std.error statistic    p.value  .row .index
+   &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;
+ 1 (Intercept)        24.6       35.1     0.700  0.487          1      1
+ 2 TreatmentControl   16.8        8.62    1.94   0.0580         2      1
+ 3 Body                7.59       1.85    4.10   0.000165       3      1
+ 4 (Intercept)       -15.8       34.4    -0.458  0.649          1      2
+ 5 TreatmentControl   -0.741      8.80   -0.0842 0.933          2      2
+ 6 Body               10.1        1.83    5.51   0.00000146     3      2
+ 7 (Intercept)        21.5       43.6     0.493  0.624          1      3
+ 8 TreatmentControl   30.1        8.29    3.63   0.000700       2      3
+ 9 Body                7.16       2.33    3.07   0.00357        3      3
+10 (Intercept)        27.1       36.9     0.734  0.467          1      4
+# ℹ 20 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="power-analysis-using-simulation-iv" class="slide level2">
+<h2>Power Analysis using Simulation IV</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>sample_size <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb16-2"><a></a><span class="fu">do</span>(<span class="dv">10</span>) <span class="sc">*</span> <span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment <span class="sc">+</span> Body, <span class="at">data =</span> <span class="fu">resample</span>(Tadpoles, sample_size)) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"TreatmentControl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 7
+   term             estimate std.error statistic p.value  .row .index
+   &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;
+ 1 TreatmentControl    10.5       8.31     1.26  0.213       1      1
+ 2 TreatmentControl     9.60      6.03     1.59  0.118       1      2
+ 3 TreatmentControl    11.6       8.20     1.41  0.164       1      3
+ 4 TreatmentControl    16.5       7.24     2.27  0.0276      1      4
+ 5 TreatmentControl    22.3       7.36     3.03  0.00399     1      5
+ 6 TreatmentControl     2.45      6.63     0.369 0.714       1      6
+ 7 TreatmentControl    17.2       8.38     2.06  0.0454      1      7
+ 8 TreatmentControl    20.8       8.31     2.51  0.0158      1      8
+ 9 TreatmentControl    24.1       7.98     3.02  0.00405     1      9
+10 TreatmentControl    19.4       6.76     2.88  0.00602     1     10</code></pre>
+</div>
+</div>
+</section>
+<section id="power-analysis-using-simulation-iv-1" class="slide level2">
+<h2>Power Analysis using Simulation IV</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>sample_size <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb18-2"><a></a>samp_dist <span class="ot">&lt;-</span> <span class="fu">do</span>(<span class="dv">1000</span>) <span class="sc">*</span> <span class="fu">lm</span>(GutLength <span class="sc">~</span> Treatment <span class="sc">+</span> Body, <span class="at">data =</span> <span class="fu">resample</span>(Tadpoles, sample_size)) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"TreatmentControl"</span>)</span>
+<span id="cb18-5"><a></a></span>
+<span id="cb18-6"><a></a><span class="fu">tally</span>(samp_dist<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="at">format =</span> <span class="st">"proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>X
+ TRUE FALSE 
+ 0.56  0.44 </code></pre>
+</div>
+</div>
+<p>The power for a sample of size 50 if we assume the same effect size as in our data is approximately 0.56.</p>
+<p>Complete Exercise 4.</p>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </section></section>
 <section>
 <section id="confidence-interval-for-beta_j" class="title-slide slide level1 center">
@@ -541,6 +853,7 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <div class="appex">
 <p>Complete Exercise 5.</p>
 </div>
+<<<<<<< HEAD
 </section>
 <section id="confidence-interval-for-beta_j-2" class="slide level2">
 <h2>Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
@@ -599,6 +912,8 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 </table>
 </div>
 </div>
+=======
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </section></section>
 <section>
 <section id="inference-pitfalls" class="title-slide slide level1 center">
@@ -645,6 +960,7 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 </section></section>
 <section>
 <section id="conditions-for-inference" class="title-slide slide level1 center">
@@ -817,6 +1133,8 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <li><p>If the data were collected in a particular order, examine a scatter plot of the residuals versus order in which the data were collected.</p></li>
 <li><p>If there is a grouping variable lurking in the background, check the residuals based on that grouping variable.</p></li>
 </ul>
+=======
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
@@ -826,9 +1144,16 @@ e_i &amp;= y_{i} - \hat{y_i}\\
 <li>Hypothesis testing: same as SLR but add <em>if all other terms are in the model</em></li>
 <li>Confidence intervals: same as SLR but add <em>holding all other variables in the model constant</em></li>
 </ul></li>
+<<<<<<< HEAD
 <li>Conditions: Same as for SLR
 <ul>
 <li>For linearity, also check fitter values vs.&nbsp;each predictor</li>
+=======
+<li>Effect size and power
+<ul>
+<li>Effect size: how big is your parameter compared to variability of data</li>
+<li>Power: ability to detect a given effect size</li>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </ul></li>
 </ul>
 
@@ -838,7 +1163,11 @@ e_i &amp;= y_{i} - \hat{y_i}\\
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
+<<<<<<< HEAD
 <p><a href="https://mat212wi25.netlify.app/schedule">🔗 MAT 212 - Winter 2025 - Schedule</a></p>
+=======
+<p><a href="https://math2025fa25.netlify.app/schedule">🔗 MATH 2025 - Fall 2025 - Schedule</a></p>
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
 </div>
 </div></div>
 
@@ -1053,6 +1382,7 @@ e_i &amp;= y_{i} - \hat{y_i}\\
       });
     </script>
     
+<<<<<<< HEAD
     <script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
@@ -1090,6 +1420,83 @@ e_i &amp;= y_{i} - \hat{y_i}\\
       })();
     </script>
 
+=======
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+>>>>>>> ed75e5b977868051a3347368172b222db58f174a
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

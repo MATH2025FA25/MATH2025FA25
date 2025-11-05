@@ -1,5 +1,5 @@
 ---
-title: "Multiple linear regression (MLR)"
+title: "Categorical Predictors"
 author: "Prof. Eric Friedlander"
 footer: "[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -28,10 +28,10 @@ bibliography: references.bib
 ## Application Exercise
 
 ::: appex
-📋 AE 13 - Multiple Linear Regression and Categorical Predictors
+📋 AE 14 - Multiple Linear Regression and Categorical Predictors
 :::
 
-Complete Exercise 0-3.
+Complete Exercise 0-1.
 
 ## Computational setup
 
@@ -140,159 +140,7 @@ Credit |>
   ggpairs()
 ```
 
-## Single vs. multiple predictors
 
-So far we've used a *single predictor variable* to understand variation in a quantitative response variable
-
-. . .
-
-Now we want to use *multiple predictor variables* to understand variation in a quantitative response variable
-
-# Multiple linear regression
-
-## Multiple linear regression (MLR) {.smaller}
-
-Based on the analysis goals, we will use a **multiple linear regression** model of the following form
-
-$$
-\begin{aligned}\hat{\text{Limit}} ~ = 
-\hat{\beta}_0 & + \hat{\beta}_1 \text{Rating} + \hat{\beta}_2 \text{Cards}
-\end{aligned}
-$$
-
-Similar to simple linear regression, this model assumes that at each combination of the predictor variables, the values of `Limit` follow a Normal distribution.
-
-## Multiple linear regression
-
-**Recall:** The simple linear regression model assumes
-
-$$
-Y|X\sim N(\beta_0 + \beta_1 X, \sigma_{\epsilon}^2)
-$$
-
-. . .
-
-**Similarly:** The multiple linear regression model assumes
-
-$$
-Y|X_1, X_2, \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p, \sigma_{\epsilon}^2)
-$$
-
-## Multiple linear regression
-
-At any combination of the predictors, the mean value of the response $Y$, is
-
-$$
-\mu_{Y|X_1, \ldots, X_p} = \beta_0 + \beta_1 X_{1} + \beta_2 X_2 + \dots + \beta_p X_p
-$$
-
-. . .
-
-Using multiple linear regression, we can estimate the mean response for any combination of predictors
-
-$$
-\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X_{1} + \hat{\beta}_2 X_2 + \dots + \hat{\beta}_p X_{p}
-$$
-
-
-## Model fit
-
-```{r}
-#| echo: false
-lim_fit <- lm(Limit ~ Rating   + Cards,
-      data = Credit)
-
-tidy(lim_fit) |>
-  kable()
-```
-
-## Model equation
-
-$$
-\begin{align}\hat{\text{Limit}} =  -341.159 &+14.906 \times \text{Rating}\\
-& -72.318 \times \text{Cards}
-\end{align}
-$$
-
-## Interpreting $\hat{\beta}_j$
-
--   The estimated coefficient $\hat{\beta}_j$ is the expected change in the mean of $y$ when $x_j$ increases by one unit, *holding the values of all other predictor variables constant*.
-
-. . .
-
-::: appex
-Complete Exercises 4-6.
-:::
-
-## Prediction
-
-::: question
-What is the predicted credit limit for a borrower with these characteristics?
-:::
-
-```{r}
-head(Credit, n = 1) |> kable()
-```
-
-
-
-<br>
-
-```{r}
-#| echo: true
-
--341.159 +14.906 * 283 -72.318 * 2
-```
-
-. . .
-
-The predicted credit limit for an borrower with an credit rating of 700 and who has 2 credit cards is \$`r round(-341.159 +14.906 * 283 -72.318 * 2)`.
-
-## Prediction, revisited {.midi}
-
-Just like with simple linear regression, we can use the `predict` function in R to calculate the appropriate intervals for our predicted values:
-
-```{r}
-#| echo: false
-
-new_borrower <- tibble(
-  Rating = 283, 
-  Cards = 2
-)
-
-predict(lim_fit, new_borrower, interval="prediction")
-```
-
-::: callout-note
-Difference in predicted value due to rounding the coefficients on the previous slide.
-:::
-
-Complete Exercise 7.
-
-## Prediction interval for $\hat{y}$
-
-::: question
-Calculate a 90% confidence interval for the **predicted credit limit** for an individual borrower an  credit rating of 700, and who has 2 credit cards.
-:::
-
-<br>
-
-```{r}
-#| echo: true
-
-predict(lim_fit, new_borrower, interval = "prediction", level = 0.90)
-```
-
-::: question
-When would you use `"confidence"`? Would the interval be wider or narrower?
-:::
-
-## Cautions
-
--   **Do not extrapolate!** Because there are multiple predictor variables, there is the potential to extrapolate in many directions
--   The multiple regression model only shows **association, not causality**
-    -   To show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study
-    
 # Categorical Predictors
     
 ## Indicator variables
@@ -306,10 +154,10 @@ When would you use `"confidence"`? Would the interval be wider or narrower?
     -   1 if the observation belongs to that category
     -   0 if the observation does not belong to that category
 
-## Data manipulation: Create indicator variables for `Has_Balance`
+## Indicator Variables (behind the scenes)
 
 ```{r}
-#| echo: true
+#| echo: false
 
 Credit_dummy <- Credit |>
   mutate(
@@ -328,12 +176,6 @@ Credit_dummy |>
 -   The **reference level** or **baseline** is the category that doesn't have a term in the model.
 -   The coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.
 -   This approach is also called **dummy coding** and *R will do this for you*
-
-```{r}
-Credit_dummy |>
-  select(Has_Balance, No_Balance, Yes_Balance) |>
-  slice(1, 12)
-```
 
 ## Interpreting Categorical Predictors {.smaller}
 
@@ -360,19 +202,13 @@ Credit |>
 ::: question
 -   Where do we see each of the estimates in the plot?
 -   Where do we see the values we'd predict in the plot?
--   Are `Has_Balance` and `Limit` **correlated**?
+-   (Trick Question) Are `Has_Balance` and `Limit` **correlated**?
+-   On the board. Write down the **dummy coding** for an observation from each level in your chosen categorical variable.
 :::
-
-
-```{r}
-#| echo: false
-
-countdown::countdown(minutes = 3, seconds = 0)
-```
 
 . . .
 
-Complete Exercises 8-10.
+Complete Exercises 2-4.
 
 ## Model equation
 
@@ -382,10 +218,6 @@ $$
 $$
 
 # Adding in another predictor
-
-::: appex
-Complete Exercise 11.
-:::
 
 ## Credit Limit vs. Cards: parallel slopes
 
@@ -419,7 +251,7 @@ cards_hasbal_model |>
     +   Intercept for `No` is 2257.044
     +   For `Yes` shift intercept up 3339.198
         -   (i.e. intercept $= 2257.044 + 3339.198 = 5596.242$)
--   Complete Exercise 12
+-   Complete Exercise 5-6
         
 # Interaction terms
 
@@ -517,7 +349,7 @@ $$
 -  For a borrower with a balance, the slope of `Cards` is $(-60.924 + 28.499=-32.425)$
 
 ::: appex
-Complete Exercise 13 and 14.
+Complete Exercise 7-8.
 :::
 
 ## Interaction terms: Two Quantitative
@@ -551,6 +383,9 @@ credit_plot <- plot_ly(Credit,
 
 axis_x <- seq(min(Credit$Rating), max(Credit$Rating), length.out = 100)
 axis_y <- seq(min(Credit$Cards), max(Credit$Cards), length.out = 100)
+
+lim_fit <- lm(Limit ~ Rating   + Cards,
+      data = Credit)
 
 #Sample points
 credit_lm_surface <- expand.grid(Rating = axis_x,Cards = axis_y,KEEP.OUT.ATTRS = F)
@@ -686,13 +521,11 @@ lm(Limit ~ Cards + Rating + Interaction, data = Credit_int) |>
 
 ## Recap
 
--   Introduced multiple linear regression
-
--   Interpreted coefficients in the multiple linear regression model
-
 -   Calculated predictions and associated intervals for multiple linear regression models
 
 -   Introduced categorical variables
 
 -   Used interaction terms
+
+-   Complete Activity.
 
