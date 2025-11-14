@@ -1,5 +1,5 @@
 ---
-title: "HW 07: Intro to Logistic regression"
+title: "HW 07: Lego Prices" 
 editor: visual
 format:
   html:
@@ -8,20 +8,16 @@ format:
 
 # Introduction
 
-
-In this homework, you'll analyze data from an online Ipsos survey that was conducted for the FiveThirtyEight article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) using logistic regression for interpretation and prediction. You can read more about the polling design and respondents in the README of the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data.
+In this homework you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.
 
 ## Learning goals
 
-By the end of the assignment you will be able to...
+In this assignment, you will...
 
--   Use logistic regression to explore the relationship between a binary response variable and multiple predictor variables
-
--   Conduct exploratory data analysis for logistic regression
-
--   Interpret coefficients of logistic regression model
-
--   Use the logistic regression model for prediction
+-   Use exploratory data analysis to inform feature engineering steps
+-   Evaluate and compare models
+-   Assess model conditions
+-   Use inference to draw conclusions
 
 ## Getting started
 
@@ -29,159 +25,128 @@ By the end of the assignment you will be able to...
 
 -   Make a subfolder in your `hw` directory to store this homework.
 
--   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202865), navigate to Homework 7, and upload the `hw-07.qmd` files into the folder your just made.
+-   Log into [Canvas](https://cofi.instructure.com/courses/17093/assignments/202866), navigate to Homework 8 and upload the `hw-08.qmd` and `lego-sample.csv` files into the folder your just made.
 
 ## Packages
 
-The following packages will be used for this assignment.
+The following packages will be used in this assignment:
 
 ```{r}
-#| label: load-packages
-#| message: false
 #| eval: true
-
+#| message: false
 library(tidyverse)
 library(broom)
 library(ggformula)
-library(Stat2Data)
-library(knitr)
-
+library(knitr) 
+library(rms)
+library(patchwork)
 # add other packages as needed
 ```
 
-# Data: "Why Many Americans Don't Vote"
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
 
-The data from the article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) includes information from polling done by Ipsos for FiveThirtyEight. Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior. For the next two homeworks, we will focus on using the demographic variables and someone's party identification to understand whether an eligible voter is a "frequent" voter.
+## Data: LEGOs
 
-The codebook for the variable definitions can be found in the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data. The variables we'll focus on are:
+The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from Peterson and Ziegla ([2021](https://www.tandfonline.com/doi/full/10.1080/26939169.2021.1946450)).
 
--   `ppage`: Age of respondent
+You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are
 
--   `educ`: Highest educational attainment category.
-
--   `race`: Race of respondent, census categories. Note: all categories except Hispanic are non-Hispanic.
-
--   `gender`: Gender of respondent
-
--   `income_cat`: Household income category of respondent
-
--   `Q30`: Response to the question "Generally speaking, do you think of yourself as a..."
-
-    -   1:Republican
-    -   2: Democrat
-    -   3: Independent
-    -   4: Another party, please specify
-    -   5: No preference
-    -   -1: No response
-
--   `voter_category`: past voting behavior:
-
-    -   always: respondent voted in all or all-but-one of the elections they were eligible in
-    -   sporadic: respondent voted in at least two, but fewer than all-but-one of the elections they were eligible in
-    -   rarely/never: respondent voted in 0 or 1 of the elections they were eligible in
-
-You can read in the data directly from the GitHub repo:
-
-```{r}
-#| warning: false
-#| message: false
-#| eval: true
-
-voter_data <- read_csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/non-voters/nonvoters_data.csv')
-```
-
-Note that the authors use weighting to make the final sample more representative on the US population for their article. We will not use the weighting in this assignment, so we should treat the sample as a convenience sample rather than a random sample of the population.
+-   `Pieces`: Number of pieces in the set from brickset.com.
+-   `Minifigures`: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA's also represent missing data. This is due to how brickset.com reports their data.
+-   `Amazon_Price`: Amazon price of the set scraped from brickset.com (in U.S. dollars)
+-   `Size`: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)
+-   `Theme`: Theme of the LEGO set
+-   `Year` : Year the LEGO set was produced
+-   `Pages`: Number of pages in the instruction booklet
 
 # Exercises
 
-The goal of this analysis is use the polling data to examine the relationship between U.S. adults' political party identification and voting behavior.
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
 
 ## Exercise 1
 
-Why do you think the authors chose to only include data from people who were eligible to vote for at least four election cycles?
+The data are contained in `lego-sample.csv`. Use the code below to read in the data, replace the `NA`s in `Minifigure` with 0, and remove any observations that have missing values for the relevant variables.
+
+```{r}
+#| eval: true
+legos <- read_csv("../data/lego-sample.csv") |>
+  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |>
+  mutate(Minifigures = replace_na(Minifigures, 0)) |>
+  drop_na()
+```
+
+Let's think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? Feel free to Google "structurally missing data". We also replaced ALL of the `NA`s in `Minifigures` with 0's. What are the advantages and disadvantages of doing this? Make sure you read the description of `Minifigures` in the introduction before answering.
 
 ## Exercise 2
 
-Let's prepare the data for analysis and modeling.
-
--   Create a new variable called `frequent_voter` that takes the value 1 if the `voter_category` is "always" and 0 otherwise.
--   Make a table of the distribution of `frequent_voter`.
--   What percentage of the respondents in the data say they voted "in all or all-but-one of the elections they were eligible in"?
+Visualize the distributions of the predictor variables `Pieces`, `Size`, `Year`, and `Pages`. Neatly arrange the plots using the [patchwork](https://patchwork.data-imaginist.com/index.html) package. Create univariate visualizations not bivariate visualizations.
 
 ## Exercise 3
 
-The variable `Q30` contains the respondent's political party identification. Make a new variable, `party_id`, that simplifies `Q30` into three categories: "Democrat", "Republican", "Independent/Neither". The category "Independent/Neither" will also include respondents who did not answer the question. Make `party_id` a factor and relevel it so that it is consistent with the ordering of the responses in Question 30 of the survey.
+The distribution of `Theme` is shown below. The bars are ordered by the frequency they occur in the data set.
 
--   Make a plot of the distribution of `party_id`.
--   Which category of `party_id` occurs most frequently in this data set?
+```{r}
+#| eval: true
+legos |>
+  count(Theme) |>
+  mutate(Theme = fct_reorder(Theme, n)) |> 
+gf_col(Theme ~ n) |> 
+    gf_labs(title = "Lego Set Theme", 
+         y = "Theme", 
+         x = "Number of LEGO sets")
+```
+
+Based solely on information that is visible in this plot, what is one reason we should avoid putting the variable `Theme` in a model as is?
 
 ## Exercise 4
 
-In the FiveThirtyEight article, the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc.
-
--   Make a segmented barplot (also known as a standardized barplot) displaying the distribution of `frequent_voter` for each category of `party_id`. Make the plot such that the proportions (instead of counts) are displayed:
-
-    -   Use the function `gf_props`.
-    
-    -   Put `party_id` on the x-axis.
-    
-    -   Attach `voter_category` to the `fill` aesthetic (use a tilde).
-    
-    -   Add the argument `position = "fill"`
-
--   Use the plot to describe the relationship between these two variables.
-
-::: callout-tip
-See the plots of demographic information by voting history in the [FiveThirtyEight article](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/) for examples of segmented bar plots.
-:::
+Create a new variable called `Theme_coarse` that collapses any levels of `Theme` with fewer than 20 observations into a single category called `Other`. Hint: Look into the function `fct_lump_min`. You'll want to use it inside a `mutate` statement.
 
 ## Exercise 5
 
-Consider the plot from the previous question. A logistic regression model predicting `frequent_voter` from `party_id` is visible in this plot. Explain what that means. Why should the response variable be attached the `fill` aesthetic instead of the explanatory variable. 
+Fit a model that uses the variables `Size`, `Theme_coarse`, and `Pages` to predict `Amazon_Price`. Call this `model1`.
 
 ## Exercise 6
 
-Compute the empirical log-odds that someone is a `frequent_voter` based on their `party_id`.
+Create a new variable called `since2018` that calculates the number of years since 2018 based on the variable `Year`.
 
 ## Exercise 7
 
-Fit a model using `party_id` to predict the probability that a person is a frequent voter. Neatly display the model using the `tidy` function. What is the predicted probability of voting for each of the three categories in `party_id`?
+Now let's consider a new model that includes all the variables used in the model from Exercise 5 along with `since2018`, `Pieces`, and `Minifigures`. Call this `model2`
 
 ## Exercise 8
 
-Fit a model using `ppage` to predict the probability that a person is a frequent voter. Interpret the coefficient of `ppage` in the context of the data in terms of the **log-odds** a person is a frequent voter.
+Compute the $R^2$, $R^2_{adj}$, AIC, and BIC for `model1` and `model2`. Based on your results, what model do you believe is the "best" model? Justify your answer citing specific evidence from the values you just generated. Note, they may not all be useful.
 
 ## Exercise 9
 
-Determine whether you think the three conditions for a logistic regression are met.
+For whichever model you chose above, determine whether the conditions for inference are met.
 
 ## Exercise 10
 
--   Use your first model to predict the probability that an independent will vote.
--   Use your second model to predict the probability that someone your age will vote.
+For the same model, conduct an F-test and interpret your results in the context of the problem. Make sure to:
 
+1.  Identify the null and alternative hypotheses.
+2.  Compute the F-statistic.
+3.  Compute the p-value.
+4.  Interpret the result of your test at a significance level of $\alpha = 0.05$
 
-# Submission
-
-::: callout-warning
-Before you wrap up the assignment, make sure you render your PDF and it appears how you want it to.
-:::
-
-Upload the qmd and PDF files to Canvas.
-
-
-    Grading (18 pts)
+# Grading (18 points)
 
 | Component             | Points |
 |-----------------------|--------|
-| Ex 1                  | 1      |
+| Ex 1                  | 2      |
 | Ex 2                  | 1      |
-| Ex 3                  | 2      |
-| Ex 4                  | 2      |
+| Ex 3                  | 1      |
+| Ex 4                  | 1      |
 | Ex 5                  | 1      |
 | Ex 6                  | 1      |
-| Ex 7                  | 2      |
-| Ex 8                  | 2      |
+| Ex 7                  | 1      |
+| Ex 8                  | 4      |
 | Ex 9                  | 2      |
 | Ex 10                 | 2      |
 | Grammar & Writing     | 1[^1]  |
