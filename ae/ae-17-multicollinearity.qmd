@@ -1,0 +1,99 @@
+---
+title: "AE 17: Multicollinearity"
+subtitle: "Rail Trail"
+editor: visual
+format:
+  html:
+    embed-resources: true
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-17".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/184069) and locate your `AE-17` assignment to get started.
+
+-   Upload the `ae-17.qmd` and `rail_trail.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
+:::
+
+## Packages + data
+
+```{r load-packages}
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(GGally)
+library(broom)
+library(knitr)
+library(mosaic)
+library(mosaicData)
+
+rail_trail <- read_csv("../data/rail_trail.csv")
+```
+
+The data for this AE is based on data from the Pioneer Valley Planning Commission (PVPC) and is included in the **mosaicData** package. The PVPC collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. More information can be found [here](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf).
+
+## Analysis goal
+
+The goals of this activity are to:
+
+-   Detect and remedy multicollinearity in our data
+
+## Exercise 0
+
+Fit a linear model to predict `volume` from ALL of the other predictors. The resulting model is called the "full model".
+
+## Exercise 1
+
+Create a new data frame called `rail_trail_new` with two new columns, `hightemp_c` and `avgtemp_c`. These two new columns should store the `hightemp` and `avgtemp` measured in Celsius rather than Fahrenheit. Note that the formula to convert between Fahrenheit and Celsius is $C = (F-32)\times \frac{5}{9}$. Make sure `hightemp` and `avgtemp` are still in your data set.
+
+## Exercise 2
+
+Try to refit the full model on your data. Do you notice anything odd about your coefficients? If so, what do you think is happening?
+
+## Exercise 3
+
+Add a comment next to each line of code explaining what that line of code is doing.
+
+```{r}
+#| message: false
+
+library(corrplot)
+
+rail_trail |> # Take the rail_trail data set and then
+  select(-volume) |> # What do I do
+  select(where(is.numeric)) |> # What do I do
+  cor() |>   # What do I do
+  corrplot(method="number") # What do I do
+
+
+rail_trail |> 
+  select(-volume) |> # What do I do
+  ggpairs()
+```
+
+## Exercise 4
+
+Based on the output from the previous exercise, do you have reason to believe that our data is exhibiting multicollinearity?
+
+## Exercise 5
+
+Pipe the model you fit in Exercise 0 (i.e. not including the variable measured in Celcius) into the function `vif`. Are any of the vif's concerning? If so, which ones.
+
+## Exercise 6
+
+Fit two models:
+
+-   `m1`: use all predictors except for `avgtemp`
+-   `m2`: use all predictors except for `hightemp`
+-   `m3`: average `avgtemp` and `hightemp` together and use it instead of either `avgtemp` and `hightemp`
+
+## Exercise 7
+
+Use `glance` to compute the $R^2_{adj}$, AIC, and BIC for both of these models. Which should we choose?
+
+## To submit the AE
+
+::: callout-important
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Upload your QMD and PDF files to the Canvas assignment.
+:::
