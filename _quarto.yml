@@ -56,6 +56,8 @@ website:
           text: "Overview"
         - href: project/project-rubric.qmd
           text: "Project Rubric"
+        - href: project/poster-rubric.qmd
+          text: "Poster Rubric"
         - href: project/project-islands-tips.qmd
           text: "Tips on Islands"
         - href: project/project-group-dynamics.qmd

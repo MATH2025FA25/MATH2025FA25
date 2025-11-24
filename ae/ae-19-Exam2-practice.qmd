@@ -1,5 +1,5 @@
 ---
-title: "Exam 1 Practice"
+title: "Exam 2 Practice"
 author: "MATH 2025"
 format:
   pdf:
