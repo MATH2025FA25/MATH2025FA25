@@ -1,6 +1,7 @@
 ---
-title: "MAT-2025 Exam 2 Practice Fall 2025"
-format: 
+title: "Exam 1 Practice"
+author: "MATH 2025"
+format:
   pdf:
     pdf-engine: pdflatex
     documentclass: exam

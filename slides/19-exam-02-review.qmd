@@ -93,6 +93,6 @@ knitr:
 # Practice
 
 ::: appex
-📋 Exam 2 Practice: [ae-19-Exam2-practice](../ae/ae-19-Exam2-practice.qmd)
+📋 Exam 2 Practice: [ae-19-Exam2-practice](../ae/ae-19-Exam2-practice.pdf)
 :::
 
