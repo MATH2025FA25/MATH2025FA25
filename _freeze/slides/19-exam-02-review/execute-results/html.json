@@ -1,0 +1,19 @@
+{
+  "hash": "3c4ab21e39d1866229e97c846afbffa5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Exam 02 review\"\nauthor: \"Prof. Eric Friedlander\"\nfooter: \"[🔗 MATH 2025 - Fall 2025 - Schedule](https://math2025fa25.netlify.app/schedule)\"\nlogo: \"../images/logo.png\"\nformat: \n  revealjs:\n    theme: slides.scss\n    multiplex: false\n    transition: fade\n    slide-number: false\n    incremental: false \n    chalkboard: true\nhtml-math-method:\n  method: mathjax\n  url: \"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"\nexecute:\n  freeze: auto\n  echo: true\n  cache: false\nknitr:\n  opts_chunk: \n    R.options:      \n    width: 200\n---\n\n\n## Exam 02 {.midi}\n\n-   20% of final course grade\n\n-   In-class: 75 minutes during Wed, Dec 3\n\n## Content {.midi}\n\n:::: columns\n::: {.column width=\"50%\"}\n-   Cumulative with a focus on material since Exam 01\n\n-   All content from Exam 01 plus:\n\n\n-   Fitting, interpreting, comparing, and evaluating multiple linear regression models\n\n-   Transformations\n\n-   Outliers\n:::\n\n::: {.column width=\"50%\"}\n-   Multiple Linear regression\n\n-   Categorical Variables\n\n-   Interaction Terms\n\n-   Conditions\n\n-   Multicollinearity\n\n-   Model Comparison\n:::\n::::\n\n## Outline of in-class portion {.midi}\n\n-   Closed-book, closed-note.\n\n-   8-10 questions, some with multiple parts\n\n-   Question types:\n\n    -   Multiple choice\n    -   Short answer (no more than 3 sentences)\n    -   True/ False.\n        -   If false, write 1 - 2 sentence justification about why it is false. Must get justification correct to receive credit.\n    -   Evaluate a response.\n\n-   Last page will have analysis output.\n\n-   Just need a pencil or pen. No calculator permitted on exam.\n\n## Format {.midi}\n\n-   Four types of questions (potentially divided into sections)\n    -   Multiple choice (concepts, interpretation)\n    -   Short answer (concise reasoning, set up calculations)\n    -   True/False with justification (1–2 sentences)\n    -   Evaluate a response (diagnose a student’s statement)\n-   Emphasis on interpretation and understanding\n-   You will not write code; you may be asked to interpret provided output\n\n# Practice\n\n::: appex\n📋 Exam 2 Practice: [ae-19-Exam2-practice](../ae/ae-19-Exam2-practice.qmd)\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,321 @@
+---
+title: "MAT-2025 Exam 2 Practice Fall 2025"
+format: 
+  pdf:
+    pdf-engine: pdflatex
+    documentclass: exam
+    include-in-header:
+      - text: |
+          \newcommand{\E}{\mathbb{E}}
+          \newcommand{\Var}{\text{Var}}
+          \newcommand{\SD}{\text{SD}}
+          \newcommand{\PP}{\text{P}}
+          \newcommand{\bq}{\begin{questions}}
+          \newcommand{\eq}{\end{questions}}
+          \newcommand{\bp}{\begin{parts}}
+          \newcommand{\ep}{\end{parts}}
+          \newcommand{\bs}{\begin{subparts}}
+          \newcommand{\es}{\end{subparts}}
+---
+
+**Answer the questions in the spaces provided. Show your work wherever practicable. You are permitted to use a calculator but not any other resources.**
+ 
+
+The data set for this exam is a subset from the Spotify Songs Tidy Tuesday data set. The data were originally obtained from Spotify using the **spotifyr** R package. **It is the same data set we used for our activities.**
+
+It contains numerous characteristics for each song. This analysis will focus specifically on the following variables:
+
+| variable         | class     | description  |
+|:------------|:------------|:----------------------------------------------|
+| track_popularity | double    | Song Popularity (0-100) where higher is better |
+| energy           | double    | Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy. |
+| valence          | double    | A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).  |
+| danceability |	double |	Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable. |
+| playlist_genre	 | character |	The genre of the song (`edm`, `latin`, `pop`, `r&b`, `rap`, `rock`)
+
+```{r}
+#| label: load-data
+#| include: false
+#| warning: false
+#| message: false
+library(tidyverse)
+library(ggformula)
+library(mosaic)
+library(broom)
+library(knitr)
+library(patchwork) #arrange plots in a grid
+
+spotify <- read_csv("../data/spotify-popular.csv")
+```
+
+
+```{r}
+spotify |> 
+  select(track_popularity, energy, valence, playlist_genre) |> 
+  head() |> 
+  kable()
+```
+
+\newpage
+
+For questions 1-7, consider `model1` below:
+
+```{r}
+model1 <- lm(danceability ~ valence + energy, data=spotify)
+model1 |> tidy() |> kable(digits = 3)
+```
+
+\bq
+
+\question[5] Use the values above to write down the equation that represents the regression model. Use the variable names to represent the variables rather than $Y$'s and $X$'s.
+
+\vfill
+
+\question[10] Give a one sentence interpretation (in context) of the first two numbers in the estimate column (i.e. 0.643 and 0.260).
+
+\vfill
+
+\newpage
+
+\question[5] Which of the following represents the predicted `danceability` for a single observation that has a `valence` of 0.5 and an `energy` of 0.25?
+
+\begin{choices}
+\item $0.643 + 0.260 - 0.125 = 0.778$
+\item $0.643 + 0.260\times 0.5 - 0.125\times 0.25 = 0.7418$
+\item $29.694 + 9.693\times 0.25 - 3.410\times 0.5 = 30.4123$
+\item $0.260\times 0.25 - 0.125\times 0.5 = 0.0025$
+\item Not enough information
+\end{choices}
+
+\question[5] What is the residual of this estimated `danceability`?
+
+\begin{choices}
+\item $-0.240$
+\item $0.143$
+\item $0.375$  
+\item Not enough information to say
+\end{choices}
+
+\question[5] Suppose you generate a 95% prediction interval for this prediction. If we change this prediction interval to a confidence interval (that is make a prediction for the average of your response rather than a single prediction) the width of the interval would:
+
+\begin{choices}
+\item increase
+\item decrease
+\item remain unchanged (approximately)
+\end{choices}
+
+
+
+\question[15] Suppose you use bootstrapping to generate a 95% confidence interval for the slope of `valence` in `model1`. For each of the following changes, indicate whether the width of your interval would increase, decrease, or approximately remain the same (keeping all else constant):
+
+\bp
+
+\item Increase sample size:
+
+\begin{choices}
+\item increase
+\item decrease
+\item remain unchanged (approximately)
+\end{choices}
+
+\item Increase confidence level:
+
+\begin{choices}
+\item increase
+\item decrease
+\item remain unchanged (approximately)
+\end{choices}
+
+\item Increase the number of bootstrapped replicates:
+
+\begin{choices}
+\item increase
+\item decrease
+\item remain unchanged (approximately)
+\end{choices}
+
+\ep
+
+\newpage
+
+\question[15] 
+Consider a hypothesis test to determine whether there is a relationship between `valence` and `danceability` in `model1`:
+
+\bp
+
+\item State the null and alternative hypothesis in both words and symbols.\vfill
+\item Give a rough definition of a p-value in the context of this problem.\vfill
+\item What would be the result of the test in the context of the problem if $\alpha = 0.05$?\vfill
+
+\ep
+
+\newpage
+
+For question 8, consider `model2` below:
+
+```{r}
+#| eval: FALSE
+model2 <- lm(danceability ~ valence + energy + playlist_genre, data=spotify)
+```
+
+\question[5] Recall that `playlist_genre` has 6 distinct genre's. How many *additional* parameters (i.e. $\beta$'s) would `model2` include that `model1` would not?
+
+\begin{choices}
+\item 5
+\item 6
+\item 10
+\item 12
+\item 15
+\item 18
+\end{choices}
+
+\newpage 
+<!-- \question[5] Compared to `model1`, the $\hat{\beta}_i$'s corresponding to `valence` and `energy` would: -->
+
+<!-- \begin{choices} -->
+<!-- \item Increase -->
+<!-- \item Decrease -->
+<!-- \item Remain the same -->
+<!-- \item Not enough information to say -->
+<!-- \end{choices} -->
+
+\question[10] For the constant variance assumption of a linear model, sketch a plot that would show that this assumption would be violated. Make sure to clearly label your axes so I know what the plot represents. Feel free to also describe what I should be looking for in words if you feel that your plot is not sufficiently clear.\vfill
+
+\newpage 
+
+The code below will be helpful for the rest of the exam.
+
+```{r}
+spotify <- spotify |> 
+  mutate(pop_indicator = as.factor(ifelse(playlist_genre == "pop", "pop", "not pop")))
+```
+
+
+\question[8]
+
+Consider the following model:
+
+```{r}
+model1 <- lm(danceability ~ energy*pop_indicator, data=spotify)
+
+model1 |> tidy() |> kable()
+```
+
+This model contains two different lines. One for `pop` songs and one for `not pop`. Write down the equations of both lines. For partial credit you may just write down the equation of the model.
+
+\bp
+
+\item \texttt{pop} line:
+
+\vfill
+
+\item \texttt{not pop} line:
+
+\vfill
+
+\ep
+
+\newpage
+
+For questions 11-18, consider the following models:
+
+```{r}
+model1 <- lm(danceability ~ energy*pop_indicator, 
+             data=spotify)
+model2 <- lm(danceability ~ valence, data=spotify)
+model3 <- lm(danceability ~ valence + energy + pop_indicator, data=spotify)
+model4 <- lm(danceability ~ valence + track_popularity + energy*pop_indicator, data=spotify)
+```
+
+\question[5] Which of the following metrics is the LEAST useful for comparing these four models:
+
+\begin{choices}
+\item $R^2$
+\item $R^2_{adj}$
+\item AIC
+\item BIC
+\item $C_p$
+\end{choices}
+
+\question[5] For the answer you selected above, which of the following is true (select all that apply):
+
+\begin{choices}
+\item It is fine to use for comparing models with the same number of parameters.
+\item Using it can lead to overfitting because increasing the model complexity will always lead to a ``better'' number.
+\item We only use it when we are looking at a model with one predictor.
+\item Even though it isn't useful for comparing models of different sizes, it is useful for describing a model's quality once a model is chosen.
+\item It penalizes models for being more complex.
+\end{choices}
+
+\question[6] Which of the following models are nested in one another (select all that apply):
+
+\begin{choices}
+\item model1 in model2
+\item model1 in model3
+\item model1 in model4
+\item model2 in model3
+\item model2 in model4
+\item model3 in model4
+\end{choices}
+
+\newpage
+
+For questions 14 - 18 consider the following output in addition to the code at the beginning of the previous page:
+
+```{r}
+#| echo: FALSE
+
+model_list <- list(model1, model2, model3, model4)
+tibble(Model = c("model1", "model2","model3","model4")) |> 
+  bind_cols(bind_rows(lapply(model_list, glance))) |> 
+  select(-df, -df.residual, -nobs, -sigma, - statistic, -p.value, -deviance, -logLik) |> kable(digits = 3)
+```
+
+\question[2] Which model is "best" according to $R^2$?
+
+\begin{choices}
+\item model1
+\item model2
+\item model3
+\item model4
+\end{choices}
+
+\question[2] Which model is "best" according to $R^2_{adj}$?
+
+\begin{choices}
+\item model1
+\item model2
+\item model3
+\item model4
+\end{choices}
+
+\question[2] Which model is "best" according to AIC?
+
+\begin{choices}
+\item model1
+\item model2
+\item model3
+\item model4
+\end{choices}
+
+\question[2] Which model is "best" according to BIC?
+
+\begin{choices}
+\item model1
+\item model2
+\item model3
+\item model4
+\end{choices}
+
+\question[3] Which model do you think is "best"? If there are two candidate models select the one which is more "parsimonious"? Very briefly state your rationale.
+
+\begin{choices}
+\item model1
+\item model2
+\item model3
+\item model4
+\end{choices}
+
+
+\eq
+
