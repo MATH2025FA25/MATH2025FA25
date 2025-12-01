@@ -172,8 +172,7 @@ Prof.&nbsp;Eric Friedlander
 <section id="outline-of-in-class-portion" class="slide level2 midi">
 <h2>Outline of in-class portion</h2>
 <ul>
-<li><p>Closed-book, closed-note.</p></li>
-<li><p>8-10 questions, some with multiple parts</p></li>
+<li><p>Closed-book, one sheet of handwritten notes (front and back)</p></li>
 <li><p>Question types:</p>
 <ul>
 <li>Multiple choice</li>
@@ -183,6 +182,7 @@ Prof.&nbsp;Eric Friedlander
 <li>If false, write 1 - 2 sentence justification about why it is false. Must get justification correct to receive credit.</li>
 </ul></li>
 <li>Evaluate a response.</li>
+<li>Long answer</li>
 </ul></li>
 <li><p>Last page will have analysis output.</p></li>
 <li><p>Just need a pencil or pen. No calculator permitted on exam.</p></li>
@@ -191,12 +191,13 @@ Prof.&nbsp;Eric Friedlander
 <section id="format" class="slide level2 midi">
 <h2>Format</h2>
 <ul>
-<li>Four types of questions (potentially divided into sections)
+<li>Five types of questions (potentially divided into sections)
 <ul>
 <li>Multiple choice (concepts, interpretation)</li>
 <li>Short answer (concise reasoning, set up calculations)</li>
 <li>True/False with justification (1–2 sentences)</li>
 <li>Evaluate a response (diagnose a student’s statement)</li>
+<li>Long answer (explanation and interpretation)</li>
 </ul></li>
 <li>Emphasis on interpretation and understanding</li>
 <li>You will not write code; you may be asked to interpret provided output</li>
@@ -429,80 +430,42 @@ Prof.&nbsp;Eric Friedlander
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

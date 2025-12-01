@@ -64,9 +64,7 @@ knitr:
 
 ## Outline of in-class portion {.midi}
 
--   Closed-book, closed-note.
-
--   8-10 questions, some with multiple parts
+-   Closed-book, one sheet of handwritten notes (front and back)
 
 -   Question types:
 
@@ -75,6 +73,7 @@ knitr:
     -   True/ False.
         -   If false, write 1 - 2 sentence justification about why it is false. Must get justification correct to receive credit.
     -   Evaluate a response.
+    -   Long answer
 
 -   Last page will have analysis output.
 
@@ -82,11 +81,12 @@ knitr:
 
 ## Format {.midi}
 
--   Four types of questions (potentially divided into sections)
+-   Five types of questions (potentially divided into sections)
     -   Multiple choice (concepts, interpretation)
     -   Short answer (concise reasoning, set up calculations)
     -   True/False with justification (1–2 sentences)
     -   Evaluate a response (diagnose a student’s statement)
+    -   Long answer (explanation and interpretation)
 -   Emphasis on interpretation and understanding
 -   You will not write code; you may be asked to interpret provided output
 
